@@ -989,7 +989,7 @@
                                                         },
                                                         "referenceParent": {
                                                             "type": "Pool Class",
-                                                            "name": "Software Projects",
+                                                            "name": "Superalgos Projects",
                                                             "id": "a987f1d3-fc8d-4b7c-99dd-77f15a32f37d"
                                                         }
                                                     }
@@ -1009,7 +1009,7 @@
                                                             "poolWeightVotes": [
                                                                 {
                                                                     "type": "Pool Weight Vote",
-                                                                    "name": "First Exchange Listing The Token Pool",
+                                                                    "name": "",
                                                                     "config": "{}",
                                                                     "project": "Governance",
                                                                     "id": "1bebdae3-186d-4120-825b-8cb43f85921f",
@@ -1042,7 +1042,7 @@
                                                                 },
                                                                 {
                                                                     "type": "Pool Weight Vote",
-                                                                    "name": "10K Stars on Github Pool",
+                                                                    "name": "",
                                                                     "config": "{}",
                                                                     "project": "Governance",
                                                                     "id": "6d543b8e-4011-4ba9-a1f1-31bb60e66e9e",
@@ -1114,7 +1114,7 @@
                                                             "poolWeightVotes": [
                                                                 {
                                                                     "type": "Pool Weight Vote",
-                                                                    "name": "Marketing Assets Pool",
+                                                                    "name": "",
                                                                     "config": "{}",
                                                                     "project": "Governance",
                                                                     "id": "a5603f0b-e1e6-4295-ad37-17000fc5c399",
@@ -1231,7 +1231,7 @@
                                                                     "poolWeightVotes": [
                                                                         {
                                                                             "type": "Pool Weight Vote",
-                                                                            "name": "Blog-Tutorials Pool",
+                                                                            "name": "",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "id": "408ed8b9-8c23-45c1-8a03-1425472d82fb",
@@ -1264,7 +1264,7 @@
                                                                         },
                                                                         {
                                                                             "type": "Pool Weight Vote",
-                                                                            "name": "In-App-Docs Pool",
+                                                                            "name": "",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "id": "39184eb1-7092-4966-b918-e5f773f10fe6",
@@ -1297,7 +1297,7 @@
                                                                         },
                                                                         {
                                                                             "type": "Pool Weight Vote",
-                                                                            "name": "In-App-Tutorials Pool",
+                                                                            "name": "",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "id": "4ad2fcb8-1e45-4355-821b-c26017171253",
@@ -1330,7 +1330,7 @@
                                                                         },
                                                                         {
                                                                             "type": "Pool Weight Vote",
-                                                                            "name": "Video-Tutorials Pool",
+                                                                            "name": "",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "id": "299c8fda-52e7-492f-9fdc-6f60c117ba59",
@@ -1402,7 +1402,7 @@
                                                                     "poolWeightVotes": [
                                                                         {
                                                                             "type": "Pool Weight Vote",
-                                                                            "name": "In-App-Docs Pool",
+                                                                            "name": "",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "id": "e849933c-e1c3-43fd-ab4c-6ba5163b1ff0",
@@ -1435,7 +1435,7 @@
                                                                         },
                                                                         {
                                                                             "type": "Pool Weight Vote",
-                                                                            "name": "In-App-Tutorials Pool",
+                                                                            "name": "",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "id": "cbba8d41-0e18-49c4-81a6-aaa35db061e7",
@@ -1468,7 +1468,7 @@
                                                                         },
                                                                         {
                                                                             "type": "Pool Weight Vote",
-                                                                            "name": "Video-Tutorials Pool",
+                                                                            "name": "",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "id": "81916bb9-0cc1-4e45-a3c7-dd61dbb45857",
@@ -1573,7 +1573,7 @@
                                                             "poolWeightVotes": [
                                                                 {
                                                                     "type": "Pool Weight Vote",
-                                                                    "name": "Completing Tutorials Pool",
+                                                                    "name": "",
                                                                     "config": "{}",
                                                                     "project": "Governance",
                                                                     "id": "1a477b35-cc49-4851-8db8-167c63a014fb",
@@ -1606,7 +1606,7 @@
                                                                 },
                                                                 {
                                                                     "type": "Pool Weight Vote",
-                                                                    "name": "Reading the Docs Pool",
+                                                                    "name": "",
                                                                     "config": "{}",
                                                                     "project": "Governance",
                                                                     "id": "43a07b0b-b854-4d43-a489-351b012f7905",
@@ -1711,7 +1711,7 @@
                                                     "poolWeightVotes": [
                                                         {
                                                             "type": "Pool Weight Vote",
-                                                            "name": "Management Pool",
+                                                            "name": "Superalgos Positions Pool",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "945dec69-2bfa-460a-be36-708e643880cd",
@@ -1737,7 +1737,7 @@
                                                                 },
                                                                 "referenceParent": {
                                                                     "type": "Pool",
-                                                                    "name": "Management",
+                                                                    "name": "Superalgos Positions",
                                                                     "id": "5d878af1-e32c-4458-8fb7-98df55f1e54a"
                                                                 }
                                                             }
@@ -1769,7 +1769,7 @@
                                                         },
                                                         "referenceParent": {
                                                             "type": "Pool Class",
-                                                            "name": "Management",
+                                                            "name": "Project Positions",
                                                             "id": "a2acb2b1-c88f-47f2-b31b-b0cde52801ac"
                                                         }
                                                     }
@@ -1783,7 +1783,7 @@
                                                     "poolWeightVotes": [
                                                         {
                                                             "type": "Pool Weight Vote",
-                                                            "name": "Features Pool",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "90e540c0-5853-46cb-b582-13c7084f6ab4",
@@ -2104,7 +2104,7 @@
                                                                 },
                                                                 {
                                                                     "type": "Pool Weight Vote",
-                                                                    "name": "Mentorship Participation Bonus Pool",
+                                                                    "name": "Mentorship Bonus Pool",
                                                                     "config": "{}",
                                                                     "project": "Governance",
                                                                     "id": "22240ff2-7098-4013-8c7a-d158527ba0d0",
@@ -2130,7 +2130,7 @@
                                                                         },
                                                                         "referenceParent": {
                                                                             "type": "Pool",
-                                                                            "name": "Mentorship Participation Bonus",
+                                                                            "name": "Mentorship Bonus",
                                                                             "id": "ff1e4a84-3363-4348-ad15-31a34898fa82"
                                                                         }
                                                                     }
@@ -2449,7 +2449,7 @@
                                                         },
                                                         "referenceParent": {
                                                             "type": "Pool Class",
-                                                            "name": "Programs",
+                                                            "name": "Governance Programs",
                                                             "id": "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                         }
                                                     }
@@ -2848,7 +2848,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": " Superalgos Blog Blog Post",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "b7372fd7-6f7b-4dc7-a9b8-c499c9d66ec9",
@@ -2881,7 +2881,7 @@
                                                         },
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": " Superalgos Blog Blog Post",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "d3d7e591-67e0-4bb7-8d8b-a6113561fcdf",
@@ -2914,7 +2914,7 @@
                                                         },
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": " Superalgos Blog Blog Post",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "07fc6eed-f794-46d8-9ab1-eb21895a18d6",
@@ -2986,7 +2986,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": " Superalgos Youtube Channel Youtube Video",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "b3a03655-0d4b-4da8-a250-5214f0157e19",
@@ -3019,7 +3019,7 @@
                                                         },
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": " Superalgos Youtube Channel Youtube Video",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "ae9b1041-8135-48db-b75d-eb0175b888ce",
@@ -3052,7 +3052,7 @@
                                                         },
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": " Superalgos Youtube Channel Youtube Video",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "77ca60ab-6fce-410f-ae3f-1aead62a6ef2",
@@ -4177,7 +4177,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 2,
             "distanceToParent": 3,
             "arrangementStyle": 0

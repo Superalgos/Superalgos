@@ -1,0 +1,2842 @@
+{
+    "type": "Assets",
+    "name": "Superalgos-Marketing",
+    "config": "{\"folderPath\":\"\",\"codeName\":\"Superalgos-Marketing\"}",
+    "project": "Governance",
+    "assetClasses": [
+        {
+            "type": "Asset Class",
+            "name": "Community Groups",
+            "config": "{\n\"folderPath\": \"\"\n}",
+            "project": "Governance",
+            "assetClasses": [
+                {
+                    "type": "Asset Class",
+                    "name": "Telegram Groups",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [
+                        {
+                            "type": "Asset Class",
+                            "name": "Community",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Group Management",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "027c2c8e-4a49-461b-a14d-0e225433dd11",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 27338.743341057838,
+                                            "y": 30573.507324813338
+                                        },
+                                        "targetPosition": {
+                                            "x": 27527.53945837279,
+                                            "y": 30806.651113250427
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "a40c5c7e-4af8-40ef-9970-59815103cd92",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27527.53945837279,
+                                    "y": 30806.651113250427
+                                },
+                                "targetPosition": {
+                                    "x": 27716.335575687743,
+                                    "y": 31039.794901687517
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset Class",
+                            "name": "Develop",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Group Management",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "431ee024-1f02-4601-8143-fc8d8a5522f8",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 27472.293589842266,
+                                            "y": 30491.667627101957
+                                        },
+                                        "targetPosition": {
+                                            "x": 27594.314582765004,
+                                            "y": 30765.731264394737
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "2097c471-cdc2-48c9-904b-89cef98c5f33",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27594.314582765004,
+                                    "y": 30765.731264394737
+                                },
+                                "targetPosition": {
+                                    "x": 27716.335575687743,
+                                    "y": 31039.794901687517
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset Class",
+                            "name": "Support",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Group Management",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "c3bd3dd4-d551-4abe-bee7-872240df3e96",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 27622.474896663603,
+                                            "y": 30447.181897330436
+                                        },
+                                        "targetPosition": {
+                                            "x": 27669.405236175673,
+                                            "y": 30743.488399508977
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "648f6b9c-34fd-44b2-80d9-c38d6c13f2fd",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27669.405236175673,
+                                    "y": 30743.488399508977
+                                },
+                                "targetPosition": {
+                                    "x": 27716.335575687743,
+                                    "y": 31039.794901687517
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset Class",
+                            "name": "Token",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Group Management",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "8cb0e06f-31bc-4844-be39-1e527f684172",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 27779.052653648338,
+                                            "y": 30443.081764466555
+                                        },
+                                        "targetPosition": {
+                                            "x": 27747.69411466804,
+                                            "y": 30741.438333077036
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "4a499874-9b18-4160-a6a0-9dc3416c4a17",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27747.69411466804,
+                                    "y": 30741.438333077036
+                                },
+                                "targetPosition": {
+                                    "x": 27716.335575687743,
+                                    "y": 31039.794901687517
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset Class",
+                            "name": "Machine Learning",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Group Management",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "f7c5d1d5-d0c1-4db0-bb7f-4036dae4437d",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 27931.356345414926,
+                                            "y": 30479.6466457892
+                                        },
+                                        "targetPosition": {
+                                            "x": 27823.845960551334,
+                                            "y": 30759.720773738358
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "1f49ea5e-5031-4ed8-b28e-e4a3dcac7e67",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27823.845960551334,
+                                    "y": 30759.720773738358
+                                },
+                                "targetPosition": {
+                                    "x": 27716.335575687743,
+                                    "y": 31039.794901687517
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset Class",
+                            "name": "Collaborations",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Group Management",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "98a4e66f-dfeb-4e3d-bfb7-dc94992a5219",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 28069.006727063228,
+                                            "y": 30554.38470506255
+                                        },
+                                        "targetPosition": {
+                                            "x": 27892.671151375485,
+                                            "y": 30797.089803375035
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "af1adfaa-d0af-4de2-be42-73901b111c17",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27892.671151375485,
+                                    "y": 30797.089803375035
+                                },
+                                "targetPosition": {
+                                    "x": 27716.335575687743,
+                                    "y": 31039.794901687517
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset Class",
+                            "name": "Codebase",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Group Management",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "2343c864-3c10-429d-b96e-09da71f98d5e",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 28182.623152561922,
+                                            "y": 30662.202667057612
+                                        },
+                                        "targetPosition": {
+                                            "x": 27949.479364124833,
+                                            "y": 30850.998784372565
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "1a844df9-8fa8-4009-a1de-94e75603feec",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27949.479364124833,
+                                    "y": 30850.998784372565
+                                },
+                                "targetPosition": {
+                                    "x": 27716.335575687743,
+                                    "y": 31039.794901687517
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset Class",
+                            "name": "Docs",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Group Management",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "8e54e34a-1d46-468b-8046-8851ba264d0b",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 28264.462850273303,
+                                            "y": 30795.75291584204
+                                        },
+                                        "targetPosition": {
+                                            "x": 27990.399212980523,
+                                            "y": 30917.77390876478
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "6b0791b3-848f-458f-a6a3-3288ec018a8e",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27990.399212980523,
+                                    "y": 30917.77390876478
+                                },
+                                "targetPosition": {
+                                    "x": 27716.335575687743,
+                                    "y": 31039.794901687517
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset Class",
+                            "name": "UX/UI Design",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Group Management",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "7bd390f8-6237-4a56-b21b-abcaf3884f88",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 28308.948580044824,
+                                            "y": 30945.934222663378
+                                        },
+                                        "targetPosition": {
+                                            "x": 28012.642077866283,
+                                            "y": 30992.864562175448
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "6aa53aba-c57d-48a7-93b4-7d1bd57dfabe",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 28012.642077866283,
+                                    "y": 30992.864562175448
+                                },
+                                "targetPosition": {
+                                    "x": 27716.335575687743,
+                                    "y": 31039.794901687517
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset Class",
+                            "name": "Spanish",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Group Management",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "0cdc0ce7-44d3-468c-bdec-f95181783b9c",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 28313.048712908705,
+                                            "y": 31102.511979648112
+                                        },
+                                        "targetPosition": {
+                                            "x": 28014.692144298224,
+                                            "y": 31071.153440667815
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "446e3763-d8d8-4b0f-909b-f182d6e77ca4",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 28014.692144298224,
+                                    "y": 31071.153440667815
+                                },
+                                "targetPosition": {
+                                    "x": 27716.335575687743,
+                                    "y": 31039.794901687517
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset Class",
+                            "name": "Russian",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Group Management",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "f0f10154-8fae-45c1-8f35-6d191ec4c77f",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 28276.48383158606,
+                                            "y": 31254.8156714147
+                                        },
+                                        "targetPosition": {
+                                            "x": 27996.409703636902,
+                                            "y": 31147.30528655111
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "4a6f49af-0c62-47df-8a65-83fc45271d23",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27996.409703636902,
+                                    "y": 31147.30528655111
+                                },
+                                "targetPosition": {
+                                    "x": 27716.335575687743,
+                                    "y": 31039.794901687517
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "assets": [],
+                    "id": "57f714ab-d18e-44ec-b0de-3f968800134f",
+                    "savedPayload": {
+                        "position": {
+                            "x": 27716.335575687743,
+                            "y": 31039.794901687517
+                        },
+                        "targetPosition": {
+                            "x": 27540,
+                            "y": 31282.5
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset Class",
+                    "name": "Telegram Announcements Channel",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Channel Management",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "2c509c63-0582-4771-8784-baa52b3a2dcc",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 28110.63390977709,
+                                    "y": 31097.089803375035
+                                },
+                                "targetPosition": {
+                                    "x": 27825.316954888545,
+                                    "y": 31189.794901687517
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "87b604d5-54ae-413b-af68-8d9e78800f08",
+                    "savedPayload": {
+                        "position": {
+                            "x": 27825.316954888545,
+                            "y": 31189.794901687517
+                        },
+                        "targetPosition": {
+                            "x": 27540,
+                            "y": 31282.5
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset Class",
+                    "name": "Discord Server",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Server Management",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "453fab57-dc1d-4e38-bce4-daf927bfdb09",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 28110.63390977709,
+                                    "y": 31467.910196624965
+                                },
+                                "targetPosition": {
+                                    "x": 27825.316954888545,
+                                    "y": 31375.205098312483
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "20935e17-fe10-46ae-8bc3-4dcf05a1efbf",
+                    "savedPayload": {
+                        "position": {
+                            "x": 27825.316954888545,
+                            "y": 31375.205098312483
+                        },
+                        "targetPosition": {
+                            "x": 27540,
+                            "y": 31282.5
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset Class",
+                    "name": "Reddit",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Community Management",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "8ab8668c-3c24-4950-80e1-a7dc75f03ead",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27892.671151375485,
+                                    "y": 31767.910196624965
+                                },
+                                "targetPosition": {
+                                    "x": 27716.335575687743,
+                                    "y": 31525.205098312483
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "18d1f7b9-d734-4b7d-93b4-3cf8210e7fe1",
+                    "savedPayload": {
+                        "position": {
+                            "x": 27716.335575687743,
+                            "y": 31525.205098312483
+                        },
+                        "targetPosition": {
+                            "x": 27540,
+                            "y": 31282.5
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "assets": [],
+            "id": "edd786c0-1274-4f82-afcf-9a07353df7d2",
+            "savedPayload": {
+                "position": {
+                    "x": 25271,
+                    "y": 37778
+                },
+                "targetPosition": {
+                    "x": 24971,
+                    "y": 37778
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        {
+            "type": "Asset Class",
+            "name": "Superalgos Social Media Accounts",
+            "config": "{\n\"folderPath\": \"\"\n}",
+            "project": "Governance",
+            "assetClasses": [
+                {
+                    "type": "Asset Class",
+                    "name": "Twitter Account",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Account Management",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "96b4d1b8-a9e1-42e1-afab-2e8559d74309",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 28067.530151790743,
+                                    "y": 31423.042837257366
+                                },
+                                "targetPosition": {
+                                    "x": 27768.671742363218,
+                                    "y": 31449.189560081664
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "61f38401-f0de-4e2c-b99f-26691c7c5b41",
+                    "savedPayload": {
+                        "position": {
+                            "x": 27768.671742363218,
+                            "y": 31449.189560081664
+                        },
+                        "targetPosition": {
+                            "x": 27469.813332935693,
+                            "y": 31475.336282905962
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset Class",
+                    "name": "Facebook Account",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Account Management",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "cc8536de-6b42-47e5-9880-032ea8cea0e6",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27929.43999880708,
+                                    "y": 31861.008848717887
+                                },
+                                "targetPosition": {
+                                    "x": 27699.626665871387,
+                                    "y": 31668.172565811925
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "63930999-8da9-4d48-be87-313da2a374c0",
+                    "savedPayload": {
+                        "position": {
+                            "x": 27699.626665871387,
+                            "y": 31668.172565811925
+                        },
+                        "targetPosition": {
+                            "x": 27469.813332935693,
+                            "y": 31475.336282905962
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset Class",
+                    "name": "LinkedIn Account",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Account Management",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "cb7dbf90-37a9-40af-b1e8-f9e3b86498c0",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27522.10677858429,
+                                    "y": 32073.053101761012
+                                },
+                                "targetPosition": {
+                                    "x": 27495.96005575999,
+                                    "y": 31774.194692333487
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "9166b890-489b-494a-8c0e-86b0d2901795",
+                    "savedPayload": {
+                        "position": {
+                            "x": 27495.96005575999,
+                            "y": 31774.194692333487
+                        },
+                        "targetPosition": {
+                            "x": 27469.813332935693,
+                            "y": 31475.336282905962
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "assets": [],
+            "id": "2ba804d2-3a98-4328-a6b8-3cf3be93b2fa",
+            "savedPayload": {
+                "position": {
+                    "x": 25200.813332935693,
+                    "y": 37970.83628290596
+                },
+                "targetPosition": {
+                    "x": 24971,
+                    "y": 37778
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        {
+            "type": "Asset Class",
+            "name": "Superalgos Medium Blog",
+            "config": "{\n\"folderPath\": \"\"\n}",
+            "project": "Governance",
+            "assetClasses": [
+                {
+                    "type": "Asset Class",
+                    "name": "Software News",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Beta 10 Announcement",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "3bfd7674-c175-476e-a6e9-9bfe120e2f7c",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27766.838522441816,
+                                    "y": 31910.361701837057
+                                },
+                                "targetPosition": {
+                                    "x": 27484.930736206043,
+                                    "y": 31807.755658839356
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset",
+                            "name": "Beta 11 Announcement",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "e892f30f-5185-4d94-8db8-2c7bd8b86368",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27537.025189506123,
+                                    "y": 32103.19798474302
+                                },
+                                "targetPosition": {
+                                    "x": 27484.930736206043,
+                                    "y": 31807.755658839356
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "3e0a4e42-e787-47bd-9797-d83b50a768a4",
+                    "savedPayload": {
+                        "position": {
+                            "x": 27484.930736206043,
+                            "y": 31807.755658839356
+                        },
+                        "targetPosition": {
+                            "x": 27292.09445330008,
+                            "y": 31577.942325903663
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset Class",
+                    "name": "Articles",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Add Your Article as a New Asset",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "e8819534-2d2c-4783-8cb7-f88858877d93",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27086.88236730468,
+                                    "y": 32141.75789837521
+                                },
+                                "targetPosition": {
+                                    "x": 27189.48841030238,
+                                    "y": 31859.850112139437
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "70c9e68f-c0f2-4e16-9dab-d0f816c23193",
+                    "savedPayload": {
+                        "position": {
+                            "x": 27189.48841030238,
+                            "y": 31859.850112139437
+                        },
+                        "targetPosition": {
+                            "x": 27292.09445330008,
+                            "y": 31577.942325903663
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "assets": [],
+            "id": "361efd8b-cfdf-44bc-a11b-ad07fe5e38c8",
+            "savedPayload": {
+                "position": {
+                    "x": 25023.09445330008,
+                    "y": 38073.44232590366
+                },
+                "targetPosition": {
+                    "x": 24971,
+                    "y": 37778
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        {
+            "type": "Asset Class",
+            "name": "Superalgos Website",
+            "config": " {\n\"folderPath\": \"Root/projectsite\"\n}",
+            "project": "Governance",
+            "assetClasses": [],
+            "assets": [
+                {
+                    "type": "Asset",
+                    "name": "Content & Mantainance",
+                    "config": "{}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [],
+                    "id": "ecd37c93-2489-4916-b8d8-eb8be44b25ab",
+                    "savedPayload": {
+                        "position": {
+                            "x": 26940,
+                            "y": 31802.115242270665
+                        },
+                        "targetPosition": {
+                            "x": 27090,
+                            "y": 31542.307621135333
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "id": "983ff6e1-4da1-4d3a-aa7d-3bc0dfeb1bba",
+            "savedPayload": {
+                "position": {
+                    "x": 24821,
+                    "y": 38037.80762113533
+                },
+                "targetPosition": {
+                    "x": 24971,
+                    "y": 37778
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        {
+            "type": "Asset Class",
+            "name": "Article Publications",
+            "config": "{\n\"folderPath\": \"\"\n}",
+            "project": "Governance",
+            "assetClasses": [
+                {
+                    "type": "Asset Class",
+                    "name": "Alternative Media",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [
+                        {
+                            "type": "Asset Class",
+                            "name": "Code Project",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Add Your Article as a New Asset",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "801da9b4-69da-40cf-9058-a59aa874bb20",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 24853.192507389824,
+                                            "y": 38677.270203392334
+                                        },
+                                        "targetPosition": {
+                                            "x": 24707.74962131592,
+                                            "y": 38414.88429125051
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "51852149-bc7a-4b20-8c62-ba610f1f05af",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 24707.74962131592,
+                                    "y": 38414.88429125051
+                                },
+                                "targetPosition": {
+                                    "x": 24562.30673524202,
+                                    "y": 38152.49837910869
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset Class",
+                            "name": "Coinmonks",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Add Your Article as a New Asset",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "591ba012-586d-4d7f-a2bd-a9f20a30fd90",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 24489.18512919893,
+                                            "y": 38748.02607009348
+                                        },
+                                        "targetPosition": {
+                                            "x": 24525.745932220474,
+                                            "y": 38450.26222460109
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "fc766d7c-6855-4765-b95e-3c5934cad5e4",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 24525.745932220474,
+                                    "y": 38450.26222460109
+                                },
+                                "targetPosition": {
+                                    "x": 24562.30673524202,
+                                    "y": 38152.49837910869
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset Class",
+                            "name": "Towards Data Science",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Add Your Article as a New Asset",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "1dd73db7-8205-4bd5-9ae7-686650229b25",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 24153.10771920452,
+                                            "y": 38591.3106000802
+                                        },
+                                        "targetPosition": {
+                                            "x": 24357.70722722327,
+                                            "y": 38371.904489594446
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "5db66d5f-c71f-4828-97f2-d7cd9863bbcd",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 24357.70722722327,
+                                    "y": 38371.904489594446
+                                },
+                                "targetPosition": {
+                                    "x": 24562.30673524202,
+                                    "y": 38152.49837910869
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset Class",
+                            "name": "Hackernoon",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Add Your Article as a New Asset",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "a5bdea2f-384a-4d66-b233-1a10022c1a75",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 23973.330425173423,
+                                            "y": 38266.98377633462
+                                        },
+                                        "targetPosition": {
+                                            "x": 24267.81858020772,
+                                            "y": 38209.74107772166
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "19caa58e-01e9-4811-aba6-e6ad9cd571ed",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 24267.81858020772,
+                                    "y": 38209.74107772166
+                                },
+                                "targetPosition": {
+                                    "x": 24562.30673524202,
+                                    "y": 38152.49837910869
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "assets": [],
+                    "id": "3ad7b667-a09d-4f4a-9363-ea6e4216356a",
+                    "savedPayload": {
+                        "position": {
+                            "x": 24562.30673524202,
+                            "y": 38152.49837910869
+                        },
+                        "targetPosition": {
+                            "x": 24689.092213764226,
+                            "y": 37880.6060429977
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": true,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset Class",
+                    "name": "Specialized Media",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [
+                        {
+                            "type": "Asset Class",
+                            "name": "CoinDesk",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Add Your Article as a New Asset",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "9dee6dff-f658-439f-8e12-0aab40f075cc",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 24153.613470484037,
+                                            "y": 38526.996758217385
+                                        },
+                                        "targetPosition": {
+                                            "x": 24280.398949006245,
+                                            "y": 38255.10442210639
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "bf32af8b-d249-462f-ba81-f3269c9f5a1f",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 24280.398949006245,
+                                    "y": 38255.10442210639
+                                },
+                                "targetPosition": {
+                                    "x": 24407.184427528453,
+                                    "y": 37983.2120859954
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset Class",
+                            "name": "CoinTelegraph",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Add Your Article as a New Asset",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "9109ae37-eb9e-4f92-92bd-e2e56340adaf",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 23843.368855056906,
+                                            "y": 38188.4241719908
+                                        },
+                                        "targetPosition": {
+                                            "x": 24125.27664129268,
+                                            "y": 38085.8181289931
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "2709fa87-cb67-40b3-b85c-ef2a6acffa26",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 24125.27664129268,
+                                    "y": 38085.8181289931
+                                },
+                                "targetPosition": {
+                                    "x": 24407.184427528453,
+                                    "y": 37983.2120859954
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset Class",
+                            "name": "VentureBeat",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Add Your Article as a New Asset",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "658ba678-a890-4df0-a567-9db7362db051",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 23863.399755306462,
+                                            "y": 37729.641128950985
+                                        },
+                                        "targetPosition": {
+                                            "x": 24135.292091417457,
+                                            "y": 37856.42660747319
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "6869158d-251a-42a9-9690-2e9330e679f6",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 24135.292091417457,
+                                    "y": 37856.42660747319
+                                },
+                                "targetPosition": {
+                                    "x": 24407.184427528453,
+                                    "y": 37983.2120859954
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "assets": [],
+                    "id": "3ab41e5e-7f2b-49b5-8185-91aae42a3886",
+                    "savedPayload": {
+                        "position": {
+                            "x": 24407.184427528453,
+                            "y": 37983.2120859954
+                        },
+                        "targetPosition": {
+                            "x": 24689.092213764226,
+                            "y": 37880.6060429977
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": true,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset Class",
+                    "name": "Mainstream Media",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [
+                        {
+                            "type": "Asset Class",
+                            "name": "Forbes",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Add Your Article as a New Asset",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "79b859a1-be36-46d1-93b3-b4130268d67a",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 23853.384305181684,
+                                            "y": 37959.032650470894
+                                        },
+                                        "targetPosition": {
+                                            "x": 24135.292091417457,
+                                            "y": 37856.42660747319
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "117b674b-8b19-4d2e-8f13-7a359cad566a",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 24135.292091417457,
+                                    "y": 37856.42660747319
+                                },
+                                "targetPosition": {
+                                    "x": 24417.19987765323,
+                                    "y": 37753.82056447549
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset Class",
+                            "name": "Wall Street Journal",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Add Your Article as a New Asset",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "59c96b16-8156-42c9-a538-7d9c12e4f8ff",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 23873.41520543124,
+                                            "y": 37500.24960743108
+                                        },
+                                        "targetPosition": {
+                                            "x": 24145.307541542235,
+                                            "y": 37627.035085953285
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "d7dda9f9-f5b5-4d0e-9a9b-17f49a77ec7b",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 24145.307541542235,
+                                    "y": 37627.035085953285
+                                },
+                                "targetPosition": {
+                                    "x": 24417.19987765323,
+                                    "y": 37753.82056447549
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset Class",
+                            "name": "Financial Times",
+                            "config": "{\n\"folderPath\": \"\"\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [
+                                {
+                                    "type": "Asset",
+                                    "name": "Add Your Article as a New Asset",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "6e5fa39d-d088-430c-88f5-ce72461c19e5",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 24211.98779165783,
+                                            "y": 37190.004992003946
+                                        },
+                                        "targetPosition": {
+                                            "x": 24314.59383465553,
+                                            "y": 37471.91277823972
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "f7210df8-4e8b-4399-9658-f9b2b87fea05",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 24314.59383465553,
+                                    "y": 37471.91277823972
+                                },
+                                "targetPosition": {
+                                    "x": 24417.19987765323,
+                                    "y": 37753.82056447549
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "assets": [],
+                    "id": "0549b410-bbb4-45f3-b3b0-d60af55da2b5",
+                    "savedPayload": {
+                        "position": {
+                            "x": 24417.19987765323,
+                            "y": 37753.82056447549
+                        },
+                        "targetPosition": {
+                            "x": 24689.092213764226,
+                            "y": 37880.6060429977
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": true,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "assets": [],
+            "id": "fa5288a3-7f8e-44e0-ad9f-8f0bdd34476a",
+            "savedPayload": {
+                "position": {
+                    "x": 24689.092213764226,
+                    "y": 37880.6060429977
+                },
+                "targetPosition": {
+                    "x": 24971,
+                    "y": 37778
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        {
+            "type": "Asset Class",
+            "name": "Video Publications",
+            "config": "{\n\"folderPath\": \"\"\n}",
+            "project": "Governance",
+            "assetClasses": [
+                {
+                    "type": "Asset Class",
+                    "name": "YouTube",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Add Your Video as a New Asset",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "54b5daca-5651-4d54-94c3-3b1c40bc928b",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27390,
+                                    "y": 30422.692378864667
+                                },
+                                "targetPosition": {
+                                    "x": 27390,
+                                    "y": 30722.692378864667
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "dc919439-aa5f-441f-b725-027bde05ccca",
+                    "savedPayload": {
+                        "position": {
+                            "x": 27390,
+                            "y": 30722.692378864667
+                        },
+                        "targetPosition": {
+                            "x": 27390,
+                            "y": 31022.692378864667
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset Class",
+                    "name": "Vimeo",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Add Your Video as a New Asset",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "f4b2f6d0-07cd-4105-a810-fc5b744cfc72",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27909.615242270665,
+                                    "y": 30722.692378864667
+                                },
+                                "targetPosition": {
+                                    "x": 27649.807621135333,
+                                    "y": 30872.692378864667
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "478369a0-691a-4936-8dc5-d8841aca3a1c",
+                    "savedPayload": {
+                        "position": {
+                            "x": 27649.807621135333,
+                            "y": 30872.692378864667
+                        },
+                        "targetPosition": {
+                            "x": 27390,
+                            "y": 31022.692378864667
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "assets": [],
+            "id": "24550aaf-708d-4b42-81e4-b8eedab129c6",
+            "savedPayload": {
+                "position": {
+                    "x": 24689.092213764226,
+                    "y": 37675.3939570023
+                },
+                "targetPosition": {
+                    "x": 24971,
+                    "y": 37778
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        {
+            "type": "Asset Class",
+            "name": "Social Media Posts",
+            "config": "{\n\"folderPath\": \"\"\n}",
+            "project": "Governance",
+            "assetClasses": [
+                {
+                    "type": "Asset Class",
+                    "name": "Twitter",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Add Your Post as a New Asset",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "47aef9c5-ca13-4e41-84dd-2f12cd0141fa",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27207.842325937778,
+                                    "y": 30489.42630607307
+                                },
+                                "targetPosition": {
+                                    "x": 27317.4446332477,
+                                    "y": 30768.68843066633
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "ca73a870-ec32-46f0-adb9-36bcbb537027",
+                    "savedPayload": {
+                        "position": {
+                            "x": 27317.4446332477,
+                            "y": 30768.68843066633
+                        },
+                        "targetPosition": {
+                            "x": 27427.04694055762,
+                            "y": 31047.95055525959
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset Class",
+                    "name": "Facebook",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Add Your Post as a New Asset",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "4ae0e8ff-3df7-487c-8f58-c4267ebe2d39",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27516.47230026332,
+                                    "y": 30454.652059524513
+                                },
+                                "targetPosition": {
+                                    "x": 27471.75962041047,
+                                    "y": 30751.301307392052
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "98fdc3e9-66be-4697-b20b-c454884df033",
+                    "savedPayload": {
+                        "position": {
+                            "x": 27471.75962041047,
+                            "y": 30751.301307392052
+                        },
+                        "targetPosition": {
+                            "x": 27427.04694055762,
+                            "y": 31047.95055525959
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset Class",
+                    "name": "Instagram",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Add Your Post as a New Asset",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "eca46431-9c33-4bdf-831c-a01af5bb39c1",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27801.140821672856,
+                                    "y": 30578.851665778773
+                                },
+                                "targetPosition": {
+                                    "x": 27614.093881115237,
+                                    "y": 30813.401110519182
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "2aae16b0-c8ee-4d81-a4ba-e3c8e1c74f11",
+                    "savedPayload": {
+                        "position": {
+                            "x": 27614.093881115237,
+                            "y": 30813.401110519182
+                        },
+                        "targetPosition": {
+                            "x": 27427.04694055762,
+                            "y": 31047.95055525959
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset Class",
+                    "name": "Reddit",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Add Your Post as a New Asset",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "b2c40a75-a190-418f-a92f-5d5d6d48d440",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27985.57118974414,
+                                    "y": 30828.74594063975
+                                },
+                                "targetPosition": {
+                                    "x": 27706.30906515088,
+                                    "y": 30938.34824794967
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "478d13a2-138a-4404-8200-cec5f8300fe4",
+                    "savedPayload": {
+                        "position": {
+                            "x": 27706.30906515088,
+                            "y": 30938.34824794967
+                        },
+                        "targetPosition": {
+                            "x": 27427.04694055762,
+                            "y": 31047.95055525959
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset Class",
+                    "name": "Hacker News",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Add Your Post as a New Asset",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "782c046b-0590-48dd-b997-9485f70ad53a",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 28020.345436292697,
+                                    "y": 31137.375914965294
+                                },
+                                "targetPosition": {
+                                    "x": 27723.696188425158,
+                                    "y": 31092.663235112443
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "f8e738d8-4dcb-4534-a9e7-918791e237f7",
+                    "savedPayload": {
+                        "position": {
+                            "x": 27723.696188425158,
+                            "y": 31092.663235112443
+                        },
+                        "targetPosition": {
+                            "x": 27427.04694055762,
+                            "y": 31047.95055525959
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "assets": [],
+            "id": "39029972-92d3-482b-8b50-bb46487d2c02",
+            "savedPayload": {
+                "position": {
+                    "x": 24821,
+                    "y": 37518.19237886467
+                },
+                "targetPosition": {
+                    "x": 24971,
+                    "y": 37778
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        {
+            "type": "Asset Class",
+            "name": "Backlinks",
+            "config": "{\n\"folderPath\": \"\"\n}",
+            "project": "Governance",
+            "assetClasses": [
+                {
+                    "type": "Asset Class",
+                    "name": "To Website",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Add Your Link as a New Asset",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "d9074fb1-335c-411b-8db5-fa2980967b83",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27086.88236730468,
+                                    "y": 30423.24210162479
+                                },
+                                "targetPosition": {
+                                    "x": 27189.48841030238,
+                                    "y": 30705.149887860563
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "b78514b9-ab50-4f0a-86d1-cf86a5ce58e7",
+                    "savedPayload": {
+                        "position": {
+                            "x": 27189.48841030238,
+                            "y": 30705.149887860563
+                        },
+                        "targetPosition": {
+                            "x": 27292.09445330008,
+                            "y": 30987.057674096337
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset Class",
+                    "name": "To Repository",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Add Your Link as a New Asset",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "47894e9c-c655-48c8-b97c-add009c60f33",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 27677.767019112005,
+                                    "y": 30527.43100822495
+                                },
+                                "targetPosition": {
+                                    "x": 27484.930736206043,
+                                    "y": 30757.244341160644
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "2b6bdf83-d469-47c0-bdcf-e18a5aea3c3f",
+                    "savedPayload": {
+                        "position": {
+                            "x": 27484.930736206043,
+                            "y": 30757.244341160644
+                        },
+                        "targetPosition": {
+                            "x": 27292.09445330008,
+                            "y": 30987.057674096337
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "assets": [],
+            "id": "4a0c21e9-40d8-4591-a360-137d558dc2e6",
+            "savedPayload": {
+                "position": {
+                    "x": 25023.09445330008,
+                    "y": 37482.55767409634
+                },
+                "targetPosition": {
+                    "x": 24971,
+                    "y": 37778
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        {
+            "type": "Asset Class",
+            "name": "Reviews",
+            "config": "{\n\"folderPath\": \"\"\n}",
+            "project": "Governance",
+            "assetClasses": [],
+            "assets": [
+                {
+                    "type": "Asset",
+                    "name": "Add Your Review as a New Asset",
+                    "config": "{}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [],
+                    "id": "715d0c59-ac88-45d8-a757-5586478c2214",
+                    "savedPayload": {
+                        "position": {
+                            "x": 27699.626665871387,
+                            "y": 30896.827434188075
+                        },
+                        "targetPosition": {
+                            "x": 27469.813332935693,
+                            "y": 31089.663717094038
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "id": "db6ef0c5-9c12-4980-8d4f-9cbfc7c7433f",
+            "savedPayload": {
+                "position": {
+                    "x": 25200.813332935693,
+                    "y": 37585.16371709404
+                },
+                "targetPosition": {
+                    "x": 24971,
+                    "y": 37778
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        }
+    ],
+    "assets": [],
+    "id": "787a5722-8bbe-4812-93b1-a005d84cccf9",
+    "savedPayload": {
+        "position": {
+            "x": 24971,
+            "y": 37778
+        },
+        "targetPosition": {
+            "x": 24971,
+            "y": 37778
+        },
+        "floatingObject": {
+            "isPinned": false,
+            "isFrozen": false,
+            "isCollapsed": true,
+            "angleToParent": 1,
+            "distanceToParent": 3,
+            "arrangementStyle": 0
+        },
+        "uiObject": {
+            "isRunning": false
+        }
+    }
+}

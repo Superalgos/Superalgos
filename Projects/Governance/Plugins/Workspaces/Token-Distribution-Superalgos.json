@@ -30,7 +30,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "spaceSettings": {
@@ -56,7 +58,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "id": "f8485ce5-67f3-4476-b9e2-80994e49c318",
@@ -142,7 +146,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "spaceSettings": {
@@ -168,7 +174,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "id": "016e464a-2b86-4c73-b79b-35c95751c339",
@@ -221,7 +229,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "spaces": {
@@ -246,7 +256,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "mines": {
@@ -271,7 +283,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "trading": {
@@ -296,7 +310,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "learning": {
@@ -321,7 +337,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "otherHierarchies": {
@@ -346,7 +364,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "id": "cf9f8b3b-77c6-43c6-b01f-95cf366a91f6",
@@ -848,7 +868,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -1090,8 +1110,8 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Superalgos",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
+                                "name": "Superalgos-Marketing",
+                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos-Marketing\",\n    \"folderName\": \"Assets\",\n    \"nodeType\": \"Assets\"\n}",
                                 "project": "Foundations",
                                 "id": "99887440-5fb5-46ed-88d6-d73d76e02c24",
                                 "savedPayload": {
@@ -1130,7 +1150,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": true,
+                                "isCollapsed": false,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -1384,7 +1404,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "id": "23021bb7-9997-4fe6-8199-71ebf70aef76",

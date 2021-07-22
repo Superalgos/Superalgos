@@ -663,7 +663,7 @@
                                         },
                                         {
                                             "type": "Pool Weight Vote",
-                                            "name": "Mentorship Participation Bonus Pool",
+                                            "name": "Mentorship Bonus Pool",
                                             "config": "{}",
                                             "project": "Governance",
                                             "id": "de68068b-6311-4c9f-a13b-d4ea0a0e458d",
@@ -689,7 +689,7 @@
                                                 },
                                                 "referenceParent": {
                                                     "type": "Pool",
-                                                    "name": "Mentorship Participation Bonus",
+                                                    "name": "Mentorship Bonus",
                                                     "id": "ff1e4a84-3363-4348-ad15-31a34898fa82"
                                                 }
                                             }
@@ -1008,7 +1008,7 @@
                                 },
                                 "referenceParent": {
                                     "type": "Pool Class",
-                                    "name": "Programs",
+                                    "name": "Governance Programs",
                                     "id": "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                 }
                             }
@@ -1263,7 +1263,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 2,
             "distanceToParent": 3,
             "arrangementStyle": 0

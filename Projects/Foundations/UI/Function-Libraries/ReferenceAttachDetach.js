@@ -7,17 +7,39 @@ function newFoundationsFunctionLibraryAttachDetach() {
     return thisObject
 
     function referenceDetachNode(node) {
-        completeDetachment(node)
+         cleanAttachNodePath(node)
+         completeDetachment(node)
+       
     }
 
     function referenceAttachNode(node, attachToNode) {
+        storeAttachNodePath(node, attachToNode)
         completeAttachment(node, attachToNode)
     }
 
+    // Store the path to the reference parent to make restoring it possible if the reference partent is updated and given a new id
+    function storeAttachNodePath(node, attachToNode) {
+        let attachNodePath = UI.projects.foundations.utilities.hierarchy.getNodeNameTypePath(attachToNode)
+        // Save attach path to active payload
+        node.payload.referenceParentCombinedNodePath = { path: attachNodePath }
+    }
+
+    // Clear the path to reference parent when the reference is cleared
+    function cleanAttachNodePath(node){
+        if (node.payload !== undefined) {
+            node.payload.referenceParentCombinedNodePath = undefined
+            if (node.savedPayload !== undefined) {
+                node.savedPayload.referenceParentCombinedNodePath = undefined
+            }
+        }
+    }
+
+    // Establish the reference between node and it's reference parent
     function completeAttachment(node, attachToNode) {
         node.payload.referenceParent = attachToNode
     }
 
+    // Detach the reference between node and it's reference parent
     function completeDetachment(node) {
         if (node.payload !== undefined) {
             if (node.payload.referenceParent !== undefined) {

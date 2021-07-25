@@ -246,7 +246,9 @@ function newWorkspace() {
                                 let pluginFile = childNode.pluginFiles[k]
 
                                 let saveWithWorkspace = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'saveWithWorkspace')
-                                UI.projects.foundations.utilities.plugins.savePluginFile(pluginFile)
+                                if (saveWithWorkspace === true) {
+                                    UI.projects.foundations.utilities.plugins.savePluginFile(pluginFile)
+                                }
                             }
                         }
                             break

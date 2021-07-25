@@ -3,6 +3,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
         calculate: calculate,
         installMissingVotes: installMissingVotes
     }
+    const MAX_GENERATIONS = 10
 
     return thisObject
 
@@ -71,100 +72,109 @@ function newGovernanceFunctionLibraryVotingProgram() {
         )
 
         function resetVotes(node) {
-            if (node === undefined) { return }
-            if (node.payload === undefined) { return }
-            if (node.payload.votingProgram === undefined) {
-                node.payload.votingProgram = {
-                    votes: 0,
-                    ownPower: 0,
-                    incomingPower: 0,
-                    usedPower: 0
-                }
-            } else {
-                node.payload.votingProgram.votes = 0
-                node.payload.votingProgram.ownPower = 0
-                node.payload.votingProgram.incomingPower = 0
-                node.payload.votingProgram.usedPower = 0
+            resetNode(node, 0)
 
-            }
+            function resetNode(node, generation) {
 
-            /*
-            When we reach certain node types, we will halt the distribution, because these are targets for 
-            voting power.
-            */
-            if (
-                node.type === 'Position' ||
-                node.type === 'Asset' ||
-                node.type === 'Feature' ||
-                node.type === 'Pool' ||
-                node.type === 'Position Contribution Claim' ||
-                node.type === 'Asset Contribution Claim' ||
-                node.type === 'Feature Contribution Claim'
-            ) { return }
-            /*
-            For Votes to Profiles there is a special treamtment that needs to be done
-            so that votes can flow from Profiles to the Program without being affected
-            by Percentages.
-            */
-            switch (node.type) {
-                case 'User Profile Vote': {
-                    if (node.payload.referenceParent !== undefined) {
-                        resetVotes(node.payload.referenceParent)
-                    }
-                    break
-                }
-                case 'User Profile': {
-                    let program = UI.projects.governance.utilities.validations.onlyOneProgram(node, 'Voting Program')
-                    if (program === undefined) { return }
-                    if (program.payload === undefined) { return }
-                    resetVotes(program)
+                if (generation >= MAX_GENERATIONS) {
                     return
                 }
-            }
-            /*
-            If there is a reference parent defined, this means that the voting power is 
-            transfered to it and not distributed among children.
-            */
-            if (
-                node.payload.referenceParent !== undefined &&
-                node.type !== 'Votes Switch' &&
-                node.type !== 'Claim Votes Switch' &&
-                node.type !== 'Weight Votes Switch'
-            ) {
-                resetVotes(node.payload.referenceParent)
-                return
-            }
-            /*
-            Here we are inside the Voting Program, so we will crawl all it's children.
-            */
-            let schemaDocument = getSchemaDocument(node)
-            if (schemaDocument === undefined) { return }
+                if (node === undefined) { return }
+                if (node.payload === undefined) { return }
+                if (node.payload.votingProgram === undefined) {
+                    node.payload.votingProgram = {
+                        votes: 0,
+                        ownPower: 0,
+                        incomingPower: 0,
+                        usedPower: 0
+                    }
+                } else {
+                    node.payload.votingProgram.votes = 0
+                    node.payload.votingProgram.ownPower = 0
+                    node.payload.votingProgram.incomingPower = 0
+                    node.payload.votingProgram.usedPower = 0
 
-            if (schemaDocument.childrenNodesProperties !== undefined) {
-                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
-                    let property = schemaDocument.childrenNodesProperties[i]
+                }
 
-                    if (node.type === 'User Profile' && property.name !== "votingProgram") { continue }
-
-                    switch (property.type) {
-                        case 'node': {
-                            let childNode = node[property.name]
-                            if (childNode === undefined) { continue }
-                            if (childNode.type === 'Tokens Bonus') { continue }
-                            resetVotes(childNode)
-
+                /*
+                When we reach certain node types, we will halt the distribution, because these are targets for 
+                voting power.
+                */
+                if (
+                    node.type === 'Position' ||
+                    node.type === 'Asset' ||
+                    node.type === 'Feature' ||
+                    node.type === 'Pool' ||
+                    node.type === 'Position Contribution Claim' ||
+                    node.type === 'Asset Contribution Claim' ||
+                    node.type === 'Feature Contribution Claim'
+                ) { return }
+                /*
+                For Votes to Profiles there is a special treamtment that needs to be done
+                so that votes can flow from Profiles to the Program without being affected
+                by Percentages.
+                */
+                switch (node.type) {
+                    case 'User Profile Vote': {
+                        if (node.payload.referenceParent !== undefined) {
+                            resetNode(node.payload.referenceParent, generation + 1)
+                            return
                         }
-                            break
-                        case 'array': {
-                            let propertyArray = node[property.name]
-                            if (propertyArray !== undefined) {
-                                for (let m = 0; m < propertyArray.length; m++) {
-                                    let childNode = propertyArray[m]
-                                    if (childNode.type === 'Tokens Bonus') { continue }
-                                    resetVotes(childNode)
-                                }
+                        break
+                    }
+                    case 'User Profile': {
+                        let program = UI.projects.governance.utilities.validations.onlyOneProgram(node, 'Voting Program')
+                        if (program === undefined) { return }
+                        if (program.payload === undefined) { return }
+                        resetNode(program, generation)
+                        return
+                    }
+                }
+                /*
+                If there is a reference parent defined, this means that the voting power is 
+                transfered to it and not distributed among children.
+                */
+                if (
+                    node.payload.referenceParent !== undefined &&
+                    node.type !== 'Votes Switch' &&
+                    node.type !== 'Claim Votes Switch' &&
+                    node.type !== 'Weight Votes Switch'
+                ) {
+                    resetNode(node.payload.referenceParent, generation)
+                    return
+                }
+                /*
+                Here we are inside the Voting Program, so we will crawl all it's children.
+                */
+                let schemaDocument = getSchemaDocument(node)
+                if (schemaDocument === undefined) { return }
+
+                if (schemaDocument.childrenNodesProperties !== undefined) {
+                    for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                        let property = schemaDocument.childrenNodesProperties[i]
+
+                        if (node.type === 'User Profile' && property.name !== "votingProgram") { continue }
+
+                        switch (property.type) {
+                            case 'node': {
+                                let childNode = node[property.name]
+                                if (childNode === undefined) { continue }
+                                if (childNode.type === 'Tokens Bonus') { continue }
+                                resetNode(childNode, generation)
+
                             }
-                            break
+                                break
+                            case 'array': {
+                                let propertyArray = node[property.name]
+                                if (propertyArray !== undefined) {
+                                    for (let m = 0; m < propertyArray.length; m++) {
+                                        let childNode = propertyArray[m]
+                                        if (childNode.type === 'Tokens Bonus') { continue }
+                                        resetNode(childNode, generation)
+                                    }
+                                }
+                                break
+                            }
                         }
                     }
                 }
@@ -181,14 +191,18 @@ function newGovernanceFunctionLibraryVotingProgram() {
             Set this initial votes as own power
             */
             programNode.payload.votingProgram.ownPower = votes
-            distributeProgramPower(programNode, programNode, votes)
+            distributeProgramPower(programNode, programNode, votes, undefined, 0)
 
             function distributeProgramPower(
                 currentProgramNode,
                 node,
                 votes,
-                percentage
+                percentage,
+                generation
             ) {
+                if (generation >= MAX_GENERATIONS) {
+                    return
+                }
                 if (node === undefined) { return }
                 if (node.payload === undefined) { return }
                 if (node.payload.votingProgram === undefined) { return }
@@ -221,7 +235,13 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     case 'User Profile Vote': {
                         if (node.payload.referenceParent !== undefined) {
                             currentProgramNode.payload.votingProgram.usedPower = currentProgramNode.payload.votingProgram.usedPower + votes
-                            distributeProgramPower(currentProgramNode, node.payload.referenceParent, votes / 10)
+                            distributeProgramPower(
+                                currentProgramNode,
+                                node.payload.referenceParent,
+                                votes / 10,
+                                undefined,
+                                generation + 1
+                            )
                         }
                         return
                     }
@@ -229,7 +249,13 @@ function newGovernanceFunctionLibraryVotingProgram() {
                         let program = UI.projects.governance.utilities.validations.onlyOneProgram(node, 'Voting Program')
                         if (program === undefined) { return }
                         if (program.payload === undefined) { return }
-                        distributeProgramPower(currentProgramNode, program, votes)
+                        distributeProgramPower(
+                            currentProgramNode,
+                            program,
+                            votes,
+                            undefined,
+                            generation
+                        )
                         return
                     }
                 }
@@ -244,7 +270,13 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     node.type !== 'Weight Votes Switch'
                 ) {
                     currentProgramNode.payload.votingProgram.usedPower = currentProgramNode.payload.votingProgram.usedPower + votes
-                    distributeProgramPower(currentProgramNode, node.payload.referenceParent, votes)
+                    distributeProgramPower(
+                        currentProgramNode,
+                        node.payload.referenceParent,
+                        votes,
+                        undefined,
+                        generation
+                    )
                     return
                 }
                 /*
@@ -320,7 +352,13 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                 if (percentage === undefined || isNaN(percentage) === true) {
                                     percentage = defaultPercentage
                                 }
-                                distributeProgramPower(currentProgramNode, childNode, votes * percentage / 100, percentage)
+                                distributeProgramPower(
+                                    currentProgramNode,
+                                    childNode,
+                                    votes * percentage / 100,
+                                    percentage,
+                                    generation
+                                )
                             }
                                 break
                             case 'array': {
@@ -334,7 +372,13 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                         if (percentage === undefined || isNaN(percentage) === true) {
                                             percentage = defaultPercentage
                                         }
-                                        distributeProgramPower(currentProgramNode, childNode, votes * percentage / 100, percentage)
+                                        distributeProgramPower(
+                                            currentProgramNode,
+                                            childNode,
+                                            votes * percentage / 100,
+                                            percentage,
+                                            generation
+                                        )
                                     }
                                 }
                                 break

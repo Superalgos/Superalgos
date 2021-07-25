@@ -92,8 +92,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Vamos a probar algo!. Haz clic en el botón Stop de abajo, y una vez que haya desaparecido, abre mi menú y selecciona Resume.",
-                    "updated": 1618437777462,
+                    "text": "Haz clic en el botón Stop, y una vez que haya desaparecido, abre mi menú y selecciona Resume.",
+                    "updated": 1625871849020,
                     "style": "Callout"
                 }
             ]

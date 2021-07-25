@@ -15,6 +15,11 @@
                 "text": "Ho sentito che il mio amico, Welcome Tutorial, ti ha fatto fare un giro e stupito con qualche banale trucchetto...che esibizionista!",
                 "updated": 1619458689320,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Escuché que mi amigo el Welcome Tutorial te mostró todo y te hipnotizó con algunos trucos baratos... ¡Qué presumido!",
+                "updated": 1625934965685
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Beh, ora è il momento di fare sul serio!",
                     "updated": 1619458717851,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Bueno, ¡ahora es el momento de trabajar!",
+                    "updated": 1625934949953
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Imparare Superalgos è impegantivo! Non perchè sia difficile, ma perchè il sistema è vasto, molto flessibile e costruito secondo un nuovo paradigma che non è scontato all'inizio...",
                     "updated": 1619458791004,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Aprender Superalgos es todo un esfuerzo! No porque sea difícil, sino porque el sistema es vasto, extremadamente flexible y está construido sobre un nuevo paradigma que no es obvio al principio...",
+                    "updated": 1625935046507
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "text": "Ma non preoccuparti! Se presti attenzione e segui i tutorial, imparerai tutto in un battibaleno! In ogni caso, sappi che molte persone rileggono i tutorial più di una volta!",
                     "updated": 1619458852073,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Pero no te preocupes! Si prestas atención y haces todos los tutoriales disponibles, ¡podrás afrontar la curva de aprendizaje como un campeón! Aún así, ten cuidado... ¡la mayoría de la gente hace los tutoriales más de una vez!",
+                    "updated": 1625935125952
                 }
             ]
         }

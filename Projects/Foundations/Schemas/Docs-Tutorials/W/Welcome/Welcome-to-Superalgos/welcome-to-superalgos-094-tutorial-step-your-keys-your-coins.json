@@ -56,8 +56,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Primero elimina el texto predeterminado para cada parámetro, de modo que ningún carácter extraño se mezcle con las claves.",
-                    "updated": 1624474054393,
+                    "text": "Elimina el texto predeterminado para cada parámetro, para que ningún carácter se mezcle con las claves.",
+                    "updated": 1625928654592,
                     "style": "Text"
                 }
             ]

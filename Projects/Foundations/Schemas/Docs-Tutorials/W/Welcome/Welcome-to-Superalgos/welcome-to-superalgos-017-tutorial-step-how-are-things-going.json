@@ -4,7 +4,7 @@
     "type": "Tutorial Step - How Are Things Going?",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "sensor-bot-instance"
         },
         "text": "I just dragged you deep into the confines of the Data Mining operation. See the progress of the Sensor Bot Instance to your right!",
@@ -97,8 +97,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "No debería tomar más de 3 a 5 minutos extraer los datos de Binance, o un poco más, dependiendo de tu hardware. ¿No quieres esperar? No hay problema. Haz clic en Next para obtener una pequeña pista.",
-                    "updated": 1624491320898,
+                    "text": "No debería tomar más de 3 a 5 minutos extraer los datos de Binance dependiendo de tu hardware. ¿No quieres esperar? No hay problema. Haz clic en Next para obtener una pequeña pista.",
+                    "updated": 1625933743042,
                     "style": "Success"
                 }
             ]

@@ -15,6 +15,11 @@
                 "text": "Il nodo Plugin File Position determina dove sarà posizionato il nodo nel workspace!",
                 "updated": 1619554715666,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Aquí está la locura... el nodo Plugin File Position determina en qué parte del workspace el plugin es colocado.",
+                "updated": 1626642524737
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Ecco perchè trovi il nodo Trading System sopra il nodo Plugin File Position!",
                     "updated": 1619554752815,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Por eso encontraste el nodo Trading System en la parte superior del nodo Plugin File Position!",
+                    "updated": 1626642599727
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Se cancelli il nodo Trading System, ricomparirà la prossima volta che ricarichi il workspace. I Plugins sono caricati dal file plugin ogni volta che il workspace viene caricato!",
                     "updated": 1619554795779,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Si eliminas el nodo Trading System, volvería a aparecer la próxima vez que recargues el workspace!¡Plugins se cargan desde el archivo plugin cada vez que se carga el workspace!",
+                    "updated": 1626642734045
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "Prova, se vuoi! Puoi anche cancellare il nodo Trading System e aggiornare la pagina. Tieni a mente che per continuare da qui dovrai cercare il Basic Education Tutorial e cliccare Resume sul menù!",
                     "updated": 1619554844566,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡No dudes en probarlo! Si lo desea, puedes eliminar el nodo Trading System y actualiza la página. Ten en cuenta que deberás encontrar el Basic Education Tutorial y hacer clic en Resume en el menú para continuar!",
+                    "updated": 1626642833516
                 }
             ]
         }

@@ -5,7 +5,7 @@
     "definition": {
         "text": "The Close Stage is in charge of closing the trade",
         "icon": {
-            "name": "close-stage",
+            "name": "Close/close-stage",
             "project": "Foundations"
         },
         "updated": 1614261551174,

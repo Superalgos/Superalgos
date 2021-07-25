@@ -5,7 +5,7 @@
     "definition": {
         "text": "To place a plugin in a workspace you must select the option to add the missing plugins on the node of the matching type!",
         "icon": {
-            "name": "plugin-trading-systems",
+            "name": "Plugins/plugin-trading-systems",
             "project": "Foundations"
         },
         "updated": 1615925984822,

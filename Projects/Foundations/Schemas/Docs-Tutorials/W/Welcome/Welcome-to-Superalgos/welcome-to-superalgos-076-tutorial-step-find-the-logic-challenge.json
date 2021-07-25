@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Find the Logic Challenge!",
     "definition": {
         "icon": {
-            "name": "layer\\layer-resistance",
+            "name": "Layer\\layer-resistance",
             "project": "Foundations"
         },
         "text": "Now that you know how the indicator works, can you find the relationship between buy orders and support levels?",

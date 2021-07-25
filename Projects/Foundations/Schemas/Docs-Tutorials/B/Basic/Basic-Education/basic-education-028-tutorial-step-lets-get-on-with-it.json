@@ -6,7 +6,7 @@
         "text": "What if the nodes are far away from each other, maybe even in different hierarchies? Watch the video to learn a few tricks!",
         "updated": 1616098998366,
         "icon": {
-            "name": "mouse-right-click",
+            "name": "Mouse/mouse-right-click",
             "project": "Foundations"
         },
         "translations": [

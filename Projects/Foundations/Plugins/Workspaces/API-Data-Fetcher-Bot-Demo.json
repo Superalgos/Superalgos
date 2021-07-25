@@ -1,6 +1,7 @@
 {
     "type": "Workspace",
     "name": "API-Data-Fetcher-Bot-Demo",
+    "config": "{\n    \"docsLanguage\": \"EN\",\n    \"contributionsBranch\": \"develop\"\n}",
     "rootNodes": [
         {
             "type": "Network",
@@ -929,7 +930,7 @@
                                                                 "arrangementStyle": 0
                                                             },
                                                             "uiObject": {
-                                                                "isRunning": true
+                                                                "isRunning": false
                                                             },
                                                             "referenceParent": {
                                                                 "type": "Data Mine",
@@ -2083,7 +2084,7 @@
                                                         "arrangementStyle": 0
                                                     },
                                                     "uiObject": {
-                                                        "isRunning": true
+                                                        "isRunning": false
                                                     },
                                                     "referenceParent": {
                                                         "type": "Market",
@@ -2112,7 +2113,7 @@
                                                 "arrangementStyle": 0
                                             },
                                             "uiObject": {
-                                                "isRunning": true
+                                                "isRunning": false
                                             },
                                             "referenceParent": {
                                                 "type": "Crypto Exchange",
@@ -2141,7 +2142,7 @@
                                         "arrangementStyle": 0
                                     },
                                     "uiObject": {
-                                        "isRunning": true
+                                        "isRunning": false
                                     },
                                     "referenceParent": {
                                         "type": "Project Definition",
@@ -2170,7 +2171,7 @@
                                 "arrangementStyle": 0
                             },
                             "uiObject": {
-                                "isRunning": true
+                                "isRunning": false
                             }
                         }
                     },
@@ -9794,83 +9795,28 @@
                         "pluginFiles": [
                             {
                                 "type": "Plugin File",
-                                "name": "Masters",
-                                "config": "{\n\"codeName\": \"\"\n}",
-                                "project": "Foundations",
-                                "pluginFilePosition": {
-                                    "type": "Plugin File Position",
-                                    "name": "Masters",
-                                    "project": "Foundations",
-                                    "id": "d5234bd2-ef4e-4856-a6a0-ce7659653a48",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 18879.35218735615,
-                                            "y": 18688.55301821844
-                                        },
-                                        "targetPosition": {
-                                            "x": 30986.371225686038,
-                                            "y": 18236.288271084537
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": true,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                "id": "ecc1a524-de9b-4e73-8874-b99a7ea0402b",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 31374.357288332292,
-                                        "y": 18123.931117466833
-                                    },
-                                    "targetPosition": {
-                                        "x": 31496.37828125503,
-                                        "y": 18397.994754759613
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": true,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Plugin File",
                                 "name": "Bollinger",
-                                "config": "{\n\"codeName\": \"\"\n}",
+                                "config": "{\"project\":\"Foundations\",\"fileName\":\"Bollinger\",\"folderName\":\"Data-Mines\",\"nodeType\":\"Data Mine\"}",
                                 "project": "Foundations",
                                 "pluginFilePosition": {
                                     "type": "Plugin File Position",
                                     "name": "Bollinger",
                                     "project": "Foundations",
-                                    "id": "77c437a7-0ac2-40c1-aa84-6d48e46b287b",
+                                    "id": "75c333db-28b1-4c35-8a18-f1fad8d2b1f1",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 34406.26298631758,
-                                            "y": 18688.60151122931
+                                            "x": 34398.489720814745,
+                                            "y": 18699.74774026896
                                         },
                                         "targetPosition": {
-                                            "x": 31558.751788500358,
-                                            "y": 18104.550474539472
+                                            "x": 31202.93400103489,
+                                            "y": 18335.621247514286
                                         },
                                         "floatingObject": {
                                             "isPinned": true,
                                             "isFrozen": false,
                                             "isCollapsed": false,
-                                            "angleToParent": 2,
+                                            "angleToParent": 1,
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
@@ -9879,11 +9825,11 @@
                                         }
                                     }
                                 },
-                                "id": "cb988ae0-94c5-4afa-8425-0c64149613ce",
+                                "id": "84c68fba-0d63-4064-a414-d951fec775e3",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 31558.751788500358,
-                                        "y": 18104.550474539472
+                                        "x": 31202.93400103489,
+                                        "y": 18335.621247514286
                                     },
                                     "targetPosition": {
                                         "x": 31496.37828125503,
@@ -9893,7 +9839,7 @@
                                         "isPinned": false,
                                         "isFrozen": false,
                                         "isCollapsed": false,
-                                        "angleToParent": 2,
+                                        "angleToParent": 1,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
@@ -9905,27 +9851,27 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Candles",
-                                "config": "{\n\"codeName\": \"\"\n}",
+                                "config": "{\"project\":\"Foundations\",\"fileName\":\"Candles\",\"folderName\":\"Data-Mines\",\"nodeType\":\"Data Mine\"}",
                                 "project": "Foundations",
                                 "pluginFilePosition": {
                                     "type": "Plugin File Position",
                                     "name": "Candles",
                                     "project": "Foundations",
-                                    "id": "433d2a13-18d4-4e92-b830-c93dfa571c11",
+                                    "id": "d905708f-d130-48e6-83b8-893d0949240c",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 37747.067482786275,
-                                            "y": 18702.38150649338
+                                            "x": 37744.16120329444,
+                                            "y": 18702.53161753865
                                         },
                                         "targetPosition": {
-                                            "x": 31719.32172889825,
-                                            "y": 18197.255572851955
+                                            "x": 31465.019742274733,
+                                            "y": 18099.63818614913
                                         },
                                         "floatingObject": {
                                             "isPinned": true,
                                             "isFrozen": false,
                                             "isCollapsed": false,
-                                            "angleToParent": 2,
+                                            "angleToParent": 1,
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
@@ -9934,11 +9880,11 @@
                                         }
                                     }
                                 },
-                                "id": "b9e0a7a6-35c0-4b5a-b07c-2cf97a252283",
+                                "id": "c6e8a721-4e08-4a61-9a8f-bb2ea4733a55",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 31719.32172889825,
-                                        "y": 18197.255572851955
+                                        "x": 31465.019742274733,
+                                        "y": 18099.63818614913
                                     },
                                     "targetPosition": {
                                         "x": 31496.37828125503,
@@ -9948,7 +9894,62 @@
                                         "isPinned": false,
                                         "isFrozen": false,
                                         "isCollapsed": false,
-                                        "angleToParent": 2,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Masters",
+                                "config": "{\"project\":\"Foundations\",\"fileName\":\"Masters\",\"folderName\":\"Data-Mines\",\"nodeType\":\"Data Mine\"}",
+                                "project": "Foundations",
+                                "pluginFilePosition": {
+                                    "type": "Plugin File Position",
+                                    "name": "Masters",
+                                    "project": "Foundations",
+                                    "id": "06324e94-a092-4fb1-8811-e4d23b140776",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 18872.50555584059,
+                                            "y": 18697.702768914136
+                                        },
+                                        "targetPosition": {
+                                            "x": 31770.44191854781,
+                                            "y": 18275.973761836874
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": true,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 1,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                "id": "005d766a-e9dd-4812-bdd6-5abb58702c0c",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 31770.44191854781,
+                                        "y": 18275.973761836874
+                                    },
+                                    "targetPosition": {
+                                        "x": 31496.37828125503,
+                                        "y": 18397.994754759613
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
@@ -9960,27 +9961,27 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Messari",
-                                "config": "{\n\"codeName\": \"\"\n}",
+                                "config": "{\"project\":\"Foundations\",\"fileName\":\"Messari\",\"folderName\":\"Data-Mines\",\"nodeType\":\"Data Mine\"}",
                                 "project": "Foundations",
                                 "pluginFilePosition": {
                                     "type": "Plugin File Position",
                                     "name": "Messari",
                                     "project": "Foundations",
-                                    "id": "0f932f30-69f3-453a-89ca-638cd74027a6",
+                                    "id": "ee208a33-8b70-49b5-ba65-3aabf048f402",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 14004.091418475993,
-                                            "y": 18772.527676799018
+                                            "x": 13990.856645070347,
+                                            "y": 18779.88165004605
                                         },
                                         "targetPosition": {
-                                            "x": 31794.734849865512,
-                                            "y": 18366.636215779316
+                                            "x": 31697.11746316269,
+                                            "y": 18620.93820240283
                                         },
                                         "floatingObject": {
                                             "isPinned": true,
                                             "isFrozen": false,
                                             "isCollapsed": false,
-                                            "angleToParent": 2,
+                                            "angleToParent": 1,
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
@@ -9989,11 +9990,11 @@
                                         }
                                     }
                                 },
-                                "id": "20f5e091-1f43-4947-9657-7655caf87a68",
+                                "id": "44374a6e-682a-4ad5-97d5-46e4ae005c7e",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 31794.734849865512,
-                                        "y": 18366.636215779316
+                                        "x": 31697.11746316269,
+                                        "y": 18620.93820240283
                                     },
                                     "targetPosition": {
                                         "x": 31496.37828125503,
@@ -10003,7 +10004,7 @@
                                         "isPinned": false,
                                         "isFrozen": false,
                                         "isCollapsed": false,
-                                        "angleToParent": 2,
+                                        "angleToParent": 1,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
@@ -10026,7 +10027,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 1,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -10044,17 +10045,17 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Messari",
-                                "config": "{\n\"codeName\": \"\"\n}",
+                                "config": "{\n    \"project\": \"Foundations\",\n    \"fileName\": \"Messari\",\n    \"folderName\": \"API-Maps\",\n    \"nodeType\": \"API Map\"\n}",
                                 "project": "Foundations",
                                 "pluginFilePosition": {
                                     "type": "Plugin File Position",
                                     "name": "Messari",
                                     "project": "Foundations",
-                                    "id": "da790e41-0b29-41af-b5a0-f582fea8375d",
+                                    "id": "f096906c-1652-40ff-be83-c4cc3002ff91",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 14002.262986317575,
-                                            "y": 10768.059102958174
+                                            "x": 13996.87828125503,
+                                            "y": 10769.475239300944
                                         },
                                         "targetPosition": {
                                             "x": 31646.37828125503,
@@ -10073,7 +10074,7 @@
                                         }
                                     }
                                 },
-                                "id": "272f2cfc-7440-4da4-bb2b-6466aeff6582",
+                                "id": "72c44c87-355e-4012-95e5-229ef5fada58",
                                 "savedPayload": {
                                     "position": {
                                         "x": 31646.37828125503,
@@ -10110,7 +10111,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 1,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0

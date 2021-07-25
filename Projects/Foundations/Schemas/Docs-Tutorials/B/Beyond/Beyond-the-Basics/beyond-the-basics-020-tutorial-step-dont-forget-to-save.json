@@ -38,7 +38,7 @@
         },
         {
             "style": "Success",
-            "text": "If for any reason you loose sight of the page, run the docs.reindex command and search for the title you gave it while adding it! You may also use the BACK button on the footer of the page!",
+            "text": "If for any reason you lose sight of the page, run the docs.reindex command and search for the title you gave it while adding it! You may also use the BACK button on the footer of the page!",
             "updated": 1610983878542,
             "translations": [
                 {

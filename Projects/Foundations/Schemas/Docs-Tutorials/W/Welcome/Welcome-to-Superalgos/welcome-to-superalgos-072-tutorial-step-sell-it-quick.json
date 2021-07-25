@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Sell It Quick!",
     "definition": {
         "icon": {
-            "name": "bullet\\bullet-limit-sell-order",
+            "name": "Bullet\\bullet-limit-sell-order",
             "project": "Foundations"
         },
         "text": "I'm sure you noted there are no more limit buy orders after the order got filled. Instead, sell orders start popping up!",
@@ -73,8 +73,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "El primero, averigua el estado de los pedidos existentes. El segundo, da nuevas instrucciones.",
-                    "updated": 1625925596690,
+                    "text": "En el primer Cycle, averigua el estado de los pedidos existentes. En el segundo, da nuevas instrucciones.",
+                    "updated": 1624456661678,
                     "style": "Success"
                 }
             ]

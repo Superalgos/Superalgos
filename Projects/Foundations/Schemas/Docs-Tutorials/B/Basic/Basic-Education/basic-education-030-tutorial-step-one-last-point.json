@@ -5,7 +5,7 @@
     "definition": {
         "text": "Pretty much like with Node Attaching Rules, nodes that may establish references also have rules in that regard.",
         "icon": {
-            "name": "trading-system-reference",
+            "name": "Trading/trading-system-reference",
             "project": "Foundations"
         },
         "updated": 1615809225061,

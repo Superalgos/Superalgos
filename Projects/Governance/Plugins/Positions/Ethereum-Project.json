@@ -1,6 +1,7 @@
 {
     "type": "Positions",
     "name": "Ethereum-Project",
+    "config": "{\"codeName\":\"Ethereum-Project\"}",
     "project": "Governance",
     "positionClasss": [],
     "positions": [

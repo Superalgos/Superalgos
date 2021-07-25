@@ -6,7 +6,7 @@
         "text": "If you experiment with this feature, you will notice that the behavior of each of the settings is not clear or predictable.",
         "updated": 1615492937986,
         "icon": {
-            "name": "set-node-arrangement-to-concave",
+            "name": "Set/set-node-arrangement-to-concave",
             "project": "Foundations"
         },
         "translations": [

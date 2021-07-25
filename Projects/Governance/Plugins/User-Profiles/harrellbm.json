@@ -1,0 +1,57 @@
+{
+    "type": "User Profile",
+    "name": "harrellbm",
+    "config": "{\n    \"signature\": {\n        \"message\": \"harrellbm\",\n        \"messageHash\": \"0xc21e0ff12bbf9bb7af1e4790eaa4a6ebc7b090ce7df26748211b3fb593661a28\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x97d59966082ae17d60487366ccebb1be1c750a5f543fc88bbbcdd4f74a540651\",\n        \"s\": \"0x2492222689b804fa96ad94c9925bb45ed790ed45bf1ae3e82deac36c98a3e9f4\",\n        \"signature\": \"0x97d59966082ae17d60487366ccebb1be1c750a5f543fc88bbbcdd4f74a5406512492222689b804fa96ad94c9925bb45ed790ed45bf1ae3e82deac36c98a3e9f41c\"\n    }\n}",
+    "project": "Governance",
+    "tokenPowerSwitch": {
+        "type": "Token Power Switch",
+        "name": "New Token Power Switch",
+        "config": "{}",
+        "project": "Governance",
+        "tokenPowerSwitch": [],
+        "id": "1a1ddb9c-3717-4bf6-abe7-b545fa6010d6",
+        "savedPayload": {
+            "position": {
+                "x": 13648,
+                "y": 11067.5
+            },
+            "targetPosition": {
+                "x": 13348,
+                "y": 11067.5
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "id": "5a60b508-60d4-454d-ba14-a6f1f5622684",
+    "savedPayload": {
+        "position": {
+            "x": 13348,
+            "y": 11067.5
+        },
+        "targetPosition": {
+            "x": 13348,
+            "y": 11067.5
+        },
+        "floatingObject": {
+            "isPinned": false,
+            "isFrozen": false,
+            "isCollapsed": false,
+            "angleToParent": 1,
+            "distanceToParent": 3,
+            "arrangementStyle": 0
+        },
+        "uiObject": {
+            "isRunning": false
+        }
+    }
+}

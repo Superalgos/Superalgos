@@ -1,7 +1,7 @@
 {
     "type": "Assets",
     "name": "Governance-Project-Plugins",
-    "config": "{\n}",
+    "config": "{\"codeName\":\"Governance-Project-Plugins\"}",
     "project": "Governance",
     "assetClasses": [
         {

@@ -5,7 +5,7 @@
     "definition": {
         "text": "The next option in the menu controls the distance from the node to its parent. Clicking on the button cycles through options.",
         "icon": {
-            "name": "set-distance-to-parent-node-to-one",
+            "name": "Set/set-distance-to-parent-node-to-one",
             "project": "Foundations"
         },
         "updated": 1615474588252,

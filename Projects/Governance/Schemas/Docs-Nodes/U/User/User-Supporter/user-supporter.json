@@ -1,0 +1,31 @@
+{
+    "type": "User Supporter",
+    "definition": {
+        "text": "Spawn as many User Supporter nodes as you wish and establish references to the User Profile nodes of your favorite supporters.",
+        "updated": 1624727060271
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624727081804
+        },
+        {
+            "style": "Text",
+            "text": "If you declare more than one supporter, you may use the configuration in the User Supporter node to determine how much Supporter Power you wish to send each. If you don’t use the configuration, the default applies."
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"percentage\": 50\n}",
+            "updated": 1624727099934
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

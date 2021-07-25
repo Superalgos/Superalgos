@@ -4,7 +4,7 @@
     "type": "Tutorial Step - What Else Is Cooking?",
     "definition": {
         "icon": {
-            "name": "crypto-assets\\ethereum",
+            "name": "Crypto-Assets\\ethereum",
             "project": "Foundations"
         },
         "text": "Superalgos is a multi-project platform, and —after TensorFlow— the Ethereum integration is next in line...",

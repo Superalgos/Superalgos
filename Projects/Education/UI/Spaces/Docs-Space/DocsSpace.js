@@ -56,100 +56,154 @@ function newEducationDocSpace() {
 
     return thisObject
 
-    function initialize() {
-        thisObject.menuLabelsMap = new Map()
+    async function initialize() {
+        let promise = new Promise((resolve, reject) => {
 
-        setupSidePanelTab()
-        setUpMenuItemsMap()
-        setupUserLanguage()
-        setupActiveBranch()
-        setupContributionsBranch()
+            thisObject.menuLabelsMap = new Map()
 
-        thisObject.searchEngine = newFoundationsDocsSearchEngine()
-        thisObject.mainSearchPage = newFoundationsDocsMainSearchPage()
-        thisObject.searchResultsPage = newFoundationsDocsSearchResultsPage()
-        thisObject.documentPage = newFoundationsDocsDocumentPage()
-        thisObject.footer = newFoundationsDocsFooter()
-        thisObject.commandInterface = newFoundationsDocsCommmandInterface()
-        thisObject.contextMenu = newFoundationsDocsContextMenu()
+            setupSidePanelTab()
+            setUpMenuItemsMap()
+            setupUserLanguage()
 
-        thisObject.searchEngine.initialize()
-        thisObject.mainSearchPage.initialize()
-        thisObject.searchResultsPage.initialize()
-        thisObject.documentPage.initialize()
-        thisObject.footer.initialize()
-        thisObject.commandInterface.initialize()
-        thisObject.contextMenu.initialize()
+            thisObject.searchEngine = newFoundationsDocsSearchEngine()
+            thisObject.mainSearchPage = newFoundationsDocsMainSearchPage()
+            thisObject.searchResultsPage = newFoundationsDocsSearchResultsPage()
+            thisObject.documentPage = newFoundationsDocsDocumentPage()
+            thisObject.footer = newFoundationsDocsFooter()
+            thisObject.commandInterface = newFoundationsDocsCommmandInterface()
+            thisObject.contextMenu = newFoundationsDocsContextMenu()
 
-        isInitialized = true
+            thisObject.searchEngine.initialize()
+            thisObject.mainSearchPage.initialize()
+            thisObject.searchResultsPage.initialize()
+            thisObject.documentPage.initialize()
+            thisObject.footer.initialize()
+            thisObject.commandInterface.initialize()
+            thisObject.contextMenu.initialize()
 
-        function setupActiveBranch() {
-            /*
-            Getting the used preferred languague
-            */
-            if (window.localStorage.getItem('Current Branch') !== null && window.localStorage.getItem('Current Branch') !== undefined && window.localStorage.getItem('Current Branch') !== 'undefined') {
-                UI.projects.education.spaces.docsSpace.currentBranch = window.localStorage.getItem('Current Branch')
-            } else {
-                window.localStorage.setItem('Current Branch', UI.projects.education.globals.docs.DEFAULT_CURRENT_BRANCH)
-                UI.projects.education.spaces.docsSpace.currentBranch = UI.projects.education.globals.docs.DEFAULT_CURRENT_BRANCH
+            setupCurrentBranch()
+            setupContributionsBranch()
+
+            isInitialized = true
+
+            UI.projects.foundations.utilities.statusBar.changeStatus("Setting up Docs Search Engine...")
+            setTimeout(setUpSearchEngine, 100)
+
+            function setUpSearchEngine() {
+                thisObject.searchEngine.setUpSearchEngine(whenFinished)
+                function whenFinished() {
+                    resolve()
+                }
             }
-        }
 
-        function setupContributionsBranch() {
-            /*
-            Getting the used preferred languague
-            */
-            if (window.localStorage.getItem('Contributions Branch') !== null && window.localStorage.getItem('Contributions Branch') !== undefined && window.localStorage.getItem('Contributions Branch') !== 'undefined') {
-                UI.projects.education.spaces.docsSpace.contributionsBranch = window.localStorage.getItem('Contributions Branch')
-            } else {
-                window.localStorage.setItem('Contributions Branch', UI.projects.education.globals.docs.DEFAULT_CONTRIBUTIONS_BRANCH)
-                UI.projects.education.spaces.docsSpace.contributionsBranch = UI.projects.education.globals.docs.DEFAULT_CONTRIBUTIONS_BRANCH
-            }
-        }
+            function setupCurrentBranch() {
+                /*
+                Getting the currentBranch
+                */
+                let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
 
-        function setupUserLanguage() {
-            /*
-            Getting the used preferred languague
-            */
-            if (window.localStorage.getItem('Docs Language') !== null && window.localStorage.getItem('Docs Language') !== undefined && window.localStorage.getItem('Docs Language') !== 'undefined') {
-                UI.projects.education.spaces.docsSpace.language = window.localStorage.getItem('Docs Language')
-            } else {
-                window.localStorage.setItem('Docs Language', UI.projects.education.globals.docs.DEFAULT_LANGUAGE)
-                UI.projects.education.spaces.docsSpace.language = UI.projects.education.globals.docs.DEFAULT_LANGUAGE
-            }
-        }
+                httpRequest(undefined, 'App/Branch', onResponse)
+                /*
+                Deleting what was is here because is not longer used...
+                */
+                window.localStorage.removeItem('Current Branch')
+                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'currentBranch', undefined)
 
-        function setupSidePanelTab() {
-            thisObject.sidePanelTab = newSidePanelTab()
-            thisObject.sidePanelTab.container.connectToParent(thisObject.container, false, false)
-            thisObject.sidePanelTab.initialize('right')
-            openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', onOpening)
-            closingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closing', onClosing)
-
-            browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
-        }
-
-        function setUpMenuItemsMap() {
-            /*
-            Here we will put put all the menu item labels of all nodes at all
-            app schemas into a single map, that will allow us to know when a phrase
-            is a label of a menu and then change its style.
-            */
-            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
-                let project = PROJECTS_SCHEMA[i].name
-                let appSchemaArray = SCHEMAS_BY_PROJECT.get(project).array.appSchema
-
-                for (let j = 0; j < appSchemaArray.length; j++) {
-                    let docsSchemaDocument = appSchemaArray[j]
-
-                    if (docsSchemaDocument.menuItems === undefined) { continue }
-                    for (let k = 0; k < docsSchemaDocument.menuItems.length; k++) {
-                        let menuItem = docsSchemaDocument.menuItems[k]
-                        thisObject.menuLabelsMap.set(menuItem.label, true)
+                function onResponse(err, data) {
+                    /* Lets check the result of the call through the http interface */
+                    data = JSON.parse(data)
+                    if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
+                        let currentBranch = data.message.current
+                        UI.projects.education.spaces.docsSpace.currentBranch = currentBranch
+                    } else {
+                        UI.projects.education.spaces.docsSpace.navigateTo(
+                            data.docs.project,
+                            data.docs.category,
+                            data.docs.type,
+                            data.docs.anchor,
+                            undefined,
+                            data.docs.placeholder
+                        )
                     }
                 }
             }
-        }
+
+            function setupContributionsBranch() {
+                /*
+                Getting the contributionsBranch
+                */
+                let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+                let contributionsBranch = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(workspace.payload, 'contributionsBranch')
+
+                if (contributionsBranch === undefined) {
+                    UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'contributionsBranch', UI.projects.education.globals.docs.DEFAULT_CONTRIBUTIONS_BRANCH)
+                    UI.projects.education.spaces.docsSpace.contributionsBranch = UI.projects.education.globals.docs.DEFAULT_CONTRIBUTIONS_BRANCH
+                } else {
+                    UI.projects.education.spaces.docsSpace.contributionsBranch = contributionsBranch
+                }
+                /*
+                Every time this setup occurs, we will automatically change to the contributionsBranch of the workspace.
+                */
+                changeContributionsBranch(UI.projects.education.spaces.docsSpace.contributionsBranch, true)
+                /*
+                Deleting what was is here because is not longer used...
+                */
+                window.localStorage.removeItem('Contributions Branch')
+            }
+
+            function setupUserLanguage() {
+                /*
+                Getting the used preferred languague
+                */
+                let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+                let docsLanguage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(workspace.payload, 'docsLanguage')
+
+                if (docsLanguage === undefined) {
+                    UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'docsLanguage', UI.projects.education.globals.docs.DEFAULT_LANGUAGE)
+                    UI.projects.education.spaces.docsSpace.language = UI.projects.education.globals.docs.DEFAULT_LANGUAGE
+                } else {
+                    UI.projects.education.spaces.docsSpace.language = docsLanguage
+                }
+                /*
+                Deleting what was is here because is not longer used...
+                */
+                window.localStorage.removeItem('Docs Language')
+            }
+
+            function setupSidePanelTab() {
+                thisObject.sidePanelTab = newSidePanelTab()
+                thisObject.sidePanelTab.container.connectToParent(thisObject.container, false, false)
+                thisObject.sidePanelTab.initialize('right')
+                openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', onOpening)
+                closingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closing', onClosing)
+
+                browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
+            }
+
+            function setUpMenuItemsMap() {
+                /*
+                Here we will put put all the menu item labels of all nodes at all
+                app schemas into a single map, that will allow us to know when a phrase
+                is a label of a menu and then change its style.
+                */
+                for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+                    let project = PROJECTS_SCHEMA[i].name
+                    let appSchemaArray = SCHEMAS_BY_PROJECT.get(project).array.appSchema
+
+                    for (let j = 0; j < appSchemaArray.length; j++) {
+                        let docsSchemaDocument = appSchemaArray[j]
+
+                        if (docsSchemaDocument.menuItems === undefined) { continue }
+                        for (let k = 0; k < docsSchemaDocument.menuItems.length; k++) {
+                            let menuItem = docsSchemaDocument.menuItems[k]
+                            thisObject.menuLabelsMap.set(menuItem.label, true)
+                        }
+                    }
+                }
+            }
+        })
+
+        return promise
     }
 
     function finalize() {
@@ -180,21 +234,26 @@ function newEducationDocSpace() {
         isInitialized = false
     }
 
-    function reset() {
+    async function reset() {
         finalize()
-        initialize()
+        await initialize()
     }
 
-    function changeCurrentBranch(branch) {
+    function changeCurrentBranch(branch, doNotNavigate) {
         httpRequest(undefined, 'App/Checkout/' + branch, onResponse)
-        UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Changing Current Branch')
+        if (doNotNavigate !== true) {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Changing Current Branch')
+        }
 
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */
             data = JSON.parse(data)
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                 UI.projects.education.spaces.docsSpace.currentBranch = branch
-                window.localStorage.setItem('Current Branch', branch)
+                let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'currentBranch', branch)
+
+                if (doNotNavigate === true) { return }
                 UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Current Branch Changed')
             } else {
                 UI.projects.education.spaces.docsSpace.navigateTo(
@@ -209,17 +268,23 @@ function newEducationDocSpace() {
         }
     }
 
-    function changeContributionsBranch(branch) {
+    function changeContributionsBranch(branch, doNotNavigate) {
         UI.projects.education.spaces.docsSpace.contributionsBranch = branch
-        window.localStorage.setItem('Contributions Branch', UI.projects.education.spaces.docsSpace.contributionsBranch)
-        UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Contributions Branch Changed')
+        let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+        UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'contributionsBranch', branch)
+
+        if (doNotNavigate !== true) {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Contributions Branch Changed')
+        }
     }
 
     function changeLanguage(pLanguage) {
         UI.projects.education.spaces.docsSpace.language = pLanguage
-        window.localStorage.setItem('Docs Language', UI.projects.education.spaces.docsSpace.language)
         let languageLabel = UI.projects.education.utilities.languages.getLaguageLabel(UI.projects.education.spaces.docsSpace.language)
         UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Docs In ' + languageLabel)
+
+        let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+        UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'docsLanguage', UI.projects.education.spaces.docsSpace.language)
     }
 
     function sharePage() {
@@ -356,6 +421,7 @@ function newEducationDocSpace() {
     }
 
     function getContainer(point, purpose) {
+        if (thisObject.sidePanelTab === undefined) { return }
         let container
 
         container = thisObject.sidePanelTab.getContainer(point, purpose)

@@ -6,7 +6,7 @@
         "text": "Notice how you changed the Angle to Parent setting on different siblings and each of them reacted to the new setting independently from the rest!",
         "updated": 1615319889017,
         "icon": {
-            "name": "set-angle-to-parent-node-to-90-degrees",
+            "name": "Set/set-angle-to-parent-node-to-90-degrees",
             "project": "Foundations"
         },
         "translations": [

@@ -1,0 +1,42 @@
+{
+    "type": "Referral Program",
+    "definition": {
+        "text": "The referral program is designed to incentivize both word-of-mouth and influencer referrals. You may earn tokens for each user you refer, but also for each user they refer as well, and the chain goes on infinitely!",
+        "updated": 1624726453093
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624726477501
+        },
+        {
+            "style": "Text",
+            "text": "When you declare one or more referrers, you confer them 10% of your Referral Power, but without losing any of your power! That is, you are not giving your power away… you’re empowering someone else through your power!"
+        },
+        {
+            "style": "Text",
+            "text": "The power you confer to your referrer is added to his or her own power. Now, guess what happens when your referrer declares his or her referrer? That's right! 10% of the total Referral Power is conferred to his or her referrer too! And the chain continues on and on."
+        },
+        {
+            "style": "Callout",
+            "text": "Now, let’s look at this the other way round. The people you refer confer 10% of their Referral Power to you. When they get to refer people, they get 10% of their Referral Power. This means that you get 10% of the Referral Power from the first generation of people you refer, but you also get 1% of the power of the second generation, and 0.1% of the third generation, and so on!"
+        },
+        {
+            "style": "Text",
+            "text": "At the time of each Distribution Event, your total Referral Power determines the Direct Proportion of tokens you get from the Referral Reward Pool."
+        },
+        {
+            "style": "Success",
+            "text": "As you can see, there is a very good incentive for spreading the word about Superalgos. It’s good for you, for your friends, for their friends, and for the project!"
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

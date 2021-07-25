@@ -1,0 +1,47 @@
+{
+    "topic": "User Profile",
+    "pageNumber": "2",
+    "type": "User Profile Hierarchy",
+    "definition": {
+        "text": "Your User Profile is where you define how you wish to participate in governance.",
+        "updated": 1624732275069
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Node->User Profile->Definition",
+            "updated": 1624732358114
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->User Profile->Content"
+        },
+        {
+            "style": "Title",
+            "text": "Token Power Switch"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Token Power Switch->Definition"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Token Power Switch->Content"
+        },
+        {
+            "style": "Title",
+            "text": "Tokens Awarded",
+            "updated": 1624732384407
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Tokens Awarded->Definition",
+            "updated": 1624732391024
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Tokens Awarded->Content",
+            "updated": 1624732395456
+        }
+    ]
+}

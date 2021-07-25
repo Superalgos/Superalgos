@@ -1,6 +1,7 @@
 {
     "type": "Positions",
     "name": "Education-Project",
+    "config": "{\"codeName\":\"Education-Project\"}",
     "project": "Governance",
     "positionClasss": [],
     "positions": [

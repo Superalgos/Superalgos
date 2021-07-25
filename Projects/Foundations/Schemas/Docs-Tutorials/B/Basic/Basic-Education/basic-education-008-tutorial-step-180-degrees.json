@@ -6,7 +6,7 @@
         "text": "When all offspring nodes are set to 180 degrees angle, each node takes a slot in a fraction of a circumference spanning 180 degrees, normal to the parent.",
         "updated": 1615319473489,
         "icon": {
-            "name": "set-angle-to-parent-node-to-180-degrees",
+            "name": "Set/set-angle-to-parent-node-to-180-degrees",
             "project": "Foundations"
         },
         "translations": [

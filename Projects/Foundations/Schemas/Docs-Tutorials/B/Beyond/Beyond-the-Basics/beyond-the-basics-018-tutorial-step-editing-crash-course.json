@@ -5,7 +5,7 @@
     "definition": {
         "text": "I'll give you a few pointers on how to edit the page! Right-click on a paragraph to get the styles menu. The pencil starts edit mode...",
         "icon": {
-            "name": "docs-action-edit-paragraph",
+            "name": "Docs/docs-action-edit-paragraph",
             "project": "Foundations"
         },
         "updated": 1616880288897,

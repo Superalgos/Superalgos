@@ -1,6 +1,7 @@
 {
     "type": "Workspace",
     "name": "Token-Distribution-Ethereum-Project",
+    "config": "{\n    \"docsLanguage\": \"EN\",\n    \"currentBranch\": \"develop\",\n    \"contributionsBranch\": \"develop\"\n}",
     "rootNodes": [
         {
             "type": "Design Space",
@@ -803,14 +804,42 @@
                         "pluginFiles": [
                             {
                                 "type": "Plugin File",
-                                "name": "Luis-Fernando-Molina",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Luis-Fernando-Molina\"}",
+                                "name": "Julian-Molina",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Julian-Molina\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\"}",
                                 "project": "Foundations",
-                                "id": "1a73595d-d162-4e84-91c7-c8079b1ecf5e",
+                                "id": "09712910-a92a-4ddc-85a7-c386425af381",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35331.25096043528,
-                                        "y": 10800.794129455984
+                                        "x": 35428.97902204032,
+                                        "y": 10921.478234845728
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Luis-Fernando-Molina",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Luis-Fernando-Molina\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\"}",
+                                "project": "Foundations",
+                                "id": "811a69da-8a7e-494a-bf01-25d8dc7ff307",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35306.95802911758,
+                                        "y": 10647.414597552948
                                     },
                                     "targetPosition": {
                                         "x": 35605.314597728066,
@@ -860,37 +889,10 @@
                         "pluginFiles": [
                             {
                                 "type": "Plugin File",
-                                "name": "Superalgos",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos\"\n}",
+                                "name": "Ethereum-Project-Assets",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Ethereum-Project-Assets\",\"folderName\":\"Pools\",\"nodeType\":\"Pools\"}",
                                 "project": "Foundations",
-                                "pluginFilePosition": {
-                                    "type": "Plugin File Position",
-                                    "name": "Superalgos",
-                                    "project": "Foundations",
-                                    "id": "e5929e81-19a4-4662-8894-8275244aab70",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24990.308529189395,
-                                            "y": 30318.926526669617
-                                        },
-                                        "targetPosition": {
-                                            "x": 35347.877877973275,
-                                            "y": 10714.189721945158
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": true,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                "id": "4625d4d0-4926-40b7-9720-98c27c8fee90",
+                                "id": "a6b44cb4-31ea-4828-a2d6-24212cc4872f",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35347.877877973275,
@@ -903,7 +905,7 @@
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -915,10 +917,10 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Ethereum-Project-Assets",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Ethereum-Project-Assets\"\n}",
+                                "name": "Ethereum-Project",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Ethereum-Project\",\"folderName\":\"Pools\",\"nodeType\":\"Pools\"}",
                                 "project": "Foundations",
-                                "id": "e926d202-82ce-4cd8-b979-17c1092589ee",
+                                "id": "1db43fec-ed95-45b6-b0e4-c02398d3517e",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35282.66509779988,
@@ -943,10 +945,10 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Ethereum-Project",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Ethereum-Project\"\n}",
+                                "name": "Superalgos",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos\",\"folderName\":\"Pools\",\"nodeType\":\"Pools\"}",
                                 "project": "Foundations",
-                                "id": "81e428c5-c160-47eb-ba4a-7be83fd00ff2",
+                                "id": "5dfb265f-2f15-4cbb-8f8f-6a86edd06fcc",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35392.22554909541,
@@ -1001,9 +1003,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Ethereum-Project-App-Schemas",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Ethereum-Project-App-Schemas\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Ethereum-Project-App-Schemas\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "405ec749-abb5-4eb7-8819-96f6fea05667",
+                                "id": "fd5926a7-7f1a-41a3-a4b7-c742fee82ff3",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35387.96186494185,
@@ -1028,10 +1030,10 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Ethereum-Project-Custom-Code",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Ethereum-Project-Custom-Code\"\n}",
+                                "name": "Ethereum-Project-CL",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Ethereum-Project-CL\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "cae632b1-932b-45b8-8106-1cf7e38d50e0",
+                                "id": "6a48da6b-88ae-4ae0-8638-2473d66abe58",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35345.584418825565,
@@ -1056,10 +1058,10 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Ethereum-Project-Docs",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Ethereum-Project-Docs\"\n}",
+                                "name": "Ethereum-Project-Custom-Code",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Ethereum-Project-Custom-Code\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "8aabfc11-02eb-4f3a-90ed-01c5edd7d082",
+                                "id": "274f2378-30dc-46f3-8bd0-0db6fdd156ab",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35338.31656809788,
@@ -1084,10 +1086,10 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Ethereum-Project-Images",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Ethereum-Project-Images\"\n}",
+                                "name": "Ethereum-Project-Docs",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Ethereum-Project-Docs\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "150b3486-9340-4f78-aa52-e8651ece7851",
+                                "id": "9611e099-b4a2-4a85-a23d-d06529d7086e",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35367.03492281861,
@@ -1112,10 +1114,10 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Ethereum-Project-Plugins",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Ethereum-Project-Plugins\"\n}",
+                                "name": "Ethereum-Project-Images",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Ethereum-Project-Images\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "1fc0dc13-93a3-45a9-baa0-5d39c374bb71",
+                                "id": "31db4478-b04e-498a-a8c1-5943a1511a84",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35428.27562557066,
@@ -1140,10 +1142,10 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Ethereum-Project-TS",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Ethereum-Project-TS\"\n}",
+                                "name": "Ethereum-Project-Plugins",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Ethereum-Project-Plugins\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "e03893dc-fdd0-48c4-b952-d77b7b0f4dd9",
+                                "id": "0c8fe8f1-9ff6-4ec9-83d1-f62aa56f2bce",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35514.65214378562,
@@ -1168,10 +1170,10 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Ethereum-Project-UI",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Ethereum-Project-UI\"\n}",
+                                "name": "Ethereum-Project-TS",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Ethereum-Project-TS\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "e8777916-c05c-4895-9568-95cd402072ac",
+                                "id": "633ae4ff-9225-45af-83b6-0067a8ce33a3",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35615.746194585125,
@@ -1196,10 +1198,10 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Ethereum-Project-CL",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Ethereum-Project-CL\"\n}",
+                                "name": "Ethereum-Project-UI",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Ethereum-Project-UI\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "752270ce-c584-4c22-a386-7d882c7da505",
+                                "id": "5dfe0891-9d8c-42d2-bd11-e6edd694eada",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35719.36434345346,
@@ -1254,9 +1256,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Ethereum-Project",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Ethereum-Project\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Ethereum-Project\",\"folderName\":\"Features\",\"nodeType\":\"Features\"}",
                                 "project": "Foundations",
-                                "id": "4999779a-5f41-4606-982f-e7ec4c1b89a1",
+                                "id": "01652287-3914-46c5-9bf3-2976861849ba",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35635.336249175365,
@@ -1311,9 +1313,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Ethereum-Project",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Ethereum-Project\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Ethereum-Project\",\"folderName\":\"Positions\",\"nodeType\":\"Positions\"}",
                                 "project": "Foundations",
-                                "id": "3a69345d-e5b2-4682-9988-d2ea2400d961",
+                                "id": "001643cc-ca6c-422d-afdb-d0a47445cb54",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35942.095312981444,

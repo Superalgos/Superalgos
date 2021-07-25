@@ -1,7 +1,7 @@
 {
     "type": "Pools",
     "name": "Ethereum-Project-Assets",
-    "config": "{}",
+    "config": "{\"codeName\":\"Ethereum-Project-Assets\"}",
     "project": "Governance",
     "poolClasses": [
         {

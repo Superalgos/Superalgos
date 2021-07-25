@@ -1,0 +1,34 @@
+{
+    "type": "Mentorship Program",
+    "definition": {
+        "text": "The mentorship program is designed to incentivize deep collaboration and the recruitment of Contributors. You may earn tokens for each user you mentor, but also for each user they mentor as well, and the chain goes on infinitely!",
+        "updated": 1624727325986
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624727362222
+        },
+        {
+            "style": "Text",
+            "text": "The principles governing this program are very similar to the Referral Program:"
+        },
+        {
+            "style": "List",
+            "text": "By default, Mentorship Power flows in equal proportions to the existing User Mentor nodes, but you may use the configuration to alter the default behavior."
+        },
+        {
+            "style": "List",
+            "text": "Mentees confer their mentors 10% of the Mentorship Power allocated to the User Mentor node."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

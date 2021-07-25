@@ -6,7 +6,7 @@
         "text": "While minimalist hardware like the Raspberry Pi can handle the Superalgos Client to run both data and trading tasks, some may be too small for active work!",
         "updated": 1610615755927,
         "icon": {
-            "name": "bullet\\bullet-warning",
+            "name": "Bullet\\bullet-warning",
             "project": "Foundations"
         },
         "translations": [

@@ -1,6 +1,7 @@
 {
     "type": "Workspace",
     "name": "Token-Distribution-Foundations-Project",
+    "config": "{\n    \"docsLanguage\": \"EN\",\n    \"currentBranch\": \"master\",\n    \"contributionsBranch\": \"develop\"\n}",
     "rootNodes": [
         {
             "type": "Design Space",
@@ -94,7 +95,7 @@
             "githubAPI": {
                 "type": "Github API",
                 "name": "New Github API",
-                "config": "{\n    \"username\": \"\",\n    \"token\": \"\"\n}",
+                "config": "{\n    \"username\": \"Luis-Fernando-Molina\",\n    \"token\": \"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\"\n}",
                 "project": "Foundations",
                 "id": "90d121ab-9f19-4437-a051-1222287085fc",
                 "savedPayload": {
@@ -803,14 +804,42 @@
                         "pluginFiles": [
                             {
                                 "type": "Plugin File",
-                                "name": "Luis-Fernando-Molina",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Luis-Fernando-Molina\"}",
+                                "name": "Julian-Molina",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Julian-Molina\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\"}",
                                 "project": "Foundations",
-                                "id": "1a73595d-d162-4e84-91c7-c8079b1ecf5e",
+                                "id": "5ec4b0e7-0945-455b-a5bc-edf31168f69c",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35331.25096043528,
-                                        "y": 10800.794129455984
+                                        "x": 35428.97902204032,
+                                        "y": 10921.478234845728
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Luis-Fernando-Molina",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Luis-Fernando-Molina\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\"}",
+                                "project": "Foundations",
+                                "id": "e0bad9d8-399f-4b64-87c8-b021c0aff1fe",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35306.95802911758,
+                                        "y": 10647.414597552948
                                     },
                                     "targetPosition": {
                                         "x": 35605.314597728066,
@@ -860,37 +889,10 @@
                         "pluginFiles": [
                             {
                                 "type": "Plugin File",
-                                "name": "Superalgos",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos\"\n}",
+                                "name": "Foundations-Project-Assets",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project-Assets\",\"folderName\":\"Pools\",\"nodeType\":\"Pools\"}",
                                 "project": "Foundations",
-                                "pluginFilePosition": {
-                                    "type": "Plugin File Position",
-                                    "name": "Superalgos",
-                                    "project": "Foundations",
-                                    "id": "e5929e81-19a4-4662-8894-8275244aab70",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24990.308529189395,
-                                            "y": 30318.926526669617
-                                        },
-                                        "targetPosition": {
-                                            "x": 35347.877877973275,
-                                            "y": 10714.189721945158
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": true,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                "id": "4625d4d0-4926-40b7-9720-98c27c8fee90",
+                                "id": "3d24f169-b8e6-4fe0-afe7-9d29f29aeaad",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35347.877877973275,
@@ -903,7 +905,7 @@
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -915,10 +917,10 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Foundations-Project-Assets",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project-Assets\"}",
+                                "name": "Foundations-Project",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project\",\"folderName\":\"Pools\",\"nodeType\":\"Pools\"}",
                                 "project": "Foundations",
-                                "id": "e926d202-82ce-4cd8-b979-17c1092589ee",
+                                "id": "753e2a6a-a874-436a-b0ed-9290273bd47a",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35282.66509779988,
@@ -943,10 +945,10 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Foundations-Project",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project\"}",
+                                "name": "Superalgos",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos\",\"folderName\":\"Pools\",\"nodeType\":\"Pools\"}",
                                 "project": "Foundations",
-                                "id": "81e428c5-c160-47eb-ba4a-7be83fd00ff2",
+                                "id": "ce53d3ea-42aa-4fd8-93fa-aa7057ae8e2a",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35392.22554909541,
@@ -1001,17 +1003,45 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Foundations-Project-App-Schemas",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project-App-Schemas\"}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project-App-Schemas\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "405ec749-abb5-4eb7-8819-96f6fea05667",
+                                "id": "b50120cf-25f6-43dc-9c09-252a95a9813e",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35380.88108740214,
-                                        "y": 10537.166137337546
+                                        "x": 35387.96186494185,
+                                        "y": 10547.174438963984
                                     },
                                     "targetPosition": {
                                         "x": 35636.67313670836,
-                                        "y": 10380.41656792276
+                                        "y": 10379.41656792276
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Foundations-Project-CL",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project-CL\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
+                                "project": "Foundations",
+                                "id": "81f1afb2-c08c-4f98-88d9-be0790002c09",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35345.584418825565,
+                                        "y": 10451.993136602661
+                                    },
+                                    "targetPosition": {
+                                        "x": 35636.67313670836,
+                                        "y": 10379.41656792276
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1029,17 +1059,17 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Foundations-Project-Custom-Code",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project-Custom-Code\"}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project-Custom-Code\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "cae632b1-932b-45b8-8106-1cf7e38d50e0",
+                                "id": "5ea663af-646e-4c08-a57b-5f0a39cfcdfc",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35340.36663452982,
-                                        "y": 10427.34690743483
+                                        "x": 35338.31656809788,
+                                        "y": 10348.058028942465
                                     },
                                     "targetPosition": {
                                         "x": 35636.67313670836,
-                                        "y": 10380.41656792276
+                                        "y": 10379.41656792276
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1057,17 +1087,17 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Foundations-Project-Docs",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project-Docs\"}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project-Docs\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "8aabfc11-02eb-4f3a-90ed-01c5edd7d082",
+                                "id": "f6cb52e7-90d0-420e-8453-dd6079969660",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35344.96216058906,
-                                        "y": 10310.38295876599
+                                        "x": 35367.03492281861,
+                                        "y": 10247.905223886037
                                     },
                                     "targetPosition": {
                                         "x": 35636.67313670836,
-                                        "y": 10380.41656792276
+                                        "y": 10379.41656792276
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1085,17 +1115,17 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Foundations-Project-Images",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project-Images\"}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project-Images\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "150b3486-9340-4f78-aa52-e8651ece7851",
+                                "id": "d4c6d335-9d80-47e1-b6bc-3989dfed294d",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35393.96803839588,
-                                        "y": 10204.080992235018
+                                        "x": 35428.27562557066,
+                                        "y": 10163.614627821165
                                     },
                                     "targetPosition": {
                                         "x": 35636.67313670836,
-                                        "y": 10380.41656792276
+                                        "y": 10379.41656792276
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1113,17 +1143,17 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Foundations-Project-Plugins",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project-Plugins\"}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project-Plugins\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "1fc0dc13-93a3-45a9-baa0-5d39c374bb71",
+                                "id": "7e7f8891-a9e0-4be2-8b8e-bd4db7754e35",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35479.923567293576,
-                                        "y": 10124.624518616532
+                                        "x": 35514.65214378562,
+                                        "y": 10105.35293062998
                                     },
                                     "targetPosition": {
                                         "x": 35636.67313670836,
-                                        "y": 10380.41656792276
+                                        "y": 10379.41656792276
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1141,17 +1171,17 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Foundations-Project-TS",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project-TS\"}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project-TS\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "e03893dc-fdd0-48c4-b952-d77b7b0f4dd9",
+                                "id": "0c5dd589-9bc5-4c75-9263-7200ffc51b55",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35589.7427971963,
-                                        "y": 10084.11006574422
+                                        "x": 35615.746194585125,
+                                        "y": 10080.147352844813
                                     },
                                     "targetPosition": {
                                         "x": 35636.67313670836,
-                                        "y": 10380.41656792276
+                                        "y": 10379.41656792276
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1169,17 +1199,17 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Foundations-Project-UI",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project-UI\"}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project-UI\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "e8777916-c05c-4895-9568-95cd402072ac",
+                                "id": "3e669272-bbd7-4aad-ac90-996075e8f00c",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35706.706745865136,
-                                        "y": 10088.705591803458
+                                        "x": 35719.36434345346,
+                                        "y": 10091.038059141265
                                     },
                                     "targetPosition": {
                                         "x": 35636.67313670836,
-                                        "y": 10380.41656792276
+                                        "y": 10379.41656792276
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1226,9 +1256,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Foundations-Project",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project\"}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project\",\"folderName\":\"Features\",\"nodeType\":\"Features\"}",
                                 "project": "Foundations",
-                                "id": "4999779a-5f41-4606-982f-e7ec4c1b89a1",
+                                "id": "30315719-ad46-4d08-a7bd-b57bb1e0cd0d",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35635.336249175365,
@@ -1283,9 +1313,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Foundations-Project",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project\"}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project\",\"folderName\":\"Positions\",\"nodeType\":\"Positions\"}",
                                 "project": "Foundations",
-                                "id": "3a69345d-e5b2-4682-9988-d2ea2400d961",
+                                "id": "b543c1b3-6ebd-41c4-bf64-90e1c52184fe",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35942.095312981444,

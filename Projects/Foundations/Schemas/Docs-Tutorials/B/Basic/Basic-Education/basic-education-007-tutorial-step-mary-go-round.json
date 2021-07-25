@@ -6,7 +6,7 @@
         "text": "By default, nodes are locked to a rotational symmetry around their parent node. The symmetry may span 360 degrees or less, depending on the setting!",
         "updated": 1615316869620,
         "icon": {
-            "name": "set-angle-to-parent-node-to-360-degrees",
+            "name": "Set/set-angle-to-parent-node-to-360-degrees",
             "project": "Foundations"
         },
         "translations": [

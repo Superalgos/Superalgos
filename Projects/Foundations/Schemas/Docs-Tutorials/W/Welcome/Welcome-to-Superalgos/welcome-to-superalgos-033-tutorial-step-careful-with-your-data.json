@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Careful With Your Data!",
     "definition": {
         "icon": {
-            "name": "data\\dataset-definition",
+            "name": "Data\\dataset-definition",
             "project": "Foundations"
         },
         "text": "It may take up to one minute for all tasks to come to a halt. You should never close the system before all tasks stop.",
@@ -86,8 +86,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Deten todas las tareas y espere un par de minutos.",
-                    "updated": 1625873113639,
+                    "text": "Detenga todas las tareas y espere un par de minutos.",
+                    "updated": 1624378709686,
                     "style": "List"
                 }
             ]
@@ -105,8 +105,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Luego puedes cerrar la consola o detener el proceso con Ctrl + Key-C.",
-                    "updated": 1625873142562,
+                    "text": "Cuando se detengan, puedes cerrar la consola o detener el proceso con Ctrl + Key-C.",
+                    "updated": 1624378795195,
                     "style": "List"
                 }
             ]
@@ -142,8 +142,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Cerrar el Client antes de que paren las tareas puede hacer que tus datos se corrompan!",
-                    "updated": 1625878738128,
+                    "text": "¡Cerrar el Client antes de que se detengan las tareas puede hacer que tus datos se corrompan!",
+                    "updated": 1624378921806,
                     "style": "Warning"
                 }
             ]

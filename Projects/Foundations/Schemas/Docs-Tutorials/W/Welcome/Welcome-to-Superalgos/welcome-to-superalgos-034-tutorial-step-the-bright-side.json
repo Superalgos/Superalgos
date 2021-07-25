@@ -4,8 +4,8 @@
     "type": "Tutorial Step - The Bright Side",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "charting-space"
+            "name": "Charting-Space/charting-space",
+            "project": "Foundations"
         },
         "text": "So far, you've been confined to the dark side of Superalgos. Get ready to be exposed to the bright side: the Charting Space.",
         "translations": [
@@ -24,7 +24,8 @@
             {
                 "language": "ES",
                 "text": "\nHasta ahora, has estado confinado al lado oscuro de Superalgos. Prepárate  para ser expuesto al lado brillante: el Charting Space.\n",
-                "updated": 1624379177365
+                "updated": 1624379177365,
+                "style": "Definition"
             }
         ]
     },
@@ -49,7 +50,8 @@
                 {
                     "language": "ES",
                     "text": "El espacio de gráficos vive en la parte superior del espacio de diseño, separado por un control deslizante de color turquesa. Como es de esperar de Superalgos, el espacio de gráficos es configurable y altamente flexible. Todo lo que sucede allí está definido en la jerarquía del Charting Space.",
-                    "updated": 1624379290740
+                    "updated": 1624379290740,
+                    "style": "Text"
                 }
             ]
         },
@@ -72,7 +74,8 @@
                 {
                     "language": "ES",
                     "text": "El Charting Space es conocido por hacer volar la mente de las personas. Por favor, absténgase de continuar con este tutorial si actualmente se encuentra bajo la influencia de sustancias psicoactivas.",
-                    "updated": 1624379359498
+                    "updated": 1624379359498,
+                    "style": "Warning"
                 }
             ],
             "updated": 1616416552336

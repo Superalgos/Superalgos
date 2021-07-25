@@ -1,6 +1,7 @@
 {
     "type": "Workspace",
     "name": "Token-Distribution-Education-Project",
+    "config": "{\n    \"docsLanguage\": \"EN\",\n    \"currentBranch\": \"develop\",\n    \"contributionsBranch\": \"develop\"\n}",
     "rootNodes": [
         {
             "type": "Design Space",
@@ -483,9 +484,7 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {
-                                "isRunning": false
-                            }
+                            "uiObject": {}
                         }
                     },
                     "pluginTradingMines": {
@@ -511,9 +510,7 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {
-                                "isRunning": false
-                            }
+                            "uiObject": {}
                         }
                     },
                     "pluginLearningMines": {
@@ -539,9 +536,7 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {
-                                "isRunning": false
-                            }
+                            "uiObject": {}
                         }
                     },
                     "pluginTradingSystems": {
@@ -567,9 +562,7 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {
-                                "isRunning": false
-                            }
+                            "uiObject": {}
                         }
                     },
                     "pluginLearningSystems": {
@@ -595,9 +588,7 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {
-                                "isRunning": false
-                            }
+                            "uiObject": {}
                         }
                     },
                     "pluginTradingEngines": {
@@ -623,9 +614,7 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {
-                                "isRunning": false
-                            }
+                            "uiObject": {}
                         }
                     },
                     "pluginLearningEngines": {
@@ -651,9 +640,7 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {
-                                "isRunning": false
-                            }
+                            "uiObject": {}
                         }
                     },
                     "pluginTutorials": {
@@ -679,9 +666,7 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {
-                                "isRunning": false
-                            }
+                            "uiObject": {}
                         }
                     },
                     "pluginApiMaps": {
@@ -707,9 +692,7 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {
-                                "isRunning": false
-                            }
+                            "uiObject": {}
                         }
                     },
                     "id": "c4e402d7-5228-408c-9d67-379d6ef40bae",
@@ -803,14 +786,14 @@
                         "pluginFiles": [
                             {
                                 "type": "Plugin File",
-                                "name": "Luis-Fernando-Molina",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Luis-Fernando-Molina\"}",
+                                "name": "Julian-Molina",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Julian-Molina\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\"}",
                                 "project": "Foundations",
-                                "id": "1a73595d-d162-4e84-91c7-c8079b1ecf5e",
+                                "id": "48f8ce3a-d078-4667-9124-f090b7949330",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35331.25096043528,
-                                        "y": 10800.794129455984
+                                        "x": 35428.97902204032,
+                                        "y": 10921.478234845728
                                     },
                                     "targetPosition": {
                                         "x": 35605.314597728066,
@@ -824,9 +807,33 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
+                                    "uiObject": {}
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Luis-Fernando-Molina",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Luis-Fernando-Molina\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\"}",
+                                "project": "Foundations",
+                                "id": "91d140d4-2b0c-42a4-8d33-bd01bcc3ca39",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35306.95802911758,
+                                        "y": 10647.414597552948
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {}
                                 }
                             }
                         ],
@@ -860,37 +867,10 @@
                         "pluginFiles": [
                             {
                                 "type": "Plugin File",
-                                "name": "Superalgos",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos\"\n}",
+                                "name": "Education-Project-Assets",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Education-Project-Assets\",\"folderName\":\"Pools\",\"nodeType\":\"Pools\"}",
                                 "project": "Foundations",
-                                "pluginFilePosition": {
-                                    "type": "Plugin File Position",
-                                    "name": "Superalgos",
-                                    "project": "Foundations",
-                                    "id": "e5929e81-19a4-4662-8894-8275244aab70",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24990.308529189395,
-                                            "y": 30318.926526669617
-                                        },
-                                        "targetPosition": {
-                                            "x": 35347.877877973275,
-                                            "y": 10714.189721945158
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": true,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                "id": "4625d4d0-4926-40b7-9720-98c27c8fee90",
+                                "id": "aa57bd46-d3d0-423d-88c7-617811654043",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35347.877877973275,
@@ -903,22 +883,20 @@
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
+                                    "uiObject": {}
                                 }
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Education-Project-Assets",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Education-Project-Assets\"\n}",
+                                "name": "Education-Project",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Education-Project\",\"folderName\":\"Pools\",\"nodeType\":\"Pools\"}",
                                 "project": "Foundations",
-                                "id": "e926d202-82ce-4cd8-b979-17c1092589ee",
+                                "id": "e4cff355-18fb-448b-b485-08b86ac8681c",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35282.66509779988,
@@ -936,17 +914,15 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
+                                    "uiObject": {}
                                 }
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Education-Project",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Education-Project\"\n}",
+                                "name": "Superalgos",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos\",\"folderName\":\"Pools\",\"nodeType\":\"Pools\"}",
                                 "project": "Foundations",
-                                "id": "81e428c5-c160-47eb-ba4a-7be83fd00ff2",
+                                "id": "e612e8bf-066b-4133-a8b6-86e3241af33a",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35392.22554909541,
@@ -964,9 +940,7 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
+                                    "uiObject": {}
                                 }
                             }
                         ],
@@ -1001,9 +975,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Education-Project-App-Schemas",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Education-Project-App-Schemas\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Education-Project-App-Schemas\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "405ec749-abb5-4eb7-8819-96f6fea05667",
+                                "id": "7eeb7e3a-e3c4-4941-bfb8-4211288b6a15",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35387.96186494185,
@@ -1021,17 +995,15 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
+                                    "uiObject": {}
                                 }
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Education-Project-Custom-Code",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Education-Project-Custom-Code\"\n}",
+                                "name": "Education-Project-CL",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Education-Project-CL\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "cae632b1-932b-45b8-8106-1cf7e38d50e0",
+                                "id": "eefc0ae6-0364-4c0e-84ba-138ba30e6ce8",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35345.584418825565,
@@ -1049,17 +1021,15 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
+                                    "uiObject": {}
                                 }
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Education-Project-Docs",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Education-Project-Docs\"\n}",
+                                "name": "Education-Project-Custom-Code",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Education-Project-Custom-Code\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "8aabfc11-02eb-4f3a-90ed-01c5edd7d082",
+                                "id": "107ef91d-7fba-4c9c-b996-e4102ccce3d8",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35338.31656809788,
@@ -1077,17 +1047,15 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
+                                    "uiObject": {}
                                 }
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Education-Project-Images",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Education-Project-Images\"\n}",
+                                "name": "Education-Project-Docs",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Education-Project-Docs\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "150b3486-9340-4f78-aa52-e8651ece7851",
+                                "id": "938acc63-54dc-49ea-be99-3675a2b1a38c",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35367.03492281861,
@@ -1105,17 +1073,15 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
+                                    "uiObject": {}
                                 }
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Education-Project-Plugins",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Education-Project-Plugins\"\n}",
+                                "name": "Education-Project-Images",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Education-Project-Images\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "1fc0dc13-93a3-45a9-baa0-5d39c374bb71",
+                                "id": "335e0893-27c1-4361-982f-15b66b1f6c58",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35428.27562557066,
@@ -1133,17 +1099,15 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
+                                    "uiObject": {}
                                 }
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Education-Project-TS",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Education-Project-TS\"\n}",
+                                "name": "Education-Project-Plugins",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Education-Project-Plugins\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "e03893dc-fdd0-48c4-b952-d77b7b0f4dd9",
+                                "id": "928e0f12-aa52-4907-8af1-9140600281c0",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35514.65214378562,
@@ -1161,17 +1125,15 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
+                                    "uiObject": {}
                                 }
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Education-Project-UI",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Education-Project-UI\"\n}",
+                                "name": "Education-Project-TS",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Education-Project-TS\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "e8777916-c05c-4895-9568-95cd402072ac",
+                                "id": "275c777e-f1cc-446c-b25a-14cae7308ed3",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35615.746194585125,
@@ -1189,17 +1151,15 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
+                                    "uiObject": {}
                                 }
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Education-Project-CL",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Education-Project-CL\"\n}",
+                                "name": "Education-Project-UI",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Education-Project-UI\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "752270ce-c584-4c22-a386-7d882c7da505",
+                                "id": "2c1439e3-4acd-43e8-8c22-4762cb5bb73e",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35719.36434345346,
@@ -1217,9 +1177,7 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
+                                    "uiObject": {}
                                 }
                             }
                         ],
@@ -1236,7 +1194,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -1254,9 +1212,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Education-Project",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Education-Project\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Education-Project\",\"folderName\":\"Features\",\"nodeType\":\"Features\"}",
                                 "project": "Foundations",
-                                "id": "4999779a-5f41-4606-982f-e7ec4c1b89a1",
+                                "id": "54783817-136f-425d-84a6-5e0188c3b444",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35635.336249175365,
@@ -1274,9 +1232,7 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
+                                    "uiObject": {}
                                 }
                             }
                         ],
@@ -1311,9 +1267,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Education-Project",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Education-Project\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Education-Project\",\"folderName\":\"Positions\",\"nodeType\":\"Positions\"}",
                                 "project": "Foundations",
-                                "id": "3a69345d-e5b2-4682-9988-d2ea2400d961",
+                                "id": "2c26b0db-668d-4b1c-8b60-5c79f894447f",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35942.095312981444,
@@ -1331,9 +1287,7 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
+                                    "uiObject": {}
                                 }
                             }
                         ],
@@ -1425,7 +1379,7 @@
                 "floatingObject": {
                     "isPinned": true,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

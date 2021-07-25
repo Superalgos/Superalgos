@@ -989,7 +989,7 @@
                                                         },
                                                         "referenceParent": {
                                                             "type": "Pool Class",
-                                                            "name": "Superalgos Projects",
+                                                            "name": "Superalgos Software Projects",
                                                             "id": "a987f1d3-fc8d-4b7c-99dd-77f15a32f37d"
                                                         }
                                                     }
@@ -2848,7 +2848,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "",
+                                                            "name": " Superalgos Blog Blog Post",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "b7372fd7-6f7b-4dc7-a9b8-c499c9d66ec9",
@@ -2881,7 +2881,7 @@
                                                         },
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "",
+                                                            "name": " Superalgos Blog Blog Post",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "d3d7e591-67e0-4bb7-8d8b-a6113561fcdf",
@@ -2914,7 +2914,7 @@
                                                         },
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "",
+                                                            "name": " Superalgos Blog Blog Post",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "07fc6eed-f794-46d8-9ab1-eb21895a18d6",
@@ -2986,7 +2986,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "",
+                                                            "name": " Superalgos Youtube Channel Youtube Video",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "b3a03655-0d4b-4da8-a250-5214f0157e19",
@@ -3019,7 +3019,7 @@
                                                         },
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "",
+                                                            "name": " Superalgos Youtube Channel Youtube Video",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "ae9b1041-8135-48db-b75d-eb0175b888ce",
@@ -3052,7 +3052,7 @@
                                                         },
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "",
+                                                            "name": " Superalgos Youtube Channel Youtube Video",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "77ca60ab-6fce-410f-ae3f-1aead62a6ef2",

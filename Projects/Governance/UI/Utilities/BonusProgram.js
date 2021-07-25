@@ -145,7 +145,7 @@ function newGovernanceUtilitiesBonusProgram() {
         function drawProgram(node) {
             if (node.tokensBonus !== undefined && node.tokensBonus.payload !== undefined) {
 
-                const tokensBonusText = parseFloat(node.payload[programPropertyName].bonus.tokens.toFixed(2)).toLocaleString('en')
+                const tokensBonusText = parseFloat(node.payload[programPropertyName].bonus.tokens.toFixed(0)).toLocaleString('en')
 
                 node.tokensBonus.payload.uiObject.valueAngleOffset = 0
                 node.tokensBonus.payload.uiObject.valueAtAngle = true

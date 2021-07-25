@@ -136,9 +136,9 @@ function newGovernanceFunctionLibraryTokenMining() {
             if (userProfile.payload === undefined) { return }
             if (userProfile.tokensMined === undefined) { return }
 
-            const awarded = parseFloat(userProfile.tokensMined.payload.tokensMined.awarded.toFixed(2)).toLocaleString('en')
-            const bonus = parseFloat(userProfile.tokensMined.payload.tokensMined.bonus.toFixed(2)).toLocaleString('en')
-            const total = parseFloat(userProfile.tokensMined.payload.tokensMined.total.toFixed(2)).toLocaleString('en')
+            const awarded = parseFloat(userProfile.tokensMined.payload.tokensMined.awarded.toFixed(0)).toLocaleString('en')
+            const bonus = parseFloat(userProfile.tokensMined.payload.tokensMined.bonus.toFixed(0)).toLocaleString('en')
+            const total = parseFloat(userProfile.tokensMined.payload.tokensMined.total.toFixed(0)).toLocaleString('en')
 
             userProfile.tokensMined.payload.uiObject.valueAngleOffset = 0
             userProfile.tokensMined.payload.uiObject.valueAtAngle = true

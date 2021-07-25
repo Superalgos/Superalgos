@@ -293,7 +293,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                     node.payload.uiObject.percentageAtAngle = true
                     let powerType = 'Delegate Power'
 
-                    const programPowerText = parseFloat(programPower.toFixed(2)).toLocaleString('en') + ' ' + powerType
+                    const programPowerText = parseFloat(programPower.toFixed(0)).toLocaleString('en') + ' ' + powerType
                     node.payload.uiObject.setValue(programPowerText)
 
                     if (percentage !== undefined) {
@@ -305,7 +305,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
             function drawUserNode(node, programPower, percentage) {
                 if (node.payload !== undefined) {
 
-                    const outgoingPowerText = parseFloat(programPower.toFixed(2)).toLocaleString('en')
+                    const outgoingPowerText = parseFloat(programPower.toFixed(0)).toLocaleString('en')
 
                     node.payload.uiObject.valueAngleOffset = 180
                     node.payload.uiObject.valueAtAngle = true
@@ -329,7 +329,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
             function drawProgram(node) {
                 if (node.payload !== undefined) {
 
-                    const ownPowerText = parseFloat(node.payload.delegationProgram.ownPower.toFixed(2)).toLocaleString('en')
+                    const ownPowerText = parseFloat(node.payload.delegationProgram.ownPower.toFixed(0)).toLocaleString('en')
 
                     node.payload.uiObject.statusAngleOffset = 0
                     node.payload.uiObject.statusAtAngle = false

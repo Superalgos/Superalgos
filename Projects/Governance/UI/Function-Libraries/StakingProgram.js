@@ -152,7 +152,7 @@ function newGovernanceFunctionLibraryStakingProgram() {
         function drawProgram(node) {
             if (node.payload !== undefined) {
 
-                const ownPowerText = parseFloat(node.payload.stakingProgram.ownPower.toFixed(2)).toLocaleString('en')
+                const ownPowerText = parseFloat(node.payload.stakingProgram.ownPower.toFixed(0)).toLocaleString('en')
 
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
@@ -161,7 +161,7 @@ function newGovernanceFunctionLibraryStakingProgram() {
             }
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
-                const tokensAwardedText = parseFloat(node.payload.stakingProgram.awarded.tokens.toFixed(2)).toLocaleString('en')
+                const tokensAwardedText = parseFloat(node.payload.stakingProgram.awarded.tokens.toFixed(0)).toLocaleString('en')
 
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.valueAtAngle = false

@@ -381,7 +381,7 @@ function newGovernanceUtilitiesDecendentProgram() {
         function drawUserNode(node, percentage) {
             if (node.payload !== undefined) {
 
-                const outgoingPowerText = parseFloat(node.payload[programPropertyName].outgoingPower.toFixed(2)).toLocaleString('en')
+                const outgoingPowerText = parseFloat(node.payload[programPropertyName].outgoingPower.toFixed(0)).toLocaleString('en')
 
                 node.payload.uiObject.valueAngleOffset = 180
                 node.payload.uiObject.valueAtAngle = true
@@ -403,8 +403,8 @@ function newGovernanceUtilitiesDecendentProgram() {
         function drawProgram(node) {
             if (node.payload !== undefined) {
 
-                const ownPowerText = parseFloat(node.payload[programPropertyName].ownPower.toFixed(2)).toLocaleString('en')
-                const incomingPowerText = parseFloat(node.payload[programPropertyName].incomingPower.toFixed(2)).toLocaleString('en')
+                const ownPowerText = parseFloat(node.payload[programPropertyName].ownPower.toFixed(0)).toLocaleString('en')
+                const incomingPowerText = parseFloat(node.payload[programPropertyName].incomingPower.toFixed(0)).toLocaleString('en')
 
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
@@ -413,7 +413,7 @@ function newGovernanceUtilitiesDecendentProgram() {
             }
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
-                const tokensAwardedText = parseFloat(node.payload[programPropertyName].awarded.tokens.toFixed(2)).toLocaleString('en')
+                const tokensAwardedText = parseFloat(node.payload[programPropertyName].awarded.tokens.toFixed(0)).toLocaleString('en')
 
                 node.tokensAwarded.payload.uiObject.statusAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.statusAtAngle = true

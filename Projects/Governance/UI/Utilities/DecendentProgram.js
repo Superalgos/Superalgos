@@ -7,6 +7,7 @@ function newGovernanceUtilitiesDecendentProgram() {
     let thisObject = {
         run: run
     }
+    const MAX_GENERATIONS = 10
 
     return thisObject
 
@@ -87,64 +88,74 @@ function newGovernanceUtilitiesDecendentProgram() {
         }
 
         function resetProgram(node) {
-            if (node === undefined) { return }
-            if (node.payload === undefined) { return }
-            if (node.payload[programPropertyName] === undefined) {
-                node.payload[programPropertyName] = {
-                    count: 0,
-                    percentage: 0,
-                    outgoingPower: 0,
-                    ownPower: 0,
-                    incomingPower: 0,
-                    usedPower: 0,
-                    awarded: {
+            resetNode(node, 0)
+
+            function resetNode(node, generation) {
+
+                if (generation >= MAX_GENERATIONS) {
+                    return
+                }
+
+                if (node === undefined) { return }
+                if (node.payload === undefined) { return }
+                if (node.payload[programPropertyName] === undefined) {
+                    node.payload[programPropertyName] = {
+                        count: 0,
+                        percentage: 0,
+                        outgoingPower: 0,
+                        ownPower: 0,
+                        incomingPower: 0,
+                        usedPower: 0,
+                        awarded: {
+                            tokens: 0,
+                            percentage: 0
+                        }
+                    }
+                } else {
+                    node.payload[programPropertyName].count = 0
+                    node.payload[programPropertyName].percentage = 0
+                    node.payload[programPropertyName].outgoingPower = 0
+                    node.payload[programPropertyName].ownPower = 0
+                    node.payload[programPropertyName].incomingPower = 0
+                    node.payload[programPropertyName].usedPower = 0
+                    node.payload[programPropertyName].awarded = {
                         tokens: 0,
                         percentage: 0
                     }
                 }
-            } else {
-                node.payload[programPropertyName].count = 0
-                node.payload[programPropertyName].percentage = 0
-                node.payload[programPropertyName].outgoingPower = 0
-                node.payload[programPropertyName].ownPower = 0
-                node.payload[programPropertyName].incomingPower = 0
-                node.payload[programPropertyName].usedPower = 0
-                node.payload[programPropertyName].awarded = {
-                    tokens: 0,
-                    percentage: 0
+                if (
+                    node.type === 'User Profile' &&
+                    node.tokenPowerSwitch !== undefined
+                ) {
+                    resetNode(node.tokenPowerSwitch, generation)
+                    return
                 }
-            }
-            if (
-                node.type === 'User Profile' &&
-                node.tokenPowerSwitch !== undefined
-            ) {
-                resetProgram(node.tokenPowerSwitch)
-                return
-            }
-            if (
-                node.type === 'Token Power Switch' &&
-                node[programPropertyName] !== undefined
-            ) {
-                resetProgram(node[programPropertyName])
-                return
-            }
-            if (
-                node.type === programNodeType &&
-                node[usersArrayPropertyName] !== undefined
-            ) {
-                for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
-                    resetProgram(node[usersArrayPropertyName][i])
+                if (
+                    node.type === 'Token Power Switch' &&
+                    node[programPropertyName] !== undefined
+                ) {
+                    resetNode(node[programPropertyName], generation)
+                    return
                 }
-                return
-            }
-            if (
-                node.type === userNodeType &&
-                node.payload.referenceParent !== undefined
-            ) {
-                resetProgram(node.payload.referenceParent)
-                return
+                if (
+                    node.type === programNodeType &&
+                    node[usersArrayPropertyName] !== undefined
+                ) {
+                    for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
+                        resetNode(node[usersArrayPropertyName][i], generation)
+                    }
+                    return
+                }
+                if (
+                    node.type === userNodeType &&
+                    node.payload.referenceParent !== undefined
+                ) {
+                    resetNode(node.payload.referenceParent, generation + 1)
+                    return
+                }
             }
         }
+
 
         function validateProgram(node, userProfile) {
             /*
@@ -185,6 +196,7 @@ function newGovernanceUtilitiesDecendentProgram() {
         }
 
         function distributeProgram(programNode) {
+
             if (programNode === undefined || programNode.payload === undefined) { return }
             /*
             Here we will convert Token Power into programPower. 
@@ -200,15 +212,19 @@ function newGovernanceUtilitiesDecendentProgram() {
             */
             programNode.payload[programPropertyName].ownPower = programPower
 
-            distributeProgramPower(programNode, programNode, programPower, count)
+            distributeProgramPower(programNode, programNode, programPower, count, undefined, 0)
 
             function distributeProgramPower(
                 currentProgramNode,
                 node,
                 programPower,
                 count,
-                percentage
+                percentage,
+                generation
             ) {
+                if (generation >= MAX_GENERATIONS) {
+                    return
+                }
                 if (node === undefined) { return }
                 if (node.payload === undefined) { return }
                 if (node.payload[programPropertyName] === undefined) { return }
@@ -281,7 +297,14 @@ function newGovernanceUtilitiesDecendentProgram() {
                                 if (percentage === undefined || isNaN(percentage) === true) {
                                     percentage = defaultPercentage
                                 }
-                                distributeProgramPower(currentProgramNode, childNode, programPower * percentage / 100, 0, percentage)
+                                distributeProgramPower(
+                                    currentProgramNode, 
+                                    childNode, 
+                                    programPower * percentage / 100, 
+                                    0, 
+                                    percentage, 
+                                    generation
+                                    )
                             }
                         }
                         return
@@ -299,7 +322,14 @@ function newGovernanceUtilitiesDecendentProgram() {
                             currentProgramNode.payload[programPropertyName].usedPower = currentProgramNode.payload[programPropertyName].usedPower - previousOutgoing
                             currentProgramNode.payload[programPropertyName].usedPower = currentProgramNode.payload[programPropertyName].usedPower + node.payload[programPropertyName].outgoingPower
 
-                            distributeProgramPower(currentProgramNode, node.payload.referenceParent, programPower / 10, 0)
+                            distributeProgramPower(
+                                currentProgramNode, 
+                                node.payload.referenceParent, 
+                                programPower / 10, 
+                                0, 
+                                undefined,
+                                generation + 1
+                                )
                         }
                         return
                     }
@@ -309,7 +339,13 @@ function newGovernanceUtilitiesDecendentProgram() {
                         if (program.payload === undefined) { return }
                         if (program.payload[programPropertyName].isActive === false) { return }
 
-                        distributeProgramPower(program, program, programPower, 0)
+                        distributeProgramPower(
+                            program, 
+                            program, 
+                            programPower, 
+                            0, 
+                            undefined,
+                            generation)
                         return
                     }
                 }

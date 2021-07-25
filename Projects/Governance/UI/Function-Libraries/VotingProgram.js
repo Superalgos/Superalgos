@@ -446,7 +446,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     voteType = 'Claim Support Power'
                 }
 
-                const votesText = parseFloat(votes.toFixed(2)).toLocaleString('en') + ' ' + voteType
+                const votesText = parseFloat(votes.toFixed(0)).toLocaleString('en') + ' ' + voteType
                 node.payload.uiObject.setValue(votesText)
 
                 if (percentage !== undefined) {
@@ -457,7 +457,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
             function drawUserNode(node, votes, percentage) {
                 if (node.payload !== undefined) {
 
-                    const outgoingPowerText = parseFloat(votes.toFixed(2)).toLocaleString('en')
+                    const outgoingPowerText = parseFloat(votes.toFixed(0)).toLocaleString('en')
 
                     node.payload.uiObject.valueAngleOffset = 180
                     node.payload.uiObject.valueAtAngle = true
@@ -484,8 +484,8 @@ function newGovernanceFunctionLibraryVotingProgram() {
                 if (node.payload.votingProgram.ownPower === undefined) { return }
                 if (node.payload.votingProgram.incomingPower === undefined) { return }
 
-                const ownPowerText = parseFloat(node.payload.votingProgram.ownPower.toFixed(2)).toLocaleString('en')
-                const incomingPowerText = parseFloat(node.payload.votingProgram.incomingPower.toFixed(2)).toLocaleString('en')
+                const ownPowerText = parseFloat(node.payload.votingProgram.ownPower.toFixed(0)).toLocaleString('en')
+                const incomingPowerText = parseFloat(node.payload.votingProgram.incomingPower.toFixed(0)).toLocaleString('en')
 
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false

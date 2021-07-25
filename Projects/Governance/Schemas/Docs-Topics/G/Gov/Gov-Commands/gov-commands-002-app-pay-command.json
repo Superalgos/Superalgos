@@ -1,0 +1,29 @@
+{
+    "topic": "App Commands",
+    "pageNumber": "2",
+    "type": "App Pay Command",
+    "definition": {
+        "text": "Use this command to pay to contributors using the Trasury Blockchain Account to do so. If you are not in charge of the Treasury Account you can still run this command to generate the output file of the Pay process.",
+        "updated": 1610449365984
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Syntax",
+            "updated": 1610449451990
+        },
+        {
+            "style": "Json",
+            "text": "gov.pay",
+            "updated": 1615612258411
+        },
+        {
+            "style": "Title",
+            "text": "Examples"
+        },
+        {
+            "style": "Json",
+            "text": "gov.pay"
+        }
+    ]
+}

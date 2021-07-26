@@ -48,7 +48,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\n\"codeName\": \"\"\n}"
+        "config": "{\"project\": \"\",\"fileName\": \"\",\"folderName\": \"\",\"nodeType\": \"\"}"
     },
     "addLeftIcons": true,
     "level": 2,

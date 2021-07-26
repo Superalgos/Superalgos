@@ -66,9 +66,23 @@ function newGovernanceUtilitiesCommonTables() {
         */
         for (let j = 0; j < nodes.length; j++) {
             let node = nodes[j]
+            let name = ''
+            if (node.payload.parentNode !== undefined) {
+                if (node.payload.parentNode.payload.parentNode !== undefined) {
+                    if (node.payload.parentNode.payload.parentNode.payload.parentNode !== undefined) {
+                        if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode !== undefined) {
+                            name = name + node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.name + ' - '
+                        }
+                        name = name + node.payload.parentNode.payload.parentNode.payload.parentNode.name + ' - '
+                    }
+                    name = name + node.payload.parentNode.payload.parentNode.name + ' - '
+                }
+                name = name + node.payload.parentNode.name + ' - '
+            }
+            name = name + node.name
 
             let tableRecord = {
-                "name": node.payload.parentNode.name + ' - ' + node.name,
+                "name": name,
                 "tokensReward": node.payload.tokens | 0,
                 "weight": node.payload.weight,
                 "weightPower": node.payload.votingProgram.votes

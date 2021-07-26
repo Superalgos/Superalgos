@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Scaling Time!",
     "definition": {
         "icon": {
-            "name": "Time\\time-scale",
+            "name": "time\\time-scale",
             "project": "Foundations"
         },
         "text": "Did you pick up the trick to scale time from the previous video? If not, go to the previous step and watch attentively!",
@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "¿Aprendiste el truco para escalar el tiempo del video anterior? Si no es así, vaya al paso anterior y observa atentamente.",
-                "updated": 1624405955892,
+                "text": "¿Aprendiste el truco para escalar el tiempo del video anterior? Si no es así, ve al paso anterior y observa atentamente.",
+                "updated": 1627304776783,
                 "style": "Definition"
             }
         ]

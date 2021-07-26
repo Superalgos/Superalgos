@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Shall We Dig Deeper?",
     "definition": {
         "icon": {
-            "name": "Layer\\layer-resistance",
+            "name": "layer\\layer-resistance",
             "project": "Foundations"
         },
         "text": "The logic behind the placing of buy orders is influenced by the Resistances and Supports indicator bot from the Masters Data Mine you ran earlier.",

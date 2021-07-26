@@ -5,7 +5,7 @@
     "definition": {
         "text": "Superalgos Admins, the Core Team, and Community Mods will never contact you directly unless you contact them first!",
         "icon": {
-            "name": "Bullet\\bullet-warning",
+            "name": "bullet\\bullet-warning",
             "project": "Foundations"
         },
         "updated": 1617608574624,

@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Time Frames Salad?",
     "definition": {
         "icon": {
-            "name": "Time\\time-frame-scale",
+            "name": "time\\time-frame-scale",
             "project": "Foundations"
         },
         "text": "News-flash about the Time Frame Scale: there is no automatic mode!",

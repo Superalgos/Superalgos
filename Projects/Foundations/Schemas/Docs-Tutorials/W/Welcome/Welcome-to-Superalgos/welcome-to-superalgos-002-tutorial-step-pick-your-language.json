@@ -5,8 +5,8 @@
     "definition": {
         "text": "Users are contributing translations so that you may choose your preferred language! This Community is awesome!",
         "updated": 1619801502482,
-        "icon": {   
-            "name": "Languages/EN",
+        "icon": {
+            "name": "en",
             "project": "Foundations"
         },
         "translations": [
@@ -38,8 +38,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Así es como funciona: el idioma predeterminado es el inglés. Si elige cualquier otro idioma y hay una traducción para la página actual, la obtendrá en el idioma seleccionado. De lo contrario en inglés.",
-                    "updated": 1625928288016
+                    "text": "Así es como funciona: el idioma predeterminado es el inglés. Si eliges cualquier otro idioma y hay una traducción para la página actual, la obtendrás en el idioma seleccionado. De lo contrario en inglés.",
+                    "updated": 1627240786626,
+                    "style": "Text"
                 }
             ]
         },
@@ -56,8 +57,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Utiliza la rueda del mouse para desplazarse por la página de la derecha hacia abajo. Haz clic en una bandera para cambiar el idioma preferido, si así lo deseas.",
-                    "updated": 1625928177324
+                    "text": "Utiliza la rueda del mouse para desplazarte por la página de la derecha hacia abajo. Haz clic en una bandera para cambiar el idioma preferido, si así lo deseas.",
+                    "updated": 1627241034008,
+                    "style": "Callout"
                 }
             ]
         },
@@ -75,7 +77,8 @@
                 {
                     "language": "ES",
                     "text": "¡Solo se pueden traducir los documentos y los tutoriales, no la interfaz ni los títulos!",
-                    "updated": 1625928204688
+                    "updated": 1625928204688,
+                    "style": "Note"
                 }
             ]
         }

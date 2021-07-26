@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Feedback Loops",
     "definition": {
         "icon": {
-            "name": "Limit-Order\\limit-buy-order",
+            "name": "limit\\limit-buy-order",
             "project": "Foundations"
         },
         "text": "Lets take a look at another example to let the notion of the constant feedback loop sink in before we move on!",

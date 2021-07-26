@@ -4,7 +4,7 @@
     "type": "Tutorial Step - The Elegant Way...",
     "definition": {
         "icon": {
-            "name": "Mouse\\mouse-pointer",
+            "name": "mouse\\mouse-pointer",
             "project": "Foundations"
         },
         "text": "I know! Zooming into a random spot is unlikely to position the chart squared with your screen, right? No worries... try this trick!",
@@ -44,8 +44,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Adjust the aspect ratio: Apunta al gráfico Backtesting Session (está en la parte superior) y presione Ctrl + Shift + Key-A",
-                    "updated": 1624403928721,
+                    "text": "Adjust the aspect ratio: apunta al gráfico Backtesting Session (está en la parte superior) y presiona Ctrl + Shift + Key-A",
+                    "updated": 1627304634273,
                     "style": "List"
                 }
             ]

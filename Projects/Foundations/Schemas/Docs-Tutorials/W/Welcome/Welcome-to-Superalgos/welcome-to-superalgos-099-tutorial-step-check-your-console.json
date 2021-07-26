@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Check Your Console!",
     "definition": {
         "icon": {
-            "name": "Trading\\trading-process-instance",
+            "name": "trading\\trading-process-instance",
             "project": "Foundations"
         },
         "text": "If you don't see any errors on the Trading Process Instance, chances are everything is working fine!",
@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Si no ve ningún error en el Trading Process Instance, ¡Lo más probable es que todo funcione bien!",
-                "updated": 1624484464060,
+                "text": "Si no ves ningún error en el Trading Process Instance, ¡Lo más probable es que todo funcione bien!",
+                "updated": 1627319344987,
                 "style": "Definition"
             }
         ]
@@ -36,8 +36,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Sin embargo, es posible que desee echar un vistazo a la aplicación de su consola y ver si notas algo fuera de lo normal.",
-                    "updated": 1624484492766,
+                    "text": "Sin embargo, es posible que desees echar un vistazo a la aplicación de su consola y ver si notas algo fuera de lo normal.",
+                    "updated": 1627319354994,
                     "style": "Text"
                 }
             ]

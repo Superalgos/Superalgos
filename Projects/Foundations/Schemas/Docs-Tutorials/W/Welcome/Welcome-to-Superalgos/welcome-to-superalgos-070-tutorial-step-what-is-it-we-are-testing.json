@@ -4,7 +4,7 @@
     "type": "Tutorial Step - What Is It We Are Testing?",
     "definition": {
         "icon": {
-            "name": "Trading\\trading-system",
+            "name": "trading\\trading-system",
             "project": "Foundations"
         },
         "text": "We've run a backtest but we haven't discussed the Trading System we are testing! Let's go through the basics!",

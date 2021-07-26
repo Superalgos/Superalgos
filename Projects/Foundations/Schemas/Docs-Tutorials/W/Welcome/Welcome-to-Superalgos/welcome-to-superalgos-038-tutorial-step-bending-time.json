@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Bending time?",
     "definition": {
         "icon": {
-            "name": "Time\\time-machine",
+            "name": "time\\time-machine",
             "project": "Foundations"
         },
         "text": "Ok... maybe it's not actually like bending, but, bear with me... You'll love how you can shape time machines to whatever format you wish.",
@@ -48,8 +48,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Pase el puntero del mouse sobre cualquiera de los bordes del marco turquesa que define la máquina del tiempo y ve qué sucede. ¿Ves cómo el borde está resaltado en amarillo?",
-                    "updated": 1624382739796,
+                    "text": "Pasa el puntero del mouse sobre cualquiera de los bordes del marco turquesa que define la máquina del tiempo y ve qué sucede. ¿Ves cómo el borde está resaltado en amarillo?",
+                    "updated": 1627304493474,
                     "style": "Text"
                 }
             ]

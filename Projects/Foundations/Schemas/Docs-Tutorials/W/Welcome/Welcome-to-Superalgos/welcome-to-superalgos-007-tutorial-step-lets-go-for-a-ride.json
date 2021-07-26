@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Let's Go for a Ride!",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "network"
         },
         "text": "Before I show you the rest of the menu, let's take a look at another hierarchy: the Network.",
@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Antes de mostrarte el resto del menú, echaremos un vistazo a otra jerarquía: la Network.",
-                "updated": 1624280539021,
+                "text": "Antes de mostrarte el resto del menú, echaremos un vistazo a otra jerarquía: El Network.",
+                "updated": 1627322677816,
                 "style": "Definition"
             },
             {
@@ -48,8 +48,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "La jerarquía de la red es la sala de control del sistema. Aquí es donde usted controla sus Data Tasks, Testing Trading Tasks, y Production Trading Tasks.",
-                    "updated": 1613595453982,
+                    "text": "La jerarquía de la red es la sala de control del sistema. Aquí es donde controlas tus Data Tasks, Testing Trading Tasks, y Production Trading Tasks.",
+                    "updated": 1627322647954,
                     "style": "Text"
                 },
                 {
@@ -152,7 +152,8 @@
                 {
                     "language": "FR",
                     "text": "Mais avant de commencer, j'ai une petite question pour vous : accédez-vous au Client a distance?",
-                    "updated": 1623952297046
+                    "updated": 1623952297046,
+                    "style": "Note"
                 }
             ]
         }

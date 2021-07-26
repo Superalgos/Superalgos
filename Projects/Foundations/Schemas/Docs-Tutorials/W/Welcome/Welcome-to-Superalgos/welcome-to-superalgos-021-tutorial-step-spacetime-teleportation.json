@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Spacetime Teleportation!",
     "definition": {
         "icon": {
-            "name": "Mouse\\mouse-right-click",
+            "name": "mouse\\mouse-right-click",
             "project": "Foundations"
         },
         "text": "Ok, you're not actually going to be teleporting, nor will you bend spacetime, but it almost feels like it! It's time to learn to use the design space map.",

@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Fire Up the Machine!",
     "definition": {
         "icon": {
-            "name": "Data\\data-tasks",
+            "name": "data\\data-tasks",
             "project": "Foundations"
         },
         "text": "Now it's time to fire up your Data Tasks operation.",
@@ -54,8 +54,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Le daremos unos minutos para ponernos al día con el tiempo actual. Recuerde, todos los indicadores deben llegar al 100% antes de que podamos comenzar a operar.",
-                    "updated": 1624479541695,
+                    "text": "Le daremos unos minutos para ponernos al día con el tiempo actual. Recuerda, todos los indicadores deben llegar al 100% antes de que podamos comenzar a operar.",
+                    "updated": 1627315370111,
                     "style": "Text"
                 }
             ]

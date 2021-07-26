@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Here's How it Works...",
     "definition": {
         "icon": {
-            "name": "Layer\\layer-resistance",
+            "name": "layer\\layer-resistance",
             "project": "Foundations"
         },
         "text": "Got it? The Trading Bot places the Limit Buy Order at the fourth support level! What's the logic behind this?",

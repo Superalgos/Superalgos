@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesValidations() {
+function newGovernanceUtilitiesValidations () {
     let thisObject = {
         onlyOneProgram: onlyOneProgram
     }

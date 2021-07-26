@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesBonusProgram() {
+function newGovernanceUtilitiesBonusProgram() {
     let thisObject = {
         run: run
     }
@@ -15,7 +15,7 @@ function newFoundationsUtilitiesBonusProgram() {
         let programPoolTokenReward
         /*
         In order to be able to calculate the share of the Program Pool for each User Profile,
-        we need to accumulate all the Participation Power that each User Profile at their Program
+        we need to accumulate all the Bonus Power that each User Profile at their Program
         node has, because with that Power is that each Program node gets a share of the pool.
          */
         let accumulatedProgramPower = 0
@@ -73,9 +73,17 @@ function newFoundationsUtilitiesBonusProgram() {
         function resetProgram(node) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
-            node.payload[programPropertyName] = {
-                bonusPower: 0,
-                bonus: {
+            if (node.payload[programPropertyName] === undefined) {
+                node.payload[programPropertyName] = {
+                    bonusPower: 0,
+                    bonus: {
+                        tokens: 0,
+                        percentage: 0
+                    }
+                }
+            } else {
+                node.payload[programPropertyName].bonusPower = 0
+                node.payload[programPropertyName].bonus = {
                     tokens: 0,
                     percentage: 0
                 }
@@ -100,13 +108,12 @@ function newFoundationsUtilitiesBonusProgram() {
         function distributeProgram(programNode) {
             if (programNode === undefined || programNode.payload === undefined) { return }
             /*
-            Here we will convert Token Power into Participation Power. 
-            As per system rules Participation Powar = tokensPower
+            To get into the Bonus Sub-Program we will use the usedPower previously calculated by the Program.
+            That means that only token power effectively used at the program (not just directed to it) will
+            be used to compute Bonuses.
             */
-            let programPower = programNode.payload.tokenPower
-            programNode.payload[programPropertyName].bonusPower = programPower
-
-            accumulatedProgramPower = accumulatedProgramPower + programPower
+            programNode.payload[programPropertyName].bonusPower = programNode.payload[programPropertyName].usedPower | 0
+            accumulatedProgramPower = accumulatedProgramPower + programNode.payload[programPropertyName].bonusPower 
         }
 
         function calculateProgram(programNode) {
@@ -127,7 +134,7 @@ function newFoundationsUtilitiesBonusProgram() {
             if (totalPowerRewardRatio < 1) { totalPowerRewardRatio = 1 }
 
             if (programNode.tokensBonus === undefined || programNode.tokensBonus.payload === undefined) {
-                programNode.payload.uiObject.setErrorMessage("Tokens Bonus Node is needed in order for this Program to get Tokens from the Program Pool.")
+                programNode.payload.uiObject.setErrorMessage("Tokens Bonus Node is needed in order for this Program to get Tokens from the Bonus Program Pool.")
                 return
             }
             programNode.payload[programPropertyName].bonus.tokens = programNode.payload[programPropertyName].bonusPower * totalPowerRewardRatio
@@ -138,7 +145,7 @@ function newFoundationsUtilitiesBonusProgram() {
         function drawProgram(node) {
             if (node.tokensBonus !== undefined && node.tokensBonus.payload !== undefined) {
 
-                const tokensBonusText = parseFloat(node.payload[programPropertyName].bonus.tokens.toFixed(2)).toLocaleString('en')
+                const tokensBonusText = parseFloat(node.payload[programPropertyName].bonus.tokens.toFixed(0)).toLocaleString('en')
 
                 node.tokensBonus.payload.uiObject.valueAngleOffset = 0
                 node.tokensBonus.payload.uiObject.valueAtAngle = true

@@ -9,15 +9,6 @@ function newGovernanceFunctionLibrarySupportProgram() {
         pools,
         userProfiles
     ) {
-
-        UI.projects.governance.utilities.bonusProgram.run(
-            pools,
-            userProfiles,
-            "supportProgram",
-            "Support-Bonus",
-            "Support Program"
-        )
-
         UI.projects.governance.utilities.decendentProgram.run(
             pools,
             userProfiles,
@@ -27,6 +18,14 @@ function newGovernanceFunctionLibrarySupportProgram() {
             "Support Power",
             "userSupporters",
             "User Supporter"
+        )
+
+        UI.projects.governance.utilities.bonusProgram.run(
+            pools,
+            userProfiles,
+            "supportProgram",
+            "Support-Bonus",
+            "Support Program"
         )
     }
 }

@@ -2,6 +2,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
     let thisObject = {
         calculate: calculate
     }
+    const MAX_GENERATIONS = 10
 
     return thisObject
 
@@ -9,15 +10,6 @@ function newGovernanceFunctionLibraryDelegationProgram() {
         pools,
         userProfiles
     ) {
-
-        /* Bonus Calculation is here */
-        UI.projects.governance.utilities.bonusProgram.run(
-            pools,
-            userProfiles,
-            "delegationProgram",
-            "Delegation-Bonus",
-            "Delegation Program"
-        )
         /*
         We will first reset all the delegate power, and then distribute it.
         */
@@ -44,43 +36,67 @@ function newGovernanceFunctionLibraryDelegationProgram() {
             distributeProgram(program)
         }
 
+        /* Bonus Calculation is here */
+        UI.projects.governance.utilities.bonusProgram.run(
+            pools,
+            userProfiles,
+            "delegationProgram",
+            "Delegation-Bonus",
+            "Delegation Program"
+        )
+
         function resetProgram(node) {
-            if (node === undefined) { return }
-            if (node.payload === undefined) { return }
-            node.payload.delegationProgram = {
-                programPower: 0,
-                ownPower: 0
-            }
+            resetNode(node, 0)
 
-            if (node.type === 'User Profile') {
-                return
-            }
-            if (node.payload.referenceParent !== undefined) {
-                resetProgram(node.payload.referenceParent)
-                return
-            }
-            let schemaDocument = getSchemaDocument(node)
-            if (schemaDocument === undefined) { return }
+            function resetNode(node, generation) {
 
-            if (schemaDocument.childrenNodesProperties !== undefined) {
-                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
-                    let property = schemaDocument.childrenNodesProperties[i]
+                if (generation >= MAX_GENERATIONS) {
+                    return
+                }
+                if (node === undefined) { return }
+                if (node.payload === undefined) { return }
+                if (node.payload.delegationProgram === undefined) {
+                    node.payload.delegationProgram = {
+                        programPower: 0,
+                        ownPower: 0,
+                        usedPower: 0
+                    }
+                } else {
+                    node.payload.delegationProgram.programPower = 0
+                    node.payload.delegationProgram.ownPower = 0
+                    node.payload.delegationProgram.usedPower = 0
+                }
 
-                    switch (property.type) {
-                        case 'node': {
-                            let childNode = node[property.name]
-                            resetProgram(childNode)
-                        }
-                            break
-                        case 'array': {
-                            let propertyArray = node[property.name]
-                            if (propertyArray !== undefined) {
-                                for (let m = 0; m < propertyArray.length; m++) {
-                                    let childNode = propertyArray[m]
-                                    resetProgram(childNode)
-                                }
+                if (node.type === 'User Profile') {
+                    return
+                }
+                if (node.payload.referenceParent !== undefined) {
+                    resetNode(node.payload.referenceParent, generation + 1)
+                    return
+                }
+                let schemaDocument = getSchemaDocument(node)
+                if (schemaDocument === undefined) { return }
+
+                if (schemaDocument.childrenNodesProperties !== undefined) {
+                    for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                        let property = schemaDocument.childrenNodesProperties[i]
+
+                        switch (property.type) {
+                            case 'node': {
+                                let childNode = node[property.name]
+                                resetNode(childNode, generation)
                             }
-                            break
+                                break
+                            case 'array': {
+                                let propertyArray = node[property.name]
+                                if (propertyArray !== undefined) {
+                                    for (let m = 0; m < propertyArray.length; m++) {
+                                        let childNode = propertyArray[m]
+                                        resetNode(childNode, generation)
+                                    }
+                                }
+                                break
+                            }
                         }
                     }
                 }
@@ -99,127 +115,155 @@ function newGovernanceFunctionLibraryDelegationProgram() {
             The Own Power is the power generated by the same User Profile tokens, not inherited from others.
             */
             programNode.payload.delegationProgram.ownPower = programPower
-            distributeProgramPower(programNode, programPower)
-        }
+            distributeProgramPower(programNode, programNode, programPower, undefined, 0)
 
-        function distributeProgramPower(node, programPower, percentage) {
-            if (node === undefined) { return }
-            if (node.payload === undefined) { return }
-            if (node.payload.delegationProgram === undefined) { return }
-
-            node.payload.delegationProgram.programPower = node.payload.delegationProgram.programPower + programPower
-            drawPower(node, node.payload.delegationProgram.programPower, percentage)
-            /*
-            When we reach certain node types, we will halt the distribution, because these are targets for 
-            delegate power.
-            */
-            if (
-                node.type === 'User Profile'
+            function distributeProgramPower(
+                currentProgramNode,
+                node,
+                programPower,
+                percentage,
+                generation
             ) {
-                return
-            }
-            /*
-            If there is a reference parent defined, this means that the delegate power is 
-            transfered to it and not distributed among children.
-            */
-            if (
-                node.payload.referenceParent !== undefined &&
-                node.type === 'User Delegate'
-            ) {
-                distributeProgramPower(node.payload.referenceParent, programPower / 10)
-                return
-            }
-            /*
-            If there is no reference parent we will redistribute delegate power among children.
-            */
-            let schemaDocument = getSchemaDocument(node)
-            if (schemaDocument === undefined) { return }
-
-            if (schemaDocument.childrenNodesProperties !== undefined) {
-                /*
-                Before distributing the delegate power, we will calculate how the power 
-                is going to be switched between all nodes. The first pass is about
-                scanning all sibling nodes to see which ones have a percentage defined
-                at their config, and check that all percentages don't add more than 100.
-                */
-                let totalPercentage = 0
-                let totalNodesWithoutPercentage = 0
-                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
-                    let property = schemaDocument.childrenNodesProperties[i]
-
-                    switch (property.type) {
-                        case 'node': {
-                            let childNode = node[property.name]
-                            if (childNode === undefined) { continue }
-                            if (childNode.type === 'Tokens Bonus') { continue }
-                            let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                            if (percentage !== undefined && isNaN(percentage) !== true) {
-                                totalPercentage = totalPercentage + percentage
-                            } else {
-                                totalNodesWithoutPercentage++
-                            }
-                        }
-                            break
-                        case 'array': {
-                            let propertyArray = node[property.name]
-                            if (propertyArray !== undefined) {
-                                for (let m = 0; m < propertyArray.length; m++) {
-                                    let childNode = propertyArray[m]
-                                    if (childNode === undefined) { continue }
-                                    if (childNode.type === 'Tokens Bonus') { continue }
-                                    let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                    if (percentage !== undefined && isNaN(percentage) !== true) {
-                                        totalPercentage = totalPercentage + percentage
-                                    } else {
-                                        totalNodesWithoutPercentage++
-                                    }
-                                }
-                            }
-                            break
-                        }
-                    }
-                }
-                if (totalPercentage > 100) {
-                    node.payload.uiObject.setErrorMessage('Delegate Power Switching Error. Total Percentage of children nodes is grater that 100.')
+                if (generation >= MAX_GENERATIONS) {
                     return
                 }
-                let defaultPercentage = 0
-                if (totalNodesWithoutPercentage > 0) {
-                    defaultPercentage = (100 - totalPercentage) / totalNodesWithoutPercentage
+                if (node === undefined) { return }
+                if (node.payload === undefined) { return }
+                if (node.payload.delegationProgram === undefined) { return }
+
+                node.payload.delegationProgram.programPower = node.payload.delegationProgram.programPower + programPower
+                drawPower(node, node.payload.delegationProgram.programPower, percentage)
+                /*
+                When we reach certain node types, we will halt the distribution, because these are targets for 
+                delegate power.
+                */
+                if (
+                    node.type === 'User Profile'
+                ) {
+                    return
                 }
                 /*
-                Here we do the actual distribution.
+                If there is a reference parent defined, this means that the delegate power is 
+                transfered to it and not distributed among children.
                 */
-                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
-                    let property = schemaDocument.childrenNodesProperties[i]
+                if (
+                    node.payload.referenceParent !== undefined &&
+                    node.type === 'User Delegate'
+                ) {
+                    currentProgramNode.payload.delegationProgram.usedPower = currentProgramNode.payload.delegationProgram.usedPower + programPower
+                    distributeProgramPower(
+                        currentProgramNode, 
+                        node.payload.referenceParent, 
+                        programPower / 10,
+                        undefined,
+                        generation + 1
+                        )
+                    return
+                }
+                /*
+                If there is no reference parent we will redistribute delegate power among children.
+                */
+                let schemaDocument = getSchemaDocument(node)
+                if (schemaDocument === undefined) { return }
 
-                    switch (property.type) {
-                        case 'node': {
-                            let childNode = node[property.name]
-                            if (childNode === undefined) { continue }
-                            if (childNode.type === 'Tokens Bonus') { continue }
-                            let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                            if (percentage === undefined || isNaN(percentage) === true) {
-                                percentage = defaultPercentage
-                            }
-                            distributeProgramPower(childNode, programPower * percentage / 100, percentage)
-                        }
-                            break
-                        case 'array': {
-                            let propertyArray = node[property.name]
-                            if (propertyArray !== undefined) {
-                                for (let m = 0; m < propertyArray.length; m++) {
-                                    let childNode = propertyArray[m]
-                                    if (childNode === undefined) { continue }
-                                    if (childNode.type === 'Tokens Bonus') { continue }
-                                    let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                    if (percentage === undefined || isNaN(percentage) === true) {
-                                        percentage = defaultPercentage
-                                    }
-                                    distributeProgramPower(childNode, programPower * percentage / 100, percentage)
+                if (schemaDocument.childrenNodesProperties !== undefined) {
+                    /*
+                    Before distributing the delegate power, we will calculate how the power 
+                    is going to be switched between all nodes. The first pass is about
+                    scanning all sibling nodes to see which ones have a percentage defined
+                    at their config, and check that all percentages don't add more than 100.
+                    */
+                    let totalPercentage = 0
+                    let totalNodesWithoutPercentage = 0
+                    for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                        let property = schemaDocument.childrenNodesProperties[i]
+
+                        switch (property.type) {
+                            case 'node': {
+                                let childNode = node[property.name]
+                                if (childNode === undefined) { continue }
+                                if (childNode.type === 'Tokens Bonus') { continue }
+                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                if (percentage !== undefined && isNaN(percentage) !== true) {
+                                    totalPercentage = totalPercentage + percentage
+                                } else {
+                                    totalNodesWithoutPercentage++
                                 }
                             }
-                            break
+                                break
+                            case 'array': {
+                                let propertyArray = node[property.name]
+                                if (propertyArray !== undefined) {
+                                    for (let m = 0; m < propertyArray.length; m++) {
+                                        let childNode = propertyArray[m]
+                                        if (childNode === undefined) { continue }
+                                        if (childNode.type === 'Tokens Bonus') { continue }
+                                        let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                        if (percentage !== undefined && isNaN(percentage) !== true) {
+                                            totalPercentage = totalPercentage + percentage
+                                        } else {
+                                            totalNodesWithoutPercentage++
+                                        }
+                                    }
+                                }
+                                break
+                            }
+                        }
+                    }
+                    if (totalPercentage > 100) {
+                        node.payload.uiObject.setErrorMessage('Delegate Power Switching Error. Total Percentage of children nodes is grater that 100.')
+                        return
+                    }
+                    let defaultPercentage = 0
+                    if (totalNodesWithoutPercentage > 0) {
+                        defaultPercentage = (100 - totalPercentage) / totalNodesWithoutPercentage
+                    }
+                    /*
+                    Here we do the actual distribution.
+                    */
+                    for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                        let property = schemaDocument.childrenNodesProperties[i]
+
+                        switch (property.type) {
+                            case 'node': {
+                                let childNode = node[property.name]
+                                if (childNode === undefined) { continue }
+                                if (childNode.type === 'Tokens Bonus') { continue }
+                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                if (percentage === undefined || isNaN(percentage) === true) {
+                                    percentage = defaultPercentage
+                                }
+                                distributeProgramPower(
+                                    currentProgramNode, 
+                                    childNode, 
+                                    programPower * percentage / 100, 
+                                    percentage,
+                                    generation
+                                    )
+                            }
+                                break
+                            case 'array': {
+                                let propertyArray = node[property.name]
+                                if (propertyArray !== undefined) {
+                                    for (let m = 0; m < propertyArray.length; m++) {
+                                        let childNode = propertyArray[m]
+                                        if (childNode === undefined) { continue }
+                                        if (childNode.type === 'Tokens Bonus') { continue }
+                                        let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                        if (percentage === undefined || isNaN(percentage) === true) {
+                                            percentage = defaultPercentage
+                                        }
+                                        distributeProgramPower(
+                                            currentProgramNode, 
+                                            childNode, 
+                                            programPower * percentage / 100, 
+                                            percentage,
+                                            generation
+                                            )
+                                    }
+                                }
+                                break
+                            }
                         }
                     }
                 }
@@ -249,7 +293,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                     node.payload.uiObject.percentageAtAngle = true
                     let powerType = 'Delegate Power'
 
-                    const programPowerText = parseFloat(programPower.toFixed(2)).toLocaleString('en') + ' ' + powerType
+                    const programPowerText = parseFloat(programPower.toFixed(0)).toLocaleString('en') + ' ' + powerType
                     node.payload.uiObject.setValue(programPowerText)
 
                     if (percentage !== undefined) {
@@ -261,7 +305,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
             function drawUserNode(node, programPower, percentage) {
                 if (node.payload !== undefined) {
 
-                    const outgoingPowerText = parseFloat(programPower.toFixed(2)).toLocaleString('en')
+                    const outgoingPowerText = parseFloat(programPower.toFixed(0)).toLocaleString('en')
 
                     node.payload.uiObject.valueAngleOffset = 180
                     node.payload.uiObject.valueAtAngle = true
@@ -285,7 +329,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
             function drawProgram(node) {
                 if (node.payload !== undefined) {
 
-                    const ownPowerText = parseFloat(node.payload.delegationProgram.ownPower.toFixed(2)).toLocaleString('en')
+                    const ownPowerText = parseFloat(node.payload.delegationProgram.ownPower.toFixed(0)).toLocaleString('en')
 
                     node.payload.uiObject.statusAngleOffset = 0
                     node.payload.uiObject.statusAtAngle = false

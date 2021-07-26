@@ -9,15 +9,7 @@ function newGovernanceFunctionLibraryMentorshipProgram() {
         pools,
         userProfiles
     ) {
-                
-        UI.projects.governance.utilities.bonusProgram.run(
-            pools,
-            userProfiles,
-            "mentorshipProgram",
-            "Mentorship-Bonus",
-            "Mentorship Program"
-        )
-
+            
         UI.projects.governance.utilities.decendentProgram.run(
             pools,
             userProfiles,
@@ -27,6 +19,14 @@ function newGovernanceFunctionLibraryMentorshipProgram() {
             "Mentorship Power",
             "userMentors",
             "User Mentor"
+        )
+
+        UI.projects.governance.utilities.bonusProgram.run(
+            pools,
+            userProfiles,
+            "mentorshipProgram",
+            "Mentorship-Bonus",
+            "Mentorship Program"
         )
     }
 }

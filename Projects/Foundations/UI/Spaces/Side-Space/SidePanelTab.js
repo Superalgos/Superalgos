@@ -6,6 +6,8 @@ function newSidePanelTab() {
         container: undefined,
         isOpen: false,
         isClosed: true,
+        tabIcon: undefined,
+        tabLabel: undefined,
         index: 0,
         open: open,
         close: close,
@@ -13,10 +15,11 @@ function newSidePanelTab() {
         physics: physics,
         draw: draw,
         getContainer: getContainer,
-        initialize: initialize
+        initialize: initialize,
+        finalize: finalize
     }
 
-    const TAB_WIDTH = 25
+    const TAB_WIDTH = 60
     const TAB_HEIGHT = TOP_SPACE_HEIGHT * 2
     const ANIMATION_STEP = 100
 
@@ -24,6 +27,7 @@ function newSidePanelTab() {
     let animation = 'none'
     let ORIGINAL_PARENT_POSITON
     let xOffset = 0
+    let onMouseClickEventSubscriptionId
 
     thisObject.container = newContainer()
     thisObject.container.name = MODULE_NAME
@@ -33,12 +37,17 @@ function newSidePanelTab() {
 
     return thisObject
 
+    function finalize() {
+        thisObject.pointerDirection = undefined
+        thisObject.container.eventHandler.stopListening(onMouseClickEventSubscriptionId)
+    }
+
     function initialize(screenside, index) {
         thisObject.screenside = screenside
         if (index !== undefined) {
             thisObject.index = index
         }
-            
+
         switch (thisObject.screenside) {
             case 'left': {
                 thisObject.pointerDirection = 'left'
@@ -52,7 +61,7 @@ function newSidePanelTab() {
         thisObject.container.frame.width = TAB_WIDTH
         thisObject.container.frame.height = TAB_HEIGHT
 
-        thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+        onMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
         resize()
         isInitialized = true
     }
@@ -124,15 +133,15 @@ function newSidePanelTab() {
     }
 
     function positionPhysics() {
-        if (UI.projects.foundations.spaces.chartingSpace.viewport !== undefined) {
-            thisObject.container.frame.position.y = browserCanvas.height / 2 - TAB_HEIGHT / 2 //  TOP_SPACE_HEIGHT + UI.projects.foundations.spaces.chartingSpace.viewport.marginAmount + TAB_HEIGHT * thisObject.index
-        }
+        thisObject.container.frame.position.y = browserCanvas.height / 2 - TAB_HEIGHT / 2 + (thisObject.index - 1) * TAB_HEIGHT 
     }
 
     function draw() {
         if (isInitialized === false) { return }
         borders()
         arrow()
+        tabIcon()
+        tabLabel()
     }
 
     function animate() {
@@ -198,6 +207,7 @@ function newSidePanelTab() {
             }
         }
     }
+
     function setClosed() {
         thisObject.isClosed = true
         animation = 'none'
@@ -224,33 +234,33 @@ function newSidePanelTab() {
 
         if (thisObject.pointerDirection === 'left') {
             point1 = {
-                x: TAB_WIDTH * 3.5 / 10,
-                y: TAB_HEIGHT * 12.5 / 30
+                x: TAB_WIDTH * 4.0 / 10,
+                y: TAB_HEIGHT * 2.5 / 30
             }
 
             point2 = {
-                x: TAB_WIDTH * 6.5 / 10,
-                y: TAB_HEIGHT * 15 / 30
+                x: TAB_WIDTH * 6.0 / 10,
+                y: TAB_HEIGHT * 5 / 30
             }
 
             point3 = {
-                x: TAB_WIDTH * 3.5 / 10,
-                y: TAB_HEIGHT * 17.5 / 30
+                x: TAB_WIDTH * 4.0 / 10,
+                y: TAB_HEIGHT * 7.5 / 30
             }
         } else {
             point1 = {
-                x: TAB_WIDTH * 6.5 / 10,
-                y: TAB_HEIGHT * 12.5 / 30
+                x: TAB_WIDTH * 6.0 / 10,
+                y: TAB_HEIGHT * 2.5 / 30
             }
 
             point2 = {
-                x: TAB_WIDTH * 3.5 / 10,
-                y: TAB_HEIGHT * 15 / 30
+                x: TAB_WIDTH * 4.0 / 10,
+                y: TAB_HEIGHT * 5 / 30
             }
 
             point3 = {
-                x: TAB_WIDTH * 6.5 / 10,
-                y: TAB_HEIGHT * 17.5 / 30
+                x: TAB_WIDTH * 6.0 / 10,
+                y: TAB_HEIGHT * 7.5 / 30
             }
         }
 
@@ -341,6 +351,49 @@ function newSidePanelTab() {
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREY + ', ' + opacity + ''
         browserCanvasContext.lineWidth = 0.3
         browserCanvasContext.setLineDash([]) // Resets Line Dash
+        browserCanvasContext.stroke()
+    }
+
+    function tabIcon() {
+        if (thisObject.tabIcon === undefined) { return }
+        if (thisObject.tabIcon.canDrawIcon !== true) { return }
+
+        let imageSize = 30
+
+        let imagePosition = {
+            x: TAB_WIDTH * 1 / 2,
+            y: TAB_HEIGHT * 1 / 2
+        }
+
+        imagePosition = thisObject.container.frame.frameThisPoint(imagePosition)
+
+        browserCanvasContext.drawImage(
+            thisObject.tabIcon,
+            imagePosition.x - imageSize / 2,
+            imagePosition.y - imageSize / 2,
+            imageSize,
+            imageSize)
+
+    }
+
+    function tabLabel() {
+
+        if (thisObject.tabLabel === undefined) { return }
+
+        let labelPosition = {
+            x: TAB_WIDTH * 1 / 2,
+            y: TAB_HEIGHT * 7 / 8
+        }
+
+        labelPosition = thisObject.container.frame.frameThisPoint(labelPosition)
+
+        browserCanvasContext.font = 12 + 'px ' + UI_FONT.PRIMARY
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREY + ', 1)'
+        browserCanvasContext.fillText(
+            thisObject.tabLabel,
+            labelPosition.x - getTextWidth(thisObject.tabLabel) / 2,
+            labelPosition.y
+        )
         browserCanvasContext.stroke()
     }
 }

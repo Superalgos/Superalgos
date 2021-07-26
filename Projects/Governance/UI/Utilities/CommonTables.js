@@ -68,7 +68,7 @@ function newGovernanceUtilitiesCommonTables() {
             let node = nodes[j]
 
             let tableRecord = {
-                "name": node.name,
+                "name": node.payload.parentNode.name + ' - ' + node.name,
                 "tokensReward": node.payload.tokens | 0,
                 "weight": node.payload.weight,
                 "weightPower": node.payload.votingProgram.votes

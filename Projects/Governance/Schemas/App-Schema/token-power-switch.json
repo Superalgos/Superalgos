@@ -79,6 +79,15 @@
             "relatedUiObject": "Delegation Program"
         },
         {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "githubProgram",
+            "label": "Add Github Program",
+            "relatedUiObject": "Github Program"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Foundations",
             "askConfirmation": true,
@@ -148,6 +157,12 @@
             "name": "delegationProgram",
             "type": "node",
             "childType": "Delegation Program",
+            "autoAdd": false
+        },
+        {
+            "name": "githubProgram",
+            "type": "node",
+            "childType": "Github Program",
             "autoAdd": false
         }
     ]

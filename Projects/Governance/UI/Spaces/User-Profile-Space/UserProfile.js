@@ -33,6 +33,12 @@ function newGovernanceUserProfileSpace() {
         at the Github Program. 
         */
 
+        /*
+        If the workspace is not related to governance, then we exit the Intialize Function
+        */
+        let resultsArary = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+        if (resultsArary.length === 0) { return }
+
         /* Find the Username and Password */
         let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
         if (apisNode === undefined) {
@@ -58,7 +64,7 @@ function newGovernanceUserProfileSpace() {
             return
         }
 
-        requestStars() 
+        requestStars()
 
         function requestStars() {
             httpRequest(
@@ -102,7 +108,7 @@ function newGovernanceUserProfileSpace() {
 
             requestWatchers()
         }
-        
+
         function onGithubWatchersResponse(err, githubData) {
             //console.log(githubData)
             /* Lets check the result of the call through the http interface */
@@ -115,7 +121,7 @@ function newGovernanceUserProfileSpace() {
 
             requestForks()
         }
-        
+
         function onGithubForksResponse(err, githubData) {
             //console.log(githubData)
             /* Lets check the result of the call through the http interface */

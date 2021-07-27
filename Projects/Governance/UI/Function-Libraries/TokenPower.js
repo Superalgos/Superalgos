@@ -49,7 +49,8 @@ function newGovernanceFunctionLibraryTokenPower() {
             node.type === 'Voting Program' ||
             node.type === 'Claims Program' ||
             node.type === 'Staking Program' ||
-            node.type === 'Delegation Program'
+            node.type === 'Delegation Program' ||
+            node.type === 'Github Program'
         ) { return }
         /*
         We will reset token power of children.
@@ -149,7 +150,8 @@ function newGovernanceFunctionLibraryTokenPower() {
             node.type === 'Voting Program' ||
             node.type === 'Claims Program' ||
             node.type === 'Staking Program' ||
-            node.type === 'Delegation Program'
+            node.type === 'Delegation Program' ||
+            node.type === 'Github Program'
         ) { return }
         /*
         We will redistribute token power among children.

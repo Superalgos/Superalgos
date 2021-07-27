@@ -2,6 +2,7 @@ function newGovernanceUserProfileSpace() {
     const MODULE_NAME = 'User Profile Space'
 
     let thisObject = {
+        githubStars: undefined,
         container: undefined,
         physics: physics,
         draw: draw,
@@ -17,13 +18,66 @@ function newGovernanceUserProfileSpace() {
     let waitingForResponses = 0
     let timer = 0
 
+    thisObject.githubStars = new Map()
+
     return thisObject
 
     function initialize() {
+        /*
+        Here we will get a list of all github usernames who have a star or fork and are watching the
+        Superalgos Repository. This will later be used to know which user profiles are participating
+        at the Github Program. 
+        */
 
+        /* Find the Username and Password */
+        let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
+        if (apisNode === undefined) {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            return
+        }
+        if (apisNode.githubAPI === undefined) {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            return
+        }
+
+        let config = JSON.parse(apisNode.githubAPI.config)
+        if (config.username === undefined || config.username === "") {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            return
+        }
+        if (config.token === undefined || config.token === "") {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            return
+        }
+
+        httpRequest(
+            undefined,
+            'Gov/getRepoInfo/' +
+            'Superalgos' + '/' +
+            config.username + '/' +
+            config.token
+            , onGithubStarsResponse)
+
+        return
+
+        function onGithubStarsResponse(err, githubStarsArray) {
+             /* Lets check the result of the call through the http interface */
+            githubStarsArray = JSON.parse(githubStarsArray)
+
+            for (let i = 0; i < githubStarsArray.length; i++) {
+                githubUsername = githubStarsArray[i]
+                thisObject.githubStars.set(githubUsername, true)
+            }
+        }
     }
 
     function finalize() {
+        thisObject.githubStars = undefined
+
         thisObject.container.finalize()
         thisObject.container = undefined
     }

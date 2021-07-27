@@ -4,6 +4,7 @@ function newGovernanceUserProfileSpace() {
     let thisObject = {
         githubStars: undefined,
         githubWatchers: undefined,
+        githubForks: undefined,
         container: undefined,
         physics: physics,
         draw: draw,
@@ -21,6 +22,7 @@ function newGovernanceUserProfileSpace() {
 
     thisObject.githubStars = new Map()
     thisObject.githubWatchers = new Map()
+    thisObject.githubForks = new Map()
 
     return thisObject
 
@@ -55,7 +57,7 @@ function newGovernanceUserProfileSpace() {
             UI.projects.education.spaces.docsSpace.sidePanelTab.open()
             return
         }
-
+        console.log('httpRequest')
         httpRequest(
             undefined,
             'Gov/getRepoInfo/' +
@@ -67,10 +69,12 @@ function newGovernanceUserProfileSpace() {
         return
 
         function onGithubStarsResponse(err, githubData) {
-             /* Lets check the result of the call through the http interface */
+            console.log(githubData)
+            /* Lets check the result of the call through the http interface */
             let githubGithubDataObject = JSON.parse(githubData)
             let githubStarsArray = githubGithubDataObject.starsListArray
             let githubWatchersArray = githubGithubDataObject.watchersListArray
+            let githubForksArray = githubGithubDataObject.forksListArray
 
             for (let i = 0; i < githubStarsArray.length; i++) {
                 let githubUsername = githubStarsArray[i]
@@ -80,6 +84,11 @@ function newGovernanceUserProfileSpace() {
             for (let i = 0; i < githubWatchersArray.length; i++) {
                 let githubUsername = githubWatchersArray[i]
                 thisObject.githubWatchers.set(githubUsername, true)
+            }
+
+            for (let i = 0; i < githubForksArray.length; i++) {
+                let githubUsername = githubForksArray[i]
+                thisObject.githubForks.set(githubUsername, true)
             }
         }
     }

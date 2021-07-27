@@ -1021,20 +1021,22 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
             case 'Gov': {
                 switch (requestParameters[2]) { // switch by command
-                    case 'getRepoInfo': {
+                    case 'getGithubStars': {
                         try {
-                            const GITHUB_API_WAITING_TIME = 1000
+                            console.log('getRepoInfo')
+                            const GITHUB_API_WAITING_TIME = 250
                             const repository = unescape(requestParameters[3])
                             const username = unescape(requestParameters[4])
                             const token = unescape(requestParameters[5])
                             let error
                             let starsListArray = []
                             let watchersListArray = []
+                            let forksListArray = []
 
                             getRepoInfo()
 
                             async function getRepoInfo() {
-
+                                console.log('doGithub')
                                 await doGithub()
                                 if (error !== undefined) {
 
@@ -1051,9 +1053,11 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 }
 
                                 let responseObject = {
-                                    starsListArray: starsListArray, 
-                                    watchersListArray: watchersListArray
+                                    starsListArray: starsListArray,
+                                    watchersListArray: watchersListArray,
+                                    forksListArray: forksListArray
                                 }
+                                console.log('responseObject', starsListArray.length, watchersListArray.length, forksListArray.length)
                                 respondWithContent(JSON.stringify(responseObject), httpResponse)
                             }
 
@@ -1065,9 +1069,12 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     auth: token,
                                     userAgent: 'Superalgos Beta 10'
                                 })
-
+                                console.log('getStars')
                                 await getStars()
-                                await getWatchers() 
+                                console.log('getWatchers')
+                                await getWatchers()
+                                console.log('getForks')
+                                await getForks()
 
                                 async function getStars() {
                                     const repo = repository
@@ -1159,6 +1166,54 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                                 console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getWatchers ->username = ' + username)
                                                 console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getWatchers ->token starts with = ' + token.substring(0, 10) + '...')
                                                 console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getWatchers ->token ends with = ' + '...' + token.substring(token.length - 10))
+                                                error = err
+                                            }
+                                        }
+                                    }
+                                }
+
+                                async function getForks() {
+                                    const repo = repository
+                                    const owner = 'Superalgos'
+                                    const per_page = 100 // Max
+                                    let page = 0
+                                    let lastPage = false
+
+                                    while (lastPage === false) {
+                                        try {
+                                            page++
+                                            await sleep(GITHUB_API_WAITING_TIME)
+                                            let forksListResponse = await octokit.repos.listForks({
+                                                owner,
+                                                repo,
+                                                per_page,
+                                                page
+                                            });
+
+                                            if (forksListResponse.data.length < 100) {
+                                                lastPage = true
+                                            }
+
+                                            for (let i = 0; i < forksListResponse.data.length; i++) {
+                                                let fork = forksListResponse.data[i]
+                                                forksListArray.push(fork.login)
+                                            }
+
+                                            console.log('[INFO] httpInterface -> Gov -> getRepoInfo -> doGithub -> getForks -> Forks Page = ' + page)
+                                            console.log('[INFO] httpInterface -> Gov -> getRepoInfo -> doGithub -> getForks -> Forks Received = ' + forksListResponse.data.length)
+
+                                        } catch (err) {
+                                            console.log(err)
+
+                                            if (err.stack.indexOf('last page') >= 0) {
+                                                return
+                                            } else {
+                                                console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getForks ->Method call produced an error.')
+                                                console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getForks ->err.stack = ' + err.stack)
+                                                console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getForks ->commitMessage = ' + repository)
+                                                console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getForks ->username = ' + username)
+                                                console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getForks ->token starts with = ' + token.substring(0, 10) + '...')
+                                                console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getForks ->token ends with = ' + '...' + token.substring(token.length - 10))
                                                 error = err
                                             }
                                         }

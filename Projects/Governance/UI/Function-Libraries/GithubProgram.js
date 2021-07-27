@@ -122,10 +122,12 @@ function newGovernanceFunctionLibraryGithubProgram() {
             let githubUsername = profileSignature.message
             node.payload.githubProgram.hasStar = UI.projects.governance.spaces.userProfileSpace.githubStars.get(githubUsername)
             node.payload.githubProgram.hasWatch = UI.projects.governance.spaces.userProfileSpace.githubWatchers.get(githubUsername)
+            node.payload.githubProgram.hasFork = UI.projects.governance.spaces.userProfileSpace.githubForks.get(githubUsername)
             node.payload.githubProgram.engagement = 0
 
             if (node.payload.githubProgram.hasStar === true) { node.payload.githubProgram.engagement++ }
             if (node.payload.githubProgram.hasWatch === true) { node.payload.githubProgram.engagement++ }
+            if (node.payload.githubProgram.hasFork === true) { node.payload.githubProgram.engagement++ }
 
             if (
                 node.payload.githubProgram.engagement > 0) {
@@ -168,7 +170,7 @@ function newGovernanceFunctionLibraryGithubProgram() {
                 programNode.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.")
                 return
             }
-            const MAX_ENGAGEMENT = 2
+            const MAX_ENGAGEMENT = 3
             programNode.payload.githubProgram.awarded.tokens = programNode.payload.githubProgram.ownPower / totalPowerRewardRatio  * programNode.payload.githubProgram.engagement / MAX_ENGAGEMENT
 
             drawProgram(programNode)
@@ -202,6 +204,9 @@ function newGovernanceFunctionLibraryGithubProgram() {
                 }
                 if (node.payload.githubProgram.hasWatch === true) {
                     extraText = extraText + ' 1 Watch'
+                }
+                if (node.payload.githubProgram.hasWatch === true) {
+                    extraText = extraText + ' 1 Fork'
                 }
 
                 node.tokensAwarded.payload.uiObject.setStatus('From' + extraText)

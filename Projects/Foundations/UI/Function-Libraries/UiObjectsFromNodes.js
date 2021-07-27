@@ -308,11 +308,54 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
             }
             if (node.savedPayload !== undefined) {
                 if (node.savedPayload.referenceParent !== undefined) { // these are children recreated
+                    // Reestablish based on Id
                     node.payload.referenceParent = mapOfNodes.get(node.savedPayload.referenceParent.id)
-                    if (node.payload.referenceParent === undefined) {
-                        //console.log('[WARN]' + node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
-                    }
-                }
+                    //console.log("this is the node we tried to connect to", node.payload.referenceParent)
+                    if (node.payload.referenceParent === undefined) { 
+                        console.log('this node failed to connect' + node.type + ' ' + node.name, node )
+                        let rawPath = node.savedPayload.referenceParentCombinedNodePath
+                        if (rawPath !== undefined) {
+                            console.log('this is a saved path',node.savedPayload.referenceParentCombinedNodePath)
+                            // Attempt to reestablish reference based on saved path
+                            let nodePath = []
+                            let headNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByCodeNameAndNodeType(rawPath[0][0], rawPath[0][1]) 
+                            console.log('this is our returned head node', headNode)
+                            // Loop through saved Path and gather nodes
+                            /*for (let i = 0; i < rawPath.length; i++) {
+                                console.log("we are at this step in the node path", rawPath[i])
+                                // Loop through map of nodes to find each node in path 
+                                for (let x = 0; x < mapOfNodes.length; x++) {
+                                    let mapNode = mapOfNodes[x]
+                                    let mapNodeCodeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(mapNode.payload, 'codeName')
+                                    if (mapNodeCodeName === rawPath[i][0] && mapNode.type === ) {
+                                        nodePath.push(mapNode)
+                                    }
+                                } 
+                                console.log("nodePath", nodePath)
+                            }*/
+                        }
+                     }
+
+                    // need to figure out how to check that this has failed to move to path implimentation
+                        
+
+                       
+                        function getMapNodeByCodeNameAndNodeType(codeName, nodeType) {
+                            for (let i = 0; i < mapOfNodes.length; i++) {
+                                let mapNode = mapOfNodes[i]
+                                let mapNodeCodeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(mapNode.payload, 'codeName')
+                                if (mapNodeCodeName === codeName && mapNode.type === nodeType) {
+                                    return mapNode
+                                }
+                            }
+                        }
+                        //console.log("this is the node", node, "saved path", path, "and map", mapOfNodes )
+                        
+                        if (node.payload.referenceParent === undefined) {
+                            //console.log('[WARN]' + node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
+                        }
+                    
+                } 
             }
         }
     }

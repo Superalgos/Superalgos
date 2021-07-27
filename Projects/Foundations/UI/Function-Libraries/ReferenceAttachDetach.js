@@ -21,7 +21,7 @@ function newFoundationsFunctionLibraryAttachDetach() {
     function storeAttachNodePath(node, attachToNode) {
         let attachNodePath = UI.projects.foundations.utilities.hierarchy.getNodeNameTypePath(attachToNode)
         // Save attach path to active payload
-        node.payload.referenceParentCombinedNodePath = { path: attachNodePath }
+        node.payload.referenceParentCombinedNodePath = attachNodePath
     }
 
     // Clear the path to reference parent when the reference is cleared

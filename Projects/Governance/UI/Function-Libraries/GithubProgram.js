@@ -126,7 +126,7 @@ function newGovernanceFunctionLibraryGithubProgram() {
                 node.payload.githubProgram.isActive = true
             } else {
                 node.payload.githubProgram.isActive = false
-            }    
+            }
         }
 
         function distributeProgram(programNode) {
@@ -185,6 +185,16 @@ function newGovernanceFunctionLibraryGithubProgram() {
                 node.tokensAwarded.payload.uiObject.valueAtAngle = false
 
                 node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens')
+
+                node.tokensAwarded.payload.uiObject.statusAngleOffset = 0
+                node.tokensAwarded.payload.uiObject.statusAtAngle = false
+
+                let extraText = ''
+                if (node.payload.githubProgram.hasStar === true) {
+                    extraText = ' 1 Star'
+                }
+
+                node.tokensAwarded.payload.uiObject.setStatus('From' + extraText)
             }
         }
     }

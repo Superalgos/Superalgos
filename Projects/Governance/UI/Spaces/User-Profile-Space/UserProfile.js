@@ -57,34 +57,69 @@ function newGovernanceUserProfileSpace() {
             UI.projects.education.spaces.docsSpace.sidePanelTab.open()
             return
         }
-        console.log('httpRequest')
-        httpRequest(
-            undefined,
-            'Gov/getRepoInfo/' +
-            'Superalgos' + '/' +
-            config.username + '/' +
-            config.token
-            , onGithubStarsResponse)
 
-        return
+        requestStars() 
+
+        function requestStars() {
+            httpRequest(
+                undefined,
+                'Gov/getGithubStars/' +
+                'Superalgos' + '/' +
+                config.username + '/' +
+                config.token
+                , onGithubStarsResponse)
+        }
+
+        function requestWatchers() {
+            httpRequest(
+                undefined,
+                'Gov/getGithubWatchers/' +
+                'Superalgos' + '/' +
+                config.username + '/' +
+                config.token
+                , onGithubWatchersResponse)
+        }
+
+        function requestForks() {
+            httpRequest(
+                undefined,
+                'Gov/getGithubForks/' +
+                'Superalgos' + '/' +
+                config.username + '/' +
+                config.token
+                , onGithubForksResponse)
+        }
 
         function onGithubStarsResponse(err, githubData) {
-            console.log(githubData)
+            //console.log(githubData)
             /* Lets check the result of the call through the http interface */
-            let githubGithubDataObject = JSON.parse(githubData)
-            let githubStarsArray = githubGithubDataObject.starsListArray
-            let githubWatchersArray = githubGithubDataObject.watchersListArray
-            let githubForksArray = githubGithubDataObject.forksListArray
+            let githubStarsArray = JSON.parse(githubData)
 
             for (let i = 0; i < githubStarsArray.length; i++) {
                 let githubUsername = githubStarsArray[i]
                 thisObject.githubStars.set(githubUsername, true)
             }
 
+            requestWatchers()
+        }
+        
+        function onGithubWatchersResponse(err, githubData) {
+            //console.log(githubData)
+            /* Lets check the result of the call through the http interface */
+            let githubWatchersArray = JSON.parse(githubData)
+
             for (let i = 0; i < githubWatchersArray.length; i++) {
                 let githubUsername = githubWatchersArray[i]
                 thisObject.githubWatchers.set(githubUsername, true)
             }
+
+            requestForks()
+        }
+        
+        function onGithubForksResponse(err, githubData) {
+            //console.log(githubData)
+            /* Lets check the result of the call through the http interface */
+            let githubForksArray = JSON.parse(githubData)
 
             for (let i = 0; i < githubForksArray.length; i++) {
                 let githubUsername = githubForksArray[i]

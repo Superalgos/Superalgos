@@ -200,13 +200,13 @@ function newGovernanceFunctionLibraryGithubProgram() {
 
                 let extraText = ''
                 if (node.payload.githubProgram.hasStar === true) {
-                    extraText = extraText + ' 1 Star'
+                    extraText = extraText + ' + 1 Star'
                 }
                 if (node.payload.githubProgram.hasWatch === true) {
-                    extraText = extraText + ' 1 Watch'
+                    extraText = extraText + ' + 1 Watch'
                 }
-                if (node.payload.githubProgram.hasWatch === true) {
-                    extraText = extraText + ' 1 Fork'
+                if (node.payload.githubProgram.hasFork === true) {
+                    extraText = extraText + ' + 1 Fork'
                 }
 
                 node.tokensAwarded.payload.uiObject.setStatus('From' + extraText)

@@ -447,6 +447,10 @@ function newGovernanceFunctionLibraryVotingProgram() {
                 }
 
                 const votesText = parseFloat(votes.toFixed(0)).toLocaleString('en') + ' ' + voteType
+                
+                node.payload.uiObject.valueAngleOffset = 0
+                node.payload.uiObject.valueAtAngle = true
+
                 node.payload.uiObject.setValue(votesText)
 
                 if (percentage !== undefined) {

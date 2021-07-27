@@ -175,6 +175,10 @@ function newGovernanceFunctionLibraryTokens() {
         }
 
         if (node.payload !== undefined) {
+
+            node.payload.uiObject.statusAngleOffset = 0
+            node.payload.uiObject.statusAtAngle = true
+
             node.payload.uiObject.setStatus(status)
         }
     }

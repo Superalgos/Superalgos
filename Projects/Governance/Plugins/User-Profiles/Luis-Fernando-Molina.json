@@ -239,7 +239,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 3,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -4116,7 +4116,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": false,
+                            "isCollapsed": true,
                             "angleToParent": 3,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -4236,7 +4236,7 @@
             {
                 "type": "Token Power Switch",
                 "name": "Delegation",
-                "config": "{}",
+                "config": "{\n    \"percentage\": 20\n}",
                 "project": "Governance",
                 "tokenPowerSwitch": [],
                 "delegationProgram": {
@@ -4531,7 +4531,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 2,
             "distanceToParent": 3,
             "arrangementStyle": 0

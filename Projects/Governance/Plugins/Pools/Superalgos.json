@@ -1378,8 +1378,8 @@
                             "id": "018f1bfc-c56a-4c25-8624-5822809449a2",
                             "savedPayload": {
                                 "position": {
-                                    "x": 25012.29870102263,
-                                    "y": 30092.871886898894
+                                    "x": 25084.652987491874,
+                                    "y": 30062.901760147506
                                 },
                                 "targetPosition": {
                                     "x": 25162.29870102263,
@@ -1389,7 +1389,7 @@
                                     "isPinned": false,
                                     "isFrozen": false,
                                     "isCollapsed": false,
-                                    "angleToParent": 2,
+                                    "angleToParent": 3,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
@@ -1408,8 +1408,8 @@
                             "id": "607b4bee-2d75-4842-a5de-1eacc7dc0150",
                             "savedPayload": {
                                 "position": {
-                                    "x": 25312.29870102263,
-                                    "y": 30092.871886898894
+                                    "x": 25239.94441455339,
+                                    "y": 30062.901760147506
                                 },
                                 "targetPosition": {
                                     "x": 25162.29870102263,
@@ -1419,7 +1419,7 @@
                                     "isPinned": false,
                                     "isFrozen": false,
                                     "isCollapsed": false,
-                                    "angleToParent": 2,
+                                    "angleToParent": 3,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
@@ -1469,8 +1469,8 @@
                             "id": "668d3f18-41dd-4c13-b057-a7916316c19a",
                             "savedPayload": {
                                 "position": {
-                                    "x": 25452.076448909353,
-                                    "y": 30150.769725791542
+                                    "x": 25524.430735378595,
+                                    "y": 30180.73985254293
                                 },
                                 "targetPosition": {
                                     "x": 25374.430735378595,
@@ -1480,7 +1480,7 @@
                                     "isPinned": false,
                                     "isFrozen": false,
                                     "isCollapsed": false,
-                                    "angleToParent": 2,
+                                    "angleToParent": 3,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
@@ -1499,8 +1499,8 @@
                             "id": "aa157869-196c-48a9-beef-439a859e3438",
                             "savedPayload": {
                                 "position": {
-                                    "x": 25664.208483265316,
-                                    "y": 30362.901760147506
+                                    "x": 25634.238356513928,
+                                    "y": 30290.547473678263
                                 },
                                 "targetPosition": {
                                     "x": 25374.430735378595,
@@ -1510,7 +1510,7 @@
                                     "isPinned": false,
                                     "isFrozen": false,
                                     "isCollapsed": false,
-                                    "angleToParent": 2,
+                                    "angleToParent": 3,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
@@ -1560,8 +1560,8 @@
                             "id": "53e2bf54-b312-417a-9a32-ca6b21046a87",
                             "savedPayload": {
                                 "position": {
-                                    "x": 25722.106322157964,
-                                    "y": 30502.679508034227
+                                    "x": 25752.076448909353,
+                                    "y": 30575.03379450347
                                 },
                                 "targetPosition": {
                                     "x": 25462.29870102263,
@@ -1571,7 +1571,7 @@
                                     "isPinned": false,
                                     "isFrozen": false,
                                     "isCollapsed": false,
-                                    "angleToParent": 2,
+                                    "angleToParent": 3,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
@@ -1590,8 +1590,8 @@
                             "id": "68658a7c-2f2e-4157-9897-0e07b5757e21",
                             "savedPayload": {
                                 "position": {
-                                    "x": 25722.106322157964,
-                                    "y": 30802.679508034227
+                                    "x": 25752.076448909353,
+                                    "y": 30730.325221564985
                                 },
                                 "targetPosition": {
                                     "x": 25462.29870102263,
@@ -1601,7 +1601,7 @@
                                     "isPinned": false,
                                     "isFrozen": false,
                                     "isCollapsed": false,
-                                    "angleToParent": 2,
+                                    "angleToParent": 3,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
@@ -1649,7 +1649,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -1674,7 +1674,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

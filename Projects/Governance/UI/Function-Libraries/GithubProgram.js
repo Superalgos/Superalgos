@@ -121,8 +121,14 @@ function newGovernanceFunctionLibraryGithubProgram() {
             }
             let githubUsername = profileSignature.message
             node.payload.githubProgram.hasStar = UI.projects.governance.spaces.userProfileSpace.githubStars.get(githubUsername)
+            node.payload.githubProgram.hasWatch = UI.projects.governance.spaces.userProfileSpace.githubWatchers.get(githubUsername)
+            node.payload.githubProgram.engagement = 0
 
-            if (node.payload.githubProgram.hasStar === true) {
+            if (node.payload.githubProgram.hasStar === true) { node.payload.githubProgram.engagement++ }
+            if (node.payload.githubProgram.hasWatch === true) { node.payload.githubProgram.engagement++ }
+
+            if (
+                node.payload.githubProgram.engagement > 0) {
                 node.payload.githubProgram.isActive = true
             } else {
                 node.payload.githubProgram.isActive = false
@@ -162,7 +168,8 @@ function newGovernanceFunctionLibraryGithubProgram() {
                 programNode.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.")
                 return
             }
-            programNode.payload.githubProgram.awarded.tokens = programNode.payload.githubProgram.ownPower / totalPowerRewardRatio
+            const MAX_ENGAGEMENT = 2
+            programNode.payload.githubProgram.awarded.tokens = programNode.payload.githubProgram.ownPower / totalPowerRewardRatio  * programNode.payload.githubProgram.engagement / MAX_ENGAGEMENT
 
             drawProgram(programNode)
         }
@@ -191,7 +198,10 @@ function newGovernanceFunctionLibraryGithubProgram() {
 
                 let extraText = ''
                 if (node.payload.githubProgram.hasStar === true) {
-                    extraText = ' 1 Star'
+                    extraText = extraText + ' 1 Star'
+                }
+                if (node.payload.githubProgram.hasWatch === true) {
+                    extraText = extraText + ' 1 Watch'
                 }
 
                 node.tokensAwarded.payload.uiObject.setStatus('From' + extraText)

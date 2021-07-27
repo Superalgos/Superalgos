@@ -1029,7 +1029,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             const token = unescape(requestParameters[5])
                             let error
                             let starsListArray = []
-
+                            let watchersListArray = []
 
                             getRepoInfo()
 
@@ -1049,7 +1049,12 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     respondWithDocsObject(docs, error)
                                     return
                                 }
-                                respondWithContent(JSON.stringify(starsListArray), httpResponse)
+
+                                let responseObject = {
+                                    starsListArray: starsListArray, 
+                                    watchersListArray: watchersListArray
+                                }
+                                respondWithContent(JSON.stringify(responseObject), httpResponse)
                             }
 
                             async function doGithub() {
@@ -1061,48 +1066,101 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     userAgent: 'Superalgos Beta 10'
                                 })
 
-                                const repo = repository
-                                const owner = 'Superalgos'
-                                const per_page = 100 // Max
-                                let page = 0
-                                let lastPage = false
+                                await getStars()
+                                await getWatchers() 
 
-                                while (lastPage === false) {
-                                    try {
-                                        page++
-                                        await sleep(GITHUB_API_WAITING_TIME)
-                                        let starsListResponse = await octokit.activity.listStargazersForRepo({
-                                            owner,
-                                            repo,
-                                            per_page,
-                                            page
-                                        });
+                                async function getStars() {
+                                    const repo = repository
+                                    const owner = 'Superalgos'
+                                    const per_page = 100 // Max
+                                    let page = 0
+                                    let lastPage = false
 
-                                        if (starsListResponse.data.length < 100) {
-                                            lastPage = true
+                                    while (lastPage === false) {
+                                        try {
+                                            page++
+                                            await sleep(GITHUB_API_WAITING_TIME)
+                                            let starsListResponse = await octokit.activity.listStargazersForRepo({
+                                                owner,
+                                                repo,
+                                                per_page,
+                                                page
+                                            });
+
+                                            if (starsListResponse.data.length < 100) {
+                                                lastPage = true
+                                            }
+
+                                            for (let i = 0; i < starsListResponse.data.length; i++) {
+                                                let star = starsListResponse.data[i]
+                                                starsListArray.push(star.login)
+                                            }
+
+                                            console.log('[INFO] httpInterface -> Gov -> getRepoInfo -> doGithub -> getStars -> Stars Page = ' + page)
+                                            console.log('[INFO] httpInterface -> Gov -> getRepoInfo -> doGithub -> getStars -> Stars Received = ' + starsListResponse.data.length)
+
+                                        } catch (err) {
+                                            console.log(err)
+
+                                            if (err.stack.indexOf('last page') >= 0) {
+                                                return
+                                            } else {
+                                                console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getStars ->Method call produced an error.')
+                                                console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getStars ->err.stack = ' + err.stack)
+                                                console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getStars ->commitMessage = ' + repository)
+                                                console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getStars ->username = ' + username)
+                                                console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getStars ->token starts with = ' + token.substring(0, 10) + '...')
+                                                console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getStars ->token ends with = ' + '...' + token.substring(token.length - 10))
+                                                error = err
+                                            }
                                         }
+                                    }
+                                }
 
-                                        for (let i = 0; i < starsListResponse.data.length; i++) {
-                                            let star = starsListResponse.data[i]
-                                            starsListArray.push(star.login)                                            
-                                        }
+                                async function getWatchers() {
+                                    const repo = repository
+                                    const owner = 'Superalgos'
+                                    const per_page = 100 // Max
+                                    let page = 0
+                                    let lastPage = false
 
-                                        console.log('[INFO] httpInterface -> Gov -> getRepoInfo -> doGithub -> Stars Page = ' + page)
-                                        console.log('[INFO] httpInterface -> Gov -> getRepoInfo -> doGithub -> Stars Received = ' + starsListResponse.data.length)
+                                    while (lastPage === false) {
+                                        try {
+                                            page++
+                                            await sleep(GITHUB_API_WAITING_TIME)
+                                            let watchersListResponse = await octokit.activity.listWatchersForRepo({
+                                                owner,
+                                                repo,
+                                                per_page,
+                                                page
+                                            });
 
-                                    } catch (err) {
-                                        console.log(err)
+                                            if (watchersListResponse.data.length < 100) {
+                                                lastPage = true
+                                            }
 
-                                        if (err.stack.indexOf('last page') >= 0) {
-                                            return
-                                        } else {
-                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> Method call produced an error.')
-                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> err.stack = ' + err.stack)
-                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> commitMessage = ' + repository)
-                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> username = ' + username)
-                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
-                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                            error = err
+                                            for (let i = 0; i < watchersListResponse.data.length; i++) {
+                                                let watch = watchersListResponse.data[i]
+                                                watchersListArray.push(watch.login)
+                                            }
+
+                                            console.log('[INFO] httpInterface -> Gov -> getRepoInfo -> doGithub -> getWatchers -> Watchers Page = ' + page)
+                                            console.log('[INFO] httpInterface -> Gov -> getRepoInfo -> doGithub -> getWatchers -> Watchers Received = ' + watchersListResponse.data.length)
+
+                                        } catch (err) {
+                                            console.log(err)
+
+                                            if (err.stack.indexOf('last page') >= 0) {
+                                                return
+                                            } else {
+                                                console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getWatchers ->Method call produced an error.')
+                                                console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getWatchers ->err.stack = ' + err.stack)
+                                                console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getWatchers ->commitMessage = ' + repository)
+                                                console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getWatchers ->username = ' + username)
+                                                console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getWatchers ->token starts with = ' + token.substring(0, 10) + '...')
+                                                console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getWatchers ->token ends with = ' + '...' + token.substring(token.length - 10))
+                                                error = err
+                                            }
                                         }
                                     }
                                 }

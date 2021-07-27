@@ -3,6 +3,7 @@ function newGovernanceUserProfileSpace() {
 
     let thisObject = {
         githubStars: undefined,
+        githubWatchers: undefined,
         container: undefined,
         physics: physics,
         draw: draw,
@@ -19,6 +20,7 @@ function newGovernanceUserProfileSpace() {
     let timer = 0
 
     thisObject.githubStars = new Map()
+    thisObject.githubWatchers = new Map()
 
     return thisObject
 
@@ -64,13 +66,20 @@ function newGovernanceUserProfileSpace() {
 
         return
 
-        function onGithubStarsResponse(err, githubStarsArray) {
+        function onGithubStarsResponse(err, githubData) {
              /* Lets check the result of the call through the http interface */
-            githubStarsArray = JSON.parse(githubStarsArray)
+            let githubGithubDataObject = JSON.parse(githubData)
+            let githubStarsArray = githubGithubDataObject.starsListArray
+            let githubWatchersArray = githubGithubDataObject.watchersListArray
 
             for (let i = 0; i < githubStarsArray.length; i++) {
-                githubUsername = githubStarsArray[i]
+                let githubUsername = githubStarsArray[i]
                 thisObject.githubStars.set(githubUsername, true)
+            }
+
+            for (let i = 0; i < githubWatchersArray.length; i++) {
+                let githubUsername = githubWatchersArray[i]
+                thisObject.githubWatchers.set(githubUsername, true)
             }
         }
     }

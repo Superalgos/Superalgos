@@ -137,7 +137,7 @@ function newGovernanceUtilitiesBonusProgram() {
                 programNode.payload.uiObject.setErrorMessage("Tokens Bonus Node is needed in order for this Program to get Tokens from the Bonus Program Pool.")
                 return
             }
-            programNode.payload[programPropertyName].bonus.tokens = programNode.payload[programPropertyName].bonusPower * totalPowerRewardRatio
+            programNode.payload[programPropertyName].bonus.tokens = programNode.payload[programPropertyName].bonusPower / totalPowerRewardRatio
 
             drawProgram(programNode)
         }

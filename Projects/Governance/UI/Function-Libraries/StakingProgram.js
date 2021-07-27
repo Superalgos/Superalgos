@@ -144,7 +144,7 @@ function newGovernanceFunctionLibraryStakingProgram() {
                 programNode.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.")
                 return
             }
-            programNode.payload.stakingProgram.awarded.tokens = programNode.payload.stakingProgram.ownPower * totalPowerRewardRatio
+            programNode.payload.stakingProgram.awarded.tokens = programNode.payload.stakingProgram.ownPower / totalPowerRewardRatio
 
             drawProgram(programNode)
         }

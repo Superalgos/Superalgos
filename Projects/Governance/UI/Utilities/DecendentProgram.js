@@ -373,7 +373,7 @@ function newGovernanceUtilitiesDecendentProgram() {
                 programNode.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.")
                 return
             }
-            programNode.payload[programPropertyName].awarded.tokens = programNode.payload[programPropertyName].incomingPower * totalPowerRewardRatio
+            programNode.payload[programPropertyName].awarded.tokens = programNode.payload[programPropertyName].incomingPower / totalPowerRewardRatio
 
             drawProgram(programNode)
         }

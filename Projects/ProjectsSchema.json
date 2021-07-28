@@ -1098,6 +1098,11 @@
                     "name": "Filters",
                     "propertyName": "filters",
                     "functionName": "newGovernanceUtilitiesFilters"
+                },
+                {
+                    "name": "Conversions",
+                    "propertyName": "conversions",
+                    "functionName": "newGovernanceUtilitiesConversions"
                 }
             ],
             "spaces": [

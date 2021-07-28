@@ -37,7 +37,15 @@ function newGovernanceUtilitiesCommonTables() {
                     "type": "number",
                     "order": "descending",
                     "textAlign": "center",
-                    "format": "2 decimals"
+                    "format": "integer"
+                },
+                {
+                    "name": "rewardInBTC",
+                    "label": "Reward In BTC",
+                    "type": "number",
+                    "order": "descending",
+                    "textAlign": "center",
+                    "format": "8 decimals"
                 },
                 {
                     "name": "weight",
@@ -84,6 +92,7 @@ function newGovernanceUtilitiesCommonTables() {
             let tableRecord = {
                 "name": name,
                 "tokensReward": node.payload.tokens | 0,
+                "rewardInBTC": UI.projects.governance.utilities.conversions.estimateSATokensInBTC(node.payload.tokens | 0),
                 "weight": node.payload.weight,
                 "weightPower": node.payload.votingProgram.votes
             }

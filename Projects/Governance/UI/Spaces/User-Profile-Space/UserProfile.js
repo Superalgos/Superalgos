@@ -103,7 +103,7 @@ function newGovernanceUserProfileSpace() {
 
             for (let i = 0; i < githubStarsArray.length; i++) {
                 let githubUsername = githubStarsArray[i]
-                thisObject.githubStars.set(githubUsername, true)
+                thisObject.githubStars.set(githubUsername, 1)
             }
 
             requestWatchers()
@@ -116,7 +116,7 @@ function newGovernanceUserProfileSpace() {
 
             for (let i = 0; i < githubWatchersArray.length; i++) {
                 let githubUsername = githubWatchersArray[i]
-                thisObject.githubWatchers.set(githubUsername, true)
+                thisObject.githubWatchers.set(githubUsername, 1)
             }
 
             requestForks()
@@ -129,7 +129,7 @@ function newGovernanceUserProfileSpace() {
 
             for (let i = 0; i < githubForksArray.length; i++) {
                 let githubUsername = githubForksArray[i]
-                thisObject.githubForks.set(githubUsername, true)
+                thisObject.githubForks.set(githubUsername, 1)
             }
         }
     }

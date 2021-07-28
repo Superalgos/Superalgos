@@ -15,6 +15,7 @@ function newGobernanceReportsSpace() {
         votes: undefined,
         staking: undefined,
         delegations: undefined,
+        github: undefined,
         pools: undefined,
         assets: undefined,
         features: undefined,
@@ -85,6 +86,9 @@ function newGobernanceReportsSpace() {
         thisObject.delegation.finalize()
         thisObject.delegation = undefined
 
+        thisObject.github.finalize()
+        thisObject.github = undefined
+
         thisObject.pools.finalize()
         thisObject.pools = undefined
 
@@ -131,6 +135,7 @@ function newGobernanceReportsSpace() {
         thisObject.votes = newGovernanceReportsVotes()
         thisObject.staking = newGovernanceReportsStaking()
         thisObject.delegation = newGovernanceReportsDelegation()
+        thisObject.github = newGovernanceReportsGithub()
         thisObject.pools = newGovernanceReportsPools()
         thisObject.assets = newGovernanceReportsAssets()
         thisObject.features = newGovernanceReportsFeatures()
@@ -147,6 +152,7 @@ function newGobernanceReportsSpace() {
         thisObject.votes.initialize()
         thisObject.staking.initialize()
         thisObject.delegation.initialize()
+        thisObject.github.initialize()
         thisObject.pools.initialize()
         thisObject.assets.initialize()
         thisObject.features.initialize()

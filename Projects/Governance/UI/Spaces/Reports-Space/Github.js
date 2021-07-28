@@ -1,4 +1,4 @@
-function newGovernanceReportsStaking() {
+function newGovernanceReportsGithub() {
     let thisObject = {
         addHTML: addHTML,
         initialize: initialize,
@@ -19,9 +19,9 @@ function newGovernanceReportsStaking() {
         /*
         Parameters
         */
-        let table = 'staking'
-        let programName = 'Staking Program'
-        let programPropertyName = 'stakingProgram'
+        let table = 'github'
+        let programName = 'Github Program'
+        let programPropertyName = 'githubProgram'
         /*
         Setup Filters
         */
@@ -45,12 +45,36 @@ function newGovernanceReportsStaking() {
                     "textAlign": "left"
                 },
                 {
-                    "name": "stakingPower",
-                    "label": "Staking Power",
+                    "name": "githubPower",
+                    "label": "Github Power",
                     "type": "number",
                     "order": "descending",
                     "textAlign": "center",
                     "format": "2 decimals"
+                },
+                {
+                    "name": "stars",
+                    "label": "Stars",
+                    "type": "number",
+                    "order": "descending",
+                    "textAlign": "center",
+                    "format": "integer"
+                },
+                {
+                    "name": "watching",
+                    "label": "Watching",
+                    "type": "number",
+                    "order": "descending",
+                    "textAlign": "center",
+                    "format": "integer"
+                },
+                {
+                    "name": "forks",
+                    "label": "Forks",
+                    "type": "number",
+                    "order": "descending",
+                    "textAlign": "center",
+                    "format": "integer"
                 },
                 {
                     "name": "tokensAwarded",
@@ -79,7 +103,10 @@ function newGovernanceReportsStaking() {
 
             let tableRecord = {
                 "name": userProfile.name,
-                "stakingPower": program.payload[programPropertyName].ownPower | 0,
+                "githubPower": program.payload[programPropertyName].ownPower | 0,
+                "stars": program.payload[programPropertyName].starsCount | 0,
+                "watching": program.payload[programPropertyName].watchersCount | 0,
+                "forks": program.payload[programPropertyName].forksCount | 0,
                 "tokensAwarded": program.payload[programPropertyName].awarded.tokens | 0
             }
 

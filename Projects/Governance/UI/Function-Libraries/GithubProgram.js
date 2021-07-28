@@ -120,14 +120,14 @@ function newGovernanceFunctionLibraryGithubProgram() {
                 return
             }
             let githubUsername = profileSignature.message
-            node.payload.githubProgram.hasStar = UI.projects.governance.spaces.userProfileSpace.githubStars.get(githubUsername)
-            node.payload.githubProgram.hasWatch = UI.projects.governance.spaces.userProfileSpace.githubWatchers.get(githubUsername)
-            node.payload.githubProgram.hasFork = UI.projects.governance.spaces.userProfileSpace.githubForks.get(githubUsername)
+            node.payload.githubProgram.starsCount = UI.projects.governance.spaces.userProfileSpace.githubStars.get(githubUsername)
+            node.payload.githubProgram.watchersCount = UI.projects.governance.spaces.userProfileSpace.githubWatchers.get(githubUsername)
+            node.payload.githubProgram.forksCount = UI.projects.governance.spaces.userProfileSpace.githubForks.get(githubUsername)
             node.payload.githubProgram.engagement = 0
 
-            if (node.payload.githubProgram.hasStar === true) { node.payload.githubProgram.engagement++ }
-            if (node.payload.githubProgram.hasWatch === true) { node.payload.githubProgram.engagement++ }
-            if (node.payload.githubProgram.hasFork === true) { node.payload.githubProgram.engagement++ }
+            if (node.payload.githubProgram.starsCount > 0) { node.payload.githubProgram.engagement = node.payload.githubProgram.engagement + node.payload.githubProgram.starsCount }
+            if (node.payload.githubProgram.watchersCount > 0) { node.payload.githubProgram.engagement = node.payload.githubProgram.engagement + node.payload.githubProgram.watchersCount }
+            if (node.payload.githubProgram.forksCount > 0) { node.payload.githubProgram.engagement = node.payload.githubProgram.engagement + node.payload.githubProgram.forksCount }
 
             if (
                 node.payload.githubProgram.engagement > 0) {
@@ -171,7 +171,7 @@ function newGovernanceFunctionLibraryGithubProgram() {
                 return
             }
             const MAX_ENGAGEMENT = 3
-            programNode.payload.githubProgram.awarded.tokens = programNode.payload.githubProgram.ownPower / totalPowerRewardRatio  * programNode.payload.githubProgram.engagement / MAX_ENGAGEMENT
+            programNode.payload.githubProgram.awarded.tokens = programNode.payload.githubProgram.ownPower / totalPowerRewardRatio * programNode.payload.githubProgram.engagement / MAX_ENGAGEMENT
 
             drawProgram(programNode)
         }
@@ -199,13 +199,13 @@ function newGovernanceFunctionLibraryGithubProgram() {
                 node.tokensAwarded.payload.uiObject.statusAtAngle = false
 
                 let extraText = ''
-                if (node.payload.githubProgram.hasStar === true) {
+                if (node.payload.githubProgram.starsCount > 0) {
                     extraText = extraText + ' + 1 Star'
                 }
-                if (node.payload.githubProgram.hasWatch === true) {
+                if (node.payload.githubProgram.watchersCount > 0) {
                     extraText = extraText + ' + 1 Watch'
                 }
-                if (node.payload.githubProgram.hasFork === true) {
+                if (node.payload.githubProgram.forksCount > 0) {
                     extraText = extraText + ' + 1 Fork'
                 }
 

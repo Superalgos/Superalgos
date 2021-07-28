@@ -106,8 +106,8 @@
             "id": "a9ddce61-97b0-47e8-ad6c-e9438aca3913",
             "savedPayload": {
                 "position": {
-                    "x": 25051.0346323107,
-                    "y": 22845.968584839084
+                    "x": 25033.35333373097,
+                    "y": 22865.264336289085
                 },
                 "targetPosition": {
                     "x": 25263.166666666664,
@@ -140,12 +140,12 @@
                     "id": "ebf5fe9a-58c9-4b8a-afed-396d47b9556f",
                     "savedPayload": {
                         "position": {
-                            "x": 25005.057270308695,
-                            "y": 22239.482199265
+                            "x": 24866.8269351826,
+                            "y": 22296.739078805607
                         },
                         "targetPosition": {
-                            "x": 25263.166666666664,
-                            "y": 22608.100619195047
+                            "x": 25185.024986716544,
+                            "y": 22614.937130339553
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -173,12 +173,12 @@
                     "id": "27a96f93-7f25-478c-88d0-e92587c0672e",
                     "savedPayload": {
                         "position": {
-                            "x": 25072.98844888335,
-                            "y": 22200.262115028556
+                            "x": 24926.915590358574,
+                            "y": 22246.318710409505
                         },
                         "targetPosition": {
-                            "x": 25263.166666666664,
-                            "y": 22608.100619195047
+                            "x": 25185.024986716544,
+                            "y": 22614.937130339553
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -201,12 +201,12 @@
                     "id": "92e04eca-abd6-47a4-b150-7c28afc541ab",
                     "savedPayload": {
                         "position": {
-                            "x": 25146.69809637053,
-                            "y": 22173.433997364966
+                            "x": 24994.84676893323,
+                            "y": 22207.09862617306
                         },
                         "targetPosition": {
-                            "x": 25263.166666666664,
-                            "y": 22608.100619195047
+                            "x": 25185.024986716544,
+                            "y": 22614.937130339553
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -229,12 +229,12 @@
                     "id": "8216d351-eeda-43d3-b179-b4987f288b65",
                     "savedPayload": {
                         "position": {
-                            "x": 25223.946582430217,
-                            "y": 22159.813005053762
+                            "x": 25068.556416420408,
+                            "y": 22180.27050850947
                         },
                         "targetPosition": {
-                            "x": 25263.166666666664,
-                            "y": 22608.100619195047
+                            "x": 25185.024986716544,
+                            "y": 22614.937130339553
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -257,12 +257,12 @@
                     "id": "4c2992cc-181d-4d0e-b712-0bb5f5cd43c5",
                     "savedPayload": {
                         "position": {
-                            "x": 25302.38675090311,
-                            "y": 22159.813005053762
+                            "x": 25145.804902480097,
+                            "y": 22166.649516198268
                         },
                         "targetPosition": {
-                            "x": 25263.166666666664,
-                            "y": 22608.100619195047
+                            "x": 25185.024986716544,
+                            "y": 22614.937130339553
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -285,12 +285,12 @@
                     "id": "bcff7584-368f-40b3-a718-0d8987b23fa3",
                     "savedPayload": {
                         "position": {
-                            "x": 25379.635236962797,
-                            "y": 22173.433997364966
+                            "x": 25224.24507095299,
+                            "y": 22166.649516198268
                         },
                         "targetPosition": {
-                            "x": 25263.166666666664,
-                            "y": 22608.100619195047
+                            "x": 25185.024986716544,
+                            "y": 22614.937130339553
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -313,12 +313,12 @@
                 "id": "b9052f1d-235a-4b61-8ed7-e0d77a53d6a5",
                 "savedPayload": {
                     "position": {
-                        "x": 25453.34488444998,
-                        "y": 22200.262115028556
+                        "x": 25301.493557012676,
+                        "y": 22180.27050850947
                     },
                     "targetPosition": {
-                        "x": 25263.166666666664,
-                        "y": 22608.100619195047
+                        "x": 25185.024986716544,
+                        "y": 22614.937130339553
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -340,12 +340,12 @@
                 "id": "f8262e5f-3cb2-4a93-a539-1b79ca7fdaec",
                 "savedPayload": {
                     "position": {
-                        "x": 25521.276063024634,
-                        "y": 22239.482199265
+                        "x": 25375.20320449986,
+                        "y": 22207.09862617306
                     },
                     "targetPosition": {
-                        "x": 25263.166666666664,
-                        "y": 22608.100619195047
+                        "x": 25185.024986716544,
+                        "y": 22614.937130339553
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -363,8 +363,8 @@
             "id": "f1020b53-23d4-4fea-b5d3-5409e13197a9",
             "savedPayload": {
                 "position": {
-                    "x": 25263.166666666664,
-                    "y": 22608.100619195047
+                    "x": 25185.024986716544,
+                    "y": 22614.937130339553
                 },
                 "targetPosition": {
                     "x": 25263.166666666664,
@@ -373,7 +373,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 4,
                     "arrangementStyle": 0
@@ -475,8 +475,8 @@
             "id": "362a1ecb-dce9-4ebb-9b00-a20d3631f2f3",
             "savedPayload": {
                 "position": {
-                    "x": 25475.298701022628,
-                    "y": 22845.968584839084
+                    "x": 25413.166666666664,
+                    "y": 22798.292998059715
                 },
                 "targetPosition": {
                     "x": 25263.166666666664,
@@ -504,7 +504,7 @@
                 {
                     "type": "Asset Claims Folder",
                     "name": "Superalgos Marketing Assets",
-                    "config": "{}",
+                    "config": "{\n    \"percentage\": 50\n}",
                     "project": "Governance",
                     "assetClaimsFolders": [
                         {
@@ -522,7 +522,7 @@
                                     "assetContributionClaims": [
                                         {
                                             "type": "Asset Contribution Claim",
-                                            "name": "Telegram Groups Community Group Management",
+                                            "name": "",
                                             "config": "{\n  \"description\": \"\"\n}",
                                             "project": "Governance",
                                             "id": "e1e150a7-5bfd-4460-950a-6b4fc2207fb1",
@@ -591,7 +591,7 @@
                                     "assetContributionClaims": [
                                         {
                                             "type": "Asset Contribution Claim",
-                                            "name": "Telegram Groups Develop Group Management",
+                                            "name": "",
                                             "config": "{\n  \"description\": \"\"\n}",
                                             "project": "Governance",
                                             "id": "b08ef0ac-6a8b-4e5f-ad8c-6e4b4620ab6a",
@@ -660,7 +660,7 @@
                                     "assetContributionClaims": [
                                         {
                                             "type": "Asset Contribution Claim",
-                                            "name": "Telegram Groups Support Group Management",
+                                            "name": "",
                                             "config": "{\n  \"description\": \"\"\n}",
                                             "project": "Governance",
                                             "id": "6ea92b98-2b5a-4b88-85c7-94f5b06c8dd7",
@@ -729,7 +729,7 @@
                                     "assetContributionClaims": [
                                         {
                                             "type": "Asset Contribution Claim",
-                                            "name": "Telegram Groups Token Group Management",
+                                            "name": "",
                                             "config": "{\n  \"description\": \"\"\n}",
                                             "project": "Governance",
                                             "id": "f6578def-d736-4a86-bbe6-6af561bea96f",
@@ -798,7 +798,7 @@
                                     "assetContributionClaims": [
                                         {
                                             "type": "Asset Contribution Claim",
-                                            "name": "Telegram Groups Machine Learning Group Management",
+                                            "name": "",
                                             "config": "{\n  \"description\": \"\"\n}",
                                             "project": "Governance",
                                             "id": "f4601a2c-0a14-4534-982e-74ddbb2a172e",
@@ -867,7 +867,7 @@
                                     "assetContributionClaims": [
                                         {
                                             "type": "Asset Contribution Claim",
-                                            "name": "Telegram Groups Collaborations Group Management",
+                                            "name": "",
                                             "config": "{\n  \"description\": \"\"\n}",
                                             "project": "Governance",
                                             "id": "54ea5ad1-8034-4334-9948-7eaf524b0c7b",
@@ -936,7 +936,7 @@
                                     "assetContributionClaims": [
                                         {
                                             "type": "Asset Contribution Claim",
-                                            "name": "Telegram Groups Codebase Group Management",
+                                            "name": "",
                                             "config": "{\n  \"description\": \"\"\n}",
                                             "project": "Governance",
                                             "id": "d7b19106-bdb5-40d3-8f8f-167df72caddc",
@@ -1005,7 +1005,7 @@
                                     "assetContributionClaims": [
                                         {
                                             "type": "Asset Contribution Claim",
-                                            "name": "Telegram Groups Docs Group Management",
+                                            "name": "",
                                             "config": "{\n  \"description\": \"\"\n}",
                                             "project": "Governance",
                                             "id": "24669f32-4297-4b3b-9c95-e029d4442c3b",
@@ -1074,7 +1074,7 @@
                                     "assetContributionClaims": [
                                         {
                                             "type": "Asset Contribution Claim",
-                                            "name": "Telegram Groups UX/UI Design Group Management",
+                                            "name": "",
                                             "config": "{\n  \"description\": \"\"\n}",
                                             "project": "Governance",
                                             "id": "c2116ecd-4b46-43f0-8629-4c083b862148",
@@ -1143,7 +1143,7 @@
                                     "assetContributionClaims": [
                                         {
                                             "type": "Asset Contribution Claim",
-                                            "name": "Telegram Groups Spanish Group Management",
+                                            "name": "",
                                             "config": "{\n  \"description\": \"\"\n}",
                                             "project": "Governance",
                                             "id": "74b00fcc-2614-4755-b341-ae860e36fc86",
@@ -1212,7 +1212,7 @@
                                     "assetContributionClaims": [
                                         {
                                             "type": "Asset Contribution Claim",
-                                            "name": "Telegram Groups Russian Group Management",
+                                            "name": "",
                                             "config": "{\n  \"description\": \"\"\n}",
                                             "project": "Governance",
                                             "id": "1befbea3-6b60-430e-81f7-fc34026b81d9",
@@ -1277,12 +1277,12 @@
                             "id": "02dc6eea-0eb1-412a-917f-460e780b6351",
                             "savedPayload": {
                                 "position": {
-                                    "x": 25800.55525972607,
-                                    "y": 22608.93948004069
+                                    "x": 25481.90355865441,
+                                    "y": 22451.402807606482
                                 },
                                 "targetPosition": {
-                                    "x": 25822.974287801997,
-                                    "y": 22908.100619195047
+                                    "x": 25671.85993142465,
+                                    "y": 22683.60224008635
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1311,7 +1311,7 @@
                             "assetContributionClaims": [
                                 {
                                     "type": "Asset Contribution Claim",
-                                    "name": "Community Groups Telegram Announcements Channel Channel Management",
+                                    "name": "",
                                     "config": "{\n  \"description\": \"\"\n}",
                                     "project": "Governance",
                                     "id": "0c4a6f4f-d0e2-4c4c-8ac0-ac23495e8bd4",
@@ -1346,12 +1346,12 @@
                             "id": "e16ffb6a-858b-4fe3-948a-318d359e36dc",
                             "savedPayload": {
                                 "position": {
-                                    "x": 25932.576595111917,
-                                    "y": 22628.838494601787
+                                    "x": 25601.462711284334,
+                                    "y": 22391.978798990618
                                 },
                                 "targetPosition": {
-                                    "x": 25822.974287801997,
-                                    "y": 22908.100619195047
+                                    "x": 25671.85993142465,
+                                    "y": 22683.60224008635
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1380,7 +1380,7 @@
                             "assetContributionClaims": [
                                 {
                                     "type": "Asset Contribution Claim",
-                                    "name": "Community Groups Discord Server Server Management",
+                                    "name": "",
                                     "config": "{\n  \"description\": \"\"\n}",
                                     "project": "Governance",
                                     "id": "3b7d9105-25ea-4fd0-89b8-c8dc1aa69460",
@@ -1415,12 +1415,12 @@
                             "id": "e4cee151-406e-4541-a6c5-907ad333e302",
                             "savedPayload": {
                                 "position": {
-                                    "x": 26042.889849350944,
-                                    "y": 22704.048797863772
+                                    "x": 25734.9648967283,
+                                    "y": 22390.31438941056
                                 },
                                 "targetPosition": {
-                                    "x": 25822.974287801997,
-                                    "y": 22908.100619195047
+                                    "x": 25671.85993142465,
+                                    "y": 22683.60224008635
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1455,7 +1455,7 @@
                                     "assetContributionClaims": [
                                         {
                                             "type": "Asset Contribution Claim",
-                                            "name": "Superalgos Social Media Accounts Twitter Account Account Management",
+                                            "name": "",
                                             "config": "{\n  \"description\": \"\"\n}",
                                             "project": "Governance",
                                             "id": "300aad41-5f2a-47d7-90b3-f4f709975f01",
@@ -1524,7 +1524,7 @@
                                     "assetContributionClaims": [
                                         {
                                             "type": "Asset Contribution Claim",
-                                            "name": "Superalgos Social Media Accounts Facebook Account Account Management",
+                                            "name": "",
                                             "config": "{\n  \"description\": \"\"\n}",
                                             "project": "Governance",
                                             "id": "6a808cd1-30b8-4bbb-95f7-2723522a0c58",
@@ -1593,7 +1593,7 @@
                                     "assetContributionClaims": [
                                         {
                                             "type": "Asset Contribution Claim",
-                                            "name": "Superalgos Social Media Accounts LinkedIn Account Account Management",
+                                            "name": "",
                                             "config": "{\n  \"description\": \"\"\n}",
                                             "project": "Governance",
                                             "id": "3012dcd8-28b4-4009-8a2c-6c1cf86b6677",
@@ -1658,12 +1658,12 @@
                             "id": "5ba747a7-5486-4479-b543-7b6a7299ced8",
                             "savedPayload": {
                                 "position": {
-                                    "x": 26109.64612953784,
-                                    "y": 22819.674066871776
+                                    "x": 25855.968369862265,
+                                    "y": 22446.73923559628
                                 },
                                 "targetPosition": {
-                                    "x": 25822.974287801997,
-                                    "y": 22908.100619195047
+                                    "x": 25671.85993142465,
+                                    "y": 22683.60224008635
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1698,7 +1698,7 @@
                                     "assetContributionClaims": [
                                         {
                                             "type": "Asset Contribution Claim",
-                                            "name": "Superalgos Medium Blog Software News Beta 10 Announcement",
+                                            "name": "",
                                             "config": "{\n  \"description\": \"\"\n}",
                                             "project": "Governance",
                                             "id": "3c10064b-e24b-4a39-aa73-564d0b4319bd",
@@ -1798,12 +1798,12 @@
                             "id": "c7ad885e-acf7-493a-a9b1-86d0c8c09a7d",
                             "savedPayload": {
                                 "position": {
-                                    "x": 26119.623535669536,
-                                    "y": 22952.8132990479
+                                    "x": 25940.50690882184,
+                                    "y": 22550.077704755375
                                 },
                                 "targetPosition": {
-                                    "x": 25822.974287801997,
-                                    "y": 22908.100619195047
+                                    "x": 25671.85993142465,
+                                    "y": 22683.60224008635
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1832,7 +1832,7 @@
                             "assetContributionClaims": [
                                 {
                                     "type": "Asset Contribution Claim",
-                                    "name": "Superalgos-Marketing Superalgos Website Content & Mantainance",
+                                    "name": "",
                                     "config": "{\n  \"description\": \"\"\n}",
                                     "project": "Governance",
                                     "id": "97ae97b4-6ccc-431a-a0e4-971bddb3743a",
@@ -1867,12 +1867,12 @@
                             "id": "08ebe61c-1982-4397-beaa-98b90ecc52d1",
                             "savedPayload": {
                                 "position": {
-                                    "x": 26070.845920096795,
-                                    "y": 23077.096636614133
+                                    "x": 25971.836619168942,
+                                    "y": 22679.862345707726
                                 },
                                 "targetPosition": {
-                                    "x": 25822.974287801997,
-                                    "y": 22908.100619195047
+                                    "x": 25671.85993142465,
+                                    "y": 22683.60224008635
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1897,12 +1897,1108 @@
                     "id": "47c7c03e-2d2b-4275-8458-dde62b178c79",
                     "savedPayload": {
                         "position": {
-                            "x": 25822.974287801997,
-                            "y": 22908.100619195047
+                            "x": 25671.85993142465,
+                            "y": 22683.60224008635
                         },
                         "targetPosition": {
-                            "x": 25563.166666666664,
-                            "y": 23058.100619195047
+                            "x": 25545.074452902438,
+                            "y": 22955.494576197347
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset Claims Folder",
+                    "name": "Foundations Docs Assets",
+                    "config": "{}",
+                    "project": "Governance",
+                    "assetClaimsFolders": [
+                        {
+                            "type": "Asset Claims Folder",
+                            "name": "Data-Mining Asset Class",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClaimsFolders": [],
+                            "assetContributionClaims": [
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "9a8748c4-4e70-49e2-8e3c-21dfaa33dd14",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26080.670553805372,
+                                            "y": 22417.354829564967
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-001-data-mining-introduction.json",
+                                            "id": "8be28df9-be95-4d90-9fe5-8b1bceff858c"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "a44ef157-85a3-4907-8e0a-e2761b89c942",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26136.409528073527,
+                                            "y": 22398.433997364966
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-002-data-mining-workflows.json",
+                                            "id": "e3765596-cdd4-469e-aaf8-9bf4ce20da7c"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "64be9ac0-b8e0-4927-b8ac-06deb78fbdae",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26194.14131187064,
+                                            "y": 22386.95043157683
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-003-data-mining-dataset-types.json",
+                                            "id": "7a2525a1-ebe4-4c0a-a9a2-2aa9b87b3f68"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "66b2c106-531f-46b5-9d0f-0de24454978a",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26252.878098369663,
+                                            "y": 22383.100619195047
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-004-data-mining-datasets-type-conversions.json",
+                                            "id": "1c699ebf-add5-422d-9e0c-7a15d67b6ea9"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "07ae15c1-8a3d-4dce-a989-bb962fd40b84",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26311.614884868686,
+                                            "y": 22386.95043157683
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-005-data-mining-indicator-frameworks.json",
+                                            "id": "4a173c6d-1ae2-4243-b0d5-37a1035c784d"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "9701d4da-101e-4680-8408-8c83245493f6",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26369.346668665796,
+                                            "y": 22398.433997364966
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-006-data-mining-data-mine-hierarchy.json",
+                                            "id": "71a80ca0-52c1-4483-959a-50c02202b472"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "04553a7f-f0c4-46b2-80aa-e99b1199a874",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26425.085642933955,
+                                            "y": 22417.354829564967
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-007-data-mining-managing-execution.json",
+                                            "id": "0cb2ebbc-ae6f-461a-88b8-191e5cc0ef57"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "906ed16c-fda9-4e4b-aa87-6e7c7cd9fe85",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26477.878098369663,
+                                            "y": 22443.38918749205
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-008-data-mining-data-dependencies.json",
+                                            "id": "227bbd8d-e8fa-41df-8055-29d1c540b109"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "68e83b76-a3cc-463b-94e6-bab6fe2d5dae",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26526.820741423588,
+                                            "y": 22476.09161606399
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-009-data-mining-status-reports.json",
+                                            "id": "a5a77d36-0862-45b7-8aea-4ef30ad784f1"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "a94c5b62-8051-4771-820f-6a5ed796e322",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26571.07614990361,
+                                            "y": 22514.9025676611
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-010-data-mining-status-dependencies.json",
+                                            "id": "30045833-4921-47c6-92c8-86599da184ed"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "6a5a09d1-cf34-4ea0-bfa5-b928cd120e2e",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26609.88710150072,
+                                            "y": 22559.157976141123
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-011-data-mining-deployments.json",
+                                            "id": "a72a3880-03cb-46ce-95d7-76dda1ebe1cf"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "d2f59caa-08c6-4bdb-90ab-3e943851c2f6",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26642.589530072662,
+                                            "y": 22608.100619195047
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-012-data-mining-products.json",
+                                            "id": "37a70240-45ab-43d5-8683-1c07bc1a07af"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "cfdec52e-06cb-451a-b73f-918fb28517c0",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26668.623887999744,
+                                            "y": 22660.893074630756
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-013-data-mining-plotting.json",
+                                            "id": "27550dce-eaeb-412a-804b-9419f6f02144"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "987bd0aa-01f6-469d-98da-255a0bd4ff3e",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26687.544720199745,
+                                            "y": 22716.63204889891
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-014-data-mining-fetching-data-from-apis.json",
+                                            "id": "a1db751a-b17c-4b31-b2b8-eee1c5e3cbb9"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "6fa235f8-9738-4db0-95fd-f42a8fb6b614",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26699.02828598788,
+                                            "y": 22774.363832696024
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-015-data-mining-consuming-data-from-strategies.json",
+                                            "id": "d46f8ac7-a577-4602-bb96-575044da2062"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "dd9e9d89-8e4e-45f7-990e-4214c55c7382",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26702.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-016-data-mining-indicator-bots.json",
+                                            "id": "6ef34e7c-be21-4483-a488-257e1d717222"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "b678f2e8-fae4-457a-9ea9-1739d574c024",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26699.02828598788,
+                                            "y": 22891.83740569407
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-017-data-mining-indicator-bots-process-definition.json",
+                                            "id": "ae0f7576-1400-493e-ad7c-46e8acc83077"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "c941ea70-2bed-47cd-acf5-85ac3701c01a",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26687.544720199745,
+                                            "y": 22949.56918949118
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-018-data-mining-indicator-bots-product-definition.json",
+                                            "id": "0a2be786-6951-49a9-985b-6a83fc5c6e28"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "827f0b57-6a56-4a03-962b-bdd7cfdb22bc",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26668.623887999744,
+                                            "y": 23005.30816375934
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-019-data-mining-indicator-bots-data-mining-workflow.json",
+                                            "id": "8084df3b-c95b-409f-82dd-0a93ec296fbf"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "1a775dca-9524-4983-bc71-a5448241a5d9",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26642.589530072662,
+                                            "y": 23058.100619195047
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-020-data-mining-indicator-bots-coding-the-indicators-logic.json",
+                                            "id": "36f4b9e0-dda1-477e-b804-d4d82f7ccbe6"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "5de64831-5e11-4323-a21d-d3697b3888b4",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26609.88710150072,
+                                            "y": 23107.04326224897
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-021-data-mining-plotters.json",
+                                            "id": "5cd2d52d-2993-4304-bae2-62970a9c5bb8"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "6ed42712-510b-41c1-ba74-ac184110b3f5",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26571.07614990361,
+                                            "y": 23151.298670728993
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-022-data-mining-plotters-shapes.json",
+                                            "id": "a1b427a3-e01d-47dc-ae7c-f9df75260566"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset Contribution Claim",
+                                    "name": "",
+                                    "config": "{\n  \"description\": \"\"\n}",
+                                    "project": "Governance",
+                                    "id": "2508da34-5caf-4cef-b817-ce4bbaa8cd16",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26526.820741423588,
+                                            "y": 23190.109622326105
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 22833.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset",
+                                            "name": "data-mining-023-data-mining-how-to-build-an-indicator-video-series.json",
+                                            "id": "b89d7565-8941-4851-82c0-26bcfc231e28"
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "69c10d6f-5da3-4d64-b405-7a489265835d",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 26116.236663497155,
+                                    "y": 22508.168533796106
+                                },
+                                "targetPosition": {
+                                    "x": 25826.98223913821,
+                                    "y": 22852.888533199646
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 4,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                },
+                                "referenceParent": {
+                                    "type": "Asset Class",
+                                    "name": "Data-Mining",
+                                    "id": "aea42b19-c49e-46e4-8319-f37ee415cd95"
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset Claims Folder",
+                            "name": "Contributing Asset Class",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClaimsFolders": [
+                                {
+                                    "type": "Asset Claims Folder",
+                                    "name": "Contributing-to-Superalgos Asset Class",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClaimsFolders": [],
+                                    "assetContributionClaims": [
+                                        {
+                                            "type": "Asset Contribution Claim",
+                                            "name": "",
+                                            "config": "{\n  \"description\": \"\"\n}",
+                                            "project": "Governance",
+                                            "id": "cc826615-72f4-4166-a59f-3f0356796bac",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 27674.012004919103,
+                                                    "y": 23050.23906040563
+                                                },
+                                                "targetPosition": {
+                                                    "x": 26837.44524592416,
+                                                    "y": 23620.600619195047
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 2,
+                                                    "distanceToParent": 4,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
+                                                "referenceParent": {
+                                                    "type": "Asset",
+                                                    "name": "contributing-to-superalgos-001-how-to-contribute-to-superalgos.json",
+                                                    "id": "5b945d3f-feec-4f4d-8042-f9d988c70526"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "Asset Contribution Claim",
+                                            "name": "",
+                                            "config": "{\n  \"description\": \"\"\n}",
+                                            "project": "Governance",
+                                            "id": "4edea86f-bb67-4aaf-aa35-58b0385bdcc2",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 27838.6364574771,
+                                                    "y": 23469.69532469167
+                                                },
+                                                "targetPosition": {
+                                                    "x": 26837.44524592416,
+                                                    "y": 23620.600619195047
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 2,
+                                                    "distanceToParent": 4,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
+                                                "referenceParent": {
+                                                    "type": "Asset",
+                                                    "name": "contributing-to-superalgos-002-how-to-contribute-a-trading-system.json",
+                                                    "id": "8b501f4d-ec6b-4708-a354-32c3c118222a"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "Asset Contribution Claim",
+                                            "name": "",
+                                            "config": "{\n  \"description\": \"\"\n}",
+                                            "project": "Governance",
+                                            "id": "9a1d0ab1-d668-43d6-944e-431d3f390fd3",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 27804.962711782628,
+                                                    "y": 23919.040233286087
+                                                },
+                                                "targetPosition": {
+                                                    "x": 26837.44524592416,
+                                                    "y": 23620.600619195047
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 2,
+                                                    "distanceToParent": 4,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
+                                                "referenceParent": {
+                                                    "type": "Asset",
+                                                    "name": "contributing-to-superalgos-003-how-to-contribute-icons.json",
+                                                    "id": "c001dc60-4215-4093-8ad6-9c158ff67b67"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "Asset Contribution Claim",
+                                            "name": "",
+                                            "config": "{\n  \"description\": \"\"\n}",
+                                            "project": "Governance",
+                                            "id": "839f4bcb-b2bb-4cb9-aec2-991877ce810a",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 27579.660266151855,
+                                                    "y": 24309.275516188103
+                                                },
+                                                "targetPosition": {
+                                                    "x": 26837.44524592416,
+                                                    "y": 23620.600619195047
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 2,
+                                                    "distanceToParent": 4,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
+                                                "referenceParent": {
+                                                    "type": "Asset",
+                                                    "name": "contributing-to-superalgos-004-how-to-contribute-to-the-docs.json",
+                                                    "id": "775eee7b-da29-42f5-9259-5a23fb83c56a"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "Asset Contribution Claim",
+                                            "name": "",
+                                            "config": "{\n  \"description\": \"\"\n}",
+                                            "project": "Governance",
+                                            "id": "33dc02b5-d915-4cc2-acfb-829942c549a8",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 27207.353033095133,
+                                                    "y": 24563.110289697303
+                                                },
+                                                "targetPosition": {
+                                                    "x": 26837.44524592416,
+                                                    "y": 23620.600619195047
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 2,
+                                                    "distanceToParent": 4,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
+                                                "referenceParent": {
+                                                    "type": "Asset",
+                                                    "name": "contributing-to-superalgos-005-how-to-contribute-translations.json",
+                                                    "id": "9d2695f7-f609-45d8-8023-f0189adc6b4b"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "Asset Contribution Claim",
+                                            "name": "",
+                                            "config": "{\n  \"description\": \"\"\n}",
+                                            "project": "Governance",
+                                            "id": "6284db9d-9d22-4aac-b8a2-5c96ed62d302",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 26761.781026167904,
+                                                    "y": 24630.269463840992
+                                                },
+                                                "targetPosition": {
+                                                    "x": 26837.44524592416,
+                                                    "y": 23620.600619195047
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 2,
+                                                    "distanceToParent": 4,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
+                                                "referenceParent": {
+                                                    "type": "Asset",
+                                                    "name": "contributing-to-superalgos-006-how-to-contribute-tutorials.json",
+                                                    "id": "c5ba2e47-9832-42bf-ae0e-6809bd99424f"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "id": "99767ceb-938a-4cac-a5cc-3beef087f28b",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26837.44524592416,
+                                            "y": 23620.600619195047
+                                        },
+                                        "targetPosition": {
+                                            "x": 26252.878098369663,
+                                            "y": 23283.100619195047
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 4,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
+                                        "referenceParent": {
+                                            "type": "Asset Class",
+                                            "name": "Contributing-to-Superalgos",
+                                            "id": "bc85c4f9-eae8-45fa-a51d-068227b23f96"
+                                        }
+                                    }
+                                }
+                            ],
+                            "assetContributionClaims": [],
+                            "id": "74745a1e-aa18-4ea8-8df2-5787f64e6162",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 26270.145727993706,
+                                    "y": 22931.030213149763
+                                },
+                                "targetPosition": {
+                                    "x": 25826.98223913821,
+                                    "y": 22852.888533199646
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 4,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                },
+                                "referenceParent": {
+                                    "type": "Asset Class",
+                                    "name": "Contributing",
+                                    "id": "eee748b7-b610-44b8-8da3-57cfcb16ebee"
+                                }
+                            }
+                        }
+                    ],
+                    "assetContributionClaims": [],
+                    "id": "af3e8936-1a0b-43e5-af7b-d05e2b1d9194",
+                    "savedPayload": {
+                        "position": {
+                            "x": 25826.98223913821,
+                            "y": 22852.888533199646
+                        },
+                        "targetPosition": {
+                            "x": 25545.074452902438,
+                            "y": 22955.494576197347
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -1935,12 +3031,12 @@
                             "id": "aff73013-a0c1-45f8-863e-53a0422800f7",
                             "savedPayload": {
                                 "position": {
-                                    "x": 26120.40774621414,
-                                    "y": 23247.25847686106
+                                    "x": 26116.68125548799,
+                                    "y": 23095.36587092916
                                 },
                                 "targetPosition": {
-                                    "x": 25822.974287801997,
-                                    "y": 23208.100619195047
+                                    "x": 25816.966789013433,
+                                    "y": 23082.28005471956
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1968,12 +3064,12 @@
                             "id": "d3dfd4e1-5269-422b-a446-54b72c82135c",
                             "savedPayload": {
                                 "position": {
-                                    "x": 26082.78190893733,
-                                    "y": 23358.100619195047
+                                    "x": 26088.85912512443,
+                                    "y": 23209.06553324177
                                 },
                                 "targetPosition": {
-                                    "x": 25822.974287801997,
-                                    "y": 23208.100619195047
+                                    "x": 25816.966789013433,
+                                    "y": 23082.28005471956
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2001,12 +3097,12 @@
                             "id": "0da2c0e2-ada1-43ab-849a-6e476349d600",
                             "savedPayload": {
                                 "position": {
-                                    "x": 26005.602716504614,
-                                    "y": 23446.10662128242
+                                    "x": 26019.643851298133,
+                                    "y": 23303.463255762596
                                 },
                                 "targetPosition": {
-                                    "x": 25822.974287801997,
-                                    "y": 23208.100619195047
+                                    "x": 25816.966789013433,
+                                    "y": 23082.28005471956
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2030,12 +3126,12 @@
                     "id": "ac1ccce0-c058-4f42-bddc-c79d50719172",
                     "savedPayload": {
                         "position": {
-                            "x": 25822.974287801997,
-                            "y": 23208.100619195047
+                            "x": 25816.966789013433,
+                            "y": 23082.28005471956
                         },
                         "targetPosition": {
-                            "x": 25563.166666666664,
-                            "y": 23058.100619195047
+                            "x": 25545.074452902438,
+                            "y": 22955.494576197347
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -2054,8 +3150,8 @@
             "id": "bec9399a-9f85-4cb5-bff4-9938a3bc7ac4",
             "savedPayload": {
                 "position": {
-                    "x": 25563.166666666664,
-                    "y": 23058.100619195047
+                    "x": 25545.074452902438,
+                    "y": 22955.494576197347
                 },
                 "targetPosition": {
                     "x": 25263.166666666664,
@@ -3308,7 +4404,7 @@
                                                     "poolWeightVotes": [
                                                         {
                                                             "type": "Pool Weight Vote",
-                                                            "name": "Listings Pool",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "e17b43df-c600-481b-b309-7a9f63efbac3",
@@ -4522,7 +5618,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Community Groups Telegram Groups Community Group Management",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "20ef817b-4aff-4b05-a39e-53d5dd6c55a4",
@@ -4594,7 +5690,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Community Groups Telegram Groups Develop Group Management",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "547e79bf-27c6-4a41-bbd7-5fca7f748233",
@@ -4666,7 +5762,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Community Groups Telegram Groups Support Group Management",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "689e16c4-6be6-4859-a59a-1be29a4be40e",
@@ -4738,7 +5834,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Community Groups Telegram Groups Token Group Management",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "d6157302-ce4c-4624-95ac-0d98e63da516",
@@ -4810,7 +5906,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Community Groups Telegram Groups Machine Learning Group Management",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "916b8c0c-ec48-43e0-8501-a5d3000adb7b",
@@ -4882,7 +5978,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Community Groups Telegram Groups Collaborations Group Management",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "fff9ea3e-db3b-4bda-a624-23457d9fa893",
@@ -4954,7 +6050,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Community Groups Telegram Groups Codebase Group Management",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "05b724fa-f44d-44ac-9788-e50a3ecc0875",
@@ -5026,7 +6122,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Community Groups Telegram Groups Docs Group Management",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "71c389b9-9d67-4f34-9877-c88ac01fc7d7",
@@ -5098,7 +6194,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Community Groups Telegram Groups UX/UI Design Group Management",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "55459ea9-ce71-44f4-bdd9-2227076c9821",
@@ -5170,7 +6266,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Community Groups Telegram Groups Spanish Group Management",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "1076dec7-b946-43e3-be8e-2a900e5a8ef9",
@@ -5242,7 +6338,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Community Groups Telegram Groups Russian Group Management",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "a0da0b0d-6e93-4722-b81a-4016b2014f9d",
@@ -5347,7 +6443,7 @@
                                             "assetWeightVotes": [
                                                 {
                                                     "type": "Asset Weight Vote",
-                                                    "name": "Superalgos-Marketing Community Groups Telegram Announcements Channel Channel Management",
+                                                    "name": "",
                                                     "config": "{}",
                                                     "project": "Governance",
                                                     "id": "c42d4b8f-96b4-4f33-9761-4baa0464924e",
@@ -5419,7 +6515,7 @@
                                             "assetWeightVotes": [
                                                 {
                                                     "type": "Asset Weight Vote",
-                                                    "name": "Superalgos-Marketing Community Groups Discord Server Server Management",
+                                                    "name": "",
                                                     "config": "{}",
                                                     "project": "Governance",
                                                     "id": "759e4252-74e8-4808-adea-f6aef0b1895f",
@@ -5491,7 +6587,7 @@
                                             "assetWeightVotes": [
                                                 {
                                                     "type": "Asset Weight Vote",
-                                                    "name": "Superalgos-Marketing Community Groups Reddit Community Management",
+                                                    "name": "",
                                                     "config": "{}",
                                                     "project": "Governance",
                                                     "id": "d980680f-a5c8-4571-86dd-1896cb69a86b",
@@ -5602,7 +6698,7 @@
                                             "assetWeightVotes": [
                                                 {
                                                     "type": "Asset Weight Vote",
-                                                    "name": "Superalgos-Marketing Superalgos Social Media Accounts Twitter Account Account Management",
+                                                    "name": "",
                                                     "config": "{}",
                                                     "project": "Governance",
                                                     "id": "e782d51b-a350-4918-b38d-d678c0fb66aa",
@@ -5674,7 +6770,7 @@
                                             "assetWeightVotes": [
                                                 {
                                                     "type": "Asset Weight Vote",
-                                                    "name": "Superalgos-Marketing Superalgos Social Media Accounts Facebook Account Account Management",
+                                                    "name": "",
                                                     "config": "{}",
                                                     "project": "Governance",
                                                     "id": "fc4f0b2c-0ad5-4887-998c-491b1282981b",
@@ -5746,7 +6842,7 @@
                                             "assetWeightVotes": [
                                                 {
                                                     "type": "Asset Weight Vote",
-                                                    "name": "Superalgos-Marketing Superalgos Social Media Accounts LinkedIn Account Account Management",
+                                                    "name": "",
                                                     "config": "{}",
                                                     "project": "Governance",
                                                     "id": "d856cf0d-0eba-4249-9a2b-9897b5514488",
@@ -5857,7 +6953,7 @@
                                             "assetWeightVotes": [
                                                 {
                                                     "type": "Asset Weight Vote",
-                                                    "name": "Superalgos-Marketing Superalgos Medium Blog Software News Beta 10 Announcement",
+                                                    "name": "",
                                                     "config": "{}",
                                                     "project": "Governance",
                                                     "id": "3fdb1f50-bed9-4915-b656-2ffb32b9b062",
@@ -5890,7 +6986,7 @@
                                                 },
                                                 {
                                                     "type": "Asset Weight Vote",
-                                                    "name": "Superalgos-Marketing Superalgos Medium Blog Software News Beta 11 Announcement",
+                                                    "name": "",
                                                     "config": "{}",
                                                     "project": "Governance",
                                                     "id": "69b86ab2-5e08-465c-9f27-3f4140c85340",
@@ -5962,7 +7058,7 @@
                                             "assetWeightVotes": [
                                                 {
                                                     "type": "Asset Weight Vote",
-                                                    "name": "Superalgos-Marketing Superalgos Medium Blog Articles Add Your Article as a New Asset",
+                                                    "name": "",
                                                     "config": "{}",
                                                     "project": "Governance",
                                                     "id": "b8d134ab-8335-40c6-acdd-ffb7f2d451d6",
@@ -6067,7 +7163,7 @@
                                     "assetWeightVotes": [
                                         {
                                             "type": "Asset Weight Vote",
-                                            "name": " Superalgos-Marketing Superalgos Website Content & Mantainance",
+                                            "name": "",
                                             "config": "{}",
                                             "project": "Governance",
                                             "id": "5ecf7176-fa76-4898-9856-13307251adac",
@@ -6151,7 +7247,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Article Publications Alternative Media Code Project Add Your Article as a New Asset",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "dcbe8670-54cc-4753-8306-8b5f40548653",
@@ -6223,7 +7319,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Article Publications Alternative Media Coinmonks Add Your Article as a New Asset",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "155ead85-6550-4b38-b880-964f53be8fab",
@@ -6295,7 +7391,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Article Publications Alternative Media Towards Data Science Add Your Article as a New Asset",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "05e7f60c-2eed-4fd1-8203-a901bafde898",
@@ -6367,7 +7463,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Article Publications Alternative Media Hackernoon Add Your Article as a New Asset",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "7d7b1cee-84e3-4bc7-b734-4031b373923c",
@@ -6478,7 +7574,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Article Publications Specialized Media CoinDesk Add Your Article as a New Asset",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "c5b11283-5a6e-45ba-813f-0d4c2d5503f5",
@@ -6550,7 +7646,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Article Publications Specialized Media CoinTelegraph Add Your Article as a New Asset",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "4a0de34e-ac23-4283-b3ff-4e8f5b7d4d22",
@@ -6622,7 +7718,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Article Publications Specialized Media VentureBeat Add Your Article as a New Asset",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "d3ddb457-fcf0-4c9e-98c7-5df53a39c661",
@@ -6733,7 +7829,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Article Publications Mainstream Media Forbes Add Your Article as a New Asset",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "e1500947-4db8-49e2-ae23-4ddb860e7ae3",
@@ -6805,7 +7901,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Article Publications Mainstream Media Wall Street Journal Add Your Article as a New Asset",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "aef6c18c-e135-4476-81fe-6fc334b6586e",
@@ -6877,7 +7973,7 @@
                                                     "assetWeightVotes": [
                                                         {
                                                             "type": "Asset Weight Vote",
-                                                            "name": "Article Publications Mainstream Media Financial Times Add Your Article as a New Asset",
+                                                            "name": "",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "c932ded4-44e5-431b-899e-29131fc82bff",
@@ -7021,7 +8117,7 @@
                                             "assetWeightVotes": [
                                                 {
                                                     "type": "Asset Weight Vote",
-                                                    "name": "Superalgos-Marketing Video Publications YouTube Add Your Video as a New Asset",
+                                                    "name": "",
                                                     "config": "{}",
                                                     "project": "Governance",
                                                     "id": "c76c3c7f-2415-4a99-8a4e-174c305f1942",
@@ -7093,7 +8189,7 @@
                                             "assetWeightVotes": [
                                                 {
                                                     "type": "Asset Weight Vote",
-                                                    "name": "Superalgos-Marketing Video Publications Vimeo Add Your Video as a New Asset",
+                                                    "name": "",
                                                     "config": "{}",
                                                     "project": "Governance",
                                                     "id": "c9bfba8b-e189-4509-9d06-eb1f67e498cb",
@@ -7204,7 +8300,7 @@
                                             "assetWeightVotes": [
                                                 {
                                                     "type": "Asset Weight Vote",
-                                                    "name": "Superalgos-Marketing Social Media Posts Twitter Add Your Post as a New Asset",
+                                                    "name": "",
                                                     "config": "{}",
                                                     "project": "Governance",
                                                     "id": "ce53d1cc-6ebd-4913-9c21-7e593f22b189",
@@ -7276,7 +8372,7 @@
                                             "assetWeightVotes": [
                                                 {
                                                     "type": "Asset Weight Vote",
-                                                    "name": "Superalgos-Marketing Social Media Posts Facebook Add Your Post as a New Asset",
+                                                    "name": "",
                                                     "config": "{}",
                                                     "project": "Governance",
                                                     "id": "898e6dfd-da1d-425e-9832-7f12d5e7f020",
@@ -7348,7 +8444,7 @@
                                             "assetWeightVotes": [
                                                 {
                                                     "type": "Asset Weight Vote",
-                                                    "name": "Superalgos-Marketing Social Media Posts Instagram Add Your Post as a New Asset",
+                                                    "name": "",
                                                     "config": "{}",
                                                     "project": "Governance",
                                                     "id": "c9237fa6-3133-4969-8212-be427012be5d",
@@ -7420,7 +8516,7 @@
                                             "assetWeightVotes": [
                                                 {
                                                     "type": "Asset Weight Vote",
-                                                    "name": "Superalgos-Marketing Social Media Posts Reddit Add Your Post as a New Asset",
+                                                    "name": "",
                                                     "config": "{}",
                                                     "project": "Governance",
                                                     "id": "20035103-c27e-4725-996c-59fc20d04b4b",
@@ -7492,7 +8588,7 @@
                                             "assetWeightVotes": [
                                                 {
                                                     "type": "Asset Weight Vote",
-                                                    "name": "Superalgos-Marketing Social Media Posts Hacker News Add Your Post as a New Asset",
+                                                    "name": "",
                                                     "config": "{}",
                                                     "project": "Governance",
                                                     "id": "92991412-4270-4354-be3c-5cd9f998df47",
@@ -7603,7 +8699,7 @@
                                             "assetWeightVotes": [
                                                 {
                                                     "type": "Asset Weight Vote",
-                                                    "name": "Superalgos-Marketing Backlinks To Website Add Your Link as a New Asset",
+                                                    "name": "",
                                                     "config": "{}",
                                                     "project": "Governance",
                                                     "id": "c615b7d4-5170-4fa3-8a3f-3613bcd7b76a",
@@ -7675,7 +8771,7 @@
                                             "assetWeightVotes": [
                                                 {
                                                     "type": "Asset Weight Vote",
-                                                    "name": "Superalgos-Marketing Backlinks To Repository Add Your Link as a New Asset",
+                                                    "name": "",
                                                     "config": "{}",
                                                     "project": "Governance",
                                                     "id": "aa7ebbc2-9627-4f10-b2e2-c3c5fa13dac7",
@@ -7859,8 +8955,8 @@
             "id": "0b2863a0-d280-4a9a-9e2c-fe5bdbc54854",
             "savedPayload": {
                 "position": {
-                    "x": 25475.298701022628,
-                    "y": 23270.23265355101
+                    "x": 25545.074452902438,
+                    "y": 23160.706662192748
                 },
                 "targetPosition": {
                     "x": 25263.166666666664,
@@ -7914,8 +9010,8 @@
             "id": "d66a7bf2-963a-4d28-b896-c41e83f610ae",
             "savedPayload": {
                 "position": {
-                    "x": 25263.166666666664,
-                    "y": 23358.100619195047
+                    "x": 25413.166666666664,
+                    "y": 23317.90824033038
                 },
                 "targetPosition": {
                     "x": 25263.166666666664,
@@ -8001,8 +9097,8 @@
             "id": "ebfbf3db-d700-4a5e-b040-5f950acadce7",
             "savedPayload": {
                 "position": {
-                    "x": 25051.0346323107,
-                    "y": 23270.23265355101
+                    "x": 25211.072213366584,
+                    "y": 23353.54294509871
                 },
                 "targetPosition": {
                     "x": 25263.166666666664,
@@ -8012,6 +9108,61 @@
                     "isPinned": false,
                     "isFrozen": false,
                     "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "githubProgram": {
+            "type": "Github Program",
+            "name": "New Github Program",
+            "config": "{}",
+            "project": "Governance",
+            "tokensAwarded": {
+                "type": "Tokens Awarded",
+                "name": "New Tokens Awarded",
+                "project": "Governance",
+                "id": "db6f18ad-718c-441c-aab3-107144801267",
+                "savedPayload": {
+                    "position": {
+                        "x": 24803.540000795278,
+                        "y": 23443.773185006972
+                    },
+                    "targetPosition": {
+                        "x": 25033.35333373097,
+                        "y": 23250.93690210101
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "e1536209-e09b-4672-8ca8-8e4a1b08429f",
+            "savedPayload": {
+                "position": {
+                    "x": 25033.35333373097,
+                    "y": 23250.93690210101
+                },
+                "targetPosition": {
+                    "x": 25263.166666666664,
+                    "y": 23058.100619195047
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

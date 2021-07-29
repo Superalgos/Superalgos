@@ -9,15 +9,6 @@ function newGovernanceFunctionLibraryReferralProgram() {
         pools,
         userProfiles
     ) {
-
-        UI.projects.governance.utilities.bonusProgram.run(
-            pools,
-            userProfiles,
-            "referralProgram",
-            "Referrals-Bonus",
-            "Referral Program"
-        )
-
         UI.projects.governance.utilities.decendentProgram.run(
             pools,
             userProfiles,
@@ -27,6 +18,14 @@ function newGovernanceFunctionLibraryReferralProgram() {
             "Referral Power",
             "userReferrers",
             "User Referrer"
+        )
+
+        UI.projects.governance.utilities.bonusProgram.run(
+            pools,
+            userProfiles,
+            "referralProgram",
+            "Referrals-Bonus",
+            "Referral Program"
         )
     }
 }

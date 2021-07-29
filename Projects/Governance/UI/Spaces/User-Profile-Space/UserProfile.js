@@ -42,6 +42,13 @@ function newGovernanceUserProfileSpace() {
 
     function physics() {
         if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
+        /*
+        Here we will run the distribution process, that in turn will run all the programs.
+        */
+        UI.projects.governance.functionLibraries.distributionProcess.calculate()
+        /*
+        Load the user profiles with Token Power.
+        */
         let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
         if (waitingForResponses !== 0) { return }
         /*
@@ -56,6 +63,7 @@ function newGovernanceUserProfileSpace() {
                 getBlockchainAccount(userProfile)
             }
         }
+
 
         function getBlockchainAccount(userProfile) {
             let signature = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'signature')
@@ -88,6 +96,7 @@ function newGovernanceUserProfileSpace() {
                 }
 
                 let blockchainAccount = response.address
+                userProfile.payload.blockchainAccount = blockchainAccount
                 if (
                     blockchainAccount !== undefined &&
                     blockchainAccount !== "" &&

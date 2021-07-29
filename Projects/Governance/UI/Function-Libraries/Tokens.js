@@ -167,10 +167,10 @@ function newGovernanceFunctionLibraryTokens() {
         if (tokens.toFixed === undefined) { return }
         let status
         if (weight !== undefined && weight !== 0) {
-            status = parseFloat(tokens.toFixed(2)).toLocaleString('en')
+            status = parseFloat(tokens.toFixed(0)).toLocaleString('en')
                 + ' ' + 'SA Tokens Reward' + ' - ' + 'Weight: ' + (weight * 100).toFixed(2) + " %"
         } else {
-            status = parseFloat(tokens.toFixed(2)).toLocaleString('en')
+            status = parseFloat(tokens.toFixed(0)).toLocaleString('en')
                 + ' ' + 'SA Tokens Reward'
         }
 

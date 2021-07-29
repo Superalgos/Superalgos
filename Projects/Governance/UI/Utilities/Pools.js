@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesPools() {
+function newGovernanceUtilitiesPools() {
     let thisObject = {
         findPool: findPool
     }

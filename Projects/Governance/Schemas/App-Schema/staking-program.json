@@ -39,7 +39,7 @@
     },
     "addLeftIcons": true,
     "level": 1,
-    "propertyNameAtParent": "stackingProgram",
+    "propertyNameAtParent": "stakingProgram",
     "childrenNodesProperties": [
         {
             "name": "tokensAwarded",

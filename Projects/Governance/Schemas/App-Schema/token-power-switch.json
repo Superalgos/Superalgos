@@ -53,7 +53,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Voting Program",
+            "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "votingProgram",
@@ -65,7 +65,7 @@
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "stackingProgram",
+            "propertyToCheckFor": "stakingProgram",
             "label": "Add Staking Program",
             "relatedUiObject": "Staking Program"
         },
@@ -139,7 +139,7 @@
             "autoAdd": false
         },
         {
-            "name": "stackingProgram",
+            "name": "stakingProgram",
             "type": "node",
             "childType": "Staking Program",
             "autoAdd": false

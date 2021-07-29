@@ -440,7 +440,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
 
         function drawClaims(node) {
             let status =
-                parseFloat(node.payload.claimsProgram.awarded.tokens.toFixed(2)).toLocaleString('en') +
+                parseFloat(node.payload.claimsProgram.awarded.tokens.toFixed(0)).toLocaleString('en') +
                 ' ' + 'SA Tokens Awarded' + ' - ' +
                 'From Reward: ' + node.payload.claimsProgram.awarded.percentage.toFixed(2) + '%' + ' - ' +
                 'Shared Between: ' + node.payload.claimsProgram.share.count + ' claims' + ' - ' +
@@ -452,7 +452,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
         function drawProgram(node) {
             if (node.payload !== undefined) {
 
-                const ownPowerText = parseFloat(node.payload.claimsProgram.ownPower.toFixed(2)).toLocaleString('en')
+                const ownPowerText = parseFloat(node.payload.claimsProgram.ownPower.toFixed(0)).toLocaleString('en')
 
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
@@ -464,7 +464,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
         function drawTokensAwarded(node) {
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
-                const tokensAwardedText = parseFloat(node.payload.claimsProgram.awarded.tokens.toFixed(2)).toLocaleString('en')
+                const tokensAwardedText = parseFloat(node.payload.claimsProgram.awarded.tokens.toFixed(0)).toLocaleString('en')
 
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.valueAtAngle = true

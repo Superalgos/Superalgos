@@ -228,8 +228,8 @@
                     "initializationIndex": 0,
                     "animationPhysicsIndex": 1,
                     "animationDrawIndex": 0,
-                    "onMouseWheelIndex": 5,
-                    "onMouseOverIndex": 6,
+                    "onMouseWheelIndex": 6,
+                    "onMouseOverIndex": 7,
                     "onMouseClickIndex": 4,
                     "onMouseDownIndex": 6
                 },
@@ -253,8 +253,8 @@
                     "initializationIndex": 2,
                     "animationPhysicsIndex": 0,
                     "animationDrawIndex": 5,
-                    "onMouseWheelIndex": 3,
-                    "onMouseOverIndex": 2,
+                    "onMouseWheelIndex": 4,
+                    "onMouseOverIndex": 3,
                     "onMouseClickIndex": 2,
                     "onMouseDownIndex": 3
                 },
@@ -267,7 +267,7 @@
                     "animationPhysicsIndex": 3,
                     "animationDrawIndex": 2,
                     "onMouseWheelIndex": 0,
-                    "onMouseOverIndex": 5,
+                    "onMouseOverIndex": 6,
                     "onMouseClickIndex": 0,
                     "onMouseDownIndex": 1
                 },
@@ -279,8 +279,8 @@
                     "initializationIndex": 4,
                     "animationPhysicsIndex": 4,
                     "animationDrawIndex": 3,
-                    "onMouseWheelIndex": 2,
-                    "onMouseOverIndex": 3,
+                    "onMouseWheelIndex": 3,
+                    "onMouseOverIndex": 4,
                     "onMouseClickIndex": 3,
                     "onMouseDownIndex": 4
                 },
@@ -292,8 +292,8 @@
                     "initializationIndex": 5,
                     "animationPhysicsIndex": 2,
                     "animationDrawIndex": 1,
-                    "onMouseWheelIndex": 4,
-                    "onMouseOverIndex": 4,
+                    "onMouseWheelIndex": 5,
+                    "onMouseOverIndex": 5,
                     "onMouseClickIndex": 5,
                     "onMouseDownIndex": 5
                 },
@@ -305,11 +305,24 @@
                     "initializationIndex": 6,
                     "animationPhysicsIndex": 6,
                     "animationDrawIndex": 6,
-                    "onMouseWheelIndex": 1,
-                    "onMouseOverIndex": 2,
+                    "onMouseWheelIndex": 2,
+                    "onMouseOverIndex": 3,
                     "onMouseClickIndex": 6,
                     "onMouseDownIndex": 0
                 },
+                {
+                    "name": "Workspace Space",
+                    "folderName": "Workspace-Space",
+                    "propertyName": "workspaceSpace",
+                    "functionName": "newFoundationsWorkspaceSpace",
+                    "initializationIndex": 7,
+                    "animationPhysicsIndex": 7,
+                    "animationDrawIndex": 7,
+                    "onMouseWheelIndex": 1,
+                    "onMouseOverIndex": 2,
+                    "onMouseClickIndex": 7,
+                    "onMouseDownIndex": 0
+                },            
                 {
                     "name": "Chat Space",
                     "folderName": "Chat-Space",
@@ -956,7 +969,13 @@
         "name": "Governance",
         "propertyName": "governance",
         "UI": {
-            "globals": [],
+            "globals": [
+                {
+                    "name": "Reports",
+                    "propertyName": "reports",
+                    "functionName": "newGovernanceGlobalsReports"
+                }
+            ],
             "functionLibraries": [
                 {
                     "name": "Assets",
@@ -964,9 +983,14 @@
                     "functionName": "newGovernanceFunctionLibraryAssets"
                 },
                 {
-                    "name": "TokenPower",
+                    "name": "Token Power",
                     "propertyName": "tokenPower",
                     "functionName": "newGovernanceFunctionLibraryTokenPower"
+                },
+                {
+                    "name": "Token Mining",
+                    "propertyName": "tokenMining",
+                    "functionName": "newGovernanceFunctionLibraryTokenMining"
                 },
                 {
                     "name": "Voting Program",
@@ -1019,9 +1043,9 @@
                     "functionName": "newGovernanceFunctionLibraryMentorshipProgram"
                 },
                 {
-                    "name": "Stacking Program",
-                    "propertyName": "stackingProgram",
-                    "functionName": "newGovernanceFunctionLibraryStackingProgram"
+                    "name": "Staking Program",
+                    "propertyName": "stakingProgram",
+                    "functionName": "newGovernanceFunctionLibraryStakingProgram"
                 },
                 {
                     "name": "Profile Constructor",
@@ -1033,22 +1057,42 @@
                 {
                     "name": "Pools",
                     "propertyName": "pools",
-                    "functionName": "newFoundationsUtilitiesPools"
+                    "functionName": "newGovernanceUtilitiesPools"
                 },
                 {
                     "name": "Decendent Program",
                     "propertyName": "decendentProgram",
-                    "functionName": "newFoundationsUtilitiesDecendentProgram"
+                    "functionName": "newGovernanceUtilitiesDecendentProgram"
                 },
                 {
                     "name": "Bonus Program",
                     "propertyName": "bonusProgram",
-                    "functionName": "newFoundationsUtilitiesBonusProgram"
+                    "functionName": "newGovernanceUtilitiesBonusProgram"
                 },
                 {
                     "name": "Validations",
                     "propertyName": "validations",
-                    "functionName": "newFoundationsUtilitiesValidations"
+                    "functionName": "newGovernanceUtilitiesValidations"
+                },
+                {
+                    "name": "Tables",
+                    "propertyName": "tables",
+                    "functionName": "newGovernanceUtilitiesTables"
+                },
+                {
+                    "name": "Decendent Tables",
+                    "propertyName": "decendentTables",
+                    "functionName": "newGovernanceUtilitiesDecendentTables"
+                },
+                {
+                    "name": "Common Tables",
+                    "propertyName": "commonTables",
+                    "functionName": "newGovernanceUtilitiesCommonTables"
+                },
+                {
+                    "name": "Filters",
+                    "propertyName": "filters",
+                    "functionName": "newGovernanceUtilitiesFilters"
                 }
             ],
             "spaces": [
@@ -1066,10 +1110,10 @@
                     "onMouseDownIndex": 0
                 },
                 {
-                    "name": "Assets Space",
-                    "folderName": "Assets-Space",
-                    "propertyName": "assetsSpace",
-                    "functionName": "newGobernanceAssetsSpace",
+                    "name": "Reports Space",
+                    "folderName": "Reports-Space",
+                    "propertyName": "reportsSpace",
+                    "functionName": "newGobernanceReportsSpace",
                     "initializationIndex": 1,
                     "animationPhysicsIndex": 1,
                     "animationDrawIndex": 1,
@@ -1077,45 +1121,6 @@
                     "onMouseOverIndex": 1,
                     "onMouseClickIndex": 1,
                     "onMouseDownIndex": 1
-                },
-                {
-                    "name": "Features Space",
-                    "folderName": "Features-Space",
-                    "propertyName": "featuresSpace",
-                    "functionName": "newGovernanceFeaturesSpace",
-                    "initializationIndex": 2,
-                    "animationPhysicsIndex": 2,
-                    "animationDrawIndex": 2,
-                    "onMouseWheelIndex": 2,
-                    "onMouseOverIndex": 2,
-                    "onMouseClickIndex": 2,
-                    "onMouseDownIndex": 2
-                },
-                {
-                    "name": "Positions Space",
-                    "folderName": "Positions-Space",
-                    "propertyName": "positionsSpace",
-                    "functionName": "newGovernancePositionsSpace",
-                    "initializationIndex": 3,
-                    "animationPhysicsIndex": 3,
-                    "animationDrawIndex": 3,
-                    "onMouseWheelIndex": 3,
-                    "onMouseOverIndex": 3,
-                    "onMouseClickIndex": 3,
-                    "onMouseDownIndex": 3
-                },
-                {
-                    "name": "Pools Space",
-                    "folderName": "Pools-Space",
-                    "propertyName": "poolsSpace",
-                    "functionName": "newGovernancePoolsSpace",
-                    "initializationIndex": 4,
-                    "animationPhysicsIndex": 4,
-                    "animationDrawIndex": 4,
-                    "onMouseWheelIndex": 4,
-                    "onMouseOverIndex": 4,
-                    "onMouseClickIndex": 4,
-                    "onMouseDownIndex": 4
                 }
             ]
         },

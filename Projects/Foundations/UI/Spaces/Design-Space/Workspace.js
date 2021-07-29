@@ -16,6 +16,7 @@ function newWorkspace() {
         save: saveWorkspace,
         backup: backupWorkspace,
         share: shareWorkspace,
+        getNodesByTypeAndHierarchyHeadsType: getNodesByTypeAndHierarchyHeadsType, 
         getProjectsHeads: getProjectsHeads,
         getHierarchyHeads: getHierarchyHeads,
         getHierarchyHeadsById: getHierarchyHeadsById,
@@ -197,8 +198,8 @@ function newWorkspace() {
 
         function onResponse(err) {
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                window.localStorage.setItem('Last Used Workspace', workspace.name)
-                window.localStorage.setItem('Session Timestamp', sessionTimestamp)
+                setLastUsedWorkspace()
+
                 if (ARE_WE_RECORDING_A_MARKET_PANORAMA === false) {
                     UI.projects.foundations.spaces.cockpitSpace.setStatus(workspace.name + ' Saved.', 50, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
                 }
@@ -209,6 +210,11 @@ function newWorkspace() {
                 UI.projects.foundations.spaces.cockpitSpace.setStatus('Could not save the Workspace at the Client. Please check the Client Console for more information.', 150, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
             }
         }
+    }
+
+    function setLastUsedWorkspace() {
+        window.localStorage.setItem('Last Used Workspace', UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.name)
+        window.localStorage.setItem('Session Timestamp', sessionTimestamp)
     }
 
     function savePlugins() {
@@ -240,7 +246,9 @@ function newWorkspace() {
                                 let pluginFile = childNode.pluginFiles[k]
 
                                 let saveWithWorkspace = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'saveWithWorkspace')
-                                //UI.projects.foundations.utilities.plugins.savePluginFile(pluginFile)
+                                if (saveWithWorkspace === true) {
+                                    UI.projects.foundations.utilities.plugins.savePluginFile(pluginFile)
+                                }
                             }
                         }
                             break
@@ -306,7 +314,7 @@ function newWorkspace() {
                     workingAtTask = 0
 
                     UI.projects.education.spaces.docsSpace.sidePanelTab.close()
-                    UI.projects.foundations.spaces.sideSpace.sidePanelTab.close()
+                    UI.projects.foundations.spaces.workspaceSpace.sidePanelTab.close()
                     UI.projects.foundations.spaces.floatingSpace.inMapMode = true
                     workingAtTask = 2
                     break
@@ -408,10 +416,13 @@ function newWorkspace() {
                         UI.projects.foundations.spaces.floatingSpace.inMapMode = false
                         thisObject.isInitialized = true
 
+                        UI.projects.governance.spaces.reportsSpace.reset()
+
                         await UI.projects.education.spaces.docsSpace.reset()
                         await UI.projects.education.spaces.tutorialSpace.reset()
 
                         runTasksAndSessions()
+                        setLastUsedWorkspace()
                         break
                     }
             }
@@ -575,6 +586,20 @@ function newWorkspace() {
         return resultArray
     }
 
+    function getNodesByTypeAndHierarchyHeadsType(nodeType, hierarchyHeadsType) {
+        let hierarchyHeads = getHierarchyHeads()
+        let resultArray = []
+        if (hierarchyHeads === undefined) { return }
+        for (let i = 0; i < hierarchyHeads.length; i++) {
+            let hierarchyHead = hierarchyHeads[i]
+            if (hierarchyHead.type === hierarchyHeadsType) {
+
+                let nodeArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(hierarchyHead, nodeType)
+                resultArray = resultArray.concat(nodeArray)
+            }
+        }
+        return resultArray
+    }
 
     function replaceWorkspaceByLoadingOne(project, name) {
 

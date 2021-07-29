@@ -163,6 +163,8 @@ function newUiObject() {
     let warningRingDirectionAnimation = 1
     let infoRingDirectionAnimation = 1
 
+    thisObject.isRunning = false
+
     return thisObject
 
     function finalize() {

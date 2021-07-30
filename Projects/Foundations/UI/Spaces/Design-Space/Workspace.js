@@ -556,6 +556,9 @@ function newWorkspace() {
             let hierarchyHeadCodeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(hierarchyHead.payload, 'codeName')
             if (hierarchyHeadCodeName === codeName && hierarchyHead.type === nodeType) {
                 return hierarchyHead
+            } else if (hierarchyHead.name === codeName && hierarchyHead.type === nodeType) {
+                // This condition is used for auto fixing references in UiObjectsFromNodes.js
+                return hierarchyHead
             }
         }
     }

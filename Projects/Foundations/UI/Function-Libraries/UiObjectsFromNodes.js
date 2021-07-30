@@ -295,6 +295,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                 console.log('ACA')
             }
             if (node.payload === undefined) { continue }
+
             if (node.payload.referenceParent !== undefined) {
                 if (node.payload.referenceParent.cleaned === true) {
                     node.payload.referenceParent = mapOfNodes.get(node.payload.referenceParent.id)
@@ -306,32 +307,74 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                     continue  // In this case the reference is already good.
                 }
             }
+
             if (node.savedPayload !== undefined) {
                 if (node.savedPayload.referenceParent !== undefined) { // these are children recreated
                     // Reestablish based on Id
                     node.payload.referenceParent = mapOfNodes.get(node.savedPayload.referenceParent.id)
-                    //console.log("this is the node we tried to connect to", node.payload.referenceParent)
+                    
+                    // if Reestablishment failed now reestablish reference based on saved path
                     if (node.payload.referenceParent === undefined) { 
                         console.log('this node failed to connect' + node.type + ' ' + node.name, node )
+                        // Gather saved path
                         let rawPath = node.savedPayload.referenceParentCombinedNodePath
                         if (rawPath !== undefined) {
+                            // Construct map from head node in saved path
                             console.log('this is a saved path',node.savedPayload.referenceParentCombinedNodePath)
-                            // Attempt to reestablish reference based on saved path
-                            let nodePath = []
-                            let headNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByCodeNameAndNodeType(rawPath[0][0], rawPath[0][1]) 
-                            console.log('this is our returned head node', headNode)
-                            // Loop through saved Path and gather nodes
-                            /*for (let i = 0; i < rawPath.length; i++) {
+                            const pathHeadName = rawPath[0][0]
+                            const pathHeadType = rawPath[0][1]
+                            let headNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByCodeNameAndNodeType( pathHeadName, pathHeadType) 
+                            const pathName = rawPath[1][0]
+                            const pathType = rawPath[1][1]
+                            getNextNode(headNode, pathName, pathType)
+
+                            function getNextNode(node, pathName, pathType) {
+                                let schemaDocument = getSchemaDocument(node) 
+                                let nextNode = undefined
+                                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+
+                                    let property = schemaDocument.childrenNodesProperties[i]
+                                    console.log("this is path", pathName, pathType)
+                                    switch (property.type) {
+                                        case 'node': {
+                                            if (node[property.name] !== undefined) {
+                                                console.log('this is a node property', headNode[property.name])
+                                            }
+                                            break
+                                        }
+                                        case 'array': {
+                                            if (headNode[property.name] !== undefined) {
+                                                let nodePropertyArray = headNode[property.name]
+                                                for (let m = 0; m < nodePropertyArray.length; m++) {
+                                                    console.log('this is an array property', nodePropertyArray[m])
+                                                    if (nodePropertyArray[m].name === pathName && nodePropertyArray[m].type === pathType) {
+                                                    
+                                                        nextNode = nodePropertyArray[m]
+                                                        console.log("we have a match!", nextNode)
+                                                        return nextNode
+                                                    }
+                                                }
+                                            }
+                                            break
+                                        }
+                                    }
+                                
+                                }
+                            }
+                            
+                            let nodePathMap = UI.projects.foundations.utilities.hierarchy.getHiriarchyMap(headNode)
+                            console.log('this is our returned path map', nodePathMap)
+                            // Loop through saved Path and gather reference parent from nodes map
+                            /*for (let i = 1; i < rawPath.length; i++) {
                                 console.log("we are at this step in the node path", rawPath[i])
                                 // Loop through map of nodes to find each node in path 
-                                for (let x = 0; x < mapOfNodes.length; x++) {
+                                /*for (let x = 0; x < mapOfNodes.length; x++) {
                                     let mapNode = mapOfNodes[x]
                                     let mapNodeCodeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(mapNode.payload, 'codeName')
                                     if (mapNodeCodeName === rawPath[i][0] && mapNode.type === ) {
                                         nodePath.push(mapNode)
                                     }
-                                } 
-                                console.log("nodePath", nodePath)
+                                }
                             }*/
                         }
                      }

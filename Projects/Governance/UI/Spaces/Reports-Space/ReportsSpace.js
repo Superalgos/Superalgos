@@ -11,11 +11,13 @@ function newGobernanceReportsSpace() {
         referrals: undefined,
         supports: undefined,
         mentors: undefined,
+        influencers: undefined,
         claims: undefined,
         votes: undefined,
         staking: undefined,
         delegations: undefined,
         github: undefined,
+        airdrop: undefined,
         pools: undefined,
         assets: undefined,
         features: undefined,
@@ -74,6 +76,9 @@ function newGobernanceReportsSpace() {
         thisObject.mentors.finalize()
         thisObject.mentors = undefined
 
+        thisObject.influencers.finalize()
+        thisObject.influencers = undefined
+
         thisObject.claims.finalize()
         thisObject.claims = undefined
 
@@ -88,6 +93,9 @@ function newGobernanceReportsSpace() {
 
         thisObject.github.finalize()
         thisObject.github = undefined
+
+        thisObject.airdrop.finalize()
+        thisObject.airdrop = undefined
 
         thisObject.pools.finalize()
         thisObject.pools = undefined
@@ -130,12 +138,14 @@ function newGobernanceReportsSpace() {
         thisObject.userProfiles = newGovernanceReportsUserProfiles()
         thisObject.referrals = newGovernanceReportsReferrals()
         thisObject.supports = newGovernanceReportsSupports()
+        thisObject.influencers = newGovernanceReportsInfluencers()
         thisObject.mentors = newGovernanceReportsMentors()
         thisObject.claims = newGovernanceReportsClaims()
         thisObject.votes = newGovernanceReportsVotes()
         thisObject.staking = newGovernanceReportsStaking()
         thisObject.delegation = newGovernanceReportsDelegation()
         thisObject.github = newGovernanceReportsGithub()
+        thisObject.airdrop = newGovernanceReportsAirdrop()
         thisObject.pools = newGovernanceReportsPools()
         thisObject.assets = newGovernanceReportsAssets()
         thisObject.features = newGovernanceReportsFeatures()
@@ -147,12 +157,15 @@ function newGobernanceReportsSpace() {
         thisObject.filtersHeader.initialize()
         thisObject.userProfiles.initialize()
         thisObject.referrals.initialize()
+        thisObject.supports.initialize()
         thisObject.mentors.initialize()
+        thisObject.influencers.initialize()
         thisObject.claims.initialize()
         thisObject.votes.initialize()
         thisObject.staking.initialize()
         thisObject.delegation.initialize()
         thisObject.github.initialize()
+        thisObject.airdrop.initialize()
         thisObject.pools.initialize()
         thisObject.assets.initialize()
         thisObject.features.initialize()

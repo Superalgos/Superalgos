@@ -141,9 +141,9 @@ function newGovernanceFunctionLibraryGithubProgram() {
             if (programNode === undefined || programNode.payload === undefined) { return }
             /*
             Here we will convert Token Power into Github Power. 
-            As per system rules Github Powar = tokensPower
+            As per system rules Github Powar = 1000 SA Tokens.
             */
-            let programPower = programNode.payload.tokenPower
+            let programPower = 1000
             programNode.payload.githubProgram.ownPower = programPower
 
             accumulatedProgramPower = accumulatedProgramPower + programPower

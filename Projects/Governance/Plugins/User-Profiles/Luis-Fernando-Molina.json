@@ -6064,7 +6064,7 @@
             {
                 "type": "Token Power Switch",
                 "name": "Staking",
-                "config": "{\n    \"percentage\": 1\n}",
+                "config": "{\n    \"percentage\": 5\n}",
                 "project": "Governance",
                 "tokenPowerSwitch": [],
                 "stakingProgram": {
@@ -6475,7 +6475,7 @@
             {
                 "type": "Token Power Switch",
                 "name": "Github",
-                "config": "{}",
+                "config": "{\n    \"percentage\": 0\n}",
                 "project": "Governance",
                 "tokenPowerSwitch": [],
                 "githubProgram": {
@@ -6546,7 +6546,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0

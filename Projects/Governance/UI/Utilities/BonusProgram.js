@@ -146,11 +146,12 @@ function newGovernanceUtilitiesBonusProgram() {
             if (node.tokensBonus !== undefined && node.tokensBonus.payload !== undefined) {
 
                 const tokensBonusText = parseFloat(node.payload[programPropertyName].bonus.tokens.toFixed(0)).toLocaleString('en')
+                const tokensAwardedBTC = ' ≃ ' + UI.projects.governance.utilities.conversions.estimateSATokensInBTC(node.payload[programPropertyName].bonus.tokens | 0) + '  BTC'
 
                 node.tokensBonus.payload.uiObject.valueAngleOffset = 0
                 node.tokensBonus.payload.uiObject.valueAtAngle = true
 
-                node.tokensBonus.payload.uiObject.setValue(tokensBonusText + ' SA Tokens')
+                node.tokensBonus.payload.uiObject.setValue(tokensBonusText + ' SA Tokens' + tokensAwardedBTC)
             }
         }
     }

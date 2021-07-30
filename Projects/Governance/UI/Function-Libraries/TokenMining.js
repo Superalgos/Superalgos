@@ -149,12 +149,13 @@ function newGovernanceFunctionLibraryTokenMining() {
             const awarded = parseFloat(userProfile.tokensMined.payload.tokensMined.awarded.toFixed(0)).toLocaleString('en')
             const bonus = parseFloat(userProfile.tokensMined.payload.tokensMined.bonus.toFixed(0)).toLocaleString('en')
             const total = parseFloat(userProfile.tokensMined.payload.tokensMined.total.toFixed(0)).toLocaleString('en')
+            const tokensAwardedBTC = ' ≃ ' + UI.projects.governance.utilities.conversions.estimateSATokensInBTC(userProfile.tokensMined.payload.tokensMined.total | 0) + '  BTC'
 
             userProfile.tokensMined.payload.uiObject.valueAngleOffset = 0
             userProfile.tokensMined.payload.uiObject.valueAtAngle = true
 
             userProfile.tokensMined.payload.uiObject.setStatus(awarded + ' Awarded + ' + bonus + ' Bonus')
-            userProfile.tokensMined.payload.uiObject.setValue(total + ' SA Tokens')
+            userProfile.tokensMined.payload.uiObject.setValue(total + ' SA Tokens' + tokensAwardedBTC)
         }
     }
 }

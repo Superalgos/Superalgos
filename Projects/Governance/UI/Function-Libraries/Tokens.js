@@ -168,16 +168,15 @@ function newGovernanceFunctionLibraryTokens() {
         tokens = tokens | 0
         let status
         if (weight !== undefined && weight !== 0) {
-            status = tokens.toLocaleString('en')
-                + ' ' + 'SA Tokens Reward' + ' - ' + 'Weight: ' + (weight * 100).toFixed(2) + " %"
-
+            status = 'Reward: '  + tokens.toLocaleString('en')
+                + ' ' + 'SA' + ' ≃ ' +  UI.projects.governance.utilities.conversions.estimateSATokensInBTC(tokens | 0) + '  BTC ' + ' + Weight: ' + (weight * 100).toFixed(2) + " %" 
             node.payload.uiObject.statusAngleOffset = 0
             node.payload.uiObject.statusAtAngle = true
 
             node.payload.uiObject.setStatus(status)
         } else {
-            status = tokens.toLocaleString('en')
-                + ' ' + 'SA Tokens Reward'
+            status = 'Reward: '  + tokens.toLocaleString('en')
+                + ' ' + 'SA' + ' ≃ ' +  UI.projects.governance.utilities.conversions.estimateSATokensInBTC(tokens | 0) + '  BTC ' 
 
             node.payload.uiObject.statusAngleOffset = 0
             node.payload.uiObject.statusAtAngle = false

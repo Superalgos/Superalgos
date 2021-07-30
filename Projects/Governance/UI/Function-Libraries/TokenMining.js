@@ -47,6 +47,16 @@ function newGovernanceFunctionLibraryTokenMining() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Influencer Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
+
+            calculateProgram(userProfile, program, "influencerProgram")
+        }
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
             let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Claims Program")
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
@@ -92,6 +102,16 @@ function newGovernanceFunctionLibraryTokenMining() {
             if (program.payload === undefined) { continue }
 
             calculateProgram(userProfile, program, "githubProgram")
+        }
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Airdrop Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
+
+            calculateProgram(userProfile, program, "airdropProgram")
         }
 
         for (let i = 0; i < userProfiles.length; i++) {

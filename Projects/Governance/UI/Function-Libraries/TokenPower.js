@@ -46,11 +46,13 @@ function newGovernanceFunctionLibraryTokenPower() {
             node.type === 'Referral Program' ||
             node.type === 'Mentorship Program' ||
             node.type === 'Support Program' ||
+            node.type === 'Influencer Program' ||
             node.type === 'Voting Program' ||
             node.type === 'Claims Program' ||
             node.type === 'Staking Program' ||
             node.type === 'Delegation Program' ||
-            node.type === 'Github Program'
+            node.type === 'Github Program' ||
+            node.type === 'Airdrop Program'
         ) { return }
         /*
         We will reset token power of children.
@@ -147,11 +149,13 @@ function newGovernanceFunctionLibraryTokenPower() {
             node.type === 'Referral Program' ||
             node.type === 'Mentorship Program' ||
             node.type === 'Support Program' ||
+            node.type === 'Influencer Program' ||
             node.type === 'Voting Program' ||
             node.type === 'Claims Program' ||
             node.type === 'Staking Program' ||
             node.type === 'Delegation Program' ||
-            node.type === 'Github Program'
+            node.type === 'Github Program' ||
+            node.type === 'Airdrop Program'
         ) { return }
         /*
         We will redistribute token power among children.

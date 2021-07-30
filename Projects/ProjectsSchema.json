@@ -1038,6 +1038,11 @@
                     "functionName": "newGovernanceFunctionLibrarySupportProgram"
                 },
                 {
+                    "name": "Influencer Program",
+                    "propertyName": "influencerProgram",
+                    "functionName": "newGovernanceFunctionLibraryInfluencerProgram"
+                },
+                {
                     "name": "Mentorship Program",
                     "propertyName": "mentorshipProgram",
                     "functionName": "newGovernanceFunctionLibraryMentorshipProgram"
@@ -1056,6 +1061,11 @@
                     "name": "Github Program",
                     "propertyName": "githubProgram",
                     "functionName": "newGovernanceFunctionLibraryGithubProgram"
+                },
+                {
+                    "name": "Airdrop Program",
+                    "propertyName": "airdropProgram",
+                    "functionName": "newGovernanceFunctionLibraryAirdropProgram"
                 }
             ],
             "utilities": [

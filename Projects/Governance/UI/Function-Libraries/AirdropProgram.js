@@ -1,4 +1,4 @@
-function newGovernanceFunctionLibraryGithubProgram() {
+function newGovernanceFunctionLibraryAirdropProgram() {
     let thisObject = {
         calculate: calculate
     }
@@ -12,7 +12,7 @@ function newGovernanceFunctionLibraryGithubProgram() {
         let programPoolTokenReward
         /*
         In order to be able to calculate the share of the Program Pool for each User Profile,
-        we need to accumulate all the Github Power that each User Profile at their Program
+        we need to accumulate all the Airdrop Power that each User Profile at their Program
         node has, because with that Power is that each Program node gets a share of the pool.
          */
         let accumulatedProgramPower = 0
@@ -20,7 +20,7 @@ function newGovernanceFunctionLibraryGithubProgram() {
         /* Scan Pools Until finding the Mentoship-Program Pool */
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]
-            programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, "Github-Rewards")
+            programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, "Airdrop-Rewards")
         }
         if (programPoolTokenReward === undefined || programPoolTokenReward === 0) { return }
 
@@ -28,7 +28,7 @@ function newGovernanceFunctionLibraryGithubProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Github Program")
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Airdrop Program")
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
 
@@ -38,7 +38,7 @@ function newGovernanceFunctionLibraryGithubProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Github Program")
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Airdrop Program")
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
 
@@ -48,10 +48,10 @@ function newGovernanceFunctionLibraryGithubProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Github Program")
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Airdrop Program")
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
-            if (program.payload.githubProgram.isActive === false) { continue }
+            if (program.payload.airdropProgram.isActive === false) { continue }
 
             distributeProgram(program)
         }
@@ -59,10 +59,10 @@ function newGovernanceFunctionLibraryGithubProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Github Program")
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Airdrop Program")
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
-            if (program.payload.githubProgram.isActive === false) { continue }
+            if (program.payload.airdropProgram.isActive === false) { continue }
 
             calculateProgram(program)
         }
@@ -70,8 +70,8 @@ function newGovernanceFunctionLibraryGithubProgram() {
         function resetProgram(node) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
-            if (node.payload.githubProgram === undefined) {
-                node.payload.githubProgram = {
+            if (node.payload.airdropProgram === undefined) {
+                node.payload.airdropProgram = {
                     count: 0,
                     percentage: 0,
                     outgoingPower: 0,
@@ -83,12 +83,12 @@ function newGovernanceFunctionLibraryGithubProgram() {
                     }
                 }
             } else {
-                node.payload.githubProgram.count = 0
-                node.payload.githubProgram.percentage = 0
-                node.payload.githubProgram.outgoingPower = 0
-                node.payload.githubProgram.ownPower = 0
-                node.payload.githubProgram.incomingPower = 0
-                node.payload.githubProgram.awarded = {
+                node.payload.airdropProgram.count = 0
+                node.payload.airdropProgram.percentage = 0
+                node.payload.airdropProgram.outgoingPower = 0
+                node.payload.airdropProgram.ownPower = 0
+                node.payload.airdropProgram.incomingPower = 0
+                node.payload.airdropProgram.awarded = {
                     tokens: 0,
                     percentage: 0
                 }
@@ -98,53 +98,39 @@ function newGovernanceFunctionLibraryGithubProgram() {
         function validateProgram(node, userProfile) {
             /*
             This program is not going to run unless the Profile has Tokens, and for 
-            that users needs to execute the setup procedure of signing their Github
+            that users needs to execute the setup procedure of signing their Airdrop
             username with their private key.
             */
             if (
                 userProfile.payload.blockchainTokens === undefined
             ) {
-                node.payload.githubProgram.isActive = false
+                node.payload.airdropProgram.isActive = false
                 userProfile.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.")
                 return
             }
             /*
-            Next thing to do is to validate if the github user profile has a star at the Superalgos repository. 
+            Next thing to do is to validate if the airdrop user profile has a star at the Superalgos repository. 
             */
             let profileSignature = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'signature')
             if (
                 profileSignature === undefined
             ) {
-                node.payload.githubProgram.isActive = false
-                userProfile.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, and produce a signature of your Github Username.")
+                node.payload.airdropProgram.isActive = false
+                userProfile.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, and produce a signature of your Airdrop Username.")
                 return
             }
-            let githubUsername = profileSignature.message
-            node.payload.githubProgram.starsCount = UI.projects.governance.spaces.userProfileSpace.githubStars.get(githubUsername)
-            node.payload.githubProgram.watchersCount = UI.projects.governance.spaces.userProfileSpace.githubWatchers.get(githubUsername)
-            node.payload.githubProgram.forksCount = UI.projects.governance.spaces.userProfileSpace.githubForks.get(githubUsername)
-            node.payload.githubProgram.engagement = 0
 
-            if (node.payload.githubProgram.starsCount > 0) { node.payload.githubProgram.engagement = node.payload.githubProgram.engagement + node.payload.githubProgram.starsCount }
-            if (node.payload.githubProgram.watchersCount > 0) { node.payload.githubProgram.engagement = node.payload.githubProgram.engagement + node.payload.githubProgram.watchersCount }
-            if (node.payload.githubProgram.forksCount > 0) { node.payload.githubProgram.engagement = node.payload.githubProgram.engagement + node.payload.githubProgram.forksCount }
-
-            if (
-                node.payload.githubProgram.engagement > 0) {
-                node.payload.githubProgram.isActive = true
-            } else {
-                node.payload.githubProgram.isActive = false
-            }
+            node.payload.airdropProgram.isActive = true
         }
 
         function distributeProgram(programNode) {
             if (programNode === undefined || programNode.payload === undefined) { return }
             /*
-            Here we will convert Token Power into Github Power. 
-            As per system rules Github Powar = 1200 SA Tokens.
+            Here we will convert Token Power into Airdrop Power. 
+            As per system rules Airdrop Powar = 1000 SA Tokens.
             */
-            let programPower = 3000
-            programNode.payload.githubProgram.ownPower = programPower
+            let programPower = 1000
+            programNode.payload.airdropProgram.ownPower = programPower
 
             accumulatedProgramPower = accumulatedProgramPower + programPower
         }
@@ -170,8 +156,7 @@ function newGovernanceFunctionLibraryGithubProgram() {
                 programNode.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.")
                 return
             }
-            const MAX_ENGAGEMENT = 3
-            programNode.payload.githubProgram.awarded.tokens = programNode.payload.githubProgram.ownPower / totalPowerRewardRatio * programNode.payload.githubProgram.engagement / MAX_ENGAGEMENT
+            programNode.payload.airdropProgram.awarded.tokens = programNode.payload.airdropProgram.ownPower / totalPowerRewardRatio 
 
             drawProgram(programNode)
         }
@@ -179,17 +164,17 @@ function newGovernanceFunctionLibraryGithubProgram() {
         function drawProgram(node) {
             if (node.payload !== undefined) {
 
-                const ownPowerText = parseFloat(node.payload.githubProgram.ownPower.toFixed(0)).toLocaleString('en')
+                const ownPowerText = parseFloat(node.payload.airdropProgram.ownPower.toFixed(0)).toLocaleString('en')
 
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
 
-                node.payload.uiObject.setStatus(ownPowerText + ' Github Power')
+                node.payload.uiObject.setStatus(ownPowerText + ' Airdrop Power')
             }
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
-                const tokensAwardedText = parseFloat(node.payload.githubProgram.awarded.tokens.toFixed(0)).toLocaleString('en')
-                const tokensAwardedBTC = ' ≃ ' + UI.projects.governance.utilities.conversions.estimateSATokensInBTC(node.payload.githubProgram.awarded.tokens | 0) + '  BTC'
+                const tokensAwardedText = parseFloat(node.payload.airdropProgram.awarded.tokens.toFixed(0)).toLocaleString('en')
+                const tokensAwardedBTC = ' ≃ ' + UI.projects.governance.utilities.conversions.estimateSATokensInBTC(node.payload.airdropProgram.awarded.tokens | 0) + '  BTC'
 
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.valueAtAngle = false
@@ -199,18 +184,7 @@ function newGovernanceFunctionLibraryGithubProgram() {
                 node.tokensAwarded.payload.uiObject.statusAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.statusAtAngle = false
 
-                let extraText = ''
-                if (node.payload.githubProgram.starsCount > 0) {
-                    extraText = extraText + ' + 1 Star'
-                }
-                if (node.payload.githubProgram.watchersCount > 0) {
-                    extraText = extraText + ' + 1 Watch'
-                }
-                if (node.payload.githubProgram.forksCount > 0) {
-                    extraText = extraText + ' + 1 Fork'
-                }
-
-                node.tokensAwarded.payload.uiObject.setStatus('From' + extraText)
+                node.tokensAwarded.payload.uiObject.setStatus('For creating your Superalgos profile!')
             }
         }
     }

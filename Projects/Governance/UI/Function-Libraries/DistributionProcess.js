@@ -75,6 +75,13 @@ function newGovernanceFunctionLibraryDistributionProcess() {
             userProfiles
         )
         /*
+        Run the Influencer Program
+        */
+        UI.projects.governance.functionLibraries.influencerProgram.calculate(
+            pools,
+            userProfiles
+        )
+        /*
         Run the Mentorship Program
         */
         UI.projects.governance.functionLibraries.mentorshipProgram.calculate(
@@ -101,6 +108,13 @@ function newGovernanceFunctionLibraryDistributionProcess() {
         Run the Github Program
         */
         UI.projects.governance.functionLibraries.githubProgram.calculate(
+            pools,
+            userProfiles
+        )
+        /*
+        Run the Airdrop Program
+        */
+        UI.projects.governance.functionLibraries.airdropProgram.calculate(
             pools,
             userProfiles
         )

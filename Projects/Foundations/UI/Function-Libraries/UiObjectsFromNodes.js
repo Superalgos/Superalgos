@@ -354,7 +354,9 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                                         case 'node': {
                                             if (node[property.name] !== undefined) {
                                                 if (node[property.name].name === pathName && node[property.name].type === pathType) {
-                                                    //console.log('this is a node property', node[property.name])
+                                                    nextNode = node[property.name]
+                                                    console.log("we have a match!", nextNode)
+                                                    return nextNode
                                                 }    
                                             }
                                             break

@@ -94,7 +94,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                 if (
                     node.payload.votingProgram !== undefined &&
                     node.payload.votingProgram.votes !== undefined
-                    ) {
+                ) {
                     node.payload.claimsProgram = {
                         count: 0,
                         votes: 0
@@ -465,13 +465,14 @@ function newGovernanceFunctionLibraryClaimsProgram() {
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
                 const tokensAwardedText = parseFloat(node.payload.claimsProgram.awarded.tokens.toFixed(0)).toLocaleString('en')
+                const tokensAwardedBTC = ' ≃ ' + UI.projects.governance.utilities.conversions.estimateSATokensInBTC(node.payload.claimsProgram.awarded.tokens | 0) + '  BTC'
 
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.valueAtAngle = true
                 node.tokensAwarded.payload.uiObject.statusAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.statusAtAngle = true
 
-                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens')
+                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens' + tokensAwardedBTC)
                 node.tokensAwarded.payload.uiObject.setStatus('From ' + node.payload.claimsProgram.count + ' Claims.')
             }
         }

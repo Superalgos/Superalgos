@@ -94,7 +94,7 @@ function newGovernanceUtilitiesCommonTables() {
                 "tokensReward": node.payload.tokens | 0,
                 "rewardInBTC": UI.projects.governance.utilities.conversions.estimateSATokensInBTC(node.payload.tokens | 0),
                 "weight": node.payload.weight,
-                "weightPower": node.payload.votingProgram.votes
+                "weightPower": node.payload.votingProgram.votes | 0
             }
 
             if (UI.projects.governance.utilities.filters.applyFilters(filters, filtersObject, tableRecord) === true) {

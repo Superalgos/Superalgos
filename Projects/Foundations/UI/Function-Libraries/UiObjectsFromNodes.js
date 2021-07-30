@@ -319,34 +319,51 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                         // Gather saved path
                         let rawPath = node.savedPayload.referenceParentCombinedNodePath
                         if (rawPath !== undefined) {
-                            // Construct map from head node in saved path
-                            console.log('this is a saved path',node.savedPayload.referenceParentCombinedNodePath)
-                            const pathHeadName = rawPath[0][0]
-                            const pathHeadType = rawPath[0][1]
-                            let headNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByCodeNameAndNodeType( pathHeadName, pathHeadType) 
-                            const pathName = rawPath[1][0]
-                            const pathType = rawPath[1][1]
-                            getNextNode(headNode, pathName, pathType)
+                            // Step down node hierarchy to find missing referenceParent
+                             let pathNode 
+                             let pathName
+                             let pathType
+                             for (let i = 0; i < rawPath.length; i++) {
+                               
+                                // Get Hierarchy head node
+                                if (i === 0) {
+                                    pathName = rawPath[i][0]
+                                    pathType = rawPath[i][1]
+                                    pathNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByCodeNameAndNodeType( pathName, pathType) 
+                                    continue
+                                } else { // Walk through children nodes and find the next node from saved path
+                                    pathName = rawPath[i][0]
+                                    pathType = rawPath[i][1]
+                                    pathNode = getNextNodeFromPath(pathNode, pathName, pathType)
+                                }
+                            }
+                            if (pathNode !== undefined ) {
+                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(node, pathNode)
+                            } else {
+                                console.log("[Warn] ", node.name, ' ', node.type, "failed to fix reference.  Unable to find reference parent ", pathName, ' ', pathType  )
+                            }
 
-                            function getNextNode(node, pathName, pathType) {
+                            function getNextNodeFromPath(node, pathName, pathType) {
                                 let schemaDocument = getSchemaDocument(node) 
                                 let nextNode = undefined
                                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
 
                                     let property = schemaDocument.childrenNodesProperties[i]
-                                    console.log("this is path", pathName, pathType)
+                                    //console.log("this is path", pathName, pathType)
                                     switch (property.type) {
                                         case 'node': {
                                             if (node[property.name] !== undefined) {
-                                                console.log('this is a node property', headNode[property.name])
+                                                if (node[property.name].name === pathName && node[property.name].type === pathType) {
+                                                    //console.log('this is a node property', node[property.name])
+                                                }    
                                             }
                                             break
                                         }
                                         case 'array': {
-                                            if (headNode[property.name] !== undefined) {
-                                                let nodePropertyArray = headNode[property.name]
+                                            if (node[property.name] !== undefined) {
+                                                let nodePropertyArray = node[property.name]
                                                 for (let m = 0; m < nodePropertyArray.length; m++) {
-                                                    console.log('this is an array property', nodePropertyArray[m])
+                                                    console.log( nodePropertyArray[m].name, ' equals ', pathName, '   ', nodePropertyArray[m].type, " equals ",pathType)
                                                     if (nodePropertyArray[m].name === pathName && nodePropertyArray[m].type === pathType) {
                                                     
                                                         nextNode = nodePropertyArray[m]
@@ -361,21 +378,6 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                                 
                                 }
                             }
-                            
-                            let nodePathMap = UI.projects.foundations.utilities.hierarchy.getHiriarchyMap(headNode)
-                            console.log('this is our returned path map', nodePathMap)
-                            // Loop through saved Path and gather reference parent from nodes map
-                            /*for (let i = 1; i < rawPath.length; i++) {
-                                console.log("we are at this step in the node path", rawPath[i])
-                                // Loop through map of nodes to find each node in path 
-                                /*for (let x = 0; x < mapOfNodes.length; x++) {
-                                    let mapNode = mapOfNodes[x]
-                                    let mapNodeCodeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(mapNode.payload, 'codeName')
-                                    if (mapNodeCodeName === rawPath[i][0] && mapNode.type === ) {
-                                        nodePath.push(mapNode)
-                                    }
-                                }
-                            }*/
                         }
                      }
 

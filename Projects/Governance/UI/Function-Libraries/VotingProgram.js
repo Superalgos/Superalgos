@@ -517,7 +517,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
             ) {
                 originNode.name = destinationNode.name + ' ' + destinationNode.type + ' ' + ' Vote'
             } else {
-                originNode.name = destinationNode.name + ' ' + destinationNode.type
+                originNode.name = destinationNode.name 
             }
 
             let schemaDocument = getSchemaDocument(destinationNode)

@@ -909,7 +909,7 @@
                                                 {
                                                     "type": "Weight Votes Switch",
                                                     "name": "Exchanges Pool Class",
-                                                    "config": "{\n    \"percentage\": 40\n}",
+                                                    "config": "{\n    \"percentage\": 35\n}",
                                                     "project": "Governance",
                                                     "weightVotesSwitch": [],
                                                     "poolWeightVotes": [
@@ -981,13 +981,13 @@
                                                 {
                                                     "type": "Weight Votes Switch",
                                                     "name": "Governance Programs Pool Class",
-                                                    "config": "{\n    \"percentage\": 30\n}",
+                                                    "config": "{\n    \"percentage\": 25\n}",
                                                     "project": "Governance",
                                                     "weightVotesSwitch": [
                                                         {
                                                             "type": "Weight Votes Switch",
                                                             "name": "Community Building Programs Pool Class",
-                                                            "config": "{\n    \"percentage\": 50\n}",
+                                                            "config": "{\n    \"percentage\": 70\n}",
                                                             "project": "Governance",
                                                             "weightVotesSwitch": [
                                                                 {
@@ -1005,12 +1005,12 @@
                                                                             "id": "d5cfaf67-cacc-4ce2-bcf3-1cf86e104ff3",
                                                                             "savedPayload": {
                                                                                 "position": {
-                                                                                    "x": 30722.243186293083,
-                                                                                    "y": 25689.149236003243
+                                                                                    "x": 31296.69683694488,
+                                                                                    "y": 24603.823102920433
                                                                                 },
                                                                                 "targetPosition": {
-                                                                                    "x": 30451.467600988126,
-                                                                                    "y": 25559.995906960754
+                                                                                    "x": 31053.991738632398,
+                                                                                    "y": 24780.158678608175
                                                                                 },
                                                                                 "floatingObject": {
                                                                                     "isPinned": false,
@@ -1038,12 +1038,12 @@
                                                                             "id": "0c7e8840-3b89-48c4-8087-b3e0c2396892",
                                                                             "savedPayload": {
                                                                                 "position": {
-                                                                                    "x": 30679.589390668134,
-                                                                                    "y": 25754.83032145981
+                                                                                    "x": 31334.065866581557,
+                                                                                    "y": 24672.648293744583
                                                                                 },
                                                                                 "targetPosition": {
-                                                                                    "x": 30451.467600988126,
-                                                                                    "y": 25559.995906960754
+                                                                                    "x": 31053.991738632398,
+                                                                                    "y": 24780.158678608175
                                                                                 },
                                                                                 "floatingObject": {
                                                                                     "isPinned": false,
@@ -1070,12 +1070,12 @@
                                                                     "id": "e234520e-5755-418a-9a32-f53a4d02f04d",
                                                                     "savedPayload": {
                                                                         "position": {
-                                                                            "x": 30451.467600988126,
-                                                                            "y": 25559.995906960754
+                                                                            "x": 31053.991738632398,
+                                                                            "y": 24780.158678608175
                                                                         },
                                                                         "targetPosition": {
-                                                                            "x": 30199.8664306045,
-                                                                            "y": 25396.604196456246
+                                                                            "x": 30790.34660483381,
+                                                                            "y": 24923.30630668606
                                                                         },
                                                                         "floatingObject": {
                                                                             "isPinned": false,
@@ -1110,12 +1110,12 @@
                                                                             "id": "90eeb2fb-aa44-4530-bbeb-44b29a574c9b",
                                                                             "savedPayload": {
                                                                                 "position": {
-                                                                                    "x": 30606.274859223136,
-                                                                                    "y": 25836.25435760146
+                                                                                    "x": 31370.64003199154,
+                                                                                    "y": 24775.930550725934
                                                                                 },
                                                                                 "targetPosition": {
-                                                                                    "x": 30388.66254791945,
-                                                                                    "y": 25629.747984893336
+                                                                                    "x": 31085.323077102996,
+                                                                                    "y": 24868.635649038417
                                                                                 },
                                                                                 "floatingObject": {
                                                                                     "isPinned": false,
@@ -1143,12 +1143,12 @@
                                                                             "id": "d9180061-a15d-48dc-8330-be63446cf655",
                                                                             "savedPayload": {
                                                                                 "position": {
-                                                                                    "x": 30545.412117334236,
-                                                                                    "y": 25885.540034199563
+                                                                                    "x": 31384.911937529367,
+                                                                                    "y": 24852.934862165534
                                                                                 },
                                                                                 "targetPosition": {
-                                                                                    "x": 30388.66254791945,
-                                                                                    "y": 25629.747984893336
+                                                                                    "x": 31085.323077102996,
+                                                                                    "y": 24868.635649038417
                                                                                 },
                                                                                 "floatingObject": {
                                                                                     "isPinned": false,
@@ -1175,12 +1175,12 @@
                                                                     "id": "48220c57-0e4b-4ebc-b5af-ac122b17ccf5",
                                                                     "savedPayload": {
                                                                         "position": {
-                                                                            "x": 30388.66254791945,
-                                                                            "y": 25629.747984893336
+                                                                            "x": 31085.323077102996,
+                                                                            "y": 24868.635649038417
                                                                         },
                                                                         "targetPosition": {
-                                                                            "x": 30199.8664306045,
-                                                                            "y": 25396.604196456246
+                                                                            "x": 30790.34660483381,
+                                                                            "y": 24923.30630668606
                                                                         },
                                                                         "floatingObject": {
                                                                             "isPinned": false,
@@ -1215,12 +1215,12 @@
                                                                             "id": "1289397e-3fba-4ff6-b095-d7fb40cd2066",
                                                                             "savedPayload": {
                                                                                 "position": {
-                                                                                    "x": 30450.524443545975,
-                                                                                    "y": 25940.323458203995
+                                                                                    "x": 31387.78006324595,
+                                                                                    "y": 24962.464164352074
                                                                                 },
                                                                                 "targetPosition": {
-                                                                                    "x": 30307.37681546809,
-                                                                                    "y": 25676.678324405406
+                                                                                    "x": 31087.78006324595,
+                                                                                    "y": 24962.464164352074
                                                                                 },
                                                                                 "floatingObject": {
                                                                                     "isPinned": false,
@@ -1248,12 +1248,12 @@
                                                                             "id": "945ed8a9-4d5d-4304-83ed-ca5a750b27a2",
                                                                             "savedPayload": {
                                                                                 "position": {
-                                                                                    "x": 30377.410424624864,
-                                                                                    "y": 25968.38930052471
+                                                                                    "x": 31377.557811132672,
+                                                                                    "y": 25040.10987788283
                                                                                 },
                                                                                 "targetPosition": {
-                                                                                    "x": 30307.37681546809,
-                                                                                    "y": 25676.678324405406
+                                                                                    "x": 31087.78006324595,
+                                                                                    "y": 24962.464164352074
                                                                                 },
                                                                                 "floatingObject": {
                                                                                     "isPinned": false,
@@ -1280,12 +1280,12 @@
                                                                     "id": "0efc0384-5f10-493c-bf04-a2eec4b61770",
                                                                     "savedPayload": {
                                                                         "position": {
-                                                                            "x": 30307.37681546809,
-                                                                            "y": 25676.678324405406
+                                                                            "x": 31087.78006324595,
+                                                                            "y": 24962.464164352074
                                                                         },
                                                                         "targetPosition": {
-                                                                            "x": 30199.8664306045,
-                                                                            "y": 25396.604196456246
+                                                                            "x": 30790.34660483381,
+                                                                            "y": 24923.30630668606
                                                                         },
                                                                         "floatingObject": {
                                                                             "isPinned": false,
@@ -1320,12 +1320,12 @@
                                                                             "id": "7f198bd2-bbe2-47fa-a5e9-b417c453faf8",
                                                                             "savedPayload": {
                                                                                 "position": {
-                                                                                    "x": 30270.237875125025,
-                                                                                    "y": 25991.169529151804
+                                                                                    "x": 31346.43914502731,
+                                                                                    "y": 25145.16473404103
                                                                                 },
                                                                                 "targetPosition": {
-                                                                                    "x": 30215.567217477383,
-                                                                                    "y": 25696.193056882617
+                                                                                    "x": 31061.122190138765,
+                                                                                    "y": 25052.459635728548
                                                                                 },
                                                                                 "floatingObject": {
                                                                                     "isPinned": false,
@@ -1353,12 +1353,12 @@
                                                                             "id": "3e0ac914-7a36-4dd7-8ba3-19116faafc43",
                                                                             "savedPayload": {
                                                                                 "position": {
-                                                                                    "x": 30192.029488759028,
-                                                                                    "y": 25995.268257002557
+                                                                                    "x": 31312.723360522392,
+                                                                                    "y": 25215.851346233056
                                                                                 },
                                                                                 "targetPosition": {
-                                                                                    "x": 30215.567217477383,
-                                                                                    "y": 25696.193056882617
+                                                                                    "x": 31061.122190138765,
+                                                                                    "y": 25052.459635728548
                                                                                 },
                                                                                 "floatingObject": {
                                                                                     "isPinned": false,
@@ -1385,12 +1385,12 @@
                                                                     "id": "edf91f0f-7013-428f-9165-59ccea32edff",
                                                                     "savedPayload": {
                                                                         "position": {
-                                                                            "x": 30215.567217477383,
-                                                                            "y": 25696.193056882617
+                                                                            "x": 31061.122190138765,
+                                                                            "y": 25052.459635728548
                                                                         },
                                                                         "targetPosition": {
-                                                                            "x": 30199.8664306045,
-                                                                            "y": 25396.604196456246
+                                                                            "x": 30790.34660483381,
+                                                                            "y": 24923.30630668606
                                                                         },
                                                                         "floatingObject": {
                                                                             "isPinned": false,
@@ -1418,12 +1418,12 @@
                                                             "id": "c3f7a909-3284-4f5f-86db-41fdab0cf484",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 30346.737754195245,
-                                                                    "y": 25322.460110478325
+                                                                    "x": 30790.34660483381,
+                                                                    "y": 24923.30630668606
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 30130.676180234408,
-                                                                    "y": 25114.331793669764
+                                                                    "x": 30490.44940734114,
+                                                                    "y": 24931.159391178422
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -1446,7 +1446,7 @@
                                                         {
                                                             "type": "Weight Votes Switch",
                                                             "name": "Onboarding Programs Pool Class",
-                                                            "config": "{\n    \"percentage\": 35\n}",
+                                                            "config": "{\n    \"percentage\": 25\n}",
                                                             "project": "Governance",
                                                             "weightVotesSwitch": [
                                                                 {
@@ -1601,12 +1601,12 @@
                                                             "id": "5962ffe0-3120-4573-b996-6bf22cfdc9de",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 30250.64378753033,
-                                                                    "y": 25389.300470430757
+                                                                    "x": 30770.5235352903,
+                                                                    "y": 25038.669776042014
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 30130.676180234408,
-                                                                    "y": 25114.331793669764
+                                                                    "x": 30490.44940734114,
+                                                                    "y": 24931.159391178422
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -1894,12 +1894,12 @@
                                                             "id": "efa27450-103f-4b2e-b0c5-b26d538e711e",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 30136.28584016368,
-                                                                    "y": 25414.279341943587
+                                                                    "x": 30708.061718644825,
+                                                                    "y": 25137.665763886547
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 30130.676180234408,
-                                                                    "y": 25114.331793669764
+                                                                    "x": 30490.44940734114,
+                                                                    "y": 24931.159391178422
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -1962,23 +1962,23 @@
                                                         {
                                                             "type": "Pool Weight Vote",
                                                             "name": "Foundations Project Pool",
-                                                            "config": "{\n    \"percentage\": 30\n}",
+                                                            "config": "{\n    \"percentage\": 28\n}",
                                                             "project": "Governance",
                                                             "id": "2a1c7f8b-1cf0-411b-b483-d400885c3728",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 30010.708572938485,
-                                                                    "y": 25418.918612682213
+                                                                    "x": 30715.633511156124,
+                                                                    "y": 24944.95077561178
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 29933.062859407728,
-                                                                    "y": 25129.140864795492
+                                                                    "x": 30427.987590695666,
+                                                                    "y": 25030.155379022955
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
                                                                     "isFrozen": false,
                                                                     "isCollapsed": false,
-                                                                    "angleToParent": 3,
+                                                                    "angleToParent": 2,
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
@@ -1995,23 +1995,23 @@
                                                         {
                                                             "type": "Pool Weight Vote",
                                                             "name": "TensorFlow Project Pool",
-                                                            "config": "{\n    \"percentage\": 20\n}",
+                                                            "config": "{\n    \"percentage\": 22\n}",
                                                             "project": "Governance",
                                                             "id": "6c19b162-0b82-4d3a-a949-7361a2ad2b22",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 29933.062859407728,
-                                                                    "y": 25429.140864795492
+                                                                    "x": 30719.69856681497,
+                                                                    "y": 25100.18898817973
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 29933.062859407728,
-                                                                    "y": 25129.140864795492
+                                                                    "x": 30427.987590695666,
+                                                                    "y": 25030.155379022955
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
                                                                     "isFrozen": false,
                                                                     "isCollapsed": false,
-                                                                    "angleToParent": 3,
+                                                                    "angleToParent": 2,
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
@@ -2033,18 +2033,18 @@
                                                             "id": "0c9cc0a5-cbc2-4c85-824e-432875d39dfc",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 29855.41714587697,
-                                                                    "y": 25418.918612682213
+                                                                    "x": 30645.59990199935,
+                                                                    "y": 25236.66175173108
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 29933.062859407728,
-                                                                    "y": 25129.140864795492
+                                                                    "x": 30427.987590695666,
+                                                                    "y": 25030.155379022955
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
                                                                     "isFrozen": false,
                                                                     "isCollapsed": false,
-                                                                    "angleToParent": 3,
+                                                                    "angleToParent": 2,
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
@@ -2061,23 +2061,23 @@
                                                         {
                                                             "type": "Pool Weight Vote",
                                                             "name": "Education Project Pool",
-                                                            "config": "{}",
+                                                            "config": "{\n    \"percentage\": 18\n}",
                                                             "project": "Governance",
                                                             "id": "39553f4f-8b18-4194-9d91-38ded93677f3",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 29783.062859407728,
-                                                                    "y": 25388.948485930825
+                                                                    "x": 30513.192194106843,
+                                                                    "y": 25317.801299483413
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 29933.062859407728,
-                                                                    "y": 25129.140864795492
+                                                                    "x": 30427.987590695666,
+                                                                    "y": 25030.155379022955
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
                                                                     "isFrozen": false,
                                                                     "isCollapsed": false,
-                                                                    "angleToParent": 3,
+                                                                    "angleToParent": 2,
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
@@ -2099,18 +2099,18 @@
                                                             "id": "c0e53819-b234-4583-b1c7-b465492ae165",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 29720.930825051764,
-                                                                    "y": 25341.272899151456
+                                                                    "x": 30357.953981538893,
+                                                                    "y": 25321.866355142258
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 29933.062859407728,
-                                                                    "y": 25129.140864795492
+                                                                    "x": 30427.987590695666,
+                                                                    "y": 25030.155379022955
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
                                                                     "isFrozen": false,
                                                                     "isCollapsed": false,
-                                                                    "angleToParent": 3,
+                                                                    "angleToParent": 2,
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
@@ -2158,25 +2158,25 @@
                                                 },
                                                 {
                                                     "type": "Weight Votes Switch",
-                                                    "name": "Trading Intelligence Pool Class",
-                                                    "config": "{\n    \"percentage\": 6\n}",
+                                                    "name": "Trading Intelligence",
+                                                    "config": "{\n    \"percentage\": 9\n}",
                                                     "project": "Governance",
                                                     "weightVotesSwitch": [],
                                                     "poolWeightVotes": [
                                                         {
                                                             "type": "Pool Weight Vote",
                                                             "name": "Data Mines, Indicators, Plotters Pool",
-                                                            "config": "{\n    \"percentage\": 25\n}",
+                                                            "config": "{\n    \"percentage\": 22\n}",
                                                             "project": "Governance",
                                                             "id": "21c2101a-2aa7-4a8c-9ec1-e182876f74e1",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 31316.051890120096,
-                                                                    "y": 25209.116395622772
+                                                                    "x": 30550.008583618404,
+                                                                    "y": 25304.219016315736
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 31133.42346141748,
-                                                                    "y": 24971.1103935354
+                                                                    "x": 30332.39627231472,
+                                                                    "y": 25097.71264360761
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -2204,12 +2204,12 @@
                                                             "id": "3b6deff2-0b05-461e-8f89-f01ddac5317a",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 31211.069174948236,
-                                                                    "y": 25260.88814142212
+                                                                    "x": 30454.41726523746,
+                                                                    "y": 25371.77628090039
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 31133.42346141748,
-                                                                    "y": 24971.1103935354
+                                                                    "x": 30332.39627231472,
+                                                                    "y": 25097.71264360761
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -2237,12 +2237,12 @@
                                                             "id": "06321334-e2fc-4c7e-b892-5ee9e3b11fcb",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 31094.265603751464,
-                                                                    "y": 25268.543851947543
+                                                                    "x": 30340.249356807082,
+                                                                    "y": 25397.60984110028
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 31133.42346141748,
-                                                                    "y": 24971.1103935354
+                                                                    "x": 30332.39627231472,
+                                                                    "y": 25097.71264360761
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -2296,7 +2296,7 @@
                                                 },
                                                 {
                                                     "type": "Weight Votes Switch",
-                                                    "name": "Education, Docs, Tutorials Pool Class",
+                                                    "name": "Education, Docs, Tutorials, Videos, Icons",
                                                     "config": "{\n    \"percentage\": 4\n}",
                                                     "project": "Governance",
                                                     "weightVotesSwitch": [],
@@ -2304,23 +2304,23 @@
                                                         {
                                                             "type": "Pool Weight Vote",
                                                             "name": "Foundations Project Pool",
-                                                            "config": "{\n    \"percentage\": 35\n}",
+                                                            "config": "{\n    \"percentage\": 25\n}",
                                                             "project": "Governance",
                                                             "id": "34682b4d-a2de-49da-baa3-bfec87ac0521",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 29649.361631712563,
-                                                                    "y": 25292.477849341816
+                                                                    "x": 30481.873497682933,
+                                                                    "y": 25266.693831885383
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 29769.329239008486,
-                                                                    "y": 25017.509172580823
+                                                                    "x": 30218.228363884344,
+                                                                    "y": 25123.5462038075
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
                                                                     "isFrozen": false,
                                                                     "isCollapsed": false,
-                                                                    "angleToParent": 3,
+                                                                    "angleToParent": 2,
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
@@ -2337,23 +2337,23 @@
                                                         {
                                                             "type": "Pool Weight Vote",
                                                             "name": "Tensor Flow Project Pool",
-                                                            "config": "{\n    \"percentage\": 25\n}",
+                                                            "config": "{\n    \"percentage\": 35\n}",
                                                             "project": "Governance",
                                                             "id": "bd2be404-987e-4568-90c1-12bb74c850e1",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 29582.282298450868,
-                                                                    "y": 25252.058617321232
+                                                                    "x": 30374.977933299127,
+                                                                    "y": 25379.338253113725
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 29769.329239008486,
-                                                                    "y": 25017.509172580823
+                                                                    "x": 30218.228363884344,
+                                                                    "y": 25123.5462038075
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
                                                                     "isFrozen": false,
                                                                     "isCollapsed": false,
-                                                                    "angleToParent": 3,
+                                                                    "angleToParent": 2,
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
@@ -2370,23 +2370,23 @@
                                                         {
                                                             "type": "Pool Weight Vote",
                                                             "name": "Governance Project Pool",
-                                                            "config": "{\n    \"percentage\": 30\n}",
+                                                            "config": "{\n    \"percentage\": 35\n}",
                                                             "project": "Governance",
                                                             "id": "e279f63a-310d-4532-bfc9-54e883c537dd",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 29527.949905078487,
-                                                                    "y": 25195.655228252876
+                                                                    "x": 30226.081448376706,
+                                                                    "y": 25423.443401300166
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 29769.329239008486,
-                                                                    "y": 25017.509172580823
+                                                                    "x": 30218.228363884344,
+                                                                    "y": 25123.5462038075
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
                                                                     "isFrozen": false,
                                                                     "isCollapsed": false,
-                                                                    "angleToParent": 3,
+                                                                    "angleToParent": 2,
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
@@ -2408,18 +2408,18 @@
                                                             "id": "5a656caa-36db-4ee7-a1c3-f748636b80aa",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 29490.067114415226,
-                                                                    "y": 25127.11147989074
+                                                                    "x": 30075.08073580646,
+                                                                    "y": 25387.191337606087
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 29769.329239008486,
-                                                                    "y": 25017.509172580823
+                                                                    "x": 30218.228363884344,
+                                                                    "y": 25123.5462038075
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
                                                                     "isFrozen": false,
                                                                     "isCollapsed": false,
-                                                                    "angleToParent": 3,
+                                                                    "angleToParent": 2,
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
@@ -2441,18 +2441,18 @@
                                                             "id": "af3c5702-3ce1-4a32-8987-8bbce440931b",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 29471.215576040515,
-                                                                    "y": 25051.098515411817
+                                                                    "x": 29962.436314578117,
+                                                                    "y": 25280.295773222282
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 29769.329239008486,
-                                                                    "y": 25017.509172580823
+                                                                    "x": 30218.228363884344,
+                                                                    "y": 25123.5462038075
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
                                                                     "isFrozen": false,
                                                                     "isCollapsed": false,
-                                                                    "angleToParent": 3,
+                                                                    "angleToParent": 2,
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
@@ -2500,25 +2500,25 @@
                                                 },
                                                 {
                                                     "type": "Weight Votes Switch",
-                                                    "name": "Marketing Pool Class",
-                                                    "config": "{}",
+                                                    "name": "Marketing",
+                                                    "config": "{\n    \"percentage\": 15\n}",
                                                     "project": "Governance",
                                                     "weightVotesSwitch": [],
                                                     "poolWeightVotes": [
                                                         {
                                                             "type": "Pool Weight Vote",
                                                             "name": "Assets Pool",
-                                                            "config": "{\n    \"percentage\": 90\n}",
+                                                            "config": "{\n    \"percentage\": 98\n}",
                                                             "project": "Governance",
                                                             "id": "91bcccf1-f27b-42d8-8f31-e1820088b905",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 29488.547114024863,
-                                                                    "y": 25090.82282244108
+                                                                    "x": 30149.79523404046,
+                                                                    "y": 25400.02963644253
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 29715.9386309685,
-                                                                    "y": 24895.136599057645
+                                                                    "x": 30102.86489452839,
+                                                                    "y": 25103.72313426399
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -2546,12 +2546,12 @@
                                                             "id": "ced5bffc-c91a-4815-9a44-3f72c5bcab0c",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 29432.77363187599,
-                                                                    "y": 24796.052880471096
+                                                                    "x": 29869.7211060913,
+                                                                    "y": 25292.519251578942
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 29715.9386309685,
-                                                                    "y": 24895.136599057645
+                                                                    "x": 30102.86489452839,
+                                                                    "y": 25103.72313426399
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -4832,7 +4832,7 @@
                                                 "floatingObject": {
                                                     "isPinned": false,
                                                     "isFrozen": false,
-                                                    "isCollapsed": false,
+                                                    "isCollapsed": true,
                                                     "angleToParent": 2,
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
@@ -4850,31 +4850,31 @@
                                             "weightVotesSwitch": [
                                                 {
                                                     "type": "Weight Votes Switch",
-                                                    "name": "Marketing Assets",
-                                                    "config": "{\n    \"percentage\": 90\n}",
+                                                    "name": "Marketing",
+                                                    "config": "{\n    \"percentage\": 98\n}",
                                                     "project": "Governance",
                                                     "weightVotesSwitch": [
                                                         {
                                                             "type": "Weight Votes Switch",
-                                                            "name": "New Asset Class Asset Class",
+                                                            "name": "All",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "weightVotesSwitch": [
                                                                 {
                                                                     "type": "Weight Votes Switch",
-                                                                    "name": "Website Asset Class",
-                                                                    "config": "{}",
+                                                                    "name": "Website",
+                                                                    "config": "{\n    \"percentage\": 2.5\n}",
                                                                     "project": "Governance",
                                                                     "weightVotesSwitch": [
                                                                         {
                                                                             "type": "Weight Votes Switch",
-                                                                            "name": "Website Section Asset Class",
+                                                                            "name": "Website Section",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "weightVotesSwitch": [
                                                                                 {
                                                                                     "type": "Weight Votes Switch",
-                                                                                    "name": "Web Page Asset Class",
+                                                                                    "name": "Web Page",
                                                                                     "config": "{}",
                                                                                     "project": "Governance",
                                                                                     "weightVotesSwitch": [],
@@ -4912,7 +4912,7 @@
                                                                                 },
                                                                                 {
                                                                                     "type": "Weight Votes Switch",
-                                                                                    "name": "Web Page Asset Class",
+                                                                                    "name": "Web Page",
                                                                                     "config": "{}",
                                                                                     "project": "Governance",
                                                                                     "weightVotesSwitch": [],
@@ -4950,7 +4950,7 @@
                                                                                 },
                                                                                 {
                                                                                     "type": "Weight Votes Switch",
-                                                                                    "name": "Web Page Asset Class",
+                                                                                    "name": "Web Page",
                                                                                     "config": "{}",
                                                                                     "project": "Governance",
                                                                                     "weightVotesSwitch": [],
@@ -5021,13 +5021,13 @@
                                                                         },
                                                                         {
                                                                             "type": "Weight Votes Switch",
-                                                                            "name": "Website Section Asset Class",
+                                                                            "name": "Website Section",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "weightVotesSwitch": [
                                                                                 {
                                                                                     "type": "Weight Votes Switch",
-                                                                                    "name": "Web Page Asset Class",
+                                                                                    "name": "Web Page",
                                                                                     "config": "{}",
                                                                                     "project": "Governance",
                                                                                     "weightVotesSwitch": [],
@@ -5065,7 +5065,7 @@
                                                                                 },
                                                                                 {
                                                                                     "type": "Weight Votes Switch",
-                                                                                    "name": "Web Page Asset Class",
+                                                                                    "name": "Web Page",
                                                                                     "config": "{}",
                                                                                     "project": "Governance",
                                                                                     "weightVotesSwitch": [],
@@ -5103,7 +5103,7 @@
                                                                                 },
                                                                                 {
                                                                                     "type": "Weight Votes Switch",
-                                                                                    "name": "Web Page Asset Class",
+                                                                                    "name": "Web Page",
                                                                                     "config": "{}",
                                                                                     "project": "Governance",
                                                                                     "weightVotesSwitch": [],
@@ -5207,13 +5207,13 @@
                                                                 },
                                                                 {
                                                                     "type": "Weight Votes Switch",
-                                                                    "name": "Blog Asset Class",
-                                                                    "config": "{}",
+                                                                    "name": "Blog",
+                                                                    "config": "{\n    \"percentage\": 3\n}",
                                                                     "project": "Governance",
                                                                     "weightVotesSwitch": [
                                                                         {
                                                                             "type": "Weight Votes Switch",
-                                                                            "name": "Existing Blog Posts Asset Class",
+                                                                            "name": "Existing Blog Posts",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "weightVotesSwitch": [],
@@ -5318,7 +5318,7 @@
                                                                         },
                                                                         {
                                                                             "type": "Weight Votes Switch",
-                                                                            "name": "Rewards For Future Posts Asset Class",
+                                                                            "name": "Post Rewards",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "weightVotesSwitch": [],
@@ -5423,22 +5423,200 @@
                                                                 },
                                                                 {
                                                                     "type": "Weight Votes Switch",
-                                                                    "name": "Videos Asset Class",
-                                                                    "config": "{}",
+                                                                    "name": "Videos",
+                                                                    "config": "{\n    \"percentage\": 3\n}",
                                                                     "project": "Governance",
                                                                     "weightVotesSwitch": [
                                                                         {
                                                                             "type": "Weight Votes Switch",
-                                                                            "name": "Youtube Asset Class",
+                                                                            "name": "Youtube",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "weightVotesSwitch": [
                                                                                 {
                                                                                     "type": "Weight Votes Switch",
-                                                                                    "name": "Superalgos Channel Asset Class",
+                                                                                    "name": "Superalgos Channel",
                                                                                     "config": "{}",
                                                                                     "project": "Governance",
-                                                                                    "weightVotesSwitch": [],
+                                                                                    "weightVotesSwitch": [
+                                                                                        {
+                                                                                            "type": "Weight Votes Switch",
+                                                                                            "name": "Existing Videos",
+                                                                                            "config": "{}",
+                                                                                            "project": "Governance",
+                                                                                            "weightVotesSwitch": [],
+                                                                                            "poolWeightVotes": [],
+                                                                                            "assetWeightVotes": [
+                                                                                                {
+                                                                                                    "type": "Asset Weight Vote",
+                                                                                                    "name": "Youtube Superalgos Channel Existing Videos Youtube Video",
+                                                                                                    "config": "{}",
+                                                                                                    "project": "Governance",
+                                                                                                    "id": "a6c9bf2b-e498-4880-b540-bc1eea489102",
+                                                                                                    "savedPayload": {
+                                                                                                        "position": {
+                                                                                                            "x": 29353.937748089353,
+                                                                                                            "y": 26125.01083173149
+                                                                                                        },
+                                                                                                        "targetPosition": {
+                                                                                                            "x": 29257.937748089353,
+                                                                                                            "y": 26040.01083173149
+                                                                                                        },
+                                                                                                        "floatingObject": {
+                                                                                                            "isPinned": false,
+                                                                                                            "isFrozen": false,
+                                                                                                            "isCollapsed": false,
+                                                                                                            "angleToParent": 3,
+                                                                                                            "distanceToParent": 3,
+                                                                                                            "arrangementStyle": 0
+                                                                                                        },
+                                                                                                        "uiObject": {
+                                                                                                            "isRunning": false
+                                                                                                        },
+                                                                                                        "referenceParent": {
+                                                                                                            "type": "Asset",
+                                                                                                            "name": "Youtube Video",
+                                                                                                            "id": "dc865943-b5b4-406d-ad41-7e27ce1f99a2"
+                                                                                                        }
+                                                                                                    }
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "Asset Weight Vote",
+                                                                                                    "name": "Youtube Superalgos Channel Existing Videos Youtube Video",
+                                                                                                    "config": "{}",
+                                                                                                    "project": "Governance",
+                                                                                                    "id": "eb723098-62d3-436d-965e-f47e7e1bb421",
+                                                                                                    "savedPayload": {
+                                                                                                        "position": {
+                                                                                                            "x": 29252.937748089353,
+                                                                                                            "y": 26000.01083173149
+                                                                                                        },
+                                                                                                        "targetPosition": {
+                                                                                                            "x": 29257.937748089353,
+                                                                                                            "y": 26040.01083173149
+                                                                                                        },
+                                                                                                        "floatingObject": {
+                                                                                                            "isPinned": false,
+                                                                                                            "isFrozen": false,
+                                                                                                            "isCollapsed": false,
+                                                                                                            "angleToParent": 3,
+                                                                                                            "distanceToParent": 3,
+                                                                                                            "arrangementStyle": 0
+                                                                                                        },
+                                                                                                        "uiObject": {
+                                                                                                            "isRunning": false
+                                                                                                        },
+                                                                                                        "referenceParent": {
+                                                                                                            "type": "Asset",
+                                                                                                            "name": "Youtube Video",
+                                                                                                            "id": "c0c789a0-2c30-4ab5-a53d-5f05883a22cc"
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            ],
+                                                                                            "featureWeightVotes": [],
+                                                                                            "positionWeightVotes": [],
+                                                                                            "id": "3796001d-c77c-4c4b-b93a-620cb20d2aad",
+                                                                                            "savedPayload": {
+                                                                                                "position": {
+                                                                                                    "x": 29257.937748089353,
+                                                                                                    "y": 26040.01083173149
+                                                                                                },
+                                                                                                "targetPosition": {
+                                                                                                    "x": 29356.937748089353,
+                                                                                                    "y": 26128.01083173149
+                                                                                                },
+                                                                                                "floatingObject": {
+                                                                                                    "isPinned": false,
+                                                                                                    "isFrozen": false,
+                                                                                                    "isCollapsed": false,
+                                                                                                    "angleToParent": 3,
+                                                                                                    "distanceToParent": 3,
+                                                                                                    "arrangementStyle": 0
+                                                                                                },
+                                                                                                "uiObject": {
+                                                                                                    "isRunning": false
+                                                                                                },
+                                                                                                "referenceParent": {
+                                                                                                    "type": "Asset Class",
+                                                                                                    "name": "Existing Videos",
+                                                                                                    "id": "9da9772c-661b-455f-8735-704e21c092cb"
+                                                                                                }
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            "type": "Weight Votes Switch",
+                                                                                            "name": "Videos Rewards",
+                                                                                            "config": "{}",
+                                                                                            "project": "Governance",
+                                                                                            "weightVotesSwitch": [],
+                                                                                            "poolWeightVotes": [],
+                                                                                            "assetWeightVotes": [
+                                                                                                {
+                                                                                                    "type": "Asset Weight Vote",
+                                                                                                    "name": "Youtube Superalgos Channel Videos Rewards How to install Superalgos and configure your Profile to get SA Tokens",
+                                                                                                    "config": "{}",
+                                                                                                    "project": "Governance",
+                                                                                                    "id": "cc3a38f6-17cc-47e4-b167-7b187bfb3b80",
+                                                                                                    "savedPayload": {
+                                                                                                        "position": {
+                                                                                                            "x": 29325.937748089353,
+                                                                                                            "y": 26193.01083173149
+                                                                                                        },
+                                                                                                        "targetPosition": {
+                                                                                                            "x": 29313.937748089353,
+                                                                                                            "y": 26220.01083173149
+                                                                                                        },
+                                                                                                        "floatingObject": {
+                                                                                                            "isPinned": false,
+                                                                                                            "isFrozen": false,
+                                                                                                            "isCollapsed": false,
+                                                                                                            "angleToParent": 3,
+                                                                                                            "distanceToParent": 3,
+                                                                                                            "arrangementStyle": 0
+                                                                                                        },
+                                                                                                        "uiObject": {
+                                                                                                            "isRunning": false
+                                                                                                        },
+                                                                                                        "referenceParent": {
+                                                                                                            "type": "Asset",
+                                                                                                            "name": "How to install Superalgos and configure your Profile to get SA Tokens",
+                                                                                                            "id": "b3ad11a6-fd1f-4c78-b41e-acf22fdbf82d"
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            ],
+                                                                                            "featureWeightVotes": [],
+                                                                                            "positionWeightVotes": [],
+                                                                                            "id": "3fbc0320-5899-47a1-947d-962ef00f9372",
+                                                                                            "savedPayload": {
+                                                                                                "position": {
+                                                                                                    "x": 29313.937748089353,
+                                                                                                    "y": 26220.01083173149
+                                                                                                },
+                                                                                                "targetPosition": {
+                                                                                                    "x": 29356.937748089353,
+                                                                                                    "y": 26128.01083173149
+                                                                                                },
+                                                                                                "floatingObject": {
+                                                                                                    "isPinned": false,
+                                                                                                    "isFrozen": false,
+                                                                                                    "isCollapsed": false,
+                                                                                                    "angleToParent": 3,
+                                                                                                    "distanceToParent": 3,
+                                                                                                    "arrangementStyle": 0
+                                                                                                },
+                                                                                                "uiObject": {
+                                                                                                    "isRunning": false
+                                                                                                },
+                                                                                                "referenceParent": {
+                                                                                                    "type": "Asset Class",
+                                                                                                    "name": "Videos Rewards",
+                                                                                                    "id": "54b204d1-3dee-4fbd-987c-89857320b44b"
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    ],
                                                                                     "poolWeightVotes": [],
                                                                                     "assetWeightVotes": [
                                                                                         {
@@ -5606,7 +5784,7 @@
                                                                         },
                                                                         {
                                                                             "type": "Weight Votes Switch",
-                                                                            "name": "Vimeo Asset Class",
+                                                                            "name": "Vimeo",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "weightVotesSwitch": [],
@@ -5677,13 +5855,13 @@
                                                                 },
                                                                 {
                                                                     "type": "Weight Votes Switch",
-                                                                    "name": "Articles Asset Class",
+                                                                    "name": "Articles",
                                                                     "config": "{\n    \"percentage\": 30\n}",
                                                                     "project": "Governance",
                                                                     "weightVotesSwitch": [
                                                                         {
                                                                             "type": "Weight Votes Switch",
-                                                                            "name": "Personal Blog Post Asset Class",
+                                                                            "name": "Personal Blog Post",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "weightVotesSwitch": [],
@@ -5694,8 +5872,8 @@
                                                                             "id": "1d8a992e-8bdc-408b-b394-783f00a619b1",
                                                                             "savedPayload": {
                                                                                 "position": {
-                                                                                    "x": 29320.56504966486,
-                                                                                    "y": 25800.104534349775
+                                                                                    "x": 29343.877168332205,
+                                                                                    "y": 25803.48463069107
                                                                                 },
                                                                                 "targetPosition": {
                                                                                     "x": 29375.235707312502,
@@ -5721,13 +5899,13 @@
                                                                         },
                                                                         {
                                                                             "type": "Weight Votes Switch",
-                                                                            "name": "Crypto Media Asset Class",
+                                                                            "name": "Crypto Media",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "weightVotesSwitch": [
                                                                                 {
                                                                                     "type": "Weight Votes Switch",
-                                                                                    "name": "Coindesk Asset Class",
+                                                                                    "name": "Coindesk",
                                                                                     "config": "{}",
                                                                                     "project": "Governance",
                                                                                     "weightVotesSwitch": [],
@@ -5736,17 +5914,17 @@
                                                                                         {
                                                                                             "type": "Asset Weight Vote",
                                                                                             "name": "Articles Crypto Media Coindesk First Article",
-                                                                                            "config": "{}",
+                                                                                            "config": "{\n    \"percentage\": 60\n}",
                                                                                             "project": "Governance",
                                                                                             "id": "0e47a980-f159-412c-a566-66842ff45426",
                                                                                             "savedPayload": {
                                                                                                 "position": {
-                                                                                                    "x": 29142.676627213867,
-                                                                                                    "y": 26341.1213874727
+                                                                                                    "x": 29276.317984034467,
+                                                                                                    "y": 26367.20917767121
                                                                                                 },
                                                                                                 "targetPosition": {
-                                                                                                    "x": 29119.138898495512,
-                                                                                                    "y": 26042.04618735276
+                                                                                                    "x": 29206.284374877694,
+                                                                                                    "y": 26075.49820155191
                                                                                                 },
                                                                                                 "floatingObject": {
                                                                                                     "isPinned": false,
@@ -5769,17 +5947,17 @@
                                                                                         {
                                                                                             "type": "Asset Weight Vote",
                                                                                             "name": "Articles Crypto Media Coindesk Second Article",
-                                                                                            "config": "{}",
+                                                                                            "config": "{\n    \"percentage\": 30\n}",
                                                                                             "project": "Governance",
                                                                                             "id": "5cde8909-cf95-4e26-bb81-fd7025acaaed",
                                                                                             "savedPayload": {
                                                                                                 "position": {
-                                                                                                    "x": 29026.43380018303,
-                                                                                                    "y": 26327.363142241305
+                                                                                                    "x": 29159.354035365624,
+                                                                                                    "y": 26371.80470373045
                                                                                                 },
                                                                                                 "targetPosition": {
-                                                                                                    "x": 29119.138898495512,
-                                                                                                    "y": 26042.04618735276
+                                                                                                    "x": 29206.284374877694,
+                                                                                                    "y": 26075.49820155191
                                                                                                 },
                                                                                                 "floatingObject": {
                                                                                                     "isPinned": false,
@@ -5807,12 +5985,12 @@
                                                                                             "id": "007c1202-f8c7-4e1a-b670-146a269d5084",
                                                                                             "savedPayload": {
                                                                                                 "position": {
-                                                                                                    "x": 28924.304483996457,
-                                                                                                    "y": 26270.16797703277
+                                                                                                    "x": 29049.53480546291,
+                                                                                                    "y": 26331.290250858136
                                                                                                 },
                                                                                                 "targetPosition": {
-                                                                                                    "x": 29119.138898495512,
-                                                                                                    "y": 26042.04618735276
+                                                                                                    "x": 29206.284374877694,
+                                                                                                    "y": 26075.49820155191
                                                                                                 },
                                                                                                 "floatingObject": {
                                                                                                     "isPinned": false,
@@ -5838,17 +6016,17 @@
                                                                                     "id": "689d66fa-3235-4470-9c09-affc9efc6aca",
                                                                                     "savedPayload": {
                                                                                         "position": {
-                                                                                            "x": 29119.138898495512,
-                                                                                            "y": 26042.04618735276
+                                                                                            "x": 29206.284374877694,
+                                                                                            "y": 26075.49820155191
                                                                                         },
                                                                                         "targetPosition": {
-                                                                                            "x": 29211.843996807995,
-                                                                                            "y": 25756.729232464215
+                                                                                            "x": 29253.214714389764,
+                                                                                            "y": 25779.19169937337
                                                                                         },
                                                                                         "floatingObject": {
                                                                                             "isPinned": false,
                                                                                             "isFrozen": false,
-                                                                                            "isCollapsed": false,
+                                                                                            "isCollapsed": true,
                                                                                             "angleToParent": 3,
                                                                                             "distanceToParent": 3,
                                                                                             "arrangementStyle": 0
@@ -5865,7 +6043,7 @@
                                                                                 },
                                                                                 {
                                                                                     "type": "Weight Votes Switch",
-                                                                                    "name": "Coin Telegraph Asset Class",
+                                                                                    "name": "Coin Telegraph",
                                                                                     "config": "{}",
                                                                                     "project": "Governance",
                                                                                     "weightVotesSwitch": [],
@@ -5874,17 +6052,17 @@
                                                                                         {
                                                                                             "type": "Asset Weight Vote",
                                                                                             "name": "Articles Crypto Media Coin Telegraph First Article",
-                                                                                            "config": "{}",
+                                                                                            "config": "{\n    \"percentage\": 60\n}",
                                                                                             "project": "Governance",
                                                                                             "id": "9d23380e-01f8-4573-98dc-bed85217f3b0",
                                                                                             "savedPayload": {
                                                                                                 "position": {
-                                                                                                    "x": 28859.747220122288,
-                                                                                                    "y": 26228.24399967683
+                                                                                                    "x": 28979.213993663634,
+                                                                                                    "y": 26299.981408270916
                                                                                                 },
                                                                                                 "targetPosition": {
-                                                                                                    "x": 28988.900549164777,
-                                                                                                    "y": 25957.468414371873
+                                                                                                    "x": 29064.41859707481,
+                                                                                                    "y": 26012.33548781046
                                                                                                 },
                                                                                                 "floatingObject": {
                                                                                                     "isPinned": false,
@@ -5907,17 +6085,17 @@
                                                                                         {
                                                                                             "type": "Asset Weight Vote",
                                                                                             "name": "Articles Crypto Media Coin Telegraph Second Article",
-                                                                                            "config": "{}",
+                                                                                            "config": "{\n    \"percentage\": 30\n}",
                                                                                             "project": "Governance",
                                                                                             "id": "ede59373-2c3c-47dd-bb50-dc5d4caa6d38",
                                                                                             "savedPayload": {
                                                                                                 "position": {
-                                                                                                    "x": 28765.95710152156,
-                                                                                                    "y": 26158.20759627953
+                                                                                                    "x": 28875.62247975986,
+                                                                                                    "y": 26245.479276247548
                                                                                                 },
                                                                                                 "targetPosition": {
-                                                                                                    "x": 28988.900549164777,
-                                                                                                    "y": 25957.468414371873
+                                                                                                    "x": 29064.41859707481,
+                                                                                                    "y": 26012.33548781046
                                                                                                 },
                                                                                                 "floatingObject": {
                                                                                                     "isPinned": false,
@@ -5945,12 +6123,12 @@
                                                                                             "id": "9836d3a1-ba6f-4e38-8e1b-3e82fe5bb287",
                                                                                             "savedPayload": {
                                                                                                 "position": {
-                                                                                                    "x": 28706.108101837122,
-                                                                                                    "y": 26057.610472142005
+                                                                                                    "x": 28800.773463276222,
+                                                                                                    "y": 26155.483115888343
                                                                                                 },
                                                                                                 "targetPosition": {
-                                                                                                    "x": 28988.900549164777,
-                                                                                                    "y": 25957.468414371873
+                                                                                                    "x": 29064.41859707481,
+                                                                                                    "y": 26012.33548781046
                                                                                                 },
                                                                                                 "floatingObject": {
                                                                                                     "isPinned": false,
@@ -5976,17 +6154,17 @@
                                                                                     "id": "a2e76034-f68e-4390-a4da-a0320059cd4c",
                                                                                     "savedPayload": {
                                                                                         "position": {
-                                                                                            "x": 28988.900549164777,
-                                                                                            "y": 25957.468414371873
+                                                                                            "x": 29064.41859707481,
+                                                                                            "y": 26012.33548781046
                                                                                         },
                                                                                         "targetPosition": {
-                                                                                            "x": 29211.843996807995,
-                                                                                            "y": 25756.729232464215
+                                                                                            "x": 29253.214714389764,
+                                                                                            "y": 25779.19169937337
                                                                                         },
                                                                                         "floatingObject": {
                                                                                             "isPinned": false,
                                                                                             "isFrozen": false,
-                                                                                            "isCollapsed": false,
+                                                                                            "isCollapsed": true,
                                                                                             "angleToParent": 3,
                                                                                             "distanceToParent": 3,
                                                                                             "arrangementStyle": 0
@@ -6009,8 +6187,8 @@
                                                                             "id": "a1eafd00-2171-49bd-b920-554c6d3697bc",
                                                                             "savedPayload": {
                                                                                 "position": {
-                                                                                    "x": 29211.843996807995,
-                                                                                    "y": 25756.729232464215
+                                                                                    "x": 29253.214714389764,
+                                                                                    "y": 25779.19169937337
                                                                                 },
                                                                                 "targetPosition": {
                                                                                     "x": 29375.235707312502,
@@ -6036,13 +6214,13 @@
                                                                         },
                                                                         {
                                                                             "type": "Weight Votes Switch",
-                                                                            "name": "Mainstream Media Asset Class",
+                                                                            "name": "Mainstream Media",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "weightVotesSwitch": [
                                                                                 {
                                                                                     "type": "Weight Votes Switch",
-                                                                                    "name": "Forbes Asset Class",
+                                                                                    "name": "Forbes",
                                                                                     "config": "{}",
                                                                                     "project": "Governance",
                                                                                     "weightVotesSwitch": [],
@@ -6051,17 +6229,17 @@
                                                                                         {
                                                                                             "type": "Asset Weight Vote",
                                                                                             "name": "Articles Mainstream Media Forbes First Article",
-                                                                                            "config": "{}",
+                                                                                            "config": "{\n    \"percentage\": 60\n}",
                                                                                             "project": "Governance",
                                                                                             "id": "ea4b6017-5450-4566-959f-ff6e70b73bc4",
                                                                                             "savedPayload": {
                                                                                                 "position": {
-                                                                                                    "x": 28717.368283634783,
-                                                                                                    "y": 26096.572974619117
+                                                                                                    "x": 28873.615285727054,
+                                                                                                    "y": 26233.80740469468
                                                                                                 },
                                                                                                 "targetPosition": {
-                                                                                                    "x": 28880.75999413929,
-                                                                                                    "y": 25844.97180423549
+                                                                                                    "x": 28973.757343497186,
+                                                                                                    "y": 25951.014957367024
                                                                                                 },
                                                                                                 "floatingObject": {
                                                                                                     "isPinned": false,
@@ -6084,17 +6262,17 @@
                                                                                         {
                                                                                             "type": "Asset Weight Vote",
                                                                                             "name": "Articles Mainstream Media Forbes Second Article",
-                                                                                            "config": "{}",
+                                                                                            "config": "{\n    \"percentage\": 30\n}",
                                                                                             "project": "Governance",
                                                                                             "id": "3ae891ad-5ef1-4ac2-9a70-98855c6dad67",
                                                                                             "savedPayload": {
                                                                                                 "position": {
-                                                                                                    "x": 28633.522137552685,
-                                                                                                    "y": 26014.893675312942
+                                                                                                    "x": 28773.018161589527,
+                                                                                                    "y": 26173.958405010242
                                                                                                 },
                                                                                                 "targetPosition": {
-                                                                                                    "x": 28880.75999413929,
-                                                                                                    "y": 25844.97180423549
+                                                                                                    "x": 28973.757343497186,
+                                                                                                    "y": 25951.014957367024
                                                                                                 },
                                                                                                 "floatingObject": {
                                                                                                     "isPinned": false,
@@ -6122,12 +6300,12 @@
                                                                                             "id": "6c5d6ac6-7b22-45e3-a954-30861d9d4401",
                                                                                             "savedPayload": {
                                                                                                 "position": {
-                                                                                                    "x": 28587.31571391915,
-                                                                                                    "y": 25907.345311480818
+                                                                                                    "x": 28702.98175819223,
+                                                                                                    "y": 26080.168286409513
                                                                                                 },
                                                                                                 "targetPosition": {
-                                                                                                    "x": 28880.75999413929,
-                                                                                                    "y": 25844.97180423549
+                                                                                                    "x": 28973.757343497186,
+                                                                                                    "y": 25951.014957367024
                                                                                                 },
                                                                                                 "floatingObject": {
                                                                                                     "isPinned": false,
@@ -6153,17 +6331,17 @@
                                                                                     "id": "f14cfffd-0704-4595-9309-d0ac9605913b",
                                                                                     "savedPayload": {
                                                                                         "position": {
-                                                                                            "x": 28880.75999413929,
-                                                                                            "y": 25844.97180423549
+                                                                                            "x": 28973.757343497186,
+                                                                                            "y": 25951.014957367024
                                                                                         },
                                                                                         "targetPosition": {
-                                                                                            "x": 29127.997850725897,
-                                                                                            "y": 25675.04993315804
+                                                                                            "x": 29174.496525404844,
+                                                                                            "y": 25728.071509723806
                                                                                         },
                                                                                         "floatingObject": {
                                                                                             "isPinned": false,
                                                                                             "isFrozen": false,
-                                                                                            "isCollapsed": false,
+                                                                                            "isCollapsed": true,
                                                                                             "angleToParent": 3,
                                                                                             "distanceToParent": 3,
                                                                                             "arrangementStyle": 0
@@ -6186,8 +6364,8 @@
                                                                             "id": "47c9740b-dfb2-48a3-bfc0-03b82ff06e3c",
                                                                             "savedPayload": {
                                                                                 "position": {
-                                                                                    "x": 29127.997850725897,
-                                                                                    "y": 25675.04993315804
+                                                                                    "x": 29174.496525404844,
+                                                                                    "y": 25728.071509723806
                                                                                 },
                                                                                 "targetPosition": {
                                                                                     "x": 29375.235707312502,
@@ -6221,8 +6399,8 @@
                                                                             "id": "f6553304-c00f-4554-932c-9ff6bcd7adb6",
                                                                             "savedPayload": {
                                                                                 "position": {
-                                                                                    "x": 29276.235707312502,
-                                                                                    "y": 25556.12806208059
+                                                                                    "x": 29115.42808617717,
+                                                                                    "y": 25655.12806208059
                                                                                 },
                                                                                 "targetPosition": {
                                                                                     "x": 29375.235707312502,
@@ -6275,13 +6453,13 @@
                                                                 },
                                                                 {
                                                                     "type": "Weight Votes Switch",
-                                                                    "name": "Referrers Asset Class",
+                                                                    "name": "Referrers",
                                                                     "config": "{}",
                                                                     "project": "Governance",
                                                                     "weightVotesSwitch": [
                                                                         {
                                                                             "type": "Weight Votes Switch",
-                                                                            "name": "Referrer to Website Asset Class",
+                                                                            "name": "Referrer to Website",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "weightVotesSwitch": [],
@@ -6319,7 +6497,7 @@
                                                                         },
                                                                         {
                                                                             "type": "Weight Votes Switch",
-                                                                            "name": "Referrer to Github Asset Class",
+                                                                            "name": "Referrer to Github",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "weightVotesSwitch": [],
@@ -6357,7 +6535,7 @@
                                                                         },
                                                                         {
                                                                             "type": "Weight Votes Switch",
-                                                                            "name": "Referrer to Youtube Asset Class",
+                                                                            "name": "Referrer to Youtube",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "weightVotesSwitch": [],
@@ -6428,14 +6606,14 @@
                                                                 },
                                                                 {
                                                                     "type": "Weight Votes Switch",
-                                                                    "name": "Public Relations Asset Class",
+                                                                    "name": "Public Relations",
                                                                     "config": "{\n    \"percentage\": 40\n}",
                                                                     "project": "Governance",
                                                                     "weightVotesSwitch": [
                                                                         {
                                                                             "type": "Weight Votes Switch",
-                                                                            "name": "Crypto Media PR Campaign Asset Class",
-                                                                            "config": "{}",
+                                                                            "name": "Crypto Media PR Campaign",
+                                                                            "config": "{\n    \"percentage\": 75\n}",
                                                                             "project": "Governance",
                                                                             "weightVotesSwitch": [],
                                                                             "poolWeightVotes": [],
@@ -6448,12 +6626,12 @@
                                                                                     "id": "f20b20b0-26df-4c86-b693-5f2d7de36596",
                                                                                     "savedPayload": {
                                                                                         "position": {
-                                                                                            "x": 28901.720732232294,
-                                                                                            "y": 25879.69234213443
+                                                                                            "x": 28710.57922308385,
+                                                                                            "y": 25588.294698786016
                                                                                         },
                                                                                         "targetPosition": {
-                                                                                            "x": 29096.55514673135,
-                                                                                            "y": 25651.57055245442
+                                                                                            "x": 28977.88118034036,
+                                                                                            "y": 25452.097548864152
                                                                                         },
                                                                                         "floatingObject": {
                                                                                             "isPinned": false,
@@ -6479,12 +6657,12 @@
                                                                             "id": "d4fb16cb-5fb3-41a0-9b3c-fe6285e6d7ea",
                                                                             "savedPayload": {
                                                                                 "position": {
-                                                                                    "x": 29096.55514673135,
-                                                                                    "y": 25651.57055245442
+                                                                                    "x": 28977.88118034036,
+                                                                                    "y": 25452.097548864152
                                                                                 },
                                                                                 "targetPosition": {
-                                                                                    "x": 29291.389561230404,
-                                                                                    "y": 25423.448762774413
+                                                                                    "x": 29245.18313759687,
+                                                                                    "y": 25315.90039894229
                                                                                 },
                                                                                 "floatingObject": {
                                                                                     "isPinned": false,
@@ -6506,7 +6684,7 @@
                                                                         },
                                                                         {
                                                                             "type": "Weight Votes Switch",
-                                                                            "name": "Trading Media PR Campaign Asset Class",
+                                                                            "name": "Trading Media PR Campaign",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "weightVotesSwitch": [],
@@ -6520,12 +6698,12 @@
                                                                                     "id": "ae51554a-e4f8-43e8-8cca-a3532713d4b5",
                                                                                     "savedPayload": {
                                                                                         "position": {
-                                                                                            "x": 28725.804666575095,
-                                                                                            "y": 25623.732878314677
+                                                                                            "x": 28646.005416744127,
+                                                                                            "y": 25284.498825196522
                                                                                         },
                                                                                         "targetPosition": {
-                                                                                            "x": 29008.59711390275,
-                                                                                            "y": 25523.590820544545
+                                                                                            "x": 28945.594277170498,
+                                                                                            "y": 25300.199612069406
                                                                                         },
                                                                                         "floatingObject": {
                                                                                             "isPinned": false,
@@ -6551,12 +6729,12 @@
                                                                             "id": "6122f484-8112-4e4d-8046-2f145995535a",
                                                                             "savedPayload": {
                                                                                 "position": {
-                                                                                    "x": 29008.59711390275,
-                                                                                    "y": 25523.590820544545
+                                                                                    "x": 28945.594277170498,
+                                                                                    "y": 25300.199612069406
                                                                                 },
                                                                                 "targetPosition": {
-                                                                                    "x": 29291.389561230404,
-                                                                                    "y": 25423.448762774413
+                                                                                    "x": 29245.18313759687,
+                                                                                    "y": 25315.90039894229
                                                                                 },
                                                                                 "floatingObject": {
                                                                                     "isPinned": false,
@@ -6611,25 +6789,25 @@
                                                                 },
                                                                 {
                                                                     "type": "Weight Votes Switch",
-                                                                    "name": "Conferences & Meetups Asset Class",
-                                                                    "config": "{\n    \"percentage\": 10\n}",
+                                                                    "name": "Conferences & Meetups",
+                                                                    "config": "{\n    \"percentage\": 15\n}",
                                                                     "project": "Governance",
                                                                     "weightVotesSwitch": [
                                                                         {
                                                                             "type": "Weight Votes Switch",
-                                                                            "name": "Conferences Asset Class",
+                                                                            "name": "Conferences",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "weightVotesSwitch": [
                                                                                 {
                                                                                     "type": "Weight Votes Switch",
-                                                                                    "name": "Crypto or Trading Conferences Asset Class",
+                                                                                    "name": "Crypto or Trading Conferences",
                                                                                     "config": "{\n    \"percentage\": 90\n}",
                                                                                     "project": "Governance",
                                                                                     "weightVotesSwitch": [
                                                                                         {
                                                                                             "type": "Weight Votes Switch",
-                                                                                            "name": "Securing a Spot Asset Class",
+                                                                                            "name": "Securing a Spot",
                                                                                             "config": "{}",
                                                                                             "project": "Governance",
                                                                                             "weightVotesSwitch": [],
@@ -6701,7 +6879,7 @@
                                                                                         },
                                                                                         {
                                                                                             "type": "Weight Votes Switch",
-                                                                                            "name": "Speaking at Conference Asset Class",
+                                                                                            "name": "Speaking at Conference",
                                                                                             "config": "{}",
                                                                                             "project": "Governance",
                                                                                             "weightVotesSwitch": [],
@@ -6806,13 +6984,13 @@
                                                                                 },
                                                                                 {
                                                                                     "type": "Weight Votes Switch",
-                                                                                    "name": "Unrelated Conferences Asset Class",
+                                                                                    "name": "Unrelated Conferences",
                                                                                     "config": "{}",
                                                                                     "project": "Governance",
                                                                                     "weightVotesSwitch": [
                                                                                         {
                                                                                             "type": "Weight Votes Switch",
-                                                                                            "name": "Securing a Spot Asset Class",
+                                                                                            "name": "Securing a Spot",
                                                                                             "config": "{}",
                                                                                             "project": "Governance",
                                                                                             "weightVotesSwitch": [],
@@ -6884,7 +7062,7 @@
                                                                                         },
                                                                                         {
                                                                                             "type": "Weight Votes Switch",
-                                                                                            "name": "Speaking at Conference Asset Class",
+                                                                                            "name": "Speaking at Conference",
                                                                                             "config": "{}",
                                                                                             "project": "Governance",
                                                                                             "weightVotesSwitch": [],
@@ -7022,7 +7200,7 @@
                                                                         },
                                                                         {
                                                                             "type": "Weight Votes Switch",
-                                                                            "name": "Meetups Asset Class",
+                                                                            "name": "Meetups",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "weightVotesSwitch": [],
@@ -7142,7 +7320,7 @@
                                                         "floatingObject": {
                                                             "isPinned": false,
                                                             "isFrozen": false,
-                                                            "isCollapsed": false,
+                                                            "isCollapsed": true,
                                                             "angleToParent": 3,
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0

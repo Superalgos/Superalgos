@@ -315,7 +315,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                     
                     // if Reestablishment failed now reestablish reference based on saved path
                     if (node.payload.referenceParent === undefined) { 
-                        console.log('this node failed to connect' + node.type + ' ' + node.name, node )
+                        console.log('this node failed to connect by id ' + node.type + ' ' + node.name, node )
                         // Gather saved path
                         let rawPath = node.savedPayload.referenceParentCombinedNodePath
                         if (rawPath !== undefined) {
@@ -329,7 +329,11 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                                 if (i === 0) {
                                     pathName = rawPath[i][0]
                                     pathType = rawPath[i][1]
-                                    pathNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByCodeNameAndNodeType( pathName, pathType) 
+                                    pathNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByCodeNameAndNodeType( pathName, pathType )
+                                    // If reference parent is workspace node grab node
+                                    if (pathType === "Workspace") {
+                                        pathNode = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+                                    } 
                                     continue
                                 } else { // Walk through children nodes and find the next node from saved path
                                     pathName = rawPath[i][0]
@@ -349,8 +353,8 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
 
                                     let property = schemaDocument.childrenNodesProperties[i]
-                                    //console.log("this is path", pathName, pathType)
                                     switch (property.type) {
+                                        // If child node is directly withing parent node look for it
                                         case 'node': {
                                             if (node[property.name] !== undefined) {
                                                 if (node[property.name].name === pathName && node[property.name].type === pathType) {
@@ -361,15 +365,14 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                                             }
                                             break
                                         }
+                                        // If child node is in an array look for it 
                                         case 'array': {
                                             if (node[property.name] !== undefined) {
                                                 let nodePropertyArray = node[property.name]
                                                 for (let m = 0; m < nodePropertyArray.length; m++) {
-                                                    console.log( nodePropertyArray[m].name, ' equals ', pathName, '   ', nodePropertyArray[m].type, " equals ",pathType)
                                                     if (nodePropertyArray[m].name === pathName && nodePropertyArray[m].type === pathType) {
                                                     
                                                         nextNode = nodePropertyArray[m]
-                                                        console.log("we have a match!", nextNode)
                                                         return nextNode
                                                     }
                                                 }

@@ -262,21 +262,18 @@ function newFoundationsFunctionLibraryProtocolNode() {
                 // If the path has not been saved save it now
                 if (node.payload.referenceParentCombinedNodePath === undefined) {
                     let attachNodePath = UI.projects.foundations.utilities.hierarchy.getNodeNameTypePath(node.payload.referenceParent)
-                     // Save path to reference parent for auto restore
-                    // savedPayload.referenceParentCombinedNodePath = { path: attachNodePath }
-                     //console.log("this is the saved payload new save", savedPayload)
+                    // Save path to reference parent for auto restore
+                    savedPayload.referenceParentCombinedNodePath = { path: attachNodePath }
                 } else {
                      // Save path to reference parent for auto restore
                      savedPayload.referenceParentCombinedNodePath = node.payload.referenceParentCombinedNodePath
-                     console.log("this is the saved payload old save", savedPayload)
                 }
             } else {
                 /* The referenceParent property can be inherited from the previous saved payload. */
                 if (node.savedPayload !== undefined) {
                     savedPayload.referenceParent = node.savedPayload.referenceParent
                     // Save path to reference parent for auto restore
-                    savedPayload.referenceParentCombinedNodePath = node.savedPayload.referenceParentCombinedNodePath 
-                    //console.log("this is the saved payload inherited", savedPayload)
+                    savedPayload.referenceParentCombinedNodePath = node.savedPayload.referenceParentCombinedNodePath
                 }
             }
         }

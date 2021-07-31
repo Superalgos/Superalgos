@@ -144,7 +144,7 @@ function newGovernanceFunctionLibraryStakingProgram() {
                 programNode.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.")
                 return
             }
-            programNode.payload.stakingProgram.awarded.tokens = programNode.payload.stakingProgram.ownPower * totalPowerRewardRatio
+            programNode.payload.stakingProgram.awarded.tokens = programNode.payload.stakingProgram.ownPower / totalPowerRewardRatio
 
             drawProgram(programNode)
         }
@@ -152,7 +152,7 @@ function newGovernanceFunctionLibraryStakingProgram() {
         function drawProgram(node) {
             if (node.payload !== undefined) {
 
-                const ownPowerText = parseFloat(node.payload.stakingProgram.ownPower.toFixed(2)).toLocaleString('en')
+                const ownPowerText = parseFloat(node.payload.stakingProgram.ownPower.toFixed(0)).toLocaleString('en')
 
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
@@ -161,12 +161,13 @@ function newGovernanceFunctionLibraryStakingProgram() {
             }
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
-                const tokensAwardedText = parseFloat(node.payload.stakingProgram.awarded.tokens.toFixed(2)).toLocaleString('en')
+                const tokensAwardedText = parseFloat(node.payload.stakingProgram.awarded.tokens.toFixed(0)).toLocaleString('en')
+                const tokensAwardedBTC = ' ≃ ' + UI.projects.governance.utilities.conversions.estimateSATokensInBTC(node.payload.stakingProgram.awarded.tokens | 0) + '  BTC'
 
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.valueAtAngle = false
 
-                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens')
+                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens' + tokensAwardedBTC)
             }
         }
     }

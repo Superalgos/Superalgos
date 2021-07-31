@@ -1038,6 +1038,11 @@
                     "functionName": "newGovernanceFunctionLibrarySupportProgram"
                 },
                 {
+                    "name": "Influencer Program",
+                    "propertyName": "influencerProgram",
+                    "functionName": "newGovernanceFunctionLibraryInfluencerProgram"
+                },
+                {
                     "name": "Mentorship Program",
                     "propertyName": "mentorshipProgram",
                     "functionName": "newGovernanceFunctionLibraryMentorshipProgram"
@@ -1051,6 +1056,16 @@
                     "name": "Profile Constructor",
                     "propertyName": "profileConstructor",
                     "functionName": "newGovernanceFunctionLibraryProfileConstructor"
+                },
+                {
+                    "name": "Github Program",
+                    "propertyName": "githubProgram",
+                    "functionName": "newGovernanceFunctionLibraryGithubProgram"
+                },
+                {
+                    "name": "Airdrop Program",
+                    "propertyName": "airdropProgram",
+                    "functionName": "newGovernanceFunctionLibraryAirdropProgram"
                 }
             ],
             "utilities": [
@@ -1093,6 +1108,11 @@
                     "name": "Filters",
                     "propertyName": "filters",
                     "functionName": "newGovernanceUtilitiesFilters"
+                },
+                {
+                    "name": "Conversions",
+                    "propertyName": "conversions",
+                    "functionName": "newGovernanceUtilitiesConversions"
                 }
             ],
             "spaces": [

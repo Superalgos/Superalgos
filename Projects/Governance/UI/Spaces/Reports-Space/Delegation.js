@@ -76,6 +76,7 @@ function newGovernanceReportsDelegation() {
             let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, programName)
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
+            if (program.payload[programPropertyName] === undefined) { continue }
 
             let tableRecord = {
                 "name": userProfile.name,

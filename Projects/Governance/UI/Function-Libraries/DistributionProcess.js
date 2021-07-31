@@ -75,6 +75,13 @@ function newGovernanceFunctionLibraryDistributionProcess() {
             userProfiles
         )
         /*
+        Run the Influencer Program
+        */
+        UI.projects.governance.functionLibraries.influencerProgram.calculate(
+            pools,
+            userProfiles
+        )
+        /*
         Run the Mentorship Program
         */
         UI.projects.governance.functionLibraries.mentorshipProgram.calculate(
@@ -98,11 +105,25 @@ function newGovernanceFunctionLibraryDistributionProcess() {
             userProfiles
         )
         /*
+        Run the Github Program
+        */
+        UI.projects.governance.functionLibraries.githubProgram.calculate(
+            pools,
+            userProfiles
+        )
+        /*
+        Run the Airdrop Program
+        */
+        UI.projects.governance.functionLibraries.airdropProgram.calculate(
+            pools,
+            userProfiles
+        )
+        /*
         After all the programs were ran, we can calculate the tokens mining
         calculation each profile.
         */
         UI.projects.governance.functionLibraries.tokenMining.calculate(
-        userProfiles
-    )
+            userProfiles
+        )
     }
 }

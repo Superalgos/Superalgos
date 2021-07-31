@@ -6,7 +6,7 @@
     "featureClasses": [
         {
             "type": "Feature Class",
-            "name": "Superalgos",
+            "name": "Main Features",
             "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}",
             "project": "Governance",
             "featureClasses": [
@@ -106,38 +106,7 @@
                     "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}",
                     "project": "Governance",
                     "featureClasses": [],
-                    "features": [
-                        {
-                            "type": "Feature",
-                            "name": "Feature X",
-                            "config": "{}",
-                            "project": "Governance",
-                            "featureClasses": [],
-                            "features": [],
-                            "id": "1b9dd977-f388-4434-a3f9-2e7a10726848",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 35142.58980337503,
-                                    "y": 38451.171151375485
-                                },
-                                "targetPosition": {
-                                    "x": 35385.29490168751,
-                                    "y": 38274.83557568774
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        }
-                    ],
+                    "features": [],
                     "id": "025c0e15-ad8d-49ae-b501-577bb82c207d",
                     "savedPayload": {
                         "position": {
@@ -201,7 +170,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

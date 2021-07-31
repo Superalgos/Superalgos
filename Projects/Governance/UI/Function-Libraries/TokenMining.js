@@ -47,6 +47,16 @@ function newGovernanceFunctionLibraryTokenMining() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Influencer Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
+
+            calculateProgram(userProfile, program, "influencerProgram")
+        }
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
             let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Claims Program")
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
@@ -82,6 +92,26 @@ function newGovernanceFunctionLibraryTokenMining() {
             if (program.payload === undefined) { continue }
 
             calculateProgram(userProfile, program, "delegationProgram")
+        }
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Github Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
+
+            calculateProgram(userProfile, program, "githubProgram")
+        }
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Airdrop Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
+
+            calculateProgram(userProfile, program, "airdropProgram")
         }
 
         for (let i = 0; i < userProfiles.length; i++) {
@@ -136,15 +166,16 @@ function newGovernanceFunctionLibraryTokenMining() {
             if (userProfile.payload === undefined) { return }
             if (userProfile.tokensMined === undefined) { return }
 
-            const awarded = parseFloat(userProfile.tokensMined.payload.tokensMined.awarded.toFixed(2)).toLocaleString('en')
-            const bonus = parseFloat(userProfile.tokensMined.payload.tokensMined.bonus.toFixed(2)).toLocaleString('en')
-            const total = parseFloat(userProfile.tokensMined.payload.tokensMined.total.toFixed(2)).toLocaleString('en')
+            const awarded = parseFloat(userProfile.tokensMined.payload.tokensMined.awarded.toFixed(0)).toLocaleString('en')
+            const bonus = parseFloat(userProfile.tokensMined.payload.tokensMined.bonus.toFixed(0)).toLocaleString('en')
+            const total = parseFloat(userProfile.tokensMined.payload.tokensMined.total.toFixed(0)).toLocaleString('en')
+            const tokensAwardedBTC = ' ≃ ' + UI.projects.governance.utilities.conversions.estimateSATokensInBTC(userProfile.tokensMined.payload.tokensMined.total | 0) + '  BTC'
 
             userProfile.tokensMined.payload.uiObject.valueAngleOffset = 0
             userProfile.tokensMined.payload.uiObject.valueAtAngle = true
 
             userProfile.tokensMined.payload.uiObject.setStatus(awarded + ' Awarded + ' + bonus + ' Bonus')
-            userProfile.tokensMined.payload.uiObject.setValue(total + ' SA Tokens')
+            userProfile.tokensMined.payload.uiObject.setValue(total + ' SA Tokens' + tokensAwardedBTC)
         }
     }
 }

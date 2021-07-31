@@ -1,0 +1,20 @@
+{
+    "topic": "Gov Commands Messages",
+    "pageNumber": "4",
+    "type": "Gov Message - All Payments Were Sent",
+    "definition": {
+        "text": "The pay process finished successfully. Payments to all contributors were sent.",
+        "updated": 1611003042937,
+        "translations": [
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "The process to pay contributors was fully successfull and all payments have been sent.",
+            "updated": 1616081292001,
+            "translations": [
+            ]
+        }
+    ]
+}

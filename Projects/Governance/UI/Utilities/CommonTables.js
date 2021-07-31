@@ -37,7 +37,15 @@ function newGovernanceUtilitiesCommonTables() {
                     "type": "number",
                     "order": "descending",
                     "textAlign": "center",
-                    "format": "2 decimals"
+                    "format": "integer"
+                },
+                {
+                    "name": "rewardInBTC",
+                    "label": "Reward In BTC",
+                    "type": "number",
+                    "order": "descending",
+                    "textAlign": "center",
+                    "format": "8 decimals"
                 },
                 {
                     "name": "weight",
@@ -66,12 +74,27 @@ function newGovernanceUtilitiesCommonTables() {
         */
         for (let j = 0; j < nodes.length; j++) {
             let node = nodes[j]
+            let name = ''
+            if (node.payload.parentNode !== undefined) {
+                if (node.payload.parentNode.payload.parentNode !== undefined) {
+                    if (node.payload.parentNode.payload.parentNode.payload.parentNode !== undefined) {
+                        if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode !== undefined) {
+                            name = name + node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.name + ' - '
+                        }
+                        name = name + node.payload.parentNode.payload.parentNode.payload.parentNode.name + ' - '
+                    }
+                    name = name + node.payload.parentNode.payload.parentNode.name + ' - '
+                }
+                name = name + node.payload.parentNode.name + ' - '
+            }
+            name = name + node.name
 
             let tableRecord = {
-                "name": node.name,
+                "name": name,
                 "tokensReward": node.payload.tokens | 0,
+                "rewardInBTC": UI.projects.governance.utilities.conversions.estimateSATokensInBTC(node.payload.tokens | 0),
                 "weight": node.payload.weight,
-                "weightPower": node.payload.votingProgram.votes
+                "weightPower": node.payload.votingProgram.votes | 0
             }
 
             if (UI.projects.governance.utilities.filters.applyFilters(filters, filtersObject, tableRecord) === true) {

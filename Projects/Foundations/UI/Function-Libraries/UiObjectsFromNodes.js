@@ -344,7 +344,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                             if (pathNode !== undefined ) {
                                 UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(node, pathNode)
                             } else {
-                                console.log("[Warn] ", node.name, ' ', node.type, "failed to fix reference.  Unable to find reference parent ", pathName, ' ', pathType  )
+                                console.log("[WARN] ", node.name, ' ', node.type, "failed to fix reference.  Unable to find reference parent ", pathName, ' ', pathType  )
                             }
 
                             function getNextNodeFromPath(node, pathName, pathType) {
@@ -385,24 +385,8 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                             }
                         }
                      }
-
-                    // need to figure out how to check that this has failed to move to path implimentation
-                        
-
-                       
-                        function getMapNodeByCodeNameAndNodeType(codeName, nodeType) {
-                            for (let i = 0; i < mapOfNodes.length; i++) {
-                                let mapNode = mapOfNodes[i]
-                                let mapNodeCodeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(mapNode.payload, 'codeName')
-                                if (mapNodeCodeName === codeName && mapNode.type === nodeType) {
-                                    return mapNode
-                                }
-                            }
-                        }
-                        //console.log("this is the node", node, "saved path", path, "and map", mapOfNodes )
-                        
                         if (node.payload.referenceParent === undefined) {
-                            //console.log('[WARN]' + node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
+                            console.log('[WARN]' + node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
                         }
                     
                 } 

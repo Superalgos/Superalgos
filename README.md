@@ -1,4 +1,4 @@
-# Superalgos Beta 10
+# Superalgos Beta 11
 
 
 ![contributors](https://img.shields.io/github/contributors-anon/Superalgos/Superalgos?label=Contributors)
@@ -188,53 +188,6 @@ If you are having difficulty running the node setup command here are a few commo
 **C.** It is a good idea to perodically run the `node setup` command to keep the underlying dependencies for your Superalgos installation up to date.
 
 **D.** Before installing the client on a remote computer in an attempt to access the UI from a different machine, we highly recommend you do a standard installation on your PC / laptop first. Leave your Raspberry Pi or VPS for later, once you have done all available tutorials. This single tip will save you a lot of time: you don't need to add complexity before you learn how to handle the app, and the GUI performs best in a local installation.
-
-## 5. Migrating from Superalgos Beta 9
-
-### Changes in Dependency Managment
-
-**IMPORTANT:**  Superalgos no longer contains the node dependencies needed to run within this repository. Follow these steps to make sure your installation updates correctly.
-
-**A.** Check to make sure you are running an updated version of node greater than version 12 and npm greater than version 5. You can check which version you have by typing `node -v` and `npm -v` into a command prompt or terminal. If your version numbers are below these, you can update your installation by following the instructions outlined in the "Node JS Installation" step above. 
-
-**B.** Launch your old Superalgos instance and run `app.update` to gather the Beta 10 update. 
-
-**C.** Then close the UI and shutdown the Client.
-
-**D.** Open a fresh terminal or command prompt and navigate to your Superalgos directory.
-
-**E.** Enter the following command:
-```
-node setup
-```
-Then wait until you are able to type within the terminal again.  
-
-**NOTE FOR USERS RUNNING IN HEADLESS ENVIRONMENT:**  You will need to add the `noShortcuts` flag while running `node setup` to suppress installing GUI shortcuts.  To do this type:
-
-```
-node setup noShortcuts
-```
-
-### Refactoring
-
-In order to migrate your workspaces to Beta 10, you will need to open My-Workspaces folder with an IDE like VS Code and do some refactorings. The following refactoring has been done over the codebase and all plugins of every type. For your workspaces to be ported, you will need to refactor the contents of your My-Workspaces folder and any plugins of your own as well.
-
-| Find               | Replace With            |
-| :----------------: | :---------------------: |
-| Multi-Period       | Multi-Time-Frame        |
-| Multi Period       | Multi Time Frame        |
-| MultiPeriod        | MultiTimeFrame          |
-| multiPeriod        | multiTimeFrame          |
-| @Period            | @TimeFrame              |
-| periodName         | timeFrameLabel          |
-| Muti-Period-Market | Multi-Time-Frame-Market |
-
-Your refactoring needs to include Folder Names. You will find several folders to rename at the Data-Storage folder structure. Because of the changes derived from splitting the Master Data Mine into several different Data Mines, you will probably need to reprocess all your indicators.
-
-An easy way to deal with all this is to:
-
-1. Delete the Log-Files folder.
-2. At Data Storage, delete all except Masters / Exchange Raw Data and Masters / Candles Volumes. This will prevent you from downloading all data again and building all candles agains, which is the most time consuming process. The rest of the indicators you can then reprocess.
 
 # Usage
 

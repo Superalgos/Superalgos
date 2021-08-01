@@ -11,7 +11,7 @@ if (
 
     console.log('Superalgos')
     console.log('')
-    console.log('VERSION:          Beta 10')
+    console.log('VERSION:          Beta 11')
     console.log('')
     console.log('WEB:              https://www.superalgos.org')
     console.log('')

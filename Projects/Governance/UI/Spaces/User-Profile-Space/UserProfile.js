@@ -40,104 +40,100 @@ function newGovernanceUserProfileSpace() {
         if (resultsArary.length === 0) { return }
 
         /* Find the Username and Password */
-        try {
-            let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
-            if (apisNode === undefined) {
-                UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-                UI.projects.education.spaces.docsSpace.sidePanelTab.open()
-                return
-            }
-            if (apisNode.githubAPI === undefined) {
-                UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-                UI.projects.education.spaces.docsSpace.sidePanelTab.open()
-                return
-            }
 
-            let config = JSON.parse(apisNode.githubAPI.config)
-            if (config.username === undefined || config.username === "") {
-                UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-                UI.projects.education.spaces.docsSpace.sidePanelTab.open()
-                return
-            }
-            if (config.token === undefined || config.token === "") {
-                UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-                UI.projects.education.spaces.docsSpace.sidePanelTab.open()
-                return
-            }
+        let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
+        if (apisNode === undefined) {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            return
+        }
+        if (apisNode.githubAPI === undefined) {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            return
+        }
+
+        let config = JSON.parse(apisNode.githubAPI.config)
+        if (config.username === undefined || config.username === "") {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            return
+        }
+        if (config.token === undefined || config.token === "") {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            return
+        }
 
 
 
-            requestStars()
+        requestStars()
 
-            function requestStars() {
-                httpRequest(
-                    undefined,
-                    'Gov/getGithubStars/' +
-                    'Superalgos' + '/' +
-                    config.username + '/' +
-                    config.token
-                    , onGithubStarsResponse)
-            }
+        function requestStars() {
+            httpRequest(
+                undefined,
+                'Gov/getGithubStars/' +
+                'Superalgos' + '/' +
+                config.username + '/' +
+                config.token
+                , onGithubStarsResponse)
+        }
 
-            function requestWatchers() {
-                httpRequest(
-                    undefined,
-                    'Gov/getGithubWatchers/' +
-                    'Superalgos' + '/' +
-                    config.username + '/' +
-                    config.token
-                    , onGithubWatchersResponse)
-            }
+        function requestWatchers() {
+            httpRequest(
+                undefined,
+                'Gov/getGithubWatchers/' +
+                'Superalgos' + '/' +
+                config.username + '/' +
+                config.token
+                , onGithubWatchersResponse)
+        }
 
-            function requestForks() {
-                httpRequest(
-                    undefined,
-                    'Gov/getGithubForks/' +
-                    'Superalgos' + '/' +
-                    config.username + '/' +
-                    config.token
-                    , onGithubForksResponse)
-            }
+        function requestForks() {
+            httpRequest(
+                undefined,
+                'Gov/getGithubForks/' +
+                'Superalgos' + '/' +
+                config.username + '/' +
+                config.token
+                , onGithubForksResponse)
+        }
 
-            function onGithubStarsResponse(err, githubData) {
-                //console.log(githubData)
-                /* Lets check the result of the call through the http interface */
-                let githubStarsArray = JSON.parse(githubData)
+        function onGithubStarsResponse(err, githubData) {
+            //console.log(githubData)
+            /* Lets check the result of the call through the http interface */
+            let githubStarsArray = JSON.parse(githubData)
 
-                for (let i = 0; i < githubStarsArray.length; i++) {
-                    let githubUsername = githubStarsArray[i]
-                    thisObject.githubStars.set(githubUsername, 1)
-                }
-
-                requestWatchers()
+            for (let i = 0; i < githubStarsArray.length; i++) {
+                let githubUsername = githubStarsArray[i]
+                thisObject.githubStars.set(githubUsername, 1)
             }
 
-            function onGithubWatchersResponse(err, githubData) {
-                //console.log(githubData)
-                /* Lets check the result of the call through the http interface */
-                let githubWatchersArray = JSON.parse(githubData)
+            requestWatchers()
+        }
 
-                for (let i = 0; i < githubWatchersArray.length; i++) {
-                    let githubUsername = githubWatchersArray[i]
-                    thisObject.githubWatchers.set(githubUsername, 1)
-                }
+        function onGithubWatchersResponse(err, githubData) {
+            //console.log(githubData)
+            /* Lets check the result of the call through the http interface */
+            let githubWatchersArray = JSON.parse(githubData)
 
-                requestForks()
+            for (let i = 0; i < githubWatchersArray.length; i++) {
+                let githubUsername = githubWatchersArray[i]
+                thisObject.githubWatchers.set(githubUsername, 1)
             }
 
-            function onGithubForksResponse(err, githubData) {
-                //console.log(githubData)
-                /* Lets check the result of the call through the http interface */
-                let githubForksArray = JSON.parse(githubData)
+            requestForks()
+        }
 
-                for (let i = 0; i < githubForksArray.length; i++) {
-                    let githubUsername = githubForksArray[i]
-                    thisObject.githubForks.set(githubUsername, 1)
-                }
+        function onGithubForksResponse(err, githubData) {
+            //console.log(githubData)
+            /* Lets check the result of the call through the http interface */
+            let githubForksArray = JSON.parse(githubData)
+
+            for (let i = 0; i < githubForksArray.length; i++) {
+                let githubUsername = githubForksArray[i]
+                thisObject.githubForks.set(githubUsername, 1)
             }
-
-        } catch (err) {
-            console.log(err.stack)
         }
     }
 

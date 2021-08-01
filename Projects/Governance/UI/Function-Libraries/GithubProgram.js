@@ -17,10 +17,11 @@ function newGovernanceFunctionLibraryGithubProgram() {
          */
         let accumulatedProgramPower = 0
 
-        /* Scan Pools Until finding the Mentoship-Program Pool */
+        /* Scan Pools Until finding the Pool for this program*/
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]
             programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, "Github-Rewards")
+            if (programPoolTokenReward !== undefined) { break }
         }
         if (programPoolTokenReward === undefined || programPoolTokenReward === 0) { return }
 

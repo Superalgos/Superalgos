@@ -817,7 +817,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -1050,8 +1050,8 @@
                         },
                         "referenceParent": {
                             "type": "Assets",
-                            "name": "Foundations-Project-Plugins",
-                            "id": "821486a9-5ad1-44a7-bf61-6fc3ef1b72c6"
+                            "name": "Foundations-Project Plugins Data-Mines Rewards",
+                            "id": "cfc85fed-e63c-4a02-9d25-f7bacec173d4"
                         }
                     }
                 },
@@ -1082,6 +1082,11 @@
                         },
                         "uiObject": {
                             "isRunning": false
+                        },
+                        "referenceParent": {
+                            "type": "Assets",
+                            "name": "Foundations-Project Plugins Trading-Systems Rewards",
+                            "id": "519d2386-ccef-4e6c-af91-9169fc2a4a6f"
                         }
                     }
                 },
@@ -1112,6 +1117,11 @@
                         },
                         "uiObject": {
                             "isRunning": false
+                        },
+                        "referenceParent": {
+                            "type": "Assets",
+                            "name": "Foundations-Project Plugins API-Data-Mines Rewards",
+                            "id": "4e1ff7bb-dc41-42c7-8ca6-552a9521d4f4"
                         }
                     }
                 }
@@ -1129,7 +1139,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -1436,7 +1446,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -1799,7 +1809,7 @@
                                 },
                                 "referenceParent": {
                                     "type": "Positions",
-                                    "name": "Superalgos",
+                                    "name": "Foundations-Project",
                                     "id": "50c68665-5da2-48a8-b229-7a1563ae82d2"
                                 }
                             }
@@ -1931,7 +1941,7 @@
                                 },
                                 "referenceParent": {
                                     "type": "Features",
-                                    "name": "Superalgos",
+                                    "name": "Foundations-Project",
                                     "id": "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                 }
                             }

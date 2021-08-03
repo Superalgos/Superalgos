@@ -95,6 +95,7 @@ function newFoundationsUtilitiesPlugins() {
             data = JSON.parse(data)
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                 pluginFile.payload.uiObject.setInfoMessage('Plugin Saved.', 5)
+                pluginToSave.payload.uiObject.setInfoMessage('Plugin Saved.', 5)
                 return
             }
             console.log('[ERROR] Saving Plugin File: ' + JSON.stringify(data))

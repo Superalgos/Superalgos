@@ -15,6 +15,7 @@ function newGovernanceUtilitiesPools() {
         function findTokensAtPool(node, codeNameToFind) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
+            if (tokens !== undefined) { return }
             /*
             This function allows us to find a Pool within a Pool hierarchy that 
             has a give codeName config property.

@@ -40,6 +40,7 @@ function newGovernanceUserProfileSpace() {
         if (resultsArary.length === 0) { return }
 
         /* Find the Username and Password */
+
         let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
         if (apisNode === undefined) {
             UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
@@ -63,6 +64,8 @@ function newGovernanceUserProfileSpace() {
             UI.projects.education.spaces.docsSpace.sidePanelTab.open()
             return
         }
+
+
 
         requestStars()
 

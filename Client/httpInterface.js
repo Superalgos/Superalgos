@@ -734,7 +734,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                                 const octokit = new Octokit({
                                     auth: token,
-                                    userAgent: 'Superalgos Beta 10'
+                                    userAgent: 'Superalgos Beta 11'
                                 })
 
                                 const repo = 'Superalgos'
@@ -1071,7 +1071,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                             const octokit = new Octokit({
                                 auth: token,
-                                userAgent: 'Superalgos Beta 10'
+                                userAgent: 'Superalgos Beta 11'
                             })
                             await getList()
 

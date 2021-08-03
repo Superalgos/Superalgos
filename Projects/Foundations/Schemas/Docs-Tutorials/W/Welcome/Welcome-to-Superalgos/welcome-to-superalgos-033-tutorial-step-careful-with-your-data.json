@@ -86,8 +86,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Detenga todas las tareas y espere un par de minutos.",
-                    "updated": 1624378709686,
+                    "text": "Deten todas las tareas y espera un par de minutos.",
+                    "updated": 1627303897368,
                     "style": "List"
                 }
             ]
@@ -142,8 +142,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Cerrar el Client antes de que se detengan las tareas puede hacer que tus datos se corrompan!",
-                    "updated": 1624378921806,
+                    "text": "¡Cerrar el Client antes de que se detengan puede hacer que tus datos se corrompan!",
+                    "updated": 1627303957439,
                     "style": "Warning"
                 }
             ]

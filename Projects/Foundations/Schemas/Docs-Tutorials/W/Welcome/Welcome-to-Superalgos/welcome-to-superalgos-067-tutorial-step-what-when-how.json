@@ -27,6 +27,11 @@
                     "text": "Session Base Asset: 0 BTC",
                     "updated": 1618060455866,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Session Base Asset: no se asigna capital en BTC.",
+                    "updated": 1627313513547
                 }
             ]
         },
@@ -39,6 +44,11 @@
                     "text": "Session Quoted Asset: 1000 USDT di capitale iniziale",
                     "updated": 1618060205541,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Session Quoted Asset: 1000 USDT de capital inicial.",
+                    "updated": 1627313540525
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "text": "Time Range: test su un singolo giorno (2020-09-01)",
                     "updated": 1618060612074,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Time Range: probaremos un solo día, 2020-09-01.",
+                    "updated": 1627313579546
                 }
             ]
         },
@@ -63,6 +78,11 @@
                     "text": "Time Frame: 01-min (dato che gli ordini vengono inseriti/cancellati ogni minuto)",
                     "updated": 1618060502887,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Time Frame: los pedidos se colocan / cancelan cada minuto, por lo que 01-min es apropiado.",
+                    "updated": 1627313609332
                 }
             ]
         },

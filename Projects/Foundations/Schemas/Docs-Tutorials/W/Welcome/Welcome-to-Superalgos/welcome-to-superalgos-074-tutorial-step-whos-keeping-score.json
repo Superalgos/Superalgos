@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Who's Keeping Score?",
     "definition": {
         "icon": {
-            "name": "layer\\layer-resistance",
+            "name": "Layer\\layer-resistance",
             "project": "Foundations"
         },
         "text": "Check the table below and see if you can interpret the support levels you see on the charts.",

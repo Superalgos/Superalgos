@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Sell It Quick!",
     "definition": {
         "icon": {
-            "name": "bullet\\bullet-limit-sell-order",
+            "name": "Bullet\\bullet-limit-sell-order",
             "project": "Foundations"
         },
         "text": "I'm sure you noted there are no more limit buy orders after the order got filled. Instead, sell orders start popping up!",

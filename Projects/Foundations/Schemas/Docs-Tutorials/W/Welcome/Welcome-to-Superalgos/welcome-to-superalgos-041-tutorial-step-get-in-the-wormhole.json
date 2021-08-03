@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Get In the Wormhole!",
     "definition": {
         "icon": {
-            "name": "mouse\\mouse-wheel-up",
+            "name": "Mouse\\mouse-wheel-up",
             "project": "Foundations"
         },
         "text": "It's time to dive into a Time Machine and see what happens! Are you ready for a full-on immersive experience?",

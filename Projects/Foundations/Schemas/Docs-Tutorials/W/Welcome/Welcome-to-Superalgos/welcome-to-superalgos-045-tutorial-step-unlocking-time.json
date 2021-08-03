@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Unlocking Time!",
     "definition": {
         "icon": {
-            "name": "time\\time-scale",
+            "name": "Time\\time-scale",
             "project": "Foundations"
         },
         "text": "The reason why you can't move is that scales are locked in the automatic mode so that you may easily find the data after your first data mining operation.",

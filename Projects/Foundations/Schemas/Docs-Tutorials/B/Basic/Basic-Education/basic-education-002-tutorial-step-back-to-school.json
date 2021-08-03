@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Escuché que mi amigo el Welcome Tutorial te mostró todo y te hipnotizó con algunos trucos baratos... ¡Qué presumido!",
-                "updated": 1625934965685
+                "updated": 1625934965685,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "Bueno, ¡ahora es el momento de trabajar!",
-                    "updated": 1625934949953
+                    "updated": 1625934949953,
+                    "style": "Note"
                 }
             ]
         },
@@ -54,8 +56,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Aprender Superalgos es todo un esfuerzo! No porque sea difícil, sino porque el sistema es vasto, extremadamente flexible y está construido sobre un nuevo paradigma que no es obvio al principio...",
-                    "updated": 1625935046507
+                    "text": "¡Aprender Superalgos es todo un esfuerzo! No porque sea difícil, sino porque el sistema es vasto, extremadamente flexible y está construido sobre un nuevo paradigma que al principio no es obvio...",
+                    "updated": 1627322852878,
+                    "style": "Text"
                 }
             ]
         },
@@ -73,7 +76,8 @@
                 {
                     "language": "ES",
                     "text": "¡Pero no te preocupes! Si prestas atención y haces todos los tutoriales disponibles, ¡podrás afrontar la curva de aprendizaje como un campeón! Aún así, ten cuidado... ¡la mayoría de la gente hace los tutoriales más de una vez!",
-                    "updated": 1625935125952
+                    "updated": 1625935125952,
+                    "style": "Callout"
                 }
             ]
         }

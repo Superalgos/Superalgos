@@ -4,7 +4,7 @@
     "type": "Tutorial Step - My Only Friend, The End!",
     "definition": {
         "icon": {
-            "name": "close\\close-stage-event",
+            "name": "Close\\close-stage-event",
             "project": "Foundations"
         },
         "text": "Ok, my friend, this is the end! I hope you've enjoyed the show and that I've managed to get you hooked to Superalgos!",

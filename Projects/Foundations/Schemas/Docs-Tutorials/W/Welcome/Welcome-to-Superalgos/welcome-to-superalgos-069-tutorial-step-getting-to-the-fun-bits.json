@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Getting to the Fun Bits!",
     "definition": {
         "icon": {
-            "name": "time\\time-machine",
+            "name": "Time\\time-machine",
             "project": "Foundations"
         },
         "text": "I took the liberty of bringing you to a particular moment in time, interesting for what comes next.",

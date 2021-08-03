@@ -6,7 +6,7 @@
         "text": "Results are organized in several categories, and each category is represented by a tab grouping results matching the category...",
         "updated": 1610652285058,
         "icon": {
-            "name": "data\\dataset",
+            "name": "Data\\dataset",
             "project": "Foundations"
         },
         "translations": [

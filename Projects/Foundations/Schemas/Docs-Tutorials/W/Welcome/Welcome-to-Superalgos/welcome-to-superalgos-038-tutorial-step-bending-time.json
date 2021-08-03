@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Bending time?",
     "definition": {
         "icon": {
-            "name": "time\\time-machine",
+            "name": "Time\\time-machine",
             "project": "Foundations"
         },
         "text": "Ok... maybe it's not actually like bending, but, bear with me... You'll love how you can shape time machines to whatever format you wish.",

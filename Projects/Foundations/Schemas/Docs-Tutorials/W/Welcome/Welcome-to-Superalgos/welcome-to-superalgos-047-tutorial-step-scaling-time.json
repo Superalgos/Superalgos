@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Scaling Time!",
     "definition": {
         "icon": {
-            "name": "time\\time-scale",
+            "name": "Time\\time-scale",
             "project": "Foundations"
         },
         "text": "Did you pick up the trick to scale time from the previous video? If not, go to the previous step and watch attentively!",

@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Binance.com or Binance.us?",
     "definition": {
         "icon": {
-            "name": "crypto-exchanges\\binance",
+            "name": "Crypto-Exchanges\\binance",
             "project": "Foundations"
         },
         "text": "Before we start data mining, I have a little question for you: are you trading at binance.com, binance.us, or neither?",

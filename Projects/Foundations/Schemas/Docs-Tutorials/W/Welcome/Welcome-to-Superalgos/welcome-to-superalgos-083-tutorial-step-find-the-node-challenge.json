@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Find the Node Challenge",
     "definition": {
         "icon": {
-            "name": "trading\\trading-engine",
+            "name": "Trading\\trading-engine",
             "project": "Foundations"
         },
         "text": "The Trading Engine administers the complexity entailed in automated trading by making information accessible to users and trading systems.",

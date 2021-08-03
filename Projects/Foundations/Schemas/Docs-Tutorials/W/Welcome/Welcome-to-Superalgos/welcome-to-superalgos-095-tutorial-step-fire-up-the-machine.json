@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Fire Up the Machine!",
     "definition": {
         "icon": {
-            "name": "data\\data-tasks",
+            "name": "Data\\data-tasks",
             "project": "Foundations"
         },
         "text": "Now it's time to fire up your Data Tasks operation.",

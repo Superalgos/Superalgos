@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Get In Touch!",
     "definition": {
         "icon": {
-            "name": "telegram-bot",
+            "name": "Announcement/telegram-bot",
             "project": "Foundations"
         },
         "text": "Drop by to say hi, get help, and meet the Community! You may <a href=\"https://discord.gg/CGeKC6WQQb\" target=\"_blank\" style=\"color: blue;\">join the new Discord Server</a> or the original Telegram groups below, where it all started!",

@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Putting Things in Order",
     "definition": {
         "icon": {
-            "name": "hand-drag",
+            "name": "Mouse/hand-drag",
             "project": "Foundations"
         },
         "text": "One more thing before we dive into the charts. You need to know how to put the house in order!",

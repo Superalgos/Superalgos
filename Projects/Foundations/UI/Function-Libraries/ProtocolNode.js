@@ -263,7 +263,7 @@ function newFoundationsFunctionLibraryProtocolNode() {
                 if (node.payload.referenceParentCombinedNodePath === undefined) {
                     let attachNodePath = UI.projects.foundations.utilities.hierarchy.getNodeNameTypePath(node.payload.referenceParent)
                     // Save path to reference parent for auto restore
-                    savedPayload.referenceParentCombinedNodePath = { path: attachNodePath }
+                    savedPayload.referenceParentCombinedNodePath = attachNodePath
                 } else {
                      // Save path to reference parent for auto restore
                      savedPayload.referenceParentCombinedNodePath = node.payload.referenceParentCombinedNodePath

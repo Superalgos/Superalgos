@@ -220,7 +220,7 @@ function newFoundationsUtilitiesNodeChildren() {
         let child
         if (isMissingChildrenById(startingNode, referencedNode, true) === true) {
             child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(startingNode, childType)
-            child.payload.referenceParent = referencedNode
+            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(child, referencedNode)
         } else {
             child = findChildReferencingThisNode(startingNode, referencedNode)
         }
@@ -239,7 +239,7 @@ function newFoundationsUtilitiesNodeChildren() {
             UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(child, rootNodes)
         }
         child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(startingNode, childType)
-        child.payload.referenceParent = referencedNode
+        UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(child, referencedNode)
         return child
     }
 

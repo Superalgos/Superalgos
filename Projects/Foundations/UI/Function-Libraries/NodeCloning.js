@@ -167,10 +167,21 @@ function newFoundationsFunctionLibraryNodeCloning() {
                 name: node.payload.referenceParent.name,
                 id: node.payload.referenceParent.id
             }
+            // If the path has not been saved save it now
+            if (node.payload.referenceParentCombinedNodePath === undefined) {
+                let attachNodePath = UI.projects.foundations.utilities.hierarchy.getNodeNameTypePath(node.payload.referenceParent)
+                // Save path to reference parent for auto restore
+                savedPayload.referenceParentCombinedNodePath = attachNodePath
+            } else {
+                 // Save path to reference parent for auto restore
+                 savedPayload.referenceParentCombinedNodePath = node.payload.referenceParentCombinedNodePath
+            }
         } else {
             /* The referenceParent property can be inherited from the previous saved payload. */
             if (node.savedPayload !== undefined) {
                 savedPayload.referenceParent = node.savedPayload.referenceParent
+                // Save path to reference parent for auto restore
+                savedPayload.referenceParentCombinedNodePath = node.savedPayload.referenceParentCombinedNodePath
             }
         }
 

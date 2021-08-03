@@ -611,7 +611,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                     if (projectDefinition !== undefined) {
                         if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, projectDefinition, true) === true) {
                             let projectTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType, undefined, project)
-                            projectTasks.payload.referenceParent = projectDefinition
+                            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
                         }
                     }
                 }
@@ -642,7 +642,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                         let cryptoExchange = cryptoExchanges.exchanges[k]
                         if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, cryptoExchange, true) === true) {
                             let exchangeTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
-                            exchangeTasks.payload.referenceParent = cryptoExchange
+                            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(exchangeTasks, cryptoExchange)
                         }
                     }
                 }
@@ -674,7 +674,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
 
             if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, market, true) === true) {
                 let marketDataTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
-                marketDataTasks.payload.referenceParent = market
+                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(marketDataTasks, market)
             }
         }
     }
@@ -699,7 +699,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
 
                 if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, mine, true) === true) {
                     let dataMineTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
-                    dataMineTasks.payload.referenceParent = mine
+                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(dataMineTasks, mine)
                 }
             }
         }
@@ -846,12 +846,12 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                             switch (bot.type) {
                                 case 'Sensor Bot': {
                                     processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Sensor Process Instance')
-                                    processInstance.payload.referenceParent = process
+                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
                                     break
                                 }
                                 case 'API Data Fetcher Bot': {
                                     processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'API Data Fetcher Process Instance')
-                                    processInstance.payload.referenceParent = process
+                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
 
                                     /*
                                     We will locate and reference the API MAP that has the same codeName than the data mine.
@@ -863,7 +863,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                         let mineCodeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(mine.payload, 'codeName')
 
                                         if (apiMapCodeName === mineCodeName) {
-                                            processInstance.apiMapReference.payload.referenceParent = apiMap
+                                            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(processInstance.apiMapReference, apiMap)
                                             break
                                         }
                                     }
@@ -871,12 +871,12 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                 }
                                 case 'Indicator Bot': {
                                     processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Indicator Process Instance')
-                                    processInstance.payload.referenceParent = process
+                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
                                     break
                                 }
                                 case 'Trading Bot': {
                                     processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Trading Process Instance')
-                                    processInstance.payload.referenceParent = process
+                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
 
                                     if (node.payload.parentNode === undefined) { return }
                                     if (node.payload.parentNode.payload === undefined) { return }
@@ -911,15 +911,15 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                             let rootNode = rootNodes[m]
                                             if (rootNode.type === 'Trading Engine' && rootNode.isPlugin === true) {
                                                 let tradingEngine = rootNode
-                                                session.tradingEngineReference.payload.referenceParent = tradingEngine
-                                                session.tradingSystemReference.payload.referenceParent = systemNode
+                                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(session.tradingEngineReference, tradingEngine)
+                                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(session.tradingSystemReference, systemNode)
                                             }
                                         }
                                     }
                                 }
                                 case 'Learning Bot': {
                                     processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Learning Process Instance')
-                                    processInstance.payload.referenceParent = process
+                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
 
                                     let session
                                     addSession(sessionType)
@@ -936,8 +936,8 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                             let rootNode = rootNodes[m]
                                             if (rootNode.type === 'Learning Engine' && rootNode.isPlugin === true) {
                                                 let learningEngine = rootNode
-                                                session.learningEngineReference.payload.referenceParent = learningEngine
-                                                session.learningSystemReference.payload.referenceParent = systemNode
+                                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(session.learningEngineReference, learningEngine)
+                                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(session.learningSystemReference, systemNode)
                                             }
                                         }
                                     }

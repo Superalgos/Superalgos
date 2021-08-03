@@ -315,7 +315,6 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                     
                     // if Reestablishment failed now reestablish reference based on saved path
                     if (node.payload.referenceParent === undefined) { 
-                        console.log('this node failed to connect by id ' + node.type + ' ' + node.name, node )
                         // Gather saved path
                         let rawPath = node.savedPayload.referenceParentCombinedNodePath
                         if (rawPath !== undefined) {
@@ -385,9 +384,9 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                             }
                         }
                      }
-                        if (node.payload.referenceParent === undefined) {
-                            console.log('[WARN]' + node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
-                        }
+                    if (node.payload.referenceParent === undefined) {
+                        console.log('[WARN]' + node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
+                    }
                     
                 } 
             }

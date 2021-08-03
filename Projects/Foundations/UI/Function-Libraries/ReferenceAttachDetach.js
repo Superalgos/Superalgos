@@ -23,7 +23,6 @@ function newFoundationsFunctionLibraryAttachDetach() {
         // Remove unused node id, and project tag from stored path
         for (let i = 0; i < attachNodePath.length; i++ ) {
             attachNodePath[i].splice(2,2)
-            console.log(" this is spliced array ", attachNodePath)
         }
         
         // Save attach path to active payload

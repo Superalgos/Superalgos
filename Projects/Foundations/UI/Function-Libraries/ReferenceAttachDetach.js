@@ -1,3 +1,4 @@
+// These function are used across the system to establish and remove references between nodes
 function newFoundationsFunctionLibraryAttachDetach() {
     let thisObject = {
         referenceDetachNode: referenceDetachNode,
@@ -17,9 +18,14 @@ function newFoundationsFunctionLibraryAttachDetach() {
         completeAttachment(node, attachToNode)
     }
 
-    // Store the path to the reference parent to make restoring it possible if the reference partent is updated and given a new id
+    // Store the path to the reference parent to make restoring it possible if the reference parent is updated and given a new id
     function storeAttachNodePath(node, attachToNode) {
         let attachNodePath = UI.projects.foundations.utilities.hierarchy.getNodeNameTypePath(attachToNode)
+        // Remove unused node id, and project tag from stored path
+        for (let i = 0; i < attachNodePath.length; i++ ) {
+            attachNodePath[i].splice(2,2)
+        }
+        
         // Save attach path to active payload
         node.payload.referenceParentCombinedNodePath = attachNodePath
     }

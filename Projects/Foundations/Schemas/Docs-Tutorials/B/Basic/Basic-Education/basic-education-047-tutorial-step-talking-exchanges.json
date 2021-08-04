@@ -15,6 +15,11 @@
                 "text": "Visto che ho parlato di testare exchanges, vediamo un attimo come Superalgos li gestisce e quali puoi usare...",
                 "updated": 1619590965438,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que mencioné probar exchanges, hablemos un poco sobre cómo Superalgos los maneja y cuáles puede usar...",
+                "updated": 1628014366400
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Superalgos usa CCXT, una libreria open-source che propone uno standard per chiamate agli API degli exchange. Il sistema è compatibile con exchange che seguono questo standard:",
                     "updated": 1619591042345,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Superalgos usa CCXT, una biblioteca de código abierto que propone un estándar para las comunicaciones de API del mercado. El sistema funciona con intercambios que cumplen con el estándar:",
+                    "updated": 1628014486689
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "text": "Purtroppo non è abbastanza apparire in quella lista. Molti exchange non sono in effetti compatibili! Per questo motivo, la community testa attivamente varo exchanges, documentando quali possono essere usati in Superalgos e come. Questo è il topic dei Docs che tratta l'argomento. Leggi il TOC per vedere quali exchange sono stati testati.",
                     "updated": 1619591237097,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Aparecer en la lista no es suficiente! ¡Muchos exchanges no cumplen! Como resultado, hay un esfuerzo comunitario continuo para probar los exchanges y documentar qué se puede usar con Superalgos y cómo.  Mira el TOC para encontrar qué intercambios se han probado y en qué medida.",
+                    "updated": 1628014928782
                 }
             ]
         }

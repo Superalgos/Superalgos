@@ -5,7 +5,7 @@
     "definition": {
         "text": "The button cycles through several arrangement options that affect where a node is placed in relation to its parent.",
         "icon": {
-            "name": "Set/set-node-arrangement-to-concave",
+            "name": "set-node-arrangement-to-concave",
             "project": "Foundations"
         },
         "updated": 1615491939732,

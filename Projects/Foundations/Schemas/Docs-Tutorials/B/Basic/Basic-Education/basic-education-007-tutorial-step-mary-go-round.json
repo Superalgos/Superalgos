@@ -6,7 +6,7 @@
         "text": "By default, nodes are locked to a rotational symmetry around their parent node. The symmetry may span 360 degrees or less, depending on the setting!",
         "updated": 1615316869620,
         "icon": {
-            "name": "Set/set-angle-to-parent-node-to-360-degrees",
+            "name": "set-angle-to-parent-node-to-360-degrees",
             "project": "Foundations"
         },
         "translations": [
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Predeterminadamente, los nodos están bloqueados en una simetría rotacional alrededor de su nodo principal. ¡La simetría puede abarcar 360 grados o menos, dependiendo del entorno!",
-                "updated": 1625955498913
+                "updated": 1625955498913,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "Cuando haces clic en el botón del nodo Angle to Parent, cambias entre cinco configuraciones diferentes: 360, 180, 90 y 45 grados, más la opción de desactivar la simetría rotacional. ",
-                    "updated": 1625955464925
+                    "updated": 1625955464925,
+                    "style": "Text"
                 }
             ]
         },
@@ -56,7 +58,8 @@
                 {
                     "language": "ES",
                     "text": "Echa un vistazo a la configuración seleccionada en cada uno de los nodos descendientes del Lightning Strike Backtesting Session: Trading Parameters, Trading System Reference, y el Trading Engine Reference. Todos están configurados en 180 grados, ¿verdad?",
-                    "updated": 1625955426706
+                    "updated": 1625955426706,
+                    "style": "Callout"
                 }
             ]
         }

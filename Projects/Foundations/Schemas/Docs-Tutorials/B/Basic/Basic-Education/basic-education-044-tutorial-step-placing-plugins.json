@@ -5,7 +5,7 @@
     "definition": {
         "text": "To place a plugin in a workspace you must select the option to add the missing plugins on the node of the matching type!",
         "icon": {
-            "name": "Plugins/plugin-trading-systems",
+            "name": "plugin-trading-systems",
             "project": "Foundations"
         },
         "updated": 1615925984822,
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Para colocar un plugin ien un workspace ¡debe seleccionar la opción para agregar los plugins que faltan en el nodo del tipo correspondiente!",
-                "updated": 1626643106064
+                "updated": 1626643106064,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "¡Intentémoslo! ¡Selecciona Add Missing Trading Systems en el nodo Plugin Trading Systems!",
-                    "updated": 1626643167865
+                    "updated": 1626643167865,
+                    "style": "Callout"
                 }
             ]
         },
@@ -56,7 +58,8 @@
                 {
                     "language": "ES",
                     "text": "Nuevos nodos Plugin File se crean para cada plugin in \\Plugins\\Trading-Systems. Puede eliminar los nodos Plugin File no necesitas y conserva los que necesites! Luego, puedes agregar y anclar el nodo Plugin File Position donde deseas colocar el plugin.",
-                    "updated": 1626643680169
+                    "updated": 1626643680169,
+                    "style": "Text"
                 }
             ]
         },
@@ -74,7 +77,8 @@
                 {
                     "language": "ES",
                     "text": "Plugins se agregarán la próxima vez que cargue el workspace. Si deseas probarlo, ¡actualiza!",
-                    "updated": 1626643436449
+                    "updated": 1626643436449,
+                    "style": "Success"
                 }
             ]
         }

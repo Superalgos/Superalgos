@@ -5,7 +5,7 @@
     "definition": {
         "text": "Pretty much like with Node Attaching Rules, nodes that may establish references also have rules in that regard.",
         "icon": {
-            "name": "Trading/trading-system-reference",
+            "name": "trading-system-reference",
             "project": "Foundations"
         },
         "updated": 1615809225061,
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Muy parecido a Node Attaching Rules, Los nodos que pueden establecer referencias también tienen reglas al respecto.",
-                "updated": 1626563799313
+                "updated": 1626563799313,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "Ve al menu del nodo Trading System Reference, haga clic en el botón de ayuda y desplácese hasta el final de la página.",
-                    "updated": 1626563954890
+                    "updated": 1626563954890,
+                    "style": "Callout"
                 }
             ]
         },
@@ -56,7 +58,8 @@
                 {
                     "language": "ES",
                     "text": "Si eres desarrollador, es posible que quieras saber que Node Attaching Rules y Node Referencing Rules se definen en el archivo AppSchema.json en la carpeta Schema de un proyecto.",
-                    "updated": 1626568316882
+                    "updated": 1626568316882,
+                    "style": "Note"
                 }
             ]
         }

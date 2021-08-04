@@ -5,7 +5,7 @@
     "definition": {
         "text": "When you hover the mouse pointer over a node with an outgoing reference, the reference becomes visible.",
         "icon": {
-            "name": "Key/key-r",
+            "name": "key-r",
             "project": "Foundations"
         },
         "updated": 1615804514428,
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Cuando pasas el puntero del mouse sobre un nodo con una referencia saliente, la referencia se vuelve visible.",
-                "updated": 1626532933005
+                "updated": 1626532933005,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "¡Hay una manera de hacer visibles todas las referencias!",
-                    "updated": 1626533252874
+                    "updated": 1626533252874,
+                    "style": "Text"
                 }
             ]
         },
@@ -56,7 +58,8 @@
                 {
                     "language": "ES",
                     "text": "Presiona la siguiente combinación de teclas: Ctrl + Shift + Alt + Key-R",
-                    "updated": 1626532976069
+                    "updated": 1626532976069,
+                    "style": "Callout"
                 }
             ]
         },
@@ -74,7 +77,8 @@
                 {
                     "language": "ES",
                     "text": "Ahora puede ver las referencias que salen tanto del nodo Trading System Reference y el nodo Trading Engine Reference.",
-                    "updated": 1626533039571
+                    "updated": 1626533039571,
+                    "style": "Text"
                 }
             ]
         },
@@ -92,7 +96,8 @@
                 {
                     "language": "ES",
                     "text": "Haz clic derecho para acceder al mapa Design Space y observa otras referencias que puedan ser visibles.",
-                    "updated": 1626533199736
+                    "updated": 1626533199736,
+                    "style": "Success"
                 }
             ]
         }

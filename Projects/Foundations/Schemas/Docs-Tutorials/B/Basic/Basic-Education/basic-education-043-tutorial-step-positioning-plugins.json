@@ -6,7 +6,7 @@
         "text": "Here's the crazy bit... the Plugin File Position node determines where in the workspace the plugin is placed!",
         "updated": 1615921131447,
         "icon": {
-            "name": "Plugins/plugin-file-position",
+            "name": "plugin-file-position",
             "project": "Foundations"
         },
         "translations": [
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Aquí está la locura... el nodo Plugin File Position determina en qué parte del workspace el plugin es colocado.",
-                "updated": 1626642524737
+                "updated": 1626642524737,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "¡Por eso encontraste el nodo Trading System en la parte superior del nodo Plugin File Position!",
-                    "updated": 1626642599727
+                    "updated": 1626642599727,
+                    "style": "Text"
                 }
             ]
         },
@@ -56,7 +58,8 @@
                 {
                     "language": "ES",
                     "text": "¡Si eliminas el nodo Trading System, volvería a aparecer la próxima vez que recargues el workspace!¡Plugins se cargan desde el archivo plugin cada vez que se carga el workspace!",
-                    "updated": 1626642734045
+                    "updated": 1626642734045,
+                    "style": "Success"
                 }
             ]
         },
@@ -74,7 +77,8 @@
                 {
                     "language": "ES",
                     "text": "¡No dudes en probarlo! Si lo desea, puedes eliminar el nodo Trading System y actualiza la página. Ten en cuenta que deberás encontrar el Basic Education Tutorial y hacer clic en Resume en el menú para continuar!",
-                    "updated": 1626642833516
+                    "updated": 1626642833516,
+                    "style": "Text"
                 }
             ]
         }

@@ -6,7 +6,7 @@
         "text": "What if the nodes are far away from each other, maybe even in different hierarchies? Watch the video to learn a few tricks!",
         "updated": 1616098998366,
         "icon": {
-            "name": "Mouse/mouse-right-click",
+            "name": "mouse-right-click",
             "project": "Foundations"
         },
         "translations": [
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "¿Qué pasa si los nodos están muy lejos unos de otros, tal vez incluso en diferentes jerarquías? ¡Mira el video y aprende algunos trucos!",
-                "updated": 1626540840863
+                "updated": 1626540840863,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "Estos trucos UI pueden facilitarle la vida:",
-                    "updated": 1626540682262
+                    "updated": 1626540682262,
+                    "style": "Text"
                 }
             ]
         },
@@ -55,7 +57,8 @@
                 {
                     "language": "ES",
                     "text": "Utiliza el mapa del espacio de diseño para encontrar tu camino de nodo en nodo.",
-                    "updated": 1626541152202
+                    "updated": 1626541152202,
+                    "style": "List"
                 }
             ]
         },
@@ -72,7 +75,8 @@
                 {
                     "language": "ES",
                     "text": "Fije el nodo que va a mover a través del espacio de diseño, de modo que pueda soltarlo en cualquier punto para verificar las direcciones en el mapa del espacio de diseño.",
-                    "updated": 1626540729452
+                    "updated": 1626540729452,
+                    "style": "List"
                 }
             ]
         },
@@ -90,7 +94,8 @@
                 {
                     "language": "ES",
                     "text": "Usa Ctrl / Cmd + teclas de flecha para arrastrar el nodo por la pantalla después de hacer clic en él con el mouse. ¡Mantén las teclas presionadas y el nodo vuela!",
-                    "updated": 1626540759534
+                    "updated": 1626540759534,
+                    "style": "List"
                 }
             ]
         },
@@ -107,7 +112,8 @@
                 {
                     "language": "ES",
                     "text": "Retira el pin una vez que se establezca la referencia para que el nodo vuelva a su lugar.",
-                    "updated": 1626540795482
+                    "updated": 1626540795482,
+                    "style": "List"
                 }
             ]
         }

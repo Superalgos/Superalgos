@@ -5,7 +5,7 @@
     "definition": {
         "text": "A typical case is when you wish to introduce changes to a strategy shipping with the system to start with a proven setup!",
         "icon": {
-            "name": "Trading/trading-system",
+            "name": "trading-system",
             "project": "Foundations"
         },
         "updated": 1615995229226,
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Un caso típico es cuando desea introducir cambios en una estrategia de envío con el sistema para comenzar con una configuración probada.",
-                "updated": 1626702894193
+                "updated": 1626702894193,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "Digamos que recién estás comenzando con Superalgos, has hecho algunos tutoriales y estás listo para comenzar a jugar con una estrategia. Deseas comenzar con una estrategia existente e introducir modificaciones menores para comprender mejor cómo funcionan las cosas. La estrategia en cuestión se incluye como plugin en un workspace específico.",
-                    "updated": 1626703032336
+                    "updated": 1626703032336,
+                    "style": "Text"
                 }
             ]
         },
@@ -56,7 +58,8 @@
                 {
                     "language": "ES",
                     "text": "En tales casos, debes eliminar el nodo Plugin File correspondiente a el Trading System y restaurar el archivo original en la carpeta \\Plugins\\Trading-Systems como si fuera un backup: arrastra el archivo y suéltalo en el Design Space!",
-                    "updated": 1626703323868
+                    "updated": 1626703323868,
+                    "style": "Success"
                 }
             ]
         }

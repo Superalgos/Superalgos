@@ -1,7 +1,14 @@
 {
     "type": "Trading Engine Reference",
     "definition": {
-        "text": "A trading engine reference determines which trading engine the trading bot shall use to structure the data it processes while running the trading session."
+        "text": "A trading engine reference determines which trading engine the trading bot shall use to structure the data it processes while running the trading session.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un trading engine reference  determina cual trading engine del trading bot utilizará para estructurar los datos que procesa mientras ejecuta el trading session.",
+                "updated": 1628035017172
+            }
+        ]
     },
     "paragraphs": [
         {

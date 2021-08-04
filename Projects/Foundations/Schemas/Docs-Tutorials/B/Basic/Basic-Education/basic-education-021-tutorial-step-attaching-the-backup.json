@@ -5,7 +5,7 @@
     "definition": {
         "text": "Now we need to attach the backup of the Trading Parameters node to the Backtesting Session. How do we do that?",
         "icon": {
-            "name": "Mouse/mouse-right-click",
+            "name": "mouse-right-click",
             "project": "Foundations"
         },
         "updated": 1615573035743,
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Ahora necesitamos adjuntar la copia de seguridad del nodo Trading Parameters del Backtesting Session. ¿Cómo lo hacemos?",
-                "updated": 1626358562550
+                "updated": 1626358562550,
+                "style": "Definition"
             }
         ]
     },
@@ -37,7 +38,8 @@
                 {
                     "language": "ES",
                     "text": "Haz clic derecho en el nodo Trading ParametersY tire de él más cerca del nodo Backtesting session. ¡Suelta cuando veas un anillo naranja que rodea el nodo Backtesting session!",
-                    "updated": 1626358925461
+                    "updated": 1626358925461,
+                    "style": "Callout"
                 }
             ]
         },
@@ -55,7 +57,8 @@
                 {
                     "language": "ES",
                     "text": "¡Eso es! La copia de seguridad del nodo Trading Parameters está restaurado y de nuevo en uso.",
-                    "updated": 1626358976073
+                    "updated": 1626358976073,
+                    "style": "Text"
                 }
             ]
         },
@@ -73,7 +76,8 @@
                 {
                     "language": "ES",
                     "text": "Ten en cuenta que puedes eliminar el segundo nodo Trading Parameters si lo deseas, o puedes dejarlo a un lado para su uso posterior.",
-                    "updated": 1626359059810
+                    "updated": 1626359059810,
+                    "style": "Note"
                 }
             ]
         }

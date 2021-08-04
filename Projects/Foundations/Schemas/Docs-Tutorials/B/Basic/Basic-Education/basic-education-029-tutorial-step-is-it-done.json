@@ -6,7 +6,7 @@
         "text": "If you haven't yet, go ahead and establish a reference from the Trading System Reference to the Lightning Strike Trading System!",
         "updated": 1615808208398,
         "icon": {
-            "name": "Trading/trading-system",
+            "name": "trading-system",
             "project": "Foundations"
         },
         "translations": [
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Si aún no lo ha hecho, sigue adelante y estableze una referencia del Trading System Reference al Lightning Strike Trading System!",
-                "updated": 1626541349340
+                "updated": 1626541349340,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "Puedes encontrar que esta técnica para establecer una referencia sea un poco torpe o poco práctica. Si tiene una idea mejor o sabe cómo mejorarla, no dude en abrir un problema de solicitud de función. Asegúrese de tener en cuenta lo siguiente:",
-                    "updated": 1626541405664
+                    "updated": 1626541405664,
+                    "style": "Text"
                 }
             ]
         },
@@ -55,7 +57,8 @@
                 {
                     "language": "ES",
                     "text": "En un espacio de trabajo complejo, puede haber cientos de nodos que puedan aceptar una referencia.",
-                    "updated": 1626541444738
+                    "updated": 1626541444738,
+                    "style": "List"
                 }
             ]
         },
@@ -73,7 +76,8 @@
                 {
                     "language": "ES",
                     "text": "La referencia debe establecerse inequívocamente desde un nodo específico a otro nodo específico.",
-                    "updated": 1626542624855
+                    "updated": 1626542624855,
+                    "style": "List"
                 }
             ]
         },
@@ -90,7 +94,8 @@
                 {
                     "language": "ES",
                     "text": "¡No es tan difícil una vez que lo haces un par de veces!",
-                    "updated": 1626541754980
+                    "updated": 1626541754980,
+                    "style": "Success"
                 }
             ]
         },

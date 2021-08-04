@@ -6,7 +6,7 @@
         "text": "Let's say you want to test a strategy with different sets of parameters, so you take a backup of the Trading Parameters node!",
         "updated": 1615571330616,
         "icon": {
-            "name": "Mouse/hand-drag",
+            "name": "hand-drag",
             "project": "Foundations"
         },
         "translations": [
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Supongamos que desea probar una estrategia con diferentes conjuntos de parámetros, por lo que realizas una copia de seguridad del nodo Trading Parameters!",
-                "updated": 1626351504520
+                "updated": 1626351504520,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "¡Haz el respaldo! Ahora que tiene una copia de seguridad de todos Trading Parameters, puedes cambiaros sabiendo que siempre puedes volver a su copia de seguridad. En Chrome, debe estar visible en la esquina inferior izquierda de la ventana del navegador.",
-                    "updated": 1626352562721
+                    "updated": 1626352562721,
+                    "style": "Text"
                 }
             ]
         },
@@ -56,7 +58,8 @@
                 {
                     "language": "ES",
                     "text": "Ahora arrastre el archivo de respaldo y suéltelo en el Design Space! ¡Así es como restaura una copia de seguridad!",
-                    "updated": 1626352187525
+                    "updated": 1626352187525,
+                    "style": "Callout"
                 }
             ]
         },
@@ -74,7 +77,8 @@
                 {
                     "language": "ES",
                     "text": "Fácil ¿verdad? En el siguiente paso, te mostraré cómo volver a usar la versión original.",
-                    "updated": 1626354399313
+                    "updated": 1626354399313,
+                    "style": "Text"
                 }
             ]
         }

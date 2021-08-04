@@ -6,7 +6,7 @@
         "text": "When all offspring nodes are set to 180 degrees angle, each node takes a slot in a fraction of a circumference spanning 180 degrees, normal to the parent.",
         "updated": 1615319473489,
         "icon": {
-            "name": "Set/set-angle-to-parent-node-to-180-degrees",
+            "name": "set-angle-to-parent-node-to-180-degrees",
             "project": "Foundations"
         },
         "translations": [
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Cuando todos los nodos descendientes se establecen en un ángulo de 180 grados, cada nodo ocupa una ranura en una fracción de una circunferencia que abarca 180 grados, normal al padre.",
-                "updated": 1625955596065
+                "updated": 1625955596065,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "Pero, ¿qué sucede si uno de los nodos descendientes tiene una configuración diferente de Ángulo al padre? ¡Hagamos un experimento!",
-                    "updated": 1625955629982
+                    "updated": 1625955629982,
+                    "style": "Text"
                 }
             ]
         },
@@ -55,7 +57,8 @@
                 {
                     "language": "ES",
                     "text": "Haz clic una vez en el Trading Parameters Angle a la configuración de los padres y salir del menú!",
-                    "updated": 1625955715664
+                    "updated": 1625955715664,
+                    "style": "Callout"
                 }
             ]
         },
@@ -73,7 +76,8 @@
                 {
                     "language": "ES",
                     "text": "El nodo ocupa una ranura en un ángulo más pequeño: ¡90 grados! Haz lo mismo con los nodos Trading System Reference y Trading Engine Reference!",
-                    "updated": 1625955775564
+                    "updated": 1625955775564,
+                    "style": "Text"
                 }
             ]
         }

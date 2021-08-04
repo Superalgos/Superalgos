@@ -5,7 +5,7 @@
     "definition": {
         "text": "Go to your File Explorer app and look for the following paths relative to the root Superalgos folder...",
         "icon": {
-            "name": "Plugins/plugins",
+            "name": "plugins",
             "project": "Foundations"
         },
         "updated": 1615906049600,
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Ve a la aplicación Explorador de archivos y busca las siguientes rutas relativas a la carpeta raíz de Superalgos...",
-                "updated": 1626620466947
+                "updated": 1626620466947,
+                "style": "Definition"
             }
         ]
     },
@@ -51,7 +52,8 @@
                 {
                     "language": "ES",
                     "text": "En esta carpeta, encontrarás un archivo llamado Getting Started Tutorials.json. Tel suyo es el espacio de trabajo actual; el que estás usando en este momento. Todo lo que ha estado haciendo últimamente se ha almacenado aquí.",
-                    "updated": 1626620522459
+                    "updated": 1626620522459,
+                    "style": "List"
                 }
             ]
         },
@@ -73,7 +75,8 @@
                 {
                     "language": "ES",
                     "text": "En esta carpeta, encontrarás Plugin Workspaces conectando con  Superalgos. Es posible que desees leer los Documentos del \"Community Workspaces\" para saber de qué se trata cada uno de ellos.",
-                    "updated": 1626620829014
+                    "updated": 1626620829014,
+                    "style": "List"
                 }
             ]
         },

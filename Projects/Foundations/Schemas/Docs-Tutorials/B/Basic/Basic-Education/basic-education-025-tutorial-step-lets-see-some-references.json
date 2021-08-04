@@ -6,7 +6,7 @@
         "text": "Notice the two nodes under the Backtesting Session: Trading System Reference and Trading Engine Reference. Why do we need these nodes?",
         "updated": 1615798435799,
         "icon": {
-            "name": "Trading/trading-system-reference",
+            "name": "trading-system-reference",
             "project": "Foundations"
         },
         "translations": [
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Observe los dos nodos debajo del Backtesting Session: Trading System Reference y Trading Engine Reference. ¿Por qué necesitamos estos nodos?",
-                "updated": 1626376931375
+                "updated": 1626376931375,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "El Backtesting Session necesita hacer referencia al Trading System para que pueda obtener las reglas para el trading. También debe hacer referencia al Trading Engine para que pueda almacenar información relativa a la sesión de trading. Sin embargo, un nodo puede establecer solo una referencia saliente.",
-                    "updated": 1626377104766
+                    "updated": 1626377104766,
+                    "style": "Text"
                 }
             ]
         },
@@ -56,7 +58,8 @@
                 {
                     "language": "ES",
                     "text": "Por eso existen estos nodos: ¡son una ayuda para el nodo Backtesting Session para que cada uno de ellos pueda hacer referencia a un nodo!",
-                    "updated": 1626532745561
+                    "updated": 1626532745561,
+                    "style": "Note"
                 }
             ]
         }

@@ -6,7 +6,7 @@
         "text": "The reason why the distance to the parent node is relative to the distance of the parent to its parent is so that you may affect long structures of nodes!",
         "updated": 1615477794893,
         "icon": {
-            "name": "Set/set-distance-to-parent-node-to-one-and-a-half",
+            "name": "set-distance-to-parent-node-to-one-and-a-half",
             "project": "Foundations"
         },
         "translations": [
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "La razón por la cual la distancia al nodo principal es relativa a la distancia del principal al principal es para que pueda afectar las estructuras largas de los nodos.",
-                "updated": 1625957988594
+                "updated": 1625957988594,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "Haz clic una vez en el botón Distance to Parent del nodo Network.",
-                    "updated": 1625958052161
+                    "updated": 1625958052161,
+                    "style": "Callout"
                 }
             ]
         },
@@ -56,7 +58,8 @@
                 {
                     "language": "ES",
                     "text": "¡Guau! ¿Ves? ¡Estas herramientas te permiten un control total sobre cómo organiza visualmente las jerarquías!",
-                    "updated": 1625958134928
+                    "updated": 1625958134928,
+                    "style": "Text"
                 }
             ]
         },
@@ -74,7 +77,8 @@
                 {
                     "language": "ES",
                     "text": "¡Intenta cancelar la configuración Distance to Parent en el nodo Testing Trading Task! Como puedes ver, puedes establecer cualquier distancia arbitraria al nodo principal, pero el ángulo con el principal permanece fijo.",
-                    "updated": 1625958242191
+                    "updated": 1625958242191,
+                    "style": "Success"
                 }
             ]
         }

@@ -1392,9 +1392,17 @@
                         },
                         "referenceParent": {
                             "type": "Assets",
-                            "name": "Superalgos Marketing",
+                            "name": "Superalgos-Marketing",
                             "id": "eeeed37c-a0e5-4d6c-a57f-01fdd8622f0f"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Superalgos-Marketing",
+                                "Assets",
+                                "Governance",
+                                "eeeed37c-a0e5-4d6c-a57f-01fdd8622f0f"
+                            ]
+                        ]
                     }
                 },
                 {
@@ -1427,9 +1435,17 @@
                         },
                         "referenceParent": {
                             "type": "Positions",
-                            "name": "Superalgos Marketing",
+                            "name": "Superalgos-Marketing",
                             "id": "19a3f688-75d8-4b27-a9b4-6ec9ceb3bcbf"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Superalgos-Marketing",
+                                "Positions",
+                                "Governance",
+                                "19a3f688-75d8-4b27-a9b4-6ec9ceb3bcbf"
+                            ]
+                        ]
                     }
                 }
             ],
@@ -1493,9 +1509,17 @@
                         },
                         "referenceParent": {
                             "type": "Assets",
-                            "name": "Superalgos Exchanges",
+                            "name": "Superalgos-Exchanges",
                             "id": "2cefeb95-9fde-418b-a35b-6178a97cac9d"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Superalgos-Exchanges",
+                                "Assets",
+                                "Governance",
+                                "2cefeb95-9fde-418b-a35b-6178a97cac9d"
+                            ]
+                        ]
                     }
                 }
             ],
@@ -1567,7 +1591,15 @@
                                     "type": "Positions",
                                     "name": "Superalgos",
                                     "id": "50c68665-5da2-48a8-b229-7a1563ae82d2"
-                                }
+                                },
+                                "referenceParentCombinedNodePath": [
+                                    [
+                                        "Superalgos",
+                                        "Positions",
+                                        "Governance",
+                                        "50c68665-5da2-48a8-b229-7a1563ae82d2"
+                                    ]
+                                ]
                             }
                         }
                     ],
@@ -1633,7 +1665,15 @@
                                     "type": "Assets",
                                     "name": "Superalgos",
                                     "id": "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
-                                }
+                                },
+                                "referenceParentCombinedNodePath": [
+                                    [
+                                        "Superalgos",
+                                        "Assets",
+                                        "Governance",
+                                        "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
+                                    ]
+                                ]
                             }
                         }
                     ],
@@ -1699,7 +1739,15 @@
                                     "type": "Features",
                                     "name": "Superalgos",
                                     "id": "1d2c1985-c762-4ece-b350-15bd893bd1f4"
-                                }
+                                },
+                                "referenceParentCombinedNodePath": [
+                                    [
+                                        "Superalgos",
+                                        "Features",
+                                        "Governance",
+                                        "1d2c1985-c762-4ece-b350-15bd893bd1f4"
+                                    ]
+                                ]
                             }
                         }
                     ],

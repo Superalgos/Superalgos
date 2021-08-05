@@ -4,7 +4,14 @@
     "type": "Scales",
     "definition": {
         "text": "Time Machines feature a Time Scale, a Rate Scale, and a Time Frame Scale. Timeline charts may implement the last two.",
-        "updated": 1610137109400
+        "updated": 1610137109400,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Time Machines cuentan con un Time Scale, un Rate Scale, y un Time Frame Scale. Los gráficos de línea de tiempo pueden implementar los dos últimos.",
+                "updated": 1627309210785
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Spacetime Teleportation!",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "mouse-right-click"
+            "name": "Mouse\\mouse-right-click",
+            "project": "Foundations"
         },
         "text": "Ok, you're not actually going to be teleporting, nor will you bend spacetime, but it almost feels like it! It's time to learn to use the design space map.",
         "translations": [
@@ -99,7 +99,8 @@
                 {
                     "language": "ES",
                     "text": "¿Puedes verme en la esquina inferior izquierda del espacio de diseño? ¡Ahora sabes dónde encontrarme!",
-                    "updated": 1624285894970
+                    "updated": 1624285894970,
+                    "style": "Text"
                 }
             ]
         }

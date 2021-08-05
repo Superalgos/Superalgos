@@ -9,7 +9,7 @@
     "paragraphs": [
         {
             "style": "Success",
-            "text": "Also remeber that if you have tasks running at the same machine where the Superalgos Client is, they are still running the previous branch code. You need to restart them too after you restart the client.",
+            "text": "Also remember that if you have tasks running at the same machine where the Superalgos Client is, they are still running the previous branch code. You need to restart them too after you restart the client.",
             "updated": 1610543634663
         },
         {

@@ -15,6 +15,12 @@
                 "text": "Spero tu abbia afferrato i meccanismi dei backup e di come le references si comportano nei vari casi di ripristino!",
                 "updated": 1619503394556,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Espero que hayas comprendido las complejidades de las copias de seguridad y cómo se ven afectadas las referencias en cada caso de restauración en particular!",
+                "updated": 1626617460637,
+                "style": "Definition"
             }
         ]
     },
@@ -29,6 +35,12 @@
                     "text": "Non hai bisogno di memorizzare ogni scenario. Se comprendi come funzionano le references, puoi dedurne il comportamento in ogni caso!",
                     "updated": 1619503471627,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "No es necesario que memorices los casos individuales. En cambio, si comprendes el mecanismo subyacente que involucra referencias, ¡entonces puede deducir el comportamiento en cada caso!",
+                    "updated": 1626617450873,
+                    "style": "Text"
                 }
             ]
         },
@@ -41,6 +53,12 @@
                     "language": "IT",
                     "text": "Ricorda che ogni nodo ha un ID! Quando viene stabilita una reference, entrambi i nodi hanno un ID univoco. Le references in uscita non dipendono dall'ID del nodo, ma quelle in entrata sì! Se il nodo salvato può essere ripristinato con lo stesso ID allora le references in entrata saranno mantenute, altrimenti cambieranno o andranno perse!",
                     "updated": 1619503580082,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Recuerda que cada nodo tiene un ID específico! Cuando se establece una referencia, ambos nodos involucrados tienen un ID único. Las referencias salientes no dependen del ID del nodo, ¡pero las referencias entrantes sí! Si el nodo respaldado se puede restaurar con el mismo ID, las referencias entrantes persistirán; de lo contrario, cambiarán o se perderán.",
+                    "updated": 1626617498840,
                     "style": "Note"
                 }
             ]

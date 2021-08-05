@@ -2,7 +2,14 @@
     "type": "API Map",
     "definition": {
         "text": "An API Map represents the mapping of an API so that is can be consumed by bots within Superalgos. API Maps are created by users and shared as Plugins so that any other community member can use them with their bots. ",
-        "updated": 1621016177698
+        "updated": 1621016177698,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un API Map representa el mapeo de una API para que pueda ser consumida por bots dentro de Superalgos. API Maps Son creados por los usuarios y compartidos como Plugins para que cualquier otro miembro de la comunidad pueda usarlos con sus bots.",
+                "updated": 1628046227514
+            }
+        ]
     },
     "paragraphs": [
         {

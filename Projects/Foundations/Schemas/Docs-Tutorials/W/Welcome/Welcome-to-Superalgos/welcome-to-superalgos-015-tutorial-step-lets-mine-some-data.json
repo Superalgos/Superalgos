@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Let's Mine Some Data!",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "run"
         },
         "text": "Access the Data Tasks node menu and find the \"Run all project data tasks\" button on the top-right corner...",
@@ -24,8 +24,8 @@
             },
             {
                 "language": "ES",
-                "text": "Abra el menú del nodo Data Tasks y busque el botón Run All Project Data Tasks en la esquina superior derecha...",
-                "updated": 1618434308521,
+                "text": "Abre el menú del nodo Data Tasks y busca el botón Run All Project Data Tasks en la esquina superior derecha... ",
+                "updated": 1627302836248,
                 "style": "Definition"
             }
         ]

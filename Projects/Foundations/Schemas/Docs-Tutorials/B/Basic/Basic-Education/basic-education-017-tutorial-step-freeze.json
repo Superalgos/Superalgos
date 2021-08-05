@@ -15,6 +15,11 @@
                 "text": "La proprietà freeze ha senso in circostanze molto specifiche: quando le animazioni sono attive a livello del Design Space.",
                 "updated": 1619461541404,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "El botón de congelación tiene sentido en circunstancias muy específicas: cuando la física se activa al nivel del Design Space.",
+                "updated": 1626040673536
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Il Design Space offre diverse personalizzazioni, tra le quali l'attivazione dell'animazione dell'universo. Quando è attiva, l'intero spazio diventa vivo!",
                     "updated": 1619461604832,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "El Design Space ofrece algunas funciones de personalización, una de las cuales es activar la física del universo. Cuando la física está activada, ¡todo el espacio cobra vida!",
+                    "updated": 1626040738666
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Non approfondiremo la materia ora: non è parte del curriculum di educazione base!",
                     "updated": 1619461641768,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡No entraremos en eso en ya que no está en el plan de estudios de educación básica!",
+                    "updated": 1626040817848
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "L'opzione freeze blocca le connessioni del nodo con il padre e i propri figli: le linee di collegamento diventano blu. Quando le animazioni sono attive, questa opzione rilascia le risorse della CPU perchè il sistema smette di calcolare la posizione e lo stato del nodo.",
                     "updated": 1619461763901,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "La opción de congelación congela las conexiones en cadena del nodo con su padre y su descendencia y las líneas de conexión se vuelven azules. La congelación libera los recursos de la CPU cuando las animaciones físicas están activadas, ya que el sistema deja de calcular las posiciones y el estado de los nodos.",
+                    "updated": 1626043017042
                 }
             ]
         }

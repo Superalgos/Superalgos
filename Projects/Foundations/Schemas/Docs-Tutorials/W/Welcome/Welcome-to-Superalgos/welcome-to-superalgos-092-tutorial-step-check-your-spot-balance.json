@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Check Your Spot Balance!",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "binance"
+            "name": "Crypto-Exchanges\\binance",
+            "project": "Foundations"
         },
         "text": "Before you run the Live Trading Session, make sure you have enough spot USDT balance at the exchange!",
         "translations": [
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "Antes de ejecutar el Live Trading Session, asegúrate de tener suficiente saldo en USDT al contado en el exchange.",
-                "updated": 1624471256717
+                "updated": 1624471256717,
+                "style": "Definition"
             }
         ]
     },
@@ -36,7 +37,8 @@
                 {
                     "language": "ES",
                     "text": "¡Eche un vistazo a su saldo en el exchange y organiza suficientes USDT para la sesión!",
-                    "updated": 1624471291732
+                    "updated": 1624471291732,
+                    "style": "Callout"
                 }
             ]
         },
@@ -53,7 +55,8 @@
                 {
                     "language": "ES",
                     "text": "El Trading Bot colocará una orden limitada para el inicialBalance y la cancelará al minuto siguiente en caso de que no se complete, como se explicó anteriormente.",
-                    "updated": 1624471439730
+                    "updated": 1624471439730,
+                    "style": "Important"
                 }
             ]
         },
@@ -71,7 +74,8 @@
                 {
                     "language": "ES",
                     "text": "¡Continúa incluso si no estás listo para la sesión! ¡Es importante porque hay más cosas que aprender en el tutorial!",
-                    "updated": 1624471521635
+                    "updated": 1624471521635,
+                    "style": "Note"
                 }
             ]
         }

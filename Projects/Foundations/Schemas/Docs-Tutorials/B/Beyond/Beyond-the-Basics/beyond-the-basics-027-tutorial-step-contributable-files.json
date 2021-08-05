@@ -5,7 +5,7 @@
     "definition": {
         "text": "Most files within the Superalgos folder are subject to be modified and contributed to the project! That includes code, images, documentation, etc.",
         "icon": {
-            "name": "dataset",
+            "name": "Data/dataset",
             "project": "Foundations"
         },
         "updated": 1610823292611,

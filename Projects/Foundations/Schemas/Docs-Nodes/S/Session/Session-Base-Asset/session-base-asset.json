@@ -1,7 +1,14 @@
 {
     "type": "Session Base Asset",
     "definition": {
-        "text": "The base asset is the asset whose price is determined by the market. It is usually the first asset in the pair, as listed by the exchange."
+        "text": "The base asset is the asset whose price is determined by the market. It is usually the first asset in the pair, as listed by the exchange.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El base asset es el asset cuyo precio lo determina el mercado. Por lo general, es el primer activo del par, según lo enumerado por el intercambio.",
+                "updated": 1628034596123
+            }
+        ]
     },
     "paragraphs": [
         {

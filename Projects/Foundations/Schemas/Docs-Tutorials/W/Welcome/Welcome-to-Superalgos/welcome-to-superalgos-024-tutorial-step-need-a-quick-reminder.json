@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Need a Quick Reminder?",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "key-left"
+            "name": "Key\\key-left",
+            "project": "Foundations"
         },
         "text": "At this point, I'm probably overflowing your hippocampus! But don't worry... you may go back to any previous step!",
         "translations": [
@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "En este punto, probablemente esté  saturando tu hipocampo! Pero no te preocupes... ¡puedes volver a cualquier paso anterior!",
-                "updated": 1618436677513,
+                "text": "En este punto, ¡probablemente esté saturando tu hipocampo! Pero no te preocupes... ¡puedes volver a cualquier paso anterior!",
+                "updated": 1627303260247,
                 "style": "Definition"
             }
         ]
@@ -48,8 +48,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Si alguna vez necesitas un recordatorio sobre estos temas...",
-                    "updated": 1618436771239,
+                    "text": "Si necesitas un recordatorio sobre estos temas...",
+                    "updated": 1625871978228,
                     "style": "Text"
                 }
             ]
@@ -72,8 +72,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Busca el Tutorial Topic y reprodúcelo! Puedes encontrarme en la esquina inferior izquierda del Desing Space, expandirme, navegar por la jerarquía de temas y pasos, y hacer clic en Play en cualquiera de ellos. Los temas están ordenados en el sentido de las agujas del reloj, empezando por la derecha del nodo principal de Tutorial.",
-                    "updated": 1624491569008,
+                    "text": "Busca el Tutorial Topic y reprodúcelo. Puedes encontrarme en la esquina inferior izquierda del Desing Space, expandirme, navegar por la jerarquía de temas y pasos, y hacer clic en Play en cualquiera de ellos. Los temas están ordenados en el sentido de las agujas del reloj, empezando por la derecha del nodo principal de Tutorial.",
+                    "updated": 1627303448829,
                     "style": "List"
                 }
             ]

@@ -1,0 +1,245 @@
+{
+    "type": "Assets",
+    "name": "Superalgos Exchanges",
+    "config": "{\n\"folderPath\": \"\"\n}",
+    "project": "Governance",
+    "assetClasses": [
+        {
+            "type": "Asset Class",
+            "name": "SA Token Listings Rewards",
+            "config": "{\n\"folderPath\": \"\"\n}",
+            "project": "Governance",
+            "assetClasses": [
+                {
+                    "type": "Asset Class",
+                    "name": "CMC Top 10",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "First Listing",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "548dd163-9991-4de3-9e68-9e8a9a051a2f",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 10018.264068711927,
+                                    "y": 38520.76406871193
+                                },
+                                "targetPosition": {
+                                    "x": 9806.132034355964,
+                                    "y": 38308.632034355964
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "7793964e-794b-4d76-b5fd-4ee67c3f3aab",
+                    "savedPayload": {
+                        "position": {
+                            "x": 9806.132034355964,
+                            "y": 38308.632034355964
+                        },
+                        "targetPosition": {
+                            "x": 9594,
+                            "y": 38096.5
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset Class",
+                    "name": "CMC Top 50",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Second Listing",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "e4e7addb-a840-4ce9-9e01-74c7e57c24ad",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 9594,
+                                    "y": 38696.5
+                                },
+                                "targetPosition": {
+                                    "x": 9594,
+                                    "y": 38396.5
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "ffec9d04-21ef-48eb-a29f-51d1e1c5cb59",
+                    "savedPayload": {
+                        "position": {
+                            "x": 9594,
+                            "y": 38396.5
+                        },
+                        "targetPosition": {
+                            "x": 9594,
+                            "y": 38096.5
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset Class",
+                    "name": "CMC Top 100",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Third Listing",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "73c64b92-467f-4e27-8c3b-a624f00bbf53",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 9169.735931288073,
+                                    "y": 38520.76406871193
+                                },
+                                "targetPosition": {
+                                    "x": 9381.867965644036,
+                                    "y": 38308.632034355964
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "6d69d279-c79d-4565-b8a2-5a612ef8b7b3",
+                    "savedPayload": {
+                        "position": {
+                            "x": 9381.867965644036,
+                            "y": 38308.632034355964
+                        },
+                        "targetPosition": {
+                            "x": 9594,
+                            "y": 38096.5
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "assets": [],
+            "id": "492669d5-223f-426d-845a-f26dd1ae251e",
+            "savedPayload": {
+                "position": {
+                    "x": 9594,
+                    "y": 38096.5
+                },
+                "targetPosition": {
+                    "x": 9594,
+                    "y": 37796.5
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 2,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        }
+    ],
+    "assets": [],
+    "id": "2cefeb95-9fde-418b-a35b-6178a97cac9d",
+    "savedPayload": {
+        "position": {
+            "x": 9594,
+            "y": 37796.5
+        },
+        "targetPosition": {
+            "x": 9594,
+            "y": 37796.5
+        },
+        "floatingObject": {
+            "isPinned": false,
+            "isFrozen": false,
+            "isCollapsed": false,
+            "angleToParent": 1,
+            "distanceToParent": 3,
+            "arrangementStyle": 0
+        },
+        "uiObject": {
+            "isRunning": false
+        }
+    }
+}

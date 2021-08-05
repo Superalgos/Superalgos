@@ -756,7 +756,7 @@
                                 },
                                 "referenceParent": {
                                     "type": "Feature Class",
-                                    "name": "Foundations Project",
+                                    "name": "Project Features",
                                     "id": "136b6e7a-f042-441b-84be-395b56b65b70"
                                 }
                             }
@@ -4188,7 +4188,7 @@
                                                                     "featureWeightVotes": [
                                                                         {
                                                                             "type": "Feature Weight Vote",
-                                                                            "name": "",
+                                                                            "name": "Project Features Superalgos Mobile App Android Mobile App",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "id": "f8256e48-52b8-4e95-b49e-1b3db503a0c2",
@@ -4221,7 +4221,7 @@
                                                                         },
                                                                         {
                                                                             "type": "Feature Weight Vote",
-                                                                            "name": "",
+                                                                            "name": "Project Features Superalgos Mobile App iOS Mobile App",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "id": "fa76f305-2fa0-4350-adb3-55c72146749f",
@@ -4254,7 +4254,7 @@
                                                                         },
                                                                         {
                                                                             "type": "Feature Weight Vote",
-                                                                            "name": "",
+                                                                            "name": "Project Features Superalgos Mobile App Huawei Mobile App",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "id": "9b6247c2-a078-43a5-853d-6f9d9b31f810",
@@ -4326,7 +4326,7 @@
                                                                     "featureWeightVotes": [
                                                                         {
                                                                             "type": "Feature Weight Vote",
-                                                                            "name": "",
+                                                                            "name": "Project Features Superalgos P2P Network Node.js Implementation",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "id": "8e3a31bc-3fab-4826-a18c-a040e9b17cae",
@@ -4415,7 +4415,7 @@
                                                                 },
                                                                 "referenceParent": {
                                                                     "type": "Feature Class",
-                                                                    "name": "Foundations Project",
+                                                                    "name": "Project Features",
                                                                     "id": "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                 }
                                                             }
@@ -4448,7 +4448,7 @@
                                                         },
                                                         "referenceParent": {
                                                             "type": "Features",
-                                                            "name": "Foundations-Project",
+                                                            "name": "Superalgos",
                                                             "id": "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                         }
                                                     }
@@ -4477,7 +4477,7 @@
                                                                     "positionWeightVotes": [
                                                                         {
                                                                             "type": "Position Weight Vote",
-                                                                            "name": "",
+                                                                            "name": "Community Management Moderator",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "id": "fe6bbf7f-c838-428f-9e3f-99b6c9c7d779",
@@ -4549,7 +4549,7 @@
                                                                     "positionWeightVotes": [
                                                                         {
                                                                             "type": "Position Weight Vote",
-                                                                            "name": "",
+                                                                            "name": "Business Business Lead",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "id": "51309102-9d00-417f-9c6a-f928c1f3506c",
@@ -4582,7 +4582,7 @@
                                                                         },
                                                                         {
                                                                             "type": "Position Weight Vote",
-                                                                            "name": "",
+                                                                            "name": "Business Advisor",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "id": "80e3f058-9c35-426d-8468-435a4c257215",
@@ -4654,7 +4654,7 @@
                                                                     "positionWeightVotes": [
                                                                         {
                                                                             "type": "Position Weight Vote",
-                                                                            "name": "",
+                                                                            "name": "Core Team Member",
                                                                             "config": "{}",
                                                                             "project": "Governance",
                                                                             "id": "bf988832-e97d-46a7-92f1-67914cf08402",
@@ -4721,7 +4721,7 @@
                                                             "positionWeightVotes": [
                                                                 {
                                                                     "type": "Position Weight Vote",
-                                                                    "name": "",
+                                                                    "name": "Rewarded Positions Project Lead",
                                                                     "config": "{}",
                                                                     "project": "Governance",
                                                                     "id": "98939a3f-34c2-4ab5-af61-36377b78d897",
@@ -4809,7 +4809,7 @@
                                                         },
                                                         "referenceParent": {
                                                             "type": "Positions",
-                                                            "name": "Foundations-Project",
+                                                            "name": "Superalgos",
                                                             "id": "50c68665-5da2-48a8-b229-7a1563ae82d2"
                                                         }
                                                     }
@@ -5221,7 +5221,7 @@
                                                                             "assetWeightVotes": [
                                                                                 {
                                                                                     "type": "Asset Weight Vote",
-                                                                                    "name": "",
+                                                                                    "name": "All Blog Existing Blog Posts Blog Post",
                                                                                     "config": "{}",
                                                                                     "project": "Governance",
                                                                                     "id": "d9afded4-db56-4782-a5e9-ee7509b0db21",
@@ -5254,7 +5254,7 @@
                                                                                 },
                                                                                 {
                                                                                     "type": "Asset Weight Vote",
-                                                                                    "name": "",
+                                                                                    "name": "All Blog Existing Blog Posts Blog Post",
                                                                                     "config": "{}",
                                                                                     "project": "Governance",
                                                                                     "id": "ef6b969a-c4d3-4020-926a-3d2e93a7e7fc",
@@ -5326,7 +5326,7 @@
                                                                             "assetWeightVotes": [
                                                                                 {
                                                                                     "type": "Asset Weight Vote",
-                                                                                    "name": "",
+                                                                                    "name": "All Blog Post Rewards How to install Superalgos and configure your Profile to get SA Tokens",
                                                                                     "config": "{}",
                                                                                     "project": "Governance",
                                                                                     "id": "fdd5c199-bc72-41e8-aec1-d9c7e158f508",
@@ -5449,7 +5449,7 @@
                                                                                             "assetWeightVotes": [
                                                                                                 {
                                                                                                     "type": "Asset Weight Vote",
-                                                                                                    "name": "",
+                                                                                                    "name": "Youtube Superalgos Channel Existing Videos Youtube Video",
                                                                                                     "config": "{}",
                                                                                                     "project": "Governance",
                                                                                                     "id": "a6c9bf2b-e498-4880-b540-bc1eea489102",
@@ -5482,7 +5482,7 @@
                                                                                                 },
                                                                                                 {
                                                                                                     "type": "Asset Weight Vote",
-                                                                                                    "name": "",
+                                                                                                    "name": "Youtube Superalgos Channel Existing Videos Youtube Video",
                                                                                                     "config": "{}",
                                                                                                     "project": "Governance",
                                                                                                     "id": "eb723098-62d3-436d-965e-f47e7e1bb421",
@@ -5554,7 +5554,7 @@
                                                                                             "assetWeightVotes": [
                                                                                                 {
                                                                                                     "type": "Asset Weight Vote",
-                                                                                                    "name": "",
+                                                                                                    "name": "Youtube Superalgos Channel Videos Rewards How to install Superalgos and configure your Profile to get SA Tokens",
                                                                                                     "config": "{}",
                                                                                                     "project": "Governance",
                                                                                                     "id": "cc3a38f6-17cc-47e4-b167-7b187bfb3b80",
@@ -5621,7 +5621,7 @@
                                                                                     "assetWeightVotes": [
                                                                                         {
                                                                                             "type": "Asset Weight Vote",
-                                                                                            "name": "",
+                                                                                            "name": "Youtube Superalgos Channel Existing Videos Youtube Video",
                                                                                             "config": "{}",
                                                                                             "project": "Governance",
                                                                                             "id": "9c2336bf-1d12-41b1-899d-072e74b313d1",
@@ -5654,7 +5654,7 @@
                                                                                         },
                                                                                         {
                                                                                             "type": "Asset Weight Vote",
-                                                                                            "name": "",
+                                                                                            "name": "Youtube Superalgos Channel Existing Videos Youtube Video",
                                                                                             "config": "{}",
                                                                                             "project": "Governance",
                                                                                             "id": "9d58ed72-bfa9-4fce-b081-c69041a09f70",
@@ -5913,7 +5913,7 @@
                                                                                     "assetWeightVotes": [
                                                                                         {
                                                                                             "type": "Asset Weight Vote",
-                                                                                            "name": "",
+                                                                                            "name": "Articles Crypto Media Coindesk First Article",
                                                                                             "config": "{\n    \"percentage\": 60\n}",
                                                                                             "project": "Governance",
                                                                                             "id": "0e47a980-f159-412c-a566-66842ff45426",
@@ -5946,7 +5946,7 @@
                                                                                         },
                                                                                         {
                                                                                             "type": "Asset Weight Vote",
-                                                                                            "name": "",
+                                                                                            "name": "Articles Crypto Media Coindesk Second Article",
                                                                                             "config": "{\n    \"percentage\": 30\n}",
                                                                                             "project": "Governance",
                                                                                             "id": "5cde8909-cf95-4e26-bb81-fd7025acaaed",
@@ -5979,7 +5979,7 @@
                                                                                         },
                                                                                         {
                                                                                             "type": "Asset Weight Vote",
-                                                                                            "name": "",
+                                                                                            "name": "Articles Crypto Media Coindesk Third Article",
                                                                                             "config": "{}",
                                                                                             "project": "Governance",
                                                                                             "id": "007c1202-f8c7-4e1a-b670-146a269d5084",
@@ -6051,7 +6051,7 @@
                                                                                     "assetWeightVotes": [
                                                                                         {
                                                                                             "type": "Asset Weight Vote",
-                                                                                            "name": "",
+                                                                                            "name": "Articles Crypto Media Coin Telegraph First Article",
                                                                                             "config": "{\n    \"percentage\": 60\n}",
                                                                                             "project": "Governance",
                                                                                             "id": "9d23380e-01f8-4573-98dc-bed85217f3b0",
@@ -6084,7 +6084,7 @@
                                                                                         },
                                                                                         {
                                                                                             "type": "Asset Weight Vote",
-                                                                                            "name": "",
+                                                                                            "name": "Articles Crypto Media Coin Telegraph Second Article",
                                                                                             "config": "{\n    \"percentage\": 30\n}",
                                                                                             "project": "Governance",
                                                                                             "id": "ede59373-2c3c-47dd-bb50-dc5d4caa6d38",
@@ -6117,7 +6117,7 @@
                                                                                         },
                                                                                         {
                                                                                             "type": "Asset Weight Vote",
-                                                                                            "name": "",
+                                                                                            "name": "Articles Crypto Media Coin Telegraph Third Article",
                                                                                             "config": "{}",
                                                                                             "project": "Governance",
                                                                                             "id": "9836d3a1-ba6f-4e38-8e1b-3e82fe5bb287",
@@ -6228,7 +6228,7 @@
                                                                                     "assetWeightVotes": [
                                                                                         {
                                                                                             "type": "Asset Weight Vote",
-                                                                                            "name": "",
+                                                                                            "name": "Articles Mainstream Media Forbes First Article",
                                                                                             "config": "{\n    \"percentage\": 60\n}",
                                                                                             "project": "Governance",
                                                                                             "id": "ea4b6017-5450-4566-959f-ff6e70b73bc4",
@@ -6261,7 +6261,7 @@
                                                                                         },
                                                                                         {
                                                                                             "type": "Asset Weight Vote",
-                                                                                            "name": "",
+                                                                                            "name": "Articles Mainstream Media Forbes Second Article",
                                                                                             "config": "{\n    \"percentage\": 30\n}",
                                                                                             "project": "Governance",
                                                                                             "id": "3ae891ad-5ef1-4ac2-9a70-98855c6dad67",
@@ -6294,7 +6294,7 @@
                                                                                         },
                                                                                         {
                                                                                             "type": "Asset Weight Vote",
-                                                                                            "name": "",
+                                                                                            "name": "Articles Mainstream Media Forbes Third Article",
                                                                                             "config": "{}",
                                                                                             "project": "Governance",
                                                                                             "id": "6c5d6ac6-7b22-45e3-a954-30861d9d4401",
@@ -6620,7 +6620,7 @@
                                                                             "assetWeightVotes": [
                                                                                 {
                                                                                     "type": "Asset Weight Vote",
-                                                                                    "name": "",
+                                                                                    "name": "All Public Relations Crypto Media PR Campaign 6 Month PR Campaign",
                                                                                     "config": "{}",
                                                                                     "project": "Governance",
                                                                                     "id": "f20b20b0-26df-4c86-b693-5f2d7de36596",
@@ -6692,7 +6692,7 @@
                                                                             "assetWeightVotes": [
                                                                                 {
                                                                                     "type": "Asset Weight Vote",
-                                                                                    "name": "",
+                                                                                    "name": "All Public Relations Trading Media PR Campaign 6 Month PR Campaign",
                                                                                     "config": "{}",
                                                                                     "project": "Governance",
                                                                                     "id": "ae51554a-e4f8-43e8-8cca-a3532713d4b5",
@@ -6815,7 +6815,7 @@
                                                                                             "assetWeightVotes": [
                                                                                                 {
                                                                                                     "type": "Asset Weight Vote",
-                                                                                                    "name": "",
+                                                                                                    "name": "Conferences Crypto or Trading Conferences Securing a Spot Labitconf",
                                                                                                     "config": "{}",
                                                                                                     "project": "Governance",
                                                                                                     "id": "a0e7d36c-3360-4e54-8100-10125dd480ea",
@@ -6887,7 +6887,7 @@
                                                                                             "assetWeightVotes": [
                                                                                                 {
                                                                                                     "type": "Asset Weight Vote",
-                                                                                                    "name": "",
+                                                                                                    "name": "Conferences Crypto or Trading Conferences Speaking at Conference Labitconf",
                                                                                                     "config": "{}",
                                                                                                     "project": "Governance",
                                                                                                     "id": "a25353e4-4abb-4064-ad07-71aebd5d7820",
@@ -6998,7 +6998,7 @@
                                                                                             "assetWeightVotes": [
                                                                                                 {
                                                                                                     "type": "Asset Weight Vote",
-                                                                                                    "name": "",
+                                                                                                    "name": "Conferences Unrelated Conferences Securing a Spot Monaco Streamming Conference 2021",
                                                                                                     "config": "{}",
                                                                                                     "project": "Governance",
                                                                                                     "id": "3418ee65-6f70-4f3d-b198-1a50c279f16a",
@@ -7070,7 +7070,7 @@
                                                                                             "assetWeightVotes": [
                                                                                                 {
                                                                                                     "type": "Asset Weight Vote",
-                                                                                                    "name": "",
+                                                                                                    "name": "Conferences Unrelated Conferences Speaking at Conference Monaco Streamming Conference 2021",
                                                                                                     "config": "{}",
                                                                                                     "project": "Governance",
                                                                                                     "id": "20f35cd4-6da6-47f5-9cd0-a65ed86d8f41",
@@ -7330,7 +7330,7 @@
                                                         },
                                                         "referenceParent": {
                                                             "type": "Assets",
-                                                            "name": "Marketing",
+                                                            "name": "Superalgos Marketing",
                                                             "id": "eeeed37c-a0e5-4d6c-a57f-01fdd8622f0f"
                                                         }
                                                     }
@@ -7353,7 +7353,7 @@
                                                             "positionWeightVotes": [
                                                                 {
                                                                     "type": "Position Weight Vote",
-                                                                    "name": "",
+                                                                    "name": "Rewarded Positions Marketing Lead",
                                                                     "config": "{}",
                                                                     "project": "Governance",
                                                                     "id": "95ec9f89-0c77-4136-8670-146699ac67a2",
@@ -7386,7 +7386,7 @@
                                                                 },
                                                                 {
                                                                     "type": "Position Weight Vote",
-                                                                    "name": "",
+                                                                    "name": "Rewarded Positions Advisor",
                                                                     "config": "{}",
                                                                     "project": "Governance",
                                                                     "id": "5c4f1655-8f2f-46fc-9016-52248fe725d3",
@@ -7474,7 +7474,7 @@
                                                         },
                                                         "referenceParent": {
                                                             "type": "Positions",
-                                                            "name": "Marketing",
+                                                            "name": "Superalgos Marketing",
                                                             "id": "19a3f688-75d8-4b27-a9b4-6ec9ceb3bcbf"
                                                         }
                                                     }
@@ -7529,7 +7529,7 @@
                                                             "assetWeightVotes": [
                                                                 {
                                                                     "type": "Asset Weight Vote",
-                                                                    "name": "",
+                                                                    "name": "Superalgos Exchanges SA Token Listings Rewards CMC Top 10 First Listing",
                                                                     "config": "{}",
                                                                     "project": "Governance",
                                                                     "id": "af09a15d-8328-4339-937e-18fab88321d3",
@@ -7601,7 +7601,7 @@
                                                             "assetWeightVotes": [
                                                                 {
                                                                     "type": "Asset Weight Vote",
-                                                                    "name": "",
+                                                                    "name": "Superalgos Exchanges SA Token Listings Rewards CMC Top 50 Second Listing",
                                                                     "config": "{}",
                                                                     "project": "Governance",
                                                                     "id": "fcc95efc-0523-40f6-bae6-a1860824b961",
@@ -7673,7 +7673,7 @@
                                                             "assetWeightVotes": [
                                                                 {
                                                                     "type": "Asset Weight Vote",
-                                                                    "name": "",
+                                                                    "name": "Superalgos Exchanges SA Token Listings Rewards CMC Top 100 Third Listing",
                                                                     "config": "{}",
                                                                     "project": "Governance",
                                                                     "id": "9ad43160-b86e-4b87-acc8-140c043b1970",
@@ -7796,7 +7796,7 @@
                                                 },
                                                 "referenceParent": {
                                                     "type": "Assets",
-                                                    "name": "Exchanges",
+                                                    "name": "Superalgos Exchanges",
                                                     "id": "2cefeb95-9fde-418b-a35b-6178a97cac9d"
                                                 }
                                             }
@@ -7880,7 +7880,7 @@
                                                                                             "assetWeightVotes": [
                                                                                                 {
                                                                                                     "type": "Asset Weight Vote",
-                                                                                                    "name": "Foundations-Project Plugins API-Data-Mines Rewards Plugins Rewards Data-Mines API-Data-Mines wit Indicators, Plotters and Sample Workspace with Trading-System",
+                                                                                                    "name": "",
                                                                                                     "config": "{}",
                                                                                                     "project": "Governance",
                                                                                                     "id": "442848b4-f164-43cb-b56c-57e4997c085c",
@@ -8030,7 +8030,7 @@
                                                                                             "assetWeightVotes": [
                                                                                                 {
                                                                                                     "type": "Asset Weight Vote",
-                                                                                                    "name": "Foundations-Project Plugins Data-Mines Rewards Plugins Rewards Data-Mines Data Mines wit Indicators, Plotters and Sample Workspace with Trading-System ",
+                                                                                                    "name": "",
                                                                                                     "config": "{}",
                                                                                                     "project": "Governance",
                                                                                                     "id": "a9d80714-a6f1-43b2-a277-921b4f7e61be",
@@ -8180,7 +8180,7 @@
                                                                                             "assetWeightVotes": [
                                                                                                 {
                                                                                                     "type": "Asset Weight Vote",
-                                                                                                    "name": "Foundations-Project Plugins Trading-Systems Rewards Plugins Rewards Trading-Systems Elaborated Plug & Play Trading System",
+                                                                                                    "name": "",
                                                                                                     "config": "{}",
                                                                                                     "project": "Governance",
                                                                                                     "id": "a62fc533-f051-4d29-b6a2-52acf5c473cb",

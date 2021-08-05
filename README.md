@@ -13,7 +13,7 @@ Superalgos is not just another open-source project. We are an open and welcoming
 
 # Getting Started Guide
 
-Follow the link to the [INSTALL.md](https://github.com/Superalgos/Superalgos/blob/develop/INSTALL.md).
+Follow the link to [INSTALL.md](https://github.com/Superalgos/Superalgos/blob/develop/INSTALL.md).
 
 # What is Superalgos?
 
@@ -73,6 +73,8 @@ Signals are cryptographically signed by trading intelligence producers and backe
 **Superalgos does not sell it’s tokens to anyone for any reason.**
 
 SA Tokens are distributed after each software release among the contributors of that release. If you want to mine SA tokens you can start contributing yourself or hire / sponsor someone (usually a developer or trader) to do it on your behalf.
+
+Users are free to buy or sell their SA Tokens. No exchange has listed SA Tokens yet. We expect that to happen soon.  
 
 # Software Architecture
 

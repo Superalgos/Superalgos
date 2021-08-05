@@ -27,12 +27,12 @@
                         "id": "a1a09e58-46cc-4b99-99b5-f70a28e3387c",
                         "savedPayload": {
                             "position": {
-                                "x": 29631.92831015274,
-                                "y": 23974.264068711924
+                                "x": 31155.363116908775,
+                                "y": 23705.29142706151
                             },
                             "targetPosition": {
-                                "x": 29844.060344508704,
-                                "y": 23762.13203435596
+                                "x": 30865.585369022054,
+                                "y": 23627.645713530754
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -50,11 +50,11 @@
                     "id": "b8e11ce5-6072-41a7-b637-17480dd0f1cb",
                     "savedPayload": {
                         "position": {
-                            "x": 29844.060344508704,
-                            "y": 23762.13203435596
+                            "x": 30865.585369022054,
+                            "y": 23627.645713530754
                         },
                         "targetPosition": {
-                            "x": 30056.192378864667,
+                            "x": 30575.807621135333,
                             "y": 23549.999999999996
                         },
                         "floatingObject": {
@@ -82,12 +82,12 @@
                         "id": "bda21833-11b8-49d3-8c79-ff8e1c667dcc",
                         "savedPayload": {
                             "position": {
-                                "x": 29476.636883091225,
-                                "y": 23705.29142706151
+                                "x": 31000.07168984726,
+                                "y": 23974.264068711924
                             },
                             "targetPosition": {
-                                "x": 29766.414630977946,
-                                "y": 23627.645713530754
+                                "x": 30787.939655491296,
+                                "y": 23762.13203435596
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -105,11 +105,11 @@
                     "id": "82414b65-2a33-4c1d-9939-ced57cb8c2cd",
                     "savedPayload": {
                         "position": {
-                            "x": 29766.414630977946,
-                            "y": 23627.645713530754
+                            "x": 30787.939655491296,
+                            "y": 23762.13203435596
                         },
                         "targetPosition": {
-                            "x": 30056.192378864667,
+                            "x": 30575.807621135333,
                             "y": 23549.999999999996
                         },
                         "floatingObject": {
@@ -505,7 +505,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": false,
+                            "isCollapsed": true,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -11622,86 +11622,23 @@
                                                     "name": "SA Token Listings Rewards",
                                                     "config": "{}",
                                                     "project": "Governance",
-                                                    "weightVotesSwitch": [
+                                                    "weightVotesSwitch": [],
+                                                    "poolWeightVotes": [],
+                                                    "assetWeightVotes": [
                                                         {
-                                                            "type": "Weight Votes Switch",
-                                                            "name": "CMC Top 10",
+                                                            "type": "Asset Weight Vote",
+                                                            "name": "Superalgos-Exchanges SA Token Listings Rewards Open Negotiations Bittrex",
                                                             "config": "{\n    \"percentage\": 45\n}",
                                                             "project": "Governance",
-                                                            "weightVotesSwitch": [],
-                                                            "poolWeightVotes": [],
-                                                            "assetWeightVotes": [
-                                                                {
-                                                                    "type": "Asset Weight Vote",
-                                                                    "name": "Superalgos-Exchanges SA Token Listings Rewards CMC Top 10 First Listing",
-                                                                    "config": "{}",
-                                                                    "project": "Governance",
-                                                                    "id": "af09a15d-8328-4339-937e-18fab88321d3",
-                                                                    "savedPayload": {
-                                                                        "position": {
-                                                                            "x": 29114.048914618375,
-                                                                            "y": 25078.590023856825
-                                                                        },
-                                                                        "targetPosition": {
-                                                                            "x": 29302.845031933328,
-                                                                            "y": 24845.446235419735
-                                                                        },
-                                                                        "floatingObject": {
-                                                                            "isPinned": false,
-                                                                            "isFrozen": false,
-                                                                            "isCollapsed": false,
-                                                                            "angleToParent": 2,
-                                                                            "distanceToParent": 3,
-                                                                            "arrangementStyle": 0
-                                                                        },
-                                                                        "uiObject": {
-                                                                            "isRunning": false
-                                                                        },
-                                                                        "referenceParent": {
-                                                                            "type": "Asset",
-                                                                            "name": "First Listing",
-                                                                            "id": "548dd163-9991-4de3-9e68-9e8a9a051a2f"
-                                                                        },
-                                                                        "referenceParentCombinedNodePath": [
-                                                                            [
-                                                                                "Superalgos-Exchanges",
-                                                                                "Assets",
-                                                                                "Governance",
-                                                                                "2cefeb95-9fde-418b-a35b-6178a97cac9d"
-                                                                            ],
-                                                                            [
-                                                                                "SA Token Listings Rewards",
-                                                                                "Asset Class",
-                                                                                "Governance",
-                                                                                "492669d5-223f-426d-845a-f26dd1ae251e"
-                                                                            ],
-                                                                            [
-                                                                                "CMC Top 10",
-                                                                                "Asset Class",
-                                                                                "Governance",
-                                                                                "7793964e-794b-4d76-b5fd-4ee67c3f3aab"
-                                                                            ],
-                                                                            [
-                                                                                "First Listing",
-                                                                                "Asset",
-                                                                                "Governance",
-                                                                                "548dd163-9991-4de3-9e68-9e8a9a051a2f"
-                                                                            ]
-                                                                        ]
-                                                                    }
-                                                                }
-                                                            ],
-                                                            "featureWeightVotes": [],
-                                                            "positionWeightVotes": [],
-                                                            "id": "8e503813-fd88-48fa-af53-ba2df9e714de",
+                                                            "id": "ed4cf0cf-3ef8-4e2e-8ec9-9809e3462994",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 29302.845031933328,
-                                                                    "y": 24845.446235419735
+                                                                    "x": 29491.09333066782,
+                                                                    "y": 25139.36311690877
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 29491.64114924828,
-                                                                    "y": 24612.302446982645
+                                                                    "x": 29568.739044198577,
+                                                                    "y": 24849.58536902205
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -11715,111 +11652,40 @@
                                                                     "isRunning": false
                                                                 },
                                                                 "referenceParent": {
-                                                                    "type": "Asset Class",
-                                                                    "name": "CMC Top 10",
-                                                                    "id": "7793964e-794b-4d76-b5fd-4ee67c3f3aab"
+                                                                    "type": "Asset",
+                                                                    "name": "Bittrex",
+                                                                    "id": "548dd163-9991-4de3-9e68-9e8a9a051a2f"
                                                                 },
                                                                 "referenceParentCombinedNodePath": [
                                                                     [
                                                                         "Superalgos-Exchanges",
-                                                                        "Assets",
-                                                                        "Governance",
-                                                                        "2cefeb95-9fde-418b-a35b-6178a97cac9d"
+                                                                        "Assets"
                                                                     ],
                                                                     [
                                                                         "SA Token Listings Rewards",
-                                                                        "Asset Class",
-                                                                        "Governance",
-                                                                        "492669d5-223f-426d-845a-f26dd1ae251e"
+                                                                        "Asset Class"
                                                                     ],
                                                                     [
-                                                                        "CMC Top 10",
-                                                                        "Asset Class",
-                                                                        "Governance",
-                                                                        "7793964e-794b-4d76-b5fd-4ee67c3f3aab"
+                                                                        "Bittrex",
+                                                                        "Asset"
                                                                     ]
                                                                 ]
                                                             }
                                                         },
                                                         {
-                                                            "type": "Weight Votes Switch",
-                                                            "name": "CMC Top 50",
-                                                            "config": "{\n    \"percentage\": 30\n}",
+                                                            "type": "Asset Weight Vote",
+                                                            "name": "Superalgos-Exchanges SA Token Listings Rewards Open Negotiations LBank",
+                                                            "config": "{\n    \"percentage\": 25\n}",
                                                             "project": "Governance",
-                                                            "weightVotesSwitch": [],
-                                                            "poolWeightVotes": [],
-                                                            "assetWeightVotes": [
-                                                                {
-                                                                    "type": "Asset Weight Vote",
-                                                                    "name": "Superalgos-Exchanges SA Token Listings Rewards CMC Top 50 Second Listing",
-                                                                    "config": "{}",
-                                                                    "project": "Governance",
-                                                                    "id": "fcc95efc-0523-40f6-bae6-a1860824b961",
-                                                                    "savedPayload": {
-                                                                        "position": {
-                                                                            "x": 28894.928012027318,
-                                                                            "y": 24675.01952494324
-                                                                        },
-                                                                        "targetPosition": {
-                                                                            "x": 29193.2845806378,
-                                                                            "y": 24643.660985962943
-                                                                        },
-                                                                        "floatingObject": {
-                                                                            "isPinned": false,
-                                                                            "isFrozen": false,
-                                                                            "isCollapsed": false,
-                                                                            "angleToParent": 2,
-                                                                            "distanceToParent": 3,
-                                                                            "arrangementStyle": 0
-                                                                        },
-                                                                        "uiObject": {
-                                                                            "isRunning": false
-                                                                        },
-                                                                        "referenceParent": {
-                                                                            "type": "Asset",
-                                                                            "name": "Second Listing",
-                                                                            "id": "e4e7addb-a840-4ce9-9e01-74c7e57c24ad"
-                                                                        },
-                                                                        "referenceParentCombinedNodePath": [
-                                                                            [
-                                                                                "Superalgos-Exchanges",
-                                                                                "Assets",
-                                                                                "Governance",
-                                                                                "2cefeb95-9fde-418b-a35b-6178a97cac9d"
-                                                                            ],
-                                                                            [
-                                                                                "SA Token Listings Rewards",
-                                                                                "Asset Class",
-                                                                                "Governance",
-                                                                                "492669d5-223f-426d-845a-f26dd1ae251e"
-                                                                            ],
-                                                                            [
-                                                                                "CMC Top 50",
-                                                                                "Asset Class",
-                                                                                "Governance",
-                                                                                "ffec9d04-21ef-48eb-a29f-51d1e1c5cb59"
-                                                                            ],
-                                                                            [
-                                                                                "Second Listing",
-                                                                                "Asset",
-                                                                                "Governance",
-                                                                                "e4e7addb-a840-4ce9-9e01-74c7e57c24ad"
-                                                                            ]
-                                                                        ]
-                                                                    }
-                                                                }
-                                                            ],
-                                                            "featureWeightVotes": [],
-                                                            "positionWeightVotes": [],
-                                                            "id": "4e117bfc-fd6c-41ba-9627-cee37e0b79b1",
+                                                            "id": "25eed22d-3f2f-4a33-92fc-d43028cfa972",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 29193.2845806378,
-                                                                    "y": 24643.660985962943
+                                                                    "x": 29308.931423063244,
+                                                                    "y": 24999.58536902205
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 29491.64114924828,
-                                                                    "y": 24612.302446982645
+                                                                    "x": 29568.739044198577,
+                                                                    "y": 24849.58536902205
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -11833,111 +11699,40 @@
                                                                     "isRunning": false
                                                                 },
                                                                 "referenceParent": {
-                                                                    "type": "Asset Class",
-                                                                    "name": "CMC Top 50",
-                                                                    "id": "ffec9d04-21ef-48eb-a29f-51d1e1c5cb59"
+                                                                    "type": "Asset",
+                                                                    "name": "LBank",
+                                                                    "id": "e4e7addb-a840-4ce9-9e01-74c7e57c24ad"
                                                                 },
                                                                 "referenceParentCombinedNodePath": [
                                                                     [
                                                                         "Superalgos-Exchanges",
-                                                                        "Assets",
-                                                                        "Governance",
-                                                                        "2cefeb95-9fde-418b-a35b-6178a97cac9d"
+                                                                        "Assets"
                                                                     ],
                                                                     [
                                                                         "SA Token Listings Rewards",
-                                                                        "Asset Class",
-                                                                        "Governance",
-                                                                        "492669d5-223f-426d-845a-f26dd1ae251e"
+                                                                        "Asset Class"
                                                                     ],
                                                                     [
-                                                                        "CMC Top 50",
-                                                                        "Asset Class",
-                                                                        "Governance",
-                                                                        "ffec9d04-21ef-48eb-a29f-51d1e1c5cb59"
+                                                                        "LBank",
+                                                                        "Asset"
                                                                     ]
                                                                 ]
                                                             }
                                                         },
                                                         {
-                                                            "type": "Weight Votes Switch",
-                                                            "name": "CMC Top 100",
-                                                            "config": "{\n    \"percentage\": 15\n}",
+                                                            "type": "Asset Weight Vote",
+                                                            "name": "Superalgos-Exchanges SA Token Listings Rewards Open Negotiations Probit",
+                                                            "config": "{}",
                                                             "project": "Governance",
-                                                            "weightVotesSwitch": [],
-                                                            "poolWeightVotes": [],
-                                                            "assetWeightVotes": [
-                                                                {
-                                                                    "type": "Asset Weight Vote",
-                                                                    "name": "Superalgos-Exchanges SA Token Listings Rewards CMC Top 100 Third Listing",
-                                                                    "config": "{}",
-                                                                    "project": "Governance",
-                                                                    "id": "9ad43160-b86e-4b87-acc8-140c043b1970",
-                                                                    "savedPayload": {
-                                                                        "position": {
-                                                                            "x": 29025.3535723741,
-                                                                            "y": 24234.71021235274
-                                                                        },
-                                                                        "targetPosition": {
-                                                                            "x": 29258.49736081119,
-                                                                            "y": 24423.506329667693
-                                                                        },
-                                                                        "floatingObject": {
-                                                                            "isPinned": false,
-                                                                            "isFrozen": false,
-                                                                            "isCollapsed": false,
-                                                                            "angleToParent": 2,
-                                                                            "distanceToParent": 3,
-                                                                            "arrangementStyle": 0
-                                                                        },
-                                                                        "uiObject": {
-                                                                            "isRunning": false
-                                                                        },
-                                                                        "referenceParent": {
-                                                                            "type": "Asset",
-                                                                            "name": "Third Listing",
-                                                                            "id": "73c64b92-467f-4e27-8c3b-a624f00bbf53"
-                                                                        },
-                                                                        "referenceParentCombinedNodePath": [
-                                                                            [
-                                                                                "Superalgos-Exchanges",
-                                                                                "Assets",
-                                                                                "Governance",
-                                                                                "2cefeb95-9fde-418b-a35b-6178a97cac9d"
-                                                                            ],
-                                                                            [
-                                                                                "SA Token Listings Rewards",
-                                                                                "Asset Class",
-                                                                                "Governance",
-                                                                                "492669d5-223f-426d-845a-f26dd1ae251e"
-                                                                            ],
-                                                                            [
-                                                                                "CMC Top 100",
-                                                                                "Asset Class",
-                                                                                "Governance",
-                                                                                "6d69d279-c79d-4565-b8a2-5a612ef8b7b3"
-                                                                            ],
-                                                                            [
-                                                                                "Third Listing",
-                                                                                "Asset",
-                                                                                "Governance",
-                                                                                "73c64b92-467f-4e27-8c3b-a624f00bbf53"
-                                                                            ]
-                                                                        ]
-                                                                    }
-                                                                }
-                                                            ],
-                                                            "featureWeightVotes": [],
-                                                            "positionWeightVotes": [],
-                                                            "id": "fdc3d063-ccee-49ee-8dea-cc35f573fca4",
+                                                            "id": "cc322882-2489-4b4e-989b-d56d3345ad70",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 29258.49736081119,
-                                                                    "y": 24423.506329667693
+                                                                    "x": 29278.961296311856,
+                                                                    "y": 24771.939655491293
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 29491.64114924828,
-                                                                    "y": 24612.302446982645
+                                                                    "x": 29568.739044198577,
+                                                                    "y": 24849.58536902205
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -11951,46 +11746,38 @@
                                                                     "isRunning": false
                                                                 },
                                                                 "referenceParent": {
-                                                                    "type": "Asset Class",
-                                                                    "name": "CMC Top 100",
-                                                                    "id": "6d69d279-c79d-4565-b8a2-5a612ef8b7b3"
+                                                                    "type": "Asset",
+                                                                    "name": "Probit",
+                                                                    "id": "6b27f708-c243-42e9-874b-ceceea7db21f"
                                                                 },
                                                                 "referenceParentCombinedNodePath": [
                                                                     [
                                                                         "Superalgos-Exchanges",
-                                                                        "Assets",
-                                                                        "Governance",
-                                                                        "2cefeb95-9fde-418b-a35b-6178a97cac9d"
+                                                                        "Assets"
                                                                     ],
                                                                     [
                                                                         "SA Token Listings Rewards",
-                                                                        "Asset Class",
-                                                                        "Governance",
-                                                                        "492669d5-223f-426d-845a-f26dd1ae251e"
+                                                                        "Asset Class"
                                                                     ],
                                                                     [
-                                                                        "CMC Top 100",
-                                                                        "Asset Class",
-                                                                        "Governance",
-                                                                        "6d69d279-c79d-4565-b8a2-5a612ef8b7b3"
+                                                                        "Probit",
+                                                                        "Asset"
                                                                     ]
                                                                 ]
                                                             }
                                                         }
                                                     ],
-                                                    "poolWeightVotes": [],
-                                                    "assetWeightVotes": [],
                                                     "featureWeightVotes": [],
                                                     "positionWeightVotes": [],
                                                     "id": "b856fe5a-4f77-4fad-8c41-1b172b9f01df",
                                                     "savedPayload": {
                                                         "position": {
-                                                            "x": 29491.64114924828,
-                                                            "y": 24612.302446982645
+                                                            "x": 29568.739044198577,
+                                                            "y": 24849.58536902205
                                                         },
                                                         "targetPosition": {
-                                                            "x": 29789.99771785876,
-                                                            "y": 24580.943908002348
+                                                            "x": 29828.54666533391,
+                                                            "y": 24699.58536902205
                                                         },
                                                         "floatingObject": {
                                                             "isPinned": false,
@@ -12042,7 +11829,7 @@
                                                 "floatingObject": {
                                                     "isPinned": false,
                                                     "isFrozen": false,
-                                                    "isCollapsed": true,
+                                                    "isCollapsed": false,
                                                     "angleToParent": 2,
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
@@ -12674,7 +12461,7 @@
                                                 "floatingObject": {
                                                     "isPinned": false,
                                                     "isFrozen": false,
-                                                    "isCollapsed": false,
+                                                    "isCollapsed": true,
                                                     "angleToParent": 2,
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
@@ -13213,7 +13000,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0

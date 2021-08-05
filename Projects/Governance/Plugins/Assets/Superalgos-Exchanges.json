@@ -1,7 +1,7 @@
 {
     "type": "Assets",
-    "name": "Superalgos Exchanges",
-    "config": "{\n\"folderPath\": \"\"\n}",
+    "name": "Superalgos-Exchanges",
+    "config": "{\"folderPath\":\"\",\"codeName\":\"Superalgos-Exchanges\"}",
     "project": "Governance",
     "assetClasses": [
         {
@@ -20,7 +20,7 @@
                         {
                             "type": "Asset",
                             "name": "First Listing",
-                            "config": "{}",
+                            "config": "{\n\"docs\": {\n\"project\": \"Foundations\",\n\"category\": \"Topic\",\n\"type\": \"Bitfinex Test Status\"\n}\n}\n",
                             "project": "Governance",
                             "assetClasses": [],
                             "assets": [],

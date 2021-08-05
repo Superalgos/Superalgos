@@ -62,7 +62,7 @@ Signals are cryptographically signed by trading intelligence producers and backe
 * We know how we are going to make money, and it is on token appreciation.
 * Founders and team are just token holders as any other contributors.
 
-## Superalgos Mobile Apps will have the best user experience possible:
+## Superalgos Mobile Apps will have the best user experience possible because:
 
 * The best user experience means users should be able to consume top quality, free real-time trading intelligence and autonomously execute trades while they are sleeping.
 * Users just need to select their exchange, provide an exchange access token, define their base asset, amount of funds to be traded and trading intelligence providers. 
@@ -108,7 +108,7 @@ All of the above is / will be hosted in this repository.
 
 # What is the Superalgos Platform?
 
-Superalgos Platform is a platform to automate crypto-trading. It is implemented as a Node JS Client + Web App that runs on your hardware and scales from a single Raspberry Pi to a Trading Farm. The Platform is fully functional and has been used for trading live since 2020. 
+Superalgos Platform is a set of tools to automate crypto-trading. It is implemented as a Node JS Client + Web App that runs on your hardware and scales from a single Raspberry Pi to a Trading Farm. The Platform is fully functional and has been used for trading live since 2020. 
 
 At Beta 12, trading signals will be able to be sent to the Suerpalgos Network from the Superalgos Platform.
 

@@ -7,15 +7,13 @@
 
 Superalgos is not just another open-source project. We are an open and welcoming community devised, nurtured, and incentivized with the project's native <a href="https://superalgos.org/token-overview.shtml" target="_blank">Superalgos (SA) token</a> to grow into a massive trading collaboration. You will notice the difference as soon as you join the [Telegram Community Group](https://t.me/superalgoscommunity) or the new [Discord Server](https://discord.gg/CGeKC6WQQb).
 
-Superalgos is the ultimate market research and trading automation platform. The software is contributor-centric, built by contributors, for contributors. It is also free and open-source. 
-
 > Can't wait to contribute? No need to wait! You may start by giving a star to this repository in the top-right corner of this page!
 
 ![superalgos-readme](https://user-images.githubusercontent.com/13994516/106380124-844d8980-63b0-11eb-9bd9-4f977b6c183b.gif)
 
 # Getting Started Guide
 
-Follow the link to the [INSTALL] file. (https://github.com/Superalgos/Superalgos/blob/develop/INSTALL.md).
+Follow the link to the ![INSTALL.md](https://github.com/Superalgos/Superalgos/blob/develop/INSTALL.md).
 
 # What is Superalgos?
 
@@ -80,15 +78,32 @@ SA Tokens are distributed after each software release among the contributors of 
 
 Superalgos features these 3 main components:
 
-1. Superalgos Platform: An already functional set of tools designed for algor-traders for automating their own trading and producing trading-signals.
+1. Superalgos Platform: An already functional set of tools designed for algo-traders for automating their own trading and producing trading-signals.
 2. Superalgos Mobile: An under-development mobile app reference implementation for cosuming real-time trading intelligence and automate users trading.
 3. Superalgos Network: An under-development open p2p network for distributing real-time trading intelligence between producers (algo-traders) and consumers (the project's user base). 
 
 All of the above is / will be hosted in this repository.
 
+# Superalgos is User-centric
+
+* No ads, anywhere.
+* No sign up / logins.
+* No user/usage data collection of any kind.
+* No user trading information collected or sold.
+* Runs 100% on uncompiled code anyone can read and audit.
+
+# Superalgos Development Pipeline
+
+* **Superalgos P2P Network:** will allow algo-traders to share trading signals with Superalgos users consuming these signals via a mobile app.
+* **Real-time Trading Signals:** will allow users to emit trading signals and be rewarded with SA Tokens.
+* **Superalgos Mobile:** Will allow users to consume trading signals for free and autonomously execute trades from their mobile phones.
+* **Ethereum Integration:** Will allow mining data from an Ethereum network node, and bring it into the Superalgos workflow.
+
 # What is Superalgos Platform?
 
-Superalgos Platform is a platform to automate crypto-trading. It is implemented as a Node JS Client + Web App that runs on your hardware and scales from a single Raspberry Pi to a Trading Farm. 
+Superalgos Platform is a platform to automate crypto-trading. It is implemented as a Node JS Client + Web App that runs on your hardware and scales from a single Raspberry Pi to a Trading Farm. The Platform is fully functional and has been used for trading live since 2020. 
+
+At Beta 12, trading signals will be able to be sent to the Suerpalgos Network fromo the Superalgos Platform.
 
 ## Superalgos Platform Features
 
@@ -115,14 +130,8 @@ Superalgos Platform is a platform to automate crypto-trading. It is implemented 
 * Run live trading sessions.
 * Run arbitrary data-mining operations of any size.
 * Feed your trading strategies with the data mined.
+* Use your token holdings to vote and influence the direction of the project development.
 * Produce real-time trading signals and send them via the p2p network. (under development)
-
-## Superalgos Platform Development Pipeline
-
-* **Superalgos P2P Network:** will allow algo-traders to share trading signals with Superalgos users consuming these signals via a mobile app.
-* **Real-time Trading Signals:** will allow users to emit trading signals and be rewarded with SA Tokens.
-* **Superalgos Mobile:** Will allow users to consume trading signals for free and autonomously execute trades from their mobile phones.
-* **Ethereum Integration:** Will allow mining data from an Ethereum network node, and bring it into the Superalgos workflow.
 
 # Superalgos Platform for Developers
 
@@ -138,14 +147,6 @@ Superalgos Platform is a platform to automate crypto-trading. It is implemented 
 * No need to debug what went wrong, line by line, or dive into log files with tons of data. You can see each variable of the state of the Trading Engine at every candle by hovering the mouse over the charts.
 * No need to integrate a charting library, Superalgos features an integrated Charting System.
 * No need to manage task data or execution dependencies. Superalgos allows you to define Tasks and distribute them across a Trading Farm and takes care of the data and execution dependencies so that each task automatically starts when their dependencies are ready.
-
-## Superalgos Platform is User-centric
-
-* No ads, anywhere.
-* No sign up / logins.
-* No user/usage data collection of any kind.
-* No user trading information collected or sold.
-* Can runs 100% on uncompiled code anyone can read and audit.
 
 ## Superalgos Platform is Permissionless
 

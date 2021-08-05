@@ -114,6 +114,11 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(action.node, action.rootNodes)
                 }
                 break
+            case 'Install as Plugin':
+                {
+                    UI.projects.foundations.functionLibraries.pluginsFunctions.installAsPlugin(action.node, action.rootNodes)
+                }
+                break
             case 'Edit Code':
 
                 break

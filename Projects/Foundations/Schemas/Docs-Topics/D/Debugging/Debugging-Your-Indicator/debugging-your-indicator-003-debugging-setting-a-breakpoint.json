@@ -1,0 +1,65 @@
+{
+    "topic": "Debugging Your Indicator",
+    "pageNumber": 3,
+    "type": "Debugging - Setting a Breakpoint",
+    "definition": {
+        "text": "A breakpoint is a user defined place in the code where the debugger will pause and allow you to examine the state of affairs! This means you can analyse the current state of variables and inputs and outputs of functions to help try determine where the cause of a problem might be.",
+        "updated": 1623408792317
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "For this example we are going to be debugging an indicator, therefore we expand into the Projects folder and find the file with the code which builds indicators. In this file we will place a breakpoint.",
+            "updated": 1623405682457
+        },
+        {
+            "style": "Success",
+            "text": "A breakpoint is an intentional stopping or pausing place in a program, put in place for debugging purposes. It's where the code execution pauses and you can check on the status of things!",
+            "updated": 1623405106048
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": "Expand the Projects folder and open the file \"SingleMarketFunctions.js\" (..Superalgos/Projects/Superalgos/TS/Function-Libraries/SingleMarketFunctions.js).",
+            "updated": 1623414479019
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/8_locate-singlemarket-in-tree.png",
+            "updated": 1623409023676
+        },
+        {
+            "style": "Text",
+            "text": "Now we will have to find the line in the code where we'd like the process to pause, and show us what's really happening. This point would be the line that says:",
+            "updated": 1623405827603
+        },
+        {
+            "style": "Javascript",
+            "text": "eval(dataBuildingProcedure.loop.procedureJavascriptCode.code)",
+            "updated": 1623409950310
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/9_find-line-for-breakpoint.png",
+            "updated": 1623409045497
+        },
+        {
+            "style": "Text",
+            "text": "Click just to the left of the line number, or press F9 to insert a breakpoint at this line.",
+            "updated": 1623405851133
+        },
+        {
+            "style": "Note",
+            "text": "Using \"CTRL+F\" allows us to find what we search for in the code.",
+            "updated": 1614265550399
+        },
+        {
+            "style": "Text",
+            "text": "Now we have a breakpoint configured, we can try running a Task. Click Next to go through the process of how to start the TS and trigger your breakpoint.",
+            "updated": 1623409257540
+        }
+    ]
+}

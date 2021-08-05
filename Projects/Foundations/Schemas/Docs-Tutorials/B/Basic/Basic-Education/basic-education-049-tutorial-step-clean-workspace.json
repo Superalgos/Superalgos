@@ -1,0 +1,82 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 49,
+    "type": "Tutorial Step - Clean Workspace",
+    "definition": {
+        "text": "Talking about tested exchanges and plugins, there is one plugin workspace you may use as a clean slate when designing new stuff!",
+        "icon": {
+            "name": "workspace",
+            "project": "Foundations"
+        },
+        "updated": 1616173072644,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Parlando di exchanges e plugins testati, c'è un plugin workspace che puoi usare come punto di inizio quando crei nuovi oggetti!",
+                "updated": 1619591538451,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Hablando de exchanges y plugins probados, hay un espacio de trabajo de plugins que se puede usar como borrón y cuenta nueva al diseñar cosas nuevas.",
+                "updated": 1628015811665
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "It's the Tested Exchanges Plugin Workspace!",
+            "updated": 1616173130789,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "È il Tested Exchanges Plugin Workspace!",
+                    "updated": 1619591552367,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Es el Tested Exchanges Plugin Workspace!",
+                    "updated": 1628015859577
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Once you finish your initial education doing all existing tutorials, you will eventually be ready to start building your own Trading System. This is the plugin workspace you may use for that purpose!",
+            "updated": 1616173240467,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Quando avrai fatto tutti i tutorial disponibili, sarai finalmente pronto a costruire il tuo Trading System. Questo è il plugin workspace da cui puoi partire!",
+                    "updated": 1619591627147,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Una vez que termines tu educación inicial con todos los tutoriales existentes, eventualmente estarás listo para comenzar a construir tu propio Trading System. ¡Este es el Plugin Workspace que puedes usar para ese propósito!",
+                    "updated": 1628016330767
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "It features a clean Trading System right out of the box, the Install New Market Tutorial, and the lineup of tested exchanges that you may use.",
+            "updated": 1616173448769,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Contiene un Trading System pulito, il tutorial Install New Market e l'elenco di exchange testati che puoi usare.",
+                    "updated": 1619591665451,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuenta con un  Trading System limpio desde el primer momento, el Install New Market Tutorial y la línea de exchages probados que puedes usar.",
+                    "updated": 1628016671067
+                }
+            ]
+        }
+    ]
+}

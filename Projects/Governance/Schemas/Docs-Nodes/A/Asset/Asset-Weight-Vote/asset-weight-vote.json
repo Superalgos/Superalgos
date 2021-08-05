@@ -1,0 +1,13 @@
+{
+    "type": "Asset Weight Vote",
+    "definition": {
+        "text": "A Weight Vote that may reference an Asset node in the Assets hierarchy.",
+        "updated": 1624729908316
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

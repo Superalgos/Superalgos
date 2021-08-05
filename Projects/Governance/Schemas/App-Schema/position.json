@@ -1,0 +1,62 @@
+{
+    "type": "Position",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Position",
+            "relatedUiObject": "Position"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Position Class",
+            "relatedUiObject": "Position Class"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Positions->Position->Position Class->"
+    },
+    "propertyNameAtParent": "positions",
+    "childrenNodesProperties": [
+        {
+            "name": "positions",
+            "type": "array",
+            "childType": "Position",
+            "autoAdd": false
+        },
+        {
+            "name": "positionClasss",
+            "type": "array",
+            "childType": "Position Class",
+            "autoAdd": false
+        }
+    ]
+}

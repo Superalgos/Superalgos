@@ -1,0 +1,86 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 108,
+    "type": "Tutorial Step - Back to Work!",
+    "definition": {
+        "text": "Superalgos features an in-app, editable, and multi-language documentation site, and a built-in command line! Learn to use those and you'll be the king of the hill!",
+        "updated": 1610648506240,
+        "icon": {
+            "name": "status-dependency",
+           "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Superalgos è provvisto di una documentazione in-app, editabile e multilingua, e addirittura di una command line! Impara a usare questi strumenti e sarai a cavallo!",
+                "updated": 1618072460548,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Superalgos cuenta con un sitio de documentación en la aplicación, editable y en varios idiomas, y una línea de comandos incorporada. ¡Aprende a usarlos y serás el rey de la colina!",
+                "updated": 1624486499008
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You've already used a couple of documentation pages on the Docs panel on the right, but that's just the tip of the iceberg!",
+            "updated": 1616694225866,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Hai già utilizzato un paio di pagine della documentazione nel pannello Docs a destra, ma è solo la punta dell'iceberg!",
+                    "updated": 1618072487694,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ya has usado un par de páginas de documentación en el panel de Documentos de la derecha, ¡pero eso es solo la punta del iceberg!",
+                    "updated": 1624497233786
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Let's try it! Search for the word... network.",
+            "updated": 1610648926126,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Proviamo! Cerca la parola \"network\".",
+                    "updated": 1618072499244,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Vamos a intentarlo! Busque la palabra ... Network.",
+                    "updated": 1624486586808
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Not to brag, but the speed of the search engine rivals the likes of Google ;-)",
+            "updated": 1610651624723,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Non per vantarmi, ma la velocità del motore di ricerca fa concorrenza a Google ;-)",
+                    "updated": 1618072524938,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "No es para presumir, pero la velocidad del motor de búsqueda rivaliza con la de Google ;-)",
+                    "updated": 1624486614343
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

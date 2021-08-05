@@ -1,0 +1,30 @@
+{
+    "type": "Feature Class",
+    "definition": {
+        "text": "The Feature Class node is an organizational device used to group features in arbitrary arrangements. The node may receive Weight Votes. When it does, votes are evenly distributed among offspring nodes.",
+        "updated": 1624708539877
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624708560605
+        },
+        {
+            "style": "Text",
+            "text": "You may direct Weight Votes to a Feature Class node when you intend to support the whole class, including all features within."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

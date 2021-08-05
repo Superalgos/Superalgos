@@ -1,0 +1,85 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 8,
+    "type": "Tutorial Step - 180 Degrees",
+    "definition": {
+        "text": "When all offspring nodes are set to 180 degrees angle, each node takes a slot in a fraction of a circumference spanning 180 degrees, normal to the parent.",
+        "updated": 1615319473489,
+        "icon": {
+            "name": "set-angle-to-parent-node-to-180-degrees",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Quando tutti i nodi figlio sono impostati a 180 gradi, ogni nodo prende posizione in una frazione di un semicerchio, in posizione normale al nodo padre.",
+                "updated": 1619459891459,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Cuando todos los nodos descendientes se establecen en un ángulo de 180 grados, cada nodo ocupa una ranura en una fracción de una circunferencia que abarca 180 grados, normal al padre.",
+                "updated": 1625955596065,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "But what happens if one of the offspring nodes has a different Angle to Parent setting? Let's run an experiment!",
+            "updated": 1615459555706,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ma che succede se uno dei nodi figli ha un'altro valore per l'impostazione Angle to Parent? Vediamo subito!",
+                    "updated": 1619459962741,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Pero, ¿qué sucede si uno de los nodos descendientes tiene una configuración diferente de Ángulo al padre? ¡Hagamos un experimento!",
+                    "updated": 1625955629982,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Click once on the Trading Parameters Angle to Parent setting and exit the menu!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Clicca una volta sulla proprietà Angle to Parent del nodo Trading Parameters e esci dal menù!",
+                    "updated": 1619459998306,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz clic una vez en el Trading Parameters Angle a la configuración de los padres y salir del menú!",
+                    "updated": 1625955715664,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The node takes a slot in a smaller angle — 90 degrees! Do the same with the Trading System Reference and Trading Engine Reference nodes!",
+            "updated": 1615318799392,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il nodo prende posizione in un angolo di 90 gradi! Fai lo stesso con i nodi Trading System Reference e Trading Engine Reference!",
+                    "updated": 1619460071962,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "El nodo ocupa una ranura en un ángulo más pequeño: ¡90 grados! Haz lo mismo con los nodos Trading System Reference y Trading Engine Reference!",
+                    "updated": 1625955775564,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

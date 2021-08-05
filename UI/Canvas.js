@@ -50,12 +50,12 @@ function newCanvas() {
 
     function finalize() {
         try {
-            UI.projects.superalgos.spaces.tutorialSpace.finalize()
-            UI.projects.superalgos.spaces.docsSpace.finalize()
+            UI.projects.education.spaces.tutorialSpace.finalize()
+            UI.projects.education.spaces.docsSpace.finalize()
             //thisObject.chatSpace.finalize()
-            UI.projects.superalgos.spaces.sideSpace.finalize()
-            UI.projects.superalgos.spaces.chartingSpace.finalize()
-            UI.projects.superalgos.spaces.floatingSpace.finalize()
+            UI.projects.foundations.spaces.sideSpace.finalize()
+            UI.projects.foundations.spaces.chartingSpace.finalize()
+            UI.projects.foundations.spaces.floatingSpace.finalize()
             thisObject.shorcutNumbers = undefined
 
             if (browserCanvas.removeEventListener) {
@@ -86,7 +86,7 @@ function newCanvas() {
         }
     }
 
-    function initialize() {
+    async function initialize() {
         try {
 
             browserResized()
@@ -189,7 +189,7 @@ function newCanvas() {
                 for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
                     let spaceInstance = spaceInitializationMap.get(j)
                     if (spaceInstance !== undefined) {
-                        spaceInstance.initialize()
+                        await spaceInstance.initialize()
                     }
                 }
 
@@ -318,12 +318,12 @@ function newCanvas() {
                     break
                 }
                 case 118: { //  F7
-                    UI.projects.superalgos.utilities.download.downloadPanorama('Superalgos.Market.Panorama')
+                    UI.projects.foundations.utilities.download.downloadPanorama('Superalgos.Market.Panorama')
                     return
                     break
                 }
                 case 119: { //  F8
-                    UI.projects.superalgos.utilities.download.downloadCanvas('Superalgos.Image.Capture', browserCanvas)
+                    UI.projects.foundations.utilities.download.downloadCanvas('Superalgos.Image.Capture', browserCanvas)
                     return
                     break
                 }
@@ -367,7 +367,7 @@ function newCanvas() {
     }
 
     async function onKeyDown(event) {
-        if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
+        if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
 
         if (EDITOR_ON_FOCUS === true) {
             /*
@@ -380,7 +380,7 @@ function newCanvas() {
             return
         }
         /* When the Docs is Visible, we do not process key down events of the Designer Space. */
-        if (UI.projects.superalgos.spaces.docsSpace.isVisible === true) {
+        if (UI.projects.education !== undefined && UI.projects.education.spaces.docsSpace.isVisible === true) {
             return
         }
         thisObject.mouse.event = event
@@ -388,12 +388,12 @@ function newCanvas() {
 
         checkMediaRecording(event)
 
-        event.x = thisObject.mouse.position.x 
-        event.y = thisObject.mouse.position.y 
+        event.x = thisObject.mouse.position.x
+        event.y = thisObject.mouse.position.y
 
-        UI.projects.superalgos.spaces.chartingSpace.onKeyPressed(event)
+        UI.projects.foundations.spaces.chartingSpace.onKeyPressed(event)
 
-        /* Shourcuts to Menu Items */
+        /* Shortcuts to Menu Items */
         if ((event.keyCode >= 48 && event.keyCode <= 57)) {
             let number = event.key
             if (MENU_ITEM_ON_FOCUS !== undefined) {
@@ -411,37 +411,53 @@ function newCanvas() {
             }
         }
 
-        if (event.key === 'Escape' && UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
-            UI.projects.superalgos.spaces.floatingSpace.exitMapMode()
+        if (event.key === 'Escape' && UI.projects.foundations.spaces.floatingSpace.inMapMode === true) {
+            UI.projects.foundations.spaces.floatingSpace.exitMapMode()
         }
 
-        if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'M' || event.key === 'm')) {
-            UI.projects.superalgos.spaces.floatingSpace.toggleMapMode()
+        if (
+            event.shiftKey === true &&
+            (event.ctrlKey === true || event.metaKey === true) &&
+            (event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.toggleMapMode || event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.toggleMapMode.toLowerCase())
+        ) {
+            UI.projects.foundations.spaces.floatingSpace.toggleMapMode()
             event.preventDefault()
             return
         }
 
-        if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'R' || event.key === 'r')) {
-            UI.projects.superalgos.spaces.floatingSpace.toggleDrawReferenceLines()
+        if (
+            event.shiftKey === true &&
+            (event.ctrlKey === true || event.metaKey === true) &&
+            (event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.toggleDrawRelationshipLines || event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.toggleDrawRelationshipLines.toLowerCase())
+        ) {
+            UI.projects.foundations.spaces.floatingSpace.toggleDrawReferenceLines()
             event.preventDefault()
             return
         }
 
-        if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'C' || event.key === 'c')) {
-            UI.projects.superalgos.spaces.floatingSpace.toggleDrawChainLines()
+        if (
+            event.shiftKey === true &&
+            (event.ctrlKey === true || event.metaKey === true) &&
+            (event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.toggleDrawParentLines || event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.toggleDrawParentLines.toLowerCase())
+        ) {
+            UI.projects.foundations.spaces.floatingSpace.toggleDrawChainLines()
             event.preventDefault()
             return
         }
 
-        if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'S' || event.key === 's')) {
-            UI.projects.superalgos.spaces.designSpace.workspace.save()
+        if (
+            event.shiftKey === true &&
+            (event.ctrlKey === true || event.metaKey === true) &&
+            (event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.saveWorkspace || event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.saveWorkspace.toLowerCase())
+        ) {
+            UI.projects.foundations.spaces.designSpace.workspace.save()
             if (event.preventDefault !== undefined) {
                 event.preventDefault()
             }
             return
         }
 
-        let nodeOnFocus = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeThatIsOnFocus()
+        let nodeOnFocus = await UI.projects.foundations.spaces.designSpace.workspace.getNodeThatIsOnFocus()
         if (nodeOnFocus !== undefined) {
             if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {
                 if (nodeOnFocus.payload.uiObject.codeEditor.visible === true) {
@@ -492,55 +508,55 @@ function newCanvas() {
         }
 
         if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
-            UI.projects.superalgos.spaces.cockpitSpace.toTop()
+            UI.projects.foundations.spaces.cockpitSpace.toTop()
             event.preventDefault()
             return
         }
 
         if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowDown') {
-            UI.projects.superalgos.spaces.cockpitSpace.toBottom()
+            UI.projects.foundations.spaces.cockpitSpace.toBottom()
             event.preventDefault()
             return
         }
 
         if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowLeft') {
-            UI.projects.superalgos.spaces.cockpitSpace.moveUp()
+            UI.projects.foundations.spaces.cockpitSpace.moveUp()
             event.preventDefault()
             return
         }
 
         if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowRight') {
-            UI.projects.superalgos.spaces.cockpitSpace.moveDown()
+            UI.projects.foundations.spaces.cockpitSpace.moveDown()
             event.preventDefault()
             return
         }
 
         if (event.shiftKey === true && (event.ctrlKey === false && event.metaKey === false) && event.code === 'ArrowLeft') {
-            UI.projects.superalgos.spaces.chartingSpace.oneScreenLeft()
+            UI.projects.foundations.spaces.chartingSpace.oneScreenLeft()
             event.preventDefault()
             return
         }
 
         if (event.shiftKey === true && (event.ctrlKey === false && event.metaKey === false) && event.code === 'ArrowRight') {
-            UI.projects.superalgos.spaces.chartingSpace.oneScreenRight()
+            UI.projects.foundations.spaces.chartingSpace.oneScreenRight()
             event.preventDefault()
             return
         }
 
         if (event.shiftKey === true && (event.ctrlKey === false && event.metaKey === false) && event.code === 'ArrowUp') {
-            UI.projects.superalgos.spaces.chartingSpace.oneScreenUp()
+            UI.projects.foundations.spaces.chartingSpace.oneScreenUp()
             event.preventDefault()
             return
         }
 
         if (event.shiftKey === true && (event.ctrlKey === false && event.metaKey === false) && event.code === 'ArrowDown') {
-            UI.projects.superalgos.spaces.chartingSpace.oneScreenDown()
+            UI.projects.foundations.spaces.chartingSpace.oneScreenDown()
             event.preventDefault()
             return
         }
 
         if ((event.ctrlKey === true || event.metaKey === true) && event.shiftKey === false && event.code === 'ArrowLeft') {
-            let displaceVector = UI.projects.superalgos.spaces.floatingSpace.oneScreenLeft()
+            let displaceVector = UI.projects.foundations.spaces.floatingSpace.oneScreenLeft()
             if (displaceVector !== undefined) {
                 dragVector.downX = dragVector.downX + displaceVector.x
                 dragVector.downY = dragVector.downY + displaceVector.y
@@ -551,7 +567,7 @@ function newCanvas() {
         }
 
         if ((event.ctrlKey === true || event.metaKey === true) && event.shiftKey === false && event.code === 'ArrowRight') {
-            let displaceVector = UI.projects.superalgos.spaces.floatingSpace.oneScreenRight()
+            let displaceVector = UI.projects.foundations.spaces.floatingSpace.oneScreenRight()
             if (displaceVector !== undefined) {
                 dragVector.downX = dragVector.downX + displaceVector.x
                 dragVector.downY = dragVector.downY + displaceVector.y
@@ -562,7 +578,7 @@ function newCanvas() {
         }
 
         if ((event.ctrlKey === true || event.metaKey === true) && event.shiftKey === false && event.code === 'ArrowUp') {
-            let displaceVector = UI.projects.superalgos.spaces.floatingSpace.oneScreenUp()
+            let displaceVector = UI.projects.foundations.spaces.floatingSpace.oneScreenUp()
             if (displaceVector !== undefined) {
                 dragVector.downX = dragVector.downX + displaceVector.x
                 dragVector.downY = dragVector.downY + displaceVector.y
@@ -573,7 +589,7 @@ function newCanvas() {
         }
 
         if ((event.ctrlKey === true || event.metaKey === true) && event.shiftKey === false && event.code === 'ArrowDown') {
-            let displaceVector = UI.projects.superalgos.spaces.floatingSpace.oneScreenDown()
+            let displaceVector = UI.projects.foundations.spaces.floatingSpace.oneScreenDown()
             if (displaceVector !== undefined) {
                 dragVector.downX = dragVector.downX + displaceVector.x
                 dragVector.downY = dragVector.downY + displaceVector.y
@@ -595,7 +611,7 @@ function newCanvas() {
             if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 65 && event.keyCode <= 90)) {
                 /* From here we prevent the default behaviour. Putting it earlier prevents imput box and text area to receive keystrokes */
                 event.preventDefault()
-                let nodeUsingThisKey = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeByShortcutKey(event.key)
+                let nodeUsingThisKey = await UI.projects.foundations.spaces.designSpace.workspace.getNodeByShortcutKey(event.key)
 
                 if (nodeUsingThisKey !== undefined) {
                     if (nodeOnFocus !== undefined) {
@@ -611,7 +627,7 @@ function newCanvas() {
                             nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + Alt + ' + event.key)
                         }
                     } else {
-                        UI.projects.superalgos.spaces.floatingSpace.positionAtNode(nodeUsingThisKey)
+                        UI.projects.foundations.spaces.floatingSpace.positionAtNode(nodeUsingThisKey)
                     }
                     return
                 } else {
@@ -635,7 +651,7 @@ function newCanvas() {
         try {
             event.preventDefault()
             event.stopPropagation()
-            UI.projects.superalgos.spaces.cockpitSpace.toTop()
+            UI.projects.foundations.spaces.cockpitSpace.toTop()
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] onDragEnter -> err = ' + err.stack) }
         }
@@ -679,7 +695,7 @@ function newCanvas() {
                         x: event.x,
                         y: event.y
                     }
-                    UI.projects.superalgos.spaces.designSpace.workspace.spawn(reader.result, mousePosition)
+                    UI.projects.foundations.spaces.designSpace.workspace.spawn(reader.result, mousePosition)
                 }
             }
         } catch (err) {
@@ -716,10 +732,15 @@ function newCanvas() {
             and we are going to query each space to see if they have the container that is at
             the mouse position. We will order firt the spaces by the sequence order defined
             at the project schema specifically for this mouse event.
+
+            The order of the projects for events evaluations has intentionally been inverted,
+            because the latest project is drwan the last, on top of the others, that means that
+            events should belong to the last first.
             */
-            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+            for (let i = PROJECTS_SCHEMA.length - 1; i >= 0; i--) {
                 let projectDefinition = PROJECTS_SCHEMA[i]
                 let projectInstance = UI.projects[projectDefinition.propertyName]
+                if (projectInstance === undefined) { continue }
 
                 for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
                     let spaceInstance = projectInstance.events.onMouseDownMap.get(j)
@@ -819,10 +840,15 @@ function newCanvas() {
             and we are going to query each space to see if they have the container that is at
             the mouse position. We will order firt the spaces by the sequence order defined
             at the project schema specifically for this mouse event.
+
+            The order of the projects for events evaluations has intentionally been inverted,
+            because the latest project is drwan the last, on top of the others, that means that
+            events should belong to the last first.
             */
-            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+            for (let i = PROJECTS_SCHEMA.length - 1; i >= 0; i--) {
                 let projectDefinition = PROJECTS_SCHEMA[i]
                 let projectInstance = UI.projects[projectDefinition.propertyName]
+                if (projectInstance === undefined) { continue }
 
                 for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
                     let spaceInstance = projectInstance.events.onMouseClickMap.get(j)
@@ -870,14 +896,14 @@ function newCanvas() {
             point.x = event.pageX
             point.y = event.pageY - CURRENT_TOP_MARGIN
 
-            if (UI.projects.superalgos.spaces.chartingSpace.viewport !== undefined) {
-                UI.projects.superalgos.spaces.chartingSpace.viewport.mousePosition.x = point.x
-                UI.projects.superalgos.spaces.chartingSpace.viewport.mousePosition.y = point.y
+            if (UI.projects.foundations.spaces.chartingSpace.viewport !== undefined) {
+                UI.projects.foundations.spaces.chartingSpace.viewport.mousePosition.x = point.x
+                UI.projects.foundations.spaces.chartingSpace.viewport.mousePosition.y = point.y
             }
 
             if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
                 if (floatingObjectDragStarted === true) {
-                    let targetContainer = UI.projects.superalgos.spaces.floatingSpace.getContainer(point)
+                    let targetContainer = UI.projects.foundations.spaces.floatingSpace.getContainer(point)
                     if (targetContainer !== undefined) {
                         if (targetContainer.id !== containerBeingDragged.id) {
                             containerBeingDragged.eventHandler.raiseEvent('onDragFinished', point)
@@ -930,10 +956,15 @@ function newCanvas() {
             and we are going to query each space to see if they have the container that is at
             the mouse position. We will order firt the spaces by the sequence order defined
             at the project schema specifically for this mouse event.
+
+            The order of the projects for events evaluations has intentionally been inverted,
+            because the latest project is drwan the last, on top of the others, that means that
+            events should belong to the last first.
             */
-            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+            for (let i = PROJECTS_SCHEMA.length - 1; i >= 0; i--) {
                 let projectDefinition = PROJECTS_SCHEMA[i]
                 let projectInstance = UI.projects[projectDefinition.propertyName]
+                if (projectInstance === undefined) { continue }
 
                 for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
                     let spaceInstance = projectInstance.events.onMouseOverMap.get(j)
@@ -987,10 +1018,15 @@ function newCanvas() {
             and we are going to query each space to see if they have the container that is at
             the mouse position. We will order firt the spaces by the sequence order defined
             at the project schema specifically for this mouse event.
+
+            The order of the projects for events evaluations has intentionally been inverted,
+            because the latest project is drwan the last, on top of the others, that means that
+            events should belong to the last first.
             */
-            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+            for (let i = PROJECTS_SCHEMA.length - 1; i >= 0; i--) {
                 let projectDefinition = PROJECTS_SCHEMA[i]
                 let projectInstance = UI.projects[projectDefinition.propertyName]
+                if (projectInstance === undefined) { continue }
 
                 for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
                     let spaceInstance = projectInstance.events.onMouseWheelMap.get(j)
@@ -1061,7 +1097,7 @@ function newCanvas() {
                         y: dragVector.upY - dragVector.downY
                     }
 
-                    UI.projects.superalgos.spaces.chartingSpace.viewport.displace(displaceVector)
+                    UI.projects.foundations.spaces.chartingSpace.viewport.displace(displaceVector)
                 }
                 if (containerDragStarted) {
                     if (containerBeingDragged !== undefined) {
@@ -1072,7 +1108,7 @@ function newCanvas() {
                             }
 
                             let downNoZoom
-                            downNoZoom = UI.projects.superalgos.spaces.chartingSpace.viewport.unTransformThisPoint(downCopy)
+                            downNoZoom = UI.projects.foundations.spaces.chartingSpace.viewport.unTransformThisPoint(downCopy)
 
                             let upCopy = {
                                 x: dragVector.upX,
@@ -1080,7 +1116,7 @@ function newCanvas() {
                             }
 
                             let upNoZoom
-                            upNoZoom = UI.projects.superalgos.spaces.chartingSpace.viewport.unTransformThisPoint(upCopy)
+                            upNoZoom = UI.projects.foundations.spaces.chartingSpace.viewport.unTransformThisPoint(upCopy)
 
                             displaceVector = {
                                 x: upNoZoom.x - downNoZoom.x,

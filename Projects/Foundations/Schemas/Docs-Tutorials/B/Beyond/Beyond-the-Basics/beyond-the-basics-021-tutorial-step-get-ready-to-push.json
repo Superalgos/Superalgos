@@ -1,0 +1,88 @@
+{
+    "tutorial": "Beyond the Basics",
+    "pageNumber": 21,
+    "type": "Tutorial Step - Get Ready to Push!",
+    "definition": {
+        "text": "Amazing! You learned to add a page to the Docs, edit it, and save it! Now you've got to make it transcend your PC, and contribute it to Superalgos!",
+        "icon": {
+            "name": "github",
+            "project": "Foundations"
+        },
+        "updated": 1610791858248,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ottimo! Hai imparato ad aggiungere una pagina ai Docs, editarla e salvarla! Ora manca solo l'ultimo step...spedirla dal tuo PC a Superalgos!",
+                "updated": 1619636976424,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos interacts with Git to keep your Superalgos installation up to date and to make contributions easier for less technical users. The App Contribute Command runs the following Git commands in a sequence:",
+            "updated": 1610743150715,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Superalgos interagisce con Git per mantenere la tua installazione aggiornata e per rendere più facile agli utenti meno tecnici contribuire. Il comando App Contribute esegue questi comandi Git:",
+                    "updated": 1619637039829,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "git add: adds the changes you've made to contributable files to a git commit.",
+            "updated": 1616948426317,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "git add: aggiunge le tue modifiche in un git commit.",
+                    "updated": 1619637078728,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "git commit: commits all the changes.",
+            "updated": 1616948431365,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "git commit: fa il commit delle modifiche.",
+                    "updated": 1619637115670,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "git push: pushes the changes to your fork.",
+            "updated": 1616948435342,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "git push: fa il push delle modifiche sul tuo fork.",
+                    "updated": 1619637112020,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "github createPullRequest: creates a Pull Request at the Superalgos repository, or add commits to an existing Pull Request.",
+            "updated": 1616948441848,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "github createPullRequest: crea una Pull Request alla repo di Superalgos, o aggiunge i commit alla tua Pull Request esistente.",
+                    "updated": 1619637154313,
+                    "style": "List"
+                }
+            ]
+        }
+    ]
+}

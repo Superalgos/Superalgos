@@ -1,0 +1,84 @@
+{
+    "topic": "User Profile",
+    "pageNumber": "7",
+    "type": "The Voting Program",
+    "definition": {
+        "text": "The Voting Program helps decentralize the distribution of the Superalgos SA Token, and helps distribute the validation of Contributions.",
+        "updated": 1624734799887
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Node->Voting Program->Definition",
+            "updated": 1624734916658
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Voting Program->Content"
+        },
+        {
+            "style": "Title",
+            "text": "Votes Switch Node",
+            "updated": 1624734967309
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Votes Switch->Definition",
+            "updated": 1624735025289
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Votes Switch->Content",
+            "updated": 1624735029611
+        },
+        {
+            "style": "Title",
+            "text": "Claim Votes Switch Node",
+            "updated": 1624735041939
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Claim Votes Switch->Definition",
+            "updated": 1624735226284
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Claim Votes Switch->Content",
+            "updated": 1624735231547
+        },
+        {
+            "style": "Title",
+            "text": "Weight Votes Switch Node",
+            "updated": 1624735074339
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Weight Votes Switch->Definition",
+            "updated": 1624735085264
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Weight Votes Switch->Content",
+            "updated": 1624735088260
+        },
+        {
+            "style": "Title",
+            "text": "User Profile Switch Node",
+            "updated": 1624735319623
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->User Profile Votes Switch->Definition",
+            "updated": 1624735290341
+        },
+        {
+            "style": "Title",
+            "text": "User Profile Vote Node",
+            "updated": 1624735333779
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->User Profile Vote->Definition"
+        }
+    ]
+}

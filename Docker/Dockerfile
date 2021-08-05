@@ -18,8 +18,8 @@ RUN mkdir -p Data-Storage Log-Files My-Workspaces \
     && useradd --no-log-init -m -g superalgos superalgos \
     && chown -R superalgos:superalgos /app
 USER superalgos
-RUN node setup
+RUN node setup noShortcuts
 EXPOSE 34248
 EXPOSE 18041
-VOLUME ["Data-Storage", "Log-Files", "My-Workspaces"]
+VOLUME ["/app/Data-Storage", "/app/Log-Files", "/app/My-Workspaces"]
 ENTRYPOINT ["node", "run", "noBrowser"]

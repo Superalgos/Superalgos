@@ -12,6 +12,7 @@ function newEthereumBlockchainSpace() {
 
     thisObject.container = newContainer()
     thisObject.container.initialize(MODULE_NAME)
+    thisObject.container.isDraggeable = false
 
     let lastTryToReconnectDatetime
 
@@ -48,9 +49,9 @@ function newEthereumBlockchainSpace() {
 
         async function checkStatus() {
             try {
-                if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
+                if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
 
-                let blockchain = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Ethereum Blockchain')
+                let blockchain = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Ethereum Blockchain')
                 if (blockchain === undefined) { return }
                 for (let i = 0; i < blockchain.blockchainNetworks.length; i++) {
                     let blockchainNetwork = blockchain.blockchainNetworks[i]
@@ -165,6 +166,8 @@ function newEthereumBlockchainSpace() {
     }
 
     function getContainer(point) {
+
+        return undefined // since this space does not draw anything we return here
 
         if (thisObject.container.frame.isThisPointHere(point, true) === true) {
             thisObject.container.space = MODULE_NAME

@@ -1,0 +1,49 @@
+{
+    "tutorial": "Beyond the Basics",
+    "pageNumber": 16,
+    "type": "Tutorial Step - Did It Work?",
+    "definition": {
+        "text": "If you didn't mess up the command, you should get a new page with the title you set, an invitation to write a summary, and more instructions below!",
+        "icon": {
+            "name": "Docs/docs-action-edit-paragraph",
+            "project": "Foundations"
+        },
+        "updated": 1616875304376,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Se il comando era giusto, dovresti ottenere una nuova pagina con il tuo titolo, un invito a scrivere un sommario e altre istruzioni in fondo!",
+                "updated": 1619635581995,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "If you got an error message, read it and fix the problem! It's likely about the syntax in the command. You may always go back a step to recover the original command!",
+            "updated": 1616875472251,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Se hai ricevuto un errore, leggilo e sistema il problema! Probabilmente è la sintassi del comando. Puoi sempre fare andare indietro di uno step e recuperare il comando originale!",
+                    "updated": 1619635652289,
+                    "style": "Note"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "In the next step, we'll analyze how the command works!",
+            "updated": 1616875421406,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nel prossimo step, analizzeremo come funziona il comando!",
+                    "updated": 1619635672214,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

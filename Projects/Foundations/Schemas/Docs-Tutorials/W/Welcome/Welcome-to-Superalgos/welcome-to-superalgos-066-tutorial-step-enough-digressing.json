@@ -1,0 +1,65 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 66,
+    "type": "Tutorial Step - Enough Digressing!",
+    "definition": {
+        "icon": {
+           "project": "Foundations",
+            "name": "backtesting-session"
+        },
+        "text": "We'll run a Backtesting Session with a bunch of preconfigured parameters so that you may have a quick glimpse at how simulations work.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Lanceremo una Backtesting Session con dei parametri preconfigurati così da dare un'occhiata al funzionamento delle simulazioni.",
+                "updated": 1618059892671,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Ejecutaremos un Backtesting Session con un montón de parámetros preconfigurados para que pueda echar un vistazo rápido a cómo funcionan las simulaciones.",
+                "updated": 1624451768858,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "As you can see to the right, a trading session has a reference to a Trading System. That is, the Trading Bot will apply the rules of the referenced trading system to make decisions. There's also a reference to a Trading Engine, a subject worth its own chapter, so I'll leave it for later!",
+            "updated": 1610639102636,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Come vedi a destra, una Trading Sessionsi riferisce a un Trading System. Ciò significa che il Trading Bot applicherà le regole del corrispondente Trading System per prendere decisioni. C'è anche un riferimento a un Trading Engine, ma di questo parleremo in un capitolo successivo.",
+                    "updated": 1618059980494,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Como puedes ver a la derecha, un Trading Session tiene una referencia a un Trading System. Es decir, el Trading Bot aplicará las reglas del trading system al que se hace referencia para tomar decisiones. También hay una referencia a un Trading Engine, un tema que vale su propio capítulo, ¡así que lo dejaré para más adelante!",
+                    "updated": 1624495907455,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "The trading session is affected by several parameters. Take a quick look at their configurations selecting Configure on the menu!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "La Trading Session è controllata da vari parametri. Dai un'occhiata alle loro configurazioni selezionando Configure dal menù!",
+                    "updated": 1618060016221,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "La sesiónde trading se ve afectada por varios parámetros. ¡Echa un vistazo rápido a sus configuraciones seleccionando Configure en el menú!",
+                    "updated": 1624452190136,
+                    "style": "Callout"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,86 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 110,
+    "type": "Tutorial Step - A Couple More Things!",
+    "definition": {
+        "text": "There're a couple more things I want to tell you about before I let you go! Bear with me!",
+        "updated": 1619810326034,
+        "icon": {
+            "name": "Strategy\\strategy-counters",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Mancano ancora un paio di cose prima che ci salutiamo! Coraggio!",
+                "updated": 1618073095923,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Hay más cosas de las que quiero contarte antes de dejarte ir! ¡Ten paciencia conmigo!",
+                "updated": 1625934470264,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "I'll give you a quick introduction on what we are working on for upcoming versions of Superalgos! I mentioned Machine Learning algorithms, but there's more! It has to do with integrating crypto projects!",
+            "updated": 1611583731733,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ti dò un'introduzione rapida di ciò su cui stiamo lavorando per la prossima versione. Ho menzionato algoritmi di Machine Learning, ma c'è di più! Riguarda l'integrazione con dei progetti crypto!",
+                    "updated": 1618073169920,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Te daré una breve introducción sobre en qué estamos trabajando para las próximas versiones de Superalgos! Mencioné los algoritmos de aprendizaje automático, ¡pero hay más! ¡Tiene que ver con la integración de proyectos criptográficos!",
+                    "updated": 1624487373295,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "I also want to let you know that—if you appreciate what we are doing—you can help! Tens of thousands of hours of hard work have gone into building Superalgos and bringing it to its current state. I hope you can take a couple of minutes of your time to give back, and I'll be happy to tell you where to start!",
+            "updated": 1611584131359,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Volevo anche dirti che, se apprezzi ciò che stiamo facendo, ci puoi aiutare! Decine di migliaia di ore e duro lavoro sono state impiegte per costruire Superalgos così come lo vedi ora. Spero che vorrai contribuire anche solo con qualche minuto, e sarò felice di farti vedere da dove iniziare!",
+                    "updated": 1618073272368,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si aprecias lo que estamos haciendo, ¡puedes ayudar! Se han invertido decenas de miles de horas de arduo trabajo para construir Superalgos y llevarlo a su estado actual. Espero que puedas tomarte un par de minutos de tu tiempo para retribuir y estaré feliz de decirle por dónde empezar.",
+                    "updated": 1625934723800,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Let's get on with it!",
+            "updated": 1611584148459,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Coraggio, ti faccio vedere!",
+                    "updated": 1618073296750,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Sigamos adelante!",
+                    "updated": 1624487447210,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

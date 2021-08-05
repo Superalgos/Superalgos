@@ -1,0 +1,34 @@
+{
+    "type": "User Referrer",
+    "definition": {
+        "text": "The User Referrer node must establish a reference with the User Profile of your referrer. This is how you establish who your referrer is.",
+        "updated": 1624726602398
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624726623564
+        },
+        {
+            "style": "Text",
+            "text": "In case more than one person referred you to Superalgos or in case you can’t remember who was first, you may add new User Referrer nodes and declare more than one referrer."
+        },
+        {
+            "style": "Callout",
+            "text": "You may have been referred to Superalgos by an article in a publication, a YouTube video, a social media post, a comment on Reddit, a tweet, or directly by a friend. Please be fair to those that go the extra mile spreading the word about the project! Find out who authored that video, tweet, or article, and make sure you give credit where credit is due!"
+        },
+        {
+            "style": "Text",
+            "text": "The User Referrer node displays a notice detailing how your total Referral Power is composed, as a sum of your own power and the power you get from people in your referred offspring."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

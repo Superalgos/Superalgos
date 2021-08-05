@@ -1,0 +1,88 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 39,
+    "type": "Tutorial Step - Your Workspace vs Plugins",
+    "definition": {
+        "text": "Go to your File Explorer app and look for the following paths relative to the root Superalgos folder...",
+        "icon": {
+            "name": "plugins",
+            "project": "Foundations"
+        },
+        "updated": 1615906049600,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Apri il File Explorer del tuo computer e cerca i seguenti path relativi alla cartella root di Superalgos...",
+                "updated": 1619553622852,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Ve a la aplicación Explorador de archivos y busca las siguientes rutas relativas a la carpeta raíz de Superalgos...",
+                "updated": 1626620466947,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Json",
+            "text": "\\My-Workspaces\n",
+            "updated": 1615906070844,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "\\My-Workspaces",
+                    "updated": 1619553626181,
+                    "style": "Json"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "In this folder, you will find a file named Getting Started Tutorials.json. This is the current workspace; the one you are using at this moment. Everything you have been doing lately has been stored here.",
+            "updated": 1622374674340,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "In questa cartella troverai un file chiamato Getting Started.json. È il workspace che stai usando in questo momento! Tutto ciò che hai fatto finora è salvato su questo file.",
+                    "updated": 1619553718618,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "En esta carpeta, encontrarás un archivo llamado Getting Started Tutorials.json. Tel suyo es el espacio de trabajo actual; el que estás usando en este momento. Todo lo que ha estado haciendo últimamente se ha almacenado aquí.",
+                    "updated": 1626620522459,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "\\Projects\\Foundations\\Plugins\\Workspaces"
+        },
+        {
+            "style": "List",
+            "text": "In this folder, you will find Plugin Workspaces shipping with Superalgos. You may want to read the \"Community Workspaces\" topic in the Docs to learn what each of them is about!",
+            "updated": 1622375468421,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Qui troverai i Plugin Workspaces originali di Superalgos. Per imparare cosa fa ognuno di essi, leggi il relativo topic nella documentazione!",
+                    "updated": 1619553810915,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "En esta carpeta, encontrarás Plugin Workspaces conectando con  Superalgos. Es posible que desees leer los Documentos del \"Community Workspaces\" para saber de qué se trata cada uno de ellos.",
+                    "updated": 1626620829014,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -1,0 +1,203 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 109,
+    "type": "Tutorial Step - Tabbed Search Results",
+    "definition": {
+        "text": "Results are organized in several categories, and each category is represented by a tab grouping results matching the category...",
+        "updated": 1610652285058,
+        "icon": {
+            "name": "Data\\dataset",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "I risultati sono organizzati in categorie, e ogni categoria è rappresentata da un tab che raggruppa i risultati che corrispondono alla categoria...",
+                "updated": 1618072849624,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Los resultados están organizados en varias categorías, y cada una está representada por una pestaña que agrupa los resultados que coinciden con la categoría...",
+                "updated": 1624486888979,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I'll explain each briefly and set you free to look around:",
+            "updated": 1610712854590,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ti spiego al volo quanto basta per orientarti:",
+                    "updated": 1618072878367,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Explicaré cada uno brevemente y te dejaré observar:",
+                    "updated": 1624486914405,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "All: features results from all categories.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "All: risultati da ogni categoria",
+                    "updated": 1618072897216,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "All: presenta resultados de todas las categorías.",
+                    "updated": 1624486755415,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Nodes: Node Type matches containing the phrase.",
+            "updated": 1616694586239,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nodes: un tipo di nodo corrisponde alla frase",
+                    "updated": 1618072910891,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Nodes: Node Type coincidencias en la frase.",
+                    "updated": 1624486865186,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Concepts: includes notions such as References.",
+            "updated": 1610712970644,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Concepts: include concetti come le References",
+                    "updated": 1618072928787,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Concepts: incluye nociones como References.",
+                    "updated": 1624486815927,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Topics: large themes covered in sequenced pages.",
+            "updated": 1610712670894,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Topics: temi estesi trattati da sequenze di pagine",
+                    "updated": 1618072951866,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Topics: temas cubiertos en páginas secuenciadas.",
+                    "updated": 1624487132871,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Tutorials: features the pages that make up tutorials.",
+            "updated": 1610652329836,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Tutorials: contiene le pagine che formano i tutorial",
+                    "updated": 1618072968448,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Tutorials: Son las páginas que los componen.",
+                    "updated": 1624487067166,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Reviews: features users reviews on plugins , etc...",
+            "updated": 1610712626605,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Reviews: contiene le reviews degli utenti su vari temi",
+                    "updated": 1618072989751,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Reviews: reseñas de usuarios sobre plugins etc.",
+                    "updated": 1624487122000,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Books: collections of topics organized in chapters that cover entire app domains, for an orderly read.",
+            "updated": 1610712723851,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Books: collezioni di topic organizzati in capitoli che coprono intere funzionalità del software",
+                    "updated": 1618073039515,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Books: colecciones de temas organizados en capítulos, para una lectura ordenada.",
+                    "updated": 1624487191610,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Workspace: returns nodes that are present in the active workspace... click to go to them!",
+            "updated": 1610713053382,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Workspace: mostra i nodi presenti nel workspace corrente. Clicca per raggungerli!",
+                    "updated": 1618073062614,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Workspace: devuelve los nodos que están presentes en el espacio de trabajo activo... ¡haz clic para ir ahi!",
+                    "updated": 1624487240382,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

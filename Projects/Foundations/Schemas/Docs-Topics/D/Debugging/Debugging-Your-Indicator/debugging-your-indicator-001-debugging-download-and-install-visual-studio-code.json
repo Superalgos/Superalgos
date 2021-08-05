@@ -1,0 +1,54 @@
+{
+    "topic": "Debugging Your Indicator",
+    "pageNumber": 1,
+    "type": "Debugging - Download and Install Visual Studio Code",
+    "definition": {
+        "text": "This process details how to use an Integrated Development Environment (IDE) to identify and fix bugs in the Superalgos code and help contribute! ",
+        "updated": 1623400412309
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "For the following steps, we are going to show the concept of debugging using Visual Studio Code. You may use any other Integrated Development Environment (IDE) that you feel comfortable with. ",
+            "updated": 1623400449204
+        },
+        {
+            "style": "Subtitle",
+            "text": "<hr>",
+            "updated": 1614264382973
+        },
+        {
+            "style": "Subtitle",
+            "text": "\"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.\" -Thomas Edison"
+        },
+        {
+            "style": "Subtitle",
+            "text": "<hr>"
+        },
+        {
+            "style": "Text",
+            "text": "So, you've run into issues creating an indicator, seen an error in the console or have encountered a Task that just won't run. Grab some coffee and mosquito repellent - we're going bug hunting!",
+            "updated": 1623400585649
+        },
+        {
+            "style": "Text",
+            "text": "The first step is to download Microsoft Visual Studio Code, this is available for free at the link below:",
+            "updated": 1623401539321
+        },
+        {
+            "style": "Link",
+            "text": "Download Microsoft Visual Studio Code->code.visualstudio.com/download",
+            "updated": 1623401422825
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/0_download-visual-studio.png",
+            "updated": 1623414213827
+        },
+        {
+            "style": "Text",
+            "text": "After you've installed Visual Studio Code, click Next to go through the process of configuring it so that you can access the Superalgos directory.",
+            "updated": 1623407789702
+        }
+    ]
+}

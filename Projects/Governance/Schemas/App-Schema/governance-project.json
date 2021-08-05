@@ -1,0 +1,72 @@
+{
+    "type": "Governance Project",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "label": "Add Pools",
+            "relatedUiObject": "Pools",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "label": "Add Assets",
+            "relatedUiObject": "Assets",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "label": "Add Features",
+            "relatedUiObject": "Features",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "label": "Add Positions",
+            "relatedUiObject": "Positions",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "label": "Add User Profile",
+            "relatedUiObject": "User Profile",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Profile Constructor",
+            "relatedUiObject": "Profile Constructor"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "isProjectHead": true,
+    "isTitleAllwaysVisible": false,
+    "addLeftIcons": true,
+    "isPinned": true,
+    "positionLocked": true,
+    "childrenNodesProperties": [
+        {
+            "name": "projectDefinition",
+            "type": "node",
+            "childType": "Project Definition",
+            "project": "Foundations",
+            "autoAdd": true
+        }
+    ],
+    "icon": "governance-project"
+}

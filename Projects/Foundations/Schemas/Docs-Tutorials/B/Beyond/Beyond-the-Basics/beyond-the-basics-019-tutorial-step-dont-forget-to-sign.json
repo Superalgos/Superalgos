@@ -1,0 +1,49 @@
+{
+    "tutorial": "Beyond the Basics",
+    "pageNumber": 19,
+    "type": "Tutorial Step - Don't Forget to Sign!",
+    "definition": {
+        "text": "These comments about your first impressions on Superalgos are your first contribution, and for that we thank you!",
+        "updated": 1610735268141,
+        "icon": {
+            "name": "Bullet/bullet-warning",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Questa recensione è il tuo primo contributo, e ti ringraziamo molto per questo!",
+                "updated": 1619636353818,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Important",
+            "text": "For your review to be merged in the Superalgos repository, you must sign it with your GitHub.com user name in the last paragraph of the page! This is important so that you may later find the page using the search! As you progress with Superalgos, you may always come back and edit it.",
+            "updated": 1610734914493,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Perchè la tua recensione sia inclusa nella repo di Superalgos, devi autenticarti con il tuo user name GitHub.com nell'ultimo paragrafo della pagina! È importante così che tu possa poi trovarla usando la barra di ricerca! Man mano che prosegui in Superalgos, puoi sempre tornare indietro e modificarla.",
+                    "updated": 1619636467512,
+                    "style": "Important"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Contributions earn you <a href=\"https://superalgos.org/token-overview.shtml\" target=\"_blank\" style=\"color:blue;\">Superalgos SA Tokens</a> and are subject to the terms of the <a href=\"https://github.com/Superalgos/Superalgos/blob/master/LICENSE\" target=\"_blank\" style=\"color:blue;\">Apache Licence 2.0</a>. In short, Contributors provide an express grant of copyright/patent rights.",
+            "updated": 1610963383947,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "I contributi sono soggetti ai termini della Apache Licence 2.0. In breve, chi contribuisce concede esplicitamente diritti di copyright/brevetto.",
+                    "updated": 1619636533564,
+                    "style": "Note"
+                }
+            ]
+        }
+    ]
+}

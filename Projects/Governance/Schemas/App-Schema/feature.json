@@ -1,0 +1,62 @@
+{
+    "type": "Feature",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Feature Class",
+            "relatedUiObject": "Feature Class"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Feature",
+            "relatedUiObject": "Feature"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Feature Class->Feature->"
+    },
+    "propertyNameAtParent": "features",
+    "childrenNodesProperties": [
+        {
+            "name": "featureClasses",
+            "type": "array",
+            "childType": "Feature Class",
+            "autoAdd": false
+        },
+        {
+            "name": "features",
+            "type": "array",
+            "childType": "Feature",
+            "autoAdd": false
+        }
+    ]
+}

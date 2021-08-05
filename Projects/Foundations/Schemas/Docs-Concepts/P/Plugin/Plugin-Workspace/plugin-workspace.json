@@ -1,0 +1,20 @@
+{
+    "type": "Plugin Workspace",
+    "definition": {
+        "text": "Refers to a Workspace created by a user, contributed to the project as a plugin and distributed with the whole software package. Plugin workspaces are useful to give access to users to ready-to-run strategies, demos, tutorials, or areas of the system under development.",
+        "updated": 1622193639612,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Se refiere a un Workspace creado por un usuario, contribuido al proyecto como un plugin y distribuido con todo el paquete de software. Plugin workspaces son útiles para dar acceso a los usuarios a estrategias, demostraciones, tutoriales o áreas del sistema en desarrollo listas para ejecutar.",
+                "updated": 1624493472781
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+        }
+    ]
+}

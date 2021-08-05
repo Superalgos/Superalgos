@@ -1,0 +1,53 @@
+{
+    "tutorial": "Beyond the Basics",
+    "pageNumber": 26,
+    "type": "Tutorial Step - A Note On Keys and Tokens!",
+    "definition": {
+        "text": "Let me make a quick pause to point out something important regarding the safety of your keys and tokens...",
+        "icon": {
+            "name": "Exchange/exchange-account-key",
+            "project": "Foundations"
+        },
+        "updated": 1610818135402,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Prima di proseguire, devo parlarti di punti importanti che riguardano la sicurezza delle tue chiavi e dei tuoi token...",
+                "updated": 1619641318317,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Important",
+            "text": "Superalgos stores the workspace file that contains your keys and tokens in the JSON format—unencrypted. In this state, this crucial information is as safe as your computer may be.",
+            "updated": 1610906633022,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Superalgos salva il file workspace che contiene chiavi e tokens in formato JSON, quindi NON CRIPTATO. In questo stato, queste importanti informazioni sono tanto sicure quanto lo è il tuo computer.",
+                    "updated": 1619641491336,
+                    "style": "Important"
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "Never share your workspace file AS IS. To share a workspace, use the Share button on the menu. It creates a share-safe copy of the workspace, stripped of sensitive information by removing the APIs hierarchy and the Exchange Accounts section of the Crypto Exchange node.",
+            "updated": 1617020932950,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Non condividere mai il tuo file workspace così com'è. Per condividerlo, usa il pulsante Share sul menù. Crea una copia del tuo workspace senza le informazioni personali, rimuovendo le gerarchie API e la sezione Exchange Accounts del nodo Crypto Exchange.",
+                    "updated": 1619641476652,
+                    "style": "Warning"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

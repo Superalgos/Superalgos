@@ -1,0 +1,81 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 34,
+    "type": "Tutorial Step - One Last Backup!",
+    "definition": {
+        "text": "Let's try the third example! Notice the references flowing from polygon vertices to points under the Chart Points node!",
+        "icon": {
+            "name": "backup-entity",
+            "project": "Foundations"
+        },
+        "updated": 1615828736799,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Proviamo il terzo esempio! Nota le references che vanno dai Polygon Vertices ai punti sotto il nodo Chart Points!",
+                "updated": 1619503169774,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Probemos el tercer ejemplo! ¡Observa las referencias que fluyen desde los vértices del polígono hasta los puntos debajo del nodo Chart Points!",
+                "updated": 1626615204304
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Take a backup of the Shapes node and restore it on the side without deleting the original. Then repeat, but deleting the original before restoring the backup!",
+            "updated": 1615828883417,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Fai un backup del nodo Shapes e ripristinalo senza cancellare l'originale. Poi ripeti l'operazione, cancellando prima il nodo originale.",
+                    "updated": 1619503205236,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Realiza un backup del nodo Shapes y restauralo en el lateral sin borrar el original. Luego repite, pero eliminando el original antes de restaurar el backup.",
+                    "updated": 1626617114505
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Notice that in the first case, references point to the original points turning into external references! On the contrary, in the second case, references remain internal!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nota che, nel primo caso, le references si sono trasformate in reference esterne! Nel secondo caso, invece, sono rimaste interne!",
+                    "updated": 1619503254934,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡En el primer caso, las referencias apuntan a que los puntos originales se convierten en referencias externas! Por el contrario, en el segundo caso, ¡las referencias permanecen internas!",
+                    "updated": 1626615362499
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Remember that references remain internal only when you delete the original structure first!",
+            "updated": 1615828954919,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ricorda che le references rimangono interne solo cancellando la struttura originale prima del ripristino!",
+                    "updated": 1619503283883,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Las referencias permanecen internas solo cuando primero eliminas la estructura original!",
+                    "updated": 1626615411251
+                }
+            ]
+        }
+    ]
+}

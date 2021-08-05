@@ -8,8 +8,9 @@
   },
   "dependencies": {
     "@octokit/rest": "^18.0.12",
-    "ccxt": "^1.51.61",
+    "ccxt": "^1.51.98",
     "child_process": "^1.0.2",
+    "lookpath": "^1.2.1",
     "open": "^6.4.0",
     "rimraf": "^3.0.2",
     "simple-git": "^2.31.0",

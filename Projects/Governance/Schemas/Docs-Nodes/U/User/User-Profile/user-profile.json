@@ -1,0 +1,56 @@
+{
+    "type": "User Profile",
+    "definition": {
+        "text": "The User Profile is the hierarchy that allows you to define how you intend to use the Token Power conferred by your holdings of Superalgos SA Tokens. These definitions are spread across several programs, and your Token Power cascades down to these programs from the head of the hierarchy. Each program is designed to get Contributors involved in different governance needs.",
+        "updated": 1624726047712
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624726061843
+        },
+        {
+            "style": "Text",
+            "text": "As explained in the Building Your Profile page, your User Profile must be paired with your Governance Address. The tokens you send to this address confer you Token Power that you may use to influence how Superalgos distributes the tokens allocated to each release.",
+            "updated": 1624726114245
+        },
+        {
+            "style": "Text",
+            "text": "After building your profile, you should see your Token Power flowing to the Token Switch node, the first offspring of the head of the hierarchy. This principle is maintained throughout the hierarchy: Token Power flows down to offsprings, through each section of the hierarchy."
+        },
+        {
+            "style": "Text",
+            "text": "How Token Power flows depends on the following:"
+        },
+        {
+            "style": "List",
+            "text": "By default, Token Power flows in equal proportion to each of the programs."
+        },
+        {
+            "style": "List",
+            "text": "You may override the defaults by explicitly defining the percentage of the Token Power you wish to allocate to each program. If you define less than a total of 100%, then the remaining Token Power is distributed evenly across the programs for which there is no definition."
+        },
+        {
+            "style": "Text",
+            "text": "This is the format of the configuration you may use on each of the programs:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"percentage\": 50\n}",
+            "updated": 1624726090541
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

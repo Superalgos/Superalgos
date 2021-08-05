@@ -1,0 +1,24 @@
+{
+    "tutorial": "Setting Up a New Chart",
+    "pageNumber": 6,
+    "type": "Tutorial Step - Charting Workspace Setup",
+    "definition": {
+        "text": "Before we can look at charts, we need data! I have installed a few Data Mines and a Trading System.",
+        "updated": 1619996858906,
+        "icon": {
+            "name": "workspace",
+            "project": "Foundations"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You should see the Candles, Masters, and Sparta data mine plugins. These give us access to a range of interesting indicators. For this tutorial we will only be using the Candles Data Mine. My friends will teach you how to create charts using the other data mines later. I also installed the Lighting Strike Trading System plugin.",
+            "updated": 1622169189639
+        },
+        {
+            "style": "Success",
+            "text": "This is the same trading system you interacted with during the welcome tutorials."
+        }
+    ]
+}

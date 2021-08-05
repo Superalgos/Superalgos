@@ -1,0 +1,20 @@
+{
+    "type": "Detach Node",
+    "definition": {
+        "text": "Breaks the parent-offspring relationship that keeps the node attached to its parent. Once detached, the node is no longer computed as part of the hierarchy it was attached to. ",
+        "updated": 1610032559190,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Rompe la relación entre padres e hijos que mantiene el nodo unido a su padre. Una vez desconectado, el nodo ya no se calcula como parte de la jerarquía a la que estaba adjunto.",
+                "updated": 1628035974832
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+        }
+    ]
+}

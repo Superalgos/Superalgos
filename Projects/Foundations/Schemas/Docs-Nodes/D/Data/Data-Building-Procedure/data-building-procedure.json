@@ -1,0 +1,23 @@
+{
+    "type": "Data Building Procedure",
+    "definition": {
+        "text": "The data building procedure processes information to be fed to properties that are stored in the output dataset.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El Data Building Procedure  procesa la información que se enviará a las propiedades que se almacenan en el conjunto de datos de salida.",
+                "updated": 1624413867963
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "This procedure holds the core logic of the bot, as it features the code that performs the calculations required to produce the new data set. The code is split between a procedure initialization and a procedure loop."
+        }
+    ]
+}

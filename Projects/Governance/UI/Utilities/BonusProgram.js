@@ -20,10 +20,11 @@ function newGovernanceUtilitiesBonusProgram() {
          */
         let accumulatedProgramPower = 0
 
-        /* Scan Pools Until finding the Mentoship-Program Pool */
+        /* Scan Pools Until finding the Pool for this program*/
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]
             programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, programCodeName)
+            if (programPoolTokenReward !== undefined) { break }
         }
         if (programPoolTokenReward === undefined || programPoolTokenReward === 0) { return }
 
@@ -113,7 +114,7 @@ function newGovernanceUtilitiesBonusProgram() {
             be used to compute Bonuses.
             */
             programNode.payload[programPropertyName].bonusPower = programNode.payload[programPropertyName].usedPower | 0
-            accumulatedProgramPower = accumulatedProgramPower + programNode.payload[programPropertyName].bonusPower 
+            accumulatedProgramPower = accumulatedProgramPower + programNode.payload[programPropertyName].bonusPower
         }
 
         function calculateProgram(programNode) {
@@ -137,7 +138,7 @@ function newGovernanceUtilitiesBonusProgram() {
                 programNode.payload.uiObject.setErrorMessage("Tokens Bonus Node is needed in order for this Program to get Tokens from the Bonus Program Pool.")
                 return
             }
-            programNode.payload[programPropertyName].bonus.tokens = programNode.payload[programPropertyName].bonusPower * totalPowerRewardRatio
+            programNode.payload[programPropertyName].bonus.tokens = programNode.payload[programPropertyName].bonusPower / totalPowerRewardRatio
 
             drawProgram(programNode)
         }
@@ -146,11 +147,12 @@ function newGovernanceUtilitiesBonusProgram() {
             if (node.tokensBonus !== undefined && node.tokensBonus.payload !== undefined) {
 
                 const tokensBonusText = parseFloat(node.payload[programPropertyName].bonus.tokens.toFixed(0)).toLocaleString('en')
+                const tokensAwardedBTC = ' ≃ ' + UI.projects.governance.utilities.conversions.estimateSATokensInBTC(node.payload[programPropertyName].bonus.tokens | 0) + '  BTC'
 
                 node.tokensBonus.payload.uiObject.valueAngleOffset = 0
                 node.tokensBonus.payload.uiObject.valueAtAngle = true
 
-                node.tokensBonus.payload.uiObject.setValue(tokensBonusText + ' SA Tokens')
+                node.tokensBonus.payload.uiObject.setValue(tokensBonusText + ' SA Tokens' + tokensAwardedBTC)
             }
         }
     }

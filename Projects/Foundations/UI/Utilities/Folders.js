@@ -43,7 +43,7 @@ function newFoundationsUtilitiesFolders() {
                                     to its origin object counter part.
                                 */
                                 let clonedObject = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(destinationNode, clonedObjectType)
-                                clonedObject.payload.referenceParent = originObject
+                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(clonedObject, originObject)
                             } else {
                                 /*
                                     In this second Use Case, we are going to connect an inner object that is
@@ -54,7 +54,7 @@ function newFoundationsUtilitiesFolders() {
                                 for (let n = 0; n < originObjectArray.length; n++) {
                                     let originObjectArrayItem = originObjectArray[n]
                                     let clonedObject = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(destinationNode, clonedObjectType)
-                                    clonedObject.payload.referenceParent = originObjectArrayItem
+                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(clonedObject, originObjectArrayItem)
                                 }
                             }
                         }

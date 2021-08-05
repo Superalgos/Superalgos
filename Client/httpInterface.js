@@ -734,7 +734,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                                 const octokit = new Octokit({
                                     auth: token,
-                                    userAgent: 'Superalgos Beta 10'
+                                    userAgent: 'Superalgos Beta 11'
                                 })
 
                                 const repo = 'Superalgos'
@@ -773,7 +773,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             console.log('[ERROR] httpInterface -> App -> Contribute -> err.stack = ' + err.stack)
                             console.log('[ERROR] httpInterface -> App -> Contribute -> commitMessage = ' + commitMessage)
                             console.log('[ERROR] httpInterface -> App -> Contribute -> username = ' + username)
-                            console.log('[ERROR] httpInterface -> App -> Contribute -> token = ' + token)
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> token starts with = ' + token.substring(0, 10) + '...')
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> token ends with = ' + '...' + token.substring(token.length - 10))
                             console.log('[ERROR] httpInterface -> App -> Contribute -> currentBranch = ' + currentBranch)
                             console.log('[ERROR] httpInterface -> App -> Contribute -> contributionsBranch = ' + contributionsBranch)
 
@@ -981,6 +982,176 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     }
                 }
 
+                function respondWithDocsObject(docs, error) {
+
+                    if (error.message !== undefined) {
+                        docs.placeholder.errorMessage = {
+                            style: 'Error',
+                            text: error.message
+                        }
+                    }
+                    if (error.stack !== undefined) {
+                        docs.placeholder.errorStack = {
+                            style: 'Javascript',
+                            text: error.stack
+                        }
+                    }
+                    if (error.code !== undefined) {
+                        docs.placeholder.errorCode = {
+                            style: 'Json',
+                            text: error.code
+                        }
+                    }
+
+                    docs.placeholder.errorDetails = {
+                        style: 'Json',
+                        text: JSON.stringify(error, undefined, 4)
+                    }
+
+                    let customResponse = {
+                        result: global.CUSTOM_FAIL_RESPONSE.result,
+                        docs: docs
+                    }
+
+                    respondWithContent(JSON.stringify(customResponse), httpResponse)
+
+                }
+            }
+                break
+
+            case 'Gov': {
+                switch (requestParameters[2]) { // switch by command
+                    case 'getGithubStars': {
+                        getProfiles('activity', 'listStargazersForRepo')
+                        break
+                    }
+                    case 'getGithubWatchers': {
+                        getProfiles('activity', 'listWatchersForRepo')
+                        break
+                    }
+                    case 'getGithubForks': {
+                        getProfiles('repos', 'listForks')
+                        break
+                    }
+                }
+
+                function getProfiles(endpoint, method) {
+                    try {
+                        const GITHUB_API_WAITING_TIME = 250
+                        const repository = unescape(requestParameters[3])
+                        const username = unescape(requestParameters[4])
+                        const token = unescape(requestParameters[5])
+                        let error
+                        let githubListArray = []
+
+                        getRepoInfo()
+
+                        async function getRepoInfo() {
+                            await doGithub()
+                            if (error !== undefined) {
+
+                                let docs = {
+                                    project: 'Governance',
+                                    category: 'Topic',
+                                    type: 'Gov Error - Get Repository Information',
+                                    anchor: undefined,
+                                    placeholder: {}
+                                }
+
+                                respondWithDocsObject(docs, error)
+                                return
+                            }
+
+                            respondWithContent(JSON.stringify(githubListArray), httpResponse)
+                        }
+
+                        async function doGithub() {
+
+                            const { Octokit } = require("@octokit/rest")
+
+                            const octokit = new Octokit({
+                                auth: token,
+                                userAgent: 'Superalgos Beta 11'
+                            })
+                            await getList()
+
+                            async function getList() {
+                                const repo = repository
+                                const owner = 'Superalgos'
+                                const per_page = 100 // Max
+                                let page = 0
+                                let lastPage = false
+
+                                while (lastPage === false) {
+                                    try {
+                                        page++
+                                        await sleep(GITHUB_API_WAITING_TIME)
+                                        let listResponse = await octokit[endpoint][method]({
+                                            owner,
+                                            repo,
+                                            per_page,
+                                            page
+                                        });
+
+                                        if (listResponse.data.length < 100) {
+                                            lastPage = true
+                                        }
+
+                                        for (let i = 0; i < listResponse.data.length; i++) {
+                                            let listItem = listResponse.data[i]
+                                            let githubUsername  
+                                            switch(endpoint) {
+                                                case 'activity' : {
+                                                    githubUsername = listItem.login
+                                                    break
+                                                }
+                                                case 'repos' : {
+                                                    githubUsername = listItem.owner.login
+                                                    break
+                                                }
+                                            }
+                                            //console.log(listItem)
+
+                                            githubListArray.push(githubUsername)
+                                        }
+                                        console.log('[INFO] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList -> ' +  method + ' Page = ' + page)
+                                        console.log('[INFO] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList -> ' +  method + ' Received = ' + listResponse.data.length)
+
+                                    } catch (err) {
+                                        console.log(err)
+
+                                        if (err.stack.indexOf('last page') >= 0) {
+                                            return
+                                        } else {
+                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList ->Method call produced an error.')
+                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList ->err.stack = ' + err.stack)
+                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList ->repository = ' + repository)
+                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList ->username = ' + username)
+                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList ->token starts with = ' + token.substring(0, 10) + '...')
+                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList ->token ends with = ' + '...' + token.substring(token.length - 10))
+                                            error = err
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    } catch (err) {
+                        console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> Method call produced an error.')
+                        console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> err.stack = ' + err.stack)
+                        console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> repository = ' + repository)
+                        console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> username = ' + username)
+                        console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> token starts with = ' + token.substring(0, 10) + '...')
+                        console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> token ends with = ' + '...' + token.substring(token.length - 10))
+
+                        let error = {
+                            result: 'Fail Because',
+                            message: err.message,
+                            stack: err.stack
+                        }
+                        respondWithContent(JSON.stringify(error), httpResponse)
+                    }
+                }
                 function respondWithDocsObject(docs, error) {
 
                     if (error.message !== undefined) {
@@ -1961,5 +2132,11 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
             }));
             return files.reduce((a, f) => a.concat(f), []);
         }
+    }
+
+    function sleep(ms) {
+        return new Promise((resolve) => {
+            setTimeout(resolve, ms)
+        })
     }
 }

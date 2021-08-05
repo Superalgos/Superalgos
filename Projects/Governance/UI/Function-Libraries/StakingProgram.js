@@ -17,10 +17,11 @@ function newGovernanceFunctionLibraryStakingProgram() {
          */
         let accumulatedProgramPower = 0
 
-        /* Scan Pools Until finding the Mentoship-Program Pool */
+        /* Scan Pools Until finding the Pool for this program*/
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]
             programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, "Staking-Rewards")
+            if (programPoolTokenReward !== undefined) { break }
         }
         if (programPoolTokenReward === undefined || programPoolTokenReward === 0) { return }
 
@@ -144,7 +145,7 @@ function newGovernanceFunctionLibraryStakingProgram() {
                 programNode.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.")
                 return
             }
-            programNode.payload.stakingProgram.awarded.tokens = programNode.payload.stakingProgram.ownPower * totalPowerRewardRatio
+            programNode.payload.stakingProgram.awarded.tokens = programNode.payload.stakingProgram.ownPower / totalPowerRewardRatio
 
             drawProgram(programNode)
         }
@@ -162,11 +163,12 @@ function newGovernanceFunctionLibraryStakingProgram() {
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
                 const tokensAwardedText = parseFloat(node.payload.stakingProgram.awarded.tokens.toFixed(0)).toLocaleString('en')
+                const tokensAwardedBTC = ' ≃ ' + UI.projects.governance.utilities.conversions.estimateSATokensInBTC(node.payload.stakingProgram.awarded.tokens | 0) + '  BTC'
 
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.valueAtAngle = false
 
-                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens')
+                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens' + tokensAwardedBTC)
             }
         }
     }

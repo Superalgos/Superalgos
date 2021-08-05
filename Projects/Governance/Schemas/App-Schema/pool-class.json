@@ -44,9 +44,6 @@
     "attachingRules": {
         "compatibleTypes": "->Pools->Pool Class->"
     },
-    "referencingRules": {
-        "compatibleTypes": "->Position Class->Position->"
-    },
     "propertyNameAtParent": "poolClasses",
     "childrenNodesProperties": [
         {

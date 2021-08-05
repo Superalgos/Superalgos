@@ -15,7 +15,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Referral Program->Mentorship Program->Support Program->Voting Program->"
+        "compatibleTypes": "->Referral Program->Mentorship Program->Support Program->Voting Program->Influencer Program->"
     },
     "propertyNameAtParent": "tokensBonus"
 }

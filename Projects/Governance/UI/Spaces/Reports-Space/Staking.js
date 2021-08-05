@@ -45,16 +45,8 @@ function newGovernanceReportsStaking() {
                     "textAlign": "left"
                 },
                 {
-                    "name": "ownPower",
-                    "label": "Own Power",
-                    "type": "number",
-                    "order": "descending",
-                    "textAlign": "center",
-                    "format": "2 decimals"
-                },
-                {
-                    "name": "incoming",
-                    "label": "Incoming",
+                    "name": "stakingPower",
+                    "label": "Staking Power",
                     "type": "number",
                     "order": "descending",
                     "textAlign": "center",
@@ -84,11 +76,11 @@ function newGovernanceReportsStaking() {
             let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, programName)
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
+            if (program.payload[programPropertyName] === undefined) { continue }
 
             let tableRecord = {
                 "name": userProfile.name,
-                "ownPower": program.payload[programPropertyName].ownPower | 0,
-                "incoming": program.payload[programPropertyName].incomingPower | 0,
+                "stakingPower": program.payload[programPropertyName].ownPower | 0,
                 "tokensAwarded": program.payload[programPropertyName].awarded.tokens | 0
             }
 

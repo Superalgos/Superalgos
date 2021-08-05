@@ -966,6 +966,76 @@
         }
     },
     {
+        "name": "Education",
+        "propertyName": "education",
+        "UI": {
+            "globals": [
+                {
+                    "name": "Docs",
+                    "propertyName": "docs",
+                    "functionName": "newEducationGlobalsDocs"
+                }
+            ],
+            "functionLibraries": [],
+            "utilities": [
+                {
+                    "name": "Languages",
+                    "propertyName": "languages",
+                    "functionName": "newEducationUtilitiesLanguages"
+                },
+                {
+                    "name": "Docs",
+                    "propertyName": "docs",
+                    "functionName": "newEducationUtilitiesDocs"
+                }
+            ],
+            "spaces": [
+                {
+                    "name": "Docs Space",
+                    "folderName": "Docs-Space",
+                    "propertyName": "docsSpace",
+                    "functionName": "newEducationDocSpace",
+                    "initializationIndex": 0,
+                    "animationPhysicsIndex": 0,
+                    "animationDrawIndex": 0,
+                    "onMouseWheelIndex": 0,
+                    "onMouseOverIndex": 0,
+                    "onMouseClickIndex": 0,
+                    "onMouseDownIndex": 0
+                },
+                {
+                    "name": "Tutorial Space",
+                    "folderName": "Tutorial-Space",
+                    "propertyName": "tutorialSpace",
+                    "functionName": "newEducationTutorialSpace",
+                    "initializationIndex": 1,
+                    "animationPhysicsIndex": 1,
+                    "animationDrawIndex": 1,
+                    "onMouseWheelIndex": 1,
+                    "onMouseOverIndex": 1,
+                    "onMouseClickIndex": 1,
+                    "onMouseDownIndex": 1
+                }
+            ]
+        },
+        "TS": {
+            "globals": [],
+            "functionLibraries": [],
+            "utilities": [
+                {
+                    "name": "Docs Functions",
+                    "propertyName": "docsFunctions",
+                    "functionName": "newEducationUtilitiesDocsFunctions",
+                    "fileName": "DocsFunctions.js"
+                }
+            ],
+            "taskModules": [],
+            "processModules": [],
+            "botModules": []
+        },
+        "CL": {}
+    },
+    {
         "name": "Governance",
         "propertyName": "governance",
         "UI": {
@@ -1038,6 +1108,11 @@
                     "functionName": "newGovernanceFunctionLibrarySupportProgram"
                 },
                 {
+                    "name": "Influencer Program",
+                    "propertyName": "influencerProgram",
+                    "functionName": "newGovernanceFunctionLibraryInfluencerProgram"
+                },
+                {
                     "name": "Mentorship Program",
                     "propertyName": "mentorshipProgram",
                     "functionName": "newGovernanceFunctionLibraryMentorshipProgram"
@@ -1051,6 +1126,16 @@
                     "name": "Profile Constructor",
                     "propertyName": "profileConstructor",
                     "functionName": "newGovernanceFunctionLibraryProfileConstructor"
+                },
+                {
+                    "name": "Github Program",
+                    "propertyName": "githubProgram",
+                    "functionName": "newGovernanceFunctionLibraryGithubProgram"
+                },
+                {
+                    "name": "Airdrop Program",
+                    "propertyName": "airdropProgram",
+                    "functionName": "newGovernanceFunctionLibraryAirdropProgram"
                 }
             ],
             "utilities": [
@@ -1093,6 +1178,11 @@
                     "name": "Filters",
                     "propertyName": "filters",
                     "functionName": "newGovernanceUtilitiesFilters"
+                },
+                {
+                    "name": "Conversions",
+                    "propertyName": "conversions",
+                    "functionName": "newGovernanceUtilitiesConversions"
                 }
             ],
             "spaces": [
@@ -1133,75 +1223,5 @@
             "Features",
             "Positions"
         ]
-    },
-    {
-        "name": "Education",
-        "propertyName": "education",
-        "UI": {
-            "globals": [
-                {
-                    "name": "Docs",
-                    "propertyName": "docs",
-                    "functionName": "newEducationGlobalsDocs"
-                }
-            ],
-            "functionLibraries": [],
-            "utilities": [
-                {
-                    "name": "Languages",
-                    "propertyName": "languages",
-                    "functionName": "newEducationUtilitiesLanguages"
-                },
-                {
-                    "name": "Docs",
-                    "propertyName": "docs",
-                    "functionName": "newEducationUtilitiesDocs"
-                }
-            ],
-            "spaces": [
-                {
-                    "name": "Docs Space",
-                    "folderName": "Docs-Space",
-                    "propertyName": "docsSpace",
-                    "functionName": "newEducationDocSpace",
-                    "initializationIndex": 0,
-                    "animationPhysicsIndex": 0,
-                    "animationDrawIndex": 0,
-                    "onMouseWheelIndex": 0,
-                    "onMouseOverIndex": 0,
-                    "onMouseClickIndex": 0,
-                    "onMouseDownIndex": 0
-                },
-                {
-                    "name": "Tutorial Space",
-                    "folderName": "Tutorial-Space",
-                    "propertyName": "tutorialSpace",
-                    "functionName": "newEducationTutorialSpace",
-                    "initializationIndex": 1,
-                    "animationPhysicsIndex": 1,
-                    "animationDrawIndex": 1,
-                    "onMouseWheelIndex": 1,
-                    "onMouseOverIndex": 1,
-                    "onMouseClickIndex": 1,
-                    "onMouseDownIndex": 1
-                }
-            ]
-        },
-        "TS": {
-            "globals": [],
-            "functionLibraries": [],
-            "utilities": [
-                {
-                    "name": "Docs Functions",
-                    "propertyName": "docsFunctions",
-                    "functionName": "newEducationUtilitiesDocsFunctions",
-                    "fileName": "DocsFunctions.js"
-                }
-            ],
-            "taskModules": [],
-            "processModules": [],
-            "botModules": []
-        },
-        "CL": {}
     }
 ]

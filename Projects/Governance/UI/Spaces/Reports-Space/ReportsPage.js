@@ -30,7 +30,24 @@ function newGovernanceReportsReportsPage() {
         buildHTML()
 
         function buildHTML() {
-            const tabs = ['Profiles', 'Referrals', 'Supporters', 'Mentors', 'Claims', 'Votes', 'Staking', 'Delegation', 'Pools', 'Assets', 'Features', 'Positions', 'Mining']
+            const tabs = [
+                'Profiles',
+                'Airdrop',
+                'Github',
+                'Referrals',
+                'Supporters',
+                'Mentors',
+                'Influencers',
+                'Claims',
+                'Votes',
+                'Staking',
+                'Delegation',
+                'Pools',
+                'Assets',
+                'Features',
+                'Positions',
+                'Mining'
+            ]
             let HTML = ''
             HTML = HTML + '<section id="governance-report-page-div" class="governance-search-page-container">'
             HTML = HTML + UI.projects.governance.spaces.reportsSpace.filtersHeader.addFilterHeader()
@@ -62,74 +79,92 @@ function newGovernanceReportsReportsPage() {
                         resultCounter = response.resultCounter
                         break
                     }
+                    case 'Airdrop': {
+                        let response = UI.projects.governance.spaces.reportsSpace.airdrop.addHTML(2, filters)
+                        HTML = HTML + response.HTML
+                        resultCounter = response.resultCounter
+                        break
+                    }
+                    case 'Github': {
+                        let response = UI.projects.governance.spaces.reportsSpace.github.addHTML(3, filters)
+                        HTML = HTML + response.HTML
+                        resultCounter = response.resultCounter
+                        break
+                    }
                     case 'Referrals': {
-                        let response = UI.projects.governance.spaces.reportsSpace.referrals.addHTML(2, filters)
+                        let response = UI.projects.governance.spaces.reportsSpace.referrals.addHTML(4, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Supporters': {
-                        let response = UI.projects.governance.spaces.reportsSpace.supports.addHTML(3, filters)
+                        let response = UI.projects.governance.spaces.reportsSpace.supports.addHTML(5, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Mentors': {
-                        let response = UI.projects.governance.spaces.reportsSpace.mentors.addHTML(4, filters)
+                        let response = UI.projects.governance.spaces.reportsSpace.mentors.addHTML(6, filters)
+                        HTML = HTML + response.HTML
+                        resultCounter = response.resultCounter
+                        break
+                    }
+                    case 'Influencers': {
+                        let response = UI.projects.governance.spaces.reportsSpace.influencers.addHTML(7, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Claims': {
-                        let response = UI.projects.governance.spaces.reportsSpace.claims.addHTML(5, filters)
+                        let response = UI.projects.governance.spaces.reportsSpace.claims.addHTML(8, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Votes': {
-                        let response = UI.projects.governance.spaces.reportsSpace.votes.addHTML(6, filters)
+                        let response = UI.projects.governance.spaces.reportsSpace.votes.addHTML(9, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Staking': {
-                        let response = UI.projects.governance.spaces.reportsSpace.staking.addHTML(7, filters)
+                        let response = UI.projects.governance.spaces.reportsSpace.staking.addHTML(10, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Delegation': {
-                        let response = UI.projects.governance.spaces.reportsSpace.delegation.addHTML(8, filters)
+                        let response = UI.projects.governance.spaces.reportsSpace.delegation.addHTML(11, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Pools': {
-                        let response = UI.projects.governance.spaces.reportsSpace.pools.addHTML(9, filters)
+                        let response = UI.projects.governance.spaces.reportsSpace.pools.addHTML(12, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Assets': {
-                        let response = UI.projects.governance.spaces.reportsSpace.assets.addHTML(10, filters)
+                        let response = UI.projects.governance.spaces.reportsSpace.assets.addHTML(13, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Features': {
-                        let response = UI.projects.governance.spaces.reportsSpace.features.addHTML(11, filters)
+                        let response = UI.projects.governance.spaces.reportsSpace.features.addHTML(14, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Positions': {
-                        let response = UI.projects.governance.spaces.reportsSpace.positions.addHTML(12, filters)
+                        let response = UI.projects.governance.spaces.reportsSpace.positions.addHTML(15, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Mining': {
-                        let response = UI.projects.governance.spaces.reportsSpace.mining.addHTML(13, filters)
+                        let response = UI.projects.governance.spaces.reportsSpace.mining.addHTML(16, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break

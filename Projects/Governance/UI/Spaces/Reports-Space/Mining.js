@@ -45,7 +45,7 @@ function newGovernanceReportsMining() {
                     "label": "Blockchain Account",
                     "type": "string",
                     "order": "ascending",
-                    "textAlign": "left"
+                    "textAlign": "center"
                 },
                 {
                     "name": "tokensAwarded",
@@ -53,7 +53,7 @@ function newGovernanceReportsMining() {
                     "type": "number",
                     "order": "descending",
                     "textAlign": "center",
-                    "format": "2 decimals"
+                    "format": "integer"
                 },
                 {
                     "name": "tokensBonus",
@@ -61,7 +61,7 @@ function newGovernanceReportsMining() {
                     "type": "number",
                     "order": "descending",
                     "textAlign": "center",
-                    "format": "2 decimals"
+                    "format": "integer"
                 },
                 {
                     "name": "tokensMined",
@@ -69,7 +69,15 @@ function newGovernanceReportsMining() {
                     "type": "number",
                     "order": "descending",
                     "textAlign": "center",
-                    "format": "2 decimals"
+                    "format": "integer"
+                },
+                {
+                    "name": "minedInBTC",
+                    "label": "Mined In BTC",
+                    "type": "number",
+                    "order": "descending",
+                    "textAlign": "center",
+                    "format": "text"
                 }
             ]
         }
@@ -93,7 +101,8 @@ function newGovernanceReportsMining() {
                 "blockchainAccount": userProfile.payload.blockchainAccount,
                 "tokensAwarded": userProfile.tokensMined.payload.tokensMined.awarded | 0,
                 "tokensBonus": userProfile.tokensMined.payload.tokensMined.bonus | 0,
-                "tokensMined": userProfile.tokensMined.payload.tokensMined.total | 0
+                "tokensMined": userProfile.tokensMined.payload.tokensMined.total | 0,
+                "minedInBTC": UI.projects.governance.utilities.conversions.estimateSATokensInBTC(userProfile.tokensMined.payload.tokensMined.total | 0)
             }
 
             if (UI.projects.governance.utilities.filters.applyFilters(filters, filtersObject, tableRecord) === true) {

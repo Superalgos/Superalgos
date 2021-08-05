@@ -35,10 +35,11 @@ function newGovernanceUtilitiesDecendentProgram() {
          */
         let accumulatedIncomingProgramPower = 0
 
-        /* Scan Pools Until finding the Mentoship-Program Pool */
+        /* Scan Pools Until finding the Pool for this program*/
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]
             programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, programCodeName)
+            if (programPoolTokenReward !== undefined) { break }
         }
         if (programPoolTokenReward === undefined || programPoolTokenReward === 0) { return }
         /*
@@ -373,7 +374,7 @@ function newGovernanceUtilitiesDecendentProgram() {
                 programNode.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.")
                 return
             }
-            programNode.payload[programPropertyName].awarded.tokens = programNode.payload[programPropertyName].incomingPower * totalPowerRewardRatio
+            programNode.payload[programPropertyName].awarded.tokens = programNode.payload[programPropertyName].incomingPower / totalPowerRewardRatio
 
             drawProgram(programNode)
         }
@@ -414,13 +415,14 @@ function newGovernanceUtilitiesDecendentProgram() {
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
                 const tokensAwardedText = parseFloat(node.payload[programPropertyName].awarded.tokens.toFixed(0)).toLocaleString('en')
+                const tokensAwardedBTC = ' ≃ ' + UI.projects.governance.utilities.conversions.estimateSATokensInBTC(node.payload[programPropertyName].awarded.tokens | 0) + '  BTC'
 
                 node.tokensAwarded.payload.uiObject.statusAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.statusAtAngle = true
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.valueAtAngle = true
 
-                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens')
+                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens' + tokensAwardedBTC)
                 node.tokensAwarded.payload.uiObject.setStatus('From ' + node.payload[programPropertyName].count + ' Descendants.')
             }
         }

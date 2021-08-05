@@ -13,7 +13,7 @@ Superalgos is not just another open-source project. We are an open and welcoming
 
 # Getting Started Guide
 
-Follow the link to the ![INSTALL.md](https://github.com/Superalgos/Superalgos/blob/develop/INSTALL.md).
+Follow the link to the [INSTALL.md](https://github.com/Superalgos/Superalgos/blob/develop/INSTALL.md).
 
 # What is Superalgos?
 
@@ -74,13 +74,13 @@ Signals are cryptographically signed by trading intelligence producers and backe
 
 SA Tokens are distributed after each software release among the contributors of that release. If you want to mine SA tokens you can start contributing yourself or hire / sponsor someone (usually a developer or trader) to do it on your behalf.
 
-# Which is the Superalgos Software Architecture?
+# Software Architecture
 
 Superalgos features these 3 main components:
 
-1. Superalgos Platform: An already functional set of tools designed for algo-traders for automating their own trading and producing trading-signals.
-2. Superalgos Mobile: An under-development mobile app reference implementation for cosuming real-time trading intelligence and automate users trading.
-3. Superalgos Network: An under-development open p2p network for distributing real-time trading intelligence between producers (algo-traders) and consumers (the project's user base). 
+1. **Superalgos Platform:** An already functional set of tools designed for algo-traders for automating their own trading and producing trading-signals.
+2. **Superalgos Mobile:** An under-development mobile app reference implementation for cosuming real-time trading intelligence and automate users trading.
+3. **Superalgos Network:** An under-development open p2p network for distributing real-time trading intelligence between producers (algo-traders) and consumers (the project's user base). 
 
 All of the above is / will be hosted in this repository.
 
@@ -99,11 +99,11 @@ All of the above is / will be hosted in this repository.
 * **Superalgos Mobile:** Will allow users to consume trading signals for free and autonomously execute trades from their mobile phones.
 * **Ethereum Integration:** Will allow mining data from an Ethereum network node, and bring it into the Superalgos workflow.
 
-# What is Superalgos Platform?
+# What is the Superalgos Platform?
 
 Superalgos Platform is a platform to automate crypto-trading. It is implemented as a Node JS Client + Web App that runs on your hardware and scales from a single Raspberry Pi to a Trading Farm. The Platform is fully functional and has been used for trading live since 2020. 
 
-At Beta 12, trading signals will be able to be sent to the Suerpalgos Network fromo the Superalgos Platform.
+At Beta 12, trading signals will be able to be sent to the Suerpalgos Network from the Superalgos Platform.
 
 ## Superalgos Platform Features
 
@@ -197,9 +197,12 @@ No problem, code or integrate libraries with your own version of any component a
 # Superalgos Platform for Companies
 
 * No need to buy expensive software for monitoring crypto markets or trading execution.
+* No need to hire your own developers.
 * All your employees can use Superalgos for free.
 * You can use Superalgos to its full capacity or just the features you are currently interested in.
 * Superalgos may be integrated into your existing operation, feeding to and from other systems.
+* You've got a growing community of algo-traders constantly improving the software at zero cost for you.
+* You've got free online customer support via Telegram or Discord. 
 
 # Support
 
@@ -261,7 +264,7 @@ Superalgos is a Community Project built by users for users. Learn [how you may c
 
 ## Top Contributors
 
-Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Ira Miller, matbenitez, bearcanrun, nikolabjelo, 9808us, pmmax, suttridge, Basalt09, Mhnramin, 0xperez, infin1t3, benitezme, whtv, cozed-gh, Eduardo678-dotcom, Smidy13, teehanming, 64bittuning, joenij, apronotti, Noeljarillo, ssplatt, rico4dev, DougJCook, mane, Cordo-van-Saviour, CarnivalBen, Sil3ntLight, pisukesoramame, Edodi, harrellbm, CaptainJeff, Jeff Braun, Francisco J. Santillán, Norman, Viktoria B., Guillermo V., Daniel J., Javier A., Gustavo J., Romina GS, Pedro P., Thais M., Andrey M., Loui M., Natalia M., Bashar A., Carlos V., Diego M., Sebastian E., Bogdan P., Marko V., Igor S., Niksa K., Rodrigo M., Nicanor M., Mateo H., Lan T., Leon A., Uroš R., Filip M., Vladimir J. and Pavle B.
+Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Ira Miller, matbenitez, bearcanrun, nikolabjelo, 9808us, pmmax, suttridge, Basalt09, Mhnramin, 0xperez, infin1t3, benitezme, whtv, cozed-gh, Eduardo678-dotcom, Smidy13, teehanming, 64bittuning, joenij, apronotti, Noeljarillo, ssplatt, rico4dev, DougJCook, mane, Cordo-van-Saviour, CarnivalBen, Sil3ntLight, pisukesoramame, Edodi, harrellbm, CaptainJeff, Jeff Braun, Francisco J. Santillán, Norman, Viktoria B., Guillermo V., Daniel J., Javier A., Gustavo J., Romina GS, Pedro P., Thais M., Andrey M., Loui M., Natalia M., Bashar A., Carlos V., Diego M., Sebastian E., Bogdan P., Marko V., Igor S., Niksa K., Rodrigo M., Nicanor M., Mateo H., Lan T., Leon A., Uroš R., Filip M., Vladimir J. and Pavle B., brycey12, GENS-Tools, rjkilpatrick, superharoun, frysee, RalfWeiss
 
 # License
 

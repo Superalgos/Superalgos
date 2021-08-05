@@ -15,6 +15,11 @@
                 "text": "Se tutto è andato bene, dovresti aver ricevuto una conferma che la Contributions Branch è cambiata! Fantastico!",
                 "updated": 1619633713475,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Si todo salió bien, ¡debes haber recibido una confirmación de que se cambió la Rama de Contribuciones! ¡Increíble!",
+                "updated": 1628122632849
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "La prossima cosa da fare è cambiare la Current Branch, ma dobbiamo prima controllare un paio di cose!",
                     "updated": 1619633736968,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "El siguiente en la línea es cambiar la rama actual, ¡pero primero debemos ejecutar algunas comprobaciones!",
+                    "updated": 1628122656402
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Se hai fatto il fork di Superalgos prima del 6 aprile 2021, segui le istruzioni su questa pagine per creare il branch Plugins-Docs. Altrimenti continua!",
                     "updated": 1619633825511,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si has hecho fork en el repositorio de Superalgos antes del 6 de abril de 2021, sigue las instrucciones de esta página para crear la rama plugins-docs. De lo contrario, ¡sigue adelante!",
+                    "updated": 1628122733300
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "Quando cambi branch, l'app esegue una serie di comandi Git che scaricano il software dal branch Plugins-Docs del tuo fork! Il software corrente viene quindi rimpiazzato su disco. Per questo motivo, dovrai chiudere l'app dopo aver cambiato. Ma prima di continuare vediamo un altro paio di cose!",
                     "updated": 1619634001960,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando cambias de rama, la app ejecuta una serie de comandos de Git que descargan el software de la rama plugins-docs de tu fork. ¡El software actual será reemplazado en tu disco!Deberás cerrar la app después de cambiar. ¡Veamos unas cosas antes de continuar!",
+                    "updated": 1628123112818
                 }
             ]
         }

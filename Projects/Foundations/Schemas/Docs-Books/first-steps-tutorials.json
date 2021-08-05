@@ -2,7 +2,14 @@
     "type": "First Steps Tutorials",
     "definition": {
         "text": "This book walks you through the path that will help you learn Superalgos in the most efficient possible way. Interactive tutorials are the very best tool to tackle the learning curve. Doing the tutorials in the order proposed is highly recommended.",
-        "updated": 1610915328705
+        "updated": 1610915328705,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este libro lo guía por el camino que lo ayudará a aprender Superalgos de la manera más eficiente posible. Los tutoriales interactivos son la mejor herramienta para abordar la curva de aprendizaje. Es muy recomendable hacer los tutoriales en el orden propuesto.",
+                "updated": 1628207193722
+            }
+        ]
     },
     "paragraphs": [
         {

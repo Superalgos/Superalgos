@@ -46,7 +46,6 @@ Signals are cryptographically signed by trading intelligence producers and backe
 
 ## Holding the SA Token is the open network business model for all participants.
 
-* Tokens should appreciate in value as the network effects and game theory embedded in the system design kicks in over time.
 * Buying pressure will come from users competing to be among the first to receive the trading-signals.
 * Buying pressure will also come from algo-traders competing to be at the top of the list of real-time trading intelligence providers.
 * Algo trades make money, users make money, the token appreciates, everyone wins.

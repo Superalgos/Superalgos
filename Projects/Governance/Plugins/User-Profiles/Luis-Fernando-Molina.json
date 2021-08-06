@@ -565,18 +565,18 @@
                                 "featureClaimVotes": [
                                     {
                                         "type": "Feature Claim Vote",
-                                        "name": "Luis-Fernando-Molina ",
+                                        "name": "Luis-Fernando-Molina Governance System New Features",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "4381f059-44c8-4843-9cac-8a7cf41fa14c",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 30393.645713530757,
-                                                "y": 24869.33324366016
+                                                "x": 30907.92169565091,
+                                                "y": 24561.711738320893
                                             },
                                             "targetPosition": {
-                                                "x": 30316,
-                                                "y": 24579.55549577344
+                                                "x": 30622.604740762366,
+                                                "y": 24469.00664000841
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -591,51 +591,108 @@
                                             },
                                             "referenceParent": {
                                                 "type": "Feature Contribution Claim",
-                                                "name": "",
-                                                "id": "edf1a5c9-7802-4856-918c-3cd5a7a9caf7"
+                                                "name": "Governance System New Features",
+                                                "id": "92f0f22e-f631-482d-88b1-c16596bf951d"
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Luis-Fernando-Molina",
-                                                    "User Profile",
-                                                    "Governance",
-                                                    "148911b3-b2f3-44fb-8cb4-017991789132"
+                                                    "User Profile"
                                                 ],
                                                 [
                                                     "New Token Power Switch",
-                                                    "Token Power Switch",
-                                                    "Governance",
-                                                    "f8182a9c-f830-4ec1-a238-ac3a5efd69e6"
+                                                    "Token Power Switch"
                                                 ],
                                                 [
                                                     "New Votes And Claims Programs",
-                                                    "Votes And Claims Programs",
-                                                    "Governance",
-                                                    "bb390957-b8a2-4a8a-9fbf-963ea20f6eaf"
+                                                    "Votes And Claims Programs"
                                                 ],
                                                 [
                                                     "New Claims Program",
-                                                    "Claims Program",
-                                                    "Governance",
-                                                    "796dd30f-c90d-4b8d-a63d-89867347407b"
+                                                    "Claims Program"
                                                 ],
                                                 [
-                                                    "Superalgos Feature Class",
-                                                    "Feature Claims Folder",
-                                                    "Governance",
-                                                    "f8a482c4-dee0-475a-831b-7514fd255ba6"
+                                                    "Project Features Feature Class",
+                                                    "Feature Claims Folder"
                                                 ],
                                                 [
-                                                    "Data Mining Feature Class",
-                                                    "Feature Claims Folder",
-                                                    "Governance",
-                                                    "ebad23ed-1a02-4edf-a9d7-fc4b2fd0dacb"
+                                                    "Superalgos Platform Feature Class",
+                                                    "Feature Claims Folder"
                                                 ],
                                                 [
-                                                    "",
-                                                    "Feature Contribution Claim",
-                                                    "Governance",
-                                                    "edf1a5c9-7802-4856-918c-3cd5a7a9caf7"
+                                                    "New Features Feature Class",
+                                                    "Feature Claims Folder"
+                                                ],
+                                                [
+                                                    "Governance System New Features",
+                                                    "Feature Contribution Claim"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Feature Claim Vote",
+                                        "name": "Luis-Fernando-Molina API Maps New Features",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "6145983d-799e-4a3e-ac04-ed29b398cdce",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 30684.978248007694,
+                                                "y": 24762.45092022855
+                                            },
+                                            "targetPosition": {
+                                                "x": 30622.604740762366,
+                                                "y": 24469.00664000841
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Feature Contribution Claim",
+                                                "name": "API Maps New Features",
+                                                "id": "81c477e0-c9bf-4b25-a875-d265011a6136"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Luis-Fernando-Molina",
+                                                    "User Profile"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program"
+                                                ],
+                                                [
+                                                    "Project Features Feature Class",
+                                                    "Feature Claims Folder"
+                                                ],
+                                                [
+                                                    "Superalgos Platform Feature Class",
+                                                    "Feature Claims Folder"
+                                                ],
+                                                [
+                                                    "New Features Feature Class",
+                                                    "Feature Claims Folder"
+                                                ],
+                                                [
+                                                    "API Maps New Features",
+                                                    "Feature Contribution Claim"
                                                 ]
                                             ]
                                         }
@@ -745,12 +802,12 @@
                                                 "id": "58949e1e-3502-4317-ae8e-b4c56350902e",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30510.27247688465,
-                                                        "y": 24815.795921822468
+                                                        "x": 30905.003798952057,
+                                                        "y": 24539.12189221862
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30210.37527939198,
-                                                        "y": 24823.64900631483
+                                                        "x": 30657.76594236545,
+                                                        "y": 24709.04376329607
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -787,7 +844,7 @@
                                             {
                                                 "type": "Weight Votes Switch",
                                                 "name": "Governance Programs Pool Class",
-                                                "config": "{\n    \"percentage\": 25\n}",
+                                                "config": "{\n    \"percentage\": 15\n}",
                                                 "project": "Governance",
                                                 "weightVotesSwitch": [
                                                     {
@@ -2469,12 +2526,12 @@
                                                 "id": "cb79b91f-d01c-4efa-8fea-e4b7374fdd8b",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30490.44940734114,
-                                                        "y": 24931.159391178422
+                                                        "x": 30951.210222585592,
+                                                        "y": 24646.670256050744
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30210.37527939198,
-                                                        "y": 24823.64900631483
+                                                        "x": 30657.76594236545,
+                                                        "y": 24709.04376329607
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2511,7 +2568,7 @@
                                             {
                                                 "type": "Weight Votes Switch",
                                                 "name": "Superalgos Software Projects Pools",
-                                                "config": "{\n    \"percentage\": 10\n}",
+                                                "config": "{\n    \"percentage\": 5\n}",
                                                 "project": "Governance",
                                                 "weightVotesSwitch": [],
                                                 "poolWeightVotes": [
@@ -2787,12 +2844,12 @@
                                                 "id": "33c4a72b-4908-478e-b7c3-2304cb211f05",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30427.987590695666,
-                                                        "y": 25030.155379022955
+                                                        "x": 30952.74241463464,
+                                                        "y": 24763.714420943714
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30210.37527939198,
-                                                        "y": 24823.64900631483
+                                                        "x": 30657.76594236545,
+                                                        "y": 24709.04376329607
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2999,12 +3056,12 @@
                                                 "id": "56c59557-4ab9-4f4b-9c48-e1f9822e4899",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30332.39627231472,
-                                                        "y": 25097.71264360761
+                                                        "x": 30909.367112749078,
+                                                        "y": 24872.43547380058
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30210.37527939198,
-                                                        "y": 24823.64900631483
+                                                        "x": 30657.76594236545,
+                                                        "y": 24709.04376329607
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -3317,12 +3374,12 @@
                                                 "id": "88c4df8c-48ff-4d7e-a5ed-015c3faf6e69",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30218.228363884344,
-                                                        "y": 25123.5462038075
+                                                        "x": 30827.687813442903,
+                                                        "y": 24956.281619882677
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30210.37527939198,
-                                                        "y": 24823.64900631483
+                                                        "x": 30657.76594236545,
+                                                        "y": 24709.04376329607
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -3476,12 +3533,12 @@
                                                 "id": "34ddd8f7-d8a3-495d-8c7f-2a3f121b3269",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30102.86489452839,
-                                                        "y": 25103.72313426399
+                                                        "x": 30720.13944961078,
+                                                        "y": 25002.488043516212
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30210.37527939198,
-                                                        "y": 24823.64900631483
+                                                        "x": 30657.76594236545,
+                                                        "y": 24709.04376329607
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -3536,12 +3593,12 @@
                                                                 "id": "1c7db2f4-6bf4-4831-b262-430852eb558e",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 30019.57507566858,
-                                                                        "y": 25641.05571260385
+                                                                        "x": 30942.93902687271,
+                                                                        "y": 25498.49594873847
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 30011.72199117622,
-                                                                        "y": 25341.158515111183
+                                                                        "x": 30773.01715579526,
+                                                                        "y": 25251.258092151864
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -3594,12 +3651,12 @@
                                                         "id": "801254d4-6fd1-4190-9139-1caba0958d79",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 30011.72199117622,
-                                                                "y": 25341.158515111183
+                                                                "x": 30773.01715579526,
+                                                                "y": 25251.258092151864
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30003.868906683856,
-                                                                "y": 25041.261317618515
+                                                                "x": 30603.09528471781,
+                                                                "y": 25004.02023556526
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -3642,7 +3699,7 @@
                                                     {
                                                         "type": "Weight Votes Switch",
                                                         "name": "Assets Pool Class",
-                                                        "config": "{}",
+                                                        "config": "{\n    \"percentage\": 14\n}",
                                                         "project": "Governance",
                                                         "weightVotesSwitch": [],
                                                         "poolWeightVotes": [
@@ -3654,12 +3711,12 @@
                                                                 "id": "64c52071-cf80-4e29-aa50-b37bb3135572",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 29590.856161267606,
-                                                                        "y": 25476.485940225884
+                                                                        "x": 30493.753969422523,
+                                                                        "y": 25593.973180103632
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 29797.36253397573,
-                                                                        "y": 25258.8736289222
+                                                                        "x": 30548.424627070166,
+                                                                        "y": 25298.996707834445
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -3712,12 +3769,12 @@
                                                         "id": "8a46a791-8dca-48f2-a6ac-d5c14e13fd47",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 29797.36253397573,
-                                                                "y": 25258.8736289222
+                                                                "x": 30548.424627070166,
+                                                                "y": 25298.996707834445
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30003.868906683856,
-                                                                "y": 25041.261317618515
+                                                                "x": 30603.09528471781,
+                                                                "y": 25004.02023556526
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -3760,7 +3817,7 @@
                                                     {
                                                         "type": "Weight Votes Switch",
                                                         "name": "Features Pool Class",
-                                                        "config": "{}",
+                                                        "config": "{\n    \"percentage\": 85\n}",
                                                         "project": "Governance",
                                                         "weightVotesSwitch": [],
                                                         "poolWeightVotes": [
@@ -3772,12 +3829,12 @@
                                                                 "id": "fce3e954-b537-4364-a2ac-1d444bb1843e",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 29404.07451169852,
-                                                                        "y": 25056.96748660324
+                                                                        "x": 30108.619571544597,
+                                                                        "y": 25343.86397772016
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 29703.971709191188,
-                                                                        "y": 25049.114402110878
+                                                                        "x": 30355.857428131203,
+                                                                        "y": 25173.94210664271
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -3830,12 +3887,12 @@
                                                         "id": "e5d4ba4d-6701-46e6-b0b6-e5cac0a8860b",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 29703.971709191188,
-                                                                "y": 25049.114402110878
+                                                                "x": 30355.857428131203,
+                                                                "y": 25173.94210664271
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30003.868906683856,
-                                                                "y": 25041.261317618515
+                                                                "x": 30603.09528471781,
+                                                                "y": 25004.02023556526
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -3883,12 +3940,12 @@
                                                 "id": "c092f4bb-64fe-47ca-bb13-668d4d65f901",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30003.868906683856,
-                                                        "y": 25041.261317618515
+                                                        "x": 30603.09528471781,
+                                                        "y": 25004.02023556526
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30210.37527939198,
-                                                        "y": 24823.64900631483
+                                                        "x": 30657.76594236545,
+                                                        "y": 24709.04376329607
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -3987,12 +4044,12 @@
                                                                         "id": "1f125de4-0b59-4c18-9f9c-08386d4ffa4e",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 30127.51214413526,
-                                                                                "y": 25825.61061565289
+                                                                                "x": 31583.25952876794,
+                                                                                "y": 24478.966661513357
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 29915.380109779297,
-                                                                                "y": 25613.478581296928
+                                                                                "x": 31388.425114268884,
+                                                                                "y": 24707.088451193365
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -4025,12 +4082,12 @@
                                                                         "id": "51aaf905-b8b7-4f1f-becf-424db9291655",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 30030.185139488825,
-                                                                                "y": 25890.642441050313
+                                                                                "x": 31655.727071525394,
+                                                                                "y": 24570.891301271502
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 29915.380109779297,
-                                                                                "y": 25613.478581296928
+                                                                                "x": 31388.425114268884,
+                                                                                "y": 24707.088451193365
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -4063,12 +4120,12 @@
                                                                         "id": "873f71c9-8fa6-4328-87b2-f91ffad842c4",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 29915.380109779297,
-                                                                                "y": 25913.478581296928
+                                                                                "x": 31687.500314388824,
+                                                                                "y": 24683.55072247501
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 29915.380109779297,
-                                                                                "y": 25613.478581296928
+                                                                                "x": 31388.425114268884,
+                                                                                "y": 24707.088451193365
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -4096,12 +4153,12 @@
                                                                 "id": "672a29ff-62d7-47d4-b160-0bf820e7774e",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 29915.380109779297,
-                                                                        "y": 25613.478581296928
+                                                                        "x": 31388.425114268884,
+                                                                        "y": 24707.088451193365
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 29800.575080069768,
-                                                                        "y": 25336.314721543542
+                                                                        "x": 31121.123157012375,
+                                                                        "y": 24843.28560111523
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -4140,12 +4197,12 @@
                                                                         "id": "b4d3a3a4-f642-4151-ad3a-613613df6296",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 29839.06293593451,
-                                                                                "y": 25923.525927842406
+                                                                                "x": 31703.5044647664,
+                                                                                "y": 24758.84433021798
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 29761.417222403754,
-                                                                                "y": 25633.748179955684
+                                                                                "x": 31420.712017438746,
+                                                                                "y": 24858.986387988112
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -4178,12 +4235,12 @@
                                                                         "id": "9264f168-5b57-453f-8cab-34f9e9ce6b12",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 29722.25936473774,
-                                                                                "y": 25931.181638367827
+                                                                                "x": 31720.300877865116,
+                                                                                "y": 24874.687174860996
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 29761.417222403754,
-                                                                                "y": 25633.748179955684
+                                                                                "x": 31420.712017438746,
+                                                                                "y": 24858.986387988112
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -4216,12 +4273,12 @@
                                                                         "id": "479da50a-83ba-4849-98e3-a2227767da4c",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 29611.417222403754,
-                                                                                "y": 25893.555801091017
+                                                                                "x": 31691.487602743702,
+                                                                                "y": 24988.1397170306
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 29761.417222403754,
-                                                                                "y": 25633.748179955684
+                                                                                "x": 31420.712017438746,
+                                                                                "y": 24858.986387988112
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -4249,12 +4306,12 @@
                                                                 "id": "c52f2846-474a-49de-9442-38f85fc0afea",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 29761.417222403754,
-                                                                        "y": 25633.748179955684
+                                                                        "x": 31420.712017438746,
+                                                                        "y": 24858.986387988112
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 29800.575080069768,
-                                                                        "y": 25336.314721543542
+                                                                        "x": 31121.123157012375,
+                                                                        "y": 24843.28560111523
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -4282,12 +4339,12 @@
                                                         "id": "476b5941-7b0f-4e40-acaa-e80b7c2ec948",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 29800.575080069768,
-                                                                "y": 25336.314721543542
+                                                                "x": 31121.123157012375,
+                                                                "y": 24843.28560111523
                                                             },
                                                             "targetPosition": {
-                                                                "x": 29761.417222403754,
-                                                                "y": 25038.8812631314
+                                                                "x": 30827.678876792233,
+                                                                "y": 24905.659108360556
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -4343,12 +4400,12 @@
                                                                 "id": "b7372fd7-6f7b-4dc7-a9b8-c499c9d66ec9",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 29799.905078268497,
-                                                                        "y": 25626.092469430263
+                                                                        "x": 31410.06018454626,
+                                                                        "y": 24821.217837463308
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 29722.25936473774,
-                                                                        "y": 25336.314721543542
+                                                                        "x": 31127.267737218604,
+                                                                        "y": 24921.35989523344
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -4376,12 +4433,12 @@
                                                                 "id": "d3d7e591-67e0-4bb7-8d8b-a6113561fcdf",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 29683.101507071726,
-                                                                        "y": 25633.748179955684
+                                                                        "x": 31426.856597644975,
+                                                                        "y": 24937.060682106323
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 29722.25936473774,
-                                                                        "y": 25336.314721543542
+                                                                        "x": 31127.267737218604,
+                                                                        "y": 24921.35989523344
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -4409,12 +4466,12 @@
                                                                 "id": "07fc6eed-f794-46d8-9ab1-eb21895a18d6",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 29572.25936473774,
-                                                                        "y": 25596.122342678875
+                                                                        "x": 31398.04332252356,
+                                                                        "y": 25050.51322427593
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 29722.25936473774,
-                                                                        "y": 25336.314721543542
+                                                                        "x": 31127.267737218604,
+                                                                        "y": 24921.35989523344
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -4440,12 +4497,12 @@
                                                         "id": "79cff390-9e71-4345-81c4-0200f6a69db0",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 29722.25936473774,
-                                                                "y": 25336.314721543542
+                                                                "x": 31127.267737218604,
+                                                                "y": 24921.35989523344
                                                             },
                                                             "targetPosition": {
-                                                                "x": 29761.417222403754,
-                                                                "y": 25038.8812631314
+                                                                "x": 30827.678876792233,
+                                                                "y": 24905.659108360556
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -4501,12 +4558,12 @@
                                                                 "id": "b3a03655-0d4b-4da8-a250-5214f0157e19",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 29646.61219269423,
-                                                                        "y": 25616.045122884785
+                                                                        "x": 31412.07103180072,
+                                                                        "y": 24974.826477954684
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 29646.61219269423,
-                                                                        "y": 25316.045122884785
+                                                                        "x": 31112.99583168078,
+                                                                        "y": 24998.36420667304
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -4534,12 +4591,12 @@
                                                                 "id": "ae9b1041-8135-48db-b75d-eb0175b888ce",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 29531.807162984704,
-                                                                        "y": 25593.20898263817
+                                                                        "x": 31398.312786569324,
+                                                                        "y": 25091.06930498552
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 29646.61219269423,
-                                                                        "y": 25316.045122884785
+                                                                        "x": 31112.99583168078,
+                                                                        "y": 24998.36420667304
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -4567,12 +4624,12 @@
                                                                 "id": "77ca60ab-6fce-410f-ae3f-1aead62a6ef2",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 29434.480158338265,
-                                                                        "y": 25528.17715724075
+                                                                        "x": 31341.117621360787,
+                                                                        "y": 25193.198621172094
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 29646.61219269423,
-                                                                        "y": 25316.045122884785
+                                                                        "x": 31112.99583168078,
+                                                                        "y": 24998.36420667304
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -4598,12 +4655,12 @@
                                                         "id": "746a60bb-9eaa-4d22-8e97-10abe64d03c0",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 29646.61219269423,
-                                                                "y": 25316.045122884785
+                                                                "x": 31112.99583168078,
+                                                                "y": 24998.36420667304
                                                             },
                                                             "targetPosition": {
-                                                                "x": 29761.417222403754,
-                                                                "y": 25038.8812631314
+                                                                "x": 30827.678876792233,
+                                                                "y": 24905.659108360556
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -4662,12 +4719,12 @@
                                                                 "id": "856e8a29-b60a-447d-809b-a93d81a45f3c",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 29501.14308017038,
-                                                                        "y": 25566.665013105492
+                                                                        "x": 31374.256519445047,
+                                                                        "y": 25123.721476512706
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 29578.788793701136,
-                                                                        "y": 25276.88726521877
+                                                                        "x": 31079.28004717586,
+                                                                        "y": 25069.050818865064
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -4706,12 +4763,12 @@
                                                                         "id": "e4b7dce6-7a15-4e5b-815a-693d2e9b9a70",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 29281.355335288994,
-                                                                                "y": 25792.05712705953
+                                                                                "x": 31616.198172448032,
+                                                                                "y": 25325.147627682054
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 29396.16036499852,
-                                                                                "y": 25514.893267306143
+                                                                                "x": 31330.881217559487,
+                                                                                "y": 25232.44252936957
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -4744,12 +4801,12 @@
                                                                         "id": "92b43ece-5531-4c30-8e2f-04dc8bbeaaa0",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 29158.154362911147,
-                                                                                "y": 25697.52169600876
+                                                                                "x": 31531.620399467145,
+                                                                                "y": 25455.38597701279
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 29396.16036499852,
-                                                                                "y": 25514.893267306143
+                                                                                "x": 31330.881217559487,
+                                                                                "y": 25232.44252936957
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -4777,12 +4834,12 @@
                                                                 "id": "e9328c49-8dc5-4a45-a079-838333a44296",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 29396.16036499852,
-                                                                        "y": 25514.893267306143
+                                                                        "x": 31330.881217559487,
+                                                                        "y": 25232.44252936957
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 29578.788793701136,
-                                                                        "y": 25276.88726521877
+                                                                        "x": 31079.28004717586,
+                                                                        "y": 25069.050818865064
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -4821,12 +4878,12 @@
                                                                         "id": "50a02c10-c7b4-4c0f-bfdc-9c87c924a2f1",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 29059.17355143047,
-                                                                                "y": 25576.88726521877
+                                                                                "x": 31419.123789330763,
+                                                                                "y": 25563.526532038275
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 29318.981172565804,
-                                                                                "y": 25426.88726521877
+                                                                                "x": 31249.20191825331,
+                                                                                "y": 25316.28867545167
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -4854,12 +4911,12 @@
                                                                 "id": "7868354a-32ae-487f-a162-2cbee3c4cb8c",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 29318.981172565804,
-                                                                        "y": 25426.88726521877
+                                                                        "x": 31249.20191825331,
+                                                                        "y": 25316.28867545167
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 29578.788793701136,
-                                                                        "y": 25276.88726521877
+                                                                        "x": 31079.28004717586,
+                                                                        "y": 25069.050818865064
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -4887,12 +4944,12 @@
                                                         "id": "913e7be8-043f-4f6f-ab0d-cee42ca4b822",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 29578.788793701136,
-                                                                "y": 25276.88726521877
+                                                                "x": 31079.28004717586,
+                                                                "y": 25069.050818865064
                                                             },
                                                             "targetPosition": {
-                                                                "x": 29761.417222403754,
-                                                                "y": 25038.8812631314
+                                                                "x": 30827.678876792233,
+                                                                "y": 24905.659108360556
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -4951,12 +5008,12 @@
                                                                 "id": "2480d382-80fd-4ac4-908a-e4d273be9f7f",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 29373.411220316382,
-                                                                        "y": 25481.31731296935
+                                                                        "x": 31299.19364400485,
+                                                                        "y": 25257.755885046263
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 29523.411220316382,
-                                                                        "y": 25221.509691834017
+                                                                        "x": 31028.418058699892,
+                                                                        "y": 25128.602556003774
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -4989,12 +5046,12 @@
                                                                 "id": "b0202681-aee1-4e7f-854a-54fe35cfe0da",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 29285.40521822901,
-                                                                        "y": 25404.138120536634
+                                                                        "x": 31229.15724060755,
+                                                                        "y": 25351.546003646992
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 29523.411220316382,
-                                                                        "y": 25221.509691834017
+                                                                        "x": 31028.418058699892,
+                                                                        "y": 25128.602556003774
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -5027,12 +5084,12 @@
                                                                 "id": "da8bcf15-2545-4a8e-a76c-aa4c5b892ed9",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 29233.63347242966,
-                                                                        "y": 25299.155405364774
+                                                                        "x": 31128.560116470024,
+                                                                        "y": 25411.39500333143
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 29523.411220316382,
-                                                                        "y": 25221.509691834017
+                                                                        "x": 31028.418058699892,
+                                                                        "y": 25128.602556003774
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -5060,12 +5117,12 @@
                                                         "id": "17b76699-3479-45b5-b84c-97e36c036ae0",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 29523.411220316382,
-                                                                "y": 25221.509691834017
+                                                                "x": 31028.418058699892,
+                                                                "y": 25128.602556003774
                                                             },
                                                             "targetPosition": {
-                                                                "x": 29761.417222403754,
-                                                                "y": 25038.8812631314
+                                                                "x": 30827.678876792233,
+                                                                "y": 24905.659108360556
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -5148,7 +5205,7 @@
                                             },
                                             {
                                                 "type": "Weight Votes Switch",
-                                                "name": "Superalgos",
+                                                "name": "Superalgos Features",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "weightVotesSwitch": [
@@ -5161,7 +5218,7 @@
                                                             {
                                                                 "type": "Weight Votes Switch",
                                                                 "name": "Superalgos Platform",
-                                                                "config": "{}",
+                                                                "config": "{\n    \"percentage\": 85\n}",
                                                                 "project": "Governance",
                                                                 "weightVotesSwitch": [
                                                                     {
@@ -5408,7 +5465,7 @@
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
                                                                                 "isFrozen": false,
-                                                                                "isCollapsed": false,
+                                                                                "isCollapsed": true,
                                                                                 "angleToParent": 2,
                                                                                 "distanceToParent": 3,
                                                                                 "arrangementStyle": 0
@@ -5453,13 +5510,13 @@
                                                                             {
                                                                                 "type": "Feature Weight Vote",
                                                                                 "name": "Superalgos Platform New Features Governance System",
-                                                                                "config": "{}",
+                                                                                "config": "{\n    \"percentage\": 40\n}",
                                                                                 "project": "Governance",
                                                                                 "id": "d86255f6-dc95-4365-b063-0f036449d373",
                                                                                 "savedPayload": {
                                                                                     "position": {
-                                                                                        "x": 31586.129313432164,
-                                                                                        "y": 25755.911568829277
+                                                                                        "x": 31599.1689271541,
+                                                                                        "y": 25631.847931536497
                                                                                     },
                                                                                     "targetPosition": {
                                                                                         "x": 31300.81235854362,
@@ -5508,13 +5565,13 @@
                                                                             {
                                                                                 "type": "Feature Weight Vote",
                                                                                 "name": "Superalgos Platform New Features API Maps",
-                                                                                "config": "{}",
+                                                                                "config": "{\n    \"percentage\": 15\n}",
                                                                                 "project": "Governance",
                                                                                 "id": "45e4a5e7-b149-42f3-b14c-ade6183470d6",
                                                                                 "savedPayload": {
                                                                                     "position": {
-                                                                                        "x": 31363.185865788946,
-                                                                                        "y": 25956.650750736935
+                                                                                        "x": 31560.61997967895,
+                                                                                        "y": 25813.206470516794
                                                                                     },
                                                                                     "targetPosition": {
                                                                                         "x": 31300.81235854362,
@@ -5555,6 +5612,116 @@
                                                                                         ],
                                                                                         [
                                                                                             "API Maps",
+                                                                                            "Feature"
+                                                                                        ]
+                                                                                    ]
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "type": "Feature Weight Vote",
+                                                                                "name": "Superalgos Platform New Features User Defined Variables and Code",
+                                                                                "config": "{}",
+                                                                                "project": "Governance",
+                                                                                "id": "ebfc51a6-0bf2-4559-b7f5-b8f0bd90a1f9",
+                                                                                "savedPayload": {
+                                                                                    "position": {
+                                                                                        "x": 31422.833351466357,
+                                                                                        "y": 25937.270107809574
+                                                                                    },
+                                                                                    "targetPosition": {
+                                                                                        "x": 31300.81235854362,
+                                                                                        "y": 25663.206470516794
+                                                                                    },
+                                                                                    "floatingObject": {
+                                                                                        "isPinned": false,
+                                                                                        "isFrozen": false,
+                                                                                        "isCollapsed": false,
+                                                                                        "angleToParent": 2,
+                                                                                        "distanceToParent": 3,
+                                                                                        "arrangementStyle": 0
+                                                                                    },
+                                                                                    "uiObject": {
+                                                                                        "isRunning": false
+                                                                                    },
+                                                                                    "referenceParent": {
+                                                                                        "type": "Feature",
+                                                                                        "name": "User Defined Variables and Code",
+                                                                                        "id": "55e7b969-383c-4ae8-95c0-2dc18473404f"
+                                                                                    },
+                                                                                    "referenceParentCombinedNodePath": [
+                                                                                        [
+                                                                                            "Superalgos",
+                                                                                            "Features"
+                                                                                        ],
+                                                                                        [
+                                                                                            "Project Features",
+                                                                                            "Feature Class"
+                                                                                        ],
+                                                                                        [
+                                                                                            "Superalgos Platform",
+                                                                                            "Feature Class"
+                                                                                        ],
+                                                                                        [
+                                                                                            "New Features",
+                                                                                            "Feature Class"
+                                                                                        ],
+                                                                                        [
+                                                                                            "User Defined Variables and Code",
+                                                                                            "Feature"
+                                                                                        ]
+                                                                                    ]
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "type": "Feature Weight Vote",
+                                                                                "name": "Superalgos Platform New Features Tensor Flow Integration",
+                                                                                "config": "{\n    \"percentage\": 35\n}",
+                                                                                "project": "Governance",
+                                                                                "id": "fae5785c-52ef-4f17-ba98-77728e251be6",
+                                                                                "savedPayload": {
+                                                                                    "position": {
+                                                                                        "x": 31238.43885129829,
+                                                                                        "y": 25956.650750736935
+                                                                                    },
+                                                                                    "targetPosition": {
+                                                                                        "x": 31300.81235854362,
+                                                                                        "y": 25663.206470516794
+                                                                                    },
+                                                                                    "floatingObject": {
+                                                                                        "isPinned": false,
+                                                                                        "isFrozen": false,
+                                                                                        "isCollapsed": false,
+                                                                                        "angleToParent": 2,
+                                                                                        "distanceToParent": 3,
+                                                                                        "arrangementStyle": 0
+                                                                                    },
+                                                                                    "uiObject": {
+                                                                                        "isRunning": false
+                                                                                    },
+                                                                                    "referenceParent": {
+                                                                                        "type": "Feature",
+                                                                                        "name": "Tensor Flow Integration",
+                                                                                        "id": "68388215-3e97-4864-9804-72e91ecff02b"
+                                                                                    },
+                                                                                    "referenceParentCombinedNodePath": [
+                                                                                        [
+                                                                                            "Superalgos",
+                                                                                            "Features"
+                                                                                        ],
+                                                                                        [
+                                                                                            "Project Features",
+                                                                                            "Feature Class"
+                                                                                        ],
+                                                                                        [
+                                                                                            "Superalgos Platform",
+                                                                                            "Feature Class"
+                                                                                        ],
+                                                                                        [
+                                                                                            "New Features",
+                                                                                            "Feature Class"
+                                                                                        ],
+                                                                                        [
+                                                                                            "Tensor Flow Integration",
                                                                                             "Feature"
                                                                                         ]
                                                                                     ]
@@ -5658,7 +5825,7 @@
                                                             {
                                                                 "type": "Weight Votes Switch",
                                                                 "name": "Superalgos Mobile App",
-                                                                "config": "{}",
+                                                                "config": "{\n    \"percentage\": 5\n}",
                                                                 "project": "Governance",
                                                                 "weightVotesSwitch": [
                                                                     {
@@ -5850,7 +6017,7 @@
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
                                                                                 "isFrozen": false,
-                                                                                "isCollapsed": false,
+                                                                                "isCollapsed": true,
                                                                                 "angleToParent": 2,
                                                                                 "distanceToParent": 3,
                                                                                 "arrangementStyle": 0
@@ -6764,7 +6931,7 @@
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
-                                                "isCollapsed": false,
+                                                "isCollapsed": true,
                                                 "angleToParent": 2,
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
@@ -11897,12 +12064,12 @@
                                                                 "id": "4a9db77f-8097-40c5-bb69-cef357c15c73",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 28928.54666533391,
-                                                                        "y": 24699.58536902205
+                                                                        "x": 29440.867189707787,
+                                                                        "y": 25205.84467294078
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 29188.354286469243,
-                                                                        "y": 24549.58536902205
+                                                                        "x": 29604.258900212295,
+                                                                        "y": 24954.243502557154
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -11951,12 +12118,12 @@
                                                                                                 "id": "442848b4-f164-43cb-b56c-57e4997c085c",
                                                                                                 "savedPayload": {
                                                                                                     "position": {
-                                                                                                        "x": 27769.435673787026,
-                                                                                                        "y": 24710.16822314508
+                                                                                                        "x": 28412.896249213052,
+                                                                                                        "y": 25741.499443314904
                                                                                                     },
                                                                                                     "targetPosition": {
-                                                                                                        "x": 28059.213421673747,
-                                                                                                        "y": 24632.522509614322
+                                                                                                        "x": 28635.83969685627,
+                                                                                                        "y": 25540.760261407246
                                                                                                     },
                                                                                                     "floatingObject": {
                                                                                                         "isPinned": false,
@@ -11982,12 +12149,12 @@
                                                                                         "id": "c7b6ab81-f9fa-41ae-8766-7b99fd6b1049",
                                                                                         "savedPayload": {
                                                                                             "position": {
-                                                                                                "x": 28059.213421673747,
-                                                                                                "y": 24632.522509614322
+                                                                                                "x": 28635.83969685627,
+                                                                                                "y": 25540.760261407246
                                                                                             },
                                                                                             "targetPosition": {
-                                                                                                "x": 28348.991169560468,
-                                                                                                "y": 24554.876796083565
+                                                                                                "x": 28858.783144499488,
+                                                                                                "y": 25340.021079499587
                                                                                             },
                                                                                             "floatingObject": {
                                                                                                 "isPinned": false,
@@ -12015,12 +12182,12 @@
                                                                                 "id": "7fc8f29f-0e0b-454b-8df6-78841c3ec529",
                                                                                 "savedPayload": {
                                                                                     "position": {
-                                                                                        "x": 28348.991169560468,
-                                                                                        "y": 24554.876796083565
+                                                                                        "x": 28858.783144499488,
+                                                                                        "y": 25340.021079499587
                                                                                     },
                                                                                     "targetPosition": {
-                                                                                        "x": 28638.76891744719,
-                                                                                        "y": 24477.231082552807
+                                                                                        "x": 29081.726592142706,
+                                                                                        "y": 25139.28189759193
                                                                                     },
                                                                                     "floatingObject": {
                                                                                         "isPinned": false,
@@ -12048,12 +12215,12 @@
                                                                         "id": "6586dbd2-23c3-4bbf-9608-25800329462a",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 28638.76891744719,
-                                                                                "y": 24477.231082552807
+                                                                                "x": 29081.726592142706,
+                                                                                "y": 25139.28189759193
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 28928.54666533391,
-                                                                                "y": 24399.58536902205
+                                                                                "x": 29304.670039785924,
+                                                                                "y": 24938.54271568427
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -12101,12 +12268,12 @@
                                                                                                 "id": "a9d80714-a6f1-43b2-a277-921b4f7e61be",
                                                                                                 "savedPayload": {
                                                                                                     "position": {
-                                                                                                        "x": 27889.31618079258,
-                                                                                                        "y": 23799.58536902205
+                                                                                                        "x": 28106.31459808044,
+                                                                                                        "y": 24875.739568192737
                                                                                                     },
                                                                                                     "targetPosition": {
-                                                                                                        "x": 28149.12380192791,
-                                                                                                        "y": 23949.58536902205
+                                                                                                        "x": 28405.90345850681,
+                                                                                                        "y": 24891.44035506562
                                                                                                     },
                                                                                                     "floatingObject": {
                                                                                                         "isPinned": false,
@@ -12132,12 +12299,12 @@
                                                                                         "id": "8da76358-4158-4b1a-bda4-3a0cc5b09498",
                                                                                         "savedPayload": {
                                                                                             "position": {
-                                                                                                "x": 28149.12380192791,
-                                                                                                "y": 23949.58536902205
+                                                                                                "x": 28405.90345850681,
+                                                                                                "y": 24891.44035506562
                                                                                             },
                                                                                             "targetPosition": {
-                                                                                                "x": 28408.931423063244,
-                                                                                                "y": 24099.58536902205
+                                                                                                "x": 28705.492318933182,
+                                                                                                "y": 24907.141141938504
                                                                                             },
                                                                                             "floatingObject": {
                                                                                                 "isPinned": false,
@@ -12165,12 +12332,12 @@
                                                                                 "id": "98ac3233-9239-4f27-87df-5d4c5faace63",
                                                                                 "savedPayload": {
                                                                                     "position": {
-                                                                                        "x": 28408.931423063244,
-                                                                                        "y": 24099.58536902205
+                                                                                        "x": 28705.492318933182,
+                                                                                        "y": 24907.141141938504
                                                                                     },
                                                                                     "targetPosition": {
-                                                                                        "x": 28668.739044198577,
-                                                                                        "y": 24249.58536902205
+                                                                                        "x": 29005.081179359553,
+                                                                                        "y": 24922.841928811387
                                                                                     },
                                                                                     "floatingObject": {
                                                                                         "isPinned": false,
@@ -12198,12 +12365,12 @@
                                                                         "id": "796dd55b-f905-489a-a6f8-ef1b943ff38c",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 28668.739044198577,
-                                                                                "y": 24249.58536902205
+                                                                                "x": 29005.081179359553,
+                                                                                "y": 24922.841928811387
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 28928.54666533391,
-                                                                                "y": 24399.58536902205
+                                                                                "x": 29304.670039785924,
+                                                                                "y": 24938.54271568427
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -12251,12 +12418,12 @@
                                                                                                 "id": "a62fc533-f051-4d29-b6a2-52acf5c473cb",
                                                                                                 "savedPayload": {
                                                                                                     "position": {
-                                                                                                        "x": 28617.96381121088,
-                                                                                                        "y": 23240.474377475166
+                                                                                                        "x": 28501.71331215529,
+                                                                                                        "y": 24046.7689251114
                                                                                                     },
                                                                                                     "targetPosition": {
-                                                                                                        "x": 28695.609524741638,
-                                                                                                        "y": 23530.252125361887
+                                                                                                        "x": 28702.45249406295,
+                                                                                                        "y": 24269.712372754617
                                                                                                     },
                                                                                                     "floatingObject": {
                                                                                                         "isPinned": false,
@@ -12282,12 +12449,12 @@
                                                                                         "id": "5f8efae1-178b-4675-a444-dcd2ca08ecfd",
                                                                                         "savedPayload": {
                                                                                             "position": {
-                                                                                                "x": 28695.609524741638,
-                                                                                                "y": 23530.252125361887
+                                                                                                "x": 28702.45249406295,
+                                                                                                "y": 24269.712372754617
                                                                                             },
                                                                                             "targetPosition": {
-                                                                                                "x": 28773.255238272395,
-                                                                                                "y": 23820.029873248608
+                                                                                                "x": 28903.191675970607,
+                                                                                                "y": 24492.655820397835
                                                                                             },
                                                                                             "floatingObject": {
                                                                                                 "isPinned": false,
@@ -12315,12 +12482,12 @@
                                                                                 "id": "1d55ff9f-f890-4510-972a-19bf1e504991",
                                                                                 "savedPayload": {
                                                                                     "position": {
-                                                                                        "x": 28773.255238272395,
-                                                                                        "y": 23820.029873248608
+                                                                                        "x": 28903.191675970607,
+                                                                                        "y": 24492.655820397835
                                                                                     },
                                                                                     "targetPosition": {
-                                                                                        "x": 28850.900951803153,
-                                                                                        "y": 24109.80762113533
+                                                                                        "x": 29103.930857878266,
+                                                                                        "y": 24715.599268041053
                                                                                     },
                                                                                     "floatingObject": {
                                                                                         "isPinned": false,
@@ -12348,12 +12515,12 @@
                                                                         "id": "22d6df8e-d47e-43b5-bba4-1f3e4045974e",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 28850.900951803153,
-                                                                                "y": 24109.80762113533
+                                                                                "x": 29103.930857878266,
+                                                                                "y": 24715.599268041053
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 28928.54666533391,
-                                                                                "y": 24399.58536902205
+                                                                                "x": 29304.670039785924,
+                                                                                "y": 24938.54271568427
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -12381,12 +12548,12 @@
                                                                 "id": "20830f0c-d638-4fa3-8732-b82bc6a0ed65",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 28928.54666533391,
-                                                                        "y": 24399.58536902205
+                                                                        "x": 29304.670039785924,
+                                                                        "y": 24938.54271568427
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 29188.354286469243,
-                                                                        "y": 24549.58536902205
+                                                                        "x": 29604.258900212295,
+                                                                        "y": 24954.243502557154
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -12409,12 +12576,12 @@
                                                         "id": "c0a1a4d4-9a0b-4cc3-9a43-5553261aae4c",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 29188.354286469243,
-                                                                "y": 24549.58536902205
+                                                                "x": 29604.258900212295,
+                                                                "y": 24954.243502557154
                                                             },
                                                             "targetPosition": {
-                                                                "x": 29488.354286469243,
-                                                                "y": 24549.58536902205
+                                                                "x": 29871.560857468805,
+                                                                "y": 24818.04635263529
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -12437,12 +12604,12 @@
                                                 "id": "f031816a-94d0-44a7-84a4-f136df090c7b",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 29488.354286469243,
-                                                        "y": 24549.58536902205
+                                                        "x": 29871.560857468805,
+                                                        "y": 24818.04635263529
                                                     },
                                                     "targetPosition": {
-                                                        "x": 29788.354286469243,
-                                                        "y": 24549.58536902205
+                                                        "x": 30138.862814725315,
+                                                        "y": 24681.849202713427
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -12503,7 +12670,7 @@
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": false,
+                                        "isCollapsed": true,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -12580,7 +12747,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -12599,37 +12766,149 @@
                 "featureClaimsFolders": [
                     {
                         "type": "Feature Claims Folder",
-                        "name": "Superalgos Feature Class",
+                        "name": "Project Features Feature Class",
                         "config": "{}",
                         "project": "Governance",
                         "featureClaimsFolders": [
                             {
                                 "type": "Feature Claims Folder",
-                                "name": "Data Mining Feature Class",
-                                "config": "{\n    \"percentage\": 70\n}",
+                                "name": "Superalgos Platform Feature Class",
+                                "config": "{}",
                                 "project": "Governance",
-                                "featureClaimsFolders": [],
-                                "featureContributionClaims": [
+                                "featureClaimsFolders": [
                                     {
-                                        "type": "Feature Contribution Claim",
-                                        "name": "",
+                                        "type": "Feature Claims Folder",
+                                        "name": "New Features Feature Class",
                                         "config": "{}",
                                         "project": "Governance",
-                                        "id": "edf1a5c9-7802-4856-918c-3cd5a7a9caf7",
+                                        "featureClaimsFolders": [],
+                                        "featureContributionClaims": [
+                                            {
+                                                "type": "Feature Contribution Claim",
+                                                "name": "Governance System New Features",
+                                                "config": "\n{\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Topic\",\n        \"type\": \"Beta 11 Claim - Governance System\"\n    }\n}",
+                                                "project": "Governance",
+                                                "id": "92f0f22e-f631-482d-88b1-c16596bf951d",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 29494.475535657893,
+                                                        "y": 24940.44850837345
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 29510.176322530777,
+                                                        "y": 24640.85964794708
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Feature",
+                                                        "name": "Governance System",
+                                                        "id": "a5a7304e-155a-47d1-97f7-c50b88082000"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Features"
+                                                        ],
+                                                        [
+                                                            "Project Features",
+                                                            "Feature Class"
+                                                        ],
+                                                        [
+                                                            "Superalgos Platform",
+                                                            "Feature Class"
+                                                        ],
+                                                        [
+                                                            "New Features",
+                                                            "Feature Class"
+                                                        ],
+                                                        [
+                                                            "Governance System",
+                                                            "Feature"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Feature Contribution Claim",
+                                                "name": "API Maps New Features",
+                                                "config": "{\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Topic\",\n        \"type\": \"Beta 10 Claim - API Maps\"\n    }\n}\n",
+                                                "project": "Governance",
+                                                "id": "81c477e0-c9bf-4b25-a875-d265011a6136",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 29242.874365274267,
+                                                        "y": 24777.056797868943
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 29510.176322530777,
+                                                        "y": 24640.85964794708
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Feature",
+                                                        "name": "API Maps",
+                                                        "id": "28c5218d-3213-4a10-8e28-11d5ae460547"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Features"
+                                                        ],
+                                                        [
+                                                            "Project Features",
+                                                            "Feature Class"
+                                                        ],
+                                                        [
+                                                            "Superalgos Platform",
+                                                            "Feature Class"
+                                                        ],
+                                                        [
+                                                            "New Features",
+                                                            "Feature Class"
+                                                        ],
+                                                        [
+                                                            "API Maps",
+                                                            "Feature"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "id": "c4815ebe-d3a8-47fd-b204-936242bd8f40",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 31537.11737634404,
-                                                "y": 24053.34122923706
+                                                "x": 29510.176322530777,
+                                                "y": 24640.85964794708
                                             },
                                             "targetPosition": {
-                                                "x": 31237.528515917667,
-                                                "y": 24037.640442364176
+                                                "x": 29673.568033035284,
+                                                "y": 24389.258477563453
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
                                                 "isCollapsed": false,
-                                                "angleToParent": 1,
+                                                "angleToParent": 3,
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
@@ -12637,57 +12916,41 @@
                                                 "isRunning": false
                                             },
                                             "referenceParent": {
-                                                "type": "Feature",
-                                                "name": "Feature X",
-                                                "id": "1b9dd977-f388-4434-a3f9-2e7a10726848"
-                                            }
+                                                "type": "Feature Class",
+                                                "name": "New Features",
+                                                "id": "372acad9-fb7b-4ac7-9620-28a66ac9c40d"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Features"
+                                                ],
+                                                [
+                                                    "Project Features",
+                                                    "Feature Class"
+                                                ],
+                                                [
+                                                    "Superalgos Platform",
+                                                    "Feature Class"
+                                                ],
+                                                [
+                                                    "New Features",
+                                                    "Feature Class"
+                                                ]
+                                            ]
                                         }
                                     }
                                 ],
-                                "id": "ebad23ed-1a02-4edf-a9d7-fc4b2fd0dacb",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 31237.528515917667,
-                                        "y": 24037.640442364176
-                                    },
-                                    "targetPosition": {
-                                        "x": 30937.939655491296,
-                                        "y": 24021.939655491293
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 3,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Feature Class",
-                                        "name": "Data Mining",
-                                        "id": "025c0e15-ad8d-49ae-b501-577bb82c207d"
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Feature Claims Folder",
-                                "name": "Charting System Feature Class",
-                                "config": "{}",
-                                "project": "Governance",
-                                "featureClaimsFolders": [],
                                 "featureContributionClaims": [],
-                                "id": "e745f3cd-4cd9-421b-b9ab-f62650fb56f8",
+                                "id": "ba6b4ff8-396b-4a9d-95ba-a52d096ec9eb",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 31218.013783440456,
-                                        "y": 24129.450040354885
+                                        "x": 29673.568033035284,
+                                        "y": 24389.258477563453
                                     },
                                     "targetPosition": {
-                                        "x": 30937.939655491296,
-                                        "y": 24021.939655491293
+                                        "x": 29836.95974353979,
+                                        "y": 24137.657307179827
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -12702,79 +12965,23 @@
                                     },
                                     "referenceParent": {
                                         "type": "Feature Class",
-                                        "name": "Charting System",
-                                        "id": "7edc83c0-74fc-4427-816d-4db5d840577f"
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Feature Claims Folder",
-                                "name": "Visual Designer Feature Class",
-                                "config": "{}",
-                                "project": "Governance",
-                                "featureClaimsFolders": [],
-                                "featureContributionClaims": [],
-                                "id": "3ae7f0f9-be37-4e6c-b3b1-4343e51f80a9",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 31171.083443928386,
-                                        "y": 24210.735772806245
+                                        "name": "Superalgos Platform",
+                                        "id": "f83a751e-ff0c-49bd-a306-8b5ab6a8cc83"
                                     },
-                                    "targetPosition": {
-                                        "x": 30937.939655491296,
-                                        "y": 24021.939655491293
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 3,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Feature Class",
-                                        "name": "Visual Designer",
-                                        "id": "18584f3f-6e48-4a68-89f1-0268185156e9"
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Feature Claims Folder",
-                                "name": "Visual Debugger Feature Class",
-                                "config": "{}",
-                                "project": "Governance",
-                                "featureClaimsFolders": [],
-                                "featureContributionClaims": [],
-                                "id": "d8ab7844-f98f-4ce1-a634-c0ff98af28ca",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 31101.331365995804,
-                                        "y": 24273.54082587492
-                                    },
-                                    "targetPosition": {
-                                        "x": 30937.939655491296,
-                                        "y": 24021.939655491293
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 3,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Feature Class",
-                                        "name": "Visual Debugger",
-                                        "id": "0e329071-a542-405f-ae8c-2933098759c1"
-                                    }
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Features"
+                                        ],
+                                        [
+                                            "Project Features",
+                                            "Feature Class"
+                                        ],
+                                        [
+                                            "Superalgos Platform",
+                                            "Feature Class"
+                                        ]
+                                    ]
                                 }
                             }
                         ],
@@ -12782,17 +12989,17 @@
                         "id": "f8a482c4-dee0-475a-831b-7514fd255ba6",
                         "savedPayload": {
                             "position": {
-                                "x": 30937.939655491296,
-                                "y": 24021.939655491293
+                                "x": 29836.95974353979,
+                                "y": 24137.657307179827
                             },
                             "targetPosition": {
-                                "x": 30678.132034355964,
-                                "y": 23871.939655491293
+                                "x": 30000.3514540443,
+                                "y": 23886.0561367962
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": true,
+                                "isCollapsed": false,
                                 "angleToParent": 3,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -12830,12 +13037,12 @@
                     "id": "5011109c-3f87-471a-b786-5fd371f53853",
                     "savedPayload": {
                         "position": {
-                            "x": 30828.132034355964,
-                            "y": 24131.747276626626
+                            "x": 29733.04949678779,
+                            "y": 24022.253286718063
                         },
                         "targetPosition": {
-                            "x": 30678.132034355964,
-                            "y": 23871.939655491293
+                            "x": 30000.3514540443,
+                            "y": 23886.0561367962
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -12886,7 +13093,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 2,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

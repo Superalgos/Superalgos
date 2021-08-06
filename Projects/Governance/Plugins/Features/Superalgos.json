@@ -184,8 +184,8 @@
                                     "id": "a5a7304e-155a-47d1-97f7-c50b88082000",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 36129.909782242685,
-                                            "y": 38812.54181659865
+                                            "x": 36197.851875835884,
+                                            "y": 38707.92016710628
                                         },
                                         "targetPosition": {
                                             "x": 35917.77774788672,
@@ -214,8 +214,68 @@
                                     "id": "28c5218d-3213-4a10-8e28-11d5ae460547",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 35840.132034355964,
-                                            "y": 38890.187530129406
+                                            "x": 36081.16945839123,
+                                            "y": 38852.01095262631
+                                        },
+                                        "targetPosition": {
+                                            "x": 35917.77774788672,
+                                            "y": 38600.409782242685
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "name": "User Defined Variables and Code",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "featureClasses": [],
+                                    "features": [],
+                                    "id": "55e7b969-383c-4ae8-95c0-2dc18473404f",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 35902.07696101384,
+                                            "y": 38899.99864266906
+                                        },
+                                        "targetPosition": {
+                                            "x": 35917.77774788672,
+                                            "y": 38600.409782242685
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "name": "Tensor Flow Integration",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "featureClasses": [],
+                                    "features": [],
+                                    "id": "68388215-3e97-4864-9804-72e91ecff02b",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 35728.98163057177,
+                                            "y": 38833.553570679775
                                         },
                                         "targetPosition": {
                                             "x": 35917.77774788672,
@@ -273,7 +333,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": false,
+                            "isCollapsed": true,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -425,7 +485,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0

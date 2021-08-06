@@ -1,6 +1,7 @@
 function newFoundationsFunctionLibraryWorkspaceFunctions() {
     let thisObject = {
-        addMissingWorkspaceProjects: addMissingWorkspaceProjects
+        addMissingWorkspaceProjects: addMissingWorkspaceProjects,
+        checkForMissingReferences:  checkForMissingReferences
     }
 
     return thisObject
@@ -25,5 +26,9 @@ function newFoundationsFunctionLibraryWorkspaceFunctions() {
                 child.projectDefinition.config = "{ \n  \"codeName\": \"" + project + "\"\n}" 
             }
         }
+    }
+
+    function checkForMissingReferences() {
+        console.log("this action is working")
     }
 }

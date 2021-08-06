@@ -12,22 +12,143 @@
             "featureClasses": [
                 {
                     "type": "Feature Class",
-                    "name": "Superalgos Algo-traders Platform",
+                    "name": "Superalgos Platform",
                     "config": "{}",
                     "project": "Governance",
                     "featureClasses": [
                         {
                             "type": "Feature Class",
-                            "name": "Charting System",
+                            "name": "Existing Features",
                             "config": "{}",
                             "project": "Governance",
                             "featureClasses": [],
-                            "features": [],
-                            "id": "02848ef4-c9b9-40aa-8a3c-47f15ebea53f",
+                            "features": [
+                                {
+                                    "type": "Feature",
+                                    "name": "Charting System",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "featureClasses": [],
+                                    "features": [],
+                                    "id": "992fe8ce-bd27-4857-900c-e0330b7ccc51",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 36272.63568645637,
+                                            "y": 37996.39973758739
+                                        },
+                                        "targetPosition": {
+                                            "x": 36136.43853653451,
+                                            "y": 38263.7016948439
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "name": "Data Mining",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "featureClasses": [],
+                                    "features": [],
+                                    "id": "afa546fa-799b-4c50-baa3-65c8409aaab9",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 36403.74049379102,
+                                            "y": 38127.504544922034
+                                        },
+                                        "targetPosition": {
+                                            "x": 36136.43853653451,
+                                            "y": 38263.7016948439
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "name": "Visual Designer",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "featureClasses": [],
+                                    "features": [],
+                                    "id": "b88a3b22-7060-45c8-90bd-57ec53e95c4f",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 36432.74503871305,
+                                            "y": 38310.632034355964
+                                        },
+                                        "targetPosition": {
+                                            "x": 36136.43853653451,
+                                            "y": 38263.7016948439
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "name": "Visual Debugger",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "featureClasses": [],
+                                    "features": [],
+                                    "id": "f713d118-f53a-4fc6-9b39-9e8717c4bd6f",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 36348.57057089047,
+                                            "y": 38475.83372919986
+                                        },
+                                        "targetPosition": {
+                                            "x": 36136.43853653451,
+                                            "y": 38263.7016948439
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "b46ffee0-7c89-4155-8450-678d7cea24f8",
                             "savedPayload": {
                                 "position": {
-                                    "x": 36136.43853653451,
-                                    "y": 38263.7016948439
+                                    "x": 36129.909782242685,
+                                    "y": 38388.27774788672
                                 },
                                 "targetPosition": {
                                     "x": 35840.132034355964,
@@ -36,7 +157,7 @@
                                 "floatingObject": {
                                     "isPinned": false,
                                     "isFrozen": false,
-                                    "isCollapsed": false,
+                                    "isCollapsed": true,
                                     "angleToParent": 2,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
@@ -48,76 +169,77 @@
                         },
                         {
                             "type": "Feature Class",
-                            "name": "Data Mining",
+                            "name": "New Features",
                             "config": "{}",
                             "project": "Governance",
                             "featureClasses": [],
-                            "features": [],
-                            "id": "13c737ea-7b4c-4f8c-b1d5-e619904c6ab3",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 36107.43399161247,
-                                    "y": 38446.82918427783
+                            "features": [
+                                {
+                                    "type": "Feature",
+                                    "name": "Governance System",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "featureClasses": [],
+                                    "features": [],
+                                    "id": "a5a7304e-155a-47d1-97f7-c50b88082000",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 36129.909782242685,
+                                            "y": 38812.54181659865
+                                        },
+                                        "targetPosition": {
+                                            "x": 35917.77774788672,
+                                            "y": 38600.409782242685
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
                                 },
-                                "targetPosition": {
-                                    "x": 35840.132034355964,
-                                    "y": 38310.632034355964
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
+                                {
+                                    "type": "Feature",
+                                    "name": "API Maps",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "featureClasses": [],
+                                    "features": [],
+                                    "id": "28c5218d-3213-4a10-8e28-11d5ae460547",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 35840.132034355964,
+                                            "y": 38890.187530129406
+                                        },
+                                        "targetPosition": {
+                                            "x": 35917.77774788672,
+                                            "y": 38600.409782242685
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
                                 }
-                            }
-                        },
-                        {
-                            "type": "Feature Class",
-                            "name": "Visual Designer",
-                            "config": "{}",
-                            "project": "Governance",
-                            "featureClasses": [],
-                            "features": [],
-                            "id": "9247390f-4ac1-42da-855c-730052bb7f4c",
+                            ],
+                            "id": "372acad9-fb7b-4ac7-9620-28a66ac9c40d",
                             "savedPayload": {
                                 "position": {
-                                    "x": 35976.32918427783,
-                                    "y": 38577.93399161247
-                                },
-                                "targetPosition": {
-                                    "x": 35840.132034355964,
-                                    "y": 38310.632034355964
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        },
-                        {
-                            "type": "Feature Class",
-                            "name": "Visual Debugger",
-                            "config": "{}",
-                            "project": "Governance",
-                            "featureClasses": [],
-                            "features": [],
-                            "id": "549e88f0-a000-4078-b0b9-6846c5e798ef",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 35793.2016948439,
-                                    "y": 38606.93853653451
+                                    "x": 35917.77774788672,
+                                    "y": 38600.409782242685
                                 },
                                 "targetPosition": {
                                     "x": 35840.132034355964,
@@ -151,7 +273,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -166,46 +288,106 @@
                     "name": "Superalgos Mobile App",
                     "config": "{}",
                     "project": "Governance",
-                    "featureClasses": [],
-                    "features": [
+                    "featureClasses": [
                         {
-                            "type": "Feature",
-                            "name": "Android Mobile App",
+                            "type": "Feature Class",
+                            "name": "Needed Features",
                             "config": "{}",
                             "project": "Governance",
                             "featureClasses": [],
-                            "features": [],
-                            "id": "22e0864c-5a2a-40b5-a24d-fe46cde7dd64",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 35840.132034355964,
-                                    "y": 38610.632034355964
+                            "features": [
+                                {
+                                    "type": "Feature",
+                                    "name": "Android Mobile App",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "featureClasses": [],
+                                    "features": [],
+                                    "id": "22e0864c-5a2a-40b5-a24d-fe46cde7dd64",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 35840.132034355964,
+                                            "y": 38910.632034355964
+                                        },
+                                        "targetPosition": {
+                                            "x": 35628,
+                                            "y": 38698.5
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
                                 },
-                                "targetPosition": {
-                                    "x": 35628,
-                                    "y": 38398.5
+                                {
+                                    "type": "Feature",
+                                    "name": "iOS Mobile App",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "featureClasses": [],
+                                    "features": [],
+                                    "id": "dc029fe2-d4f7-46a1-908d-3d3251af002e",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 35628,
+                                            "y": 38998.5
+                                        },
+                                        "targetPosition": {
+                                            "x": 35628,
+                                            "y": 38698.5
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
                                 },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
+                                {
+                                    "type": "Feature",
+                                    "name": "Huawei Mobile App",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "featureClasses": [],
+                                    "features": [],
+                                    "id": "198f47fc-61bd-41a1-9b2f-7bc1bea082f9",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 35415.867965644036,
+                                            "y": 38910.632034355964
+                                        },
+                                        "targetPosition": {
+                                            "x": 35628,
+                                            "y": 38698.5
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
                                 }
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "name": "iOS Mobile App",
-                            "config": "{}",
-                            "project": "Governance",
-                            "featureClasses": [],
-                            "features": [],
-                            "id": "dc029fe2-d4f7-46a1-908d-3d3251af002e",
+                            ],
+                            "id": "243a3f35-62a2-4193-ab19-da643accd275",
                             "savedPayload": {
                                 "position": {
                                     "x": 35628,
@@ -227,38 +409,9 @@
                                     "isRunning": false
                                 }
                             }
-                        },
-                        {
-                            "type": "Feature",
-                            "name": "Huawei Mobile App",
-                            "config": "{}",
-                            "project": "Governance",
-                            "featureClasses": [],
-                            "features": [],
-                            "id": "198f47fc-61bd-41a1-9b2f-7bc1bea082f9",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 35415.867965644036,
-                                    "y": 38610.632034355964
-                                },
-                                "targetPosition": {
-                                    "x": 35628,
-                                    "y": 38398.5
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
                         }
                     ],
+                    "features": [],
                     "id": "f193b1f9-c97d-4831-87b4-defe9f6aab9a",
                     "savedPayload": {
                         "position": {
@@ -272,7 +425,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": false,
+                            "isCollapsed": true,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -287,16 +440,46 @@
                     "name": "Superalgos P2P Network",
                     "config": "{}",
                     "project": "Governance",
-                    "featureClasses": [],
-                    "features": [
+                    "featureClasses": [
                         {
-                            "type": "Feature",
-                            "name": "Node.js Implementation",
+                            "type": "Feature Class",
+                            "name": "Needed Features",
                             "config": "{}",
                             "project": "Governance",
                             "featureClasses": [],
-                            "features": [],
-                            "id": "bda64809-41d7-41a8-9166-792a6df000e1",
+                            "features": [
+                                {
+                                    "type": "Feature",
+                                    "name": "Node.js Implementation",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "featureClasses": [],
+                                    "features": [],
+                                    "id": "bda64809-41d7-41a8-9166-792a6df000e1",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 34991.60389693211,
+                                            "y": 38734.89610306789
+                                        },
+                                        "targetPosition": {
+                                            "x": 35203.73593128807,
+                                            "y": 38522.76406871193
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "0253c529-e28f-43b5-8b3a-a86abb38dc4a",
                             "savedPayload": {
                                 "position": {
                                     "x": 35203.73593128807,
@@ -320,6 +503,7 @@
                             }
                         }
                     ],
+                    "features": [],
                     "id": "e205d4f2-140e-4d4b-a839-e37a6537dfa9",
                     "savedPayload": {
                         "position": {
@@ -333,7 +517,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": false,
+                            "isCollapsed": true,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0

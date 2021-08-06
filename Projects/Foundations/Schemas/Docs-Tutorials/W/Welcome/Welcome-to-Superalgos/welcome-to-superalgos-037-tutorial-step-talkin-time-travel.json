@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Talkin' Time Travel",
     "definition": {
         "icon": {
-            "name": "Time\\time-machine",
+            "name": "time\\time-machine",
             "project": "Foundations"
         },
         "text": "I mentioned earlier there are two charts in this workspace. In Superalgos, we call each of these a Time Machine.",

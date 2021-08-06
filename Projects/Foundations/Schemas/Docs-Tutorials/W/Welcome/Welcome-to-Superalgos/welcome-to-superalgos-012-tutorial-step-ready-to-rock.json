@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Ready to Rock?",
     "definition": {
         "icon": {
-            "name": "Data\\data-tasks",
+            "name": "data\\data-tasks",
             "project": "Foundations"
         },
         "text": "The Data Tasks node controls all the data mining tasks defined for this Network Node.",

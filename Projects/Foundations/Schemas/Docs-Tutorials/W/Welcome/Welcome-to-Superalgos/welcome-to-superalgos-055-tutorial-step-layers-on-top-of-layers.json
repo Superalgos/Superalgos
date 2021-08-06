@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Layers on Top of Layers",
     "definition": {
         "icon": {
-            "name": "Layer\\layer",
+            "name": "layer\\layer",
             "project": "Foundations"
         },
         "text": "Your data mining operation features bots making data products. Each product is made available on the charts through a Layer in a Layer Manager.",

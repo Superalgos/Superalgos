@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Back in Time",
     "definition": {
         "icon": {
-            "name": "Time\\time-machine",
+            "name": "time\\time-machine",
             "project": "Foundations"
         },
         "text": "This is the Charting Space hierarchy setup of the Time Machine we've been playing with on the charts.",

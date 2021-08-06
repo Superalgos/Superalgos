@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Use Chrome or Safari!",
     "definition": {
         "icon": {
-            "name": "Bullet\\bullet-warning",
+            "name": "bullet\\bullet-warning",
             "project": "Foundations"
         },
         "text": "When running the frontend, use Chrome, or Safari on Mac! We are not testing on any other browsers!",

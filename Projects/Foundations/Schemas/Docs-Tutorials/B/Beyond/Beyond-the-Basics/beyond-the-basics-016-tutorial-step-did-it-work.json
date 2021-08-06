@@ -5,7 +5,7 @@
     "definition": {
         "text": "If you didn't mess up the command, you should get a new page with the title you set, an invitation to write a summary, and more instructions below!",
         "icon": {
-            "name": "Docs/docs-action-edit-paragraph",
+            "name": "docs-action-edit-paragraph",
             "project": "Foundations"
         },
         "updated": 1616875304376,

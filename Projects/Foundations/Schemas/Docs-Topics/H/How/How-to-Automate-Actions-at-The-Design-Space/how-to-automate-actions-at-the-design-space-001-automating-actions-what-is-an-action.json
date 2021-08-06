@@ -14,8 +14,8 @@
         },
         {
             "style": "Text",
-            "text": "Maybe you realized that you are doing repetitive actions at the Design Space and you can benefit from automating them. If your actions are constrained to manipulating the nodes at the workspace, by either creating new nodes, deleting existing ones, changing nodes configs, establishing references or some other similar stuff, then you might be able to create an Action function that can automate all this. This will allow you to stop doing those repetitive tasks youself and the ones that will come after you if you contribute these changes to the project.",
-            "updated": 1614940379811
+            "text": "Maybe you realized that you are doing repetitive actions at the Design Space and you can benefit from automating them. If your actions are constrained to manipulating the nodes at the workspace, by either creating new nodes, deleting existing ones, changing nodes configs, establishing references or something similar, then you might be able to create an Action function that can automate all this. This will allow you to complete the action with the click of a button and stop doing those repetitive tasks youself. Not to mention help make Superalgos easier to use for everyone once you contribute your action!",
+            "updated": 1628255167092
         },
         {
             "style": "Title",
@@ -23,8 +23,8 @@
         },
         {
             "style": "Text",
-            "text": "New Actions are implemented as functions inside a Function Library. So the basic workflow to implement a new Action is the following:",
-            "updated": 1614940407806
+            "text": "New Actions are implemented as functions inside a Function Library. So the basic workflow to implement a new Action is as follows:",
+            "updated": 1628255279553
         },
         {
             "style": "List",
@@ -43,8 +43,8 @@
         },
         {
             "style": "List",
-            "text": "Connect Menu Item to your Code: Finally you will connect the Menu Item to that function you wrote.",
-            "updated": 1614940545908
+            "text": "Connect Menu Item to your Code: Finally you will connect the Menu Item to the function you wrote.",
+            "updated": 1628255317721
         }
     ]
 }

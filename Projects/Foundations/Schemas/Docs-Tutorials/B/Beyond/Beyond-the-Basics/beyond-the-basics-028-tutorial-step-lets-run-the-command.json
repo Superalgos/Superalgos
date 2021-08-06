@@ -6,7 +6,7 @@
         "text": "Let's get on with the task at hand! Copy the command below, paste it on the search/command box, and hit Enter!",
         "updated": 1610912478164,
         "icon": {
-            "name": "Docs/docs-json-code-style",
+            "name": "docs-json-code-style",
             "project": "Foundations"
         },
         "translations": [
@@ -15,6 +15,11 @@
                 "text": "Copia il comando sotto, incollalo nella barra e premi Enter!",
                 "updated": 1619637655966,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Sigamos con la tarea que tenemos entre manos! Copia el comando a continuación, pégalo en el cuadro de búsqueda / comando y presiona Enter!",
+                "updated": 1628197068338
             }
         ]
     },
@@ -34,6 +39,11 @@
                     "text": "Su Windows, un pop-up ti richiede l'autenticazione via token o password. Dovrebbe funzionare in entrambi i modi! Ricorda che è richiesta l'ultima versione di Git. Se hai problemi con quella, riavviare il pc può aiutare. Sul Mac, il Terminale potrebbe chiederti le credenziali. Se hai attivato l'autenticazione a due fattori su Github, usa il token anche se ti viene chiesta la password!",
                     "updated": 1619637781318,
                     "style": "Important"
+                },
+                {
+                    "language": "ES",
+                    "text": "En Windows, aparece un cuadro de inicio de sesión de GitHub que ofrece la posibilidad de autenticarse con un token o contraseña. ¡Cualquiera debería funcionar! ¡Se requiere la última versión de Git! Si tienes problemas, reiniciar la PC puede ayudar. En Mac y Linux, es la Terminal la que solicita las credenciales. Si habilitaste la autenticación de dos factores en GitHub, usa el token incluso si se le solicita la contraseña.",
+                    "updated": 1628198214740
                 }
             ]
         }

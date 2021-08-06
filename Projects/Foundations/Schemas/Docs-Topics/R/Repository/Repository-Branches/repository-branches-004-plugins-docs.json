@@ -4,7 +4,14 @@
     "type": "Plugins-Docs",
     "definition": {
         "text": "The branch Plugins-Docs is used by contributors of Plugins, documentations or tutorials. This branch in syncronized with Develop and Master everytime a new version is released, and it's purpose is to allow the flow of docs pages, plugins and tutorials into the master branch at a higher rate than changes at the codebase done at the Develop branch. This means that the Master branch might have many updates in between releases.",
-        "updated": 1622467789596
+        "updated": 1622467789596,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "La rama Plugins-Docs es utilizada por los contribuyentes de Plugins, documentaciones o tutoriales. Esta rama está sincronizada con Develop y Master cada vez que se lanza una nueva versión, y su propósito es permitir el flujo de páginas de documentos, plugins ay tutoriales en la Master Branch a un ritmo mayor que los cambios en la base de código realizados en el la rama Develop. This means that the Master Branch puede tener muchas actualizaciones entre lanzamientos.",
+                "updated": 1628203486790
+            }
+        ]
     },
     "paragraphs": [
         {

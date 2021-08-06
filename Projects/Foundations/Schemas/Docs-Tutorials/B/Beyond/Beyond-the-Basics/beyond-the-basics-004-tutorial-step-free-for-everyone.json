@@ -15,6 +15,11 @@
                 "text": "Superalgos è un progetto basato sulla Community! Rendiamo il software disponibile a tutti gratuitamente, ma chiediamo qualcosa in cambio...il tuo aiuto!",
                 "updated": 1619631895640,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Superalgos es un proyecto comunitario! Ponemos el software a disposición de todos de forma gratuita, pero pedimos algo a cambio ... ¡Tu ayuda!",
+                "updated": 1628114247399
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Come fa Superalgos ad essere gratis? Dove sta il trucco? Ecco la storia...",
                     "updated": 1619631920615,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Cómo puede ser gratuito Superalgos? ¿Cuál es el truco? ¡Recibimos esas preguntas a menudo! ",
+                    "updated": 1628114531768
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Superalgos è iniziato con un gruppo di amici che hanno unito le forze per automatizzare il loro trading di crypto!",
                     "updated": 1619631952862,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Superalgos comenzó con un grupo de amigos que unieron fuerzas para automatizar crypto trading!",
+                    "updated": 1628114508545
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "Gli amici presto realizzarono che per competere con i top del mercato era necessaria una notevole infrastruttura software, che fosse al pari o migliore dei software proprietari usati dalle aziende. Un lavoro simile non poteva essere portato a termine da un piccolo team, almeno non in un intervallo di tempo ragionevole.",
                     "updated": 1619632081107,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Para competir con los jugadores top del mercado se necesitaba una enorme infraestructura de software. El sistema tenía que estar a la par o mejor que el software comercial y propietario disponible para las empresas. Un equipo pequeño no podría cumplir con estos requisitos, al menos no en un plazo razonable. ",
+                    "updated": 1628116653688
                 }
             ]
         }

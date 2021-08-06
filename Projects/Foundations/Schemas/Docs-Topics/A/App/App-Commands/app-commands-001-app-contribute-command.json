@@ -4,7 +4,14 @@
     "type": "App Contribute Command",
     "definition": {
         "text": "This command allows you to contribute work to the project. The contribution goes to the Superalgos repository via a Pull Request from your Superalgos fork.",
-        "updated": 1610909304702
+        "updated": 1610909304702,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este comando te permite contribuir con trabajo al proyecto. El aporte va al repositorio de Superalgos a través de un Pull Request de tu fork de Superalgos.",
+                "updated": 1628205171216
+            }
+        ]
     },
     "paragraphs": [
         {

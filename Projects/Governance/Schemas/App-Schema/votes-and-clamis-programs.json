@@ -1,5 +1,5 @@
 {
-    "type": "Staking Program",
+    "type": "Votes And Claims Programs",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,11 +11,20 @@
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "tokensAwarded",
             "actionFunction": "payload.executeAction",
-            "label": "Add Tokens Awarded",
-            "relatedUiObject": "Tokens Awarded"
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "votingProgram",
+            "label": "Add Voting Program",
+            "relatedUiObject": "Voting Program"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "claimsProgram",
+            "label": "Add Claims Program",
+            "relatedUiObject": "Claims Program"
         },
         {
             "action": "Delete UI Object",
@@ -34,18 +43,24 @@
     "initialValues": {
         "config": "{}"
     },
-    "attachingRules": {
-        "compatibleTypes": "->Financial Programs->"
-    },
     "addLeftIcons": true,
-    "level": 1,
-    "propertyNameAtParent": "stakingProgram",
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Token Power Switch->"
+    },
+    "propertyNameAtParent": "votesAndClaimsPrograms",
     "childrenNodesProperties": [
         {
-            "name": "tokensAwarded",
+            "name": "votingProgram",
             "type": "node",
-            "childType": "Tokens Awarded",
-            "autoAdd": true
+            "childType": "Voting Program",
+            "autoAdd": false
+        },
+        {
+            "name": "claimsProgram",
+            "type": "node",
+            "childType": "Claims Program",
+            "autoAdd": false
         }
     ]
 }

@@ -1,5 +1,5 @@
 {
-    "type": "Staking Program",
+    "type": "Onboarding Programs",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,11 +11,20 @@
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "tokensAwarded",
             "actionFunction": "payload.executeAction",
-            "label": "Add Tokens Awarded",
-            "relatedUiObject": "Tokens Awarded"
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "airdropProgram",
+            "label": "Add Airdrop Program",
+            "relatedUiObject": "Airdrop Program"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "githubProgram",
+            "label": "Add Github Program",
+            "relatedUiObject": "Github Program"
         },
         {
             "action": "Delete UI Object",
@@ -34,18 +43,24 @@
     "initialValues": {
         "config": "{}"
     },
-    "attachingRules": {
-        "compatibleTypes": "->Financial Programs->"
-    },
     "addLeftIcons": true,
-    "level": 1,
-    "propertyNameAtParent": "stakingProgram",
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Token Power Switch->"
+    },
+    "propertyNameAtParent": "onboardingPrograms",
     "childrenNodesProperties": [
         {
-            "name": "tokensAwarded",
+            "name": "airdropProgram",
             "type": "node",
-            "childType": "Tokens Awarded",
-            "autoAdd": true
+            "childType": "Airdrop Program",
+            "autoAdd": false
+        },
+        {
+            "name": "githubProgram",
+            "type": "node",
+            "childType": "Github Program",
+            "autoAdd": false
         }
     ]
 }

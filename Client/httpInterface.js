@@ -1382,10 +1382,10 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         } else {
                                             console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Merge Succed -> Pull Request "' + pullRequest.title + '" successfully merged. -> mergeResponse.message = ' + mergeResponse.data.message)
                                             await sleep(GITHUB_API_WAITING_TIME)
-                                            await octokit.rest.pulls.createReviewComment({
+                                            await octokit.rest.issues.createComment({
                                                 owner: owner,
                                                 repo: repo,
-                                                pull_number: pullRequest.number,
+                                                issue_number: pullRequest.number,
                                                 body: 'This Pull Request was automatically merged by Superalgos because it was detected that a Github Username modified its own User Profile plugin file and nothning else but that file. All validations ran were successfull.' 
                                             }); 
                                             continue

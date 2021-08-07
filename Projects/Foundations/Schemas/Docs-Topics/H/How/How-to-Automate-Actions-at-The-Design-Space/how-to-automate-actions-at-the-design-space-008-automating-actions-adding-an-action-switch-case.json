@@ -3,8 +3,8 @@
     "pageNumber": 8,
     "type": "Automating Actions - Adding an Action Switch Case",
     "definition": {
-        "text": "This steps create the mapping betwheen the actionFunction name you defined at the Menu Item of the node that can trigger your Action, and the function you coded inside a Function Library that will execute the code for the new Action. ",
-        "updated": 1614941772231
+        "text": "This step creates the mapping between the actionFunction name you defined at the Menu Item of the node to can trigger your Action, and the function you coded inside a Function Library that will execute the code for the new Action.",
+        "updated": 1628258863939
     },
     "paragraphs": [
         {
@@ -18,8 +18,8 @@
         },
         {
             "style": "Text",
-            "text": "Find within the list of cases some of the cases pointint to the same Function Library your new Action is hosted at, so that you can add a new case together with the rest.",
-            "updated": 1614937904095
+            "text": "Find within the list of cases some of the cases pointing to the same Function Library your new Action is hosted at, so that you can add a new case together with the rest.",
+            "updated": 1628258889849
         },
         {
             "style": "Title",
@@ -37,8 +37,12 @@
         },
         {
             "style": "Success",
-            "text": "As you can see will you most likely be sending the node and rootNodes parameters into your Action function. You might want to also send other parameters from data you might find into the action object available to you at that point.",
-            "updated": 1614938157839
+            "text": "As you can see you will most likely be sending the node and rootNodes parameters into your Action function. However, you might want to also send other parameters with data you find available within the system at this point into the action object.  ",
+            "updated": 1628259076042
+        },
+        {
+            "style": "Note",
+            "text": "Setting a breakpoint here within Chrome's devTools is a convenient way to check the system for available data. "
         },
         {
             "style": "Text",

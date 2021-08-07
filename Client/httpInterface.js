@@ -1362,7 +1362,23 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         let config = JSON.parse(userProfile.config)
                                         let messageSigned = config.signature.message
                                         if (messageSigned !== githubUsername) {
-                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #4 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the Messaged Signed at the User Profile. -> Github Username = ' + githubUsername + '-> messageSigned = ' + messageSigned)
+                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #4 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the Message Signed at the User Profile. -> Github Username = ' + githubUsername + '-> messageSigned = ' + messageSigned)
+                                            
+                                            await sleep(GITHUB_API_WAITING_TIME)
+                                            await octokit.rest.issues.createComment({
+                                                owner: owner,
+                                                repo: repo,
+                                                issue_number: pullRequest.number,
+                                                body: 'This Pull Request could not be automatically merged by the Superalgos Governance System because it was detected that the Github User " ' + githubUsername + '" who submitted it, is not equal to the Message Signed at the User Profile. messageSigned = "' + messageSigned + '"' 
+                                            }); 
+
+                                            await sleep(GITHUB_API_WAITING_TIME)
+                                            await octokit.rest.pulls.update({
+                                                owner: owner,
+                                                repo: repo,
+                                                pull_number: pullRequest.number,
+                                                state: 'closed'
+                                            });
                                             continue
                                         }
                                         /*
@@ -1386,7 +1402,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                                 owner: owner,
                                                 repo: repo,
                                                 issue_number: pullRequest.number,
-                                                body: 'This Pull Request was automatically merged by Superalgos because it was detected that a Github Username modified its own User Profile plugin file and nothning else but that file. All validations ran were successfull.' 
+                                                body: 'This Pull Request was automatically merged by the Superalgos Governance System because it was detected that a Github User " ' + githubUsername + '" who submitted it, modified its own User Profile Plugin File and nothning else but that file. All validations were successfull.' 
                                             }); 
                                             continue
                                         }

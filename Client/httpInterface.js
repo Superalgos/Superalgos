@@ -1341,7 +1341,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                                         owner: owner,
                                                         repo: repo,
                                                         issue_number: pullRequest.number,
-                                                        body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that a User Profile file... \n\n' + fileContentUrl + '\n\n...was submitted together with  ' + (listResponse.data.length - 1)+ ' other file/s. User Profiles files as per the Governance System rules, must be the only file present at a Pull Request in order to pass all the validations and be automatically merged.'
+                                                        body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that a User Profile file... \n\n' + fileContentUrl + '\n\n...was submitted together with  ' + (listResponse.data.length - 1) + ' other file/s. User Profiles files as per the Governance System rules, must be the only file present at a Pull Request in order to pass all the validations and be automatically merged.'
                                                     });
 
                                                     await sleep(GITHUB_API_WAITING_TIME)
@@ -1365,7 +1365,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         if (fileContentUrl.indexOf('Governance/Plugins/User-Profiles') < 0) {
                                             console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified at the Pull Request it not a User Profile file. -> fileContentUrl = ' + fileContentUrl)
                                             continue
-                                        } 
+                                        }
 
                                         let splittedURL = fileContentUrl.split('/')
                                         let fileName = splittedURL[splittedURL.length - 1]
@@ -1375,7 +1375,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                                         if (githubUsername !== fileName) {
                                             console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the File Name. -> Github Username = ' + githubUsername + '-> fileName = ' + fileName)
-                                            
+
                                             await sleep(GITHUB_API_WAITING_TIME)
                                             await octokit.rest.issues.createComment({
                                                 owner: owner,
@@ -1432,6 +1432,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         /*
                                         All validations passed, we will proceed an merge this Pull Request.
                                         */
+                                        continue
                                         await sleep(GITHUB_API_WAITING_TIME)
                                         let mergeResponse = await octokit.rest.pulls.merge({
                                             owner: owner,

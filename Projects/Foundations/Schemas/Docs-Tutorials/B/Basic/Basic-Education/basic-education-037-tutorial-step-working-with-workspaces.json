@@ -1,0 +1,75 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 37,
+    "type": "Tutorial Step - Working with Workspaces",
+    "definition": {
+        "text": "You may think of a workspace as a stage in a theatre. It is the setting on which something will play out!",
+        "icon": {
+            "name": "workspace",
+            "project": "Foundations"
+        },
+        "updated": 1615893942449,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Puoi vedere il Workspace come il palco di un teatro. È il luogo dove qualcosa andrà in scena!",
+                "updated": 1619546463150,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You may set up as many workspaces as you like, each of them for specific use cases. For example:",
+            "updated": 1615904641004,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi configurare quanti workspace vuoi, ognuno per uno specifico utilizzo. Per esempio:",
+                    "updated": 1619546502168,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "You may have a workspace to build a Trading System that will need specific indicators from a specific Data Mine.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi avere un workspace per costruire un Trading System che ha bisogno di specifici indicatori da specifici Data Mine.",
+                    "updated": 1619546574933,
+                    "style": "List"
+                }
+            ],
+            "updated": 1622374580811
+        },
+        {
+            "style": "List",
+            "text": "You may have another workspace setup with all the available indicators so that you may study how each of them works.",
+            "updated": 1615904707330,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi avere un altro workspace con tutti gli indicatori disponibili così da studiare come funziona ognuno di essi.",
+                    "updated": 1619546609509,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Read this page to learn the basics about how to deal with workspaces...",
+            "updated": 1615904777283,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Leggi questa pagina per imparare le basi su come lavorare con i workspaces...",
+                    "updated": 1619546636057,
+                    "style": "Callout"
+                }
+            ]
+        }
+    ]
+}

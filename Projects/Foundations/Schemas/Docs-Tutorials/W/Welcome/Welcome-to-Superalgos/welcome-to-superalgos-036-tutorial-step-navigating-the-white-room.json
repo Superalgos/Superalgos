@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Navigating the White Room",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "mouse-right-click"
+            "name": "Mouse\\mouse-right-click",
+            "project": "Foundations"
         },
         "text": "Just like the design space, the charting space features a huge area where you may set up charts... as many as your hardware can cope with!",
         "translations": [

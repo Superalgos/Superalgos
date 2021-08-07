@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Unlocking Time!",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "time-scale"
+            "name": "Time\\time-scale",
+            "project": "Foundations"
         },
         "text": "The reason why you can't move is that scales are locked in the automatic mode so that you may easily find the data after your first data mining operation.",
         "translations": [
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "No puedes moverte porque las escalas están bloqueadas en el modo automático para que puedas encontrar fácilmente los datos después de tu primera operación de minería de datos.",
-                "updated": 1624404740730
+                "updated": 1624404740730,
+                "style": "Definition"
             }
         ]
     },
@@ -36,7 +37,8 @@
                 {
                     "language": "ES",
                     "text": "Fijar el Time Scale en automático fuerza todo el rango de fecha y hora de los datos disponibles al gráfico.",
-                    "updated": 1624404973090
+                    "updated": 1624404973090,
+                    "style": "Text"
                 }
             ]
         },
@@ -53,7 +55,8 @@
                 {
                     "language": "ES",
                     "text": "Para alternar entre los modos automáticos y el manual, presiona Shift y haz un suave giro de un paso con la rueda del mouse en la parte superior del cuadro de escala de tiempo. O bien, también puedes colocar el mouse sobre el cuadro de escala y presionar ↑ ↓.",
-                    "updated": 1624405351031
+                    "updated": 1624405351031,
+                    "style": "Callout"
                 }
             ],
             "updated": 1622199287763
@@ -72,7 +75,8 @@
                 {
                     "language": "ES",
                     "text": "Ahora deberías poder moverte libremente en el eje X, es decir, el eje de tiempo del gráfico.",
-                    "updated": 1624405847740
+                    "updated": 1624405847740,
+                    "style": "Text"
                 }
             ]
         }

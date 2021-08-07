@@ -4,8 +4,8 @@
     "type": "Tutorial Step - What Else Is Cooking?",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "ethereum"
+            "name": "Crypto-Assets\\ethereum",
+            "project": "Foundations"
         },
         "text": "Superalgos is a multi-project platform, and —after TensorFlow— the Ethereum integration is next in line...",
         "updated": 1616695001060,
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Superalgos es una plataforma multiproyecto y, después de TensorFlow, la integración de Ethereum es la siguiente en la línea ...",
-                "updated": 1624487518684
+                "updated": 1624487518684,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "¿Qué significa integrar Ethereum? Significa que, en versiones futuras, podrás:",
-                    "updated": 1624487553387
+                    "updated": 1624487553387,
+                    "style": "Text"
                 }
             ]
         },
@@ -55,7 +57,8 @@
                 {
                     "language": "ES",
                     "text": "Conectarte a un nodo Ethereum directamente desde Superalgos utilizando la interfaz visual.",
-                    "updated": 1624487598081
+                    "updated": 1624487598081,
+                    "style": "List"
                 }
             ]
         },
@@ -73,7 +76,8 @@
                 {
                     "language": "ES",
                     "text": "Extraer datos de blockchain para acceder a información de monedas y contratos para todos los proyectos basados ​​en Ethereum, incluido De-Fi o lo que sea, visualizando datos en los gráficos, construyendo indicadores y aprovechando el resto de la infraestructura de Superalgos.",
-                    "updated": 1624487654036
+                    "updated": 1624487654036,
+                    "style": "List"
                 }
             ]
         },
@@ -90,7 +94,8 @@
                 {
                     "language": "ES",
                     "text": "¡Utilizar los datos para comerciar consumiendo indicadores relacionados desde dentro de los sistemas de trading!",
-                    "updated": 1624487724120
+                    "updated": 1624487724120,
+                    "style": "List"
                 }
             ]
         }

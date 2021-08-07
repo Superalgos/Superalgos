@@ -1,0 +1,36 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 46,
+    "type": "Tutorial Step - Starting From a Plugin",
+    "definition": {
+        "text": "A typical case is when you wish to introduce changes to a strategy shipping with the system to start with a proven setup!",
+        "icon": {
+            "name": "Trading\\trading-system",
+            "project": "Foundations"
+        },
+        "updated": 1615995229226,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Uno scenario tipico è modificare una strategia inclusa nel sistema per iniziare con un setup già pronto.",
+                "updated": 1619590461442,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's say you are just starting with Superalgos, did a few tutorials, and are ready to start playing with a strategy. You want to start with an existing strategy and introduce minor modifications to better understand how things work. The strategy in question is included as a plugin in a specific workspace. Simply enable saving and you are good to go!",
+            "updated": 1628349943318,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Mettiamo che hai completato i tutorial di Superalgos e sei pronto a sperimentare con una strategia. Vuoi iniziare da una strategia esistente e modificare qualche dettaglio per capire meglio come funziona il tutto. La strategia in questione è inclusa come un plugin in uno specifico workspace.",
+                    "updated": 1619590579206,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

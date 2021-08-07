@@ -1,0 +1,62 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 41,
+    "type": "Tutorial Step - How Plugins Work",
+    "definition": {
+        "text": "Find the Plugin Trading Systems node and expand it! Note the Plugin File node named Masters-Lightning-Strike...",
+        "icon": {
+            "name": "expand-structure-of-nodes",
+            "project": "Foundations"
+        },
+        "updated": 1615919140092,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Cerca il nodo Plugin Trading Systems e espandilo! Vedrai un nodo Plugin File chiamato Masters-Lightning-Strike...",
+                "updated": 1619554497047,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Lightning Strike is the demo Trading System you've been playing with during the Welcome tutorial. It has been placed as a plugin in this workspace!",
+            "updated": 1615924603782,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Lightning Strike è il Trading System demo che hai utilizzato nel Welcome Tutorial. È incluso in questo workspace come plugin!",
+                    "updated": 1619554546740,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Follow the orange dotted line downwards until you find the node it connects to! Use the keyboard trick Ctrl + arrows to go faster!",
+            "updated": 1615919519995,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Segui la linea tratteggiata arancione finchè trovi il nodo a cui si connette! Usa i tasti Ctrl + frecce sulla tastiera per andare più veloce!",
+                    "updated": 1619554592294,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "That's it! You found the Lightning Strike Trading System node. If you drag it to the side, you will find the Plugin File Position node below.",
+            "updated": 1615919373745,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ben fatto! Hai trovato il nodo Lightning Strike Trading System. Se lo trascini a lato, troverai il nodo Plugin File Position.",
+                    "updated": 1619554669930,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

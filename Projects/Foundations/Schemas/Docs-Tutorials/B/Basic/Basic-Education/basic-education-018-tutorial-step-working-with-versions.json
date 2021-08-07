@@ -1,0 +1,62 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 18,
+    "type": "Tutorial Step - Working With Versions",
+    "definition": {
+        "text": "Let's say you want to test a strategy with different sets of parameters, so you take a backup of the Trading Parameters node!",
+        "updated": 1615571330616,
+        "icon": {
+            "name": "Mouse\\hand-drag",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Mettiamo che tu voglia testare una strategia con diversi set di parametri: inizia facendo un backup del nodo Trading Parameters!",
+                "updated": 1619466111095,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Go ahead and take the backup! Now that you have a backup of all Trading Parameters, you may change any of them knowing that you can always go back to your backup! If you are on Chrome, the backup must be visible in the bottom-left corner of the browser window.",
+            "updated": 1615571301913,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ora hai un backup di tutti i parametri di trading, e puoi cambiarli a piacimento sapendo di poter sempre ripristinare la versione originale! Se sei su Chrome, il backup deve essere visibile nell'angolo in basso a sinistra della finestra del browser.",
+                    "updated": 1619466247645,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Now drag the backup file and drop it in the Design Space! That's how you restore a backup!",
+            "updated": 1615571393497,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ora trascina il file di backup e rilascialo nel Design Space. È così che si ripristina un backup!",
+                    "updated": 1619466286103,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Easy right? In the next step, I'll show you how to get back to using the original version!",
+            "updated": 1615571399267,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Facile, no? Nel prossimo step, ti mostrerò come tornare a utilizzare la versione originale!",
+                    "updated": 1619466338500,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

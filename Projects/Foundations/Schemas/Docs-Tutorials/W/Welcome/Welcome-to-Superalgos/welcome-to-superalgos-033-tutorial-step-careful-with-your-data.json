@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Careful With Your Data!",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "dataset-definition"
+            "name": "Data\\dataset-definition",
+            "project": "Foundations"
         },
         "text": "It may take up to one minute for all tasks to come to a halt. You should never close the system before all tasks stop.",
         "translations": [
@@ -24,7 +24,8 @@
             {
                 "language": "ES",
                 "text": "Es posible que todas las tareas demoren hasta un minuto en detenerse. Nunca debes cerrar el sistema antes de que se detengan todas las tareas.",
-                "updated": 1624378126979
+                "updated": 1624378126979,
+                "style": "Definition"
             }
         ]
     },
@@ -48,7 +49,8 @@
                 {
                     "language": "ES",
                     "text": "¡Abre la consola y ve cómo se detienen las tareas!",
-                    "updated": 1624378638174
+                    "updated": 1624378638174,
+                    "style": "Callout"
                 }
             ],
             "updated": 1616416021973
@@ -66,7 +68,8 @@
                 {
                     "language": "ES",
                     "text": "La forma correcta de cerrar Superalgos es:",
-                    "updated": 1624378683201
+                    "updated": 1624378683201,
+                    "style": "Text"
                 }
             ]
         },
@@ -84,7 +87,8 @@
                 {
                     "language": "ES",
                     "text": "Detenga todas las tareas y espere un par de minutos.",
-                    "updated": 1624378709686
+                    "updated": 1624378709686,
+                    "style": "List"
                 }
             ]
         },
@@ -102,7 +106,8 @@
                 {
                     "language": "ES",
                     "text": "Cuando se detengan, puedes cerrar la consola o detener el proceso con Ctrl + Key-C.",
-                    "updated": 1624378795195
+                    "updated": 1624378795195,
+                    "style": "List"
                 }
             ]
         },
@@ -119,7 +124,8 @@
                 {
                     "language": "ES",
                     "text": "Puede cerrar el navegador en cualquier momento y dejar el procesamiento de tareas en segundo plano.",
-                    "updated": 1624378837651
+                    "updated": 1624378837651,
+                    "style": "List"
                 }
             ]
         },
@@ -137,7 +143,8 @@
                 {
                     "language": "ES",
                     "text": "¡Cerrar el Client antes de que se detengan las tareas puede hacer que tus datos se corrompan!",
-                    "updated": 1624378921806
+                    "updated": 1624378921806,
+                    "style": "Warning"
                 }
             ]
         }

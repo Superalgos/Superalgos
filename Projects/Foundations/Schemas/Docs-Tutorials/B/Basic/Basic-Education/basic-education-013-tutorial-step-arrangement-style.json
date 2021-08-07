@@ -1,0 +1,118 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 13,
+    "type": "Tutorial Step - Arrangement Style",
+    "definition": {
+        "text": "The button cycles through several arrangement options that affect where a node is placed in relation to its parent.",
+        "icon": {
+            "name": "Set\\set-node-arrangement-to-concave",
+            "project": "Foundations"
+        },
+        "updated": 1615491939732,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Il pulsante cicla tra diverse opzioni di disposizione che influenzano il piazzamento di un nodo in relazione al proprio padre.",
+                "updated": 1619461143331,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In the drawing, the orange dot represents the parent node, and the blue dots represent the node adopting the specific arrangement style.",
+            "updated": 1615492521130,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nel disegno, il punto arancione rappresenta il nodo padre e il punto blu rappresenta il nodo nella disposizione definita dalla proprietà.",
+                    "updated": 1619461184162,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Concave: This is the default style. The node adopts a slot on a circumsference around its parent node.",
+            "updated": 1615492168857,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Concava: questo è il valore di default. Il nodo si posiziona su una circonfernza intorno al padre.",
+                    "updated": 1619461223814,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Convex: The slot is on a convex curve.",
+            "updated": 1615492208853,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Convessa: il nodo si posiziona su una curva convessa.",
+                    "updated": 1619461243343,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Vertical-Right: On a vertical line to the right.",
+            "updated": 1615492432352,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Verticale-Destra: su una retta verticale a destra.",
+                    "updated": 1619461264796,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Vertical-Left: The slot is on a vertical line to the left.",
+            "updated": 1615492424255,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Verticale-Sinistra: su una retta verticale a sinistra.",
+                    "updated": 1619461283974,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Horizontal-Bottom: On a horizontal line below.",
+            "updated": 1615492441259,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Orizzontale-Sotto: su una retta orizzontale in basso.",
+                    "updated": 1619461322656,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Horizontal-Top: The slot is on a horizontal line above.",
+            "updated": 1615492346954,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Orizzontale-Sopra: su una retta orizzontale in alto.",
+                    "updated": 1619461319085,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

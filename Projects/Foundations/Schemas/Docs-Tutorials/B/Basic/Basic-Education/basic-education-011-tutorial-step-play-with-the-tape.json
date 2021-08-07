@@ -1,0 +1,65 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 11,
+    "type": "Tutorial Step - Play With The Tape!",
+    "definition": {
+        "text": "Try the different distance settings of the Lightning Strike Trading System Reference node! Go ahead! Click the tape button!",
+        "icon": {
+            "name": "Trading\\trading-system-reference",
+            "project": "Foundations"
+        },
+        "updated": 1615476811627,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Prova differenti impostazioni per la distanza del nodo Trading System Reference! Cliccai il tasto con il metro!",
+                "updated": 1619460658554,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Pretty straightforward, right? Now, what happens when the node you are adjusting has offspring of its own?",
+            "updated": 1615476877641,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Facile, no? E che succede quando i nodi che stai regolando hanno a loro volta dei figli?",
+                    "updated": 1619460693659,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Let's find out! Click the Distance to Parent button once on the Trading Parameters node!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Scopriamolo! Clicca una volta il bottone Distance To Parent sul nodo Trading Parameters!",
+                    "updated": 1619460737845,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Because you increased the distance separating the Trading Parameters node from the Backtesting Session node, the offspring of the Trading Parameters node also increased proportionally!",
+            "updated": 1615476086180,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Siccome hai aumentato la distanza che separa il nodo Trading Parameters dal nodo Backtesting Session, la distanza dei figli del nodo Trading Parameters è aumentata allo stesso modo!",
+                    "updated": 1619460842878,
+                    "style": "Note"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

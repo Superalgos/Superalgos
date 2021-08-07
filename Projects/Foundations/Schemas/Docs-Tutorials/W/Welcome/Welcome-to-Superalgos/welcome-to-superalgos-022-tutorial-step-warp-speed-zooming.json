@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Warp-Speed Zooming!",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "mouse-wheel-down"
+            "name": "Mouse\\mouse-wheel-down",
+            "project": "Foundations"
         },
         "text": "There's one more tool that you may find useful to manipulate spacetime! The native browser zoom function!",
         "translations": [

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Click & Drag Baby!",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "hand-drag"
+            "name": "Mouse\\hand-drag",
+            "project": "Foundations"
         },
         "text": "I want to show you something while the data mining operation progresses. I'll teach you how to walk... in two seconds!",
         "translations": [

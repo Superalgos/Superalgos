@@ -1361,6 +1361,12 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         Validation #2: File Name must be the same to the Github Username of the PR owner.
                                         */
                                         let fileContentUrl = pullRequestFile.raw_url
+
+                                        if (fileContentUrl.indexOf('Governance/Plugins/User-Profiles') < 0) {
+                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified at the Pull Request it not a User Profile file. -> fileContentUrl = ' + fileContentUrl)
+                                            continue
+                                        }
+
                                         let splittedURL = fileContentUrl.split('/')
                                         let fileName = splittedURL[splittedURL.length - 1]
                                         let splittedFileName = fileName.split('.')

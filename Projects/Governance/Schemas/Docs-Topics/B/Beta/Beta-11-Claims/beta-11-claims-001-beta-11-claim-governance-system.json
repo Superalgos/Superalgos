@@ -1,0 +1,150 @@
+{
+    "topic": "Beta 11 Claims",
+    "pageNumber": "1",
+    "type": "Beta 11 Claim - Governance System",
+    "definition": {
+        "text": "Governance of the Superalgos Project is distributed among all members of the Superalgos Community willing to participate. The Governance System is built-in the Superalgos Platform, so participating is quite straightforward.",
+        "updated": 1628249171408
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Overview",
+            "updated": 1628249311062
+        },
+        {
+            "style": "Subtitle",
+            "text": "Participate"
+        },
+        {
+            "style": "Text",
+            "text": "To participate in governance, community members leverage their Superalgos SA Token holdings, exerting influence proportional to their Token Power. The combined influence of all token holders participating in governance determines how the token is distributed upon each release."
+        },
+        {
+            "style": "Success",
+            "text": "Even if you have no tokens to start with, the Community will delegate Token Power to your profile so that you may get started!"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Influence",
+            "updated": 1628249266133
+        },
+        {
+            "style": "List",
+            "text": "What Positions, Features, Assets, or project-development activities, in general, are incentivized and how."
+        },
+        {
+            "style": "List",
+            "text": "Which Contributors are compensated for which Contributions."
+        },
+        {
+            "style": "List",
+            "text": "What Programs are funded and how."
+        },
+        {
+            "style": "Text",
+            "text": "Governance is designed as a flexible system that allows the Community to dynamically direct influence in arbitrary directions."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Earn Tokens",
+            "updated": 1628249282185
+        },
+        {
+            "style": "Text",
+            "text": "A Community engaged in governance is crucial for the development of the project, therefore participation is incentivized. In other words, you will earn Superalgos SA Tokens simply by taking part in the governance of Superalgos."
+        },
+        {
+            "style": "Text",
+            "text": "The system allows governance to evolve with the project. It also encourages permissionless innovation, as Contributors may propose new areas of development and rally the Community to incentivize expansion along new lines."
+        },
+        {
+            "style": "Title",
+            "text": "Included in this Claim"
+        },
+        {
+            "style": "Text",
+            "text": "The Governance System was built from scracth as a new Software Project within the Superalgos Codebase."
+        },
+        {
+            "style": "Text",
+            "text": "The following Governance Programs were developed at this time:"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Onboarding Programs"
+        },
+        {
+            "style": "List",
+            "text": "Airdrop Program"
+        },
+        {
+            "style": "List",
+            "text": "Github Program"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Community Building Programs"
+        },
+        {
+            "style": "List",
+            "text": "Referral Program"
+        },
+        {
+            "style": "List",
+            "text": "Support Program"
+        },
+        {
+            "style": "List",
+            "text": "Mentroship Program"
+        },
+        {
+            "style": "List",
+            "text": "Influencer Program"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Votes and Claims Programs"
+        },
+        {
+            "style": "List",
+            "text": "Votes Program"
+        },
+        {
+            "style": "List",
+            "text": "Claims Program"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Financial Programs"
+        },
+        {
+            "style": "List",
+            "text": "Staking Program"
+        },
+        {
+            "style": "List",
+            "text": "Delegation Program"
+        },
+        {
+            "style": "Subtitle",
+            "text": "The following concepts were introduced"
+        },
+        {
+            "style": "List",
+            "text": "Pools"
+        },
+        {
+            "style": "List",
+            "text": "Assets"
+        },
+        {
+            "style": "List",
+            "text": "Features"
+        },
+        {
+            "style": "List",
+            "text": "Positions"
+        }
+    ]
+}

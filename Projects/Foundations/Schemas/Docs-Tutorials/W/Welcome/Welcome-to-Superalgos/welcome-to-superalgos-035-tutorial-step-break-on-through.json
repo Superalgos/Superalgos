@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Break On Through!",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "full-board"
         },
         "text": "I'll get you up to speed with moving around and browsing the charting space in no time... Let's deal with the slider first!",
@@ -24,7 +24,8 @@
             {
                 "language": "ES",
                 "text": "Te pondré al día para moverte y navegar por el Charting Space en poco tiempo ... ¡Primero tratemos con el control deslizante!",
-                "updated": 1624380106206
+                "updated": 1624380106206,
+                "style": "Definition"
             }
         ]
     },
@@ -47,8 +48,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Haz clic en él y arrástrelo hacia abajo para cerrar el Desing Space y abrir el Charting Space. Haz lo contrario para el efecto inverso. Para hacerlo con el teclado, presione Ctrl + Shift + ↓. Prueba ↑ ← → tambien!",
-                    "updated": 1624380242623
+                    "text": "Haz clic en él y arrástralo hacia abajo para cerrar el Desing Space y abrir el Charting Space. Haz lo contrario para el efecto inverso. Para hacerlo con el teclado, ¡presiona tambien Ctrl + Shift + ↓. Prueba ↑ ← → !",
+                    "updated": 1627304209765,
+                    "style": "Callout"
                 }
             ]
         },
@@ -71,7 +73,8 @@
                 {
                     "language": "ES",
                     "text": "A menos que necesite que ambos espacios estén parcialmente abiertos, siempre es una buena idea cerrar por completo cualquiera de ellos para ahorrar recursos informáticos en tu máquina.",
-                    "updated": 1624380567050
+                    "updated": 1624380567050,
+                    "style": "Success"
                 }
             ]
         }

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Getting to the Fun Bits!",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "time-machine"
+            "name": "Time\\time-machine",
+            "project": "Foundations"
         },
         "text": "I took the liberty of bringing you to a particular moment in time, interesting for what comes next.",
         "translations": [
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "Me tomé la libertad de llevarlos a un momento particular en el tiempo, interesante para lo que viene a continuación.",
-                "updated": 1624454940309
+                "updated": 1624454940309,
+                "style": "Definition"
             }
         ]
     },
@@ -36,7 +37,8 @@
                 {
                     "language": "ES",
                     "text": "Estás a punto de estar expuesto a la belleza de las simulaciones. ¿Soy una simulación? ¿Eres tú? ¿Es todo esto real?",
-                    "updated": 1624454971486
+                    "updated": 1624454971486,
+                    "style": "Text"
                 }
             ]
         },
@@ -53,7 +55,8 @@
                 {
                     "language": "ES",
                     "text": "¡Mira a tu alrededor y decide por ti mismo!",
-                    "updated": 1624454989293
+                    "updated": 1624454989293,
+                    "style": "Callout"
                 }
             ]
         },
@@ -69,8 +72,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "En primer lugar, observa que ahora te encuentras en el marco de tiempo de 1 minuto, por lo tanto, estas son velas de 1 minuto. El lapso de tiempo en su pantalla es de poco más de una hora, a principios del 1 de septiembre de 2020.",
-                    "updated": 1624455028343
+                    "text": "En primer lugar, observa que ahora te encuentras en el marco de tiempo de 1 minuto, por lo tanto, estas son velas de 1 minuto. El lapso de tiempo en tu pantalla es de poco más de una hora, a principios del 1 de septiembre de 2020.",
+                    "updated": 1627313698391,
+                    "style": "Success"
                 }
             ]
         }

@@ -4,7 +4,14 @@
     "type": "Node Attaching Rules",
     "definition": {
         "text": "Each Node Type can have a set of rules that defines to which Node Type it can attach itself to.",
-        "updated": 1609237513121
+        "updated": 1609237513121,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Cada Node Type puede tener un conjunto de reglas que defina a qué Node Type puede adherirse.",
+                "updated": 1628036385094
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -15,6 +15,12 @@
                 "text": "Il motivo per cui la distanza di un nodo dal padre è relativa alla distanza del padre dal proprio padre ti permette di modificare lunghe strutture di nodi!",
                 "updated": 1619460922873,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "La razón por la cual la distancia al nodo principal es relativa a la distancia del principal al principal es para que pueda afectar las estructuras largas de los nodos.",
+                "updated": 1625957988594,
+                "style": "Definition"
             }
         ]
     },
@@ -29,6 +35,12 @@
                     "text": "Clicca una volta sul pulsante Distance to Parent del nodo Network!",
                     "updated": 1619460938644,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz clic una vez en el botón Distance to Parent del nodo Network.",
+                    "updated": 1625958052161,
+                    "style": "Callout"
                 }
             ]
         },
@@ -42,6 +54,12 @@
                     "text": "Wow, hai visto? Questi strumenti ti permettono il pieno controllo su come organizzi visualmente le gerarchie!",
                     "updated": 1619461000739,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Guau! ¿Ves? ¡Estas herramientas te permiten un control total sobre cómo organiza visualmente las jerarquías!",
+                    "updated": 1625958134928,
+                    "style": "Text"
                 }
             ]
         },
@@ -54,6 +72,12 @@
                     "language": "IT",
                     "text": "Prova a cancellare la proprietà Distance To Parent sul nodo Testing Trading Tasks. Come vedi, puoi impostare una distanza arbitraria dal nodo padre, ma l'angolo con esso rimane fisso.",
                     "updated": 1619461092123,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Intenta cancelar la configuración Distance to Parent en el nodo Testing Trading Task! Como puedes ver, puedes establecer cualquier distancia arbitraria al nodo principal, pero el ángulo con el principal permanece fijo.",
+                    "updated": 1625958242191,
                     "style": "Success"
                 }
             ]

@@ -8,23 +8,51 @@
         "icon": {
             "name": "api-map",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¿Se preguntas cómo obtener datos de fuentes distintas a los intercambios en CCXT? Messari? Twitter? ¡Te tenemos cubierto!",
+                "updated": 1628032498537
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Superalgos enables you to fetch data from any API on the Internet, and you don't need to code to do it! Instead, you may design an API Map or use the ones shipping with the system!",
-            "updated": 1622645477339
+            "updated": 1622645477339,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Superalgos le permite obtener datos de cualquier API en Internet, ¡y no necesitas programar para hacerlo! En su lugar, puedes diseñar un API Map o utilizar los que se envían con el sistema.",
+                    "updated": 1628032719618
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "An API Map is a set of definitions dictating how a bot can access a particular API and how to interpret the responses from the server.",
-            "updated": 1622645609009
+            "updated": 1622645609009,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un API Map es un conjunto de definiciones que dictan cómo un bot puede acceder a una API en particular y cómo interpretar las respuestas del servidor.",
+                    "updated": 1628032814964
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Dive into this section of the Data Mining topic when you are ready to explore the API landscape!",
-            "updated": 1622645435555
+            "updated": 1622645435555,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Sumérgete en esta sección del Data Mining para explorar el panorama de API!",
+                    "updated": 1628032872757
+                }
+            ]
         }
     ]
 }

@@ -4,7 +4,14 @@
     "type": "Clones",
     "definition": {
         "text": "The clone feature is designed to produce copies of data structures when you need to replicate structures of nodes and expect the copies to behave similarly to the original.",
-        "updated": 1615832633335
+        "updated": 1615832633335,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "La función clone está diseñada para producir copias de estructuras de datos cuando necesita replicar estructuras de nodos y espera que las copias se comporten de manera similar al original.",
+                "updated": 1628036115149
+            }
+        ]
     },
     "paragraphs": [
         {

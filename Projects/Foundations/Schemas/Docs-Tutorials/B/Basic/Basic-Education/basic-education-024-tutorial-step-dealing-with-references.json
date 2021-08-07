@@ -15,6 +15,11 @@
                 "text": "Le References sono il modo in cui i nodi ottengono dati da altri nodi. È un concetto cruciale, quindi fai attenzione!",
                 "updated": 1619500676047,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "References son cómo un nodo puede obtener información sobre otro nodo no relacionado. Este es un concepto crucial, ¡así que presta atención!",
+                "updated": 1626374249599
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Leggi attentamente questa pagina! Se non sei uno sviluppatore, potresti volerla rileggere finchè non hai afferrato bene i concetti!",
                     "updated": 1619500726572,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Lee esta página con atención! Si no eres un desarrollador, es posible que desees leerlo dos veces hasta que lo asimiles.",
+                    "updated": 1626374324926
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "In breve, le References hanno...",
                     "updated": 1619500753323,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "En resumen, las referencias tienen ...",
+                    "updated": 1626374340957
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "una direzione: in uscita o in entrata",
                     "updated": 1619500782894,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "a direction: saliente o entrante,",
+                    "updated": 1626374361958
                 }
             ]
         },
@@ -67,6 +87,11 @@
                     "text": "uno scope: interno o esterno",
                     "updated": 1619500797304,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "and a scope: Interno o externo.",
+                    "updated": 1626374390593
                 }
             ]
         },
@@ -80,6 +105,11 @@
                     "text": "Il concetto di scope di una Reference è cruciale per comprendere la differenza tra backups e cloni!",
                     "updated": 1619500844066,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "El último concepto, el alcance de una referencia, es crucial para comprender las diferencias entre Backups y Clones.",
+                    "updated": 1626374427839
                 }
             ]
         }

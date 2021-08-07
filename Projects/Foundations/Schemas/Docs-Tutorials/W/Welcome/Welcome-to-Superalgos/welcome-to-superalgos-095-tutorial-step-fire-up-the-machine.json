@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Fire Up the Machine!",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "data-tasks"
+            "name": "Data\\data-tasks",
+            "project": "Foundations"
         },
         "text": "Now it's time to fire up your Data Tasks operation.",
         "translations": [
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "Ahora es el momento de encender tu operación Data Tasks.",
-                "updated": 1624479320235
+                "updated": 1624479320235,
+                "style": "Definition"
             }
         ]
     },
@@ -36,7 +37,8 @@
                 {
                     "language": "ES",
                     "text": "Selecciona Run All Project Data Tasks en el menú.",
-                    "updated": 1624479487847
+                    "updated": 1624479487847,
+                    "style": "Callout"
                 }
             ]
         },
@@ -52,8 +54,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Le daremos unos minutos para ponernos al día con el tiempo actual. Recuerde, todos los indicadores deben llegar al 100% antes de que podamos comenzar a operar.",
-                    "updated": 1624479541695
+                    "text": "Le daremos unos minutos para ponernos al día con el tiempo actual. Recuerda, todos los indicadores deben llegar al 100% antes de que podamos comenzar a operar.",
+                    "updated": 1627315370111,
+                    "style": "Text"
                 }
             ]
         },
@@ -71,7 +74,8 @@
                 {
                     "language": "ES",
                     "text": "Si no vas a ejecutar la sesión en vivo, no es necesario que inicies los Data Task. Sigue aprendiendo cómo funciona el proceso.",
-                    "updated": 1624483221831
+                    "updated": 1624483221831,
+                    "style": "Success"
                 }
             ]
         }

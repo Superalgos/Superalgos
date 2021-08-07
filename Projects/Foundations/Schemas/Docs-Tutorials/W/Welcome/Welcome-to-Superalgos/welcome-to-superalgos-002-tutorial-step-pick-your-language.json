@@ -6,14 +6,21 @@
         "text": "Users are contributing translations so that you may choose your preferred language! This Community is awesome!",
         "updated": 1619801502482,
         "icon": {
-            "name": "en",
-           "project": "Foundations"
+            "name": "Languages/EN",
+            "project": "Foundations"
         },
         "translations": [
             {
                 "language": "FR",
                 "text": "Les utilisateurs contribuent aux traductions afin que vous puissiez choisir votre langue préférée ! Cette communauté est géniale !",
-                "updated": 1623947311364
+                "updated": 1623947311364,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Los usuarios están contribuyendo con traducciones para que puedas elegir tu idioma preferido! ¡Esta comunidad es increíble!",
+                "updated": 1625927584664,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +33,14 @@
                 {
                     "language": "FR",
                     "text": "Voici comment cela fonctionne : la langue par défaut est l'anglais. Si vous choisissez une autre langue et qu'il existe sa traduction, vous l'obtenez, sinon, elle apparaitra en anglais !",
-                    "updated": 1623947447536
+                    "updated": 1623947447536,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Así es como funciona: el idioma predeterminado es el inglés. Si eliges cualquier otro idioma y hay una traducción para la página actual, la obtendrás en el idioma seleccionado. De lo contrario en inglés.",
+                    "updated": 1627240786626,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +52,14 @@
                 {
                     "language": "FR",
                     "text": "Utilisez la molette de la souris pour faire défiler la page de droite vers le bas. Cliquez sur un drapeau pour changer la langue préférée, si vous le souhaitez !",
-                    "updated": 1623947515076
+                    "updated": 1623947515076,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Utiliza la rueda del mouse para desplazarte por la página de la derecha hacia abajo. Haz clic en una bandera para cambiar el idioma preferido, si así lo deseas.",
+                    "updated": 1627241034008,
+                    "style": "Callout"
                 }
             ]
         },
@@ -50,7 +71,14 @@
                 {
                     "language": "FR",
                     "text": "Note : Seuls les docs et les tutoriels peuvent être traduits, pas l'interface, ni les titres !",
-                    "updated": 1623947561329
+                    "updated": 1623947561329,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Solo se pueden traducir los documentos y los tutoriales, no la interfaz ni los títulos!",
+                    "updated": 1625928204688,
+                    "style": "Note"
                 }
             ]
         }

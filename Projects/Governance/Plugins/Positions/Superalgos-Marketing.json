@@ -1,0 +1,122 @@
+{
+    "type": "Positions",
+    "name": "Superalgos-Marketing",
+    "config": "{\"codeName\":\"Superalgos-Marketing\"}",
+    "project": "Governance",
+    "positionClasss": [
+        {
+            "type": "Position Class",
+            "name": "Rewarded Positions",
+            "config": "{}",
+            "project": "Governance",
+            "positions": [
+                {
+                    "type": "Position",
+                    "name": "Marketing Lead",
+                    "config": "{}",
+                    "project": "Governance",
+                    "positions": [],
+                    "positionClasss": [],
+                    "id": "0759bf5b-d439-4c62-b0d9-74330b151331",
+                    "savedPayload": {
+                        "position": {
+                            "x": 15018.000000000004,
+                            "y": 38336.30762113533
+                        },
+                        "targetPosition": {
+                            "x": 14868.000000000004,
+                            "y": 38076.5
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Position",
+                    "name": "Advisor",
+                    "config": "{}",
+                    "project": "Governance",
+                    "positions": [],
+                    "positionClasss": [],
+                    "id": "1870446d-a572-4568-9956-c3e9bb941657",
+                    "savedPayload": {
+                        "position": {
+                            "x": 14718.000000000004,
+                            "y": 38336.30762113533
+                        },
+                        "targetPosition": {
+                            "x": 14868.000000000004,
+                            "y": 38076.5
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "positionClasss": [],
+            "id": "3e191217-1e2f-4d90-a86d-0d425f8844b6",
+            "savedPayload": {
+                "position": {
+                    "x": 14868.000000000004,
+                    "y": 38076.5
+                },
+                "targetPosition": {
+                    "x": 14868.000000000004,
+                    "y": 37776.5
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 2,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        }
+    ],
+    "positions": [],
+    "id": "19a3f688-75d8-4b27-a9b4-6ec9ceb3bcbf",
+    "savedPayload": {
+        "position": {
+            "x": 14868.000000000004,
+            "y": 37776.5
+        },
+        "targetPosition": {
+            "x": 14868.000000000004,
+            "y": 37776.5
+        },
+        "floatingObject": {
+            "isPinned": false,
+            "isFrozen": false,
+            "isCollapsed": true,
+            "angleToParent": 1,
+            "distanceToParent": 3,
+            "arrangementStyle": 0
+        },
+        "uiObject": {
+            "isRunning": false
+        }
+    }
+}

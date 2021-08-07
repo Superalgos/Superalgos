@@ -4,7 +4,14 @@
     "type": "Tested Exchanges Plugin Workspace",
     "definition": {
         "text": "This workspace features the collection of Crypto Exchange nodes corresponding to exchanges that have been or are currently being tested. Use this workspace if you intend to test new exchanges.",
-        "updated": 1622624683862
+        "updated": 1622624683862,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este workspace presenta la colección de nodos Crypto Exchange correspondiente a exchanges que han sido o están siendo probados actualmente. Utiliza este espacio de trabajo si tienes la intención de probar nuevos exchanges.",
+                "updated": 1628045858670
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -5,7 +5,7 @@
     "definition": {
         "text": "The Open Stage is where bot take position!",
         "icon": {
-            "name": "open-stage",
+            "name": "Open/open-stage",
             "project": "Foundations"
         },
         "updated": 1614260398081,

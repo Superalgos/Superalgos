@@ -1390,6 +1390,8 @@ function newUiObject() {
             UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Attach', project: 'Foundations', relatedNode: chainAttachToNode })
             chainAttachToNode = undefined
             isChainAttaching = false
+            /* We want to avoid the situation in which we are attaching a node to its parent and at the same time referencing another node. */
+            isReferenceAttaching = false
         }
         if (isReferenceAttaching === true) {
             UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Attach', project: 'Foundations', relatedNode: referenceAttachToNode })

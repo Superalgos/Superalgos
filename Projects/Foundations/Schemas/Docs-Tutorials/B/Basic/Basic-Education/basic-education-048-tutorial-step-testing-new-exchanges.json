@@ -15,6 +15,11 @@
                 "text": "Se sei uno sviluppatore e il tuo exchange preferito non è ancora testato, puoi dare una mano pensandoci tu!",
                 "updated": 1619591295060,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Si eres un desarrollador y tu intercambio preferido no ha sido probado, ¡puedes unirte al esfuerzo y ayudar con las pruebas!",
+                "updated": 1628015097699
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Questo topic nei Docs spiega come debuggare il Sensor Bot perchè recuperi dati da un exchange. Se l'exchange supporta le funzioni base di Superalgos, dovresti riuscire a trovare una soluzione!",
                     "updated": 1619591361290,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Este tema en los Documentos explica cómo depurar el Sensor Bot para que obtenga datos de un exchange. Si el exchange admite las funciones básicas requeridas por Superalgos, ¡deberías terminar con una solución!",
+                    "updated": 1628015199818
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Condividere i test con la Community è un contributo importante, e permetterà a ognuno di usare i propri exchange preferiti!",
                     "updated": 1619591417403,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Compartir la solución con la comunidad es una contribución valiosa. ¡Los que vengan pronto podrán disfrutar de su exchange favorito!",
+                    "updated": 1628015422895
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "Ti consigliamo vivamente di completare la tua educazione su Superalgos, prima di addentrarti nel configurare nuovi exchanges.",
                     "updated": 1619591462257,
                     "style": "Important"
+                },
+                {
+                    "language": "ES",
+                    "text": "Te recomendamos que completes tu educación con todos los tutoriales antes de sumergirte en la configuración de otros exchanges.",
+                    "updated": 1628015615665
                 }
             ]
         }

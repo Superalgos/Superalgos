@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Talkin' Time Travel",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "time-machine"
+            "name": "Time\\time-machine",
+            "project": "Foundations"
         },
         "text": "I mentioned earlier there are two charts in this workspace. In Superalgos, we call each of these a Time Machine.",
         "translations": [
@@ -24,7 +24,8 @@
             {
                 "language": "ES",
                 "text": "Mencioné anteriormente que hay dos gráficos en este espacio de trabajo. En Superalgos, llamamos a cada uno de estos un Time Machine.",
-                "updated": 1624381357850
+                "updated": 1624381357850,
+                "style": "Definition"
             }
         ]
     },
@@ -48,7 +49,8 @@
                 {
                     "language": "ES",
                     "text": "Un Time Machine puede tener un Timeline Chart o más. Los llamamos máquinas del tiempo porque todos los gráficos de la línea de tiempo dentro de ella están sincronizados en el tiempo. Esta característica permite superponer diferentes capas de datos compartiendo el mismo Time Scale.",
-                    "updated": 1624381666829
+                    "updated": 1624381666829,
+                    "style": "Text"
                 }
             ]
         },
@@ -71,7 +73,8 @@
                 {
                     "language": "ES",
                     "text": "¡Pasa el mouse sobre un Time Machine!",
-                    "updated": 1624406480076
+                    "updated": 1624406480076,
+                    "style": "Callout"
                 }
             ]
         },
@@ -94,8 +97,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Observe la etiqueta emergente en el lado izquierdo que muestra a qué exchange y mercados están asociados los datos. ¡Un Time Machine puede contener datos de múltiples mercados y múltiples exchanges!",
-                    "updated": 1624382066631
+                    "text": "Observa la etiqueta emergente en el lado izquierdo que muestra a qué exchange y mercados están asociados los datos. ¡Un Time Machine puede contener datos de múltiples mercados y múltiples exchanges!",
+                    "updated": 1627304357216,
+                    "style": "Text"
                 }
             ]
         }

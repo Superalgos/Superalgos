@@ -15,6 +15,11 @@
                 "text": "Ì dati che hai scaricato dagli exchange e processato con gli indicatori è disponibile ovunque e accessibile da ogni workspace e strategia.",
                 "updated": 1619591708965,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Los datos que descargas de los exchanges y procesas están disponibles en todos los ámbitos, accesibles desde cualquier Workspace y estrategia.",
+                "updated": 1628020470335
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "I dati sono salvati nella cartella Data-Storage e organizzati per Progetto, Data Mine, Bot e Market. Non importa quale workspace hai usato per estrarre dati o processare indicatori.",
                     "updated": 1619591759698,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Los datos se almacenan en el disco en la carpeta Data-Storage y están organizados por Project, Data Mine, bot y Market. No importa qué Worksapce hayas utilizado para minar los datos o los indicadores de proceso.",
+                    "updated": 1628017724144
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "I dati sono disponibili a tutti i workspace per permetterti di lavorare con le stesse data source indipendentemente da cosa stai facendo.",
                     "updated": 1619591804048,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Todos los datos están disponibles para todos los espacios de trabajo, por lo que puedes trabajar con las mismas fuentes de datos independientemente de lo que estés haciendo.",
+                    "updated": 1628017031765
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "text": "Non esiste una utilità di data management nell'app. Usa il file system della tua macchina!",
                     "updated": 1619591845921,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "No hay gestión de datos incorporada en la aplicación. ¡Utilice tu sistema de archivos!",
+                    "updated": 1628019703596
                 }
             ]
         }

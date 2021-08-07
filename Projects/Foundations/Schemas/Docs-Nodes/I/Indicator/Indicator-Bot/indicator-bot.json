@@ -17,7 +17,7 @@
         },
         {
             "style": "Text",
-            "text": "The indicator bot node holds all definitions required for an indicator bot to function. Definitions are split between the definition of processes and products. Processes are algorithms that go through an input dataset, perform certain calculations, and produce an output. Products are the outcome of the work produced by these algorithms, in the form of ellaborate data sets."
+            "text": "The indicator bot node holds all definitions required for an indicator bot to function. Definitions are split between the definition of processes and products. Processes are algorithms that go through an input dataset, perform certain calculations, and produce an output. Products are the outcome of the work produced by these algorithms, in the form of elaborate data sets."
         },
         {
             "style": "Text",

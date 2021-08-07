@@ -1256,7 +1256,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     while (lastPage === false) {
                                         try {
                                             page++
-                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> doGithub -> getPrList -> Requesting Page = ' + page)
 
                                             await sleep(GITHUB_API_WAITING_TIME)
                                             let listResponse = await octokit.rest.pulls.list({
@@ -1264,7 +1263,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                                 repo: repo,
                                                 state: 'open',
                                                 head: 'develop',
-                                                base: undefined,
+                                                base: 'develop',
                                                 sort: undefined,
                                                 direction: undefined,
                                                 per_page: per_page,
@@ -1329,6 +1328,32 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         */
                                         if (listResponse.data.length !== 1) {
                                             console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #1 Failed -> Pull Request "' + pullRequest.title + '" not merged because it contains more than 1 file. -> fileCount = ' + listResponse.data.length)
+                                            /*
+                                            We will close PRs that contains any User Profile file together with other files in the same Pull Request.
+                                            This will avoid manual merges to include User Profile files.
+                                            */
+                                            for (j = 0; j < listResponse.data.length; j++) {
+                                                let pullRequestFile = listResponse.data[j]
+                                                let fileContentUrl = pullRequestFile.raw_url
+                                                if (fileContentUrl.indexOf('Governance/Plugins/User-Profiles') >= 0) {
+                                                    await sleep(GITHUB_API_WAITING_TIME)
+                                                    await octokit.rest.issues.createComment({
+                                                        owner: owner,
+                                                        repo: repo,
+                                                        issue_number: pullRequest.number,
+                                                        body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that a User Profile file... \n\n' + fileContentUrl + '\n\n...was submitted together with  ' + (listResponse.data.length - 1) + ' other file/s. User Profiles files as per the Governance System rules, must be the only file present at a Pull Request in order to pass all the validations and be automatically merged.'
+                                                    });
+
+                                                    await sleep(GITHUB_API_WAITING_TIME)
+                                                    await octokit.rest.pulls.update({
+                                                        owner: owner,
+                                                        repo: repo,
+                                                        pull_number: pullRequest.number,
+                                                        state: 'closed'
+                                                    });
+                                                    break
+                                                }
+                                            }
                                             continue
                                         }
                                         let pullRequestFile = listResponse.data[0]
@@ -1336,6 +1361,15 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         Validation #2: File Name must be the same to the Github Username of the PR owner.
                                         */
                                         let fileContentUrl = pullRequestFile.raw_url
+
+                                        if (fileContentUrl.indexOf('Governance/Plugins/User-Profiles') < 0) {
+                                            /*
+                                            If it is not a user profile then there is no need to auto merge.
+                                            */
+                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified at the Pull Request is not a User Profile file. -> fileContentUrl = ' + fileContentUrl)
+                                            continue
+                                        }
+
                                         let splittedURL = fileContentUrl.split('/')
                                         let fileName = splittedURL[splittedURL.length - 1]
                                         let splittedFileName = fileName.split('.')
@@ -1344,6 +1378,22 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                                         if (githubUsername !== fileName) {
                                             console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the File Name. -> Github Username = ' + githubUsername + '-> fileName = ' + fileName)
+
+                                            await sleep(GITHUB_API_WAITING_TIME)
+                                            await octokit.rest.issues.createComment({
+                                                owner: owner,
+                                                repo: repo,
+                                                issue_number: pullRequest.number,
+                                                body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that the Github User "' + githubUsername + '" who submitted it, is not equal to the name of the User Profile Plugin File.\n\n File Name = "' + fileName + '"'
+                                            });
+
+                                            await sleep(GITHUB_API_WAITING_TIME)
+                                            await octokit.rest.pulls.update({
+                                                owner: owner,
+                                                repo: repo,
+                                                pull_number: pullRequest.number,
+                                                state: 'closed'
+                                            });
                                             continue
                                         }
                                         await sleep(GITHUB_API_WAITING_TIME)
@@ -1363,7 +1413,23 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         let config = JSON.parse(userProfile.config)
                                         let messageSigned = config.signature.message
                                         if (messageSigned !== githubUsername) {
-                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #4 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the Messaged Signed at the User Profile. -> Github Username = ' + githubUsername + '-> messageSigned = ' + messageSigned)
+                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #4 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the Message Signed at the User Profile. -> Github Username = ' + githubUsername + '-> messageSigned = ' + messageSigned)
+
+                                            await sleep(GITHUB_API_WAITING_TIME)
+                                            await octokit.rest.issues.createComment({
+                                                owner: owner,
+                                                repo: repo,
+                                                issue_number: pullRequest.number,
+                                                body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that the Github User "' + githubUsername + '" who submitted it, is not equal to the Message Signed at the User Profile.\n\n Message Signed = "' + messageSigned + '"'
+                                            });
+
+                                            await sleep(GITHUB_API_WAITING_TIME)
+                                            await octokit.rest.pulls.update({
+                                                owner: owner,
+                                                repo: repo,
+                                                pull_number: pullRequest.number,
+                                                state: 'closed'
+                                            });
                                             continue
                                         }
                                         /*
@@ -1382,6 +1448,14 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                             continue
                                         } else {
                                             console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Merge Succed -> Pull Request "' + pullRequest.title + '" successfully merged. -> mergeResponse.message = ' + mergeResponse.data.message)
+                                            await sleep(GITHUB_API_WAITING_TIME)
+                                            await octokit.rest.issues.createComment({
+                                                owner: owner,
+                                                repo: repo,
+                                                issue_number: pullRequest.number,
+                                                body: 'This Pull Request was automatically merged by the Superalgos Governance System because it was detected that the Github User " ' + githubUsername + '" who submitted it, modified its own User Profile Plugin File and nothning else but that file. All validations were successfull.'
+                                            });
+                                            continue
                                         }
                                     }
                                 }

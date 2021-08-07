@@ -1361,6 +1361,12 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         Validation #2: File Name must be the same to the Github Username of the PR owner.
                                         */
                                         let fileContentUrl = pullRequestFile.raw_url
+
+                                        if (fileContentUrl.indexOf('Governance/Plugins/User-Profiles') < 0) {
+                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified at the Pull Request it not a User Profile file. -> fileContentUrl = ' + fileContentUrl)
+                                            continue
+                                        } 
+
                                         let splittedURL = fileContentUrl.split('/')
                                         let fileName = splittedURL[splittedURL.length - 1]
                                         let splittedFileName = fileName.split('.')
@@ -1369,6 +1375,22 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                                         if (githubUsername !== fileName) {
                                             console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the File Name. -> Github Username = ' + githubUsername + '-> fileName = ' + fileName)
+                                            
+                                            await sleep(GITHUB_API_WAITING_TIME)
+                                            await octokit.rest.issues.createComment({
+                                                owner: owner,
+                                                repo: repo,
+                                                issue_number: pullRequest.number,
+                                                body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that the Github User "' + githubUsername + '" who submitted it, is not equal to the name of the User Profile Plugin File.\n\n File Name = "' + fileName + '"'
+                                            });
+
+                                            await sleep(GITHUB_API_WAITING_TIME)
+                                            await octokit.rest.pulls.update({
+                                                owner: owner,
+                                                repo: repo,
+                                                pull_number: pullRequest.number,
+                                                state: 'closed'
+                                            });
                                             continue
                                         }
                                         await sleep(GITHUB_API_WAITING_TIME)
@@ -1395,7 +1417,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                                 owner: owner,
                                                 repo: repo,
                                                 issue_number: pullRequest.number,
-                                                body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that the Github User "' + githubUsername + '" who submitted it, is not equal to the Message Signed at the User Profile. messageSigned = "' + messageSigned + '"'
+                                                body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that the Github User "' + githubUsername + '" who submitted it, is not equal to the Message Signed at the User Profile.\n\n Message Signed = "' + messageSigned + '"'
                                             });
 
                                             await sleep(GITHUB_API_WAITING_TIME)

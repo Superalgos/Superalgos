@@ -1238,9 +1238,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                         async function doGithub() {
                             try {
-
+                                const repo = repository
+                                const owner = 'Superalgos'
                                 const { Octokit } = require("@octokit/rest")
-
                                 const octokit = new Octokit({
                                     auth: token,
                                     userAgent: 'Superalgos Beta 11'
@@ -1249,8 +1249,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 await mergePrs()
 
                                 async function getPrList() {
-                                    const repo = repository
-                                    const owner = 'Superalgos'
+ 
                                     const per_page = 100 // Max
                                     let page = 0
                                     let lastPage = false
@@ -1258,7 +1257,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     while (lastPage === false) {
                                         try {
                                             page++
-                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> doGithub -> getPrList ->  Requesting Page = ' + page)
+                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> doGithub -> getPrList -> Requesting Page = ' + page)
 
                                             await sleep(GITHUB_API_WAITING_TIME)
                                             let listResponse = await octokit.rest.pulls.list({
@@ -1276,13 +1275,13 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                             if (listResponse.data.length < 100) {
                                                 lastPage = true
                                             }
-                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> doGithub -> getPrList ->  Receiving Page = ' + page)
+                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> doGithub -> getPrList -> Receiving Page = ' + page)
                                             for (let i = 0; i < listResponse.data.length; i++) {
                                                 let pullRequest = listResponse.data[i]
                                                 console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> doGithub -> getPrList -> Pull Request "' + pullRequest.title + '" found and added to the list to validate. ')
                                                 githubPrListArray.push(pullRequest)
                                             }
-                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> doGithub -> getPrList ->  Received = ' + listResponse.data.length)
+                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> doGithub -> getPrList -> Received = ' + listResponse.data.length)
 
                                         } catch (err) {
                                             console.log(err)

@@ -726,7 +726,7 @@ function newFoundationsActionSwitch() {
                 break
             case 'Check For Missing References':
                 {
-                    UI.projects.foundations.functionLibraries.workspaceFunctions.checkForMissingReferences()
+                    UI.projects.foundations.functionLibraries.workspaceFunctions.checkForMissingReferences(action.rootNodes)
                 }
                 break
             case 'Switch To Forward Testing':

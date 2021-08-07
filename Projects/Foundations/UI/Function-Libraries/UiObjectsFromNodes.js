@@ -383,9 +383,6 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                                 }
                             }
                         }
-                     }
-                    if (node.payload.referenceParent === undefined) {
-                        console.log('[WARN]' + node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
                     }
                     
                 } 

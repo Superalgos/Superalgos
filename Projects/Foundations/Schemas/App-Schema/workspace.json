@@ -41,7 +41,6 @@
         {
             "action": "Check For Missing References",
             "label": "Check For Missing References",
-            "workDoneLabel": "Done",
             "relatedUiObject": "Workspace",
             "actionFunction": "payload.executeAction"
         }

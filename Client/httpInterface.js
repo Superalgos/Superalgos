@@ -1328,6 +1328,32 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         */
                                         if (listResponse.data.length !== 1) {
                                             console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #1 Failed -> Pull Request "' + pullRequest.title + '" not merged because it contains more than 1 file. -> fileCount = ' + listResponse.data.length)
+                                            /*
+                                            We will close PRs that contains any User Profile file together with other files in the same Pull Request.
+                                            This will avoid manual merges to include User Profile files.
+                                            */
+                                            for (j = 0; j < listResponse.data.length; j++) {
+                                                let pullRequestFile = listResponse.data[j]
+                                                let fileContentUrl = pullRequestFile.raw_url
+                                                if (fileContentUrl.indexOf('Governance/Plugins/User-Profiles') >= 0) {
+                                                    await sleep(GITHUB_API_WAITING_TIME)
+                                                    await octokit.rest.issues.createComment({
+                                                        owner: owner,
+                                                        repo: repo,
+                                                        issue_number: pullRequest.number,
+                                                        body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that a User Profile file... \n\n' + fileContentUrl + '\n\n...was submitted together with  ' + (listResponse.data.length - 1)+ ' other file/s. User Profiles files as per the Governance System rules, must be the only file present at a Pull Request in order to pass all the validations and be automatically merged.'
+                                                    });
+
+                                                    await sleep(GITHUB_API_WAITING_TIME)
+                                                    await octokit.rest.pulls.update({
+                                                        owner: owner,
+                                                        repo: repo,
+                                                        pull_number: pullRequest.number,
+                                                        state: 'closed'
+                                                    });
+                                                    break
+                                                }
+                                            }
                                             continue
                                         }
                                         let pullRequestFile = listResponse.data[0]
@@ -1363,14 +1389,14 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         let messageSigned = config.signature.message
                                         if (messageSigned !== githubUsername) {
                                             console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #4 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the Message Signed at the User Profile. -> Github Username = ' + githubUsername + '-> messageSigned = ' + messageSigned)
-                                            
+
                                             await sleep(GITHUB_API_WAITING_TIME)
                                             await octokit.rest.issues.createComment({
                                                 owner: owner,
                                                 repo: repo,
                                                 issue_number: pullRequest.number,
-                                                body: 'This Pull Request could not be automatically merged by the Superalgos Governance System because it was detected that the Github User " ' + githubUsername + '" who submitted it, is not equal to the Message Signed at the User Profile. messageSigned = "' + messageSigned + '"' 
-                                            }); 
+                                                body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that the Github User "' + githubUsername + '" who submitted it, is not equal to the Message Signed at the User Profile. messageSigned = "' + messageSigned + '"'
+                                            });
 
                                             await sleep(GITHUB_API_WAITING_TIME)
                                             await octokit.rest.pulls.update({
@@ -1402,8 +1428,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                                 owner: owner,
                                                 repo: repo,
                                                 issue_number: pullRequest.number,
-                                                body: 'This Pull Request was automatically merged by the Superalgos Governance System because it was detected that the Github User " ' + githubUsername + '" who submitted it, modified its own User Profile Plugin File and nothning else but that file. All validations were successfull.' 
-                                            }); 
+                                                body: 'This Pull Request was automatically merged by the Superalgos Governance System because it was detected that the Github User " ' + githubUsername + '" who submitted it, modified its own User Profile Plugin File and nothning else but that file. All validations were successfull.'
+                                            });
                                             continue
                                         }
                                     }

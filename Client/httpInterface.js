@@ -1365,7 +1365,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         if (fileContentUrl.indexOf('Governance/Plugins/User-Profiles') < 0) {
                                             console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified at the Pull Request it not a User Profile file. -> fileContentUrl = ' + fileContentUrl)
                                             continue
-                                        }
+                                        } 
 
                                         let splittedURL = fileContentUrl.split('/')
                                         let fileName = splittedURL[splittedURL.length - 1]

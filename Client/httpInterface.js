@@ -1248,7 +1248,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 await mergePrs()
 
                                 async function getPrList() {
- 
+
                                     const per_page = 100 // Max
                                     let page = 0
                                     let lastPage = false
@@ -1360,7 +1360,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         /*
                                         Validation #4: The message signed at the config is not the Github Username.
                                         */
-                                        let config = JSON.parser(userProfile.config)
+                                        let config = JSON.parse(userProfile.config)
                                         let messageSigned = config.signature.message
                                         if (messageSigned !== githubUsername) {
                                             console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #4 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the Messaged Signed at the User Profile. -> Github Username = ' + githubUsername + '-> messageSigned = ' + messageSigned)
@@ -1376,6 +1376,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                             pull_number: pullRequest.number,
                                             commit_title: 'Changes in User Profile done by Profile Owner ' + githubUsername + ' automatically merged by Superalgos.'
                                         });
+
+                                        console.log(mergeResponse)
 
                                         if (mergeResponse.merged !== true) {
                                             console.log('[WARN] httpInterface -> Gov -> mergeGithubPullRequests -> Merge Failed -> Pull Request "' + pullRequest.title + '" not merged because Github could not merge it. -> mergeResponse.message = ' + mergeResponse.message)

@@ -1263,7 +1263,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                                 repo: repo,
                                                 state: 'open',
                                                 head: 'develop',
-                                                base: undefined,
+                                                base: 'develop',
                                                 sort: undefined,
                                                 direction: undefined,
                                                 per_page: per_page,
@@ -1432,7 +1432,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         /*
                                         All validations passed, we will proceed an merge this Pull Request.
                                         */
-                                        continue
                                         await sleep(GITHUB_API_WAITING_TIME)
                                         let mergeResponse = await octokit.rest.pulls.merge({
                                             owner: owner,

@@ -1334,13 +1334,14 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                             */
                                             for (j = 0; j < listResponse.data.length; j++) {
                                                 let pullRequestFile = listResponse.data[j]
-                                                if (pullRequestFile.indexOf('Governance/Plugins/User-Profiles') >= 0) {
+                                                let fileContentUrl = pullRequestFile.raw_url
+                                                if (fileContentUrl.indexOf('Governance/Plugins/User-Profiles') >= 0) {
                                                     await sleep(GITHUB_API_WAITING_TIME)
                                                     await octokit.rest.issues.createComment({
                                                         owner: owner,
                                                         repo: repo,
                                                         issue_number: pullRequest.number,
-                                                        body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that a User Profile file "' + pullRequestFile + '" was submitted it together with  ' + listResponse.data.length + ' other files. User Profiles files as per the Governance System rules, must be the only file present at a Pull Request in order to pass all the validations and be automatically merged.'
+                                                        body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that a User Profile file... \n\n' + fileContentUrl + '\n\n...was submitted together with  ' + (listResponse.data.length - 1)+ ' other file/s. User Profiles files as per the Governance System rules, must be the only file present at a Pull Request in order to pass all the validations and be automatically merged.'
                                                     });
 
                                                     await sleep(GITHUB_API_WAITING_TIME)

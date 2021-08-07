@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "Luis-Fernando-Molina",
-    "config": "{\n    \"tokens\": 10000000,\n    \"signature\": {\n        \"message\": \"XXXLuis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x90293b042c180aa21b05f0356f31688c597be4ff2df136f63a2b8a899c658eb0\",\n        \"s\": \"0x42abf909024d34217430e42ebadc96b7834218cc86a4c295a2ae419ff2fca6e3\",\n        \"signature\": \"0x90293b042c180aa21b05f0356f31688c597be4ff2df136f63a2b8a899c658eb042abf909024d34217430e42ebadc96b7834218cc86a4c295a2ae419ff2fca6e31b\"\n    },\n    \"codeName\": \"Luis-Fernando-Molina\"\n}",
+    "config": "{\n    \"tokens\": 10000000,\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x90293b042c180aa21b05f0356f31688c597be4ff2df136f63a2b8a899c658eb0\",\n        \"s\": \"0x42abf909024d34217430e42ebadc96b7834218cc86a4c295a2ae419ff2fca6e3\",\n        \"signature\": \"0x90293b042c180aa21b05f0356f31688c597be4ff2df136f63a2b8a899c658eb042abf909024d34217430e42ebadc96b7834218cc86a4c295a2ae419ff2fca6e31b\"\n    },\n    \"codeName\": \"Luis-Fernando-Molina\"\n}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",

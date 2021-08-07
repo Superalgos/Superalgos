@@ -13787,7 +13787,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 2,
             "distanceToParent": 3,
             "arrangementStyle": 0

@@ -24,6 +24,7 @@ function newGobernanceReportsSpace() {
         positions: undefined,
         mining: undefined,
         tablesSortingOrders: undefined,
+        commandInterface: undefined,
         changeTableSortingOrder,
         physics: physics,
         draw: draw,
@@ -112,6 +113,9 @@ function newGobernanceReportsSpace() {
         thisObject.mining.finalize()
         thisObject.mining = undefined
 
+        thisObject.commandInterface.finalize()
+        thisObject.commandInterface = undefined
+
         isInitialized = false
     }
 
@@ -129,9 +133,10 @@ function newGobernanceReportsSpace() {
         thisObject.container.isDraggeable = false
         thisObject.container.detectMouseOver = true
         thisObject.container.status = 'hidden'
-    
+
         resize()
 
+        thisObject.commandInterface = newGovernanceReportsCommmandInterface()
         thisObject.reportsPage = newGovernanceReportsReportsPage()
         thisObject.footer = newGovernanceReportsFooter()
         thisObject.filtersHeader = newGovernanceReportsFiltersHeader()
@@ -152,6 +157,7 @@ function newGobernanceReportsSpace() {
         thisObject.positions = newGovernanceReportsPositions()
         thisObject.mining = newGovernanceReportsMining()
 
+        thisObject.commandInterface.initialize()
         thisObject.reportsPage.initialize()
         thisObject.footer.initialize()
         thisObject.filtersHeader.initialize()
@@ -170,7 +176,7 @@ function newGobernanceReportsSpace() {
         thisObject.assets.initialize()
         thisObject.features.initialize()
         thisObject.positions.initialize()
-        thisObject.mining.initialize()        
+        thisObject.mining.initialize()
 
         setupSidePanelTab()
 

@@ -65,9 +65,7 @@ function newGovernanceUserProfileSpace() {
             return
         }
 
-
-
-        requestStars()
+        //requestStars()
 
         function requestStars() {
             httpRequest(

@@ -55,10 +55,10 @@ function newGovernanceReportsFiltersHeader() {
             if (event.key === "Enter" || event.keyCode === 13) {
                 lastFilters = element.value.trim()
                 UI.projects.governance.spaces.reportsSpace.reportsPage.render(undefined, lastFilters)
-                /*
-                                UI.projects.education.spaces.docsSpace.commandInterface.command = element.value.trim()
-                                UI.projects.education.spaces.docsSpace.commandInterface.detectCommands()
-                */
+
+                UI.projects.governance.spaces.reportsSpace.commandInterface.command = element.value.trim()
+                UI.projects.governance.spaces.reportsSpace.commandInterface.detectCommands()
+
             }
         });
     }

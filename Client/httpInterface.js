@@ -1210,8 +1210,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         const repository = 'Superalgos'
                         const username = unescape(requestParameters[4])
                         const token = unescape(requestParameters[5])
-                        const currentBranch = unescape(requestParameters[6])
-                        const contributionsBranch = unescape(requestParameters[7])
+
                         let error
                         let githubPrListArray = []
 

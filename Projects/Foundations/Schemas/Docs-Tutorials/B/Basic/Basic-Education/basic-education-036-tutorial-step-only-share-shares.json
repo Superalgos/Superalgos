@@ -15,6 +15,11 @@
                 "text": "Le Shares sono come i Backups, ma dal file vengono rimossi i dati personali e sensibili!",
                 "updated": 1619546242891,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Shares son como Backups, ¡pero al archivo resultante se le quita la información personal confidencial!",
+                "updated": 1626618089488
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Abituati al loro utilizzo! È una buona pratica per evitare possibili errori pericolosi in futuro!",
                     "updated": 1619546289258,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Acostúmbrate a compartir Shares. ¡Esta buena práctica te ayudará a evitar errores peligrosos en el futuro!",
+                    "updated": 1626618451384
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Leggi la pagina sulle Shares per maggiori info!",
                     "updated": 1619546300806,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Leer la página sobre Shares para más información!",
+                    "updated": 1626618230044
                 }
             ]
         },
@@ -53,6 +68,11 @@
                     "text": "Quando vuoi condividere il tuo lavoro, non condividere mai i tuoi Workspace o Backups. Questi file possono contenere informazioni sensibili, come la tua Exchange Account Key. Piuttosto, condividi le tue Shares!",
                     "updated": 1619546375019,
                     "style": "Warning"
+                },
+                {
+                    "language": "ES",
+                    "text": "Siempre que desees compartir tu trabajo, nunca compartas tus archivos Workspace o Backups. Pueden contener información confidencial como tu Exchange Account Key. En cambio, comparte tus Shares!",
+                    "updated": 1626618429538
                 }
             ]
         }

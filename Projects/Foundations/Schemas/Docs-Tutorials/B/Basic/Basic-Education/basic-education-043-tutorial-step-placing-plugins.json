@@ -15,6 +15,12 @@
                 "text": "Per inserire un plugin nel Workspace devi selezionare l' opzione per aggiungere i plugins mancanti sul nodo del tipo corrispondente!",
                 "updated": 1619589885057,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Para colocar un plugin ien un workspace ¡debe seleccionar la opción para agregar los plugins que faltan en el nodo del tipo correspondiente!",
+                "updated": 1626643106064,
+                "style": "Definition"
             }
         ]
     },
@@ -29,6 +35,12 @@
                     "text": "Provaci! Seleziona Add Missing Trading Systems nel nodo Plugin Trading Systems!",
                     "updated": 1619589922157,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Intentémoslo! ¡Selecciona Add Missing Trading Systems en el nodo Plugin Trading Systems!",
+                    "updated": 1626643167865,
+                    "style": "Callout"
                 }
             ]
         },
@@ -42,6 +54,12 @@
                     "text": "Per ogni plugin nella cartella \\Plugins\\Trading-Systems, viene creato un nodo Plugin File! Cancella i nodi che non ti servono, e magari fissare il nodo Plugin File Position nel punto in cui vuoi piazzare la struttura!",
                     "updated": 1619590168274,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Nuevos nodos Plugin File se crean para cada plugin in \\Plugins\\Trading-Systems. Puede eliminar los nodos Plugin File no necesitas y conserva los que necesites! Luego, puedes agregar y anclar el nodo Plugin File Position donde deseas colocar el plugin.",
+                    "updated": 1626643680169,
+                    "style": "Text"
                 }
             ]
         },
@@ -54,6 +72,12 @@
                     "language": "IT",
                     "text": "I Plugins verranno riaggiunti la prossima volta che carichi il workspace.",
                     "updated": 1619590143992,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Plugins se agregarán la próxima vez que cargue el workspace. Si deseas probarlo, ¡actualiza!",
+                    "updated": 1626643436449,
                     "style": "Success"
                 }
             ]

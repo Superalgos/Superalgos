@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "Antes de comenzar la mineria de datos, tengo una pequeña pregunta para ti: ¿operas en binance.com o en binance.us?",
-                "updated": 1618434029175,
+                "text": "Antes de comenzar la mineria de datos, tengo una pequeña pregunta para ti: ¿operas en binance.com, binance.us o en ninguno de los dos?",
+                "updated": 1627302684720,
                 "style": "Definition"
             }
         ],
@@ -99,8 +99,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Accede a la configuración y cambie el codeName a \"binanceus\". Mueva el puntero del mouse fuera de la burbuja de configuración y se cerrará y guardará automáticamente",
-                    "updated": 1624491113651,
+                    "text": "Accede a la configuración y cambia el codeName a \"binanceus\". Mueve el puntero del mouse fuera de la burbuja de configuración y se cerrará y guardará automáticamente",
+                    "updated": 1627302546798,
                     "style": "List"
                 }
             ]

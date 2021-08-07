@@ -1,0 +1,66 @@
+{
+    "type": "Votes And Claims Programs",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "votingProgram",
+            "label": "Add Voting Program",
+            "relatedUiObject": "Voting Program"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "claimsProgram",
+            "label": "Add Claims Program",
+            "relatedUiObject": "Claims Program"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Token Power Switch->"
+    },
+    "propertyNameAtParent": "votesAndClaimsPrograms",
+    "childrenNodesProperties": [
+        {
+            "name": "votingProgram",
+            "type": "node",
+            "childType": "Voting Program",
+            "autoAdd": false
+        },
+        {
+            "name": "claimsProgram",
+            "type": "node",
+            "childType": "Claims Program",
+            "autoAdd": false
+        }
+    ]
+}

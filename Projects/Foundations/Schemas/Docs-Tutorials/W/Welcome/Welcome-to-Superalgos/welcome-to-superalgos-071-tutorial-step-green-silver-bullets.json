@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "¿Ves las circulos verdes con una L en el centro? Esas son las Limit Buy Order que mencioné.",
-                "updated": 1624455564096,
+                "text": "¿Ves las circulos verdes con una L en el centro? Esas son los Limit Buy Order que mencioné.",
+                "updated": 1627313818947,
                 "style": "Definition"
             }
         ]
@@ -36,8 +36,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Observe cómo se realiza un pedido cada minuto y se cancela antes de realizar un nuevo pedido. ¿Reconoces el símbolo de cancelación del pedido? ¡Es la bala más pequeña y oscura con una franja horizontal blanca en el medio!",
-                    "updated": 1624455554609,
+                    "text": "Observa cómo se realiza un pedido cada minuto y se cancela antes de realizar un nuevo pedido. ¿Reconoces el símbolo de cancelación del pedido? ¡Es la bala más pequeña y oscura con una franja horizontal blanca en el medio!",
+                    "updated": 1627313785538,
                     "style": "Text"
                 }
             ]
@@ -54,8 +54,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Observe que el cuchillo cae a las 00:21 AM! El precio cayó muy por debajo del Limit Order, por lo tanto, ¡la orden se cumplió! ¡Eso es lo que indica la viñeta verde más grande y llena!",
-                    "updated": 1624455660563,
+                    "text": "¡Observa que el cuchillo cae a las 00:21 AM! El precio cayó muy por debajo del Limit Order, por lo tanto, ¡la orden se cumplió! ¡Eso es lo que indica la viñeta verde más grande y llena!",
+                    "updated": 1627313798560,
                     "style": "Callout"
                 }
             ]

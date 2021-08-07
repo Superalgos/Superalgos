@@ -15,6 +15,12 @@
                 "text": "Nota i due nodi sotto Backtesting Session: Trading System Reference e Trading Engine Reference. A cosa servono questi nodi?",
                 "updated": 1619500944274,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Observe los dos nodos debajo del Backtesting Session: Trading System Reference y Trading Engine Reference. ¿Por qué necesitamos estos nodos?",
+                "updated": 1626376931375,
+                "style": "Definition"
             }
         ]
     },
@@ -29,6 +35,12 @@
                     "text": "Backtesting Session deve referenziare il Trading System così da ottenere le regole per il trading. Deve anche avere un riferimento al Trading Engine così da avere info relative alla sessione di trading. Un nodo può però stabilire solo una reference in uscita!",
                     "updated": 1619501079718,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "El Backtesting Session necesita hacer referencia al Trading System para que pueda obtener las reglas para el trading. También debe hacer referencia al Trading Engine para que pueda almacenar información relativa a la sesión de trading. Sin embargo, un nodo puede establecer solo una referencia saliente.",
+                    "updated": 1626377104766,
+                    "style": "Text"
                 }
             ]
         },
@@ -41,6 +53,12 @@
                     "language": "IT",
                     "text": "Ecco perchè questi nodi esistono: sono un supporto per il nodo Backtesting Session, così che ognuno di essi abbia un collegamento in uscita con un altro nodo!",
                     "updated": 1619501188069,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Por eso existen estos nodos: ¡son una ayuda para el nodo Backtesting Session para que cada uno de ellos pueda hacer referencia a un nodo!",
+                    "updated": 1626532745561,
                     "style": "Note"
                 }
             ]

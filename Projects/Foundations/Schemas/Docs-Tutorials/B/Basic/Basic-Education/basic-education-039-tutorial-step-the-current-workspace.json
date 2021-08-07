@@ -15,6 +15,11 @@
                 "text": "Il workspace corrente è quello in uso in un dato momento.",
                 "updated": 1619553876743,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "El espacio de trabajo actual es el User Workspace que estés utilizando en cualquier momento.",
+                "updated": 1626621294273
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Se chiudi e riapri l'app, o aggiorni la UI, il sistema carica l'ultimo workspace utilizzato.",
                     "updated": 1619553925670,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si cierras y reinicias la aplicación, o actualizas el User Interface, el sistema carga el ultimo Workspace usado.",
+                    "updated": 1626622914590
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Vai al menù del nodo Workspace, fai doppio click sul label Getting Started e cambia il nome del workspace in \"Basic Education\".",
                     "updated": 1619553975961,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Accede al menú del nodo Workspace, doble clic en la etiqueta  \"Getting Started Tutorials\" y cámbialo a \"Basic Education\".",
+                    "updated": 1626621401640
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "Poi premi Ctrl + Shift + Alt + Key-S",
                     "updated": 1619553982192,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ahora presiona  Ctrl + Shift + Alt + Key-S",
+                    "updated": 1626621439639
                 }
             ]
         },
@@ -68,6 +88,11 @@
                     "text": "Hai creato un workspace! Vai alla cartella My-Workspaces e verifica che il nuovo file sia là.",
                     "updated": 1619554083035,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ve a la carpeta My-Workspaces para verificar que el nuevo archivo está allí. ¡Encuéntralo también en la pestaña de espacios de trabajo!",
+                    "updated": 1626622475717
                 }
             ]
         }

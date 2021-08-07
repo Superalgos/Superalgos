@@ -114,6 +114,11 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(action.node, action.rootNodes)
                 }
                 break
+            case 'Install as Plugin':
+                {
+                    UI.projects.foundations.functionLibraries.pluginsFunctions.installAsPlugin(action.node, action.rootNodes)
+                }
+                break
             case 'Edit Code':
 
                 break
@@ -643,9 +648,15 @@ function newFoundationsActionSwitch() {
                 break
             case 'Open Documentation':
                 {
-                    let definition = getSchemaDocument(action.node)
-                    if (definition !== undefined) {
-                        UI.projects.education.spaces.docsSpace.openSpaceAreaAndNavigateTo(action.node.project, 'Node', action.node.type)
+                    let docs = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(action.node.payload, 'docs')
+
+                    if (docs === undefined) {
+                        let definition = getSchemaDocument(action.node)
+                        if (definition !== undefined) {
+                            UI.projects.education.spaces.docsSpace.openSpaceAreaAndNavigateTo(action.node.project, 'Node', action.node.type)
+                        }
+                    } else {
+                        UI.projects.education.spaces.docsSpace.openSpaceAreaAndNavigateTo(docs.project, docs.category, docs.type, docs.anchor, docs.nodeId, docs.placeholder)
                     }
                 }
                 break

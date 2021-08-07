@@ -15,6 +15,11 @@
                 "text": "Ora che hai capito le references, possiamo addentrarci di più nei Backups e magari discuterne le differenze rispetto ai cloni!",
                 "updated": 1619502554578,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que comprendes las referencias, podemos profundizar en Backups,tal vez incluso discutir las diferencias con Clones!",
+                "updated": 1626568459683
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Hai ancora altro da studiare! Leggi attentamente questa pagina, contiene informazioni importanti.",
                     "updated": 1619502598925,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Tienes más que leer! ¡Por favor, lee esta página detenidamente y deja que la información se asimile!",
+                    "updated": 1626569135266
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Per riassumere:",
                     "updated": 1619502608841,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "En resumen:",
+                    "updated": 1626613851965
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "References in uscita: sono sempre mantenute.",
                     "updated": 1619502707293,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Outgoing references: Siempre se mantienen intactos.",
+                    "updated": 1626569183871
                 }
             ]
         },
@@ -68,6 +88,11 @@
                     "text": "References in entrata: sono mantenute solo quando la struttura originale è cancellata prima di ripristinare il backup.",
                     "updated": 1619502660450,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Incoming references: Se conservan solo cuando se elimina la estructura original antes de restaurar la copia de seguridad.",
+                    "updated": 1626613813084
                 }
             ]
         },
@@ -81,6 +106,11 @@
                     "text": "References interne: rimangono interne, ma solo se la struttura originale viene prima cancellata.",
                     "updated": 1619502703045,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Internal references: Permanecen internos, solo cuando la estructura original se elimina primero.",
+                    "updated": 1626613836362
                 }
             ]
         }

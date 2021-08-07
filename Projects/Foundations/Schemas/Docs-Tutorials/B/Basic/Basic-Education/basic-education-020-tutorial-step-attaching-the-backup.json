@@ -15,6 +15,12 @@
                 "text": "Dobbiamo soltanto collegare il backup del nodo Trading Parameters al nodo Backtesting Session.",
                 "updated": 1619466868713,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Ahora necesitamos adjuntar la copia de seguridad del nodo Trading Parameters del Backtesting Session. ¿Cómo lo hacemos?",
+                "updated": 1626358562550,
+                "style": "Definition"
             }
         ]
     },
@@ -27,6 +33,12 @@
                     "language": "IT",
                     "text": "Fai click con il tasto destro sul nodo Trading Parameters e trascinalo vicino al nodo Backtesting Session. Rilascialo quando vedi un anello arancione intorno ad esso!",
                     "updated": 1619466965635,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz clic derecho en el nodo Trading ParametersY tire de él más cerca del nodo Backtesting session. ¡Suelta cuando veas un anillo naranja que rodea el nodo Backtesting session!",
+                    "updated": 1626358925461,
                     "style": "Callout"
                 }
             ]
@@ -41,6 +53,12 @@
                     "text": "Ecco qua! Il backup del nodo Trading Parameters è ripristinato e pronto all'uso.",
                     "updated": 1619467003032,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Eso es! La copia de seguridad del nodo Trading Parameters está restaurado y de nuevo en uso.",
+                    "updated": 1626358976073,
+                    "style": "Text"
                 }
             ]
         },
@@ -53,6 +71,12 @@
                     "language": "IT",
                     "text": "Nota che puoi cancellare il secondo nodo Trading Parameters se vuoi, o puoi tenerlo da parte per un uso futuro.",
                     "updated": 1619467046273,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ten en cuenta que puedes eliminar el segundo nodo Trading Parameters si lo deseas, o puedes dejarlo a un lado para su uso posterior.",
+                    "updated": 1626359059810,
                     "style": "Note"
                 }
             ]

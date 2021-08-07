@@ -9,12 +9,12 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The Lock is a mechanism to prevent an order to be opened while another instance of the same order definition is already running and occupaying it's place at the Trading Engine.",
+            "text": "The Lock is a mechanism to prevent an order to be opened while another instance of the same order definition is already running and occupying it's place at the Trading Engine.",
             "updated": 1611920085962
         },
         {
             "style": "Note",
-            "text": "Order Sikpped"
+            "text": "Order Skipped"
         }
     ]
 }

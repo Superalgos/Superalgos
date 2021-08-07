@@ -15,6 +15,11 @@
                 "text": "Il lato sinistro del menù di un nodo è generalmente sempre uguale. Il lato destro, invece, è specifico per ogni tipo di nodo!",
                 "updated": 1619459213047,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "El lado izquierdo del menú de un nodo es común a la mayoría de los nodos. El lado derecho, es específico del tipo de nodo.",
+                "updated": 1625935528260
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Diamo un'occhiata al lato sinistro!",
                     "updated": 1619459263897,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Echemos un vistazo al lado izquierdo!",
+                    "updated": 1625935546791
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Il design space è basato sul paradigma di un workspace auto-organizzato, in cui i nodi tendono a trovare la propria posizione guidati da specifiche proprietà che puoi controllare dal menù di ogni nodo.",
                     "updated": 1619459329778,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "El espacio de diseño funciona bajo el paradigma de un espacio de trabajo autoorganizado en el que los nodos tienden a encontrar su lugar guiados por ciertas propiedades de disposición que puedes controlar desde el menú del nodo.",
+                    "updated": 1625935593161
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "text": "Clicca il pulsante \"pin\" nell'angolo in alto a sinistra del nodo Session Base Asset. Ora trascina il nodo e rilascialo! Poi trascina e rilascia un qualsiasi altro nodo senza cliccare \"pin\". Vedi la differenza?",
                     "updated": 1619459430359,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz clic en el botón de alfiler en la esquina superior izquierda del Session Base Asset. ¡Ahora arrastra el nodo y suéltalo! Arrastra y suelta cualquier otro nodo sin fijarlo. ¿Ves la diferencia?",
+                    "updated": 1625935633792
                 }
             ]
         }

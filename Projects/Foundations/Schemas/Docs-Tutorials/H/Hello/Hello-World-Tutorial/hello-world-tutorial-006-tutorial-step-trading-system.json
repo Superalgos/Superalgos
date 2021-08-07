@@ -5,7 +5,7 @@
     "definition": {
         "text": "Trading System is already set up. Let's have a look!",
         "icon": {
-            "name": "trading-system-reference",
+            "name": "Trading/trading-system-reference",
             "project": "Foundations"
         },
         "updated": 1614242955916,

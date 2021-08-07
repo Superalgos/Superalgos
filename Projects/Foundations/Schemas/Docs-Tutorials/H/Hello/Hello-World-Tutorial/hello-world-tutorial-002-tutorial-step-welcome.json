@@ -5,7 +5,7 @@
     "definition": {
         "text": "Let’s build the mother of all trading strategies: The Moving Average Cross!",
         "icon": {
-            "name": "tutorial",
+            "name": "Tutorial/tutorial",
             "project": "Foundations"
         },
         "updated": 1614275495850,

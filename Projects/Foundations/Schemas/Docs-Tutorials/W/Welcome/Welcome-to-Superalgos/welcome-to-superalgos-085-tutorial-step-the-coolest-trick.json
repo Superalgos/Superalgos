@@ -4,7 +4,7 @@
     "type": "Tutorial Step - The Coolest Trick!",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "exit-target-rate"
         },
         "text": "Humans may access this information by using a cool trick that makes the charting space interact with the design space!",
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "Los humanos pueden acceder a esta información utilizando un truco genial que hace que el espacio de gráficos interactúe con el espacio de diseño.",
-                "updated": 1624463589570
+                "updated": 1624463589570,
+                "style": "Definition"
             }
         ]
     },
@@ -36,7 +37,8 @@
                 {
                     "language": "ES",
                     "text": "Para usar este truco, hice lo siguiente:",
-                    "updated": 1624463610320
+                    "updated": 1624463610320,
+                    "style": "Text"
                 }
             ]
         },
@@ -53,7 +55,8 @@
                 {
                     "language": "ES",
                     "text": "Divide la pantalla por la mitad tirando del control deslizante hacia arriba para que podamos ver ambos espacios al mismo tiempo.",
-                    "updated": 1624463628608
+                    "updated": 1624463628608,
+                    "style": "List"
                 }
             ]
         },
@@ -70,8 +73,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Enciende el Current Position Layer en el Trading Engine Layer Manager. Elegí esta capa porque corresponde a esta sección de la jerarquía... tradingEngine.tradingCurrent.position, ¿recuerdas?",
-                    "updated": 1624463817616
+                    "text": "Enciende el Current Position Layer en el Trading Engine Layer Manager. Elegí esta capa porque corresponde a esta sección de la jerarquía... tradingEngine.tradingCurrent.position",
+                    "updated": 1625926367329,
+                    "style": "List"
                 }
             ]
         },
@@ -87,8 +91,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ahora, deslice el puntero del mouse sobre las velas en las que se toma la posición y vea qué sucede en los nodos de la izquierda ...",
-                    "updated": 1624463794157
+                    "text": "Ahora, desliza el puntero del mouse sobre las velas en las que se toma la posición y vea qué sucede en los nodos de la izquierda...",
+                    "updated": 1627315168446,
+                    "style": "Callout"
                 }
             ]
         }

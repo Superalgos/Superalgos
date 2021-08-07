@@ -6,7 +6,7 @@
         "text": "I'll give you a few minutes to play around with your live session, and when you are ready, we'll move on to other things!",
         "icon": {
             "name": "live-trading-session",
-           "project": "Foundations"
+            "project": "Foundations"
         },
         "updated": 1610647035525,
         "translations": [
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Te daré unos minutos para que juegues con tu sesión en vivo, y cuando estés listo, ¡pasaremos a otras cosas!",
-                "updated": 1624485287716
+                "updated": 1624485287716,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "Tómate un tiempo para procesar lo que has aprendido hasta ahora ...",
-                    "updated": 1624485320649
+                    "updated": 1624485320649,
+                    "style": "Text"
                 }
             ]
         },
@@ -56,7 +58,8 @@
                 {
                     "language": "ES",
                     "text": "Una vez que esté listo para seguir adelante, siéntase libre de detener el Live Trading Session y Data Tasks. Puede dejar la sesión activa si lo desea, ¡pero no confiaría indefinidamente el dinero que tanto me costó ganar en la estrategia de demostración!",
-                    "updated": 1624485377425
+                    "updated": 1624485377425,
+                    "style": "Important"
                 }
             ]
         },
@@ -73,8 +76,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Todavía hay algunas cosas más que quiero mostrarte antes de dejarte ir! ¡Ten paciencia conmigo!",
-                    "updated": 1624497157423
+                    "text": "¡Todavía hay algunas cosas más que quiero mostrarte antes de dejarte ir! ¡Ten paciencia!",
+                    "updated": 1625929416826,
+                    "style": "Success"
                 }
             ]
         }

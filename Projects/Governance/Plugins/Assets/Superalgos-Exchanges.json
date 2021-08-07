@@ -1,0 +1,183 @@
+{
+    "type": "Assets",
+    "name": "Superalgos-Exchanges",
+    "config": "{\"folderPath\":\"\",\"codeName\":\"Superalgos-Exchanges\"}",
+    "project": "Governance",
+    "assetClasses": [
+        {
+            "type": "Asset Class",
+            "name": "SA Token Listings Rewards",
+            "config": "{\n\"folderPath\": \"\"\n}",
+            "project": "Governance",
+            "assetClasses": [
+                {
+                    "type": "Asset Class",
+                    "name": "Open Negotiations",
+                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Bittrex",
+                            "config": "{\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Topic\",\n        \"type\": \"Exchange Asset - Bittrex\"\n    }\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "548dd163-9991-4de3-9e68-9e8a9a051a2f",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 9806.132034355964,
+                                    "y": 38608.632034355964
+                                },
+                                "targetPosition": {
+                                    "x": 9594,
+                                    "y": 38396.5
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset",
+                            "name": "LBank",
+                            "config": "{\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Topic\",\n        \"type\": \"Exchange Asset - LBank\"\n    }\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "e4e7addb-a840-4ce9-9e01-74c7e57c24ad",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 9594,
+                                    "y": 38696.5
+                                },
+                                "targetPosition": {
+                                    "x": 9594,
+                                    "y": 38396.5
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Asset",
+                            "name": "Probit",
+                            "config": "{\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Topic\",\n        \"type\": \"Exchange Asset - Probit\"\n    }\n}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "6b27f708-c243-42e9-874b-ceceea7db21f",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 9381.867965644036,
+                                    "y": 38608.632034355964
+                                },
+                                "targetPosition": {
+                                    "x": 9594,
+                                    "y": 38396.5
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "144ad412-94fc-4b80-8dd9-2520f64edfcc",
+                    "savedPayload": {
+                        "position": {
+                            "x": 9594,
+                            "y": 38396.5
+                        },
+                        "targetPosition": {
+                            "x": 9594,
+                            "y": 38096.5
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "assets": [],
+            "id": "492669d5-223f-426d-845a-f26dd1ae251e",
+            "savedPayload": {
+                "position": {
+                    "x": 9594,
+                    "y": 38096.5
+                },
+                "targetPosition": {
+                    "x": 9594,
+                    "y": 37796.5
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 2,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        }
+    ],
+    "assets": [],
+    "id": "2cefeb95-9fde-418b-a35b-6178a97cac9d",
+    "savedPayload": {
+        "position": {
+            "x": 9594,
+            "y": 37796.5
+        },
+        "targetPosition": {
+            "x": 9594,
+            "y": 37796.5
+        },
+        "floatingObject": {
+            "isPinned": false,
+            "isFrozen": false,
+            "isCollapsed": false,
+            "angleToParent": 1,
+            "distanceToParent": 3,
+            "arrangementStyle": 0
+        },
+        "uiObject": {
+            "isRunning": false
+        }
+    }
+}

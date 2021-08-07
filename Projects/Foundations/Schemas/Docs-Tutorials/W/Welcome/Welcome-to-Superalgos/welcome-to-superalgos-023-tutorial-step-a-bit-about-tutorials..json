@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "Antes de volver al asunto, déjame explicarte algunas cosas sobre como, Nosotros! (los tutoriales) funcionamos.",
-                "updated": 1618436347889,
+                "text": "Antes de volver al asunto, déjame explicarte algunas cosas sobre como, nosotros (los tutoriales) funcionamos.",
+                "updated": 1627303035002,
                 "style": "Definition"
             }
         ]
@@ -49,8 +49,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "En resumen, tu eres el Jefe!",
-                    "updated": 1618436575558,
+                    "text": "En resumen, ¡tu eres el Jefe!",
+                    "updated": 1627303058091,
                     "style": "Success"
                 }
             ]
@@ -92,8 +92,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Vamos a probar algo!. Haz clic en el botón Stop de abajo, y una vez que haya desaparecido, abre mi menú y selecciona Resume.",
-                    "updated": 1618437777462,
+                    "text": "Haz clic en el botón Stop, y una vez que haya desaparecido, abre mi menú y selecciona Resume.",
+                    "updated": 1625871849020,
                     "style": "Callout"
                 }
             ]

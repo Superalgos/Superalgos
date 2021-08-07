@@ -80,7 +80,7 @@
         },
         {
             "style": "Text",
-            "text": "You may choose to apply a similar reasoning as with the open stage target rate for limit orders, but there is some nouance to consider if you are using market orders."
+            "text": "You may choose to apply a similar reasoning as with the open stage target rate for limit orders, but there is some nuance to consider if you are using market orders."
         },
         {
             "style": "Callout",
@@ -109,7 +109,7 @@
         },
         {
             "style": "Text",
-            "text": "To solve the above issue, you may use a more ellaborate formula for the target rate in the close stage:"
+            "text": "To solve the above issue, you may use a more elaborate formula for the target rate in the close stage:"
         },
         {
             "style": "Javascript",

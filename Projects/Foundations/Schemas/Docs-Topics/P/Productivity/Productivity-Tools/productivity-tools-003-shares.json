@@ -4,7 +4,14 @@
     "type": "Shares",
     "definition": {
         "text": "The share feature works almost the same as the back up feature, but discarding personal information like exchange keys.",
-        "updated": 1611490590355
+        "updated": 1611490590355,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "La función share funciona casi de la misma manera que la función de copia de seguridad, pero descarta información personal como exchanges keys.",
+                "updated": 1628037037100
+            }
+        ]
     },
     "paragraphs": [
         {

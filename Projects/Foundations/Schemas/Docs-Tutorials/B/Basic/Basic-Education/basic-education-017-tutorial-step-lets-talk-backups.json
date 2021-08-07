@@ -15,6 +15,11 @@
                 "text": "I Backups sono molto potenti, e hanno diversi casi d' uso! Quando clicchi sul pulsante del backup, il nodo e i suoi figli sono salvati in un file JSON!",
                 "updated": 1619465895765,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Backups son muy potentes y hay varios casos de uso. Cuando haces clic en el botón Backup, el nodo y su descendencia se guardan en un archivo JSON.",
+                "updated": 1626045284178
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Puoi fare il backup di una struttura di nodi per salvare il tuo lavoro o mantenere una copia della struttura.",
                     "updated": 1619465931399,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Es posible que desees realizar una copia de seguridad de una estructura de nodos para guardar tu trabajo o mantener una copia de la estructura en su estado actual.",
+                    "updated": 1626044659057
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "text": "Il file viene scaricato dal browser e salvato nella cartella Downloads di default. Se fai più backup dello stesso nodo, i file salvati e rinominati con numeri in sequenza.",
                     "updated": 1619466028542,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "El navegador descarga el archivo y lo almacena en la carpeta Descargas. Si realizas varias copias del mismo archivo, el navegador cambia el nombre con números secuenciales.",
+                    "updated": 1626045200466
                 }
             ]
         }

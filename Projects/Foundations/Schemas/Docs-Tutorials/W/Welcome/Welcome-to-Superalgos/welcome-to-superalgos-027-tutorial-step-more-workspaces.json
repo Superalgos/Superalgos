@@ -4,7 +4,7 @@
     "type": "Tutorial Step - More Workspaces?",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "workspace"
         },
         "text": "Most are Plugin Workspaces shipping with the system! There should be one User Workspace at the end of the list too!",
@@ -24,7 +24,7 @@
             {
                 "language": "ES",
                 "text": "¡La mayoría son Plugin Workspaces conectándose con el sistema! ¡También hay un User Workspace al final de la lista!",
-                "updated": 1624493384027,
+                "updated": 1625872662394,
                 "style": "Definition"
             }
         ],
@@ -63,8 +63,9 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "El Workspace se guarda automáticamente cada minuto. También antes de cerrar la pestaña del navegador, y puede guardarlo manualmente usando Ctrl + Shift + Key-S",
-                    "updated": 1624492778426
+                    "text": "El Workspace se guarda automáticamente cada minuto. Antes de cerrar el navegador, y manualmente con Ctrl + Shift + Key-S",
+                    "updated": 1625872986091,
+                    "style": "Success"
                 }
             ]
         },

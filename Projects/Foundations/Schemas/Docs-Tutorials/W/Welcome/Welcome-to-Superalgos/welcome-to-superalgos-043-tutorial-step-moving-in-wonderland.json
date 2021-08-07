@@ -72,8 +72,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Con el mouse, haz clic con el botón izquierdo y arrastre. Con el teclado, use las teclas de flecha: ← → ↑ ↓",
-                    "updated": 1624404544326,
+                    "text": "Con el mouse, haz clic con el botón izquierdo y arrastra. Con el teclado, use las teclas de flecha: ← → ↑ ↓",
+                    "updated": 1627304690713,
                     "style": "Callout"
                 }
             ]
@@ -96,8 +96,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¿Qué? ¿No funciona? ¿Estás atrapado con un gráfico congelado? ¿Como en el video sobre el siguiente paso? ¡No te preocupes! Sé lo que está pasando ...",
-                    "updated": 1624404574824,
+                    "text": "¿Qué? ¿No funciona? ¿Estás atrapado con un gráfico congelado? ¿Como en el video sobre el siguiente paso? Sé lo que está pasando...",
+                    "updated": 1627258765795,
                     "style": "Note"
                 }
             ]

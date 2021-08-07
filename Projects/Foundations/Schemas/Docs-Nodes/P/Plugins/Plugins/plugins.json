@@ -1,7 +1,14 @@
 {
     "type": "Plugins",
     "definition": {
-        "text": "The plugins hierarchy defines which plugins are to be included in the current workspace. In the context of this hierarchy, plugins are JSON files featuring the description of a hierarchy such as a data mine, trading mine, trading engine, or trading system."
+        "text": "The plugins hierarchy defines which plugins are to be included in the current workspace. In the context of this hierarchy, plugins are JSON files featuring the description of a hierarchy such as a data mine, trading mine, trading engine, or trading system.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "The plugins hierarchy define cual plugins se incluirán en el actual workspace. En el contexto de esta jerarquía, plugins son archivos JSON con la descripción de una jerarquía como un data mine, trading mine, trading engine, o trading system.",
+                "updated": 1628037249031
+            }
+        ]
     },
     "paragraphs": [
         {

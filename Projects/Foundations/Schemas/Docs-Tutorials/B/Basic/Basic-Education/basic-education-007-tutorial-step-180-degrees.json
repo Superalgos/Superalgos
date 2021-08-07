@@ -15,6 +15,12 @@
                 "text": "Quando tutti i nodi figlio sono impostati a 180 gradi, ogni nodo prende posizione in una frazione di un semicerchio, in posizione normale al nodo padre.",
                 "updated": 1619459891459,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Cuando todos los nodos descendientes se establecen en un ángulo de 180 grados, cada nodo ocupa una ranura en una fracción de una circunferencia que abarca 180 grados, normal al padre.",
+                "updated": 1625955596065,
+                "style": "Definition"
             }
         ]
     },
@@ -29,6 +35,12 @@
                     "text": "Ma che succede se uno dei nodi figli ha un'altro valore per l'impostazione Angle to Parent? Vediamo subito!",
                     "updated": 1619459962741,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Pero, ¿qué sucede si uno de los nodos descendientes tiene una configuración diferente de Ángulo al padre? ¡Hagamos un experimento!",
+                    "updated": 1625955629982,
+                    "style": "Text"
                 }
             ]
         },
@@ -40,6 +52,12 @@
                     "language": "IT",
                     "text": "Clicca una volta sulla proprietà Angle to Parent del nodo Trading Parameters e esci dal menù!",
                     "updated": 1619459998306,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz clic una vez en el Trading Parameters Angle a la configuración de los padres y salir del menú!",
+                    "updated": 1625955715664,
                     "style": "Callout"
                 }
             ]
@@ -53,6 +71,12 @@
                     "language": "IT",
                     "text": "Il nodo prende posizione in un angolo di 90 gradi! Fai lo stesso con i nodi Trading System Reference e Trading Engine Reference!",
                     "updated": 1619460071962,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "El nodo ocupa una ranura en un ángulo más pequeño: ¡90 grados! Haz lo mismo con los nodos Trading System Reference y Trading Engine Reference!",
+                    "updated": 1625955775564,
                     "style": "Text"
                 }
             ]

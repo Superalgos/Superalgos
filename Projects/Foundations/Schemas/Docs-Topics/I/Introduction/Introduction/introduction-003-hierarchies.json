@@ -4,7 +4,14 @@
     "type": "Hierarchies",
     "definition": {
         "text": "A hierarchy is a data structure representing an overarching, top-level concept, resulting in a long chain of nodes, usually with many ramifications. The system manages different types of hierarchies, each of them with a specific focus.",
-        "updated": 1609945718294
+        "updated": 1609945718294,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un hierarchyes una estructura de datos que representa un concepto general de nivel superior, que da como resultado una larga cadena de nodos, generalmente con muchas ramificaciones. El sistema gestiona diferentes tipos de jerarquías, cada una de ellas con un enfoque específico.",
+                "updated": 1628044685355
+            }
+        ]
     },
     "paragraphs": [
         {

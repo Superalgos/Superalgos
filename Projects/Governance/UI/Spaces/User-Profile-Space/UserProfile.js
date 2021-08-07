@@ -37,7 +37,7 @@ function newGovernanceUserProfileSpace() {
         If the workspace is not related to governance, then we exit the Intialize Function
         */
         let resultsArary = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
-        if (resultsArary.length === 0) { return }
+        if (resultsArary.length === 0 || resultsArary.length === 1) { return }
 
         /* Find the Username and Password */
 
@@ -64,8 +64,6 @@ function newGovernanceUserProfileSpace() {
             UI.projects.education.spaces.docsSpace.sidePanelTab.open()
             return
         }
-
-
 
         requestStars()
 

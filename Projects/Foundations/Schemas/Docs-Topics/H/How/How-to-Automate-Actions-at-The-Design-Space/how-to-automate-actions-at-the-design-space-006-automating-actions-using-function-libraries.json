@@ -3,14 +3,14 @@
     "pageNumber": 6,
     "type": "Automating Actions - Using Function Libraries",
     "definition": {
-        "text": "You might also as well other functions located at Function Libraries from within your Action Function. In order to do this, you just need to locate the instance of the Function Library Object and call any of it's functions.",
-        "updated": 1614942828678
+        "text": "You can also utilize other functions located within the Function Libraries to help build your Action Function. In order to do this, you just need to locate the instance of the Function Library Object and call any of it's functions.",
+        "updated": 1628257841959
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "It is a very good idea to invest some time at the Function-Libraries folder, scaning the files in there to see what you already have available to use at your actions. You will see that other actions in Function Libraries heavily rely on functions defined at one of the files at the Function-Libraries folder.",
-            "updated": 1614942900881
+            "text": "It is a very good idea to invest some time at the Function-Libraries folder, scaning the files in there to see what you already have available to use at your actions. You will see that other actions in Function Libraries heavily rely on functions defined at one of the files within the Function-Libraries folder.",
+            "updated": 1628257873103
         },
         {
             "style": "Title",
@@ -19,8 +19,8 @@
         },
         {
             "style": "Text",
-            "text": "At runtime, all Funtion Library objects will be already instantiated by the time your Action function code runs. You just need to get to the object that host the Function Library funtion you want to execute via the UI Global Object that is available to you. For exmaple:",
-            "updated": 1614942976608
+            "text": "At runtime, all Function Library objects will be already instantiated by the time your Action function code runs. You just need to get to the object that host the Function Library funtion you want to execute via the UI Global Object that is available to you. For exmaple:",
+            "updated": 1628257884243
         },
         {
             "style": "Javascript",
@@ -48,8 +48,8 @@
         },
         {
             "style": "Text",
-            "text": "At your own Action Function you might likely need to execute these functions, belonging to popular actions done at Action Functions:",
-            "updated": 1614943932540
+            "text": "At your own Action Function you will likely need to execute these or similar functions, belonging to popular actions defined within other Action Functions:",
+            "updated": 1628257991399
         },
         {
             "style": "Subtitle",
@@ -57,7 +57,8 @@
         },
         {
             "style": "Text",
-            "text": "The following is an example on how to add a new children to an existing Node:"
+            "text": "The following is an example on how to add a new child to an existing Node:",
+            "updated": 1628258008587
         },
         {
             "style": "Javascript",
@@ -87,13 +88,13 @@
         },
         {
             "style": "Text",
-            "text": "Example of how to set the Reference Parent of a Node (in this case no Function Library is needed):",
-            "updated": 1614944033214
+            "text": "Example of how to set the Reference Parent of a Node:",
+            "updated": 1628258163153
         },
         {
             "style": "Javascript",
-            "text": "node.payload.referenceParent = baseAsset\n",
-            "updated": 1614943688069
+            "text": "UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(timeMachine, session)",
+            "updated": 1628258141256
         },
         {
             "style": "Text",

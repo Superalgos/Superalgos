@@ -9,8 +9,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "It is a very good idea to invest some time at the Utilities folder, scaning the files in there to see what you already have available to use at your actions. You will see that other actions in Function Libraries heavily rely on utilities functions defined at one of the files at the Utilities folder.",
-            "updated": 1614930012933
+            "text": "It is a very good idea to invest some time at the Utilities folder, scaning the files in there to see what you already have available to use at your actions. You will see that other actions in Function Libraries heavily rely on utilities functions defined at one of the files within the Utilities folder.",
+            "updated": 1628257595439
         },
         {
             "style": "Title",
@@ -19,7 +19,8 @@
         },
         {
             "style": "Text",
-            "text": "At runtime, all utility objects will be already instantiated by the time your Action function code runs. You just need to get to the object that host the utility funtion you want to execute via the UI Global Object that is available to you. For exmaple:"
+            "text": "At runtime, all utility objects will be already instantiated by the time your Action function code runs. You just need to get to the object that hosts the utility function you want to execute via the UI Global Object that is available to you. For example:",
+            "updated": 1628257649169
         },
         {
             "style": "Javascript",

@@ -597,35 +597,51 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Luis-Fernando-Molina",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "148911b3-b2f3-44fb-8cb4-017991789132"
                                                 ],
                                                 [
                                                     "New Token Power Switch",
-                                                    "Token Power Switch"
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "f8182a9c-f830-4ec1-a238-ac3a5efd69e6"
                                                 ],
                                                 [
                                                     "New Votes And Claims Programs",
-                                                    "Votes And Claims Programs"
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "bb390957-b8a2-4a8a-9fbf-963ea20f6eaf"
                                                 ],
                                                 [
                                                     "New Claims Program",
-                                                    "Claims Program"
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "796dd30f-c90d-4b8d-a63d-89867347407b"
                                                 ],
                                                 [
                                                     "Project Features Feature Class",
-                                                    "Feature Claims Folder"
+                                                    "Feature Claims Folder",
+                                                    "Governance",
+                                                    "f8a482c4-dee0-475a-831b-7514fd255ba6"
                                                 ],
                                                 [
                                                     "Superalgos Platform Feature Class",
-                                                    "Feature Claims Folder"
+                                                    "Feature Claims Folder",
+                                                    "Governance",
+                                                    "ba6b4ff8-396b-4a9d-95ba-a52d096ec9eb"
                                                 ],
                                                 [
                                                     "New Features Feature Class",
-                                                    "Feature Claims Folder"
+                                                    "Feature Claims Folder",
+                                                    "Governance",
+                                                    "c4815ebe-d3a8-47fd-b204-936242bd8f40"
                                                 ],
                                                 [
                                                     "Governance System New Features",
-                                                    "Feature Contribution Claim"
+                                                    "Feature Contribution Claim",
+                                                    "Governance",
+                                                    "92f0f22e-f631-482d-88b1-c16596bf951d"
                                                 ]
                                             ]
                                         }
@@ -664,35 +680,51 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Luis-Fernando-Molina",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "148911b3-b2f3-44fb-8cb4-017991789132"
                                                 ],
                                                 [
                                                     "New Token Power Switch",
-                                                    "Token Power Switch"
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "f8182a9c-f830-4ec1-a238-ac3a5efd69e6"
                                                 ],
                                                 [
                                                     "New Votes And Claims Programs",
-                                                    "Votes And Claims Programs"
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "bb390957-b8a2-4a8a-9fbf-963ea20f6eaf"
                                                 ],
                                                 [
                                                     "New Claims Program",
-                                                    "Claims Program"
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "796dd30f-c90d-4b8d-a63d-89867347407b"
                                                 ],
                                                 [
                                                     "Project Features Feature Class",
-                                                    "Feature Claims Folder"
+                                                    "Feature Claims Folder",
+                                                    "Governance",
+                                                    "f8a482c4-dee0-475a-831b-7514fd255ba6"
                                                 ],
                                                 [
                                                     "Superalgos Platform Feature Class",
-                                                    "Feature Claims Folder"
+                                                    "Feature Claims Folder",
+                                                    "Governance",
+                                                    "ba6b4ff8-396b-4a9d-95ba-a52d096ec9eb"
                                                 ],
                                                 [
                                                     "New Features Feature Class",
-                                                    "Feature Claims Folder"
+                                                    "Feature Claims Folder",
+                                                    "Governance",
+                                                    "c4815ebe-d3a8-47fd-b204-936242bd8f40"
                                                 ],
                                                 [
                                                     "API Maps New Features",
-                                                    "Feature Contribution Claim"
+                                                    "Feature Contribution Claim",
+                                                    "Governance",
+                                                    "81c477e0-c9bf-4b25-a875-d265011a6136"
                                                 ]
                                             ]
                                         }
@@ -5264,23 +5296,33 @@
                                                                                     "referenceParentCombinedNodePath": [
                                                                                         [
                                                                                             "Superalgos",
-                                                                                            "Features"
+                                                                                            "Features",
+                                                                                            "Governance",
+                                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                         ],
                                                                                         [
                                                                                             "Project Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                         ],
                                                                                         [
                                                                                             "Superalgos Platform",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "f83a751e-ff0c-49bd-a306-8b5ab6a8cc83"
                                                                                         ],
                                                                                         [
                                                                                             "Existing Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "b46ffee0-7c89-4155-8450-678d7cea24f8"
                                                                                         ],
                                                                                         [
                                                                                             "Charting System",
-                                                                                            "Feature"
+                                                                                            "Feature",
+                                                                                            "Governance",
+                                                                                            "992fe8ce-bd27-4857-900c-e0330b7ccc51"
                                                                                         ]
                                                                                     ]
                                                                                 }
@@ -5319,23 +5361,33 @@
                                                                                     "referenceParentCombinedNodePath": [
                                                                                         [
                                                                                             "Superalgos",
-                                                                                            "Features"
+                                                                                            "Features",
+                                                                                            "Governance",
+                                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                         ],
                                                                                         [
                                                                                             "Project Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                         ],
                                                                                         [
                                                                                             "Superalgos Platform",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "f83a751e-ff0c-49bd-a306-8b5ab6a8cc83"
                                                                                         ],
                                                                                         [
                                                                                             "Existing Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "b46ffee0-7c89-4155-8450-678d7cea24f8"
                                                                                         ],
                                                                                         [
                                                                                             "Data Mining",
-                                                                                            "Feature"
+                                                                                            "Feature",
+                                                                                            "Governance",
+                                                                                            "afa546fa-799b-4c50-baa3-65c8409aaab9"
                                                                                         ]
                                                                                     ]
                                                                                 }
@@ -5374,23 +5426,33 @@
                                                                                     "referenceParentCombinedNodePath": [
                                                                                         [
                                                                                             "Superalgos",
-                                                                                            "Features"
+                                                                                            "Features",
+                                                                                            "Governance",
+                                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                         ],
                                                                                         [
                                                                                             "Project Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                         ],
                                                                                         [
                                                                                             "Superalgos Platform",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "f83a751e-ff0c-49bd-a306-8b5ab6a8cc83"
                                                                                         ],
                                                                                         [
                                                                                             "Existing Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "b46ffee0-7c89-4155-8450-678d7cea24f8"
                                                                                         ],
                                                                                         [
                                                                                             "Visual Designer",
-                                                                                            "Feature"
+                                                                                            "Feature",
+                                                                                            "Governance",
+                                                                                            "b88a3b22-7060-45c8-90bd-57ec53e95c4f"
                                                                                         ]
                                                                                     ]
                                                                                 }
@@ -5429,23 +5491,33 @@
                                                                                     "referenceParentCombinedNodePath": [
                                                                                         [
                                                                                             "Superalgos",
-                                                                                            "Features"
+                                                                                            "Features",
+                                                                                            "Governance",
+                                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                         ],
                                                                                         [
                                                                                             "Project Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                         ],
                                                                                         [
                                                                                             "Superalgos Platform",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "f83a751e-ff0c-49bd-a306-8b5ab6a8cc83"
                                                                                         ],
                                                                                         [
                                                                                             "Existing Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "b46ffee0-7c89-4155-8450-678d7cea24f8"
                                                                                         ],
                                                                                         [
                                                                                             "Visual Debugger",
-                                                                                            "Feature"
+                                                                                            "Feature",
+                                                                                            "Governance",
+                                                                                            "f713d118-f53a-4fc6-9b39-9e8717c4bd6f"
                                                                                         ]
                                                                                     ]
                                                                                 }
@@ -5481,19 +5553,27 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos",
-                                                                                    "Features"
+                                                                                    "Features",
+                                                                                    "Governance",
+                                                                                    "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                 ],
                                                                                 [
                                                                                     "Project Features",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                 ],
                                                                                 [
                                                                                     "Superalgos Platform",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "f83a751e-ff0c-49bd-a306-8b5ab6a8cc83"
                                                                                 ],
                                                                                 [
                                                                                     "Existing Features",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "b46ffee0-7c89-4155-8450-678d7cea24f8"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -5541,23 +5621,33 @@
                                                                                     "referenceParentCombinedNodePath": [
                                                                                         [
                                                                                             "Superalgos",
-                                                                                            "Features"
+                                                                                            "Features",
+                                                                                            "Governance",
+                                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                         ],
                                                                                         [
                                                                                             "Project Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                         ],
                                                                                         [
                                                                                             "Superalgos Platform",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "f83a751e-ff0c-49bd-a306-8b5ab6a8cc83"
                                                                                         ],
                                                                                         [
                                                                                             "New Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "372acad9-fb7b-4ac7-9620-28a66ac9c40d"
                                                                                         ],
                                                                                         [
                                                                                             "Governance System",
-                                                                                            "Feature"
+                                                                                            "Feature",
+                                                                                            "Governance",
+                                                                                            "a5a7304e-155a-47d1-97f7-c50b88082000"
                                                                                         ]
                                                                                     ]
                                                                                 }
@@ -5596,23 +5686,33 @@
                                                                                     "referenceParentCombinedNodePath": [
                                                                                         [
                                                                                             "Superalgos",
-                                                                                            "Features"
+                                                                                            "Features",
+                                                                                            "Governance",
+                                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                         ],
                                                                                         [
                                                                                             "Project Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                         ],
                                                                                         [
                                                                                             "Superalgos Platform",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "f83a751e-ff0c-49bd-a306-8b5ab6a8cc83"
                                                                                         ],
                                                                                         [
                                                                                             "New Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "372acad9-fb7b-4ac7-9620-28a66ac9c40d"
                                                                                         ],
                                                                                         [
                                                                                             "API Maps",
-                                                                                            "Feature"
+                                                                                            "Feature",
+                                                                                            "Governance",
+                                                                                            "28c5218d-3213-4a10-8e28-11d5ae460547"
                                                                                         ]
                                                                                     ]
                                                                                 }
@@ -5651,23 +5751,33 @@
                                                                                     "referenceParentCombinedNodePath": [
                                                                                         [
                                                                                             "Superalgos",
-                                                                                            "Features"
+                                                                                            "Features",
+                                                                                            "Governance",
+                                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                         ],
                                                                                         [
                                                                                             "Project Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                         ],
                                                                                         [
                                                                                             "Superalgos Platform",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "f83a751e-ff0c-49bd-a306-8b5ab6a8cc83"
                                                                                         ],
                                                                                         [
                                                                                             "New Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "372acad9-fb7b-4ac7-9620-28a66ac9c40d"
                                                                                         ],
                                                                                         [
                                                                                             "User Defined Variables and Code",
-                                                                                            "Feature"
+                                                                                            "Feature",
+                                                                                            "Governance",
+                                                                                            "55e7b969-383c-4ae8-95c0-2dc18473404f"
                                                                                         ]
                                                                                     ]
                                                                                 }
@@ -5706,23 +5816,33 @@
                                                                                     "referenceParentCombinedNodePath": [
                                                                                         [
                                                                                             "Superalgos",
-                                                                                            "Features"
+                                                                                            "Features",
+                                                                                            "Governance",
+                                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                         ],
                                                                                         [
                                                                                             "Project Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                         ],
                                                                                         [
                                                                                             "Superalgos Platform",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "f83a751e-ff0c-49bd-a306-8b5ab6a8cc83"
                                                                                         ],
                                                                                         [
                                                                                             "New Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "372acad9-fb7b-4ac7-9620-28a66ac9c40d"
                                                                                         ],
                                                                                         [
                                                                                             "Tensor Flow Integration",
-                                                                                            "Feature"
+                                                                                            "Feature",
+                                                                                            "Governance",
+                                                                                            "68388215-3e97-4864-9804-72e91ecff02b"
                                                                                         ]
                                                                                     ]
                                                                                 }
@@ -5758,19 +5878,27 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos",
-                                                                                    "Features"
+                                                                                    "Features",
+                                                                                    "Governance",
+                                                                                    "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                 ],
                                                                                 [
                                                                                     "Project Features",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                 ],
                                                                                 [
                                                                                     "Superalgos Platform",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "f83a751e-ff0c-49bd-a306-8b5ab6a8cc83"
                                                                                 ],
                                                                                 [
                                                                                     "New Features",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "372acad9-fb7b-4ac7-9620-28a66ac9c40d"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -5809,15 +5937,21 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Features"
+                                                                            "Features",
+                                                                            "Governance",
+                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                         ],
                                                                         [
                                                                             "Project Features",
-                                                                            "Feature Class"
+                                                                            "Feature Class",
+                                                                            "Governance",
+                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                         ],
                                                                         [
                                                                             "Superalgos Platform",
-                                                                            "Feature Class"
+                                                                            "Feature Class",
+                                                                            "Governance",
+                                                                            "f83a751e-ff0c-49bd-a306-8b5ab6a8cc83"
                                                                         ]
                                                                     ]
                                                                 }
@@ -5871,23 +6005,33 @@
                                                                                     "referenceParentCombinedNodePath": [
                                                                                         [
                                                                                             "Superalgos",
-                                                                                            "Features"
+                                                                                            "Features",
+                                                                                            "Governance",
+                                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                         ],
                                                                                         [
                                                                                             "Project Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                         ],
                                                                                         [
                                                                                             "Superalgos Mobile App",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "f193b1f9-c97d-4831-87b4-defe9f6aab9a"
                                                                                         ],
                                                                                         [
                                                                                             "Needed Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "243a3f35-62a2-4193-ab19-da643accd275"
                                                                                         ],
                                                                                         [
                                                                                             "Android Mobile App",
-                                                                                            "Feature"
+                                                                                            "Feature",
+                                                                                            "Governance",
+                                                                                            "22e0864c-5a2a-40b5-a24d-fe46cde7dd64"
                                                                                         ]
                                                                                     ]
                                                                                 }
@@ -5926,23 +6070,33 @@
                                                                                     "referenceParentCombinedNodePath": [
                                                                                         [
                                                                                             "Superalgos",
-                                                                                            "Features"
+                                                                                            "Features",
+                                                                                            "Governance",
+                                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                         ],
                                                                                         [
                                                                                             "Project Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                         ],
                                                                                         [
                                                                                             "Superalgos Mobile App",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "f193b1f9-c97d-4831-87b4-defe9f6aab9a"
                                                                                         ],
                                                                                         [
                                                                                             "Needed Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "243a3f35-62a2-4193-ab19-da643accd275"
                                                                                         ],
                                                                                         [
                                                                                             "iOS Mobile App",
-                                                                                            "Feature"
+                                                                                            "Feature",
+                                                                                            "Governance",
+                                                                                            "dc029fe2-d4f7-46a1-908d-3d3251af002e"
                                                                                         ]
                                                                                     ]
                                                                                 }
@@ -5981,23 +6135,33 @@
                                                                                     "referenceParentCombinedNodePath": [
                                                                                         [
                                                                                             "Superalgos",
-                                                                                            "Features"
+                                                                                            "Features",
+                                                                                            "Governance",
+                                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                         ],
                                                                                         [
                                                                                             "Project Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                         ],
                                                                                         [
                                                                                             "Superalgos Mobile App",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "f193b1f9-c97d-4831-87b4-defe9f6aab9a"
                                                                                         ],
                                                                                         [
                                                                                             "Needed Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "243a3f35-62a2-4193-ab19-da643accd275"
                                                                                         ],
                                                                                         [
                                                                                             "Huawei Mobile App",
-                                                                                            "Feature"
+                                                                                            "Feature",
+                                                                                            "Governance",
+                                                                                            "198f47fc-61bd-41a1-9b2f-7bc1bea082f9"
                                                                                         ]
                                                                                     ]
                                                                                 }
@@ -6033,19 +6197,27 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos",
-                                                                                    "Features"
+                                                                                    "Features",
+                                                                                    "Governance",
+                                                                                    "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                 ],
                                                                                 [
                                                                                     "Project Features",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                 ],
                                                                                 [
                                                                                     "Superalgos Mobile App",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "f193b1f9-c97d-4831-87b4-defe9f6aab9a"
                                                                                 ],
                                                                                 [
                                                                                     "Needed Features",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "243a3f35-62a2-4193-ab19-da643accd275"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -6084,15 +6256,21 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Features"
+                                                                            "Features",
+                                                                            "Governance",
+                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                         ],
                                                                         [
                                                                             "Project Features",
-                                                                            "Feature Class"
+                                                                            "Feature Class",
+                                                                            "Governance",
+                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                         ],
                                                                         [
                                                                             "Superalgos Mobile App",
-                                                                            "Feature Class"
+                                                                            "Feature Class",
+                                                                            "Governance",
+                                                                            "f193b1f9-c97d-4831-87b4-defe9f6aab9a"
                                                                         ]
                                                                     ]
                                                                 }
@@ -6146,23 +6324,33 @@
                                                                                     "referenceParentCombinedNodePath": [
                                                                                         [
                                                                                             "Superalgos",
-                                                                                            "Features"
+                                                                                            "Features",
+                                                                                            "Governance",
+                                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                         ],
                                                                                         [
                                                                                             "Project Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                         ],
                                                                                         [
                                                                                             "Superalgos P2P Network",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "e205d4f2-140e-4d4b-a839-e37a6537dfa9"
                                                                                         ],
                                                                                         [
                                                                                             "Needed Features",
-                                                                                            "Feature Class"
+                                                                                            "Feature Class",
+                                                                                            "Governance",
+                                                                                            "0253c529-e28f-43b5-8b3a-a86abb38dc4a"
                                                                                         ],
                                                                                         [
                                                                                             "Node.js Implementation",
-                                                                                            "Feature"
+                                                                                            "Feature",
+                                                                                            "Governance",
+                                                                                            "bda64809-41d7-41a8-9166-792a6df000e1"
                                                                                         ]
                                                                                     ]
                                                                                 }
@@ -6198,19 +6386,27 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos",
-                                                                                    "Features"
+                                                                                    "Features",
+                                                                                    "Governance",
+                                                                                    "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                 ],
                                                                                 [
                                                                                     "Project Features",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                 ],
                                                                                 [
                                                                                     "Superalgos P2P Network",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "e205d4f2-140e-4d4b-a839-e37a6537dfa9"
                                                                                 ],
                                                                                 [
                                                                                     "Needed Features",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "0253c529-e28f-43b5-8b3a-a86abb38dc4a"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -6249,15 +6445,21 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Features"
+                                                                            "Features",
+                                                                            "Governance",
+                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                         ],
                                                                         [
                                                                             "Project Features",
-                                                                            "Feature Class"
+                                                                            "Feature Class",
+                                                                            "Governance",
+                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                         ],
                                                                         [
                                                                             "Superalgos P2P Network",
-                                                                            "Feature Class"
+                                                                            "Feature Class",
+                                                                            "Governance",
+                                                                            "e205d4f2-140e-4d4b-a839-e37a6537dfa9"
                                                                         ]
                                                                     ]
                                                                 }
@@ -6296,11 +6498,15 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Features"
+                                                                    "Features",
+                                                                    "Governance",
+                                                                    "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                 ],
                                                                 [
                                                                     "Project Features",
-                                                                    "Feature Class"
+                                                                    "Feature Class",
+                                                                    "Governance",
+                                                                    "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                 ]
                                                             ]
                                                         }
@@ -12817,23 +13023,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Features"
+                                                            "Features",
+                                                            "Governance",
+                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                         ],
                                                         [
                                                             "Project Features",
-                                                            "Feature Class"
+                                                            "Feature Class",
+                                                            "Governance",
+                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                         ],
                                                         [
                                                             "Superalgos Platform",
-                                                            "Feature Class"
+                                                            "Feature Class",
+                                                            "Governance",
+                                                            "f83a751e-ff0c-49bd-a306-8b5ab6a8cc83"
                                                         ],
                                                         [
                                                             "New Features",
-                                                            "Feature Class"
+                                                            "Feature Class",
+                                                            "Governance",
+                                                            "372acad9-fb7b-4ac7-9620-28a66ac9c40d"
                                                         ],
                                                         [
                                                             "Governance System",
-                                                            "Feature"
+                                                            "Feature",
+                                                            "Governance",
+                                                            "a5a7304e-155a-47d1-97f7-c50b88082000"
                                                         ]
                                                     ]
                                                 }
@@ -12872,23 +13088,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Features"
+                                                            "Features",
+                                                            "Governance",
+                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                         ],
                                                         [
                                                             "Project Features",
-                                                            "Feature Class"
+                                                            "Feature Class",
+                                                            "Governance",
+                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                         ],
                                                         [
                                                             "Superalgos Platform",
-                                                            "Feature Class"
+                                                            "Feature Class",
+                                                            "Governance",
+                                                            "f83a751e-ff0c-49bd-a306-8b5ab6a8cc83"
                                                         ],
                                                         [
                                                             "New Features",
-                                                            "Feature Class"
+                                                            "Feature Class",
+                                                            "Governance",
+                                                            "372acad9-fb7b-4ac7-9620-28a66ac9c40d"
                                                         ],
                                                         [
                                                             "API Maps",
-                                                            "Feature"
+                                                            "Feature",
+                                                            "Governance",
+                                                            "28c5218d-3213-4a10-8e28-11d5ae460547"
                                                         ]
                                                     ]
                                                 }
@@ -12923,19 +13149,27 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Superalgos",
-                                                    "Features"
+                                                    "Features",
+                                                    "Governance",
+                                                    "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                 ],
                                                 [
                                                     "Project Features",
-                                                    "Feature Class"
+                                                    "Feature Class",
+                                                    "Governance",
+                                                    "136b6e7a-f042-441b-84be-395b56b65b70"
                                                 ],
                                                 [
                                                     "Superalgos Platform",
-                                                    "Feature Class"
+                                                    "Feature Class",
+                                                    "Governance",
+                                                    "f83a751e-ff0c-49bd-a306-8b5ab6a8cc83"
                                                 ],
                                                 [
                                                     "New Features",
-                                                    "Feature Class"
+                                                    "Feature Class",
+                                                    "Governance",
+                                                    "372acad9-fb7b-4ac7-9620-28a66ac9c40d"
                                                 ]
                                             ]
                                         }
@@ -12971,15 +13205,21 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Superalgos",
-                                            "Features"
+                                            "Features",
+                                            "Governance",
+                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                         ],
                                         [
                                             "Project Features",
-                                            "Feature Class"
+                                            "Feature Class",
+                                            "Governance",
+                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                         ],
                                         [
                                             "Superalgos Platform",
-                                            "Feature Class"
+                                            "Feature Class",
+                                            "Governance",
+                                            "f83a751e-ff0c-49bd-a306-8b5ab6a8cc83"
                                         ]
                                     ]
                                 }
@@ -13208,7 +13448,7 @@
                             {
                                 "type": "Delegate Power Switch",
                                 "name": "harrellbm",
-                                "config": "{\n    \"percentage\": 20\n}",
+                                "config": "{\n    \"percentage\": 25\n}",
                                 "project": "Governance",
                                 "delegatePowerSwitch": [],
                                 "userDelegates": [],
@@ -13238,7 +13478,7 @@
                             {
                                 "type": "Delegate Power Switch",
                                 "name": "Thomas",
-                                "config": "{\n    \"percentage\": 15\n}",
+                                "config": "{\n    \"percentage\": 20\n}",
                                 "project": "Governance",
                                 "delegatePowerSwitch": [],
                                 "userDelegates": [],
@@ -13268,7 +13508,7 @@
                             {
                                 "type": "Delegate Power Switch",
                                 "name": "Carl",
-                                "config": "{}",
+                                "config": "{\n    \"percentage\": 10\n}",
                                 "project": "Governance",
                                 "delegatePowerSwitch": [],
                                 "userDelegates": [],

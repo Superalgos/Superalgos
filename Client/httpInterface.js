@@ -1377,13 +1377,11 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                             commit_title: 'Changes in User Profile done by Profile Owner ' + githubUsername + ' automatically merged by Superalgos.'
                                         });
 
-                                        console.log(mergeResponse)
-
-                                        if (mergeResponse.merged !== true) {
-                                            console.log('[WARN] httpInterface -> Gov -> mergeGithubPullRequests -> Merge Failed -> Pull Request "' + pullRequest.title + '" not merged because Github could not merge it. -> mergeResponse.message = ' + mergeResponse.message)
+                                        if (mergeResponse.data.merged !== true) {
+                                            console.log('[WARN] httpInterface -> Gov -> mergeGithubPullRequests -> Merge Failed -> Pull Request "' + pullRequest.title + '" not merged because Github could not merge it. -> mergeResponse.message = ' + mergeResponse.data.message)
                                             continue
                                         } else {
-                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Merge Succed -> Pull Request "' + pullRequest.title + '" successfully merged. -> mergeResponse.message = ' + mergeResponse.message)
+                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Merge Succed -> Pull Request "' + pullRequest.title + '" successfully merged. -> mergeResponse.message = ' + mergeResponse.data.message)
                                         }
                                     }
                                 }

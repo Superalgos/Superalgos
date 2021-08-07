@@ -1,4 +1,4 @@
-# Superalgos Beta 10
+X# Superalgos Beta 10
 
 
 ![contributors](https://img.shields.io/github/contributors-anon/Superalgos/Superalgos?label=Contributors)

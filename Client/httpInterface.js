@@ -1363,7 +1363,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         let fileContentUrl = pullRequestFile.raw_url
 
                                         if (fileContentUrl.indexOf('Governance/Plugins/User-Profiles') < 0) {
-                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified at the Pull Request it not a User Profile file. -> fileContentUrl = ' + fileContentUrl)
+                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified at the Pull Request is not a User Profile file. -> fileContentUrl = ' + fileContentUrl)
                                             continue
                                         }
 

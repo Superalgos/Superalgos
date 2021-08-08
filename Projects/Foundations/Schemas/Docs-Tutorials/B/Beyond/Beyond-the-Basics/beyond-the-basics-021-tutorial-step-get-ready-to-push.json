@@ -15,6 +15,11 @@
                 "text": "Ottimo! Hai imparato ad aggiungere una pagina ai Docs, editarla e salvarla! Ora manca solo l'ultimo step...spedirla dal tuo PC a Superalgos!",
                 "updated": 1619636976424,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Increíble! ¡Aprendiste a agregar una página a los Documentos, editarla y guardarla! ¡Ahora tienes que hacer que trascienda tu PC y contribuir con Superalgos!",
+                "updated": 1628191613869
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Superalgos interagisce con Git per mantenere la tua installazione aggiornata e per rendere più facile agli utenti meno tecnici contribuire. Il comando App Contribute esegue questi comandi Git:",
                     "updated": 1619637039829,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Superalgos interactúa con Git para mantener actualizada la instalación de Superalgos y facilitar las contribuciones a los usuarios menos técnicos. El App Contribute Command ejecuta los siguientes comandos de Git en una secuencia:",
+                    "updated": 1628191732614
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "git add: aggiunge le tue modifiche in un git commit.",
                     "updated": 1619637078728,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "git add: agrega los cambios que has realizado en los archivos contribuyentes a una confirmación de git.",
+                    "updated": 1628191868136
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "git commit: fa il commit delle modifiche.",
                     "updated": 1619637115670,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "git commit: confirma todos los cambios.",
+                    "updated": 1628191882639
                 }
             ]
         },
@@ -68,6 +88,11 @@
                     "text": "git push: fa il push delle modifiche sul tuo fork.",
                     "updated": 1619637112020,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "git push: empuja los cambios a tu fork.",
+                    "updated": 1628191904103
                 }
             ]
         },
@@ -81,6 +106,11 @@
                     "text": "github createPullRequest: crea una Pull Request alla repo di Superalgos, o aggiunge i commit alla tua Pull Request esistente.",
                     "updated": 1619637154313,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "github createPullRequest: crea un Pull Request en el repositorio de Superalgos, o agrega confirmaciones a unexistente Pull Request.",
+                    "updated": 1628191970494
                 }
             ]
         }

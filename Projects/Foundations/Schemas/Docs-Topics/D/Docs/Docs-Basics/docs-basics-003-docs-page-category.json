@@ -11,6 +11,11 @@
                 "text": "Didalam dokumen ini menampilkan enam kategori halaman yaitu: nodes, concepts, topics, tutorials, reviews, dan books. Setiap kategori diwakilkan oleh sebuah tab dalam Docs Search Results.",
                 "updated": 1613859527741,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Los documentos cuentan con seis categorías de páginas: Node, Concept, Topic, Tutorial, Review, y Book. Cada categoría está representada por una pestaña en los resultados de la búsqueda de Documentos.",
+                "updated": 1628205085106
             }
         ]
     },

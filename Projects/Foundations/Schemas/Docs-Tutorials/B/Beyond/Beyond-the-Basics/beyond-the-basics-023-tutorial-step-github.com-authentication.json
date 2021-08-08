@@ -15,6 +15,11 @@
                 "text": "Perchè il comando app.contribute funzioni, dovrai autenticarti a due livelli differenti. Concentriamoci prima su GitHub.com!",
                 "updated": 1619641609528,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Para el app.contribute comando para que funcione, debe autenticarse en dos niveles diferentes. ¡Primero trataremos con GiHub.com!",
+                "updated": 1628194149826
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Devi autenticarti su GitHub.com perchè il Client possa creare la Pull Request a tuo nome. Per fare ciò, devi creare un Personal Access Token su GitHub.com:",
                     "updated": 1619641662760,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Necesitas autenticarte en GitHub.com para el Client para crear el Pull Request en tu nombre. Para hacer eso, crearás un Personal Access Token en GitHub.com:",
+                    "updated": 1628194254004
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "text": "Clicca il link e segui le istruzioni sotto! Guarda il video al prossimo step per più dettagli...",
                     "updated": 1619641789005,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz clic en el enlace y sigue las instrucciones. Asegúrate de darle al token el repositorio y los alcances del flujo de trabajo. Mira el clip en el siguiente paso para mayor claridad…",
+                    "updated": 1628194375782
                 }
             ]
         },
@@ -60,6 +75,11 @@
                     "text": "Ti consiglio di chiamare il tuo token come Superalgos per poterlo riconoscere in seguito. Assicurati di mettere il flag sulla repo checkbox per definire lo scope del token.",
                     "updated": 1619641853159,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Sugiero que lo nombres  \"Superalgos\" para referencia futura, asegúrate de marcar la casilla de verificación del repositorio para definir el alcance del token.",
+                    "updated": 1628195225900
                 }
             ]
         }

@@ -5,7 +5,7 @@
     "definition": {
         "text": "There are a few things you should consider every time you switch branches! Let's go through a quick list before you proceed!",
         "icon": {
-            "name": "Bullet/bullet-warning",
+            "name": "bullet-warning",
             "project": "Foundations"
         },
         "updated": 1618147991903,
@@ -14,6 +14,12 @@
                 "language": "IT",
                 "text": "Ci sono un paio di cose da considerare ogni volta che cambi branch! Vediamone una lista prima di continuare!",
                 "updated": 1619634039951,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Hay algunas cosas que debes considerar cada vez que cambies de rama! ¡Antes de cambiar de rama, haz un Backup!",
+                "updated": 1628204902504,
                 "style": "Definition"
             }
         ]
@@ -29,6 +35,12 @@
                     "text": "Può succedere che il workspace o altri dati nel master branch non siano compatibili con quelli in altri branch.",
                     "updated": 1619634081336,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Puede suceder que los workspaces u otras estructuras de datos en la rama maestra no sean compatibles con las de la otra rama.",
+                    "updated": 1628204467432,
+                    "style": "List"
                 }
             ]
         },
@@ -41,6 +53,12 @@
                     "language": "IT",
                     "text": "Se il workspace corrente è incompatibile con il software di un altro branch, esso potrebbe corrompersi ricaricando l'app. In questo caso, carica uno dei Plugin Workspace del nuovo branch.",
                     "updated": 1619634165746,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si el Workspace actual es incompatible con el software de la otra rama, puede romperse al volver a cargar la aplicación. En tal caso, carga uno de los Plugin Workspaces de la nueva rama.",
+                    "updated": 1628204753630,
                     "style": "List"
                 }
             ]
@@ -55,6 +73,12 @@
                     "text": "Anche la struttura dei dati estratti potrebbe essere cambiata!",
                     "updated": 1619634182120,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡La estructura de los datos extraídos puede haber cambiado!",
+                    "updated": 1628204506303,
+                    "style": "List"
                 }
             ]
         },
@@ -67,6 +91,12 @@
                     "language": "IT",
                     "text": "Leggi sempre il file README nel branch a cui vuoi accedere per leggere le note sulla retrocompatibilità. Prima di cambiare branches, fai un backup del tuo lavoro!",
                     "updated": 1619634260507,
+                    "style": "Important"
+                },
+                {
+                    "language": "ES",
+                    "text": "Lee el archivo README en la rama del repositorio al que deseas acceder para comentarios sobre la compatibilidad con versiones anteriores. ",
+                    "updated": 1628204891328,
                     "style": "Important"
                 }
             ]

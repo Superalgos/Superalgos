@@ -565,7 +565,7 @@
                                 "featureClaimVotes": [
                                     {
                                         "type": "Feature Claim Vote",
-                                        "name": "Luis-Fernando-MolinaXX Governance System New Features",
+                                        "name": "Luis-Fernando-Molina Governance System New Features",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "4381f059-44c8-4843-9cac-8a7cf41fa14c",
@@ -648,7 +648,7 @@
                                     },
                                     {
                                         "type": "Feature Claim Vote",
-                                        "name": "Luis-Fernando-MolinaXX API Maps New Features",
+                                        "name": "Luis-Fernando-Molina API Maps New Features",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "6145983d-799e-4a3e-ac04-ed29b398cdce",
@@ -13714,7 +13714,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 2,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

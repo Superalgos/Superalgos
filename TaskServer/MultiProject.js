@@ -31,6 +31,8 @@ exports.newMultiProject = function () {
             projectInstance.processModules = {}
             projectInstance.botModules = {}
 
+            if (projectDefinition.TS === undefined) { continue }
+
             /* Set up Utilities of this Project */
             if (projectDefinition.TS.utilities !== undefined) {
                 for (let j = 0; j < projectDefinition.TS.utilities.length; j++) {

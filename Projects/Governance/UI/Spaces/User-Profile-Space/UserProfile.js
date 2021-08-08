@@ -37,7 +37,7 @@ function newGovernanceUserProfileSpace() {
         If the workspace is not related to governance, then we exit the Intialize Function
         */
         let resultsArary = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
-        if (resultsArary.length === 0 || resultsArary.length === 1) { return }
+        if (resultsArary.length === 0) { return }
 
         /* Find the Username and Password */
 
@@ -68,69 +68,135 @@ function newGovernanceUserProfileSpace() {
         requestStars()
 
         function requestStars() {
-            httpRequest(
-                undefined,
-                'Gov/getGithubStars/' +
-                'Superalgos' + '/' +
-                config.username + '/' +
-                config.token
-                , onGithubStarsResponse)
+
+            let params = {
+                method: 'getGithubStars',
+                repository: 'Superalgos',
+                username: config.username,
+                token: config.token
+            }
+
+            let url = 'GOV' // We will access the default Client GOV endpoint.
+
+            httpRequest(JSON.stringify(params), url, onResponse)
+
+            function onResponse(err, data) {
+
+                /* Lets check the result of the call through the http interface */
+                if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    console.log('[ERROR] Call via HTTP Interface failed. err.stack = ' + err.stack)
+                    console.log('[ERROR] params = ' + JSON.stringify(params))
+                    return
+                }
+
+                let response = JSON.parse(data)
+
+                /* Lets check the result of the method call */
+                if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    console.log('[ERROR] Call to Client Github Server failed. err.stack = ' + err.stack)
+                    console.log('[ERROR] params = ' + JSON.stringify(params))
+                    console.log('[ERROR] response = ' + JSON.stringify(response))
+                    return
+                }
+
+                /* Successful Call */
+
+                let githubStarsArray = response.githubListArray
+
+                for (let i = 0; i < githubStarsArray.length; i++) {
+                    let githubUsername = githubStarsArray[i]
+                    thisObject.githubStars.set(githubUsername, 1)
+                }
+
+                requestWatchers()
+            }
         }
 
         function requestWatchers() {
-            httpRequest(
-                undefined,
-                'Gov/getGithubWatchers/' +
-                'Superalgos' + '/' +
-                config.username + '/' +
-                config.token
-                , onGithubWatchersResponse)
+
+            let params = {
+                method: 'getGithubWatchers',
+                repository: 'Superalgos',
+                username: config.username,
+                token: config.token
+            }
+
+            let url = 'GOV' // We will access the default Client GOV endpoint.
+
+            httpRequest(JSON.stringify(params), url, onResponse)
+
+            function onResponse(err, data) {
+
+                /* Lets check the result of the call through the http interface */
+                if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    console.log('[ERROR] Call via HTTP Interface failed. err.stack = ' + err.stack)
+                    console.log('[ERROR] params = ' + JSON.stringify(params))
+                    return
+                }
+
+                let response = JSON.parse(data)
+
+                /* Lets check the result of the method call */
+                if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    console.log('[ERROR] Call to Client Github Server failed. err.stack = ' + err.stack)
+                    console.log('[ERROR] params = ' + JSON.stringify(params))
+                    console.log('[ERROR] response = ' + JSON.stringify(response))
+                    return
+                }
+
+                /* Successful Call */
+
+                let githubWatchersArray = response.githubListArray
+
+                for (let i = 0; i < githubWatchersArray.length; i++) {
+                    let githubUsername = githubWatchersArray[i]
+                    thisObject.githubWatchers.set(githubUsername, 1)
+                }
+
+                requestForks()
+            }
         }
 
         function requestForks() {
-            httpRequest(
-                undefined,
-                'Gov/getGithubForks/' +
-                'Superalgos' + '/' +
-                config.username + '/' +
-                config.token
-                , onGithubForksResponse)
-        }
 
-        function onGithubStarsResponse(err, githubData) {
-            //console.log(githubData)
-            /* Lets check the result of the call through the http interface */
-            let githubStarsArray = JSON.parse(githubData)
-
-            for (let i = 0; i < githubStarsArray.length; i++) {
-                let githubUsername = githubStarsArray[i]
-                thisObject.githubStars.set(githubUsername, 1)
+            let params = {
+                method: 'getGithubForks',
+                repository: 'Superalgos',
+                username: config.username,
+                token: config.token
             }
 
-            requestWatchers()
-        }
+            let url = 'GOV' // We will access the default Client GOV endpoint.
 
-        function onGithubWatchersResponse(err, githubData) {
-            //console.log(githubData)
-            /* Lets check the result of the call through the http interface */
-            let githubWatchersArray = JSON.parse(githubData)
+            httpRequest(JSON.stringify(params), url, onResponse)
 
-            for (let i = 0; i < githubWatchersArray.length; i++) {
-                let githubUsername = githubWatchersArray[i]
-                thisObject.githubWatchers.set(githubUsername, 1)
-            }
+            function onResponse(err, data) {
 
-            requestForks()
-        }
+                /* Lets check the result of the call through the http interface */
+                if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    console.log('[ERROR] Call via HTTP Interface failed. err.stack = ' + err.stack)
+                    console.log('[ERROR] params = ' + JSON.stringify(params))
+                    return
+                }
 
-        function onGithubForksResponse(err, githubData) {
-            //console.log(githubData)
-            /* Lets check the result of the call through the http interface */
-            let githubForksArray = JSON.parse(githubData)
+                let response = JSON.parse(data)
 
-            for (let i = 0; i < githubForksArray.length; i++) {
-                let githubUsername = githubForksArray[i]
-                thisObject.githubForks.set(githubUsername, 1)
+                /* Lets check the result of the method call */
+                if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    console.log('[ERROR] Call to Client Github Server failed. err.stack = ' + err.stack)
+                    console.log('[ERROR] params = ' + JSON.stringify(params))
+                    console.log('[ERROR] response = ' + JSON.stringify(response))
+                    return
+                }
+
+                /* Successful Call */
+
+                let githubForksArray = response.githubListArray
+
+                for (let i = 0; i < githubForksArray.length; i++) {
+                    let githubUsername = githubForksArray[i]
+                    thisObject.githubForks.set(githubUsername, 1)
+                }
             }
         }
     }

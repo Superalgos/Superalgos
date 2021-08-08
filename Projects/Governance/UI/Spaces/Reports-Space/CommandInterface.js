@@ -41,6 +41,10 @@ function newGovernanceReportsCommmandInterface() {
                 message = 'Automated PR merging process.'
             }
 
+            /* Closing the Governance Tab */
+            UI.projects.governance.spaces.reportsSpace.sidePanelTab.close()
+            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+
             /* Find the Username and Password */
             let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
             if (apisNode === undefined) {
@@ -62,36 +66,53 @@ function newGovernanceReportsCommmandInterface() {
                 return
             }
 
+            UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Message - Processing Pull Requests')
+
             message = message.replaceAll('#', '_HASHTAG_')
             message = message.replaceAll('/', '_SLASH_')
 
-            httpRequest(
-                undefined,
-                'Gov/PRs/' +
-                message + '/' +
-                config.username + '/' +
-                config.token + '/' +
-                UI.projects.education.spaces.docsSpace.currentBranch + '/' +
-                UI.projects.education.spaces.docsSpace.contributionsBranch
-                , onResponse)
+            /* Lets execute this command against the Client */
 
-            UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Message - Processing Pull Requests')
+            let params = {
+                method: 'mergePullRequests',
+                commitMessage: message,
+                username: config.username,
+                token: config.token
+            }
 
-            return
+            let url = 'GOV' // We will access the default Client GOV endpoint.
+
+            httpRequest(JSON.stringify(params), url, onResponse)
 
             function onResponse(err, data) {
+
                 /* Lets check the result of the call through the http interface */
-                data = JSON.parse(data)
-                if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    console.log('[ERROR] Call via HTTP Interface failed.' + err.stack)
+                    console.log('[ERROR] Params = ' + JSON.stringify(params))
+                    return
+                }
+
+                let response = JSON.parse(data)
+
+                /* Lets check the result of the method call */
+                if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    console.log('[ERROR] Call to Client Github Server failed.' + err.stack)
+                    console.log('[ERROR] Params = ' + JSON.stringify(params))
+                }
+
+                /* Successful Call */
+
+                if (response.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                     UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Message - Pull Requests Processed')
                 } else {
                     UI.projects.education.spaces.docsSpace.navigateTo(
-                        data.docs.project,
-                        data.docs.category,
-                        data.docs.type,
-                        data.docs.anchor,
+                        response.docs.project,
+                        response.docs.category,
+                        response.docs.type,
+                        response.docs.anchor,
                         undefined,
-                        data.docs.placeholder
+                        response.docs.placeholder
                     )
                 }
             }

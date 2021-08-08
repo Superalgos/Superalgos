@@ -81,12 +81,12 @@
                     "id": "bda21833-11b8-49d3-8c79-ff8e1c667dcc",
                     "savedPayload": {
                         "position": {
-                            "x": 31000.07168984726,
-                            "y": 23974.264068711924
+                            "x": 30936.297332942388,
+                            "y": 24042.62315256192
                         },
                         "targetPosition": {
-                            "x": 30787.939655491296,
-                            "y": 23762.13203435596
+                            "x": 30747.501215627435,
+                            "y": 23809.47936412483
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -114,7 +114,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 3,
                         "distanceToParent": 3,
                         "arrangementStyle": 0

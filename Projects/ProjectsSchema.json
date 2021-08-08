@@ -871,7 +871,16 @@
                 }
             ]
         },
-        "CL": {},
+        "CL": {
+            "utilities": [
+                {
+                    "name": "Async Function",
+                    "propertyName": "asyncFunctions",
+                    "functionName": "newFoundationsUtilitiesAsyncFunctions",
+                    "fileName": "AsyncFunctions.js"
+                }
+            ]
+        },
         "plugins": [
             "Data Mines",
             "Trading Mines",

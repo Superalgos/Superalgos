@@ -1,4 +1,13 @@
-exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVER, PROJECT_FILE_SERVER, UI_FILE_SERVER, PLUGIN_SERVER, CCXT_SERVER, WEB3_SERVER) {
+exports.newHttpInterface = function newHttpInterface(
+    WEB_SERVER, 
+    DATA_FILE_SERVER, 
+    PROJECT_FILE_SERVER, 
+    UI_FILE_SERVER, 
+    PLUGIN_SERVER, 
+    CCXT_SERVER, 
+    WEB3_SERVER,
+    GITHUB_SERVER
+    ) {
 
     /*
     IMPORTANT: If you are reviewing the code of the project please note 
@@ -366,6 +375,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
                             break
                         }
+
                         case 'Save-Concept-Schema': {
                             getBody(processRequest)
 
@@ -396,6 +406,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
                             break
                         }
+
                         case 'Save-Topic-Schema': {
                             getBody(processRequest)
 
@@ -426,6 +437,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
                             break
                         }
+
                         case 'Save-Tutorial-Schema': {
                             getBody(processRequest)
 
@@ -456,6 +468,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
                             break
                         }
+
                         case 'Save-Review-Schema': {
                             getBody(processRequest)
 
@@ -486,6 +499,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
                             break
                         }
+
                         case 'Save-Book-Schema': {
                             getBody(processRequest)
 
@@ -1019,138 +1033,80 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
             }
                 break
 
-            case 'Gov': {
-                switch (requestParameters[2]) { // switch by command
-                    case 'getGithubStars': {
-                        getGithubUsernames('activity', 'listStargazersForRepo')
-                        break
-                    }
-                    case 'getGithubWatchers': {
-                        getGithubUsernames('activity', 'listWatchersForRepo')
-                        break
-                    }
-                    case 'getGithubForks': {
-                        getGithubUsernames('repos', 'listForks')
-                        break
-                    }
-                    case 'PRs': {
-                        mergeGithubPullRequests()
-                        break
-                    }
-                    case 'Pay': {
-                        payToContributors()
-                        break
-                    }
-                }
+            case 'GOV': {
+                /*
+                This is the Governance endpoint at the Http Interface. All methods
+                related to the Governance System are implemented here and routed
+                to the backend Servers that can process them. 
+                */
+                getBody(processRequest)
 
-                function getGithubUsernames(endpoint, method) {
+                async function processRequest(body) {
                     try {
-                        const GITHUB_API_WAITING_TIME = 250
-                        const repository = unescape(requestParameters[3])
-                        const username = unescape(requestParameters[4])
-                        const token = unescape(requestParameters[5])
-                        let error
-                        let githubListArray = []
+                        let params = JSON.parse(body)
 
-                        getRepoInfo()
+                        switch (params.method) {
+                            case 'getGithubStars': {
 
-                        async function getRepoInfo() {
-                            await doGithub()
-                            if (error !== undefined) {
+                                let serverResponse = await GITHUB_SERVER.getGithubStars(
+                                    params.repository,
+                                    params.username,
+                                    params.token
+                                )
 
-                                let docs = {
-                                    project: 'Governance',
-                                    category: 'Topic',
-                                    type: 'Gov Error - Get Repository Information',
-                                    anchor: undefined,
-                                    placeholder: {}
-                                }
-
-                                respondWithDocsObject(docs, error)
+                                respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                 return
                             }
+                            case 'getGithubWatchers': {
 
-                            respondWithContent(JSON.stringify(githubListArray), httpResponse)
-                        }
+                                let serverResponse = await GITHUB_SERVER.getGithubWatchers(
+                                    params.repository,
+                                    params.username,
+                                    params.token
+                                )
 
-                        async function doGithub() {
+                                respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                return
+                            }
+                            case 'getGithubForks': {
 
-                            const { Octokit } = require("@octokit/rest")
+                                let serverResponse = await GITHUB_SERVER.getGithubForks(
+                                    params.repository,
+                                    params.username,
+                                    params.token
+                                )
 
-                            const octokit = new Octokit({
-                                auth: token,
-                                userAgent: 'Superalgos Beta 11'
-                            })
-                            await getList()
+                                respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                return
+                            }
+                            case 'mergePullRequests': {
 
-                            async function getList() {
-                                const repo = repository
-                                const owner = 'Superalgos'
-                                const per_page = 100 // Max
-                                let page = 0
-                                let lastPage = false
+                                let serverResponse = await GITHUB_SERVER.mergePullRequests(
+                                    params.commitMessage,
+                                    params.username,
+                                    params.token
+                                )
 
-                                while (lastPage === false) {
-                                    try {
-                                        page++
-                                        await sleep(GITHUB_API_WAITING_TIME)
-                                        let listResponse = await octokit[endpoint][method]({
-                                            owner,
-                                            repo,
-                                            per_page,
-                                            page
-                                        });
+                                respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                return
+                            }
+                            case 'payContributors': {
 
-                                        if (listResponse.data.length < 100) {
-                                            lastPage = true
-                                        }
+                                let serverResponse = await WEB3_SERVER.payContributors(
+                                    params.signature
+                                )
 
-                                        for (let i = 0; i < listResponse.data.length; i++) {
-                                            let listItem = listResponse.data[i]
-                                            let githubUsername
-                                            switch (endpoint) {
-                                                case 'activity': {
-                                                    githubUsername = listItem.login
-                                                    break
-                                                }
-                                                case 'repos': {
-                                                    githubUsername = listItem.owner.login
-                                                    break
-                                                }
-                                            }
-                                            //console.log(listItem)
-
-                                            githubListArray.push(githubUsername)
-                                        }
-                                        console.log('[INFO] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList -> ' + method + ' Page = ' + page)
-                                        console.log('[INFO] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList -> ' + method + ' Received = ' + listResponse.data.length)
-
-                                    } catch (err) {
-                                        console.log(err)
-
-                                        if (err.stack.indexOf('last page') >= 0) {
-                                            return
-                                        } else {
-                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList ->Method call produced an error.')
-                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList ->err.stack = ' + err.stack)
-                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList ->repository = ' + repository)
-                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList ->username = ' + username)
-                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList ->token starts with = ' + token.substring(0, 10) + '...')
-                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList ->token ends with = ' + '...' + token.substring(token.length - 10))
-                                            error = err
-                                        }
-                                    }
-                                }
+                                respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                return
+                            }
+                            default: {
+                                respondWithContent(JSON.stringify({ error: 'Method ' + params.method + ' is invalid.' }), httpResponse)
                             }
                         }
-
                     } catch (err) {
-                        console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> Method call produced an error.')
-                        console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> err.stack = ' + err.stack)
-                        console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> repository = ' + repository)
-                        console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> username = ' + username)
-                        console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> token starts with = ' + token.substring(0, 10) + '...')
-                        console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> token ends with = ' + '...' + token.substring(token.length - 10))
+                        console.log('[ERROR] httpInterface -> GOV -> Method call produced an error.')
+                        console.log('[ERROR] httpInterface -> GOV -> err.stack = ' + err.stack)
+                        console.log('[ERROR] httpInterface -> GOV -> Params Received = ' + body)
 
                         let error = {
                             result: 'Fail Because',
@@ -1160,333 +1116,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         respondWithContent(JSON.stringify(error), httpResponse)
                     }
                 }
-
-                function respondWithDocsObject(docs, error) {
-
-                    if (error.message !== undefined) {
-                        docs.placeholder.errorMessage = {
-                            style: 'Error',
-                            text: error.message
-                        }
-                    }
-                    if (error.stack !== undefined) {
-                        docs.placeholder.errorStack = {
-                            style: 'Javascript',
-                            text: error.stack
-                        }
-                    }
-                    if (error.code !== undefined) {
-                        docs.placeholder.errorCode = {
-                            style: 'Json',
-                            text: error.code
-                        }
-                    }
-
-                    docs.placeholder.errorDetails = {
-                        style: 'Json',
-                        text: JSON.stringify(error, undefined, 4)
-                    }
-
-                    let customResponse = {
-                        result: global.CUSTOM_FAIL_RESPONSE.result,
-                        docs: docs
-                    }
-
-                    respondWithContent(JSON.stringify(customResponse), httpResponse)
-
-                }
-
-                function mergeGithubPullRequests() {
-                    try {
-                        let commitMessage = unescape(requestParameters[3])
-
-                        /* Unsavping # */
-                        for (let i = 0; i < 10; i++) {
-                            commitMessage = commitMessage.replace('_SLASH_', '/')
-                            commitMessage = commitMessage.replace('_HASHTAG_', '#')
-                        }
-
-                        const GITHUB_API_WAITING_TIME = 250
-                        const repository = 'Superalgos'
-                        const username = unescape(requestParameters[4])
-                        const token = unescape(requestParameters[5])
-
-                        let error
-                        let githubPrListArray = []
-
-                        processOpenPullRequests()
-
-                        async function processOpenPullRequests() {
-                            await doGithub()
-                            if (error !== undefined) {
-
-                                let docs = {
-                                    project: 'Governance',
-                                    category: 'Topic',
-                                    type: 'Gov Error - Merge Pull Requests',
-                                    anchor: undefined,
-                                    placeholder: {}
-                                }
-
-                                respondWithDocsObject(docs, error)
-                                return
-                            }
-
-                            respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
-                        }
-
-                        async function doGithub() {
-                            try {
-                                const repo = repository
-                                const owner = 'Superalgos'
-                                const { Octokit } = require("@octokit/rest")
-                                const octokit = new Octokit({
-                                    auth: token,
-                                    userAgent: 'Superalgos Beta 11'
-                                })
-                                await getPrList()
-                                await mergePrs()
-
-                                async function getPrList() {
-
-                                    const per_page = 100 // Max
-                                    let page = 0
-                                    let lastPage = false
-
-                                    while (lastPage === false) {
-                                        try {
-                                            page++
-
-                                            await sleep(GITHUB_API_WAITING_TIME)
-                                            let listResponse = await octokit.rest.pulls.list({
-                                                owner: owner,
-                                                repo: repo,
-                                                state: 'open',
-                                                head: 'develop',
-                                                base: 'develop',
-                                                sort: undefined,
-                                                direction: undefined,
-                                                per_page: per_page,
-                                                page: page
-                                            });
-
-                                            if (listResponse.data.length < 100) {
-                                                lastPage = true
-                                            }
-                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> doGithub -> getPrList -> Receiving Page = ' + page)
-                                            for (let i = 0; i < listResponse.data.length; i++) {
-                                                let pullRequest = listResponse.data[i]
-                                                console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> doGithub -> getPrList -> Pull Request "' + pullRequest.title + '" found and added to the list to validate. ')
-                                                githubPrListArray.push(pullRequest)
-                                            }
-                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> doGithub -> getPrList -> Received = ' + listResponse.data.length)
-
-                                        } catch (err) {
-                                            console.log(err)
-
-                                            if (err.stack.indexOf('last page') >= 0) {
-                                                return
-                                            } else {
-                                                console.log('[ERROR] httpInterface -> Gov -> mergeGithubPullRequests -> doGithub -> getPrList ->Method call produced an error.')
-                                                console.log('[ERROR] httpInterface -> Gov -> mergeGithubPullRequests -> doGithub -> getPrList ->err.stack = ' + err.stack)
-                                                console.log('[ERROR] httpInterface -> Gov -> mergeGithubPullRequests -> doGithub -> getPrList ->repository = ' + repository)
-                                                console.log('[ERROR] httpInterface -> Gov -> mergeGithubPullRequests -> doGithub -> getPrList ->username = ' + username)
-                                                console.log('[ERROR] httpInterface -> Gov -> mergeGithubPullRequests -> doGithub -> getPrList ->token starts with = ' + token.substring(0, 10) + '...')
-                                                console.log('[ERROR] httpInterface -> Gov -> mergeGithubPullRequests -> doGithub -> getPrList ->token ends with = ' + '...' + token.substring(token.length - 10))
-                                                error = err
-                                            }
-                                        }
-                                    }
-                                }
-
-                                async function mergePrs() {
-                                    /*
-                                    In order to automatically merge a PRs we will run several validations first.
-                                    We want to automate specifically the merging of Profile File changes at the
-                                    Governance System done by the same Github user name that matches the profile
-                                    changed. We will also not do the merge if there are more than one file at the 
-                                    PR. 
-    
-                                    We will go through the list of open PRs and run the validations at each one of them.
-                                    */
-                                    console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Ready to Validate ' + githubPrListArray.length + ' pull requests. ')
-
-                                    for (let i = 0; i < githubPrListArray.length; i++) {
-                                        let pullRequest = githubPrListArray[i]
-                                        /*
-                                        Lets get the files changed at this Pull Request.
-                                        */
-                                        await sleep(GITHUB_API_WAITING_TIME)
-                                        let listResponse = await octokit.rest.pulls.listFiles({
-                                            owner: owner,
-                                            repo: repo,
-                                            pull_number: pullRequest.number
-                                        });
-                                        /*
-                                        Validation #1: If the PR has more than one file, then we will not automatically
-                                        merge it.
-                                        */
-                                        if (listResponse.data.length !== 1) {
-                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #1 Failed -> Pull Request "' + pullRequest.title + '" not merged because it contains more than 1 file. -> fileCount = ' + listResponse.data.length)
-                                            /*
-                                            We will close PRs that contains any User Profile file together with other files in the same Pull Request.
-                                            This will avoid manual merges to include User Profile files.
-                                            */
-                                            for (j = 0; j < listResponse.data.length; j++) {
-                                                let pullRequestFile = listResponse.data[j]
-                                                let fileContentUrl = pullRequestFile.raw_url
-                                                if (fileContentUrl.indexOf('Governance/Plugins/User-Profiles') >= 0) {
-                                                    await sleep(GITHUB_API_WAITING_TIME)
-                                                    await octokit.rest.issues.createComment({
-                                                        owner: owner,
-                                                        repo: repo,
-                                                        issue_number: pullRequest.number,
-                                                        body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that a User Profile file... \n\n' + fileContentUrl + '\n\n...was submitted together with  ' + (listResponse.data.length - 1) + ' other file/s. User Profiles files as per the Governance System rules, must be the only file present at a Pull Request in order to pass all the validations and be automatically merged.'
-                                                    });
-
-                                                    await sleep(GITHUB_API_WAITING_TIME)
-                                                    await octokit.rest.pulls.update({
-                                                        owner: owner,
-                                                        repo: repo,
-                                                        pull_number: pullRequest.number,
-                                                        state: 'closed'
-                                                    });
-                                                    break
-                                                }
-                                            }
-                                            continue
-                                        }
-                                        let pullRequestFile = listResponse.data[0]
-                                        /*
-                                        Validation #2: File Name must be the same to the Github Username of the PR owner.
-                                        */
-                                        let fileContentUrl = pullRequestFile.raw_url
-
-                                        if (fileContentUrl.indexOf('Governance/Plugins/User-Profiles') < 0) {
-                                            /*
-                                            If it is not a user profile then there is no need to auto merge.
-                                            */
-                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified at the Pull Request is not a User Profile file. -> fileContentUrl = ' + fileContentUrl)
-                                            continue
-                                        }
-
-                                        let splittedURL = fileContentUrl.split('/')
-                                        let fileName = splittedURL[splittedURL.length - 1]
-                                        let splittedFileName = fileName.split('.')
-                                        fileName = splittedFileName[0]
-                                        let githubUsername = pullRequest.user.login
-
-                                        if (githubUsername !== fileName) {
-                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the File Name. -> Github Username = ' + githubUsername + '-> fileName = ' + fileName)
-
-                                            await sleep(GITHUB_API_WAITING_TIME)
-                                            await octokit.rest.issues.createComment({
-                                                owner: owner,
-                                                repo: repo,
-                                                issue_number: pullRequest.number,
-                                                body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that the Github User "' + githubUsername + '" who submitted it, is not equal to the name of the User Profile Plugin File.\n\n File Name = "' + fileName + '"'
-                                            });
-
-                                            await sleep(GITHUB_API_WAITING_TIME)
-                                            await octokit.rest.pulls.update({
-                                                owner: owner,
-                                                repo: repo,
-                                                pull_number: pullRequest.number,
-                                                state: 'closed'
-                                            });
-                                            continue
-                                        }
-                                        await sleep(GITHUB_API_WAITING_TIME)
-                                        let fileContent = await fetchAPIDataFile(fileContentUrl)
-
-                                        let userProfile = JSON.parse(fileContent)
-                                        /*
-                                        Validation #3: The file changed at the PR is a User Profile.
-                                        */
-                                        if (userProfile.type !== 'User Profile') {
-                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #3 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified is not a User Profile. -> Type = ' + userProfile.type)
-                                            continue
-                                        }
-                                        /*
-                                        Validation #4: The message signed at the config is not the Github Username.
-                                        */
-                                        let config = JSON.parse(userProfile.config)
-                                        let messageSigned = config.signature.message
-                                        if (messageSigned !== githubUsername) {
-                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Validation #4 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the Message Signed at the User Profile. -> Github Username = ' + githubUsername + '-> messageSigned = ' + messageSigned)
-
-                                            await sleep(GITHUB_API_WAITING_TIME)
-                                            await octokit.rest.issues.createComment({
-                                                owner: owner,
-                                                repo: repo,
-                                                issue_number: pullRequest.number,
-                                                body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that the Github User "' + githubUsername + '" who submitted it, is not equal to the Message Signed at the User Profile.\n\n Message Signed = "' + messageSigned + '"'
-                                            });
-
-                                            await sleep(GITHUB_API_WAITING_TIME)
-                                            await octokit.rest.pulls.update({
-                                                owner: owner,
-                                                repo: repo,
-                                                pull_number: pullRequest.number,
-                                                state: 'closed'
-                                            });
-                                            continue
-                                        }
-                                        /*
-                                        All validations passed, we will proceed an merge this Pull Request.
-                                        */
-                                        await sleep(GITHUB_API_WAITING_TIME)
-                                        let mergeResponse = await octokit.rest.pulls.merge({
-                                            owner: owner,
-                                            repo: repo,
-                                            pull_number: pullRequest.number,
-                                            commit_title: 'Changes in User Profile done by Profile Owner ' + githubUsername + ' automatically merged by Superalgos.'
-                                        });
-
-                                        if (mergeResponse.data.merged !== true) {
-                                            console.log('[WARN] httpInterface -> Gov -> mergeGithubPullRequests -> Merge Failed -> Pull Request "' + pullRequest.title + '" not merged because Github could not merge it. -> mergeResponse.message = ' + mergeResponse.data.message)
-                                            continue
-                                        } else {
-                                            console.log('[INFO] httpInterface -> Gov -> mergeGithubPullRequests -> Merge Succed -> Pull Request "' + pullRequest.title + '" successfully merged. -> mergeResponse.message = ' + mergeResponse.data.message)
-                                            await sleep(GITHUB_API_WAITING_TIME)
-                                            await octokit.rest.issues.createComment({
-                                                owner: owner,
-                                                repo: repo,
-                                                issue_number: pullRequest.number,
-                                                body: 'This Pull Request was automatically merged by the Superalgos Governance System because it was detected that the Github User " ' + githubUsername + '" who submitted it, modified its own User Profile Plugin File and nothning else but that file. All validations were successfull.'
-                                            });
-                                            continue
-                                        }
-                                    }
-                                }
-                            } catch (err) {
-                                console.log('[ERROR] httpInterface -> Gov -> mergeGithubPullRequests -> doGithub -> err.stack = ' + err.stack)
-                            }
-                        }
-
-                    } catch (err) {
-                        console.log('[ERROR] httpInterface -> Gov -> mergeGithubPullRequests -> Method call produced an error.')
-                        console.log('[ERROR] httpInterface -> Gov -> mergeGithubPullRequests -> err.stack = ' + err.stack)
-                        console.log('[ERROR] httpInterface -> Gov -> mergeGithubPullRequests -> repository = ' + repository)
-                        console.log('[ERROR] httpInterface -> Gov -> mergeGithubPullRequests -> username = ' + username)
-                        console.log('[ERROR] httpInterface -> Gov -> mergeGithubPullRequests -> token starts with = ' + token.substring(0, 10) + '...')
-                        console.log('[ERROR] httpInterface -> Gov -> mergeGithubPullRequests -> token ends with = ' + '...' + token.substring(token.length - 10))
-
-                        let error = {
-                            result: 'Fail Because',
-                            message: err.message,
-                            stack: err.stack
-                        }
-                        respondWithContent(JSON.stringify(error), httpResponse)
-                    }
-                }
-
-                function payToContributors() {
-
-                }
-            }
                 break
-
+            }
             case 'LegacyPlotter.js':
                 {
                     respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/LegacyPlotter.js', httpResponse)
@@ -2430,12 +2061,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
             }));
             return files.reduce((a, f) => a.concat(f), []);
         }
-    }
-
-    function sleep(ms) {
-        return new Promise((resolve) => {
-            setTimeout(resolve, ms)
-        })
     }
 
     async function fetchAPIDataFile(url) {

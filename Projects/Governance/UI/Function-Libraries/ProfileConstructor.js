@@ -31,7 +31,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 entropy: node.id + (new Date()).valueOf()
             }
 
-            let url = 'WEB3' // we don't need to ask this to any specific superalgos node.
+            let url = 'WEB3' // We will access the default Client WEB3 endpoint.
 
             httpRequest(JSON.stringify(params), url, onResponse)
 

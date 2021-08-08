@@ -1,6 +1,6 @@
 {
     "type": "User Profile",
-    "name": "Luis-Fernando-MolinaXX",
+    "name": "Luis-Fernando-Molina",
     "config": "{\"tokens\":10000000,\"signature\":{\"message\":\"Luis-Fernando-Molina\",\"messageHash\":\"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\"v\":\"0x1b\",\"r\":\"0x90293b042c180aa21b05f0356f31688c597be4ff2df136f63a2b8a899c658eb0\",\"s\":\"0x42abf909024d34217430e42ebadc96b7834218cc86a4c295a2ae419ff2fca6e3\",\"signature\":\"0x90293b042c180aa21b05f0356f31688c597be4ff2df136f63a2b8a899c658eb042abf909024d34217430e42ebadc96b7834218cc86a4c295a2ae419ff2fca6e31b\"},\"codeName\":\"Luis-Fernando-Molina\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
@@ -565,7 +565,7 @@
                                 "featureClaimVotes": [
                                     {
                                         "type": "Feature Claim Vote",
-                                        "name": "Luis-Fernando-Molina Governance System New Features",
+                                        "name": "Luis-Fernando-MolinaXX Governance System New Features",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "4381f059-44c8-4843-9cac-8a7cf41fa14c",
@@ -596,7 +596,7 @@
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
-                                                    "Luis-Fernando-MolinaXX",
+                                                    "Luis-Fernando-Molina",
                                                     "User Profile",
                                                     "Governance",
                                                     "148911b3-b2f3-44fb-8cb4-017991789132"
@@ -648,7 +648,7 @@
                                     },
                                     {
                                         "type": "Feature Claim Vote",
-                                        "name": "Luis-Fernando-Molina API Maps New Features",
+                                        "name": "Luis-Fernando-MolinaXX API Maps New Features",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "6145983d-799e-4a3e-ac04-ed29b398cdce",
@@ -679,7 +679,7 @@
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
-                                                    "Luis-Fernando-MolinaXX",
+                                                    "Luis-Fernando-Molina",
                                                     "User Profile",
                                                     "Governance",
                                                     "148911b3-b2f3-44fb-8cb4-017991789132"

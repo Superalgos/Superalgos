@@ -874,10 +874,16 @@
         "CL": {
             "utilities": [
                 {
-                    "name": "Async Function",
+                    "name": "Async Functions",
                     "propertyName": "asyncFunctions",
                     "functionName": "newFoundationsUtilitiesAsyncFunctions",
                     "fileName": "AsyncFunctions.js"
+                },
+                {
+                    "name": "Web Access",
+                    "propertyName": "webAccess",
+                    "functionName": "newFoundationsUtilitiesWebAccess",
+                    "fileName": "WebAccess.js"
                 }
             ]
         },

@@ -224,7 +224,7 @@ exports.newGithubServer = function newGithubServer() {
                                 page++
 
                                 await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
-                                
+
                                 let listResponse = await octokit.rest.pulls.list({
                                     owner: owner,
                                     repo: repo,
@@ -388,6 +388,29 @@ exports.newGithubServer = function newGithubServer() {
                                     repo: repo,
                                     issue_number: pullRequest.number,
                                     body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that the Github User "' + githubUsername + '" who submitted it, is not equal to the Message Signed at the User Profile.\n\n Message Signed = "' + messageSigned + '"'
+                                });
+
+                                await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                await octokit.rest.pulls.update({
+                                    owner: owner,
+                                    repo: repo,
+                                    pull_number: pullRequest.number,
+                                    state: 'closed'
+                                });
+                                continue
+                            }
+                            /*
+                            Validation #5: The name of the User Profile node is not the Github Username.
+                            */
+                            if (userProfile.name !== githubUsername) {
+                                console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #5 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the User Profile node\'s name. -> Github Username = ' + githubUsername + '-> userProfile.name = ' + userProfile.name)
+
+                                await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                await octokit.rest.issues.createComment({
+                                    owner: owner,
+                                    repo: repo,
+                                    issue_number: pullRequest.number,
+                                    body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that the Github User "' + githubUsername + '" who submitted it, is not equal to the User Profile node\'s name.\n\n User Profile Name = "' + userProfile.name + '"'
                                 });
 
                                 await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)

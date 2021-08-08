@@ -13,7 +13,8 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         addMissingPluginApiMaps: addMissingPluginApiMaps,
         enableSavingWithWorkspace: enableSavingWithWorkspace,
         disableSavingWithWorkspace: disableSavingWithWorkspace,
-        savePlugin: savePlugin
+        savePlugin: savePlugin,
+        installAsPlugin: installAsPlugin
     }
     return thisObject
 
@@ -60,7 +61,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Data-Mines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames, 'Data-Mines', 'Data Mine')
+            UI.projects.foundations.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Data-Mines', 'Data Mine')
         }
     }
 
@@ -76,7 +77,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Trading-Mines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames, 'Trading-Mines', 'Trading Mine')
+            UI.projects.foundations.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Trading-Mines', 'Trading Mine')
         }
     }
 
@@ -92,7 +93,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Trading-Systems', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames, 'Trading-Systems', 'Trading System')
+            UI.projects.foundations.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Trading-Systems', 'Trading System')
         }
     }
 
@@ -108,7 +109,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Trading-Engines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames, 'Trading-Engines', 'Trading Engine')
+            UI.projects.foundations.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Trading-Engines', 'Trading Engine')
         }
     }
 
@@ -124,7 +125,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Learning-Mines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames, 'Learning-Mines', 'Learning Mine')
+            UI.projects.foundations.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Learning-Mines', 'Learning Mine')
         }
     }
 
@@ -140,7 +141,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Learning-Systems', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames, 'Learning-Systems', 'Learning System')
+            UI.projects.foundations.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Learning-Systems', 'Learning System')
         }
     }
 
@@ -156,7 +157,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Learning-Engines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames, 'Learning-Engines', 'Learning Engine')
+            UI.projects.foundations.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Learning-Engines', 'Learning Engine')
         }
     }
 
@@ -172,7 +173,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Tutorials', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames, 'Tutorials', 'Tutorial')
+            UI.projects.foundations.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Tutorials', 'Tutorial')
         }
     }
 
@@ -188,7 +189,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'API-Maps', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames, 'API-Maps', 'API Map')
+            UI.projects.foundations.utilities.plugins.addMissingPluginFiles(node, fileNames, 'API-Maps', 'API Map')
         }
     }
 
@@ -204,5 +205,16 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
 
     function savePlugin(node, rootNodes) {
         UI.projects.foundations.utilities.plugins.savePluginFile(node)
+    }
+
+    function installAsPlugin(node, rootNodes) {
+        let plugins = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Plugins')
+        let pluginProject = UI.projects.foundations.utilities.children.findChildByCodeName(plugins, node.project)
+        let pluginFolderName = UI.projects.foundations.utilities.plugins.getPluginFolderNamesByNodeType(node.type)
+        let pluginForlderNodeType = 'Plugin ' + pluginFolderName.replaceAll('-', ' ')
+        let pluginFolderNode = UI.projects.foundations.utilities.children.findChildByType(pluginProject, pluginForlderNodeType)
+        let pluginFile = UI.projects.foundations.utilities.plugins.addMissingPluginFile(pluginFolderNode, node.name, pluginFolderName, node.type, true)
+        node.isPlugin = true
+        UI.projects.foundations.utilities.plugins.savePluginFile(pluginFile)
     }
 }

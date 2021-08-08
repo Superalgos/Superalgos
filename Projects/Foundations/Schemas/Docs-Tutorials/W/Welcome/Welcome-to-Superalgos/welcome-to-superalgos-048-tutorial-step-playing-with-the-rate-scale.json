@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Playing with the Rate Scale!",
     "definition": {
         "icon": {
-            "name": "Charting-Space/rate-scale",
+            "name": "Charting-Space\\rate-scale",
             "project": "Foundations"
         },
         "text": "Do I need to tell you how the Rate Scale works or can you figure it out on your own? Ok... I'll give you a hint...",

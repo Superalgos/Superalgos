@@ -1,0 +1,67 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 46,
+    "type": "Tutorial Step - Starting From a Plugin",
+    "definition": {
+        "text": "A typical case is when you wish to introduce changes to a strategy shipping with the system to start with a proven setup!",
+        "icon": {
+            "name": "Trading\\trading-system",
+            "project": "Foundations"
+        },
+        "updated": 1615995229226,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Uno scenario tipico è modificare una strategia inclusa nel sistema per iniziare con un setup già pronto.",
+                "updated": 1619590461442,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Un caso típico es cuando desea introducir cambios en una estrategia de envío con el sistema para comenzar con una configuración probada.",
+                "updated": 1626702894193,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's say you are just starting with Superalgos, did a few tutorials, and are ready to start playing with a strategy. You want to start with an existing strategy and introduce minor modifications to better understand how things work. The strategy in question is included as a plugin in a specific workspace. Simply enable saving and you are good to go!",
+            "updated": 1628349943318,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Mettiamo che hai completato i tutorial di Superalgos e sei pronto a sperimentare con una strategia. Vuoi iniziare da una strategia esistente e modificare qualche dettaglio per capire meglio come funziona il tutto. La strategia in questione è inclusa come un plugin in uno specifico workspace.",
+                    "updated": 1619590579206,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Digamos que recién estás comenzando con Superalgos, has hecho algunos tutoriales y estás listo para comenzar a jugar con una estrategia. Deseas comenzar con una estrategia existente e introducir modificaciones menores para comprender mejor cómo funcionan las cosas. La estrategia en cuestión se incluye como plugin en un workspace específico.",
+                    "updated": 1626703032336,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "In such cases, you must delete the Plugin File node corresponding to the Trading System and restore the original file in the \\Plugins\\Trading-Systems folder as if it was a backup: drag the file and drop it on the Design Space!",
+            "updated": 1615995483240,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "In questi casi, devi cancellare il nodo Plugin File corrispondente al Trading System e ripristinare l'originle presente in \\Plugins\\Trading-Systems come fosse un backup: trascina il file e rilascialo nel Design Space!",
+                    "updated": 1619590641442,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "En tales casos, debes eliminar el nodo Plugin File correspondiente a el Trading System y restaurar el archivo original en la carpeta \\Plugins\\Trading-Systems como si fuera un backup: arrastra el archivo y suéltalo en el Design Space!",
+                    "updated": 1626703323868,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

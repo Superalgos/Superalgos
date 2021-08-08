@@ -42,7 +42,15 @@
                             "type": "Assets",
                             "name": "Superalgos-CL",
                             "id": "4a693d1b-c9cc-4ab6-aa56-e1e1e1e18854"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Superalgos-CL",
+                                "Assets",
+                                "Governance",
+                                "4a693d1b-c9cc-4ab6-aa56-e1e1e1e18854"
+                            ]
+                        ]
                     }
                 },
                 {
@@ -77,7 +85,15 @@
                             "type": "Assets",
                             "name": "Superalgos-UI",
                             "id": "c482443e-7a10-4624-ad10-2185dd503202"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Superalgos-UI",
+                                "Assets",
+                                "Governance",
+                                "c482443e-7a10-4624-ad10-2185dd503202"
+                            ]
+                        ]
                     }
                 },
                 {
@@ -112,7 +128,15 @@
                             "type": "Assets",
                             "name": "Superalgos-TS",
                             "id": "e535de78-ab80-4192-a9a9-9ecfd904a5e7"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Superalgos-TS",
+                                "Assets",
+                                "Governance",
+                                "e535de78-ab80-4192-a9a9-9ecfd904a5e7"
+                            ]
+                        ]
                     }
                 },
                 {
@@ -147,7 +171,15 @@
                             "type": "Assets",
                             "name": "Superalgos-Docker",
                             "id": "f92d7a00-be08-4f44-b000-e0f8c4658f14"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Superalgos-Docker",
+                                "Assets",
+                                "Governance",
+                                "f92d7a00-be08-4f44-b000-e0f8c4658f14"
+                            ]
+                        ]
                     }
                 },
                 {
@@ -182,7 +214,15 @@
                             "type": "Assets",
                             "name": "Superalgos-Launch-Scripts",
                             "id": "1861d67e-8345-4ddc-beb3-2e6fa4b3dcc5"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Superalgos-Launch-Scripts",
+                                "Assets",
+                                "Governance",
+                                "1861d67e-8345-4ddc-beb3-2e6fa4b3dcc5"
+                            ]
+                        ]
                     }
                 },
                 {
@@ -217,7 +257,15 @@
                             "type": "Assets",
                             "name": "Superalgos-Root",
                             "id": "b5e57605-639d-467b-85ab-c1540d744b33"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Superalgos-Root",
+                                "Assets",
+                                "Governance",
+                                "b5e57605-639d-467b-85ab-c1540d744b33"
+                            ]
+                        ]
                     }
                 }
             ],

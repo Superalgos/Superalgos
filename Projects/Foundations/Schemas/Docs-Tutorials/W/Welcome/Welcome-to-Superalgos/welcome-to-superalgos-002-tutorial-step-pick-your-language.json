@@ -6,7 +6,7 @@
         "text": "Users are contributing translations so that you may choose your preferred language! This Community is awesome!",
         "updated": 1619801502482,
         "icon": {
-            "name": "Languages/EN",
+            "name": "Languages\\EN",
             "project": "Foundations"
         },
         "translations": [

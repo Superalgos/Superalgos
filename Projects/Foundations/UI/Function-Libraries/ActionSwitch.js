@@ -114,6 +114,11 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(action.node, action.rootNodes)
                 }
                 break
+            case 'Install as Plugin':
+                {
+                    UI.projects.foundations.functionLibraries.pluginsFunctions.installAsPlugin(action.node, action.rootNodes)
+                }
+                break
             case 'Edit Code':
 
                 break
@@ -728,6 +733,11 @@ function newFoundationsActionSwitch() {
             case 'Add Missing Workspace Projects':
                 {
                     UI.projects.foundations.functionLibraries.workspaceFunctions.addMissingWorkspaceProjects(action.node, action.rootNodes)
+                }
+                break
+            case 'Check For Missing References':
+                {
+                    UI.projects.foundations.functionLibraries.workspaceFunctions.checkForMissingReferences(action.rootNodes)
                 }
                 break
             case 'Switch To Forward Testing':

@@ -1,0 +1,67 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 29,
+    "type": "Tutorial Step - One Last Point!",
+    "definition": {
+        "text": "Pretty much like with Node Attaching Rules, nodes that may establish references also have rules in that regard.",
+        "icon": {
+            "name": "Trading\\trading-system-reference",
+            "project": "Foundations"
+        },
+        "updated": 1615809225061,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Analogamente alle Node Attaching Rules, ogni nodo ha regole di compatibilità per le References.",
+                "updated": 1619502324183,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Muy parecido a Node Attaching Rules, Los nodos que pueden establecer referencias también tienen reglas al respecto.",
+                "updated": 1626563799313,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Go to the Trading System Reference node menu, click the help button, and scroll to the bottom of the page!",
+            "updated": 1615809494186,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Vail al menù del nodo Trading System Reference, clicca sull'help e scorri in fondo alla pagina!",
+                    "updated": 1619502365211,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ve al menu del nodo Trading System Reference, haga clic en el botón de ayuda y desplácese hasta el final de la página.",
+                    "updated": 1626563954890,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "If you are a developer, you may want to know that Node Attaching Rules and Node Referencing Rules are defined in the AppSchema.json file in the Schema folder of a Project.",
+            "updated": 1615809761275,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Se sei uno sviluppatore, ti interesserà sapere che Node Attaching Rules e Node Reference Rules sono definite nel file AppSchema.json nella cartella Schema di un Progetto.",
+                    "updated": 1619502424887,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si eres desarrollador, es posible que quieras saber que Node Attaching Rules y Node Referencing Rules se definen en el archivo AppSchema.json en la carpeta Schema de un proyecto.",
+                    "updated": 1626568316882,
+                    "style": "Note"
+                }
+            ]
+        }
+    ]
+}

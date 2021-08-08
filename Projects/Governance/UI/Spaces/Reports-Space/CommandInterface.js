@@ -27,14 +27,16 @@ function newGovernanceReportsCommmandInterface() {
         if (checkPayCommand() === undefined) { return true }
 
         function checkPRsCommand() {
-            if (UI.projects.governance.spaces.reportsSpace.commandInterface.command.toLowerCase() === 'gov.help gov.prs') {
+
+            let command = UI.projects.governance.spaces.reportsSpace.commandInterface.command.toLowerCase()
+            if (command === 'gov.help gov.prs') {
                 UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov PRs Command')
                 return
             }
-            if (UI.projects.governance.spaces.reportsSpace.commandInterface.command.indexOf('Gov.PRs') !== 0 && UI.projects.governance.spaces.reportsSpace.commandInterface.command.indexOf('gov.prs') !== 0) { return 'Not PRs Commands' }
+            if (command.indexOf('gov.prs') !== 0 ) { return 'Not PRs Commands' }
 
             /* Set up the commit message */
-            let message = UI.projects.governance.spaces.reportsSpace.commandInterface.command.trim().substring(UI.projects.governance.spaces.reportsSpace.commandInterface.command.indexOf(' ') + 1, UI.projects.governance.spaces.reportsSpace.commandInterface.command.length)
+            let message = command.trim().substring(command.indexOf(' ') + 1, command.length)
             if (message.toLowerCase() === 'gov.prs') {
                 message = 'Automated PR merging process.'
             }
@@ -96,11 +98,13 @@ function newGovernanceReportsCommmandInterface() {
         }
 
         function checkPayCommand() {
-            if (UI.projects.governance.spaces.reportsSpace.commandInterface.command.toLowerCase() === 'gov.help gov.pay') {
+
+            let command = UI.projects.governance.spaces.reportsSpace.commandInterface.command.toLowerCase()
+            if (command === 'gov.help gov.pay') {
                 UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Pay Command')
                 return
             }
-            if (UI.projects.governance.spaces.reportsSpace.commandInterface.command.indexOf('Gov.Pay') !== 0 && UI.projects.governance.spaces.reportsSpace.commandInterface.command.indexOf('gov.pay') !== 0) { return 'Not Pay Commands' }
+            if (command.indexOf('gov.pay') !== 0) { return 'Not Pay Commands' }
 
             httpRequest(undefined, 'Gov/Pay/' + UI.projects.education.spaces.docsSpace.currentBranch, onResponse)
             UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Message - Paying to Contributors')

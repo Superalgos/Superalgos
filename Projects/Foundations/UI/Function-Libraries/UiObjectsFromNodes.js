@@ -343,7 +343,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                             if (pathNode !== undefined ) {
                                 UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(node, pathNode)
                             } else {
-                                console.log("[WARN] ", node.name, ' ', node.type, "failed to fix reference.  Unable to find reference parent ", pathName, ' ', pathType  )
+                                //console.log("[WARN] ", node.name, ' ', node.type, "failed to fix reference.  Unable to find reference parent ", pathName, ' ', pathType  )
                             }
 
                             function getNextNodeFromPath(node, pathName, pathType) {
@@ -383,9 +383,6 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                                 }
                             }
                         }
-                     }
-                    if (node.payload.referenceParent === undefined) {
-                        console.log('[WARN]' + node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
                     }
                     
                 } 

@@ -364,7 +364,7 @@ exports.newGithubServer = function newGithubServer() {
                                 continue
                             }
                             await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
-                            let fileContent = await fetchAPIDataFile(fileContentUrl)
+                            let fileContent = await CL.projects.foundations.utilities.webAccess.fetchAPIDataFile(fileContentUrl)
 
                             let userProfile = JSON.parse(fileContent)
                             /*

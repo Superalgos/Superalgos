@@ -71,10 +71,18 @@ let WEB_SOCKETS_INTERFACE = require('./webSocketsServer.js')
 let HTTP_INTERFACE = require('./httpInterface.js')
 
 try {
-    /* Setting up the modules that will be available for the Servers Running inside this Client */
+    /* 
+    Setting up the modules that will be available for the Servers Running inside this Client 
+    */
     let MULTI_PROJECT = require('./MultiProject.js');
     let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
     MULTI_PROJECT_MODULE.initialize()
+    /*
+    Setting up external dependencies.
+    */
+    CL.nodeModules = {
+        nodeFetch: require('node-fetch')
+    }
 
     console.log('CLIENT SERVERS:')
     console.log('')

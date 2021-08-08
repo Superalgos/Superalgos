@@ -12,16 +12,18 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         /*
         Some validations first...
         */
-        if (node.payload.referenceParent === undefined) {
-            node.payload.uiObject.setErrorMessage("You need to reference the node that contains the data to be signed.")
-            return
-        }
-        let data = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'githubUsername')
+        let githubUsername = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'githubUsername')
 
-        if (data === undefined || data === "") {
-            node.payload.referenceParent.payload.uiObject.setErrorMessage("githubUsername config property missing.")
+        if (githubUsername === undefined || githubUsername === "") {
+            node.payload.uiObject.setErrorMessage("githubUsername config property missing.")
             return
         }
+
+        let userProfile = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(
+            node,
+            'User Profile',
+            UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+            )
 
         createNewAccount()
 
@@ -62,7 +64,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 params: {
                     method: "signData",
                     privateKey: privateKey,
-                    data: data
+                    data: githubUsername
                 }
             }
 
@@ -83,11 +85,25 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     console.log('Call to WEB3 Server failed. ' + response.error)
                     return
                 }
-                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload.referenceParent.payload, 'signature', response.signature)
+                /*
+                We store at the User Profile the Signed githubUsername
+                */
+                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(userProfile.payload, 'signature', response.signature)
                 UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'address', address)
                 UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'privateKey', privateKey)
-
-                node.payload.uiObject.setInfoMessage("Profile Account has been successfully created.")
+                /*
+                We set the name of the User Profile as the githubUsername
+                */
+                userProfile.name = githubUsername
+                /*
+                We also Install the User Profile as a Plugin, which in turns saves it.
+                */
+                userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
+                userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
+                /*
+                Show nice message.
+                */
+                node.payload.uiObject.setInfoMessage("Profile Private Key has been successfully created. User Profile installed as a plugin and saved. Use the Private Key at a crypto wallet and delete this node once done.", 10000)
             }
         }
     }

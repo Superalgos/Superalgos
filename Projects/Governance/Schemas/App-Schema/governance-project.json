@@ -32,13 +32,6 @@
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
-            "label": "Add User Profile",
-            "relatedUiObject": "User Profile",
-            "actionFunction": "payload.executeAction"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "label": "Add Profile Constructor",
             "relatedUiObject": "Profile Constructor"

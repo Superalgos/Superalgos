@@ -37,6 +37,12 @@
             "workDoneLabel": "Done",
             "relatedUiObject": "Workspace",
             "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Check For Missing References",
+            "label": "Check For Missing References",
+            "relatedUiObject": "Workspace",
+            "actionFunction": "payload.executeAction"
         }
     ],
     "initialValues": {

@@ -1,7 +1,7 @@
 {
     "type": "Positions",
     "name": "Superalgos-Marketing",
-    "config": "{\"codeName\":\"Superalgos\"}",
+    "config": "{\"codeName\":\"Superalgos-Marketing\"}",
     "project": "Governance",
     "positionClasss": [
         {

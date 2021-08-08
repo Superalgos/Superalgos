@@ -1,7 +1,14 @@
 {
     "type": "Exchange Accounts",
     "definition": {
-        "text": "The exchange accounts node groups the different accounts the user may have with the corresponding exchange."
+        "text": "The exchange accounts node groups the different accounts the user may have with the corresponding exchange.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El nodo exchange accounts agrupa las diferentes cuentas que el usuario pueda tener con el correspondiente exchange.",
+                "updated": 1628205361106
+            }
+        ]
     },
     "paragraphs": [
         {

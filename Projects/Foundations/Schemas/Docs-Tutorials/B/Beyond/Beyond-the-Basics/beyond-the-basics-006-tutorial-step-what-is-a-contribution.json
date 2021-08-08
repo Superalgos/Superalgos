@@ -15,6 +15,11 @@
                 "text": "Il progetto avrà successo se riusciremo a promuovere una collaborazione globale: sono importanti contributi di ogni tipo!",
                 "updated": 1619632436237,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "El proyecto tendrá éxito si logra fomentar la colaboración global. ¡Damos la bienvenida a contribuciones de todo tipo para que todos puedan retribuir!",
+                "updated": 1628118496073
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Qualunque cosa aggiunga valore al progetto è gradita!",
                     "updated": 1619632572571,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": " ¡todo lo que aporta valor es bueno!",
+                    "updated": 1628118567325
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Correggere errori e dead link, o migliorare i Docs.",
                     "updated": 1619632631173,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Corregir un error tipográfico, un enlace muerto y mejorar los documentos.",
+                    "updated": 1628118554377
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "Tradurre una pagina nella tua lingua madre.",
                     "updated": 1619632643304,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Traducir una página a tu idioma nativo. ",
+                    "updated": 1628118674592
                 }
             ]
         },
@@ -67,6 +87,11 @@
                     "text": "Fare il design delle icone, migliorare la UX/UI.",
                     "updated": 1619632670924,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Diseñar iconos, trabajar para mejorar la UX / UI.",
+                    "updated": 1628118538116
                 }
             ]
         },
@@ -80,6 +105,11 @@
                     "text": "Produrre contenuto come tutorial in-app o video.",
                     "updated": 1619632686983,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Producir tutoriales o videos en la aplicación.",
+                    "updated": 1628119033704
                 }
             ]
         },
@@ -93,6 +123,11 @@
                     "text": "Recensire Superalgos nei vari blog e social",
                     "updated": 1619632764021,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Bloguear sobre Superalgos y correr la voz.",
+                    "updated": 1628119048711
                 }
             ]
         },
@@ -106,6 +141,11 @@
                     "text": "Condividere un Data Mine o un Trading System!",
                     "updated": 1619632784995,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Compartiendo un Data Mine o un Trading System!",
+                    "updated": 1628119096734
                 }
             ]
         },
@@ -119,6 +159,11 @@
                     "text": "Testare, debuggare, integrare progetti crypto e contribuire alla codebase.",
                     "updated": 1619632810073,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Probar, eliminar errores, integrar proyectos criptográficos y contribuir al código base.",
+                    "updated": 1628119117489
                 }
             ]
         }

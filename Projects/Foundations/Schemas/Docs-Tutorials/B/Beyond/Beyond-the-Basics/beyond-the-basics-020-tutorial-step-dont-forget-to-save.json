@@ -15,6 +15,11 @@
                 "text": "Prima di lanciarti in una scrittura sfrenata, assicurati di salvare la pagina una volta ogni tanto! Non rischiare il tuo romanzo!",
                 "updated": 1619636603159,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Antes de escribir un artículo de tamaño novedoso, ¡asegúrate de guardar la página de vez en cuando! ¡No hay necesidad de arriesgar tu prosa!",
+                "updated": 1628190493254
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Ogni paragrafo che scrivi è salvato a livello della sessione del browser appena esci dalla modalità Edit. Per salvare la pagina su disco ed evitare di perdere il lavoro in caso il browser crashasse, usa questo comando:",
                     "updated": 1619636674917,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cada párrafo que escribes se almacena en el nivel de la sesión del navegador tan pronto como sale del modo de edición. Sin embargo, para guardar la página en el disco y evitar perder el trabajo en un eventual bloqueo del navegador, ejecute este comando:",
+                    "updated": 1628190531998
                 }
             ]
         },
@@ -46,6 +56,11 @@
                     "text": "Se per qualche ragione perdi di vista la pagina, lancia il comando docs.reindex e cercala col titolo che le hai dato aggiungendola! Puoi anche usare il pulsante BACK sul footer della pagina!",
                     "updated": 1619636726170,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si por alguna razón pierdes de vista la página, ejecuta el comando docs.reindex y busca el título que le diste al agregarlo. ¡También puedes usar el botón BACK en el pie de página!",
+                    "updated": 1628191460990
                 }
             ]
         }

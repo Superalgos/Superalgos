@@ -15,6 +15,11 @@
                 "text": "Congratulazioni! Sei alla fine di un altro tutorial! Spero che ormai tu abbia un'idea di come funziona Superalgos!",
                 "updated": 1619638188232,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Felicidades! ¡Has llegado al final de otro tutorial! ¡Espero que sienta que está empezando a comprender cómo funciona Superalgos!",
+                "updated": 1628200006294
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Parliamo di cosa verrà dopo! La pagina che ho aperto è il libro First Step Tutorials. D'ora in poi sei libero di scegliere che tutorial fare!",
                     "updated": 1619638242869,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Hablemos de lo que viene después! La página que acabo de abrir es First Steps Tutorials book. ¡A partir de ahora, puede elegir qué tutoriales deseas hacer!",
+                    "updated": 1628200392617
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "TDai un'occhiata alla lista di tutorial disponibile su ogni pagina dei Plugin Workspaces e scegli quale fare! Credo che l'ordine in cui sono elencati sia quello più appropriato, ma dipende anche dai tuoi interessi quindi la scelta è tua!",
                     "updated": 1619638304612,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Echa un vistazo a la lista de tutoriales disponibles en los Plugin Worspaces ¡y elige cuál hacer a continuación! Creo que el orden en la lista puede ser apropiado, pero probablemente dependa de tus intereses, ¡así que lo dejaré en tus manos!",
+                    "updated": 1628200313162
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "text": "Ci vediamo al prossimo tutorial!",
                     "updated": 1619638313318,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Nos vemos en el próximo tutorial!",
+                    "updated": 1628200369762
                 }
             ]
         }

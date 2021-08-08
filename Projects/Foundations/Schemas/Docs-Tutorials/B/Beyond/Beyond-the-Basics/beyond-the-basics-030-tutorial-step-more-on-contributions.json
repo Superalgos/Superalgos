@@ -15,6 +15,11 @@
                 "text": "È cruciale per il progetto che ognuno contribuisca come può a Superalgos!",
                 "updated": 1619638010453,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡No puedo enfatizar lo suficiente lo importante que es para el proyecto que los usuarios contribuyan con lo que construyan con Superalgos!",
+                "updated": 1628198584455
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Se scegli di partecipare al progetto e alla Community, puoi prendere parte allo sforzo collettivo di migliorare Superalgos. E se non sei interessato al lavoro di gruppo, puoi comunque diventare un utente esperto e costruire cose utili a chi verrà dopo di te!",
                     "updated": 1619638095140,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si decides involucrarte con el proyecto y el Community, puedes participar en el esfuerzo colectivo para mejorar Superalgos. Pero incluso si no está interesado en el trabajo en equipo, seguirá desarrollando sus habilidades, se convertirá en un usuario avanzado y creará muchas cosas que pueden ser útiles para las personas que vienen después de ti.",
+                    "updated": 1628198688305
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "How to Contribute to Superalgos è il topic che copre i dettagli su come contribuire a Trading Systems, Data Mines, icone, Docs, traduzioni, eccetera. Ricorda: tutti i contributi sono incentivati con il token Superalgos!",
                     "updated": 1619638154537,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "How to Contribute to Superalgoses cubre la logística sobre cómo contribuir trading systems, data mines, iconos, documentación, traducciones, etc. Recuerda: ¡todas las contribuciones son incentivadas con tokens de Superalgos!",
+                    "updated": 1628198795991
                 }
             ]
         }

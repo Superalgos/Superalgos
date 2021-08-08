@@ -23,6 +23,16 @@
             "relatedUiObject": "Pool"
         },
         {
+            "action": "Install as Plugin",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Install",
+            "label": "Install as Plugin",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionFunction": "payload.executeAction"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Foundations",
             "askConfirmation": true,

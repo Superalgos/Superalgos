@@ -14,17 +14,18 @@
         },
         {
             "style": "Text",
-            "text": "Check out the page of the App Schema concept. After that, locate the App Schema file you will need to edit at the Projects folder. There is one App Schema file for Project, pick the right one and edit it with VS Code."
+            "text": "Check out the page of the App Schema concept. After that, locate the App Schema file you will need to edit at the Projects folder. There is one App Schema file for each Project, pick the right one and edit it with VS Code.",
+            "updated": 1628255380671
         },
         {
             "style": "Warning",
-            "text": "Be carefull not to damage anything in the App Schema file while editing it. You will get into trouble if you do so. It can not only produce the UI not to load, but it can also damage the workspace you are working at.",
-            "updated": 1614940590024
+            "text": "Be carefull not to damage anything in the App Schema file while editing it. You will get into trouble if you do. It can not only cause the UI to not load, but also damage the workspace you are working at.",
+            "updated": 1628255452468
         },
         {
             "style": "Success",
-            "text": "If you are not sure which project a certain node belongs to, there is a trick to find it out: close the Docs tab, and make focus on the node you want to add an Action to. While on focus, use Ctrl + Shift + Alt + F12 to log in the browser console the Node object. Inspect it to see the project property. Most likely it will be a Superalgos project's node.",
-            "updated": 1614940654950
+            "text": "If you are not sure which project a certain node belongs to, there is a trick to find it: close the Docs tab, and make focus on the node you want to add an Action to. While on focus, use Ctrl + Shift + Alt + F12 to log in the browser console the Node object. Inspect it to see the project property. Most likely it will be a Foundations project's node.",
+            "updated": 1628255532030
         },
         {
             "style": "Title",
@@ -37,8 +38,8 @@
         },
         {
             "style": "Json",
-            "text": "{\n                \"action\": \"Add UI Object\",\n                \"actionFunction\": \"payload.executeAction\",\n                \"label\": \"Add Image\",\n                \"relatedUiObject\": \"Image\"\n            }",
-            "updated": 1614789262250
+            "text": "{\n            \"action\": \"Add Missing Workspace Projects\",\n            \"label\": \"Add Missing Projects\",\n            \"relatedUiObject\": \"Workspace\",\n            \"actionFunction\": \"payload.executeAction\"\n}",
+            "updated": 1628255951872
         },
         {
             "style": "Text",
@@ -90,6 +91,11 @@
         {
             "style": "List",
             "text": "propertyToCheckFor: read the previous property."
+        },
+        {
+            "style": "List",
+            "text": "workDoneLabel: text to display when action has completed",
+            "updated": 1628256114205
         }
     ]
 }

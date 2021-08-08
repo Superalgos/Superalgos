@@ -9,18 +9,18 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The procedure to locate a suitable Function Library is very easy. Open the Projects folder, getting into the Project the Node where the action is going to be triggered at is defined. Inside that project Folder get into the UI folder and then into Function-Libraries folder.",
-            "updated": 1614940833232
+            "text": "The procedure to locate a suitable Function Library is very easy. Open the Projects folder, then open the Project associated with the Node you are attaching your action to. Inside that project Folder open the UI folder and then you will see the Function-Libraries folder.",
+            "updated": 1628256668116
         },
         {
             "style": "Note",
-            "text": "Each file in there is a Function Library except for the one called ActionSwitch.js, which is the place where you connect the Action Function name you defined at the App Schema with the function that will host the code for the new Action.",
-            "updated": 1614928708817
+            "text": "Each file within the Function Library folder is a set of functions.  The only exception to this is ActionSwitch.js. This file is the place where you will connect the Action Function name you defined at the App Schema with the function that will host the code for the new Action.",
+            "updated": 1628256808055
         },
         {
             "style": "Text",
-            "text": "Inspect each of these files and see at their header the functions they already implement. After a quick scan over all of them you can decide which one is where your action belongs to. If you believe that your Action should be placed at a new Function Library, then you can try to add a new one and set it up at the Project Schema file, but that is out of the scope of this guide.",
-            "updated": 1614928780531
+            "text": "Inspect each of these files and see at their header the functions they already implement. After a quick scan over all of them you can decide which one fits best with your new action. If you believe that your Action should be placed at a new Function Library, then you can try to add a new one and set it up at the Project Schema file, but that is out of the scope of this guide.",
+            "updated": 1628256858024
         },
         {
             "style": "Title",

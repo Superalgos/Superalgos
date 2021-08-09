@@ -1,13 +1,13 @@
 exports.newHttpInterface = function newHttpInterface(
-    WEB_SERVER, 
-    DATA_FILE_SERVER, 
-    PROJECT_FILE_SERVER, 
-    UI_FILE_SERVER, 
-    PLUGIN_SERVER, 
-    CCXT_SERVER, 
+    WEB_SERVER,
+    DATA_FILE_SERVER,
+    PROJECT_FILE_SERVER,
+    UI_FILE_SERVER,
+    PLUGIN_SERVER,
+    CCXT_SERVER,
     WEB3_SERVER,
     GITHUB_SERVER
-    ) {
+) {
 
     /*
     IMPORTANT: If you are reviewing the code of the project please note 
@@ -1118,6 +1118,7 @@ exports.newHttpInterface = function newHttpInterface(
                 }
                 break
             }
+
             case 'LegacyPlotter.js':
                 {
                     respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/LegacyPlotter.js', httpResponse)
@@ -1332,30 +1333,70 @@ exports.newHttpInterface = function newHttpInterface(
 
             case 'PluginFileNames':
                 {
-                    let project = unescape(requestParameters[2])
-                    let pluginType = unescape(requestParameters[3])
+                    processRequest()
 
-                    const fs = require('fs')
-                    let folder = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + pluginType
+                    async function processRequest(body) {
+                        try {
+                            let project = unescape(requestParameters[2])
+                            let folder = unescape(requestParameters[3])
 
-                    fs.readdir(folder, (err, files) => {
-                        if (files === undefined) {
-                            files = []
+                            let response = await CL.projects.foundations.utilities.plugins.getPluginFileNames(
+                                project,
+                                folder
+                            )
+
+                            respondWithContent(JSON.stringify(response), httpResponse)
+
+                        } catch (err) {
+                            console.log('[ERROR] httpInterface -> PluginFileNames -> Method call produced an error.')
+                            console.log('[ERROR] httpInterface -> PluginFileNames -> err.stack = ' + err.stack)
+                            console.log('[ERROR] httpInterface -> PluginFileNames -> Params Received = ' + body)
+
+                            let error = {
+                                result: 'Fail Because',
+                                message: err.message,
+                                stack: err.stack
+                            }
+                            respondWithContent(JSON.stringify(error), httpResponse)
                         }
-                        respondWithContent(JSON.stringify(files), httpResponse)
-                    })
+                    }
+                    break
                 }
-                break
 
             case 'LoadPlugin':
+
                 {
-                    let project = unescape(requestParameters[2])
-                    let pluginType = unescape(requestParameters[3])
-                    let fileName = unescape(requestParameters[4])
-                    let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + pluginType + '/' + fileName
-                    respondWithFile(filePath, httpResponse)
+                    processRequest()
+
+                    async function processRequest(body) {
+                        try {
+                            let project = unescape(requestParameters[2])
+                            let folder = unescape(requestParameters[3])
+                            let fileName = unescape(requestParameters[4])
+
+                            let response = await CL.projects.foundations.utilities.plugins.getPluginFileContent(
+                                project,
+                                folder,
+                                fileName
+                            )
+
+                            respondWithContent(response, httpResponse)
+
+                        } catch (err) {
+                            console.log('[ERROR] httpInterface -> LoadPlugin -> Method call produced an error.')
+                            console.log('[ERROR] httpInterface -> LoadPlugin -> err.stack = ' + err.stack)
+                            console.log('[ERROR] httpInterface -> LoadPlugin -> Params Received = ' + body)
+
+                            let error = {
+                                result: 'Fail Because',
+                                message: err.message,
+                                stack: err.stack
+                            }
+                            respondWithContent(JSON.stringify(error), httpResponse)
+                        }
+                    }
+                    break
                 }
-                break
 
             case 'SavePlugin':
                 getBody(processRequest)

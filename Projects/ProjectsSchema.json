@@ -884,6 +884,12 @@
                     "propertyName": "webAccess",
                     "functionName": "newFoundationsUtilitiesWebAccess",
                     "fileName": "WebAccess.js"
+                },
+                {
+                    "name": "Plugins",
+                    "propertyName": "plugins",
+                    "functionName": "newFoundationsUtilitiesPlugins",
+                    "fileName": "Plugins.js"
                 }
             ]
         },

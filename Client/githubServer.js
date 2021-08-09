@@ -476,7 +476,6 @@ exports.newGithubServer = function newGithubServer() {
                                     'Governance',
                                     'User-Profiles'
                                 )
-                                console.log('pluginFileNames', JSON.stringify(pluginFileNames))
                                 for (let i = 0; i < pluginFileNames.length; i++) {
                                     let pluginFileName = pluginFileNames[i]
 
@@ -488,11 +487,9 @@ exports.newGithubServer = function newGithubServer() {
 
                                     let otherUserProfile = JSON.parse(pluginFileContent)
                                     userProfileIdMap.set(otherUserProfile.id, otherUserProfile.name)
-                                    console.log('Record of Map', otherUserProfile.id, otherUserProfile.name)
                                 }
 
                                 let testUserProfile = userProfileIdMap.get(userProfile.id)
-                                console.log('testUserProfile', testUserProfile, 'userProfile.id', userProfile.id)
                                 if (testUserProfile === undefined) { return true }
                                 if (testUserProfile !== userProfile.name) {
 

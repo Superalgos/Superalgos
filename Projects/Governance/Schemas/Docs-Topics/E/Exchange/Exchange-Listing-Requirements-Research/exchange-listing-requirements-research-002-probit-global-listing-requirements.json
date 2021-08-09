@@ -151,12 +151,13 @@
         },
         {
             "style": "List",
-            "text": "they can wave the legal opinion if it's clear the token is not a security;"
+            "text": "they can wave the legal opinion requirement if it's clear the token is not a security;",
+            "updated": 1628533059002
         },
         {
             "style": "List",
-            "text": "they don't need a corporation to sign the listing agreement. A KYCed executive (project leadership) works too;",
-            "updated": 1628512355591
+            "text": "they don't need a corporation to sign the listing agreement; a KYCed executive (project leadership) works too;",
+            "updated": 1628533074328
         },
         {
             "style": "List",
@@ -165,8 +166,13 @@
         },
         {
             "style": "List",
-            "text": "we can have additional zero-fee accounts for market making at $5k each.",
-            "updated": 1628511671112
+            "text": "we can have additional zero-fee accounts for market making at $5k each;",
+            "updated": 1628533110459
+        },
+        {
+            "style": "List",
+            "text": "they wouldn't de-list due to low volume for at least 6 months.",
+            "updated": 1628533123086
         },
         {
             "style": "Title",
@@ -174,28 +180,60 @@
         },
         {
             "style": "Subtitle",
-            "text": "Corporate"
+            "text": "Corporate Information",
+            "updated": 1628527538347
         },
         {
             "style": "List",
-            "text": "Country of registration:"
+            "text": "Country of registration: Seychelles (from TOS page and Listing Agreement).",
+            "updated": 1628527930627
         },
         {
             "style": "List",
-            "text": "Year of registration:"
+            "text": "Address: Suite 9, Ansuya Estate, Revolution Avenue, Victoria Mahe, Seychelles (from Listing Agreement)."
         },
         {
             "style": "List",
-            "text": "Physical offices:"
+            "text": "Year of registration: Unknown",
+            "updated": 1628527959834
         },
         {
             "style": "List",
-            "text": "Licenses:"
+            "text": "Physical offices: Unknown",
+            "updated": 1628527967290
+        },
+        {
+            "style": "List",
+            "text": "Licenses: Unknown",
+            "updated": 1628527972228
         },
         {
             "style": "Subtitle",
-            "text": "Traction",
-            "updated": 1628516949284
+            "text": "Corporate Transparency on Website"
+        },
+        {
+            "style": "List",
+            "text": "Footer info: Probit Global Service Limited | Company Registration Number: 207189 | representative: Ronald Chan. In process of registration: Probit Exchange OÜ | Company Registration Number: 14894573 | Representative: Ronald Chan.",
+            "updated": 1628527446408
+        },
+        {
+            "style": "List",
+            "text": "About page info: N/A.",
+            "updated": 1628527467687
+        },
+        {
+            "style": "List",
+            "text": "Leadership page info: N/A"
+        },
+        {
+            "style": "List",
+            "text": "Observations: Poor. There is little clarity on the website as of where and how the company operates.",
+            "updated": 1628530441154
+        },
+        {
+            "style": "Subtitle",
+            "text": "Website Traction",
+            "updated": 1628528688773
         },
         {
             "style": "List",
@@ -214,12 +252,67 @@
         {
             "style": "Link",
             "text": "DA by Moz->moz.com/domain-analysis?site=probit.com",
-            "updated": 1628517409497
+            "updated": 1628538393505
         },
         {
             "style": "List",
             "text": "CMC ranking: 27",
             "updated": 1628517194530
+        },
+        {
+            "style": "List",
+            "text": "CoinGecko ranking: 63"
+        },
+        {
+            "style": "List",
+            "text": "Top 100 Google SERP? [*]: No",
+            "updated": 1628527176017
+        },
+        {
+            "style": "List",
+            "text": "Top 200 Google SERP? [*]: No"
+        },
+        {
+            "style": "Text",
+            "text": "(*) We search Google (UK region, no personalization) for the keyphrase \"crypto exchange\". The domain is either listed within the top X SERP or not.",
+            "updated": 1628527204901
+        },
+        {
+            "style": "Subtitle",
+            "text": "Community",
+            "updated": 1628528888597
+        },
+        {
+            "style": "List",
+            "text": "Telegram: 29k",
+            "updated": 1628528925197
+        },
+        {
+            "style": "Link",
+            "text": "Telegram English Community->t.me/ProbitEnglish"
+        },
+        {
+            "style": "List",
+            "text": "Observations: A quick glance on August 9th, 2021. Users complain about deposits not clearing and other issues. There is some response from admins announcing an issue with wallet upgrades. Conversation seems reasonable.",
+            "updated": 1628532175405
+        },
+        {
+            "style": "Subtitle",
+            "text": "Liquidity & Volume"
+        },
+        {
+            "style": "List",
+            "text": "1m BTC-USDT Chart"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Governance/Docs/token-task-force/probit-btc-usdt-1m-chart.PNG",
+            "updated": 1628530005285
+        },
+        {
+            "style": "Link",
+            "text": "BTC - USDT Chart->www.probit.com/app/exchange/BTC-USDT",
+            "updated": 1628530307201
         }
     ]
 }

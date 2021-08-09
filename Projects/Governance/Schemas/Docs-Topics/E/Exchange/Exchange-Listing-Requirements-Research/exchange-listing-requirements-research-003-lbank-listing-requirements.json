@@ -3,7 +3,8 @@
     "pageNumber": "3",
     "type": "LBank Listing Requirements",
     "definition": {
-        "text": "Write a summary for this topic page."
+        "text": "Pending listing requirements and revision.",
+        "updated": 1628538709584
     },
     "paragraphs": [
         {
@@ -115,6 +116,146 @@
         {
             "style": "List",
             "text": "List what progress has been made in the ongoing negotiation."
+        },
+        {
+            "style": "Title",
+            "text": "Exchange Evaluation"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Corporate Information"
+        },
+        {
+            "style": "List",
+            "text": "Country of registration: ",
+            "updated": 1628536538914
+        },
+        {
+            "style": "List",
+            "text": "Address: ",
+            "updated": 1628536544461
+        },
+        {
+            "style": "List",
+            "text": "Year of registration: ",
+            "updated": 1628536550106
+        },
+        {
+            "style": "List",
+            "text": "Physical offices: ",
+            "updated": 1628536554948
+        },
+        {
+            "style": "List",
+            "text": "Licenses: ",
+            "updated": 1628536559754
+        },
+        {
+            "style": "Subtitle",
+            "text": "Corporate Transparency on Website"
+        },
+        {
+            "style": "List",
+            "text": "Footer info: None.",
+            "updated": 1628539579292
+        },
+        {
+            "style": "List",
+            "text": "About page info: None.",
+            "updated": 1628539586129
+        },
+        {
+            "style": "List",
+            "text": "Leadership page info: None.",
+            "updated": 1628539591833
+        },
+        {
+            "style": "List",
+            "text": "Observations: Obscure. Zero info provided as of where or how the company operates.",
+            "updated": 1628539616801
+        },
+        {
+            "style": "Subtitle",
+            "text": "Website Traction"
+        },
+        {
+            "style": "List",
+            "text": "Alexa site rank: 1100",
+            "updated": 1628537403629
+        },
+        {
+            "style": "Link",
+            "text": "Alexa->www.alexa.com/siteinfo/lbank.info",
+            "updated": 1628537437035
+        },
+        {
+            "style": "List",
+            "text": "Domain authority: 44",
+            "updated": 1628538376155
+        },
+        {
+            "style": "Link",
+            "text": "DA by Moz->moz.com/domain-analysis?site=lbank.info",
+            "updated": 1628538362561
+        },
+        {
+            "style": "List",
+            "text": "CMC ranking: 52",
+            "updated": 1628536646750
+        },
+        {
+            "style": "List",
+            "text": "CoinGecko ranking: 32",
+            "updated": 1628536624836
+        },
+        {
+            "style": "List",
+            "text": "Top 100 Google SERP? [*]: No"
+        },
+        {
+            "style": "List",
+            "text": "Top 200 Google SERP? [*]: No"
+        },
+        {
+            "style": "List",
+            "text": "(*) We search Google (UK region, no personalization) for the keyphrase \"crypto exchange\". The domain is either listed within the top X SERP or not."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Community"
+        },
+        {
+            "style": "List",
+            "text": "Telegram: 42k",
+            "updated": 1628538502945
+        },
+        {
+            "style": "Link",
+            "text": "Telegram English Community->t.me/LBank_en",
+            "updated": 1628538533078
+        },
+        {
+            "style": "List",
+            "text": "Observations: A quick look on August 9th, 2021. Light and decent conversation. Some shilling of coins. Some support requests from users redirected to the website's chat by admins. Many admins present. ",
+            "updated": 1628539131853
+        },
+        {
+            "style": "Subtitle",
+            "text": "Liquidity & Volume"
+        },
+        {
+            "style": "List",
+            "text": "1m BTC-USDT Chart"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Governance/Docs/token-task-force/lbank-btc-usdt-1m-chart.PNG",
+            "updated": 1628538612321
+        },
+        {
+            "style": "Link",
+            "text": "BTC - USDT Chart->www.lbank.info/exchange/btc/usdt",
+            "updated": 1628538654684
         }
     ]
 }

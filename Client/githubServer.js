@@ -107,8 +107,8 @@ exports.newGithubServer = function newGithubServer() {
                                 lastPage = true
                             }
 
-                            for (let i = 0; i < filesChanged.length; i++) {
-                                let listItem = filesChanged[i]
+                            for (let i = 0; i < listResponse.data.length; i++) {
+                                let listItem = listResponse.data[i]
                                 let githubUsername
                                 switch (endpoint) {
                                     case 'activity': {
@@ -237,7 +237,7 @@ exports.newGithubServer = function newGithubServer() {
                                     page: page
                                 });
 
-                                if (filesChanged.length < 100) {
+                                if (listResponse.data.length < 100) {
                                     lastPage = true
                                 }
                                 console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Receiving Page = ' + page)

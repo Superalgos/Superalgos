@@ -13,7 +13,10 @@ exports.newFoundationsUtilitiesPlugins = function () {
             let path = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + folder
 
             CL.nodeModules.fs.readdir(path, (err, files) => {
-                if (err) { reject() }
+                if (err) {
+                    reject()
+                    return
+                }
                 if (files === undefined) {
                     files = []
                 }
@@ -33,7 +36,10 @@ exports.newFoundationsUtilitiesPlugins = function () {
             CL.nodeModules.fs.readFile(path, onFileRead)
 
             function onFileRead(err, file) {
-                if (err) { reject() }
+                if (err) {
+                    reject()
+                    return
+                }
                 resolve(file.toString())
             }
         }

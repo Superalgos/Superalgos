@@ -81,6 +81,7 @@ try {
     Setting up external dependencies.
     */
     CL.nodeModules = {
+        fs:  require('fs'),
         nodeFetch: require('node-fetch')
     }
 

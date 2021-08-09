@@ -103,7 +103,7 @@ exports.newGithubServer = function newGithubServer() {
                                 page
                             });
 
-                            if (filesChanged.length < 100) {
+                            if (listResponse.data.length < 100) {
                                 lastPage = true
                             }
 
@@ -125,7 +125,7 @@ exports.newGithubServer = function newGithubServer() {
                                 githubListArray.push(githubUsername)
                             }
                             console.log('[INFO] Github Server -> getRepoInfo -> doGithub -> getList -> ' + method + ' Page = ' + page)
-                            console.log('[INFO] Github Server -> getRepoInfo -> doGithub -> getList -> ' + method + ' Received = ' + filesChanged.length)
+                            console.log('[INFO] Github Server -> getRepoInfo -> doGithub -> getList -> ' + method + ' Received = ' + listResponse.data.length)
 
                         } catch (err) {
                             console.log(err)
@@ -140,6 +140,7 @@ exports.newGithubServer = function newGithubServer() {
                                 console.log('[ERROR] Github Server -> getRepoInfo -> doGithub -> getList ->token starts with = ' + token.substring(0, 10) + '...')
                                 console.log('[ERROR] Github Server -> getRepoInfo -> doGithub -> getList ->token ends with = ' + '...' + token.substring(token.length - 10))
                                 error = err
+                                return
                             }
                         }
                     }
@@ -188,7 +189,7 @@ exports.newGithubServer = function newGithubServer() {
                     let docs = {
                         project: 'Governance',
                         category: 'Topic',
-                        type: 'Gov Error - Merge Pull Requests',
+                        type: 'Gov Error - Pull Requests Not Processed',
                         anchor: undefined,
                         placeholder: {}
                     }
@@ -241,12 +242,12 @@ exports.newGithubServer = function newGithubServer() {
                                     lastPage = true
                                 }
                                 console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Receiving Page = ' + page)
-                                for (let i = 0; i < filesChanged.length; i++) {
-                                    let pullRequest = filesChanged[i]
+                                for (let i = 0; i < listResponse.data.length; i++) {
+                                    let pullRequest = listResponse.data[i]
                                     console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Pull Request "' + pullRequest.title + '" found and added to the list to validate. ')
                                     githubPrListArray.push(pullRequest)
                                 }
-                                console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Received = ' + filesChanged.length)
+                                console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Received = ' + listResponse.data.length)
 
                             } catch (err) {
                                 console.log(err)
@@ -261,6 +262,7 @@ exports.newGithubServer = function newGithubServer() {
                                     console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token starts with = ' + token.substring(0, 10) + '...')
                                     console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token ends with = ' + '...' + token.substring(token.length - 10))
                                     error = err
+                                    return
                                 }
                             }
                         }
@@ -293,6 +295,8 @@ exports.newGithubServer = function newGithubServer() {
                             let fileContentUrl  // URL to the only file at the PR
                             let fileContent     // File content of the only file at the PR
                             let userProfile     // User Profile Object
+                            let githubUsername  // The Github user name of who is submitting the Pull Request
+                            let mergeResponse   // The response received from the call to Gihub to merge the Pull Request
 
                             if (await validatePrHasMoreThanOneFile() === false) { continue }
                             if (await validateFileNameEqualsGithubUsername() === false) { continue }
@@ -370,7 +374,7 @@ exports.newGithubServer = function newGithubServer() {
                                 let fileName = splittedURL[splittedURL.length - 1]
                                 let splittedFileName = fileName.split('.')
                                 fileName = splittedFileName[0]
-                                let githubUsername = pullRequest.user.login
+                                githubUsername = pullRequest.user.login
 
                                 if (githubUsername !== fileName) {
                                     console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the File Name. -> Github Username = ' + githubUsername + '-> fileName = ' + fileName)
@@ -487,7 +491,7 @@ exports.newGithubServer = function newGithubServer() {
 
                                 let testUserProfile = userProfileIdMap.get(userProfile.id)
                                 if (testUserProfile === undefined) { return true }
-                                if (testUserProfile !== userProfile.name) { 
+                                if (testUserProfile !== userProfile.name) {
 
                                     console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #6 Failed -> Pull Request "' + pullRequest.title + '" not merged because the User Profile Id already exists and belongs to another User Profile on record. -> Profile Id = ' + userProfile.id + '-> User Profile with the same Id = ' + testUserProfile)
 
@@ -515,7 +519,7 @@ exports.newGithubServer = function newGithubServer() {
                                 All validations passed, we will proceed an merge this Pull Request.
                                 */
                                 await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
-                                let mergeResponse = await octokit.rest.pulls.merge({
+                                mergeResponse = await octokit.rest.pulls.merge({
                                     owner: owner,
                                     repo: repo,
                                     pull_number: pullRequest.number,

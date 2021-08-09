@@ -103,7 +103,7 @@ exports.newGithubServer = function newGithubServer() {
                                 page
                             });
 
-                            if (filesChanged.length < 100) {
+                            if (listResponse.data.length < 100) {
                                 lastPage = true
                             }
 
@@ -125,7 +125,7 @@ exports.newGithubServer = function newGithubServer() {
                                 githubListArray.push(githubUsername)
                             }
                             console.log('[INFO] Github Server -> getRepoInfo -> doGithub -> getList -> ' + method + ' Page = ' + page)
-                            console.log('[INFO] Github Server -> getRepoInfo -> doGithub -> getList -> ' + method + ' Received = ' + filesChanged.length)
+                            console.log('[INFO] Github Server -> getRepoInfo -> doGithub -> getList -> ' + method + ' Received = ' + listResponse.data.length)
 
                         } catch (err) {
                             console.log(err)
@@ -140,6 +140,7 @@ exports.newGithubServer = function newGithubServer() {
                                 console.log('[ERROR] Github Server -> getRepoInfo -> doGithub -> getList ->token starts with = ' + token.substring(0, 10) + '...')
                                 console.log('[ERROR] Github Server -> getRepoInfo -> doGithub -> getList ->token ends with = ' + '...' + token.substring(token.length - 10))
                                 error = err
+                                return
                             }
                         }
                     }
@@ -487,7 +488,7 @@ exports.newGithubServer = function newGithubServer() {
 
                                 let testUserProfile = userProfileIdMap.get(userProfile.id)
                                 if (testUserProfile === undefined) { return true }
-                                if (testUserProfile !== userProfile.name) { 
+                                if (testUserProfile !== userProfile.name) {
 
                                     console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #6 Failed -> Pull Request "' + pullRequest.title + '" not merged because the User Profile Id already exists and belongs to another User Profile on record. -> Profile Id = ' + userProfile.id + '-> User Profile with the same Id = ' + testUserProfile)
 

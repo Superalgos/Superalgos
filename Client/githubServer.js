@@ -295,6 +295,8 @@ exports.newGithubServer = function newGithubServer() {
                             let fileContentUrl  // URL to the only file at the PR
                             let fileContent     // File content of the only file at the PR
                             let userProfile     // User Profile Object
+                            let githubUsername  // The Github user name of who is submitting the Pull Request
+                            let mergeResponse   // The response received from the call to Gihub to merge the Pull Request
 
                             if (await validatePrHasMoreThanOneFile() === false) { continue }
                             if (await validateFileNameEqualsGithubUsername() === false) { continue }
@@ -372,7 +374,7 @@ exports.newGithubServer = function newGithubServer() {
                                 let fileName = splittedURL[splittedURL.length - 1]
                                 let splittedFileName = fileName.split('.')
                                 fileName = splittedFileName[0]
-                                let githubUsername = pullRequest.user.login
+                                githubUsername = pullRequest.user.login
 
                                 if (githubUsername !== fileName) {
                                     console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the File Name. -> Github Username = ' + githubUsername + '-> fileName = ' + fileName)
@@ -517,7 +519,7 @@ exports.newGithubServer = function newGithubServer() {
                                 All validations passed, we will proceed an merge this Pull Request.
                                 */
                                 await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
-                                let mergeResponse = await octokit.rest.pulls.merge({
+                                mergeResponse = await octokit.rest.pulls.merge({
                                     owner: owner,
                                     repo: repo,
                                     pull_number: pullRequest.number,

@@ -9,8 +9,8 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Research",
-            "updated": 1628511395130
+            "text": "Listing Requirements",
+            "updated": 1628515442342
         },
         {
             "style": "List",
@@ -28,8 +28,8 @@
         },
         {
             "style": "Link",
-            "text": "Probit Global->www.probit.com",
-            "updated": 1628510578832
+            "text": "Exchange URL->www.probit.com",
+            "updated": 1628519777927
         },
         {
             "style": "List",
@@ -113,8 +113,8 @@
         },
         {
             "style": "Png",
-            "text": "PNGs/Foundations/Docs/token-task-force/probit-listing-plans.png",
-            "updated": 1628512101727
+            "text": "PNGs/Governance/Docs/token-task-force/probit-listing-plans.png",
+            "updated": 1628516831766
         },
         {
             "style": "List",
@@ -167,6 +167,59 @@
             "style": "List",
             "text": "we can have additional zero-fee accounts for market making at $5k each.",
             "updated": 1628511671112
+        },
+        {
+            "style": "Title",
+            "text": "Exchange Evaluation"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Corporate"
+        },
+        {
+            "style": "List",
+            "text": "Country of registration:"
+        },
+        {
+            "style": "List",
+            "text": "Year of registration:"
+        },
+        {
+            "style": "List",
+            "text": "Physical offices:"
+        },
+        {
+            "style": "List",
+            "text": "Licenses:"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Traction",
+            "updated": 1628516949284
+        },
+        {
+            "style": "List",
+            "text": "Alexa site rank: 3500",
+            "updated": 1628517005331
+        },
+        {
+            "style": "Link",
+            "text": "Alexa->www.alexa.com/siteinfo/probit.com"
+        },
+        {
+            "style": "List",
+            "text": "Domain authority: 45",
+            "updated": 1628517390639
+        },
+        {
+            "style": "Link",
+            "text": "DA by Moz->moz.com/domain-analysis?site=probit.com",
+            "updated": 1628517409497
+        },
+        {
+            "style": "List",
+            "text": "CMC ranking: 27",
+            "updated": 1628517194530
         }
     ]
 }

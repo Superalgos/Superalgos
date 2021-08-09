@@ -189,7 +189,7 @@ exports.newGithubServer = function newGithubServer() {
                     let docs = {
                         project: 'Governance',
                         category: 'Topic',
-                        type: 'Gov Error - Merge Pull Requests',
+                        type: 'Gov Error - Pull Requests Not Processed',
                         anchor: undefined,
                         placeholder: {}
                     }
@@ -242,12 +242,12 @@ exports.newGithubServer = function newGithubServer() {
                                     lastPage = true
                                 }
                                 console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Receiving Page = ' + page)
-                                for (let i = 0; i < filesChanged.length; i++) {
-                                    let pullRequest = filesChanged[i]
+                                for (let i = 0; i < listResponse.data.length; i++) {
+                                    let pullRequest = listResponse.data[i]
                                     console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Pull Request "' + pullRequest.title + '" found and added to the list to validate. ')
                                     githubPrListArray.push(pullRequest)
                                 }
-                                console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Received = ' + filesChanged.length)
+                                console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Received = ' + listResponse.data.length)
 
                             } catch (err) {
                                 console.log(err)
@@ -262,6 +262,7 @@ exports.newGithubServer = function newGithubServer() {
                                     console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token starts with = ' + token.substring(0, 10) + '...')
                                     console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token ends with = ' + '...' + token.substring(token.length - 10))
                                     error = err
+                                    return
                                 }
                             }
                         }

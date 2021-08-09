@@ -1,0 +1,96 @@
+{
+    "type": "Community Building Programs",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "referralProgram",
+            "label": "Add Referral Program",
+            "relatedUiObject": "Referral Program"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "supportProgram",
+            "label": "Add Support Program",
+            "relatedUiObject": "Support Program"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "mentorshipProgram",
+            "label": "Add Mentorship Program",
+            "relatedUiObject": "Mentorship Program"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "influencerProgram",
+            "label": "Add Influencer Program",
+            "relatedUiObject": "Influencer Program"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Token Power Switch->"
+    },
+    "propertyNameAtParent": "communityBuildingPrograms",
+    "childrenNodesProperties": [
+        {
+            "name": "referralProgram",
+            "type": "node",
+            "childType": "Referral Program",
+            "autoAdd": false
+        },
+        {
+            "name": "supportProgram",
+            "type": "node",
+            "childType": "Support Program",
+            "autoAdd": false
+        },
+        {
+            "name": "mentorshipProgram",
+            "type": "node",
+            "childType": "Mentorship Program",
+            "autoAdd": false
+        },
+        {
+            "name": "influencerProgram",
+            "type": "node",
+            "childType": "Influencer Program",
+            "autoAdd": false
+        }
+    ]
+}

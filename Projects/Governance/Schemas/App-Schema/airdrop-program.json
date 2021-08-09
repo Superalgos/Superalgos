@@ -35,7 +35,7 @@
         "config": "{}"
     },
     "attachingRules": {
-        "compatibleTypes": "->Token Power Switch->"
+        "compatibleTypes": "->Onboarding Programs->"
     },
     "addLeftIcons": true,
     "level": 1,

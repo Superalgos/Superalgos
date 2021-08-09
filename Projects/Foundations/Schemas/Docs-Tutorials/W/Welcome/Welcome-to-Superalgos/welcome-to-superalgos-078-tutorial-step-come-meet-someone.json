@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Come Meet Someone!",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "execution-algorithm"
         },
         "text": "Sorry for dragging you away from the charts, but I wanted to introduce you to someone: the guy on the right is the one placing the buy orders!",
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "Perdón por sacarte de los gráfico, pero quería presentarte a alguien: ¡el tipo de la derecha es el que hace las órdenes de compra!",
-                "updated": 1624458802818
+                "updated": 1624458802818,
+                "style": "Definition"
             }
         ]
     },
@@ -36,7 +37,8 @@
                 {
                     "language": "ES",
                     "text": "Estamos dentro de Lightning Strike Trading System, dentro de las definiciones del Open Stage. En esta etapa, el Execution Algorithm asume el control después de que ya se haya tomado la decisión de tomar una posición en el Trigger Stage.Sé que todavía no sabes qué Situation o un Condition son, pero aun así me gustaría que hicieras algo...",
-                    "updated": 1624458987851
+                    "updated": 1624458987851,
+                    "style": "Text"
                 }
             ]
         },
@@ -52,8 +54,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Tómese unos minutos para explorar los nodos debajo del algoritmo de ejecución, verifique las fórmulas y condiciones, ¡y vea qué puede hacer con ellas!",
-                    "updated": 1624459025710
+                    "text": "Tómate unos minutos para explorar los nodos debajo del algoritmo de ejecución, verifique las fórmulas y condiciones, ¡y ve qué puedes hacer con ellas!",
+                    "updated": 1627314866507,
+                    "style": "Callout"
                 }
             ]
         }

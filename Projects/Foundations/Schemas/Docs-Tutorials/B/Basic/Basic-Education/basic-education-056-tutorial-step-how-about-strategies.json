@@ -1,0 +1,82 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 56,
+    "type": "Tutorial Step - How About Strategies?",
+    "definition": {
+        "text": "The Community may also contribute Trading Systems! At this point, there're only a few, but we hope more will emerge soon!",
+        "icon": {
+            "name": "trading-system",
+            "project": "Foundations"
+        },
+        "updated": 1616235875824,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "La Community può anche condividere interi Trading Systems! Al momento ce ne sono pochi, ma aumenteranno col tempo!",
+                "updated": 1619592722319,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡La comunidad también puede contribuir con Trading Systems! En este punto, solo quedan unos pocos, ¡pero esperamos que surjan más pronto!",
+                "updated": 1628032965847
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Search the Docs for Community Trading Systems!",
+            "updated": 1616235587063,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Cerca Community Trading Systems nei Docs!",
+                    "updated": 1619592750952,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Busca en los documentos Community Trading Systems!",
+                    "updated": 1628032998404
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Strategies contributed by the Community are fully documented so that you may use them for learning!",
+            "updated": 1616235658990,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Le Strategies della Community sono documentate: ottime per imparare!",
+                    "updated": 1619592794483,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Strategies contribuidas por el Community están documentados para que pueda usarlos para aprender.",
+                    "updated": 1628033107293
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "Remember that while Trading Systems shipping with Superalgos may be fully functional, they are made available for educational purposes only! You are fully responsible for how you use them! Trading is a risky business!",
+            "updated": 1616235810717,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ricorda che, anche se i Trading Systems di Superalgos possono essere funzionanti, sono a puro scopo ricreativo e il loro utilizzo è sotto la tua responsabilità! Fai trading a tuo rischio!",
+                    "updated": 1619592878689,
+                    "style": "Warning"
+                },
+                {
+                    "language": "ES",
+                    "text": "Recuerda que mientras Trading Systems en Superalgos pueden ser completamente funcionales, ¡están disponibles solo con fines educativos! ¡Eres completamente responsable de cómo lo usas! ¡Trading es un negocio arriesgado!",
+                    "updated": 1628033267499
+                }
+            ]
+        }
+    ]
+}

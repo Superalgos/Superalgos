@@ -1,4 +1,13 @@
-exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVER, PROJECT_FILE_SERVER, UI_FILE_SERVER, PLUGIN_SERVER, CCXT_SERVER, WEB3_SERVER) {
+exports.newHttpInterface = function newHttpInterface(
+    WEB_SERVER, 
+    DATA_FILE_SERVER, 
+    PROJECT_FILE_SERVER, 
+    UI_FILE_SERVER, 
+    PLUGIN_SERVER, 
+    CCXT_SERVER, 
+    WEB3_SERVER,
+    GITHUB_SERVER
+    ) {
 
     /*
     IMPORTANT: If you are reviewing the code of the project please note 
@@ -366,6 +375,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
                             break
                         }
+
                         case 'Save-Concept-Schema': {
                             getBody(processRequest)
 
@@ -396,6 +406,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
                             break
                         }
+
                         case 'Save-Topic-Schema': {
                             getBody(processRequest)
 
@@ -426,6 +437,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
                             break
                         }
+
                         case 'Save-Tutorial-Schema': {
                             getBody(processRequest)
 
@@ -456,6 +468,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
                             break
                         }
+
                         case 'Save-Review-Schema': {
                             getBody(processRequest)
 
@@ -486,6 +499,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
                             break
                         }
+
                         case 'Save-Book-Schema': {
                             getBody(processRequest)
 
@@ -1019,130 +1033,80 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
             }
                 break
 
-            case 'Gov': {
-                switch (requestParameters[2]) { // switch by command
-                    case 'getGithubStars': {
-                        getProfiles('activity', 'listStargazersForRepo')
-                        break
-                    }
-                    case 'getGithubWatchers': {
-                        getProfiles('activity', 'listWatchersForRepo')
-                        break
-                    }
-                    case 'getGithubForks': {
-                        getProfiles('repos', 'listForks')
-                        break
-                    }
-                }
+            case 'GOV': {
+                /*
+                This is the Governance endpoint at the Http Interface. All methods
+                related to the Governance System are implemented here and routed
+                to the backend Servers that can process them. 
+                */
+                getBody(processRequest)
 
-                function getProfiles(endpoint, method) {
+                async function processRequest(body) {
                     try {
-                        const GITHUB_API_WAITING_TIME = 250
-                        const repository = unescape(requestParameters[3])
-                        const username = unescape(requestParameters[4])
-                        const token = unescape(requestParameters[5])
-                        let error
-                        let githubListArray = []
+                        let params = JSON.parse(body)
 
-                        getRepoInfo()
+                        switch (params.method) {
+                            case 'getGithubStars': {
 
-                        async function getRepoInfo() {
-                            await doGithub()
-                            if (error !== undefined) {
+                                let serverResponse = await GITHUB_SERVER.getGithubStars(
+                                    params.repository,
+                                    params.username,
+                                    params.token
+                                )
 
-                                let docs = {
-                                    project: 'Governance',
-                                    category: 'Topic',
-                                    type: 'Gov Error - Get Repository Information',
-                                    anchor: undefined,
-                                    placeholder: {}
-                                }
-
-                                respondWithDocsObject(docs, error)
+                                respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                 return
                             }
+                            case 'getGithubWatchers': {
 
-                            respondWithContent(JSON.stringify(githubListArray), httpResponse)
-                        }
+                                let serverResponse = await GITHUB_SERVER.getGithubWatchers(
+                                    params.repository,
+                                    params.username,
+                                    params.token
+                                )
 
-                        async function doGithub() {
+                                respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                return
+                            }
+                            case 'getGithubForks': {
 
-                            const { Octokit } = require("@octokit/rest")
+                                let serverResponse = await GITHUB_SERVER.getGithubForks(
+                                    params.repository,
+                                    params.username,
+                                    params.token
+                                )
 
-                            const octokit = new Octokit({
-                                auth: token,
-                                userAgent: 'Superalgos Beta 11'
-                            })
-                            await getList()
+                                respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                return
+                            }
+                            case 'mergePullRequests': {
 
-                            async function getList() {
-                                const repo = repository
-                                const owner = 'Superalgos'
-                                const per_page = 100 // Max
-                                let page = 0
-                                let lastPage = false
+                                let serverResponse = await GITHUB_SERVER.mergePullRequests(
+                                    params.commitMessage,
+                                    params.username,
+                                    params.token
+                                )
 
-                                while (lastPage === false) {
-                                    try {
-                                        page++
-                                        await sleep(GITHUB_API_WAITING_TIME)
-                                        let listResponse = await octokit[endpoint][method]({
-                                            owner,
-                                            repo,
-                                            per_page,
-                                            page
-                                        });
+                                respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                return
+                            }
+                            case 'payContributors': {
 
-                                        if (listResponse.data.length < 100) {
-                                            lastPage = true
-                                        }
+                                let serverResponse = await WEB3_SERVER.payContributors(
+                                    params.signature
+                                )
 
-                                        for (let i = 0; i < listResponse.data.length; i++) {
-                                            let listItem = listResponse.data[i]
-                                            let githubUsername  
-                                            switch(endpoint) {
-                                                case 'activity' : {
-                                                    githubUsername = listItem.login
-                                                    break
-                                                }
-                                                case 'repos' : {
-                                                    githubUsername = listItem.owner.login
-                                                    break
-                                                }
-                                            }
-                                            //console.log(listItem)
-
-                                            githubListArray.push(githubUsername)
-                                        }
-                                        console.log('[INFO] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList -> ' +  method + ' Page = ' + page)
-                                        console.log('[INFO] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList -> ' +  method + ' Received = ' + listResponse.data.length)
-
-                                    } catch (err) {
-                                        console.log(err)
-
-                                        if (err.stack.indexOf('last page') >= 0) {
-                                            return
-                                        } else {
-                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList ->Method call produced an error.')
-                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList ->err.stack = ' + err.stack)
-                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList ->repository = ' + repository)
-                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList ->username = ' + username)
-                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList ->token starts with = ' + token.substring(0, 10) + '...')
-                                            console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> doGithub -> getList ->token ends with = ' + '...' + token.substring(token.length - 10))
-                                            error = err
-                                        }
-                                    }
-                                }
+                                respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                return
+                            }
+                            default: {
+                                respondWithContent(JSON.stringify({ error: 'Method ' + params.method + ' is invalid.' }), httpResponse)
                             }
                         }
-
                     } catch (err) {
-                        console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> Method call produced an error.')
-                        console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> err.stack = ' + err.stack)
-                        console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> repository = ' + repository)
-                        console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> username = ' + username)
-                        console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> token starts with = ' + token.substring(0, 10) + '...')
-                        console.log('[ERROR] httpInterface -> Gov -> getRepoInfo -> token ends with = ' + '...' + token.substring(token.length - 10))
+                        console.log('[ERROR] httpInterface -> GOV -> Method call produced an error.')
+                        console.log('[ERROR] httpInterface -> GOV -> err.stack = ' + err.stack)
+                        console.log('[ERROR] httpInterface -> GOV -> Params Received = ' + body)
 
                         let error = {
                             result: 'Fail Because',
@@ -1152,43 +1116,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         respondWithContent(JSON.stringify(error), httpResponse)
                     }
                 }
-                function respondWithDocsObject(docs, error) {
-
-                    if (error.message !== undefined) {
-                        docs.placeholder.errorMessage = {
-                            style: 'Error',
-                            text: error.message
-                        }
-                    }
-                    if (error.stack !== undefined) {
-                        docs.placeholder.errorStack = {
-                            style: 'Javascript',
-                            text: error.stack
-                        }
-                    }
-                    if (error.code !== undefined) {
-                        docs.placeholder.errorCode = {
-                            style: 'Json',
-                            text: error.code
-                        }
-                    }
-
-                    docs.placeholder.errorDetails = {
-                        style: 'Json',
-                        text: JSON.stringify(error, undefined, 4)
-                    }
-
-                    let customResponse = {
-                        result: global.CUSTOM_FAIL_RESPONSE.result,
-                        docs: docs
-                    }
-
-                    respondWithContent(JSON.stringify(customResponse), httpResponse)
-
-                }
-            }
                 break
-
+            }
             case 'LegacyPlotter.js':
                 {
                     respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/LegacyPlotter.js', httpResponse)
@@ -2132,11 +2061,5 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
             }));
             return files.reduce((a, f) => a.concat(f), []);
         }
-    }
-
-    function sleep(ms) {
-        return new Promise((resolve) => {
-            setTimeout(resolve, ms)
-        })
     }
 }

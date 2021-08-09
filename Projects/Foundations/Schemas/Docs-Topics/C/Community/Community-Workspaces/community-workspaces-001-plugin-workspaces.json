@@ -4,7 +4,14 @@
     "type": "Plugin Workspaces",
     "definition": {
         "text": "Superalgos ships with several plugin workspaces set up by the community to facilitate user onboarding. This topic covers each of them and explains their purpose.",
-        "updated": 1616145035073
+        "updated": 1616145035073,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Superalgos conecta con varios plugin  workspaces configurados por la comunidad para facilitar la incorporación de usuarios. Este tema cubre cada uno de ellos y explica su propósito.",
+                "updated": 1628037130662
+            }
+        ]
     },
     "paragraphs": [
         {

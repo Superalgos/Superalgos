@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Time to Stop!",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "stop"
         },
         "text": "We are not going to run a Live Trading Session just yet, so there is no point in keeping our data mining running at this point.",
@@ -24,7 +24,8 @@
             {
                 "language": "ES",
                 "text": "No vamos a ejecutar un Live Trading Session todavía, por lo que no tiene sentido mantener nuestra minería de datos en funcionamiento en este momento.",
-                "updated": 1624375464430
+                "updated": 1624375464430,
+                "style": "Definition"
             }
         ]
     },
@@ -49,7 +50,8 @@
                 {
                     "language": "ES",
                     "text": "Hay dos usos principales por los que ejecutar Data Tasks:",
-                    "updated": 1624376528739
+                    "updated": 1624376528739,
+                    "style": "Text"
                 }
             ]
         },
@@ -72,8 +74,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "To process historic data: Para procesar un rango de fecha y hora de un mercado determinado, ejecutar un Backtesting Session o procesar nuevos indicadores.",
-                    "updated": 1624376333999
+                    "text": "To process historic data: Para procesar un rango de fecha y hora de un mercado, ejecutar un Backtesting Session o procesar nuevos indicadores.",
+                    "updated": 1625878938645,
+                    "style": "List"
                 }
             ]
         },
@@ -97,7 +100,8 @@
                 {
                     "language": "ES",
                     "text": "To run a live session: Paper Trading Session, Forward Testing Session, y Live Trading Session, por ejemplo, necesitan información en vivo.",
-                    "updated": 1624376178230
+                    "updated": 1624376178230,
+                    "style": "List"
                 }
             ]
         },
@@ -120,7 +124,8 @@
                 {
                     "language": "ES",
                     "text": "Cuando los procesos estén actualizados, selecciona \"Stop All Tasks\" en  Market Data Tasks. ¡Podemos detener las tareas desde un nodo diferente al que usamos para iniciarlas!",
-                    "updated": 1624376414764
+                    "updated": 1624376414764,
+                    "style": "Callout"
                 }
             ],
             "updated": 1622197433719

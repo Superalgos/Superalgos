@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Enough Chit Chat!",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "production-trading-tasks"
         },
         "text": "Ok, my friend... It's time for the real deal! Are you ready for a little Live Trading Session?",
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "Vale ... ¡Es hora de la verdad! ¿Estás listo para un poco de Live Trading Session?",
-                "updated": 1624464311994
+                "updated": 1624464311994,
+                "style": "Definition"
             }
         ]
     },
@@ -36,7 +37,8 @@
                 {
                     "language": "ES",
                     "text": "Te ayudaré con los tres requisitos principales:",
-                    "updated": 1624464383867
+                    "updated": 1624464383867,
+                    "style": "Text"
                 }
             ]
         },
@@ -52,8 +54,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Verifique sus parámetros, en particular, decida cuánto capital desea asignar a la sesión.",
-                    "updated": 1624464429837
+                    "text": "Verifica sus parámetros, en particular, decide cuánto capital deses asignar a la sesión.",
+                    "updated": 1627315278102,
+                    "style": "List"
                 }
             ]
         },
@@ -69,8 +72,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Configura un Exchange Account Key para que la aplicación pueda acceder a su cuenta en el exchange.",
-                    "updated": 1624464474190
+                    "text": "Configura un Exchange Account Key para que la aplicación pueda acceder a tu cuenta en el exchange.",
+                    "updated": 1625934285852,
+                    "style": "List"
                 }
             ]
         },
@@ -88,7 +92,8 @@
                 {
                     "language": "ES",
                     "text": "Asegurate que la operación de minería de datos con los indicadores requeridos por el Trading System esté funcionando y actualizado con los datos en vivo.",
-                    "updated": 1624464716757
+                    "updated": 1624464716757,
+                    "style": "List"
                 }
             ]
         },
@@ -106,7 +111,8 @@
                 {
                     "language": "ES",
                     "text": "Si no estás listo para operar en vivo por cualquier motivo, simplemente continúa. ¡Al menos aprenderás cómo funcionan las cosas!",
-                    "updated": 1624496689859
+                    "updated": 1624496689859,
+                    "style": "Note"
                 }
             ]
         }

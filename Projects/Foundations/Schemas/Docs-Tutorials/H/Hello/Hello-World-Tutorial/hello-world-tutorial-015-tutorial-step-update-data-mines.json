@@ -5,7 +5,7 @@
     "definition": {
         "text": "Chances are you already have some data mined!",
         "icon": {
-            "name": "data-tasks",
+            "name": "Data/data-tasks",
             "project": "Foundations"
         },
         "updated": 1614267263084,

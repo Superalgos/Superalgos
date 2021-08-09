@@ -15,6 +15,11 @@
                 "text": "Prima che tu scriva la tua fantastica recensione, analizziamo il comando in dettaglio per capire cosa hai fatto esattamente!",
                 "updated": 1619635779531,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Antes de que empieces a escribir tu increíble reseña, déjame analizar el comando para que entiendas lo que acabas de hacer.",
+                "updated": 1628187556269
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "docs.add: la base sintattica del comando Docs Add.",
                     "updated": 1619635805443,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "docs.add: sintaxis raíz del Docs Add Command.",
+                    "updated": 1628187573188
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Review: la categoria della pagina docs",
                     "updated": 1619635830345,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Review: El Docs Page Category de la página.",
+                    "updated": 1628187593354
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "to: particella linguistica per aumentare la leggibilità",
                     "updated": 1619635894308,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "to: Un conector coloquial para mejorar la legibilidad.",
+                    "updated": 1628187623878
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "text": "Superalgos Project Review: il nome della raccolta di pagine a cui la recensione appartiene",
                     "updated": 1619635928719,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Superalgos Project Review: El nombre de la colección de páginas a la que pertenece la reseña.",
+                    "updated": 1628187652957
                 }
             ]
         },
@@ -94,6 +119,11 @@
                     "text": "->: separatore usato nei comandi che richiedono due parametri definiti dall'utente (in questo caso, il nome della collezione di pagine e il nome della pagina)",
                     "updated": 1619635980025,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "->: Separador utilizado en comandos que requieren dos parámetros definidos por el usuario (el nombre de la colección de páginas y el nombre de la página).",
+                    "updated": 1628188066628
                 }
             ]
         },
@@ -107,6 +137,11 @@
                     "text": "Superalgos Review - Your Review Title: il nome della pagina nei Docs. Ripetiamo Superalgos Review nel nome per evitare il più possibile nomi duplicati.",
                     "updated": 1619636023226,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Superalgos Review - Your Review Title: Es el Docs Page Name; repetimos Superalgos Review en el nombre de la página para reducir las probabilidades de nombres duplicados.",
+                    "updated": 1628188140031
                 }
             ]
         }

@@ -15,6 +15,12 @@
                 "text": "Molti utenti scelgono di lanciare le branches da cartelle separate. È una buona soluzione per i contributors più attivi!",
                 "updated": 1619634353624,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Muchos usuarios optan por ejecutar las dos ramas desde carpetas independientes! ¡Esta parece una solución sensata para los contribuyentes activos!",
+                "updated": 1628129062291,
+                "style": "Definition"
             }
         ]
     },
@@ -29,6 +35,12 @@
                     "text": "Potresti avere due cloni del tuo fork che girano su cartelle diverse, ognuna su un diverso branch.",
                     "updated": 1619634392400,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Puedes tener dos clones de tu fork que se ejecutan desde carpetas separadas, cada una en diferentes ramas.",
+                    "updated": 1628129113706,
+                    "style": "Text"
                 }
             ]
         },
@@ -42,6 +54,12 @@
                     "text": "Due istanze di Superalgos eseguite da cartelle diverse sono completamente indipendenti. Contengono workspace separati e output diversi.",
                     "updated": 1619634452638,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Dos instancias que se ejecutan en carpetas distintas son independientes. Ejecutan distintos espacios de trabajo y generan datos únicos.",
+                    "updated": 1628185249129,
+                    "style": "Note"
                 }
             ]
         },
@@ -54,6 +72,12 @@
                     "language": "IT",
                     "text": "Questo setup ti permette di utilizzare la versione stabile contemporaneamente alla versione di un altro branch a cui vuoi contribuire, o su cui fai test! Ma non potrai lanciare due istanze separate insieme, a meno che non cambi le porte. Non parleremo di questo per ora!",
                     "updated": 1619634623463,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Esta configuración te permite ejecutar la versión estable para tus tareas de producción y la versión en otra rama para contribuir y probar nuevas funciones! No puedes ejecutar dos versiones al mismo tiempo a menos que cambies los puertos.",
+                    "updated": 1628185065000,
                     "style": "Success"
                 }
             ]

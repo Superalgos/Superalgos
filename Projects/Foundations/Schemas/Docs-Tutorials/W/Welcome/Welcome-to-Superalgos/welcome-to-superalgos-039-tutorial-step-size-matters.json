@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Size Matters?",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "time-machine"
+            "name": "Time\\time-machine",
+            "project": "Foundations"
         },
         "text": "How about shaping the time machine to the exact aspect ratio of your screen?",
         "translations": [

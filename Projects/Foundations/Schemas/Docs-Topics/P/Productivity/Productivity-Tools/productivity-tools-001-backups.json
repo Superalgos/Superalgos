@@ -4,7 +4,14 @@
     "type": "Backups",
     "definition": {
         "text": "The backup feature is designed to preserve the integrity of references as you would expect when you wish to restore a data structure to a previous state of affairs.",
-        "updated": 1611489612653
+        "updated": 1611489612653,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "La función  backup está diseñada para preservar la integridad de las referencias, como esperaría cuando desees restaurar una estructura de datos a un estado anterior.",
+                "updated": 1628036272845
+            }
+        ]
     },
     "paragraphs": [
         {

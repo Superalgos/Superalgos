@@ -5,7 +5,7 @@
     "definition": {
         "icon": {
             "project": "Foundations",
-            "name": "market"
+            "name": "Market/market"
         },
         "text": "This tutorial walks you through the process of setting up a new Market on which to run data mining and trading operations."
     },

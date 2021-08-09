@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Back in Time",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "time-machine"
+            "name": "Time\\time-machine",
+            "project": "Foundations"
         },
         "text": "This is the Charting Space hierarchy setup of the Time Machine we've been playing with on the charts.",
         "translations": [
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "Esta es la configuración de la jerarquía del Charting Space de las Time Machine hemos estado viendo en los gráficos.",
-                "updated": 1624412993386
+                "updated": 1624412993386,
+                "style": "Definition"
             }
         ]
     },
@@ -36,7 +37,8 @@
                 {
                     "language": "ES",
                     "text": "¡Dedica unos minutos a explorar estas definiciones! ¡Ve a los menús de los nodos!",
-                    "updated": 1624412138619
+                    "updated": 1624412138619,
+                    "style": "Callout"
                 }
             ]
         },
@@ -54,7 +56,8 @@
                 {
                     "language": "ES",
                     "text": "Espero que la estructura de los nodos sea lo suficientemente intuitiva como para comprender cuán poderoso es el concepto de Design Space. Configuras un Time Machine agregando nodos de Timeline Chart y las escalas deseadas. A continuación, configuras un Layer Manager y capas que hagan referencia a los Data Mine Products para que los datos deseados estén disponibles en un Layer Manager determinado en los gráficos. ¡Aprenderás a personalizar gráficos más adelante!",
-                    "updated": 1624412890132
+                    "updated": 1624412890132,
+                    "style": "Text"
                 }
             ]
         }

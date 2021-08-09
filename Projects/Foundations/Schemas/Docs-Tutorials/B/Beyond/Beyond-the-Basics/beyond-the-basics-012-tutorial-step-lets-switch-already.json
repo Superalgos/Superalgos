@@ -15,6 +15,11 @@
                 "text": "Ora che è tutto chiaro, cambiamo branch e prepariamoci per i prossimi step!",
                 "updated": 1619634720704,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que todo está claro, ¡hagamos el cambio y prepárete para lo que viene a continuación!",
+                "updated": 1628127987969
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Ecco cosa devi fare:",
                     "updated": 1619634733402,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Esto es lo que necesitas hacer:",
+                    "updated": 1628128191379
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Torna al footer e seleziona Plugins-Docs come tuo Current Branch.",
                     "updated": 1619634755120,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Regresa al pie de página y selecciona Plugins-Docs como tu Current Branch.",
+                    "updated": 1628128266760
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "Una pagina ti informerà di cosa succede, poi un'altra ti notificherà del fatto che devi riavviare l'app.",
                     "updated": 1619634793423,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Obtendrás una página que explica lo que se está haciendo. Luego, aparecerá otra página que te informará del resultado y te explicará que debes reiniciar la aplicación.",
+                    "updated": 1628128508302
                 }
             ]
         },
@@ -68,6 +88,11 @@
                     "text": "Chiudi l'app e riavviala (browser e console).",
                     "updated": 1619634842849,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cierra la aplicación y reiníciela (navegador y consola).",
+                    "updated": 1628128700479
                 }
             ]
         },
@@ -81,6 +106,11 @@
                     "text": "Cerca il Beyond the Basics Tutorial nell'angolo in basso a destra del Workspace e premi Resume! Se non funziona, cerca lo step \"Welcome Back!\" sotto il Branches Topic e premi Play sul menù!",
                     "updated": 1619634936378,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Encuentra el Beyond the Basics Tutorial en la esquina inferior derecha del Workspace y selecciona \"Resume\" en el menú. Si \"Resume\" No funciona, encuentra el \"Welcome Back!\" bajo el Branches Topic y haz clic en \"Play\" en el menú.",
+                    "updated": 1628128938546
                 }
             ]
         }

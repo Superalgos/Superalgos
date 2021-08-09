@@ -1,7 +1,14 @@
 {
     "type": "Exchange Markets",
     "definition": {
-        "text": "The exchange markets node groups the definitions of markets."
+        "text": "The exchange markets node groups the definitions of markets.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El nodo exchange markets agrupa las definiciones de mercados.",
+                "updated": 1628046005046
+            }
+        ]
     },
     "paragraphs": [
         {

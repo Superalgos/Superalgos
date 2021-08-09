@@ -6,8 +6,8 @@
         "text": "There're a couple more things I want to tell you about before I let you go! Bear with me!",
         "updated": 1619810326034,
         "icon": {
-            "name": "strategy-counters",
-           "project": "Foundations"
+            "name": "Strategy\\strategy-counters",
+            "project": "Foundations"
         },
         "translations": [
             {
@@ -18,8 +18,9 @@
             },
             {
                 "language": "ES",
-                "text": "¡Hay un par de cosas más de las que quiero contarte antes de dejarte ir! ¡Tengan paciencia conmigo!",
-                "updated": 1624487324961
+                "text": "¡Hay más cosas de las que quiero contarte antes de dejarte ir! ¡Ten paciencia conmigo!",
+                "updated": 1625934470264,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "¡Te daré una breve introducción sobre en qué estamos trabajando para las próximas versiones de Superalgos! Mencioné los algoritmos de aprendizaje automático, ¡pero hay más! ¡Tiene que ver con la integración de proyectos criptográficos!",
-                    "updated": 1624487373295
+                    "updated": 1624487373295,
+                    "style": "List"
                 }
             ]
         },
@@ -55,8 +57,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "También quiero hacerte saber que, si aprecias lo que estamos haciendo, ¡puedes ayudar! Se han invertido decenas de miles de horas de arduo trabajo para construir Superalgos y llevarlo a su estado actual. Espero que puedas tomarte un par de minutos de tu tiempo para retribuir y estaré feliz de decirle por dónde empezar.",
-                    "updated": 1624497508622
+                    "text": "Si aprecias lo que estamos haciendo, ¡puedes ayudar! Se han invertido decenas de miles de horas de arduo trabajo para construir Superalgos y llevarlo a su estado actual. Espero que puedas tomarte un par de minutos de tu tiempo para retribuir y estaré feliz de decirle por dónde empezar.",
+                    "updated": 1625934723800,
+                    "style": "List"
                 }
             ]
         },
@@ -74,7 +77,8 @@
                 {
                     "language": "ES",
                     "text": "¡Sigamos adelante!",
-                    "updated": 1624487447210
+                    "updated": 1624487447210,
+                    "style": "Success"
                 }
             ]
         }

@@ -5,8 +5,8 @@
     "definition": {
         "text": "Superalgos Admins, the Core Team, and Community Mods will never contact you directly unless you contact them first!",
         "icon": {
-            "name": "bullet-warning",
-           "project": "Foundations"
+            "name": "Bullet\\bullet-warning",
+            "project": "Foundations"
         },
         "updated": 1617608574624,
         "translations": [
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Los administradores de Superalgos, el Core Team y los Community Mods nunca se comunicarán contigo directamente a menos que los contactes primero.",
-                "updated": 1624488617429
+                "updated": 1624488617429,
+                "style": "Definition"
             }
         ]
     },
@@ -37,8 +38,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Los estafadores están al acecho! sabemos que se ponen en contacto con personas de nuestros grupos para intentar todo tipo de trucos. Nunca te pediremos claves de API, monedas o efectivo. De hecho, ¡nunca le pediremos que confíe en nosotros de ninguna manera! Queremos dejar en claro que si alguien se pone en contacto con usted directamente para afirmar que trabaja con o para el proyecto, es una estafa. Reporta a los estafadores en el grupo de la Comunidad para que puedan ser baneados,también bloquéelos e infórmelos a Telegram si la opción está disponible.",
-                    "updated": 1624488963730
+                    "text": "¡Los estafadores están al acecho! sabemos que se ponen en contacto con personas de nuestros grupos para intentar todo tipo de trucos. Nunca te pediremos claves de API, monedas o efectivo. De hecho, ¡nunca  pediremos que confíes en nosotros de ninguna manera! Queremos dejar en claro que si alguien se pone en contacto directo para afirmar que trabaja con o para el proyecto, es una estafa. Reportalos en el grupo de la Comunidad para que puedan ser baneados,también bloquéelos e infórmelos a Telegram si la opción está disponible.",
+                    "updated": 1625933454872,
+                    "style": "Warning"
                 }
             ]
         }

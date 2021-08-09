@@ -15,6 +15,11 @@
                 "text": "Se hai seguito le mie istruzioni, ora il tuo software sta girando sulla branch plugins-docs! Fantastico!",
                 "updated": 1619634969342,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Si has seguido mis instrucciones al pie de la letra, ¡ahora deberías estar ejecutando el software en la rama plugins-docs! ¡Increíble!",
+                "updated": 1628185547039
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Il software corrente è la versione di Superalgos che si trovava nel branch plugins-docs il giorno che hai fatto il fork del progetto! Questo perchè cambiando branch scarichi il software dal tuo fork e non dalla repo originale.",
                     "updated": 1619635036896,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡El software que estás ejecutando actualmente es la versión de Superalgos que estaba en la rama plugins-docs el día que hiciste fork el proyecto! Esto se debe a que el proceso de cambio de rama descarga el software de tu rama y no del repositorio ascendente.",
+                    "updated": 1628185634260
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Devi fare l'update così da eseguire l'ultima versione! È importante soprattutto se vuoi contribuire al progetto. Lavora sempre sull'ultima versione, così che i cambiamenti che fai includano le ultime modifiche degli altri utenti!",
                     "updated": 1619635122521,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Necesitas actualizar para poder ejecutar la última versión! Esto es particularmente importante cuando tienes la intención de contribuir al proyecto. ¡Siempre debes trabajar en la última versión para que los cambios que realices incluyan los últimos cambios producidos por otros colaboradores!",
+                    "updated": 1628186597672
                 }
             ]
         }

@@ -15,6 +15,11 @@
                 "text": "In questo step, lancerai il comando per creare una pagina di recensione! Potrai poi editarla!",
                 "updated": 1619635348623,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "En este paso, ejecutarás tu primer comando para crear una página de revisión. ¡Esta página será tuya para editarla en el futuro!",
+                "updated": 1628186991397
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "La sintassi dei comandi è informale: ti piacerà! Leggi e segui le istruzioni sotto:",
                     "updated": 1619635406184,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡La sintaxis para escribir comandos es bastante coloquial! ¡Te encantará! ¡Compruébalo y sigue las instrucciones a continuación!",
+                    "updated": 1628187026752
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "text": "PRIMO: copia il comando sopra",
                     "updated": 1619635420152,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "FIRST: Copia el comando anterior.",
+                    "updated": 1628187044978
                 }
             ]
         },
@@ -60,6 +75,11 @@
                     "text": "SECONDO: incolla in un editor di testo",
                     "updated": 1619635433451,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "SECOND: Pégalo en un editor de texto.",
+                    "updated": 1628187089099
                 }
             ]
         },
@@ -73,6 +93,11 @@
                     "text": "TERZO: sostituisci \"Your Review Title\" con un titolo. I titoli delle review devono essere unici!",
                     "updated": 1619635474439,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "THIRD: Reemplaza \"Your Review Title\" por un título significativo. ¡Los títulos deben ser únicos!",
+                    "updated": 1628187188266
                 }
             ]
         },
@@ -86,6 +111,11 @@
                     "text": "QUARTO: incolla il nuovo comando sulla barra di ricerca/comando e premi Enter.",
                     "updated": 1619635504400,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "FOURTH: Pega el comando actualizado en el cuadro de búsqueda / comando y presiona Enter.",
+                    "updated": 1628187252151
                 }
             ]
         }

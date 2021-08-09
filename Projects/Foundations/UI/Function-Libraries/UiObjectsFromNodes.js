@@ -329,24 +329,32 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                                     pathName = rawPath[i][0]
                                     pathType = rawPath[i][1]
                                     pathNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByCodeNameAndNodeType( pathName, pathType )
+
                                     // If reference parent is workspace node grab node
                                     if (pathType === "Workspace") {
                                         pathNode = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+                                    }  
+                                    // If Hierarchy Head is not located within the workspace abort reconnection
+                                    if (pathNode === undefined) {
+                                        console.log("[WARN] Abort reconnection saved path head node not found in current workspace", node)
+                                        return
                                     } 
                                     continue
                                 } else { // Walk through children nodes and find the next node from saved path
                                     pathName = rawPath[i][0]
                                     pathType = rawPath[i][1]
                                     pathNode = getNextNodeFromPath(pathNode, pathName, pathType)
+                                    
                                 }
                             }
                             if (pathNode !== undefined ) {
                                 UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(node, pathNode)
                             } else {
-                                console.log("[WARN] ", node.name, ' ', node.type, "failed to fix reference.  Unable to find reference parent ", pathName, ' ', pathType  )
+                                //console.log("[WARN] ", node.name, ' ', node.type, "failed to fix reference.  Unable to find reference parent ", pathName, ' ', pathType  )
                             }
 
                             function getNextNodeFromPath(node, pathName, pathType) {
+                                console.log("pathNode", node)
                                 let schemaDocument = getSchemaDocument(node) 
                                 let nextNode = undefined
                                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
@@ -383,9 +391,6 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                                 }
                             }
                         }
-                     }
-                    if (node.payload.referenceParent === undefined) {
-                        console.log('[WARN]' + node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
                     }
                     
                 } 

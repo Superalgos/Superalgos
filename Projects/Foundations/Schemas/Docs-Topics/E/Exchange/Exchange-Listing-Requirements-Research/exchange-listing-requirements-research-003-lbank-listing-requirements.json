@@ -1,0 +1,120 @@
+{
+    "topic": "Exchange Listing Requirements Research",
+    "pageNumber": "3",
+    "type": "LBank Listing Requirements",
+    "definition": {
+        "text": "Write a summary for this topic page."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Research",
+            "updated": 1628512756857
+        },
+        {
+            "style": "List",
+            "text": "Exchange name: LBank",
+            "updated": 1628512837877
+        },
+        {
+            "style": "List",
+            "text": "CMC ranking: The position of the exchange in the ranking as of the day of the research."
+        },
+        {
+            "style": "List",
+            "text": "Exchange home page: Edit the string below with the name of the exchange and the URL (without the protocol). ",
+            "updated": 1628512823690
+        },
+        {
+            "style": "Link",
+            "text": "Exchange URL->exchangeURL.com",
+            "updated": 1628512847099
+        },
+        {
+            "style": "List",
+            "text": "Listing requirements page: Edit the string below with the URL (without the protocol) of the page where you got the core of the information in this report. ",
+            "updated": 1628512803920
+        },
+        {
+            "style": "Link",
+            "text": "Listing requirements->pageURL.com"
+        },
+        {
+            "style": "List",
+            "text": "Listing request form page: Edit the string below with the URL (without the protocol) of the page (or online form) the project should use to request the listing of the token. ",
+            "updated": 1628512810149
+        },
+        {
+            "style": "Link",
+            "text": "Listing request form->pageURL.com"
+        },
+        {
+            "style": "List",
+            "text": "Can list BEP 20 BSC tokens: Some exchanges may not be able to list tokens in the Binance Smart Chain. Make sure you find out if listing the token is technically possible."
+        },
+        {
+            "style": "List",
+            "text": "Listing fee: Exchanges usually charge for listing new coins. Enter the fee and include any comments, exceptions, or details that may be relevant to our particular case."
+        },
+        {
+            "style": "List",
+            "text": "Security deposit: Some exchanges require a security deposit to be returned to the project after the listing is completed. Describe the details of such requirements if they exist."
+        },
+        {
+            "style": "List",
+            "text": "Volume requirements: Exchanges are in the business of charging transaction fees, so they usually expect to list tokens that have traction, in the understanding that such tokens will generate a certain level of trading volume. Some exchanges have a specific requirement about the expected volume. If the exchange requires a precise volume, enter it in numbers. Otherwise, describe what is expected in words."
+        },
+        {
+            "style": "List",
+            "text": "Market-making requirements: Many times exchanges expect projects to guarantee liquidity for the token on both sides of the order book. They sometimes require projects to hire specific market-makers or ask the project how they will deal with the issue. Explain what the exchange expects in this regard."
+        },
+        {
+            "style": "List",
+            "text": "Exchange users requirement: Some exchanges require the project to drive a certain number of users to the exchange. Describe any requirements that may exist in this regard."
+        },
+        {
+            "style": "List",
+            "text": "Pairs available for first listing: Some exchanges limit the number of pairs or even the precise quote assets that may be used for first listings. Describe whatever the exchange requires or offers in this regard."
+        },
+        {
+            "style": "List",
+            "text": "Waiting period: Most exchanges have a queue of listing requests and they may be able to estimate how long it takes to process. If there is information in this regard, include it here. The exchange may not announce what the estimate is, but you may deduce it or find out in community chats, forums, etc. Do your research."
+        },
+        {
+            "style": "List",
+            "text": "Legal entity: Some exchanges may require the project to be represented by a legal entity (a foundation, corporation, etc). If that is the case, enter \"Yes\", and describe what the requirement is. If there is no such requirement, enter \"No\"."
+        },
+        {
+            "style": "List",
+            "text": "Legal opinion: Some exchanges may require the project to get legal advice in the form of a \"legal opinion letter\" or some instrument of the sort, most times about the nature of the token, in particular, to determine if the token is a security or not. If that is the case, enter \"Yes\", and describe what the requirement is. If there is no such requirement, enter \"No\"."
+        },
+        {
+            "style": "List",
+            "text": "Selection process: Some exchanges describe the nature of the decision-making process to select which tokens shall be listed. Some involve the participation of their community, a voting process, or things of the sort. Describe what the process is like if there is any information about it."
+        },
+        {
+            "style": "List",
+            "text": "Researcher's comments: If you notice any information of importance to the listing process that is not covered in this list, include it here."
+        },
+        {
+            "style": "List",
+            "text": "Researcher's Github.com Username: This helps track the author of each research contribution."
+        },
+        {
+            "style": "List",
+            "text": "Researcher's Telegram Username: Same as above."
+        },
+        {
+            "style": "List",
+            "text": "Date of last revision: This report may be updated every once in a while. Use this field to note the last time the report was updated."
+        },
+        {
+            "style": "Title",
+            "text": "Negotiation"
+        },
+        {
+            "style": "List",
+            "text": "List what progress has been made in the ongoing negotiation."
+        }
+    ]
+}

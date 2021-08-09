@@ -42,6 +42,14 @@
         },
         {
             "style": "List",
+            "text": "If not enough information is available publicly, feel free to contact their support or listing teams for more information."
+        },
+        {
+            "style": "List",
+            "text": "You may also want to start filling a dummy listing requirement form to find out what kind of information the exchange requires."
+        },
+        {
+            "style": "List",
             "text": "Report on your findings using the Research Requirements bullet list below.",
             "updated": 1618503420995
         },
@@ -66,7 +74,8 @@
         },
         {
             "style": "Text",
-            "text": "If you're not familiar with the process of editing pages in the Docs and contributing the pages you create or edit, please go to the Getting Started Plugin Workspace and do the Beyond the Basics Tutorial."
+            "text": "If you're not familiar with the process of editing pages in the Docs and contributing the pages you create or edit, please go to the Getting Started Tutorials Plugin Workspace and do the Beyond the Basics Tutorial.",
+            "updated": 1628509381517
         },
         {
             "style": "Subtitle",
@@ -85,8 +94,8 @@
         },
         {
             "style": "Json",
-            "text": "docs.add Topic to Superalgos: Exchange Listing Requirements Research->Exchange Name Listing Requirements->N",
-            "updated": 1618486204475
+            "text": "docs.add Topic to Fundamentals: Exchange Listing Requirements Research->Exchange Name Listing Requirements->N",
+            "updated": 1628510137089
         },
         {
             "style": "List",
@@ -139,7 +148,8 @@
         },
         {
             "style": "List",
-            "text": "Exchange Name->exchangeURL.com"
+            "text": "Exchange URL->exchangeURL.com",
+            "updated": 1628513074678
         },
         {
             "style": "List",
@@ -160,6 +170,10 @@
             "style": "List",
             "text": "Listing request form->pageURL.com",
             "updated": 1618498025893
+        },
+        {
+            "style": "List",
+            "text": "Can list BEP 20 BSC tokens: Some exchanges may not be able to list tokens in the Binance Smart Chain. Make sure you find out if listing the token is technically possible."
         },
         {
             "style": "List",

@@ -1,0 +1,225 @@
+{
+    "topic": "Exchange Listing Requirements Research",
+    "pageNumber": "2",
+    "type": "Probit Global Listing Requirements",
+    "definition": {
+        "text": "The exchange is ready to list Superalgos. Listing fee is $25k, plus 1 BTC in project tokens.",
+        "updated": 1628512539086
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Listing Requirements",
+            "updated": 1628515442342
+        },
+        {
+            "style": "List",
+            "text": "Exchange name: Probit Global"
+        },
+        {
+            "style": "List",
+            "text": "CMC ranking: 27",
+            "updated": 1628510522467
+        },
+        {
+            "style": "List",
+            "text": "Exchange home page: ",
+            "updated": 1628510560296
+        },
+        {
+            "style": "Link",
+            "text": "Exchange URL->www.probit.com",
+            "updated": 1628519777927
+        },
+        {
+            "style": "List",
+            "text": "Listing requirements page: ",
+            "updated": 1628510662586
+        },
+        {
+            "style": "Link",
+            "text": "Listing requirements->www.probit.com/en-us/listing",
+            "updated": 1628510672736
+        },
+        {
+            "style": "List",
+            "text": "Listing request form page: ",
+            "updated": 1628510689962
+        },
+        {
+            "style": "Link",
+            "text": "Listing request form->docs.google.com/forms/d/e/1FAIpQLSf4b5e25olgKVVY623XBe7Pw1LxFZcCVAGaBXLgJ0sw7KwvkA/viewform",
+            "updated": 1628510737641
+        },
+        {
+            "style": "List",
+            "text": "Can list BEP 20 tokens in BSC: Yes",
+            "updated": 1628511590834
+        },
+        {
+            "style": "List",
+            "text": "Listing fee: Bronze $25k, Silver $50k, Gold $80k -- plus 1 BTC in project tokens.",
+            "updated": 1628512487779
+        },
+        {
+            "style": "List",
+            "text": "Security deposit: No",
+            "updated": 1628510838412
+        },
+        {
+            "style": "List",
+            "text": "Volume requirements: No",
+            "updated": 1628510856025
+        },
+        {
+            "style": "List",
+            "text": "Market-making requirements: Included for 1 month in all plans; not required afterwards.",
+            "updated": 1628510894252
+        },
+        {
+            "style": "List",
+            "text": "Exchange users requirement: No",
+            "updated": 1628510904049
+        },
+        {
+            "style": "List",
+            "text": "Pairs available for first listing: USDT, BTC, ETH",
+            "updated": 1628510967084
+        },
+        {
+            "style": "List",
+            "text": "Waiting period: 2 weeks.",
+            "updated": 1628510983346
+        },
+        {
+            "style": "List",
+            "text": "Legal entity: A corporation is usually required.",
+            "updated": 1628511032973
+        },
+        {
+            "style": "List",
+            "text": "Legal opinion: Usually required.",
+            "updated": 1628511045422
+        },
+        {
+            "style": "List",
+            "text": "Selection process: N/A.",
+            "updated": 1628511087443
+        },
+        {
+            "style": "List",
+            "text": "Researcher's comments: I have an open channel with the listing team and have clarified some issues, as explained under the Negotiation title below.",
+            "updated": 1628512314800
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Governance/Docs/token-task-force/probit-listing-plans.png",
+            "updated": 1628516831766
+        },
+        {
+            "style": "List",
+            "text": "Researcher's Github.com Username: julian-molina",
+            "updated": 1628511321864
+        },
+        {
+            "style": "List",
+            "text": "Researcher's Telegram Username: @julianmolina",
+            "updated": 1628511330617
+        },
+        {
+            "style": "List",
+            "text": "Date of last revision: AUG 9th, 2021.",
+            "updated": 1628511355078
+        },
+        {
+            "style": "Title",
+            "text": "Negotiation"
+        },
+        {
+            "style": "Text",
+            "text": "@julianmolina has confirmed that:",
+            "updated": 1628512180751
+        },
+        {
+            "style": "List",
+            "text": "they accept Superalgos for listing;",
+            "updated": 1628511554947
+        },
+        {
+            "style": "List",
+            "text": "we can coordinate the listing date to suit PR & Marketing campaigns."
+        },
+        {
+            "style": "List",
+            "text": "they can wave the legal opinion if it's clear the token is not a security;"
+        },
+        {
+            "style": "List",
+            "text": "they don't need a corporation to sign the listing agreement. A KYCed executive (project leadership) works too;",
+            "updated": 1628512355591
+        },
+        {
+            "style": "List",
+            "text": "we can propose new or improved language in the listing agreement for a more balanced protection of both parties;",
+            "updated": 1628511650104
+        },
+        {
+            "style": "List",
+            "text": "we can have additional zero-fee accounts for market making at $5k each.",
+            "updated": 1628511671112
+        },
+        {
+            "style": "Title",
+            "text": "Exchange Evaluation"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Corporate"
+        },
+        {
+            "style": "List",
+            "text": "Country of registration:"
+        },
+        {
+            "style": "List",
+            "text": "Year of registration:"
+        },
+        {
+            "style": "List",
+            "text": "Physical offices:"
+        },
+        {
+            "style": "List",
+            "text": "Licenses:"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Traction",
+            "updated": 1628516949284
+        },
+        {
+            "style": "List",
+            "text": "Alexa site rank: 3500",
+            "updated": 1628517005331
+        },
+        {
+            "style": "Link",
+            "text": "Alexa->www.alexa.com/siteinfo/probit.com"
+        },
+        {
+            "style": "List",
+            "text": "Domain authority: 45",
+            "updated": 1628517390639
+        },
+        {
+            "style": "Link",
+            "text": "DA by Moz->moz.com/domain-analysis?site=probit.com",
+            "updated": 1628517409497
+        },
+        {
+            "style": "List",
+            "text": "CMC ranking: 27",
+            "updated": 1628517194530
+        }
+    ]
+}

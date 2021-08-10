@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Playing with the Rate Scale!",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "rate-scale"
+            "name": "Charting-Space\\rate-scale",
+            "project": "Foundations"
         },
         "text": "Do I need to tell you how the Rate Scale works or can you figure it out on your own? Ok... I'll give you a hint...",
         "translations": [
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "¿Necesito decirte cómo el Rate Scale funciona o puedes resolverlo por tu cuenta? Vale... te daré una pista ...",
-                "updated": 1624407403842
+                "updated": 1624407403842,
+                "style": "Definition"
             }
         ]
     },
@@ -36,7 +37,8 @@
                 {
                     "language": "ES",
                     "text": "El Rate Scale trabaja como el Time Scale, pero —al usar el teclado—¡debes invertir las teclas de flecha! Usa las flechas izquierda y derecha ← → para alternar entre los modos automáticos y las flechas hacia arriba y hacia abajo ↑ ↓ para afectar la escala. ¡Mira el video que viene a continuación para mayor claridad!",
-                    "updated": 1624407641584
+                    "updated": 1624407641584,
+                    "style": "Callout"
                 }
             ],
             "updated": 1616505192799
@@ -54,7 +56,8 @@
                 {
                     "language": "ES",
                     "text": "¡Juega también con los modos de escala semiautomáticos! Ya sabes, cuando un pequeño triángulo permanece visible después de unos pocos movimientos de la rueda del mouse.",
-                    "updated": 1624407734966
+                    "updated": 1624407734966,
+                    "style": "Success"
                 }
             ]
         }

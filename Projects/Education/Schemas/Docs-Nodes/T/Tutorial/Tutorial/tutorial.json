@@ -2,7 +2,14 @@
     "type": "Tutorial",
     "definition": {
         "text": "The tutorial hierarchy features a free arrangement of Tutorial Topic and Tutorial Step nodes that make up a tutorial. Each node in the hierarchy, including the parent tutorial node, represents an HTML page that may be overlaid on top of both the Design Space and the Charting Space.",
-        "updated": 1617610222444
+        "updated": 1617610222444,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "La jerarquía del tutorial presenta una disposición libre de los nodos Tutorial Topic y Tutorial Step que componen un tutorial. Cada nodo de la jerarquía, incluido el nodo del tutorial principal, representa una página HTML que puede superponerse en la parte superior de ambos Design Space y el Charting Space.",
+                "updated": 1627245866146
+            }
+        ]
     },
     "paragraphs": [
         {

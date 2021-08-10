@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "¡La última versión de Superalgos presenta una integración experimental de TensorFlow para aprovechar ML desde la aplicación!",
-                "updated": 1624415664853
+                "updated": 1624415664853,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "La integración mapea la definición de un NodeJSTensorFlow Library acompañando un algoritmo Supervised Learning y sus Artificial Neural Network en la típica estructura de nodos de Superalgos.",
-                    "updated": 1624415970291
+                    "updated": 1624415970291,
+                    "style": "Text"
                 }
             ]
         },
@@ -55,8 +57,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡La integración aprovecha la infraestructura de Superalgos. Podemos usar sus conjuntos de datos para entrenar algoritmos de ML y usar los modelos resultantes desde dentro de los Trading System!",
-                    "updated": 1624416153609
+                    "text": "¡Podemos usar sus conjuntos de datos para entrenar algoritmos de ML y usar los modelos resultantes desde dentro de los Trading System!",
+                    "updated": 1625883974828,
+                    "style": "Note"
                 }
             ]
         },
@@ -74,7 +77,8 @@
                 {
                     "language": "ES",
                     "text": " ¡Echa un vistazo a la Machine Learning Demo Plugin Workspace!",
-                    "updated": 1624416262760
+                    "updated": 1624416262760,
+                    "style": "Success"
                 }
             ]
         }

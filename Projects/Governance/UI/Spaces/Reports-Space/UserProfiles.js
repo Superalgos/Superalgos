@@ -96,8 +96,8 @@ function newGovernanceReportsUserProfiles() {
         */
         if (sortingOrder === undefined) {
             UI.projects.governance.spaces.reportsSpace.tablesSortingOrders[table] = {
-                property: 'name',
-                order: 'ascending'
+                property: 'blockchainPower',
+                order: 'descending'
             }
             sortingOrder = UI.projects.governance.spaces.reportsSpace.tablesSortingOrders[table]
         }

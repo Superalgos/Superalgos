@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Let's Do This!",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "live-trading-session"
         },
         "text": "We've gone through the 3-point checklist and we are ready to go, so let's get on with it!",
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "Hemos revisado la lista de verificación de 3 puntos y estamos listos para comenzar, ¡así que sigamos adelante!",
-                "updated": 1624483496936
+                "updated": 1624483496936,
+                "style": "Definition"
             }
         ]
     },
@@ -35,8 +36,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Corre el Lightning Strike Task, y luego el Lightning Strike Live Trading Session más abajo en la jerarquía!",
-                    "updated": 1624483579082
+                    "text": "¡Corre el Lightning Strike Task, y luego el Lightning Strike Live Trading Session abajo en la jerarquía!",
+                    "updated": 1625928738040,
+                    "style": "Callout"
                 }
             ],
             "updated": 1622233324259
@@ -54,7 +56,8 @@
                 {
                     "language": "ES",
                     "text": "Una vez que ejecute la sesión, es posible que el Trading Bot tenga que esperar hasta 60 segundos para que el último indicador termine de procesarse. Una vez que lo haga, verá la fecha actual y un aviso de progreso del 0% en la Trading Process Instance, que permanecerá así durante toda la ejecución, porque no estamos estableciendo un límite de tiempo para la sesión.",
-                    "updated": 1624483658880
+                    "updated": 1624483658880,
+                    "style": "Note"
                 }
             ],
             "updated": 1622233370311

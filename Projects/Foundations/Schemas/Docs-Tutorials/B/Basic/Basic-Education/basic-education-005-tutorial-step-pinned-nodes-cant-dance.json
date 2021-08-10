@@ -15,6 +15,11 @@
                 "text": "Quando un nodo è \"pinned\", è fissato a una posizione indipendentemente dal resto delle proprietà di disposizione!",
                 "updated": 1619459518708,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Cuando se fija un nodo, se fija en una posición independientemente de la configuración del resto de las propiedades de la disposición.",
+                "updated": 1625935739732
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Puoi fissare un nodo, una struttura di nodi o anche un'intera gerarchia. Proviamo un'altra cosa...",
                     "updated": 1619459542669,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Puedes fijar un nodo, una estructura de nodos e incluso la jerarquía completa. Probemos algo más...",
+                    "updated": 1625935796375
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Fissa il nodo Trading Parameters e trascinalo via!",
                     "updated": 1619459606476,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Fija el nodo Trading Parameters y arrástralo!",
+                    "updated": 1625935853192
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "text": "Nota come tutti i nodi figli seguono il nodo padre, ma il nodo Session Base Asset rimane fisso! Prima di proseguire, togli il pin da tutti i nodi per tenere in ordine il workspace!",
                     "updated": 1619459651253,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Observa cómo todos los nodos descendientes siguen al nodo principal. Sin embargo, el nodo de Session Base Asset permanece en posición. Antes de continuar, desfija todos los nodos para mantener el espacio de trabajo en orden.",
+                    "updated": 1625936048997
                 }
             ]
         }

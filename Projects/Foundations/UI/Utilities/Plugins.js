@@ -1,7 +1,9 @@
 function newFoundationsUtilitiesPlugins() {
     let thisObject = {
         getPluginFileNames: getPluginFileNames,
-        addPluginFileIfNeeded: addPluginFileIfNeeded,
+        getPluginFolderNamesByNodeType: getPluginFolderNamesByNodeType,
+        addMissingPluginFiles: addMissingPluginFiles,
+        addMissingPluginFile: addMissingPluginFile,
         getProjectName: getProjectName,
         savePluginFile: savePluginFile
     }
@@ -22,19 +24,69 @@ function newFoundationsUtilitiesPlugins() {
         }
     }
 
-    function addPluginFileIfNeeded(node, fileNames, pluginFolder, nodeType) {
+    function addMissingPluginFiles(node, fileNames, pluginFolder, nodeType) {
         for (let i = 0; i < fileNames.length; i++) {
             let fileName = fileNames[i]
             fileName = fileName.replace('.json', '')
-            if (UI.projects.foundations.utilities.children.isMissingChildrenByName(node, fileName) === true) {
-                let child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin File', undefined, 'Foundations')
-                child.name = fileName
-                child.config = JSON.stringify({
-                    project: node.project,
-                    fileName: fileName,
-                    folderName: pluginFolder,
-                    nodeType: nodeType
-                })
+            addMissingPluginFile(node, fileName, pluginFolder, nodeType, false)
+        }
+    }
+
+    function addMissingPluginFile(node, fileName, pluginFolder, nodeType, saveWithWorkspace) {
+        if (UI.projects.foundations.utilities.children.isMissingChildrenByName(node, fileName) === true) {
+            let child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin File', undefined, 'Foundations')
+            child.name = fileName
+            child.config = JSON.stringify({
+                project: node.project,
+                fileName: fileName,
+                folderName: pluginFolder,
+                nodeType: nodeType,
+                saveWithWorkspace: saveWithWorkspace
+            })
+            return child
+        }
+    }
+
+    function getPluginFolderNamesByNodeType(nodeType) {
+        switch (nodeType) {
+            case 'API Map': {
+                return 'API-Maps'
+            }
+            case 'Data Mine': {
+                return 'Data-Mines'
+            }
+            case 'Learning Engine': {
+                return 'Learning-Engines'
+            }
+            case 'Learning Mine': {
+                return 'Learning-Mines'
+            }
+            case 'Learning System': {
+                return 'Learning-Systems'
+            }
+            case 'Trading Engine': {
+                return 'Trading-Engines'
+            }
+            case 'Trading Mine': {
+                return 'Trading-Mines'
+            }
+            case 'Trading System': {
+                return 'Trading-Systems'
+            }
+            case 'Assets': {
+                return 'Assets'
+            }
+            case 'Features': {
+                return 'Features'
+            }
+            case 'Pools': {
+                return 'Pools'
+            }
+            case 'Positions': {
+                return 'Positions'
+            }
+            case 'User Profile': {
+                return 'User-Profiles'
             }
         }
     }
@@ -95,6 +147,7 @@ function newFoundationsUtilitiesPlugins() {
             data = JSON.parse(data)
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                 pluginFile.payload.uiObject.setInfoMessage('Plugin Saved.', 5)
+                pluginToSave.payload.uiObject.setInfoMessage('Plugin Saved.', 5)
                 return
             }
             console.log('[ERROR] Saving Plugin File: ' + JSON.stringify(data))

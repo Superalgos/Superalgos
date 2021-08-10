@@ -871,7 +871,28 @@
                 }
             ]
         },
-        "CL": {},
+        "CL": {
+            "utilities": [
+                {
+                    "name": "Async Functions",
+                    "propertyName": "asyncFunctions",
+                    "functionName": "newFoundationsUtilitiesAsyncFunctions",
+                    "fileName": "AsyncFunctions.js"
+                },
+                {
+                    "name": "Web Access",
+                    "propertyName": "webAccess",
+                    "functionName": "newFoundationsUtilitiesWebAccess",
+                    "fileName": "WebAccess.js"
+                },
+                {
+                    "name": "Plugins",
+                    "propertyName": "plugins",
+                    "functionName": "newFoundationsUtilitiesPlugins",
+                    "fileName": "Plugins.js"
+                }
+            ]
+        },
         "plugins": [
             "Data Mines",
             "Trading Mines",
@@ -966,209 +987,6 @@
         }
     },
     {
-        "name": "Governance",
-        "propertyName": "governance",
-        "UI": {
-            "globals": [
-                {
-                    "name": "Reports",
-                    "propertyName": "reports",
-                    "functionName": "newGovernanceGlobalsReports"
-                }
-            ],
-            "functionLibraries": [
-                {
-                    "name": "Assets",
-                    "propertyName": "assets",
-                    "functionName": "newGovernanceFunctionLibraryAssets"
-                },
-                {
-                    "name": "TokenPower",
-                    "propertyName": "tokenPower",
-                    "functionName": "newGovernanceFunctionLibraryTokenPower"
-                },
-                {
-                    "name": "Voting Program",
-                    "propertyName": "votingProgram",
-                    "functionName": "newGovernanceFunctionLibraryVotingProgram"
-                },
-                {
-                    "name": "Delegation Program",
-                    "propertyName": "delegationProgram",
-                    "functionName": "newGovernanceFunctionLibraryDelegationProgram"
-                },
-                {
-                    "name": "Tokens",
-                    "propertyName": "tokens",
-                    "functionName": "newGovernanceFunctionLibraryTokens"
-                },
-                {
-                    "name": "Weights",
-                    "propertyName": "weights",
-                    "functionName": "newGovernanceFunctionLibraryWeights"
-                },
-                {
-                    "name": "Claims Program",
-                    "propertyName": "claimsProgram",
-                    "functionName": "newGovernanceFunctionLibraryClaimsProgram"
-                },
-                {
-                    "name": "Distribution Process",
-                    "propertyName": "distributionProcess",
-                    "functionName": "newGovernanceFunctionLibraryDistributionProcess"
-                },
-                {
-                    "name": "Plugins Functions",
-                    "propertyName": "pluginsFunctions",
-                    "functionName": "newGovernanceFunctionLibraryPluginsFunctions"
-                },
-                {
-                    "name": "Referral Program",
-                    "propertyName": "referralProgram",
-                    "functionName": "newGovernanceFunctionLibraryReferralProgram"
-                },
-                {
-                    "name": "Support Program",
-                    "propertyName": "supportProgram",
-                    "functionName": "newGovernanceFunctionLibrarySupportProgram"
-                },
-                {
-                    "name": "Mentorship Program",
-                    "propertyName": "mentorshipProgram",
-                    "functionName": "newGovernanceFunctionLibraryMentorshipProgram"
-                },
-                {
-                    "name": "Stacking Program",
-                    "propertyName": "stackingProgram",
-                    "functionName": "newGovernanceFunctionLibraryStackingProgram"
-                },
-                {
-                    "name": "Profile Constructor",
-                    "propertyName": "profileConstructor",
-                    "functionName": "newGovernanceFunctionLibraryProfileConstructor"
-                }
-            ],
-            "utilities": [
-                {
-                    "name": "Pools",
-                    "propertyName": "pools",
-                    "functionName": "newGovernanceUtilitiesPools"
-                },
-                {
-                    "name": "Decendent Program",
-                    "propertyName": "decendentProgram",
-                    "functionName": "newGovernanceUtilitiesDecendentProgram"
-                },
-                {
-                    "name": "Bonus Program",
-                    "propertyName": "bonusProgram",
-                    "functionName": "newGovernanceUtilitiesBonusProgram"
-                },
-                {
-                    "name": "Validations",
-                    "propertyName": "validations",
-                    "functionName": "newGovernanceUtilitiesValidations"
-                },
-                {
-                    "name": "Tables",
-                    "propertyName": "tables",
-                    "functionName": "newGovernanceUtilitiesTables"
-                },
-                {
-                    "name": "Decendent Tables",
-                    "propertyName": "decendentTables",
-                    "functionName": "newGovernanceUtilitiesDecendentTables"
-                },
-                {
-                    "name": "Common Tables",
-                    "propertyName": "commonTables",
-                    "functionName": "newGovernanceUtilitiesCommonTables"
-                },
-                {
-                    "name": "Filters",
-                    "propertyName": "filters",
-                    "functionName": "newGovernanceUtilitiesFilters"
-                }
-            ],
-            "spaces": [
-                {
-                    "name": "User Profile Space",
-                    "folderName": "User-Profile-Space",
-                    "propertyName": "userProfileSpace",
-                    "functionName": "newGovernanceUserProfileSpace",
-                    "initializationIndex": 0,
-                    "animationPhysicsIndex": 0,
-                    "animationDrawIndex": 0,
-                    "onMouseWheelIndex": 0,
-                    "onMouseOverIndex": 0,
-                    "onMouseClickIndex": 0,
-                    "onMouseDownIndex": 0
-                },
-                {
-                    "name": "Reports Space",
-                    "folderName": "Reports-Space",
-                    "propertyName": "reportsSpace",
-                    "functionName": "newGobernanceReportsSpace",
-                    "initializationIndex": 1,
-                    "animationPhysicsIndex": 1,
-                    "animationDrawIndex": 1,
-                    "onMouseWheelIndex": 1,
-                    "onMouseOverIndex": 1,
-                    "onMouseClickIndex": 1,
-                    "onMouseDownIndex": 1
-                },
-                {
-                    "name": "Features Space",
-                    "folderName": "Features-Space",
-                    "propertyName": "featuresSpace",
-                    "functionName": "newGovernanceFeaturesSpace",
-                    "initializationIndex": 2,
-                    "animationPhysicsIndex": 2,
-                    "animationDrawIndex": 2,
-                    "onMouseWheelIndex": 2,
-                    "onMouseOverIndex": 2,
-                    "onMouseClickIndex": 2,
-                    "onMouseDownIndex": 2
-                },
-                {
-                    "name": "Positions Space",
-                    "folderName": "Positions-Space",
-                    "propertyName": "positionsSpace",
-                    "functionName": "newGovernancePositionsSpace",
-                    "initializationIndex": 3,
-                    "animationPhysicsIndex": 3,
-                    "animationDrawIndex": 3,
-                    "onMouseWheelIndex": 3,
-                    "onMouseOverIndex": 3,
-                    "onMouseClickIndex": 3,
-                    "onMouseDownIndex": 3
-                },
-                {
-                    "name": "Pools Space",
-                    "folderName": "Pools-Space",
-                    "propertyName": "poolsSpace",
-                    "functionName": "newGovernancePoolsSpace",
-                    "initializationIndex": 4,
-                    "animationPhysicsIndex": 4,
-                    "animationDrawIndex": 4,
-                    "onMouseWheelIndex": 4,
-                    "onMouseOverIndex": 4,
-                    "onMouseClickIndex": 4,
-                    "onMouseDownIndex": 4
-                }
-            ]
-        },
-        "TS": {},
-        "CL": {},
-        "plugins": [
-            "User Profiles",
-            "Pools",
-            "Assets",
-            "Features",
-            "Positions"
-        ]
-    },
-    {
         "name": "Education",
         "propertyName": "education",
         "UI": {
@@ -1237,5 +1055,194 @@
             "botModules": []
         },
         "CL": {}
+    },
+    {
+        "name": "Governance",
+        "propertyName": "governance",
+        "UI": {
+            "globals": [
+                {
+                    "name": "Reports",
+                    "propertyName": "reports",
+                    "functionName": "newGovernanceGlobalsReports"
+                }
+            ],
+            "functionLibraries": [
+                {
+                    "name": "Assets",
+                    "propertyName": "assets",
+                    "functionName": "newGovernanceFunctionLibraryAssets"
+                },
+                {
+                    "name": "Token Power",
+                    "propertyName": "tokenPower",
+                    "functionName": "newGovernanceFunctionLibraryTokenPower"
+                },
+                {
+                    "name": "Token Mining",
+                    "propertyName": "tokenMining",
+                    "functionName": "newGovernanceFunctionLibraryTokenMining"
+                },
+                {
+                    "name": "Voting Program",
+                    "propertyName": "votingProgram",
+                    "functionName": "newGovernanceFunctionLibraryVotingProgram"
+                },
+                {
+                    "name": "Delegation Program",
+                    "propertyName": "delegationProgram",
+                    "functionName": "newGovernanceFunctionLibraryDelegationProgram"
+                },
+                {
+                    "name": "Tokens",
+                    "propertyName": "tokens",
+                    "functionName": "newGovernanceFunctionLibraryTokens"
+                },
+                {
+                    "name": "Weights",
+                    "propertyName": "weights",
+                    "functionName": "newGovernanceFunctionLibraryWeights"
+                },
+                {
+                    "name": "Claims Program",
+                    "propertyName": "claimsProgram",
+                    "functionName": "newGovernanceFunctionLibraryClaimsProgram"
+                },
+                {
+                    "name": "Distribution Process",
+                    "propertyName": "distributionProcess",
+                    "functionName": "newGovernanceFunctionLibraryDistributionProcess"
+                },
+                {
+                    "name": "Plugins Functions",
+                    "propertyName": "pluginsFunctions",
+                    "functionName": "newGovernanceFunctionLibraryPluginsFunctions"
+                },
+                {
+                    "name": "Referral Program",
+                    "propertyName": "referralProgram",
+                    "functionName": "newGovernanceFunctionLibraryReferralProgram"
+                },
+                {
+                    "name": "Support Program",
+                    "propertyName": "supportProgram",
+                    "functionName": "newGovernanceFunctionLibrarySupportProgram"
+                },
+                {
+                    "name": "Influencer Program",
+                    "propertyName": "influencerProgram",
+                    "functionName": "newGovernanceFunctionLibraryInfluencerProgram"
+                },
+                {
+                    "name": "Mentorship Program",
+                    "propertyName": "mentorshipProgram",
+                    "functionName": "newGovernanceFunctionLibraryMentorshipProgram"
+                },
+                {
+                    "name": "Staking Program",
+                    "propertyName": "stakingProgram",
+                    "functionName": "newGovernanceFunctionLibraryStakingProgram"
+                },
+                {
+                    "name": "Profile Constructor",
+                    "propertyName": "profileConstructor",
+                    "functionName": "newGovernanceFunctionLibraryProfileConstructor"
+                },
+                {
+                    "name": "Github Program",
+                    "propertyName": "githubProgram",
+                    "functionName": "newGovernanceFunctionLibraryGithubProgram"
+                },
+                {
+                    "name": "Airdrop Program",
+                    "propertyName": "airdropProgram",
+                    "functionName": "newGovernanceFunctionLibraryAirdropProgram"
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Pools",
+                    "propertyName": "pools",
+                    "functionName": "newGovernanceUtilitiesPools"
+                },
+                {
+                    "name": "Decendent Program",
+                    "propertyName": "decendentProgram",
+                    "functionName": "newGovernanceUtilitiesDecendentProgram"
+                },
+                {
+                    "name": "Bonus Program",
+                    "propertyName": "bonusProgram",
+                    "functionName": "newGovernanceUtilitiesBonusProgram"
+                },
+                {
+                    "name": "Validations",
+                    "propertyName": "validations",
+                    "functionName": "newGovernanceUtilitiesValidations"
+                },
+                {
+                    "name": "Tables",
+                    "propertyName": "tables",
+                    "functionName": "newGovernanceUtilitiesTables"
+                },
+                {
+                    "name": "Decendent Tables",
+                    "propertyName": "decendentTables",
+                    "functionName": "newGovernanceUtilitiesDecendentTables"
+                },
+                {
+                    "name": "Common Tables",
+                    "propertyName": "commonTables",
+                    "functionName": "newGovernanceUtilitiesCommonTables"
+                },
+                {
+                    "name": "Filters",
+                    "propertyName": "filters",
+                    "functionName": "newGovernanceUtilitiesFilters"
+                },
+                {
+                    "name": "Conversions",
+                    "propertyName": "conversions",
+                    "functionName": "newGovernanceUtilitiesConversions"
+                }
+            ],
+            "spaces": [
+                {
+                    "name": "User Profile Space",
+                    "folderName": "User-Profile-Space",
+                    "propertyName": "userProfileSpace",
+                    "functionName": "newGovernanceUserProfileSpace",
+                    "initializationIndex": 0,
+                    "animationPhysicsIndex": 0,
+                    "animationDrawIndex": 0,
+                    "onMouseWheelIndex": 0,
+                    "onMouseOverIndex": 0,
+                    "onMouseClickIndex": 0,
+                    "onMouseDownIndex": 0
+                },
+                {
+                    "name": "Reports Space",
+                    "folderName": "Reports-Space",
+                    "propertyName": "reportsSpace",
+                    "functionName": "newGobernanceReportsSpace",
+                    "initializationIndex": 1,
+                    "animationPhysicsIndex": 1,
+                    "animationDrawIndex": 1,
+                    "onMouseWheelIndex": 1,
+                    "onMouseOverIndex": 1,
+                    "onMouseClickIndex": 1,
+                    "onMouseDownIndex": 1
+                }
+            ]
+        },
+        "TS": {},
+        "CL": {},
+        "plugins": [
+            "User Profiles",
+            "Pools",
+            "Assets",
+            "Features",
+            "Positions"
+        ]
     }
 ]

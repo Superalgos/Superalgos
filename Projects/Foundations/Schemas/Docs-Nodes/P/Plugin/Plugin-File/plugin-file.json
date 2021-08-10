@@ -1,7 +1,14 @@
 {
     "type": "Plugin File",
     "definition": {
-        "text": "A plugin file is the JSON file that constitutes the plugin. In the context of the plugins hierarchy, a plugin is the definition of a hierarchy."
+        "text": "A plugin file is the JSON file that constitutes the plugin. In the context of the plugins hierarchy, a plugin is the definition of a hierarchy.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un pluginfile es el archivo JSON que constituye el complemento. En el contexto de la jerarquía de complementos, un complemento es la definición de una jerarquía.",
+                "updated": 1628043670168
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -1,8 +1,10 @@
 function newFoundationsUtilitiesNodeChildren() {
     let thisObject = {
         isMissingChildrenById: isMissingChildrenById,
-        isMissingChildrenByType: isMissingChildrenByType, 
+        isMissingChildrenByType: isMissingChildrenByType,
         findChildReferencingThisNode: findChildReferencingThisNode,
+        findChildByType: findChildByType,
+        findChildByCodeName: findChildByCodeName,
         findOrCreateChildWithReference: findOrCreateChildWithReference,
         findAndRecreateChildWithReference: findAndRecreateChildWithReference,
         findChildIndexAtParentNode: findChildIndexAtParentNode,
@@ -73,7 +75,7 @@ function newFoundationsUtilitiesNodeChildren() {
             return true
         }
     }
-    
+
     function isMissingChildrenByName(startingNode, nodeName) {
         /*
         This functioin scan all the children of a node and returns true or false
@@ -211,6 +213,106 @@ function newFoundationsUtilitiesNodeChildren() {
         }
     }
 
+    function findChildByType(startingNode, nodeType) {
+        /*
+        This functioin scan all the children of a node and returns the child
+        that has a type  as specified via parameter.
+        */
+        if (startingNode === undefined) { return }
+        if (nodeType === undefined) { return }
+
+        let schemaDocument = getSchemaDocument(startingNode)
+        if (schemaDocument === undefined) { return }
+
+        /* We scan through this node children */
+        if (schemaDocument.childrenNodesProperties !== undefined) {
+            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                let property = schemaDocument.childrenNodesProperties[i]
+
+                switch (property.type) {
+                    case 'node': {
+                        let child = startingNode[property.name]
+                        if (child === undefined) { continue }
+                        if (child.payload !== undefined) {
+                            if (child.type === nodeType) {
+                                return child
+                            }
+                        }
+                    }
+                        break
+                    case 'array': {
+                        let startingNodePropertyArray = startingNode[property.name]
+                        if (startingNodePropertyArray !== undefined) {
+                            for (let m = 0; m < startingNodePropertyArray.length; m++) {
+                                let arrayItem = startingNodePropertyArray[m]
+
+                                if (arrayItem.payload !== undefined) {
+                                    if (arrayItem.type === nodeType) {
+                                        return arrayItem
+                                    }
+                                }
+                            }
+                        }
+                        break
+                    }
+                }
+            }
+        }
+    }
+
+    function findChildByCodeName(startingNode, checkCodeName) {
+        /*
+        This functioin scan all the children of a node and returns the child
+        that has a codeName as specified via parameter.
+        */
+        if (startingNode === undefined) { return }
+        if (checkCodeName === undefined) { return }
+
+        let schemaDocument = getSchemaDocument(startingNode)
+        if (schemaDocument === undefined) { return }
+
+        /* We scan through this node children */
+        if (schemaDocument.childrenNodesProperties !== undefined) {
+            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                let property = schemaDocument.childrenNodesProperties[i]
+
+                switch (property.type) {
+                    case 'node': {
+                        let child = startingNode[property.name]
+                        if (child === undefined) { continue }
+                        if (child.payload !== undefined) {
+                            let codeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(child.payload, 'codeName')
+                            if (codeName !== undefined) {
+                                if (codeName === checkCodeName) {
+                                    return child
+                                }
+                            }
+                        }
+                    }
+                        break
+                    case 'array': {
+                        let startingNodePropertyArray = startingNode[property.name]
+                        if (startingNodePropertyArray !== undefined) {
+                            for (let m = 0; m < startingNodePropertyArray.length; m++) {
+                                let arrayItem = startingNodePropertyArray[m]
+
+                                if (arrayItem.payload !== undefined) {
+                                    let codeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(arrayItem.payload, 'codeName')
+                                    if (codeName !== undefined) {
+                                        if (codeName === checkCodeName) {
+                                            return arrayItem
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        break
+                    }
+                }
+            }
+        }
+    }
+
     function findOrCreateChildWithReference(startingNode, childType, referencedNode) {
         /*
         This function find the child node of starting node that references
@@ -220,7 +322,7 @@ function newFoundationsUtilitiesNodeChildren() {
         let child
         if (isMissingChildrenById(startingNode, referencedNode, true) === true) {
             child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(startingNode, childType)
-            child.payload.referenceParent = referencedNode
+            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(child, referencedNode)
         } else {
             child = findChildReferencingThisNode(startingNode, referencedNode)
         }
@@ -239,7 +341,7 @@ function newFoundationsUtilitiesNodeChildren() {
             UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(child, rootNodes)
         }
         child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(startingNode, childType)
-        child.payload.referenceParent = referencedNode
+        UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(child, referencedNode)
         return child
     }
 

@@ -1,0 +1,66 @@
+{
+    "type": "Financial Programs",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "stakingProgram",
+            "label": "Add Staking Program",
+            "relatedUiObject": "Staking Program"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "delegationProgram",
+            "label": "Add Delegation Program",
+            "relatedUiObject": "Delegation Program"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Token Power Switch->"
+    },
+    "propertyNameAtParent": "financialPrograms",
+    "childrenNodesProperties": [
+        {
+            "name": "stakingProgram",
+            "type": "node",
+            "childType": "Staking Program",
+            "autoAdd": false
+        },
+        {
+            "name": "delegationProgram",
+            "type": "node",
+            "childType": "Delegation Program",
+            "autoAdd": false
+        }
+    ]
+}

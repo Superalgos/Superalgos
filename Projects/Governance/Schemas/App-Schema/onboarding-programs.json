@@ -1,0 +1,66 @@
+{
+    "type": "Onboarding Programs",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "airdropProgram",
+            "label": "Add Airdrop Program",
+            "relatedUiObject": "Airdrop Program"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "githubProgram",
+            "label": "Add Github Program",
+            "relatedUiObject": "Github Program"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Token Power Switch->"
+    },
+    "propertyNameAtParent": "onboardingPrograms",
+    "childrenNodesProperties": [
+        {
+            "name": "airdropProgram",
+            "type": "node",
+            "childType": "Airdrop Program",
+            "autoAdd": false
+        },
+        {
+            "name": "githubProgram",
+            "type": "node",
+            "childType": "Github Program",
+            "autoAdd": false
+        }
+    ]
+}

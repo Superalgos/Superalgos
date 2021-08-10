@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Visual Scripting on Steroids",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "indicator-bot"
         },
         "text": "Talking about block-building, we are now in the confines of the Masters Data Mine. To your left, the definition of one of the bots you sent mining minutes ago.",
@@ -17,8 +17,9 @@
             },
             {
                 "language": "ES",
-                "text": "Hablando de la construcción de bloques, ahora estamos en los confines del Masters Data Mine. A su izquierda, la definición de uno de los bots que has enviado hace minutos a la minería.",
-                "updated": 1624413405869
+                "text": "Hablando de la construcción de bloques, ahora estamos en los confines del Master Data Mine.  A tu izquierda, la definición de uno de los bots que has enviado hace minutos a la minería.",
+                "updated": 1627309457470,
+                "style": "Definition"
             }
         ]
     },
@@ -36,7 +37,8 @@
                 {
                     "language": "ES",
                     "text": "Casi como con las definiciones similares a Lego del Charting Space, los bots están también definidos en un entorno visual.",
-                    "updated": 1624413580741
+                    "updated": 1624413580741,
+                    "style": "Text"
                 }
             ]
         },
@@ -53,7 +55,8 @@
                 {
                     "language": "ES",
                     "text": "Todos lo que los desarrolladores necesitan codificar es el Data Building Procedure.",
-                    "updated": 1624413641085
+                    "updated": 1624413641085,
+                    "style": "Callout"
                 }
             ]
         },
@@ -70,7 +73,8 @@
                 {
                     "language": "ES",
                     "text": "Todo lo demás se define en un entorno visual: procesos con sus dependencias, salidas, etc., y productos, con sus definiciones de registros y conjuntos de datos, etc.",
-                    "updated": 1624413706861
+                    "updated": 1624413706861,
+                    "style": "Text"
                 }
             ]
         }

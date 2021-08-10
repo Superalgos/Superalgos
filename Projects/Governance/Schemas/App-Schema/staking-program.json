@@ -35,11 +35,11 @@
         "config": "{}"
     },
     "attachingRules": {
-        "compatibleTypes": "->Token Power Switch->"
+        "compatibleTypes": "->Financial Programs->"
     },
     "addLeftIcons": true,
     "level": 1,
-    "propertyNameAtParent": "stackingProgram",
+    "propertyNameAtParent": "stakingProgram",
     "childrenNodesProperties": [
         {
             "name": "tokensAwarded",

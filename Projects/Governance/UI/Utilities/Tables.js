@@ -141,11 +141,11 @@ function newGovernanceUtilitiesTables() {
                             break
                         }
                         case 'integer': {
-                            value = parseFloat(value.toFixed(0)).toLocaleString('en')
+                            value = parseFloat(value | 0).toLocaleString('en')
                             break
                         }
                         case '2 decimals': {
-                            value = parseFloat(value.toFixed(2)).toLocaleString('en')
+                            value = parseFloat(value | 2).toLocaleString('en')
                             break
                         }
                         case 'percentage': {

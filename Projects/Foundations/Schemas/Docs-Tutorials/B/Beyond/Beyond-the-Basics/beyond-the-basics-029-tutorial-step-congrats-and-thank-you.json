@@ -15,6 +15,11 @@
                 "text": "Fantastico! Stai già aiutando il progetto! Ti siamo grati per questo primo contributo e speriamo ce ne siano altri in futuro!",
                 "updated": 1619637816559,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Esto es asombroso! ¡Ya estás ayudando al proyecto! ¡Estamos agradecidos por tu primera contribución y esperamos que haya más por venir!",
+                "updated": 1628198352736
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "`Se tutto è andato bene nell'autenticazione, vedrai la pagin App Message - Contribution Done!",
                     "updated": 1619637854204,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si todo salió bien con tu autenticación, deberías ver el App Message - Contribution Done!",
+                    "updated": 1628198389832
                 }
             ]
         },
@@ -42,13 +52,25 @@
                     "text": "I manutentori del progetto esamineranno la Pull Request. Se è possibile integrarla senza conflitti, dovrebbe essere presto in live! Tieni d'occhio le notifiche su GitHub.com!",
                     "updated": 1619637945490,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Los encargados del proyecto revisarán tu Pull Request y actuar en consecuencia. Si es posible fusionarlo sin conflictos, ¡debería estar disponible pronto! ¡Atento a las notificaciones de GitHub.com!",
+                    "updated": 1628198467452
                 }
             ]
         },
         {
             "style": "Warning",
             "text": "If something went wrong with the Git Authentication, please follow the instructions on the error page to troublshoot the issue or ask for help in the Develop Group.",
-            "updated": 1622029575359
+            "updated": 1622029575359,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si algo salió mal con el Git Authentication, Sigue las instrucciones de la página de error para solucionar el problema o pide ayuda en el Develop Group.",
+                    "updated": 1628198531991
+                }
+            ]
         }
     ]
 }

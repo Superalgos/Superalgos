@@ -4,7 +4,14 @@
     "type": "Node Referencing Rules",
     "definition": {
         "text": "Each Node Type can have a set of rules that defines with which Node Type it can stablish a reference.",
-        "updated": 1609244259240
+        "updated": 1609244259240,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Cada Node Type puede tener un conjunto de reglas que defina con qué Node Type puede establecer una referencia.",
+                "updated": 1628036524256
+            }
+        ]
     },
     "paragraphs": [
         {

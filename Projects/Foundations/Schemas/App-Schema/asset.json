@@ -25,7 +25,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"codeName\": \"Type the code name of the asset\"\n}"
+        "config": "{ \n\"codeName\": \"Type_the_code_name_of_the_asset\"\n}"
     },
     "attachingRules": {
         "compatibleTypes": "->Exchange Assets->"
@@ -107,6 +107,34 @@
         {
             "codeName": "DOGE",
             "iconName": "dogecoin"
+        },
+        {
+            "codeName": "SOL",
+            "iconName": "solana"
+        },
+        {
+            "codeName": "DOT",
+            "iconName": "polkadot"
+         },
+        {
+            "codeName": "UNI",
+            "iconName": "uniswap"
+        },
+        {
+            "codeName": "BUSD",
+            "iconName": "binance-usd"
+        },
+        {
+            "codeName": "SXP",
+            "iconName": "swipe"
+        },
+        {
+            "codeName": "LINK",
+            "iconName": "chainlink"
+        },
+        {
+            "codeName": "EUR",
+            "iconName": "euro"
         }
     ]
 }

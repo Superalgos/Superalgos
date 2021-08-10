@@ -1,7 +1,14 @@
 {
     "type": "Shapes",
     "definition": {
-        "text": "The shapes node contains definitions of polygons and styles to be rendered on a per-period basis over the charts."
+        "text": "The shapes node contains definitions of polygons and styles to be rendered on a per-period basis over the charts.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El shapes node contiene definiciones de polígonos y estilos que se deben representar por período en los gráficos.",
+                "updated": 1628036833969
+            }
+        ]
     },
     "paragraphs": [
         {

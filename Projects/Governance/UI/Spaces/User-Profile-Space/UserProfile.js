@@ -2,6 +2,9 @@ function newGovernanceUserProfileSpace() {
     const MODULE_NAME = 'User Profile Space'
 
     let thisObject = {
+        githubStars: undefined,
+        githubWatchers: undefined,
+        githubForks: undefined,
         container: undefined,
         physics: physics,
         draw: draw,
@@ -17,13 +20,190 @@ function newGovernanceUserProfileSpace() {
     let waitingForResponses = 0
     let timer = 0
 
+    thisObject.githubStars = new Map()
+    thisObject.githubWatchers = new Map()
+    thisObject.githubForks = new Map()
+
     return thisObject
 
     function initialize() {
+        /*
+        Here we will get a list of all github usernames who have a star or fork and are watching the
+        Superalgos Repository. This will later be used to know which user profiles are participating
+        at the Github Program. 
+        */
 
+        /*
+        If the workspace is not related to governance, then we exit the Intialize Function
+        */
+        let resultsArary = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+        if (resultsArary.length === 0) { return }
+
+        /* Find the Username and Password */
+
+        let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
+        if (apisNode === undefined) {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            return
+        }
+        if (apisNode.githubAPI === undefined) {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            return
+        }
+
+        let config = JSON.parse(apisNode.githubAPI.config)
+        if (config.username === undefined || config.username === "") {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            return
+        }
+        if (config.token === undefined || config.token === "") {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            return
+        }
+
+        requestStars()
+
+        function requestStars() {
+
+            let params = {
+                method: 'getGithubStars',
+                repository: 'Superalgos',
+                username: config.username,
+                token: config.token
+            }
+
+            let url = 'GOV' // We will access the default Client GOV endpoint.
+
+            httpRequest(JSON.stringify(params), url, onResponse)
+
+            function onResponse(err, data) {
+
+                /* Lets check the result of the call through the http interface */
+                if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    console.log('[ERROR] Call via HTTP Interface failed. err.stack = ' + err.stack)
+                    console.log('[ERROR] params = ' + JSON.stringify(params))
+                    return
+                }
+
+                let response = JSON.parse(data)
+
+                /* Lets check the result of the method call */
+                if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    console.log('[ERROR] Call to Client Github Server failed. err.stack = ' + err.stack)
+                    console.log('[ERROR] params = ' + JSON.stringify(params))
+                    console.log('[ERROR] response = ' + JSON.stringify(response))
+                    return
+                }
+
+                /* Successful Call */
+
+                let githubStarsArray = response.githubListArray
+
+                for (let i = 0; i < githubStarsArray.length; i++) {
+                    let githubUsername = githubStarsArray[i]
+                    thisObject.githubStars.set(githubUsername, 1)
+                }
+
+                requestWatchers()
+            }
+        }
+
+        function requestWatchers() {
+
+            let params = {
+                method: 'getGithubWatchers',
+                repository: 'Superalgos',
+                username: config.username,
+                token: config.token
+            }
+
+            let url = 'GOV' // We will access the default Client GOV endpoint.
+
+            httpRequest(JSON.stringify(params), url, onResponse)
+
+            function onResponse(err, data) {
+
+                /* Lets check the result of the call through the http interface */
+                if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    console.log('[ERROR] Call via HTTP Interface failed. err.stack = ' + err.stack)
+                    console.log('[ERROR] params = ' + JSON.stringify(params))
+                    return
+                }
+
+                let response = JSON.parse(data)
+
+                /* Lets check the result of the method call */
+                if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    console.log('[ERROR] Call to Client Github Server failed. err.stack = ' + err.stack)
+                    console.log('[ERROR] params = ' + JSON.stringify(params))
+                    console.log('[ERROR] response = ' + JSON.stringify(response))
+                    return
+                }
+
+                /* Successful Call */
+
+                let githubWatchersArray = response.githubListArray
+
+                for (let i = 0; i < githubWatchersArray.length; i++) {
+                    let githubUsername = githubWatchersArray[i]
+                    thisObject.githubWatchers.set(githubUsername, 1)
+                }
+
+                requestForks()
+            }
+        }
+
+        function requestForks() {
+
+            let params = {
+                method: 'getGithubForks',
+                repository: 'Superalgos',
+                username: config.username,
+                token: config.token
+            }
+
+            let url = 'GOV' // We will access the default Client GOV endpoint.
+
+            httpRequest(JSON.stringify(params), url, onResponse)
+
+            function onResponse(err, data) {
+
+                /* Lets check the result of the call through the http interface */
+                if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    console.log('[ERROR] Call via HTTP Interface failed. err.stack = ' + err.stack)
+                    console.log('[ERROR] params = ' + JSON.stringify(params))
+                    return
+                }
+
+                let response = JSON.parse(data)
+
+                /* Lets check the result of the method call */
+                if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    console.log('[ERROR] Call to Client Github Server failed. err.stack = ' + err.stack)
+                    console.log('[ERROR] params = ' + JSON.stringify(params))
+                    console.log('[ERROR] response = ' + JSON.stringify(response))
+                    return
+                }
+
+                /* Successful Call */
+
+                let githubForksArray = response.githubListArray
+
+                for (let i = 0; i < githubForksArray.length; i++) {
+                    let githubUsername = githubForksArray[i]
+                    thisObject.githubForks.set(githubUsername, 1)
+                }
+            }
+        }
     }
 
     function finalize() {
+        thisObject.githubStars = undefined
+
         thisObject.container.finalize()
         thisObject.container = undefined
     }
@@ -42,6 +222,13 @@ function newGovernanceUserProfileSpace() {
 
     function physics() {
         if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
+        /*
+        Here we will run the distribution process, that in turn will run all the programs.
+        */
+        UI.projects.governance.functionLibraries.distributionProcess.calculate()
+        /*
+        Load the user profiles with Token Power.
+        */
         let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
         if (waitingForResponses !== 0) { return }
         /*
@@ -56,6 +243,7 @@ function newGovernanceUserProfileSpace() {
                 getBlockchainAccount(userProfile)
             }
         }
+
 
         function getBlockchainAccount(userProfile) {
             let signature = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'signature')
@@ -88,6 +276,7 @@ function newGovernanceUserProfileSpace() {
                 }
 
                 let blockchainAccount = response.address
+                userProfile.payload.blockchainAccount = blockchainAccount
                 if (
                     blockchainAccount !== undefined &&
                     blockchainAccount !== "" &&

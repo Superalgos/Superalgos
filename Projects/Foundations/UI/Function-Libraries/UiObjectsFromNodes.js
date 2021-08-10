@@ -295,6 +295,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                 console.log('ACA')
             }
             if (node.payload === undefined) { continue }
+
             if (node.payload.referenceParent !== undefined) {
                 if (node.payload.referenceParent.cleaned === true) {
                     node.payload.referenceParent = mapOfNodes.get(node.payload.referenceParent.id)
@@ -306,13 +307,93 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                     continue  // In this case the reference is already good.
                 }
             }
+
             if (node.savedPayload !== undefined) {
                 if (node.savedPayload.referenceParent !== undefined) { // these are children recreated
+                    // Reestablish based on Id
                     node.payload.referenceParent = mapOfNodes.get(node.savedPayload.referenceParent.id)
-                    if (node.payload.referenceParent === undefined) {
-                        //console.log('[WARN]' + node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
+                    
+                    // if Reestablishment failed now reestablish reference based on saved path
+                    if (node.payload.referenceParent === undefined) { 
+                        // Gather saved path
+                        let rawPath = node.savedPayload.referenceParentCombinedNodePath
+                        if (rawPath !== undefined) {
+                            // Step down node hierarchy to find missing referenceParent
+                             let pathNode 
+                             let pathName
+                             let pathType
+                             for (let i = 0; i < rawPath.length; i++) {
+                               
+                                // Get Hierarchy head node
+                                if (i === 0) {
+                                    pathName = rawPath[i][0]
+                                    pathType = rawPath[i][1]
+                                    pathNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByCodeNameAndNodeType( pathName, pathType )
+
+                                    // If reference parent is workspace node grab node
+                                    if (pathType === "Workspace") {
+                                        pathNode = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+                                    }  
+                                    // If Hierarchy Head is not located within the workspace abort reconnection
+                                    if (pathNode === undefined) {
+                                        console.log("[WARN] Abort reconnection saved path head node not found in current workspace", node)
+                                        return
+                                    } 
+                                    continue
+                                } else { // Walk through children nodes and find the next node from saved path
+                                    pathName = rawPath[i][0]
+                                    pathType = rawPath[i][1]
+                                    pathNode = getNextNodeFromPath(pathNode, pathName, pathType)
+                                    
+                                }
+                            }
+                            if (pathNode !== undefined ) {
+                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(node, pathNode)
+                            } else {
+                                //console.log("[WARN] ", node.name, ' ', node.type, "failed to fix reference.  Unable to find reference parent ", pathName, ' ', pathType  )
+                            }
+
+                            function getNextNodeFromPath(node, pathName, pathType) {
+                                console.log("pathNode", node)
+                                let schemaDocument = getSchemaDocument(node) 
+                                let nextNode = undefined
+                                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+
+                                    let property = schemaDocument.childrenNodesProperties[i]
+                                    switch (property.type) {
+                                        // If child node is directly withing parent node look for it
+                                        case 'node': {
+                                            if (node[property.name] !== undefined) {
+                                                if (node[property.name].name === pathName && node[property.name].type === pathType) {
+                                                    nextNode = node[property.name]
+                                                    console.log("we have a match!", nextNode)
+                                                    return nextNode
+                                                }    
+                                            }
+                                            break
+                                        }
+                                        // If child node is in an array look for it 
+                                        case 'array': {
+                                            if (node[property.name] !== undefined) {
+                                                let nodePropertyArray = node[property.name]
+                                                for (let m = 0; m < nodePropertyArray.length; m++) {
+                                                    if (nodePropertyArray[m].name === pathName && nodePropertyArray[m].type === pathType) {
+                                                    
+                                                        nextNode = nodePropertyArray[m]
+                                                        return nextNode
+                                                    }
+                                                }
+                                            }
+                                            break
+                                        }
+                                    }
+                                
+                                }
+                            }
+                        }
                     }
-                }
+                    
+                } 
             }
         }
     }

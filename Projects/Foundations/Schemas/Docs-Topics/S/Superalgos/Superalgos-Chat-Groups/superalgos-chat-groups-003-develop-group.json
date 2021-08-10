@@ -4,7 +4,14 @@
     "type": "Develop Group",
     "definition": {
         "text": "This is where developers meet to discuss building indicators, strategies, or improving the system.",
-        "updated": 1618833860687
+        "updated": 1618833860687,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Aquí es donde los desarrolladores se reúnen para discutir los indicadores de construcción, las estrategias o la mejora del sistema.",
+                "updated": 1628205506466
+            }
+        ]
     },
     "paragraphs": [
         {

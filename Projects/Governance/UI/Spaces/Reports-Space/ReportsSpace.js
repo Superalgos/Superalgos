@@ -11,11 +11,20 @@ function newGobernanceReportsSpace() {
         referrals: undefined,
         supports: undefined,
         mentors: undefined,
+        influencers: undefined,
+        claims: undefined,
+        votes: undefined,
+        staking: undefined,
+        delegations: undefined,
+        github: undefined,
+        airdrop: undefined,
         pools: undefined,
         assets: undefined,
         features: undefined,
         positions: undefined,
+        mining: undefined,
         tablesSortingOrders: undefined,
+        commandInterface: undefined,
         changeTableSortingOrder,
         physics: physics,
         draw: draw,
@@ -68,6 +77,27 @@ function newGobernanceReportsSpace() {
         thisObject.mentors.finalize()
         thisObject.mentors = undefined
 
+        thisObject.influencers.finalize()
+        thisObject.influencers = undefined
+
+        thisObject.claims.finalize()
+        thisObject.claims = undefined
+
+        thisObject.votes.finalize()
+        thisObject.votes = undefined
+
+        thisObject.staking.finalize()
+        thisObject.staking = undefined
+
+        thisObject.delegation.finalize()
+        thisObject.delegation = undefined
+
+        thisObject.github.finalize()
+        thisObject.github = undefined
+
+        thisObject.airdrop.finalize()
+        thisObject.airdrop = undefined
+
         thisObject.pools.finalize()
         thisObject.pools = undefined
 
@@ -80,10 +110,19 @@ function newGobernanceReportsSpace() {
         thisObject.positions.finalize()
         thisObject.positions = undefined
 
+        thisObject.mining.finalize()
+        thisObject.mining = undefined
+
+        thisObject.commandInterface.finalize()
+        thisObject.commandInterface = undefined
+
         isInitialized = false
     }
 
     function initialize() {
+        /*
+        If the workspace is not related to governance, then we exit the Intialize Function
+        */
         let resultsArary = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
         if (resultsArary.length === 0) { return }
 
@@ -94,31 +133,50 @@ function newGobernanceReportsSpace() {
         thisObject.container.isDraggeable = false
         thisObject.container.detectMouseOver = true
         thisObject.container.status = 'hidden'
-    
+
         resize()
 
+        thisObject.commandInterface = newGovernanceReportsCommmandInterface()
         thisObject.reportsPage = newGovernanceReportsReportsPage()
         thisObject.footer = newGovernanceReportsFooter()
         thisObject.filtersHeader = newGovernanceReportsFiltersHeader()
         thisObject.userProfiles = newGovernanceReportsUserProfiles()
         thisObject.referrals = newGovernanceReportsReferrals()
         thisObject.supports = newGovernanceReportsSupports()
+        thisObject.influencers = newGovernanceReportsInfluencers()
         thisObject.mentors = newGovernanceReportsMentors()
+        thisObject.claims = newGovernanceReportsClaims()
+        thisObject.votes = newGovernanceReportsVotes()
+        thisObject.staking = newGovernanceReportsStaking()
+        thisObject.delegation = newGovernanceReportsDelegation()
+        thisObject.github = newGovernanceReportsGithub()
+        thisObject.airdrop = newGovernanceReportsAirdrop()
         thisObject.pools = newGovernanceReportsPools()
         thisObject.assets = newGovernanceReportsAssets()
         thisObject.features = newGovernanceReportsFeatures()
         thisObject.positions = newGovernanceReportsPositions()
+        thisObject.mining = newGovernanceReportsMining()
 
+        thisObject.commandInterface.initialize()
         thisObject.reportsPage.initialize()
         thisObject.footer.initialize()
         thisObject.filtersHeader.initialize()
         thisObject.userProfiles.initialize()
         thisObject.referrals.initialize()
+        thisObject.supports.initialize()
         thisObject.mentors.initialize()
+        thisObject.influencers.initialize()
+        thisObject.claims.initialize()
+        thisObject.votes.initialize()
+        thisObject.staking.initialize()
+        thisObject.delegation.initialize()
+        thisObject.github.initialize()
+        thisObject.airdrop.initialize()
         thisObject.pools.initialize()
         thisObject.assets.initialize()
         thisObject.features.initialize()
         thisObject.positions.initialize()
+        thisObject.mining.initialize()
 
         setupSidePanelTab()
 

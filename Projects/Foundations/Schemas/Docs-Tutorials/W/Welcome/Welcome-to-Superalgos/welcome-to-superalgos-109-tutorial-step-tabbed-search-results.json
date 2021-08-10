@@ -6,8 +6,8 @@
         "text": "Results are organized in several categories, and each category is represented by a tab grouping results matching the category...",
         "updated": 1610652285058,
         "icon": {
-            "name": "dataset",
-           "project": "Foundations"
+            "name": "Data\\dataset",
+            "project": "Foundations"
         },
         "translations": [
             {
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Los resultados están organizados en varias categorías, y cada una está representada por una pestaña que agrupa los resultados que coinciden con la categoría...",
-                "updated": 1624486888979
+                "updated": 1624486888979,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "Explicaré cada uno brevemente y te dejaré observar:",
-                    "updated": 1624486914405
+                    "updated": 1624486914405,
+                    "style": "Text"
                 }
             ]
         },
@@ -55,7 +57,8 @@
                 {
                     "language": "ES",
                     "text": "All: presenta resultados de todas las categorías.",
-                    "updated": 1624486755415
+                    "updated": 1624486755415,
+                    "style": "List"
                 }
             ]
         },
@@ -73,7 +76,8 @@
                 {
                     "language": "ES",
                     "text": "Nodes: Node Type coincidencias en la frase.",
-                    "updated": 1624486865186
+                    "updated": 1624486865186,
+                    "style": "List"
                 }
             ]
         },
@@ -91,7 +95,8 @@
                 {
                     "language": "ES",
                     "text": "Concepts: incluye nociones como References.",
-                    "updated": 1624486815927
+                    "updated": 1624486815927,
+                    "style": "List"
                 }
             ]
         },
@@ -109,7 +114,8 @@
                 {
                     "language": "ES",
                     "text": "Topics: temas cubiertos en páginas secuenciadas.",
-                    "updated": 1624487132871
+                    "updated": 1624487132871,
+                    "style": "List"
                 }
             ]
         },
@@ -127,7 +133,8 @@
                 {
                     "language": "ES",
                     "text": "Tutorials: Son las páginas que los componen.",
-                    "updated": 1624487067166
+                    "updated": 1624487067166,
+                    "style": "List"
                 }
             ]
         },
@@ -145,7 +152,8 @@
                 {
                     "language": "ES",
                     "text": "Reviews: reseñas de usuarios sobre plugins etc.",
-                    "updated": 1624487122000
+                    "updated": 1624487122000,
+                    "style": "List"
                 }
             ]
         },
@@ -163,7 +171,8 @@
                 {
                     "language": "ES",
                     "text": "Books: colecciones de temas organizados en capítulos, para una lectura ordenada.",
-                    "updated": 1624487191610
+                    "updated": 1624487191610,
+                    "style": "List"
                 }
             ]
         },
@@ -181,7 +190,8 @@
                 {
                     "language": "ES",
                     "text": "Workspace: devuelve los nodos que están presentes en el espacio de trabajo activo... ¡haz clic para ir ahi!",
-                    "updated": 1624487240382
+                    "updated": 1624487240382,
+                    "style": "List"
                 }
             ]
         },

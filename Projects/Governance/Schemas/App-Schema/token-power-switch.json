@@ -20,63 +20,36 @@
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "referralProgram",
-            "label": "Add Referral Program",
-            "relatedUiObject": "Referral Program"
+            "propertyToCheckFor": "onboardingPrograms",
+            "label": "Add Onboarding Programs",
+            "relatedUiObject": "Onboarding Programs"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "supportProgram",
-            "label": "Add Support Program",
-            "relatedUiObject": "Support Program"
+            "propertyToCheckFor": "communityBuildingPrograms",
+            "label": "Add Community Building Programs",
+            "relatedUiObject": "Community Building Programs"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "mentorshipProgram",
-            "label": "Add Mentorship Program",
-            "relatedUiObject": "Mentorship Program"
+            "propertyToCheckFor": "votesAndClaimsPrograms",
+            "label": "Add Votes And Claims Programs",
+            "relatedUiObject": "Votes And Claims Programs"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "claimsProgram",
-            "label": "Add Claims Program",
-            "relatedUiObject": "Claims Program"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Foundations",
-            "actionFunction": "payload.executeAction",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "votingProgram",
-            "label": "Add Voting Program",
-            "relatedUiObject": "Voting Program"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Foundations",
-            "actionFunction": "payload.executeAction",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "stackingProgram",
-            "label": "Add Staking Program",
-            "relatedUiObject": "Staking Program"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Foundations",
-            "actionFunction": "payload.executeAction",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "delegationProgram",
-            "label": "Add Delegation Program",
-            "relatedUiObject": "Delegation Program"
+            "propertyToCheckFor": "financialPrograms",
+            "label": "Add Financial Programs",
+            "relatedUiObject": "Financial Programs"
         },
         {
             "action": "Delete UI Object",
@@ -98,7 +71,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->User Profile->"
+        "compatibleTypes": "->User Profile->Token Power Switch->"
     },
     "propertyNameAtParent": "tokenPowerSwitch",
     "childrenNodesProperties": [
@@ -109,45 +82,27 @@
             "autoAdd": false
         },
         {
-            "name": "referralProgram",
+            "name": "onboardingPrograms",
             "type": "node",
-            "childType": "Referral Program",
+            "childType": "Onboarding Programs",
             "autoAdd": false
         },
         {
-            "name": "supportProgram",
+            "name": "communityBuildingPrograms",
             "type": "node",
-            "childType": "Support Program",
+            "childType": "Community Building Programs",
             "autoAdd": false
         },
         {
-            "name": "mentorshipProgram",
+            "name": "votesAndClaimsPrograms",
             "type": "node",
-            "childType": "Mentorship Program",
+            "childType": "Votes And Claims Programs",
             "autoAdd": false
         },
         {
-            "name": "claimsProgram",
+            "name": "financialPrograms",
             "type": "node",
-            "childType": "Claims Program",
-            "autoAdd": false
-        },
-        {
-            "name": "votingProgram",
-            "type": "node",
-            "childType": "Voting Program",
-            "autoAdd": false
-        },
-        {
-            "name": "stackingProgram",
-            "type": "node",
-            "childType": "Staking Program",
-            "autoAdd": false
-        },
-        {
-            "name": "delegationProgram",
-            "type": "node",
-            "childType": "Delegation Program",
+            "childType": "Financial Programs",
             "autoAdd": false
         }
     ]

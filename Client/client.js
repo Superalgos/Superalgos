@@ -16,6 +16,12 @@ process.on('uncaughtException', function (err) {
 })
 
 process.on('unhandledRejection', (reason, p) => {
+    // Signal user that a necissary node module is missing
+    if (reason.code == 'MODULE_NOT_FOUND') {
+        console.log("[ERROR] Node Modules not found. Running the node setup command and then restart")
+        console.log('[ERROR] Client -> client-> reason = ' + JSON.stringify(reason))
+        process.exit(1)
+    }
     console.log('[ERROR] Client -> client-> unhandledRejection -> reason = ' + JSON.stringify(reason))
     console.log('[ERROR] Client -> client-> unhandledRejection -> p = ' + JSON.stringify(p))
     process.exit(1)
@@ -58,12 +64,27 @@ let EVENT_SERVER = require('./eventServer.js')
 let TASK_MANAGER_SERVER = require('./taskManagerServer.js')
 let CCXT_SERVER = require('./ccxtServer.js')
 let WEB3_SERVER = require('./web3Server.js')
+let GITHUB_SERVER = require('./githubServer.js')
 
 /* Network Interfaces */
 let WEB_SOCKETS_INTERFACE = require('./webSocketsServer.js')
 let HTTP_INTERFACE = require('./httpInterface.js')
 
 try {
+    /* 
+    Setting up the modules that will be available for the Servers Running inside this Client 
+    */
+    let MULTI_PROJECT = require('./MultiProject.js');
+    let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
+    MULTI_PROJECT_MODULE.initialize()
+    /*
+    Setting up external dependencies.
+    */
+    CL.nodeModules = {
+        fs:  require('fs'),
+        nodeFetch: require('node-fetch')
+    }
+
     console.log('CLIENT SERVERS:')
     console.log('')
 
@@ -81,7 +102,7 @@ try {
     PROJECT_FILE_SERVER.initialize()
     PROJECT_FILE_SERVER.run()
     console.log('Project File Server ......................................... Started')
-    
+
     PLUGIN_SERVER = PLUGIN_SERVER.newPluginServer()
     PLUGIN_SERVER.initialize()
     PLUGIN_SERVER.run()
@@ -106,11 +127,16 @@ try {
     CCXT_SERVER.initialize()
     CCXT_SERVER.run()
     console.log('CCXT Server ................................................. Started')
-    
+
     WEB3_SERVER = WEB3_SERVER.newWeb3Server()
     WEB3_SERVER.initialize()
     WEB3_SERVER.run()
     console.log('WEB3 Server ................................................. Started')
+
+    GITHUB_SERVER = GITHUB_SERVER.newGithubServer()
+    GITHUB_SERVER.initialize()
+    GITHUB_SERVER.run()
+    console.log('Github Server ............................................... Started')
 
     console.log('')
     console.log('CLIENT INTERFACES:')
@@ -121,24 +147,33 @@ try {
     WEB_SOCKETS_INTERFACE.run()
     console.log('Web Sockets Interface ....................................... Listening at port ' + global.env.WEB_SOCKETS_INTERFACE_PORT)
 
-    HTTP_INTERFACE = HTTP_INTERFACE.newHttpInterface(WEB_SERVER, DATA_FILE_SERVER, PROJECT_FILE_SERVER, UI_FILE_SERVER, PLUGIN_SERVER, CCXT_SERVER, WEB3_SERVER)
+    HTTP_INTERFACE = HTTP_INTERFACE.newHttpInterface(
+        WEB_SERVER,
+        DATA_FILE_SERVER,
+        PROJECT_FILE_SERVER,
+        UI_FILE_SERVER,
+        PLUGIN_SERVER,
+        CCXT_SERVER,
+        WEB3_SERVER,
+        GITHUB_SERVER
+    )
     HTTP_INTERFACE.initialize()
     HTTP_INTERFACE.run()
     console.log('Http Interface .............................................. Listening at port ' + global.env.HTTP_INTERFACE_PORT)
 
     console.log('')
-    console.log("You are running Superalgos Beta 10")
+    console.log("You are running Superalgos Beta 11")
     console.log('')
     console.log("What's new? These are the main new features in this version:")
     console.log('')
-    console.log('API Maps and Data Fetcher Bots  ............................. Allows to map any API and fetch data into the Superalgos workflow.')
-    console.log('Market Data Structure ....................................... Allows trading systems to use data from markets different from the one the session is running on.')
-    console.log('Exchange Data Structure ..................................... Allows trading systems to use data from exchanges and markets different from the one the session is running on.')    
+    console.log('Governance System ........................................... Automates the distribution of SA Tokens and allow users to vote on the direction of the project.')
+    console.log('TensorFlow Integration ...................................... Allows creating and training ML models and use them in trading strategies.')
     console.log('')
     console.log("What's next? This is the current development pipeline:")
     console.log('')
-    console.log('Contribution Management ..................................... Will allow the management of contributions at scale and more efficient and transparent distribution of the SA token.')
-    console.log('Tensor Flow Integration ..................................... Still at the experimental phase, will allow the creation and training of ML models to use for optimization and predictions.')
+    console.log('Superalgos P2P Network ...................................... Will allow algo-traders to share trading signals with Superalgos users consuming these signals via a mobile app.')
+    console.log('Real-time Trading Signals ................................... Will allow users to emit trading signals and be rewarded with SA Tokens.')
+    console.log('Superalgos Mobile ........................................... Will allow users to consume trading signals for free and autonomously execute trades from their mobile phones.')
     console.log('Ethereum Integration ........................................ Will allow mining data from an Ethereum network node, and bring it into the Superalgos workflow.')
 
     console.log('')

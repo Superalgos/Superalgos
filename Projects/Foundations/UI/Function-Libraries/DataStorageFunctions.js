@@ -76,7 +76,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
 
             if (rootNode.type === 'Data Mine') {
                 let dataMineProducts = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Data Mine Products')
-                dataMineProducts.payload.referenceParent = rootNode
+                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(dataMineProducts, rootNode)
             }
         }
     }
@@ -87,7 +87,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
 
             if (rootNode.type === 'Trading Mine') {
                 let tradingMineProducts = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Trading Mine Products')
-                tradingMineProducts.payload.referenceParent = rootNode
+                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(tradingMineProducts, rootNode)
             }
         }
     }
@@ -98,7 +98,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
 
             if (rootNode.type === 'Learning Mine') {
                 let learningMineProducts = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Learning Mine Products')
-                learningMineProducts.payload.referenceParent = rootNode
+                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(learningMineProducts, rootNode)
             }
         }
     }
@@ -155,7 +155,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
 
     function createSessionReference(node, session, nodeType) {
         let sessionReference = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, nodeType)
-        sessionReference.payload.referenceParent = session
+        UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(sessionReference, session)
     }
 
     function addMissingMarketDataProducts(node, rootNodes) {
@@ -179,7 +179,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
             let market = marketsArray[i]
             if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, market, true) === true) {
                 let marketDataProducts = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
-                marketDataProducts.payload.referenceParent = market
+                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(marketDataProducts, market)
             }
         }
     }
@@ -207,7 +207,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
                         let cryptoExchange = cryptoExchanges.exchanges[k]
                         if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, cryptoExchange, true) === true) {
                             let exchange = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
-                            exchange.payload.referenceParent = cryptoExchange
+                            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(exchange, cryptoExchange)
                         }
                     }
                 }
@@ -240,7 +240,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
                     if (projectDefinition !== undefined) {
                         if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, projectDefinition, true) === true) {
                             let projectTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType, undefined, project)
-                            projectTasks.payload.referenceParent = projectDefinition
+                            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
                         }
                     }
                 }

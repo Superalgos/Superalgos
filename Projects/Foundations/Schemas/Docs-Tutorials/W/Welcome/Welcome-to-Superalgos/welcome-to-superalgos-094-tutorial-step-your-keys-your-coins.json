@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Your Keys, Your Coins!",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "exchange-account-key"
+            "name": "Exchange\\exchange-account-key",
+            "project": "Foundations"
         },
         "text": "This is where you configure your Exchange Account Key for the Live Trading Session of the Lightning Strike Trading System.",
         "updated": 1610817577376,
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Aquí es donde configuras tu Exchange Account Key para el Live Trading Session del Lightning Strike Trading System.",
-                "updated": 1624473031635
+                "updated": 1624473031635,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "En la configuración ingresa cuidadosamente la clave pública API y la clave secreta API.",
-                    "updated": 1624479173958
+                    "updated": 1624479173958,
+                    "style": "Callout"
                 }
             ]
         },
@@ -54,8 +56,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Primero elimina el texto predeterminado para cada parámetro, de modo que ningún carácter extraño se mezcle con las claves.",
-                    "updated": 1624474054393
+                    "text": "Elimina el texto predeterminado para cada parámetro, para que ningún carácter se mezcle con las claves.",
+                    "updated": 1625928654592,
+                    "style": "Text"
                 }
             ]
         },
@@ -73,7 +76,8 @@
                 {
                     "language": "ES",
                     "text": "La Exchange Account Key se almacena en el User Workspace, sin cifrar para autenticarse con el exchange. Nunca se envía ni se almacena en otro lugar. No compartas este espacio de trabajo hasta que aprendas cómo hacerlo de forma segura en el siguiente tutorial.",
-                    "updated": 1624479154981
+                    "updated": 1624479154981,
+                    "style": "Warning"
                 }
             ]
         }

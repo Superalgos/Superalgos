@@ -1,7 +1,14 @@
 {
     "type": "Chart Points",
     "definition": {
-        "text": "A chart points groups definitions of coordinate points used to define polygons."
+        "text": "A chart points groups definitions of coordinate points used to define polygons.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un chart points agrupa definiciones de puntos de coordenadas que se utilizan para definir polígonos.",
+                "updated": 1628036795702
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -3,18 +3,19 @@
     "pageNumber": 4,
     "type": "Automating Actions - Adding your Function",
     "definition": {
-        "text": "Take a look at how other functions are implemented in the Function Library and try to follow that way.",
-        "updated": 1614941850917
+        "text": "Take a look at how other functions are implemented in the Function Library and try to follow the same format.",
+        "updated": 1628257476029
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The basic procedure is quite straight forward. First add the function name to the thisObject and the write you function at the most appropiate place at the Function Library. ",
-            "updated": 1614941084806
+            "text": "The basic procedure is quite straight forward. First add the function name to the thisObject and then write your function at the most appropiate place at the Function Library.",
+            "updated": 1628257461177
         },
         {
             "style": "Important",
-            "text": "Please document your function the best you can, even if you see the other functions implemented at the same library poorly documented. See if you can make your function the best documented in the whole library."
+            "text": "Please document your function the best you can, even if you see other functions implemented at the same library poorly documented. See if you can make your function the best documented in the whole library.",
+            "updated": 1628257493687
         },
         {
             "style": "Title",

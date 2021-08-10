@@ -46,10 +46,13 @@ function newGovernanceFunctionLibraryTokenPower() {
             node.type === 'Referral Program' ||
             node.type === 'Mentorship Program' ||
             node.type === 'Support Program' ||
+            node.type === 'Influencer Program' ||
             node.type === 'Voting Program' ||
             node.type === 'Claims Program' ||
             node.type === 'Staking Program' ||
-            node.type === 'Delegation Program'
+            node.type === 'Delegation Program' ||
+            node.type === 'Github Program' ||
+            node.type === 'Airdrop Program'
         ) { return }
         /*
         We will reset token power of children.
@@ -146,10 +149,13 @@ function newGovernanceFunctionLibraryTokenPower() {
             node.type === 'Referral Program' ||
             node.type === 'Mentorship Program' ||
             node.type === 'Support Program' ||
+            node.type === 'Influencer Program' ||
             node.type === 'Voting Program' ||
             node.type === 'Claims Program' ||
             node.type === 'Staking Program' ||
-            node.type === 'Delegation Program'
+            node.type === 'Delegation Program' ||
+            node.type === 'Github Program' ||
+            node.type === 'Airdrop Program'
         ) { return }
         /*
         We will redistribute token power among children.
@@ -174,6 +180,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                         let childNode = node[property.name]
                         if (childNode === undefined) { continue }
                         if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
+                        if (childNode.type === "Tokens Mined") { continue }
 
                         let percentage = getPercentage(childNode)
 
@@ -191,6 +198,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                                 let childNode = propertyArray[m]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
+                                if (childNode.type === "Tokens Mined") { continue }
 
                                 let percentage = getPercentage(childNode)
                                 if (percentage !== undefined && isNaN(percentage) !== true) {
@@ -223,6 +231,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                         let childNode = node[property.name]
                         if (childNode === undefined) { continue }
                         if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
+                        if (childNode.type === "Tokens Mined") { continue }
 
                         let percentage = getPercentage(childNode)
                         if (percentage === undefined || isNaN(percentage) === true) {
@@ -243,6 +252,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                                 let childNode = propertyArray[m]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
+                                if (childNode.type === "Tokens Mined") { continue }
 
                                 let percentage = getPercentage(childNode)
                                 if (percentage === undefined || isNaN(percentage) === true) {
@@ -272,8 +282,8 @@ function newGovernanceFunctionLibraryTokenPower() {
             if (node.type === 'User Profile') {
 
                 let incomingPower = node.payload.tokenPower - node.payload.blockchainTokens
-                const ownPowerText = parseFloat(node.payload.blockchainTokens.toFixed(2)).toLocaleString('en') + ' ' + 'Blockchain Power'
-                const incomingPowerText = parseFloat(incomingPower.toFixed(2)).toLocaleString('en') + ' ' + 'Incoming Delegated Power'
+                const ownPowerText = parseFloat(node.payload.blockchainTokens.toFixed(0)).toLocaleString('en') + ' ' + 'Blockchain Power'
+                const incomingPowerText = parseFloat(incomingPower.toFixed(0)).toLocaleString('en') + ' ' + 'Incoming Delegated Power'
 
                 node.payload.uiObject.valueAngleOffset = 0
                 node.payload.uiObject.valueAtAngle = false
@@ -282,7 +292,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                 return
             }
 
-            const tokenPowerText = parseFloat(tokenPower.toFixed(2)).toLocaleString('en') + ' ' + 'Token Power'
+            const tokenPowerText = parseFloat(tokenPower.toFixed(0)).toLocaleString('en') + ' ' + 'Token Power'
 
             node.payload.uiObject.valueAngleOffset = 180
             node.payload.uiObject.valueAtAngle = true

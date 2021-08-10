@@ -2,7 +2,14 @@
     "type": "Community Data Mines",
     "definition": {
         "text": "The Community Data Mines book is a compendium of data mines—and their indicators—contributed by the Community.",
-        "updated": 1622378343288
+        "updated": 1622378343288,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El Community Data Mines book es un compendio de minas de datos y sus indicadores aportados por la Comunidad.",
+                "updated": 1628046154075
+            }
+        ]
     },
     "paragraphs": [
         {

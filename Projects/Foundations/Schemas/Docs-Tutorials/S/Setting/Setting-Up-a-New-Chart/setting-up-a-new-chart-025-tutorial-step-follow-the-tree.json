@@ -5,7 +5,7 @@
     "definition": {
         "text": "Follow the Data Mines Data hierarchy and find the Data Mine Products.",
         "icon": {
-            "name": "data-mines-data",
+            "name": "Data/data-mines-data",
             "project": "Foundations"
         },
         "updated": 1617849486659

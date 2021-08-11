@@ -5,26 +5,54 @@
     "definition": {
         "text": "The first node we will learn about today is the Dashboard. A Dashboard helps us stay organized.",
         "icon": {
-            "name": "dashboard",
+            "name": "Charting-Space/dashboard",
             "project": "Foundations"
         },
-        "updated": 1619016609687
+        "updated": 1628360485670,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El primer nodo del que aprenderemos hoy es el Dashboard. Un Dashboard nos ayuda a mantenernos organizados.",
+                "updated": 1628641836641
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "To get us started,  I want you to get a little more comfortable with how the Charting Space is set up.",
-            "updated": 1617798279418
+            "updated": 1628360518013,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para empezar, quiero que se sienta un poco más cómodo con la forma en que Charting Space está arreglado.",
+                    "updated": 1628641961306
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Take a few minutes and look around this hierarchy.  What do you notice?",
-            "updated": 1620008481214
+            "updated": 1628360537787,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Tómate unos minutos y observa esta jerarquía. ¿Que notaste?",
+                    "updated": 1628641984247
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "That’s right! There is one Dashboard set up for Backtesting, one for Live Trading, and a third for Learning Tasks. Dashboards are a convenient way to group charts according to type or any other criteria, for that matter.",
-            "updated": 1620249369756
+            "updated": 1628360563180,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Así es! Hay un Dashboard configurado para Backtesting,uno para Live Trading, Y un tercero para Learning Tasks. Dashboards son una forma conveniente de agrupar gráficos según el tipo o cualquier otro criterio, para el caso.",
+                    "updated": 1628642097225
+                }
+            ]
         },
         {
             "style": "Text",

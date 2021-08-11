@@ -4,17 +4,31 @@
     "type": "Tutorial Step - Basic Building Blocks",
     "definition": {
         "text": "I went ahead and installed some basic building blocks within this Workspace so we can jump into creating custom charts quickly.",
-        "updated": 1619994510587,
+        "updated": 1628362415110,
         "icon": {
             "name": "design-space",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Seguí adelante e instalé algunos bloques de construcción básicos dentro de este Workspace para que podamos empezar a crear gráficos personalizados rápidamente.",
+                "updated": 1628639251718
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The building blocks I installed are:",
-            "updated": 1620006869319
+            "updated": 1628362431494,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los bloques de construcción que instalé son:",
+                    "updated": 1628639290050
+                }
+            ]
         },
         {
             "style": "List",
@@ -31,7 +45,14 @@
         {
             "style": "Text",
             "text": "Everything we do today will be built on top of this basic setup. I will walk you through what I installed to give you an idea of what we will be building on top of today.",
-            "updated": 1619994819426
+            "updated": 1628362451735,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Todo lo que hagamos hoy se construirá sobre esta configuración básica. Te guiaré a través de lo que instalé para darte una idea de lo que construiremos hoy.",
+                    "updated": 1628639317378
+                }
+            ]
         }
     ]
 }

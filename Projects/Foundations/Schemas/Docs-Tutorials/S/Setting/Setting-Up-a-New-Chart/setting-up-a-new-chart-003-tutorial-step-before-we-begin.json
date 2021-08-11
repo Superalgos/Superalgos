@@ -5,16 +5,30 @@
     "definition": {
         "text": "Before you start creating custom charts you should make sure you know the basics of getting around within Superalgos.",
         "icon": {
-            "name": "tutorial",
+            "name": "Tutorial/tutorial",
             "project": "Foundations"
         },
-        "updated": 1619015612947
+        "updated": 1628362591021,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Antes de comenzar a crear gráficos personalizados, debes asegurate de conocer los conceptos básicos para moverse dentro de Superalgos.",
+                "updated": 1628638892014
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Before we get started, this tutorial assumes that you have finished the following tutorials:",
-            "updated": 1617631888828
+            "updated": 1628362621149,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Antes de comenzar, este tutorial asume que has terminado los siguientes tutoriales:",
+                    "updated": 1628638917375
+                }
+            ]
         },
         {
             "style": "List",
@@ -34,7 +48,15 @@
         },
         {
             "style": "Text",
-            "text": "If you have not completed these tutorials and do not have a basic working knowledge of how to get around within your Workspace, this tutorial may be confusing. I would suggest that you pause and come back here once you know your way around a little."
+            "text": "If you have not completed these tutorials and do not have a basic working knowledge of how to get around within your Workspace, this tutorial may be confusing. I would suggest that you pause and come back here once you know your way around a little.",
+            "updated": 1628362640857,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si no has completado estos tutoriales y no tienes un conocimiento básico de cómo moverte dentro de tu Workspace, este tutorial puede resultar confuso. Te sugiero que hagas una pausa y vuelvas aquí una vez que conozcas un poco el camino.",
+                    "updated": 1628638970811
+                }
+            ]
         }
     ]
 }

@@ -5,7 +5,7 @@
     "definition": {
         "text": "The Data Storage node holds all the important data your bots work so hard to produce. Think of it like your own personal tresure chest full of data.",
         "icon": {
-            "name": "data-storage",
+            "name": "Data/data-storage",
             "project": "Foundations"
         },
         "updated": 1617373173279

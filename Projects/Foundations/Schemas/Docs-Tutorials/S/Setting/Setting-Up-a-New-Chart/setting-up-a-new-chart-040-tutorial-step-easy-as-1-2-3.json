@@ -5,7 +5,7 @@
     "definition": {
         "text": "You did it! I knew you could. You have successfully added your first custom chart. I hope you had as much fun as I did!",
         "icon": {
-            "name": "charting-space",
+            "name": "Charting-Space/charting-space",
             "project": "Foundations"
         },
         "updated": 1619025041063

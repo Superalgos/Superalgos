@@ -5,7 +5,7 @@
     "definition": {
         "text": "Now let's get your Time Machine in position to connect to some Data Products!",
         "icon": {
-            "name": "data-mine-products",
+            "name": "Data/data-mine-products",
             "project": "Foundations"
         },
         "updated": 1620047255368

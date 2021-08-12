@@ -1,7 +1,5 @@
 exports.newGithubServer = function newGithubServer() {
 
-    const MODULE = "Github Server"
-
     let thisObject = {
         getGithubStars: getGithubStars,
         getGithubWatchers: getGithubWatchers,
@@ -329,7 +327,7 @@ exports.newGithubServer = function newGithubServer() {
                                     We will close PRs that contains any User Profile file together with other files in the same Pull Request.
                                     This will avoid manual merges to include User Profile files.
                                     */
-                                    for (j = 0; j < filesChanged.length; j++) {
+                                    for (let j = 0; j < filesChanged.length; j++) {
                                         let pullRequestFile = filesChanged[j]
                                         let fileContentUrl = pullRequestFile.raw_url
                                         if (fileContentUrl.indexOf('Governance/Plugins/User-Profiles') >= 0) {

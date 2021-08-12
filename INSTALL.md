@@ -16,7 +16,7 @@ Node JS is an open-source server environment required to run Superalgos.
 
 **A.** Go to the Node JS [download page](https://nodejs.org/en/download/).
 
-**B.** Download your system’s installer. Select *LTS Recommended for Most Users* and click the big Windows or macOS Installer button. If you are on Linux, the installer is listed further down the page.
+**B.** Download your system's installer. Select *LTS Recommended for Most Users* and click the big Windows or macOS Installer button. If you are on Linux, the installer is listed further down the page.
 
 **C.** Run the installer with the default configuration — just click Next until Node.JS is fully installed. That's it! You can continue with step 2 (Git Installation).
 
@@ -94,13 +94,13 @@ Before you begin, it is recommended that you set up Chrome/Safari as your defaul
 
 **A.** Scroll the page all the way to the top. Find and click the **Fork** button to create your fork/copy of this repository. To fork Superalgos you need a Github account. If you don't have one, go ahead and create it.
 
-**NOTE:** A Fork is required for your contributions to the project. The reason why Superalgos is free and open-source is that the project has set up a <a href="https://superalgos.org/community-business.shtml" target="_blank">Collective Business</a> in which all users may participate. The way to participate is to <a href="https://superalgos.org/community-contribute.shtml" target="_blank">contribute</a> to make Superalgos better. The project's <a href="https://superalgos.org/token-overview.shtml" target="_blank">token</a> is distributed among contributors.
+**NOTE:** A Fork is required for your contributions to the project. The reason why Superalgos is free and open-source is that the project has set up a <a href="https://superalgos.org/project-one-pager.shtml" target="_blank">Collective Business</a> in which all users may participate. The way to participate is to <a href="https://superalgos.org/community-contribute.shtml" target="_blank">contribute</a> to make Superalgos better. The project's <a href="https://superalgos.org/token-overview.shtml" target="_blank">token</a> is distributed among contributors.
 
 ## 2. Clone Your Fork
 
 **A.** Once the fork is created, you will land on the page of your fork. Copy the URL from your browser's address bar.
 
-**B.** In your computer/laptop/server, open a command prompt or terminal. Make sure you are in a directory where you have write permissions (on most systems the terminal will open in your user’s home directory, so you’re good). Clone the git repository using the command:
+**B.** In your computer/laptop/server, open a command prompt or terminal. Make sure you are in a directory where you have write permissions (on most systems the terminal will open in your user's home directory, so you're good). Clone the git repository using the command:
 
 ```
 git clone <URL of your Superalgos fork>
@@ -116,9 +116,13 @@ This creates the `Superalgos` folder in the current directory, which contains th
 
 ## 3. Install Node Dependencies
 
-**A.** After the Superalgos directory has been installed, the final step of installation is to set up the necessary node dependencies.
+After the Superalgos directory has been installed, the final step of installation is to set up the necessary node dependencies. In the same command prompt or terminal you just used, type the following:
 
-**B.** In the same command prompt or terminal you just used, type the following command:
+```
+cd Superalgos
+```
+
+That should take you inside the Superalgos folder created by the `git clone` command earlier. Now, run the following command:
 
 ```
 node setup
@@ -233,7 +237,7 @@ We are testing the UI on Google Chrome and Safari on macOS only. It may work on 
 
 # Running Superalgos on a Headless Linux Server as a Daemon
 
-If you’re running Superalgos on a headless linux server like a Raspberry Pi, you might want to run it as a daemon so it isn’t attached to your current login session. The easiest, most standard way to go about this is probably using `systemd`. Most linux distributions use it as default init system/service manager.
+If you're running Superalgos on a headless linux server like a Raspberry Pi, you might want to run it as a daemon so it isn't attached to your current login session. The easiest, most standard way to go about this is probably using `systemd`. Most linux distributions use it as default init system/service manager.
 
 ## Using `systemd`
 
@@ -252,7 +256,7 @@ ExecStart=/usr/bin/node run minMemo noBrowser
 WantedBy=multi-user.target
 
 ```
-There is no need to run Superalgos as root so we’re running it as a user. The `minMemo` option assumes you’re running on a small machine like a Raspberry Pi, while `noBrowser` makes sense for running daemonized.
+There is no need to run Superalgos as root so we're running it as a user. The `minMemo` option assumes you're running on a small machine like a Raspberry Pi, while `noBrowser` makes sense for running daemonized.
 
 Now, as root (or using `sudo`), put the file `superalgos.service` you just created in `/etc/systemd/system/` and issue the command
 ```
@@ -290,7 +294,7 @@ Once the app finishes loading, an interactive tutorial takes you by the hand and
 
 ![welcome-tutorial-00](https://user-images.githubusercontent.com/13994516/107038771-4a6bf100-67bd-11eb-92e0-353525a972a9.gif)
 
- **NOTE:** The tutorial uses Binance or Binance US as the exchange of choice. If you don’t have an account with Binance or Binance US, you will still be able to follow 100% of the tutorial. When you get to the live trading section, keep going even if you don't intend to run the session. You may learn how to work with other exchanges later on.
+ **NOTE:** The tutorial uses Binance or Binance US as the exchange of choice. If you don't have an account with Binance or Binance US, you will still be able to follow 100% of the tutorial. When you get to the live trading section, keep going even if you don't intend to run the session. You may learn how to work with other exchanges later on.
 
 # Docker Deployments
 

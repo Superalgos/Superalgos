@@ -8,13 +8,27 @@
             "name": "Charting-Space/chart-points",
             "project": "Foundations"
         },
-        "updated": 1619024433448
+        "updated": 1619024433448,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¡Estamos en una buena racha! Espero que estés listo para ver tu Trading System en acción a continuación!",
+                "updated": 1628726073887
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The next thing you will want to connect with most charts are the results of your trading sessions. For the most part, this is the same as connecting to a Data Mine. There are just a few differences I will walk you through. One major difference is that each Time Machine can only reference one Trading Session. For example, one Backtesting Session that is associated with one Trading System. This helps keep your charts clean and readable. It would be confusing to see buy orders from two different trading systems all at once! What this means for connecting a chart is that we need to establish two references in order for things to work.",
-            "updated": 1620560071262
+            "updated": 1620560071262,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Lo siguiente que querrás conectar con la mayoría de los gráficos son los resultados de tus trading sessions. En su mayor parte, esto es lo mismo que conectarse a un Data Mine. Hay algunas diferencias que te explicaré. Una diferencia importante es que cada Time Machine solo puede hacer referencia a un Trading Session. Por ejemplo, un Backtesting Session que está asociado con un Trading System. Esto ayuda a mantener tus gráficos limpios y legibles. ¡Sería confuso ver órdenes de compra de dos sistemas comerciales diferentes a la vez! Esto significa que para conectar un gráfico necesitamos establecer dos referencias para que las cosas funcionen.",
+                    "updated": 1628727113714
+                }
+            ]
         }
     ]
 }

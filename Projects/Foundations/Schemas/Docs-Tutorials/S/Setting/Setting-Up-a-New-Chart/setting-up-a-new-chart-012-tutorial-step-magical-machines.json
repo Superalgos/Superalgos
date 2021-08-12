@@ -5,20 +5,42 @@
     "definition": {
         "text": "You've seen these portals to another dimension before! Now let's take a closer look at the magical Time Machine.",
         "icon": {
-            "name": "time-machine",
+            "name": "Time/time-machine",
             "project": "Foundations"
         },
-        "updated": 1617634105980
+        "updated": 1628359226218,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¡Has visto estos portales a otra dimensión antes! Ahora echemos un vistazo más de cerca a la magia de los Time Machine.",
+                "updated": 1628645012003
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You might have noticed each dashboard has a Time Machine attached to it. You have already encountered time machines in previous tutorials. But today we are going to be working with them a lot more closely. ",
-            "updated": 1619405810806
+            "text": "You might have noticed each dashboard has a Time Machine attached to it. You have already encountered time machines in previous tutorials. But today we are going to be working with them a lot more closely.",
+            "updated": 1628359250494,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Es posible que hayas notado que cada panel tiene una Time Machine adjunto a. Ya te has encontrado con máquinas del tiempo en tutoriales anteriores. Pero hoy vamos a trabajar mucho más con ellas.",
+                    "updated": 1628645255596
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Take a minute and read their documentation page to get a better idea of what they do."
+            "text": "Take a minute and read their documentation page to get a better idea of what they do.",
+            "updated": 1628360126413,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Tómate un minuto y lea su página de documentación para tener una mejor idea de lo que hacen.",
+                    "updated": 1628645275989
+                }
+            ]
         }
     ]
 }

@@ -6,19 +6,40 @@
         "text": "This is an easy step to forget but so important. Add those layers so we can see the data in our chart!",
         "updated": 1619024347856,
         "icon": {
-            "name": "layer",
+            "name": "Layer/layer",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este es un paso fácil de olvidar pero muy importante. ¡Agrega esas capas para que podamos ver los datos en nuestro gráfico!",
+                "updated": 1628725473598
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "The last step is to hover over the Layer Manager and click Add All Mine Layers. Make sure you confirm after you click the button!",
-            "updated": 1620556206237
+            "updated": 1620556206237,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El último paso es colocar el cursor sobre el Layer Manager y clic Add All Mine Layers. ¡Asegúrate de confirmar después de hacer clic en el botón!",
+                    "updated": 1628725516397
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This will automatically add references to all of the individual layers produced by the Data Mine."
+            "text": "This will automatically add references to all of the individual layers produced by the Data Mine.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Esto agregará automáticamente referencias a todas las capas individuales producidas por el Data Mine.",
+                    "updated": 1628725533579
+                }
+            ]
         },
         {
             "style": "Text",

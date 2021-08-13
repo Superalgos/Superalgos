@@ -15,94 +15,116 @@ Superalgos is not just another open-source project. We are an open and welcoming
 
 Follow the link to [INSTALL.md](https://github.com/Superalgos/Superalgos/blob/develop/INSTALL.md).
 
-# What is Superalgos?
+# The Superalgos Project
 
-## Superalgos is a token-incentivized open-source project.
+## Superalgos is a token-incentivized open-source project
 
-The project incentivizes users to continuously improve Superalgos. Users contribute to the codebase, to the library of trading intelligence, and to project development in general -- and earn SA tokens for their contributions. Providing free, high-quality, real-time trading-intelligence over the Superalgos peer-to-peer network is a key activity, also incentivized.
+The protocol incentivizes users to improve Superalgos. To do that, users contribute to the codebase, add to the library of trading intelligence, and help with project development in general, earning Superalgos (SA) tokens for their contributions. Protocol-incentivized contributions allow the project to distribute free of charge, high-quality trading intelligence over the Superalgos peer-to-peer network, currently in the making.
 
-## Superalgos is an open-network project built on top of the Internet + Bitcoin + Lighting open networks.
+## Superalgos is an open-network project built on top of other open networks: Internet + Bitcoin + Lightning
 
-This means that the Superalgos open network target audience is 8 billion people and that payments of products and services offered through the Superalgos Network are done with bitcoin over the Lighting Network. 
+Because it's an open network, our target audience is, theoretically, 8 billion people. While all products and services provided by the project are free of charge, third-party products and services distributed through the Superalgos Network will be payable in bitcoin over the Lighting Network.
 
-## Superalgos is a free and open trading-intelligence network anyone can plug-in to emit or consume real-time trading signals.
+## The Superalgos Network is an open trading intelligence network distributing trading signals
 
-Signals are cryptographically signed by trading intelligence producers and backed by their token holdings and reputation. The Superalgos p2p Network sorts how signals are distributed, prioritizing signals-consumers with the biggest token holdings.
+Anyone may plug in to provide or consume trading signals in a permissionless manner. Signals are cryptographically signed by trading intelligence providers with a reputation reflected in their token holdings. The Superalgos p2p Network prioritizes signals distribution according to the token holdings of consumers.
 
-## Superalgos has the ultimate scalable and defensible business model.
+## Superalgos has a scalable and defensible business model
 
-* Everything is free and open source for its user base: trading automation tools + mobile apps for consuming real-time trading intelligence.
-* The Superalgos algo-traders community members compete with each other to mine SA tokens by producing high quality real-time trading intelligence which is consumed for free by the Superalgos user base to automate their trading. 
-* Trading Intelligence is distributed via a protocol-incentivized p2p network with no network fees.
-* The long term viability is guaranteed since the business model can not be disrupted.
+* Everything is open-source and free of charge for all users: trading automation tools to produce trading intelligence, and mobile apps to consume it.
 
-## Superalgos massive adoption is highly likely since all friction has been removed.
+* Algo traders compete to mine SA tokens, producing high-quality, ever-evolving trading intelligence paid for by the protocol.
 
-* Users don’t need to pay for the mobile app to consume trading intelligence.
-* Users don’t need to pay for high-quality trading intelligence.
-* Algo-traders don’t need to pay for the tools to produce trading intelligence.
-* Real-time trading Intelligence does not need to be bought or sold. The Superalgos Project buys real-time trading intelligence (via minting new tokens) from the algo-traders community and distributes it for free to all the user base via its p2p network.
-* The Superalgos SA token does not need to be spent to be used, avoiding the need to pay blockchain fees. Only it’s balance is relevant to backup the user profile’s reputation and skin on the game, and in the case of real-time trading intelligence consumers give them priority access to signals.
+* Trading Intelligence is distributed via a p2p network with zero network fees.
 
-## Holding the SA Token is the open network business model for all participants.
+* The long-term viability is guaranteed since the business model is undisruptable.
 
-* Buying pressure will come from users competing to be among the first to receive the trading-signals.
-* Buying pressure will also come from algo-traders competing to be at the top of the list of real-time trading intelligence providers.
-* Algo trades make money, users make money, the token appreciates, everyone wins.
+## With all friction removed, mass adoption is inevitable
 
-## Superalgos will become one of the most powerful consumer brands on the planet because:
+* Users do not pay for the mobile app.
 
-* We are building a brand that is inline and incentivized with our users.
-* We have the business acumen and profile of a token-incentivized-open source project.
-* The project acts as an union, collecting benefits for its user base, like better exchange fees for all. 
-* We don’t collect or sell user data.
-* We don’t sell ads to anyone.
-* We don’t collect or sell users trading information that can be used to front run them.
-* We know how we are going to make money, and it is on token appreciation.
-* Founders and team are just token holders as any other contributors.
+* Users do not pay for trading intelligence.
 
-## Superalgos Mobile Apps will have the best user experience possible because:
+* Algo traders do not pay for the tools to produce trading intelligence.
 
-* The best user experience means users should be able to consume top quality, free real-time trading intelligence and autonomously execute trades while they are sleeping.
-* Users just need to select their exchange, provide an exchange access token, define their base asset, amount of funds to be traded and trading intelligence providers. 
-* Their mobile phone will become a 24/7 trading bot plugged into the Superalgos Network to receive trading signals and firing trading orders at any exchange.
-* Similar to a bitcoin wallet, anyone will be able to develop Superalgos Mobile Apps for consuming trading-signals. This open competition will be a race to the best UX possible.
-* Established crypto wallets or any trading app in general, can plugin into the Superalgos Network and consume real-time trading intelligence for free.
+* Trading Intelligence does not need to be bought or sold. The project pays for trading intelligence by minting new tokens and distributes intelligence to all users, free of charge.
 
-## Superalgos does not sell it’s tokens to anyone for any reason.
+* The Superalgos (SA) token use case does not require spending, avoiding blockchain fees. Only wallet balance is relevant to determining the reputation and skin in the game of intelligence providers. The same is true for consumers. It is their wallet balance that defines the order of distribution of signals.
 
-SA Tokens are distributed after each software release among the contributors of that release. If you want to mine SA tokens you can start contributing yourself or hire / sponsor someone (usually a developer or trader) to do it on your behalf.
+## Holding the SA Token is the business model for all participants
 
-Users are free to buy or sell their SA Tokens. No exchange has listed SA Tokens yet. We expect that to happen soon.  
+* Buying pressure will come from users competing to be among the first to receive trading signals.
+
+* Algo traders build up their holdings by producing top trading intelligence and compete for the reputation entailed in their holdings.
+
+* Project developers earn tokens for their contributions.
+
+## Superalgos will become a powerful consumer brand because it is user-centric:
+
+* We are building a brand 100% in line with consumer interests.
+
+* We cherish the values of a decentralized, token-incentivized, open-source project.
+
+* The project acts as a union, acquiring benefits for users, like better exchange fees for all. 
+
+* We do not collect or sell user data.
+
+* We do not sell ads.
+
+* We do not collect or sell user trading information.
+
+* We know how we are going to make money: token appreciation.
+
+* Founders and team are just token holders, like every other contributor.
+
+## Superalgos Mobile Apps will feature a seamless user experience
+
+* The app will consume top-quality trading intelligence and autonomously execute trades.
+
+* Users will select an exchange, provide an exchange access token, define their base asset, initial capital, and trading intelligence providers. 
+
+* A mobile phone will become a 24/7 trading bot plugged into the Superalgos Network, receiving trading signals and firing orders on any exchange.
+
+* Similar to a bitcoin wallet, anyone will be able to develop Superalgos Mobile Apps to consume trading signals. This open competition will be a race to the best UX possible.
+
+* Crypto wallets and trading apps will plug into the Superalgos Network and consume real-time trading intelligence for free.
+
+## The Superalgos Project does not sell tokens
+
+The protocol distributes Superalgos (SA) Tokens after each software release, among contributors of that release. If you wish to mine tokens, you may start contributing anytime. You may also hire/sponsor someone (usually a developer or trader) to do it on your behalf.
 
 # Software Architecture
 
-Superalgos features these 3 main components:
+Superalgos features three main components:
 
-1. **Superalgos Platform:** An already functional set of tools designed for algo-traders for automating their own trading and producing trading-signals.
+1. **Superalgos Platform:** A set of tools designed for algo-traders to design, build, test, and deploy trading bots and produce trading signals. The platform has been trading live since mid-2020 and is virtually ready to go out of beta.
 
+2. **Superalgos Mobile:** An under-development mobile app reference implementation that consumes existing trading intelligence to automate trading.
 
-2. **Superalgos Mobile:** An under-development mobile app reference implementation for cosuming real-time trading intelligence and automate users trading.
+3. **Superalgos Network:** An under-development open p2p network for distributing trading intelligence from providers (algo-traders) to consumers (the project's user base). 
 
-
-3. **Superalgos Network:** An under-development open p2p network for distributing real-time trading intelligence between producers (algo-traders) and consumers (the project's user base). 
-
-
-All of the above is / will be hosted in this repository.
+All of the above is or will be hosted in this repository.
 
 # Superalgos is User-centric
 
 * No ads, anywhere.
-* No sign up / logins.
+
+* No sign-up / logins.
+
 * No user/usage data collection of any kind.
+
 * No user trading information collected or sold.
+
 * Runs 100% on uncompiled code anyone can read and audit.
 
 # Superalgos Development Pipeline
 
-* **Superalgos P2P Network:** will allow algo-traders to share trading signals with Superalgos users consuming these signals via a mobile app.
-* **Real-time Trading Signals:** will allow users to emit trading signals and be rewarded with SA Tokens.
+* **Superalgos P2P Network:** Will allow the project to distribute trading intelligence produced by algo-traders.
+
+* **Trading Signals:** Will allow providers to broadcast trading signals and be rewarded with SA Tokens.
+
 * **Superalgos Mobile:** Will allow users to consume trading signals for free and autonomously execute trades from their mobile phones.
+
 * **Ethereum Integration:** Will allow mining data from an Ethereum network node, and bring it into the Superalgos workflow.
 
 # What is the Superalgos Platform?

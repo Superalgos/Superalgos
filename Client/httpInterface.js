@@ -1503,7 +1503,7 @@ exports.newHttpInterface = function newHttpInterface(
                             function onDirRead(err, fileList) {
                                 if (err) {
                                     // This happens the first time you run the software.
-                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    respondWithContent(JSON.stringify(allWorkspaces), httpResponse)
                                     return
                                 } else {
                                     let updatedFileList = []

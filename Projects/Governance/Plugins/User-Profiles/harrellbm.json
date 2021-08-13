@@ -8,515 +8,32 @@
         "name": "New Token Power Switch",
         "config": "{}",
         "project": "Governance",
-        "tokenPowerSwitch": [
-            {
-                "type": "Token Power Switch",
-                "name": "Features and Controbutions",
+        "tokenPowerSwitch": [],
+        "communityBuildingPrograms": {
+            "type": "Community Building Programs",
+            "name": "New Community Building Programs",
+            "config": "{}",
+            "project": "Governance",
+            "mentorshipProgram": {
+                "type": "Mentorship Program",
+                "name": "New Mentorship Program",
                 "config": "{}",
                 "project": "Governance",
-                "tokenPowerSwitch": [],
-                "claimsProgram": {
-                    "type": "Claims Program",
-                    "name": "New Claims Program",
-                    "config": "{}",
-                    "project": "Governance",
-                    "assetClaimsFolders": [
-                        {
-                            "type": "Asset Claims Folder",
-                            "name": "Launch-Scripts Asset Class",
-                            "config": "{}",
-                            "project": "Governance",
-                            "assetClaimsFolders": [
-                                {
-                                    "type": "Asset Claims Folder",
-                                    "name": "Superalgos Asset Class",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "assetClaimsFolders": [
-                                        {
-                                            "type": "Asset Claims Folder",
-                                            "name": "Launch-Scripts Asset Class",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "assetClaimsFolders": [],
-                                            "assetContributionClaims": [
-                                                {
-                                                    "type": "Asset Contribution Claim",
-                                                    "name": "Superalgos Launch-Scripts create-shortcut.js",
-                                                    "config": "{\n  \"description\": \"\"\n}",
-                                                    "project": "Governance",
-                                                    "id": "ea9a39f8-1149-4bda-aec7-58e5ac07e0c5",
-                                                    "savedPayload": {
-                                                        "position": {
-                                                            "x": 14535.725312229182,
-                                                            "y": 22181.902722406394
-                                                        },
-                                                        "targetPosition": {
-                                                            "x": 14778.430410541667,
-                                                            "y": 22358.238298094137
-                                                        },
-                                                        "floatingObject": {
-                                                            "isPinned": false,
-                                                            "isFrozen": false,
-                                                            "isCollapsed": false,
-                                                            "angleToParent": 2,
-                                                            "distanceToParent": 3,
-                                                            "arrangementStyle": 0
-                                                        },
-                                                        "uiObject": {
-                                                            "isRunning": false
-                                                        },
-                                                        "referenceParent": {
-                                                            "type": "Asset",
-                                                            "name": "create-shortcut.js",
-                                                            "id": "7998312a-e903-491a-b2cb-943f38e782ae"
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "type": "Asset Contribution Claim",
-                                                    "name": "Superalgos Launch-Scripts launch-linux-mac.sh",
-                                                    "config": "{\n  \"description\": \"\"\n}",
-                                                    "project": "Governance",
-                                                    "id": "819052d7-d3ef-432f-a27d-66507b83f591",
-                                                    "savedPayload": {
-                                                        "position": {
-                                                            "x": 14685.725312229182,
-                                                            "y": 22072.92134320559
-                                                        },
-                                                        "targetPosition": {
-                                                            "x": 14778.430410541667,
-                                                            "y": 22358.238298094137
-                                                        },
-                                                        "floatingObject": {
-                                                            "isPinned": false,
-                                                            "isFrozen": false,
-                                                            "isCollapsed": false,
-                                                            "angleToParent": 2,
-                                                            "distanceToParent": 3,
-                                                            "arrangementStyle": 0
-                                                        },
-                                                        "uiObject": {
-                                                            "isRunning": false
-                                                        },
-                                                        "referenceParent": {
-                                                            "type": "Asset",
-                                                            "name": "launch-linux-mac.sh",
-                                                            "id": "e96a3ea1-8580-4cd1-8032-5ff8c19f2312"
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "type": "Asset Contribution Claim",
-                                                    "name": "Superalgos Launch-Scripts launch-windows.bat",
-                                                    "config": "{\n  \"description\": \"\"\n}",
-                                                    "project": "Governance",
-                                                    "id": "0e11d32b-7023-4bec-b351-76d2f8e3587c",
-                                                    "savedPayload": {
-                                                        "position": {
-                                                            "x": 14871.135508854151,
-                                                            "y": 22072.92134320559
-                                                        },
-                                                        "targetPosition": {
-                                                            "x": 14778.430410541667,
-                                                            "y": 22358.238298094137
-                                                        },
-                                                        "floatingObject": {
-                                                            "isPinned": false,
-                                                            "isFrozen": false,
-                                                            "isCollapsed": false,
-                                                            "angleToParent": 2,
-                                                            "distanceToParent": 3,
-                                                            "arrangementStyle": 0
-                                                        },
-                                                        "uiObject": {
-                                                            "isRunning": false
-                                                        },
-                                                        "referenceParent": {
-                                                            "type": "Asset",
-                                                            "name": "launch-windows.bat",
-                                                            "id": "58c7a50e-ae5e-4430-89bc-23d2631a5642"
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "type": "Asset Contribution Claim",
-                                                    "name": "Superalgos Launch-Scripts superalgos.ico",
-                                                    "config": "{\n  \"description\": \"\"\n}",
-                                                    "project": "Governance",
-                                                    "id": "7f3a30a5-3f31-4d1e-bfe4-83cdb7b22efe",
-                                                    "savedPayload": {
-                                                        "position": {
-                                                            "x": 15021.135508854151,
-                                                            "y": 22181.902722406394
-                                                        },
-                                                        "targetPosition": {
-                                                            "x": 14778.430410541667,
-                                                            "y": 22358.238298094137
-                                                        },
-                                                        "floatingObject": {
-                                                            "isPinned": false,
-                                                            "isFrozen": false,
-                                                            "isCollapsed": false,
-                                                            "angleToParent": 2,
-                                                            "distanceToParent": 3,
-                                                            "arrangementStyle": 0
-                                                        },
-                                                        "uiObject": {
-                                                            "isRunning": false
-                                                        },
-                                                        "referenceParent": {
-                                                            "type": "Asset",
-                                                            "name": "superalgos.ico",
-                                                            "id": "24df883e-ebf1-41ed-b2a5-69a3707e65cc"
-                                                        }
-                                                    }
-                                                }
-                                            ],
-                                            "id": "b431ca85-d9e6-4f2e-8fd2-cacd7a6e63da",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 14778.430410541667,
-                                                    "y": 22358.238298094137
-                                                },
-                                                "targetPosition": {
-                                                    "x": 14778.430410541667,
-                                                    "y": 22658.238298094137
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 2,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                },
-                                                "referenceParent": {
-                                                    "type": "Asset Class",
-                                                    "name": "Launch-Scripts",
-                                                    "id": "37811a42-dc4f-4140-9f24-9d4c793441cb"
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "assetContributionClaims": [],
-                                    "id": "95db1d06-3c18-426c-aba7-2a23b5b15c31",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 14778.430410541667,
-                                            "y": 22658.238298094137
-                                        },
-                                        "targetPosition": {
-                                            "x": 14778.430410541667,
-                                            "y": 22958.238298094137
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        },
-                                        "referenceParent": {
-                                            "type": "Asset Class",
-                                            "name": "Superalgos",
-                                            "id": "8bbcd3f2-5e68-475d-9b5f-53ceb890e189"
-                                        }
-                                    }
-                                }
-                            ],
-                            "assetContributionClaims": [],
-                            "id": "e178f2a9-0929-46b9-8e5f-61c976bce347",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 14778.430410541667,
-                                    "y": 22958.238298094137
-                                },
-                                "targetPosition": {
-                                    "x": 14778.430410541667,
-                                    "y": 23258.238298094137
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
-                                "referenceParent": {
-                                    "type": "Asset Class",
-                                    "name": "Launch-Scripts",
-                                    "id": "fcf025b5-12cc-4de9-8f6c-ef972746d94c"
-                                }
-                            }
-                        },
-                        {
-                            "type": "Asset Claims Folder",
-                            "name": "Root Asset Class",
-                            "config": "{}",
-                            "project": "Governance",
-                            "assetClaimsFolders": [
-                                {
-                                    "type": "Asset Claims Folder",
-                                    "name": "Superalgos Asset Class",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "assetClaimsFolders": [
-                                        {
-                                            "type": "Asset Claims Folder",
-                                            "name": "Root Asset Class",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "assetClaimsFolders": [],
-                                            "assetContributionClaims": [
-                                                {
-                                                    "type": "Asset Contribution Claim",
-                                                    "name": "Superalgos Root README.md",
-                                                    "config": "{\n    \"description\": \"\"\n}",
-                                                    "project": "Governance",
-                                                    "id": "49c7731e-d725-4331-971a-2c501b701424",
-                                                    "savedPayload": {
-                                                        "position": {
-                                                            "x": 15367.896174097488,
-                                                            "y": 22325.535692847705
-                                                        },
-                                                        "targetPosition": {
-                                                            "x": 15414.826513609558,
-                                                            "y": 22621.842195026245
-                                                        },
-                                                        "floatingObject": {
-                                                            "isPinned": false,
-                                                            "isFrozen": false,
-                                                            "isCollapsed": false,
-                                                            "angleToParent": 2,
-                                                            "distanceToParent": 3,
-                                                            "arrangementStyle": 0
-                                                        },
-                                                        "uiObject": {
-                                                            "isRunning": false
-                                                        },
-                                                        "referenceParent": {
-                                                            "type": "Asset",
-                                                            "name": "README.md",
-                                                            "id": "a5ee087a-9889-41fc-b0c5-13a0e40cb7e8"
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "type": "Asset Contribution Claim",
-                                                    "name": "Superalgos Root run.js",
-                                                    "config": "{\n  \"description\": \"\"\n}",
-                                                    "project": "Governance",
-                                                    "id": "5429cb15-568b-4555-8b2f-bcd7eb56b9c5",
-                                                    "savedPayload": {
-                                                        "position": {
-                                                            "x": 15551.023663531421,
-                                                            "y": 22354.540237769736
-                                                        },
-                                                        "targetPosition": {
-                                                            "x": 15414.826513609558,
-                                                            "y": 22621.842195026245
-                                                        },
-                                                        "floatingObject": {
-                                                            "isPinned": false,
-                                                            "isFrozen": false,
-                                                            "isCollapsed": false,
-                                                            "angleToParent": 2,
-                                                            "distanceToParent": 3,
-                                                            "arrangementStyle": 0
-                                                        },
-                                                        "uiObject": {
-                                                            "isRunning": false
-                                                        },
-                                                        "referenceParent": {
-                                                            "type": "Asset",
-                                                            "name": "run.js",
-                                                            "id": "2ec5a110-3ecc-45ad-b410-9333ebc1840e"
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "type": "Asset Contribution Claim",
-                                                    "name": "Superalgos Root setup.js",
-                                                    "config": "{\n  \"description\": \"\"\n}",
-                                                    "project": "Governance",
-                                                    "id": "2d42fb71-dbe7-4c68-8468-2ffa0eb1917c",
-                                                    "savedPayload": {
-                                                        "position": {
-                                                            "x": 15682.128470866068,
-                                                            "y": 22485.645045104382
-                                                        },
-                                                        "targetPosition": {
-                                                            "x": 15414.826513609558,
-                                                            "y": 22621.842195026245
-                                                        },
-                                                        "floatingObject": {
-                                                            "isPinned": false,
-                                                            "isFrozen": false,
-                                                            "isCollapsed": false,
-                                                            "angleToParent": 2,
-                                                            "distanceToParent": 3,
-                                                            "arrangementStyle": 0
-                                                        },
-                                                        "uiObject": {
-                                                            "isRunning": false
-                                                        },
-                                                        "referenceParent": {
-                                                            "type": "Asset",
-                                                            "name": "setup.js",
-                                                            "id": "9c99e3f4-4e00-403b-9ead-8bdee7aa6566"
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "type": "Asset Contribution Claim",
-                                                    "name": "Superalgos Root uninstall.js",
-                                                    "config": "{\n  \"description\": \"\"\n}",
-                                                    "project": "Governance",
-                                                    "id": "1b1b7f42-c4d0-4a83-a72b-884928d58869",
-                                                    "savedPayload": {
-                                                        "position": {
-                                                            "x": 15711.133015788098,
-                                                            "y": 22668.772534538315
-                                                        },
-                                                        "targetPosition": {
-                                                            "x": 15414.826513609558,
-                                                            "y": 22621.842195026245
-                                                        },
-                                                        "floatingObject": {
-                                                            "isPinned": false,
-                                                            "isFrozen": false,
-                                                            "isCollapsed": false,
-                                                            "angleToParent": 2,
-                                                            "distanceToParent": 3,
-                                                            "arrangementStyle": 0
-                                                        },
-                                                        "uiObject": {
-                                                            "isRunning": false
-                                                        },
-                                                        "referenceParent": {
-                                                            "type": "Asset",
-                                                            "name": "uninstall.js",
-                                                            "id": "bce89a4d-9098-4b36-aafc-33b7ff58e030"
-                                                        }
-                                                    }
-                                                }
-                                            ],
-                                            "id": "7b51e89d-d513-4519-9d2b-5052dea1a177",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 15414.826513609558,
-                                                    "y": 22621.842195026245
-                                                },
-                                                "targetPosition": {
-                                                    "x": 15202.694479253594,
-                                                    "y": 22833.97422938221
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 2,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                },
-                                                "referenceParent": {
-                                                    "type": "Asset Class",
-                                                    "name": "Root",
-                                                    "id": "1e82e5c7-9420-4205-a2c4-aab3f0f96565"
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "assetContributionClaims": [],
-                                    "id": "49919de2-3a7e-44a9-aeca-c206d3409c0b",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 15202.694479253594,
-                                            "y": 22833.97422938221
-                                        },
-                                        "targetPosition": {
-                                            "x": 14990.56244489763,
-                                            "y": 23046.106263738173
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        },
-                                        "referenceParent": {
-                                            "type": "Asset Class",
-                                            "name": "Superalgos",
-                                            "id": "2201a417-cf22-47f4-b8df-8a16c63deb25"
-                                        }
-                                    }
-                                }
-                            ],
-                            "assetContributionClaims": [],
-                            "id": "894d3393-3ffd-4815-8eb2-316329686936",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 14990.56244489763,
-                                    "y": 23046.106263738173
-                                },
-                                "targetPosition": {
-                                    "x": 14778.430410541667,
-                                    "y": 23258.238298094137
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
-                                "referenceParent": {
-                                    "type": "Asset Class",
-                                    "name": "Root",
-                                    "id": "b1ec362d-bfb5-4210-8edd-6ceb9ba52014"
-                                }
-                            }
-                        }
-                    ],
-                    "featureClaimsFolders": [],
-                    "positionClaimsFolders": [],
-                    "tokensAwarded": {
-                        "type": "Tokens Awarded",
-                        "name": "New Tokens Awarded",
+                "userMentors": [
+                    {
+                        "type": "User Mentor",
+                        "name": "Julian-Molina",
+                        "config": "{\n    \"percentage\": 55\n}",
                         "project": "Governance",
-                        "id": "e4f73892-845d-4cbd-bb01-41c64f9eb45c",
+                        "id": "5309bf7c-f30d-4252-a78d-9793a6ef70dc",
                         "savedPayload": {
                             "position": {
-                                "x": 15078.430410541667,
-                                "y": 23258.238298094137
+                                "x": 35777.75789403297,
+                                "y": 11600.148851578582
                             },
                             "targetPosition": {
-                                "x": 14778.430410541667,
-                                "y": 23258.238298094137
+                                "x": 35481.451391854425,
+                                "y": 11647.079191090652
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -528,107 +45,77 @@
                             },
                             "uiObject": {
                                 "isRunning": false
-                            }
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "Julian-Molina",
+                                "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "Julian-Molina",
+                                    "User Profile",
+                                    "Governance",
+                                    "1fd95e41-4b22-48d5-be3a-904c37afcb11"
+                                ]
+                            ]
                         }
                     },
-                    "id": "c2ad753c-49b6-4675-9fdd-02b6967aaab2",
-                    "savedPayload": {
-                        "position": {
-                            "x": 14844.076124072424,
-                            "y": 23593.280114692785
-                        },
-                        "targetPosition": {
-                            "x": 14554.298376185703,
-                            "y": 23515.634401162028
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": true,
-                            "angleToParent": 2,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
+                    {
+                        "type": "User Mentor",
+                        "name": "Luis-Fernando-Molina",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "bfdb49b0-f882-4602-abf2-16b00e53f888",
+                        "savedPayload": {
+                            "position": {
+                                "x": 35748.753349110935,
+                                "y": 11783.276341012515
+                            },
+                            "targetPosition": {
+                                "x": 35481.451391854425,
+                                "y": 11647.079191090652
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "Luis-Fernando-Molina",
+                                "id": "148911b3-b2f3-44fb-8cb4-017991789132"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "Luis-Fernando-Molina",
+                                    "User Profile",
+                                    "Governance",
+                                    "148911b3-b2f3-44fb-8cb4-017991789132"
+                                ]
+                            ]
                         }
                     }
-                },
-                "votingProgram": {
-                    "type": "Voting Program",
-                    "name": "New Voting Program",
-                    "config": "{}",
+                ],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "votesSwitch": [
-                        {
-                            "type": "Votes Switch",
-                            "name": "New Votes Switch",
-                            "config": "{}",
-                            "project": "Governance",
-                            "votesSwitch": [],
-                            "claimVotesSwitch": [],
-                            "weightVotesSwitch": [],
-                            "userProfileVotesSwitch": [],
-                            "id": "578d894c-20a7-4a79-b90e-ba383740d29d",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 14844.076124072422,
-                                    "y": 24017.544183404712
-                                },
-                                "targetPosition": {
-                                    "x": 14631.944089716459,
-                                    "y": 23805.41214904875
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        }
-                    ],
-                    "tokensBonus": {
-                        "type": "Tokens Bonus",
-                        "name": "New Tokens Bonus",
-                        "project": "Governance",
-                        "id": "0cfaa435-6615-4df8-9d31-1fe5f21e0e61",
-                        "savedPayload": {
-                            "position": {
-                                "x": 14554.298376185703,
-                                "y": 24095.18989693547
-                            },
-                            "targetPosition": {
-                                "x": 14631.944089716459,
-                                "y": 23805.41214904875
-                            },
-                            "floatingObject": {
-                                "isPinned": false,
-                                "isFrozen": false,
-                                "isCollapsed": false,
-                                "angleToParent": 2,
-                                "distanceToParent": 3,
-                                "arrangementStyle": 0
-                            },
-                            "uiObject": {
-                                "isRunning": false
-                            }
-                        }
-                    },
-                    "id": "4ac11744-6d87-413d-813e-f0963b156d8c",
+                    "id": "53979029-3528-4266-bcaf-fd61784fda1e",
                     "savedPayload": {
                         "position": {
-                            "x": 14631.944089716459,
-                            "y": 23805.41214904875
+                            "x": 35617.64854177629,
+                            "y": 11914.381148347162
                         },
                         "targetPosition": {
-                            "x": 14554.298376185703,
-                            "y": 23515.634401162028
+                            "x": 35481.451391854425,
+                            "y": 11647.079191090652
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -643,176 +130,24 @@
                         }
                     }
                 },
-                "id": "fcceb17d-2c2a-4e24-ab5d-e2a8a2798f90",
-                "savedPayload": {
-                    "position": {
-                        "x": 14554.298376185703,
-                        "y": 23515.634401162028
-                    },
-                    "targetPosition": {
-                        "x": 14342.16634182974,
-                        "y": 23303.502366806064
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    }
-                }
-            },
-            {
-                "type": "Token Power Switch",
-                "name": "User Relationships",
-                "config": "{\n    \"percentage\": 25\n}",
-                "project": "Governance",
-                "tokenPowerSwitch": [],
-                "mentorshipProgram": {
-                    "type": "Mentorship Program",
-                    "name": "New Mentorship Program",
-                    "config": "{}",
+                "tokensBonus": {
+                    "type": "Tokens Bonus",
+                    "name": "New Tokens Bonus",
                     "project": "Governance",
-                    "userMentors": [
-                        {
-                            "type": "User Mentor",
-                            "name": "Julian-Molina",
-                            "config": "{\n  \"percentage\": 60\n}",
-                            "project": "Governance",
-                            "id": "ef3f92a6-083d-4255-87d7-2a39fac1c6c0",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 15130.501917517482,
-                                    "y": 23439.79726849358
-                                },
-                                "targetPosition": {
-                                    "x": 14954.16634182974,
-                                    "y": 23682.502366806064
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
-                                "referenceParent": {
-                                    "type": "User Profile",
-                                    "name": "Julian-Molina",
-                                    "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11"
-                                }
-                            }
-                        },
-                        {
-                            "type": "User Mentor",
-                            "name": "Luis-Fernando-Molina",
-                            "config": "{}",
-                            "project": "Governance",
-                            "id": "58896ed7-e5b8-405c-99e7-45b509f6fe7e",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 15239.483296718285,
-                                    "y": 23589.79726849358
-                                },
-                                "targetPosition": {
-                                    "x": 14954.16634182974,
-                                    "y": 23682.502366806064
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
-                                "referenceParent": {
-                                    "type": "User Profile",
-                                    "name": "Luis-Fernando-Molina",
-                                    "id": "148911b3-b2f3-44fb-8cb4-017991789132"
-                                }
-                            }
-                        }
-                    ],
-                    "tokensAwarded": {
-                        "type": "Tokens Awarded",
-                        "name": "New Tokens Awarded",
-                        "project": "Governance",
-                        "id": "b711f3c8-3749-49f4-a7d6-accb88999cb8",
-                        "savedPayload": {
-                            "position": {
-                                "x": 15239.483296718285,
-                                "y": 23775.207465118547
-                            },
-                            "targetPosition": {
-                                "x": 14954.16634182974,
-                                "y": 23682.502366806064
-                            },
-                            "floatingObject": {
-                                "isPinned": false,
-                                "isFrozen": false,
-                                "isCollapsed": false,
-                                "angleToParent": 2,
-                                "distanceToParent": 3,
-                                "arrangementStyle": 0
-                            },
-                            "uiObject": {
-                                "isRunning": false
-                            }
-                        }
-                    },
-                    "tokensBonus": {
-                        "type": "Tokens Bonus",
-                        "name": "New Tokens Bonus",
-                        "project": "Governance",
-                        "id": "9123a5e4-dd71-4b82-95af-a8a04ac38303",
-                        "savedPayload": {
-                            "position": {
-                                "x": 15130.501917517482,
-                                "y": 23925.207465118547
-                            },
-                            "targetPosition": {
-                                "x": 14954.16634182974,
-                                "y": 23682.502366806064
-                            },
-                            "floatingObject": {
-                                "isPinned": false,
-                                "isFrozen": false,
-                                "isCollapsed": false,
-                                "angleToParent": 2,
-                                "distanceToParent": 3,
-                                "arrangementStyle": 0
-                            },
-                            "uiObject": {
-                                "isRunning": false
-                            }
-                        }
-                    },
-                    "id": "055d1919-2b4b-40f2-8793-9cc5eb765a88",
+                    "id": "40dcfe63-bcb3-4a51-a4a8-c8d8491660ad",
                     "savedPayload": {
                         "position": {
-                            "x": 14342.16634182974,
-                            "y": 23903.502366806064
+                            "x": 35434.52105234236,
+                            "y": 11943.385693269192
                         },
                         "targetPosition": {
-                            "x": 14342.16634182974,
-                            "y": 23603.502366806064
+                            "x": 35481.451391854425,
+                            "y": 11647.079191090652
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -822,20 +157,20 @@
                         }
                     }
                 },
-                "id": "450eb600-3080-4d37-b8a2-12f71120573c",
+                "id": "4eacdbe0-c63d-49cb-bb2a-2c6a0a9392db",
                 "savedPayload": {
                     "position": {
-                        "x": 14342.16634182974,
-                        "y": 23603.502366806064
+                        "x": 35481.451391854425,
+                        "y": 11647.079191090652
                     },
                     "targetPosition": {
-                        "x": 14342.16634182974,
-                        "y": 23303.502366806064
+                        "x": 35269.31935749846,
+                        "y": 11434.947156734688
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -845,100 +180,2028 @@
                     }
                 }
             },
-            {
-                "type": "Token Power Switch",
-                "name": "Staking",
-                "config": "{\n    \"percentage\": 10\n}",
-                "project": "Governance",
-                "tokenPowerSwitch": [],
-                "stakingProgram": {
-                    "type": "Staking Program",
-                    "name": "New Staking Program",
-                    "config": "{}",
-                    "project": "Governance",
-                    "tokensAwarded": {
-                        "type": "Tokens Awarded",
-                        "name": "New Tokens Awarded",
-                        "project": "Governance",
-                        "id": "2a38bc32-bfa7-4f07-acdc-10eee69385d9",
-                        "savedPayload": {
-                            "position": {
-                                "x": 14990.56244489763,
-                                "y": 24318.898469873955
-                            },
-                            "targetPosition": {
-                                "x": 14778.430410541667,
-                                "y": 24106.76643551799
-                            },
-                            "floatingObject": {
-                                "isPinned": false,
-                                "isFrozen": false,
-                                "isCollapsed": false,
-                                "angleToParent": 2,
-                                "distanceToParent": 3,
-                                "arrangementStyle": 0
-                            },
-                            "uiObject": {
-                                "isRunning": false
-                            }
-                        }
-                    },
-                    "id": "02e75b99-0944-44dd-a434-9e307bdc7935",
-                    "savedPayload": {
-                        "position": {
-                            "x": 13917.902273117812,
-                            "y": 23727.76643551799
-                        },
-                        "targetPosition": {
-                            "x": 14130.034307473776,
-                            "y": 23515.634401162028
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": true,
-                            "angleToParent": 2,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
+            "id": "e9b2fede-f258-4a78-a755-4b5e8be675f9",
+            "savedPayload": {
+                "position": {
+                    "x": 35269.31935749846,
+                    "y": 11434.947156734688
                 },
-                "id": "8f44d9ab-8ce6-4336-8b0e-0323d7440e75",
-                "savedPayload": {
-                    "position": {
-                        "x": 14130.034307473776,
-                        "y": 23515.634401162028
-                    },
-                    "targetPosition": {
-                        "x": 14342.16634182974,
-                        "y": 23303.502366806064
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    }
+                "targetPosition": {
+                    "x": 35057.1873231425,
+                    "y": 11222.815122378724
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 2,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
                 }
             }
-        ],
+        },
+        "votesAndClaimsPrograms": {
+            "type": "Votes And Claims Programs",
+            "name": "New Votes And Claims Programs",
+            "config": "{}",
+            "project": "Governance",
+            "votingProgram": {
+                "type": "Voting Program",
+                "name": "New Voting Program",
+                "config": "{}",
+                "project": "Governance",
+                "votesSwitch": [
+                    {
+                        "type": "Votes Switch",
+                        "name": "New Votes Switch",
+                        "config": "{}",
+                        "project": "Governance",
+                        "votesSwitch": [],
+                        "claimVotesSwitch": [
+                            {
+                                "type": "Claim Votes Switch",
+                                "name": "New Claim Votes Switch",
+                                "config": "{}",
+                                "project": "Governance",
+                                "claimVotesSwitch": [],
+                                "positionClaimVotes": [],
+                                "assetClaimVotes": [],
+                                "featureClaimVotes": [],
+                                "id": "fd6d6874-6e8d-46f3-83bf-9f0954c37d65",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35766.99494427783,
+                                        "y": 11932.622743514055
+                                    },
+                                    "targetPosition": {
+                                        "x": 35466.99494427783,
+                                        "y": 11932.622743514055
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
+                        "weightVotesSwitch": [
+                            {
+                                "type": "Weight Votes Switch",
+                                "name": "New Weight Votes Switch",
+                                "config": "{}",
+                                "project": "Governance",
+                                "weightVotesSwitch": [],
+                                "poolWeightVotes": [],
+                                "assetWeightVotes": [],
+                                "featureWeightVotes": [],
+                                "positionWeightVotes": [],
+                                "id": "ef791b4a-2bcc-42fa-ba52-c15750cf8ed6",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35616.99494427783,
+                                        "y": 12192.430364649386
+                                    },
+                                    "targetPosition": {
+                                        "x": 35466.99494427783,
+                                        "y": 11932.622743514055
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
+                        "userProfileVotesSwitch": [],
+                        "id": "63cc30a6-1f25-4421-9984-1346bdcf6f6e",
+                        "savedPayload": {
+                            "position": {
+                                "x": 35466.99494427783,
+                                "y": 11932.622743514055
+                            },
+                            "targetPosition": {
+                                "x": 35207.1873231425,
+                                "y": 11782.622743514055
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "tokensBonus": {
+                    "type": "Tokens Bonus",
+                    "name": "New Tokens Bonus",
+                    "project": "Governance",
+                    "id": "68a1483e-b94a-4f26-9d3b-d95c8da9a655",
+                    "savedPayload": {
+                        "position": {
+                            "x": 35207.1873231425,
+                            "y": 12082.622743514055
+                        },
+                        "targetPosition": {
+                            "x": 35207.1873231425,
+                            "y": 11782.622743514055
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "6b932309-5e3b-4e49-9ea3-c73fa127b1d9",
+                "savedPayload": {
+                    "position": {
+                        "x": 35207.1873231425,
+                        "y": 11782.622743514055
+                    },
+                    "targetPosition": {
+                        "x": 35057.1873231425,
+                        "y": 11522.815122378724
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "claimsProgram": {
+                "type": "Claims Program",
+                "name": "New Claims Program",
+                "config": "{}",
+                "project": "Governance",
+                "assetClaimsFolders": [
+                    {
+                        "type": "Asset Claims Folder",
+                        "name": "New Asset Claims Folder",
+                        "config": "{}",
+                        "project": "Governance",
+                        "assetClaimsFolders": [
+                            {
+                                "type": "Asset Claims Folder",
+                                "name": "Launch-Scripts Asset Class",
+                                "config": "{}",
+                                "project": "Governance",
+                                "assetClaimsFolders": [],
+                                "assetContributionClaims": [
+                                    {
+                                        "type": "Asset Contribution Claim",
+                                        "name": "Superalgos Launch-Scripts create-shortcut.js",
+                                        "config": "{\n  \"description\": \"\"\n}",
+                                        "project": "Governance",
+                                        "id": "017aca18-d5c9-4abb-a496-3406b829b01b",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 23236.230369266268,
+                                                "y": 29912.816858182097
+                                            },
+                                            "targetPosition": {
+                                                "x": 22950.913414377723,
+                                                "y": 30005.52195649458
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset",
+                                                "name": "create-shortcut.js",
+                                                "id": "7998312a-e903-491a-b2cb-943f38e782ae"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos-Launch-Scripts",
+                                                    "Assets"
+                                                ],
+                                                [
+                                                    "Launch-Scripts",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Superalgos",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Launch-Scripts",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "create-shortcut.js",
+                                                    "Asset"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Asset Contribution Claim",
+                                        "name": "Superalgos Launch-Scripts launch-linux-mac.sh",
+                                        "config": "{\n  \"description\": \"\"\n}",
+                                        "project": "Governance",
+                                        "id": "e895abcd-c128-4f6e-8819-2004c7344183",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 23236.230369266268,
+                                                "y": 30098.227054807063
+                                            },
+                                            "targetPosition": {
+                                                "x": 22950.913414377723,
+                                                "y": 30005.52195649458
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset",
+                                                "name": "launch-linux-mac.sh",
+                                                "id": "e96a3ea1-8580-4cd1-8032-5ff8c19f2312"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos-Launch-Scripts",
+                                                    "Assets"
+                                                ],
+                                                [
+                                                    "Launch-Scripts",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Superalgos",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Launch-Scripts",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "launch-linux-mac.sh",
+                                                    "Asset"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Asset Contribution Claim",
+                                        "name": "Superalgos Launch-Scripts launch-windows.bat",
+                                        "config": "{\n  \"description\": \"\"\n}",
+                                        "project": "Governance",
+                                        "id": "7cf4712d-0ae0-4c28-bcf7-a122d9c5bc57",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 23127.248990065465,
+                                                "y": 30248.227054807063
+                                            },
+                                            "targetPosition": {
+                                                "x": 22950.913414377723,
+                                                "y": 30005.52195649458
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset",
+                                                "name": "launch-windows.bat",
+                                                "id": "58c7a50e-ae5e-4430-89bc-23d2631a5642"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos-Launch-Scripts",
+                                                    "Assets"
+                                                ],
+                                                [
+                                                    "Launch-Scripts",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Superalgos",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Launch-Scripts",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "launch-windows.bat",
+                                                    "Asset"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Asset Contribution Claim",
+                                        "name": "Superalgos Launch-Scripts superalgos.ico",
+                                        "config": "{\n  \"description\": \"\"\n}",
+                                        "project": "Governance",
+                                        "id": "a8f50d1f-c49a-482a-973a-62ceff1b3f26",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 22950.913414377723,
+                                                "y": 30305.52195649458
+                                            },
+                                            "targetPosition": {
+                                                "x": 22950.913414377723,
+                                                "y": 30005.52195649458
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset",
+                                                "name": "superalgos.ico",
+                                                "id": "24df883e-ebf1-41ed-b2a5-69a3707e65cc"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos-Launch-Scripts",
+                                                    "Assets"
+                                                ],
+                                                [
+                                                    "Launch-Scripts",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Superalgos",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Launch-Scripts",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "superalgos.ico",
+                                                    "Asset"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "id": "e7b48c45-ee92-4c8d-b3f7-3dbcf7cab22d",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35322.652596285385,
+                                        "y": 12119.059888052163
+                                    },
+                                    "targetPosition": {
+                                        "x": 35029.20831606524,
+                                        "y": 12056.686380806836
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": true,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Asset Class",
+                                        "name": "Launch-Scripts",
+                                        "id": "37811a42-dc4f-4140-9f24-9d4c793441cb"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos-Launch-Scripts",
+                                            "Assets"
+                                        ],
+                                        [
+                                            "Launch-Scripts",
+                                            "Asset Class"
+                                        ],
+                                        [
+                                            "Superalgos",
+                                            "Asset Class"
+                                        ],
+                                        [
+                                            "Launch-Scripts",
+                                            "Asset Class"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Asset Claims Folder",
+                                "name": "Root Asset Class",
+                                "config": "{}",
+                                "project": "Governance",
+                                "assetClaimsFolders": [],
+                                "assetContributionClaims": [
+                                    {
+                                        "type": "Asset Contribution Claim",
+                                        "name": "Superalgos Root .gitignore",
+                                        "config": "{\n  \"description\": \"\"\n}",
+                                        "project": "Governance",
+                                        "id": "34bab09e-6e60-4686-84fe-69574391d7d9",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 23196.910070435766,
+                                                "y": 29968.001611658256
+                                            },
+                                            "targetPosition": {
+                                                "x": 22908.9474979729,
+                                                "y": 30052.129828450055
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset",
+                                                "name": ".gitignore",
+                                                "id": "367ce04e-3a6e-4bce-830b-2d35cbd36c1a"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos-Root",
+                                                    "Assets"
+                                                ],
+                                                [
+                                                    "Root",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Superalgos",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Root",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    ".gitignore",
+                                                    "Asset"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Asset Contribution Claim",
+                                        "name": "Superalgos Root Environment.js",
+                                        "config": "{\n  \"description\": \"\"\n}",
+                                        "project": "Governance",
+                                        "id": "064e8250-8af5-472f-b412-db1e15a561eb",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 23204.894676149954,
+                                                "y": 30101.275201874596
+                                            },
+                                            "targetPosition": {
+                                                "x": 22908.9474979729,
+                                                "y": 30052.129828450055
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset",
+                                                "name": "Environment.js",
+                                                "id": "edc37ed3-4424-4c5b-bd9d-fb4960cab53d"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos-Root",
+                                                    "Assets"
+                                                ],
+                                                [
+                                                    "Root",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Superalgos",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Root",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Environment.js",
+                                                    "Asset"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Asset Contribution Claim",
+                                        "name": "Superalgos Root README.md",
+                                        "config": "{\n  \"description\": \"\"\n}",
+                                        "project": "Governance",
+                                        "id": "543f7676-dc4e-44f9-a3fb-74078bf74b86",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 23154.26331367223,
+                                                "y": 30224.814948155756
+                                            },
+                                            "targetPosition": {
+                                                "x": 22908.9474979729,
+                                                "y": 30052.129828450055
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset",
+                                                "name": "README.md",
+                                                "id": "a5ee087a-9889-41fc-b0c5-13a0e40cb7e8"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos-Root",
+                                                    "Assets"
+                                                ],
+                                                [
+                                                    "Root",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Superalgos",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Root",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "README.md",
+                                                    "Asset"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Asset Contribution Claim",
+                                        "name": "Superalgos Root run.js",
+                                        "config": "{\n  \"description\": \"\"\n}",
+                                        "project": "Governance",
+                                        "id": "28112c52-67b6-462c-8ed4-e0eedc2ff1fc",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 23055.044145294207,
+                                                "y": 30314.152288635196
+                                            },
+                                            "targetPosition": {
+                                                "x": 22908.9474979729,
+                                                "y": 30052.129828450055
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset",
+                                                "name": "run.js",
+                                                "id": "2ec5a110-3ecc-45ad-b410-9333ebc1840e"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos-Root",
+                                                    "Assets"
+                                                ],
+                                                [
+                                                    "Root",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Superalgos",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Root",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "run.js",
+                                                    "Asset"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Asset Contribution Claim",
+                                        "name": "Superalgos Root setup.js",
+                                        "config": "{\n  \"description\": \"\"\n}",
+                                        "project": "Governance",
+                                        "id": "bd26ddd4-4055-4a8f-a9ee-0f466e425a5c",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 22926.888744156407,
+                                                "y": 30351.592867380376
+                                            },
+                                            "targetPosition": {
+                                                "x": 22908.9474979729,
+                                                "y": 30052.129828450055
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset",
+                                                "name": "setup.js",
+                                                "id": "9c99e3f4-4e00-403b-9ead-8bdee7aa6566"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos-Root",
+                                                    "Assets"
+                                                ],
+                                                [
+                                                    "Root",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Superalgos",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Root",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "setup.js",
+                                                    "Asset"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Asset Contribution Claim",
+                                        "name": "Superalgos Root uninstall.js",
+                                        "config": "{\n  \"description\": \"\"\n}",
+                                        "project": "Governance",
+                                        "id": "32c19574-470e-408a-bd25-62f003ddb4fc",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 22795.17985917702,
+                                                "y": 30329.721118592253
+                                            },
+                                            "targetPosition": {
+                                                "x": 22908.9474979729,
+                                                "y": 30052.129828450055
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset",
+                                                "name": "uninstall.js",
+                                                "id": "bce89a4d-9098-4b36-aafc-33b7ff58e030"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos-Root",
+                                                    "Assets"
+                                                ],
+                                                [
+                                                    "Root",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Superalgos",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Root",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "uninstall.js",
+                                                    "Asset"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "id": "9f0683b6-d36b-498c-b86f-d1536a8f5ed3",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35229.9474979729,
+                                        "y": 12279.629828450054
+                                    },
+                                    "targetPosition": {
+                                        "x": 35029.20831606524,
+                                        "y": 12056.686380806836
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": true,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Asset Class",
+                                        "name": "Root",
+                                        "id": "1e82e5c7-9420-4205-a2c4-aab3f0f96565"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos-Root",
+                                            "Assets"
+                                        ],
+                                        [
+                                            "Root",
+                                            "Asset Class"
+                                        ],
+                                        [
+                                            "Superalgos",
+                                            "Asset Class"
+                                        ],
+                                        [
+                                            "Root",
+                                            "Asset Class"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Asset Claims Folder",
+                                "name": "UI Asset Class",
+                                "config": "{}",
+                                "project": "Governance",
+                                "assetClaimsFolders": [],
+                                "assetContributionClaims": [
+                                    {
+                                        "type": "Asset Contribution Claim",
+                                        "name": "Superalgos UI Utilities.js",
+                                        "config": "{\n  \"description\": \"\"\n}",
+                                        "project": "Governance",
+                                        "id": "6f1f8e83-7e40-46d7-88c0-bfd833e623ca",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 22770.925394025835,
+                                                "y": 30425.8995180278
+                                            },
+                                            "targetPosition": {
+                                                "x": 22739.566855045538,
+                                                "y": 30127.54294941732
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset",
+                                                "name": "Utilities.js",
+                                                "id": "ce6f4984-e936-4268-80c6-d0f9e6663174"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos-UI",
+                                                    "Assets"
+                                                ],
+                                                [
+                                                    "User Interface",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Superalgos",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "UI",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Utilities.js",
+                                                    "Asset"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "id": "641119f8-feb3-4c19-846b-d3483bcb5427",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35060.56685504554,
+                                        "y": 12355.042949417317
+                                    },
+                                    "targetPosition": {
+                                        "x": 35029.20831606524,
+                                        "y": 12056.686380806836
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": true,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Asset Class",
+                                        "name": "UI",
+                                        "id": "9c087e41-cf3d-4326-90fe-0309450e2577"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos-UI",
+                                            "Assets"
+                                        ],
+                                        [
+                                            "User Interface",
+                                            "Asset Class"
+                                        ],
+                                        [
+                                            "Superalgos",
+                                            "Asset Class"
+                                        ],
+                                        [
+                                            "UI",
+                                            "Asset Class"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Asset Claims Folder",
+                                "name": "Client Asset Class",
+                                "config": "{}",
+                                "project": "Governance",
+                                "assetClaimsFolders": [
+                                    {
+                                        "type": "Asset Claims Folder",
+                                        "name": "WebServer Asset Class",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "assetClaimsFolders": [
+                                            {
+                                                "type": "Asset Claims Folder",
+                                                "name": "css Asset Class",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "assetClaimsFolders": [],
+                                                "assetContributionClaims": [
+                                                    {
+                                                        "type": "Asset Contribution Claim",
+                                                        "name": "WebServer css tutorial.css",
+                                                        "config": "{\n  \"description\": \"\"\n}",
+                                                        "project": "Governance",
+                                                        "id": "a8ac27da-57e0-4c62-90ae-584f0d11e4c2",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 23165.639505612944,
+                                                                "y": 30715.728790610436
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 22922.93440730046,
+                                                                "y": 30539.393214922693
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Asset",
+                                                                "name": "tutorial.css",
+                                                                "id": "457a3df0-42d6-43c4-bb11-c6c21b03f53c"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Superalgos-CL",
+                                                                    "Assets"
+                                                                ],
+                                                                [
+                                                                    "New Asset Class",
+                                                                    "Asset Class"
+                                                                ],
+                                                                [
+                                                                    "Superalgos",
+                                                                    "Asset Class"
+                                                                ],
+                                                                [
+                                                                    "Client",
+                                                                    "Asset Class"
+                                                                ],
+                                                                [
+                                                                    "WebServer",
+                                                                    "Asset Class"
+                                                                ],
+                                                                [
+                                                                    "css",
+                                                                    "Asset Class"
+                                                                ],
+                                                                [
+                                                                    "tutorial.css",
+                                                                    "Asset"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "id": "a3621372-7816-4000-89c9-629879282abe",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 22922.93440730046,
+                                                        "y": 30539.393214922693
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 22680.22930898798,
+                                                        "y": 30363.05763923495
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Asset Class",
+                                                        "name": "css",
+                                                        "id": "ef180183-5878-41e3-8a80-acb9323c6bb1"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos-CL",
+                                                            "Assets"
+                                                        ],
+                                                        [
+                                                            "New Asset Class",
+                                                            "Asset Class"
+                                                        ],
+                                                        [
+                                                            "Superalgos",
+                                                            "Asset Class"
+                                                        ],
+                                                        [
+                                                            "Client",
+                                                            "Asset Class"
+                                                        ],
+                                                        [
+                                                            "WebServer",
+                                                            "Asset Class"
+                                                        ],
+                                                        [
+                                                            "css",
+                                                            "Asset Class"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Asset Claims Folder",
+                                                "name": "Images Asset Class",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "assetClaimsFolders": [
+                                                    {
+                                                        "type": "Asset Claims Folder",
+                                                        "name": "Tutorial Asset Class",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "assetClaimsFolders": [
+                                                            {
+                                                                "type": "Asset Claims Folder",
+                                                                "name": "Gifs Asset Class",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "assetClaimsFolders": [],
+                                                                "assetContributionClaims": [],
+                                                                "id": "2fb8dc15-512a-4510-bdc4-f61b9ed62f40",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 22586.153692047086,
+                                                                        "y": 31258.127345066394
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 22617.512231027384,
+                                                                        "y": 30959.770776455913
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Asset Class",
+                                                                        "name": "Gifs",
+                                                                        "id": "e2b5f4d3-ca0b-46ae-b2ce-245cb8640b0c"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Superalgos-CL",
+                                                                            "Assets"
+                                                                        ],
+                                                                        [
+                                                                            "New Asset Class",
+                                                                            "Asset Class"
+                                                                        ],
+                                                                        [
+                                                                            "Superalgos",
+                                                                            "Asset Class"
+                                                                        ],
+                                                                        [
+                                                                            "Client",
+                                                                            "Asset Class"
+                                                                        ],
+                                                                        [
+                                                                            "WebServer",
+                                                                            "Asset Class"
+                                                                        ],
+                                                                        [
+                                                                            "Images",
+                                                                            "Asset Class"
+                                                                        ],
+                                                                        [
+                                                                            "Tutorial",
+                                                                            "Asset Class"
+                                                                        ],
+                                                                        [
+                                                                            "Gifs",
+                                                                            "Asset Class"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "assetContributionClaims": [],
+                                                        "id": "b417d6aa-2b4b-45e1-b186-9064ffd3c2b6",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 22617.512231027384,
+                                                                "y": 30959.770776455913
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 22648.87077000768,
+                                                                "y": 30661.41420784543
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Asset Class",
+                                                                "name": "Tutorial",
+                                                                "id": "3f6467e6-9cec-45e1-b1b4-3d1a6ebb1b16"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Superalgos-CL",
+                                                                    "Assets"
+                                                                ],
+                                                                [
+                                                                    "New Asset Class",
+                                                                    "Asset Class"
+                                                                ],
+                                                                [
+                                                                    "Superalgos",
+                                                                    "Asset Class"
+                                                                ],
+                                                                [
+                                                                    "Client",
+                                                                    "Asset Class"
+                                                                ],
+                                                                [
+                                                                    "WebServer",
+                                                                    "Asset Class"
+                                                                ],
+                                                                [
+                                                                    "Images",
+                                                                    "Asset Class"
+                                                                ],
+                                                                [
+                                                                    "Tutorial",
+                                                                    "Asset Class"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "assetContributionClaims": [],
+                                                "id": "fe8c28af-b2c9-45ee-ad52-d3fa3dcbe92a",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 22648.87077000768,
+                                                        "y": 30661.41420784543
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 22680.22930898798,
+                                                        "y": 30363.05763923495
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Asset Class",
+                                                        "name": "Images",
+                                                        "id": "c9f29f3c-9d11-4ea7-ae79-88887a04d417"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos-CL",
+                                                            "Assets"
+                                                        ],
+                                                        [
+                                                            "New Asset Class",
+                                                            "Asset Class"
+                                                        ],
+                                                        [
+                                                            "Superalgos",
+                                                            "Asset Class"
+                                                        ],
+                                                        [
+                                                            "Client",
+                                                            "Asset Class"
+                                                        ],
+                                                        [
+                                                            "WebServer",
+                                                            "Asset Class"
+                                                        ],
+                                                        [
+                                                            "Images",
+                                                            "Asset Class"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "assetContributionClaims": [],
+                                        "id": "b72a56be-8aa2-45ce-9c95-d3772ac6ed85",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 22680.22930898798,
+                                                "y": 30363.05763923495
+                                            },
+                                            "targetPosition": {
+                                                "x": 22558.20831606524,
+                                                "y": 30088.99400194217
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": true,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset Class",
+                                                "name": "WebServer",
+                                                "id": "9004e0d8-db5b-4198-9f63-7332261554ef"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos-CL",
+                                                    "Assets"
+                                                ],
+                                                [
+                                                    "New Asset Class",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Superalgos",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Client",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "WebServer",
+                                                    "Asset Class"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "assetContributionClaims": [
+                                    {
+                                        "type": "Asset Contribution Claim",
+                                        "name": "Superalgos Client client.js",
+                                        "config": "{\n  \"description\": \"\"\n}",
+                                        "project": "Governance",
+                                        "id": "3173b56f-82a7-42fd-a54a-049e8e78393d",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 22495.834808819913,
+                                                "y": 30382.43828216231
+                                            },
+                                            "targetPosition": {
+                                                "x": 22558.20831606524,
+                                                "y": 30088.99400194217
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset",
+                                                "name": "client.js",
+                                                "id": "10312c78-63f8-4840-826e-14cf81e4edb7"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos-CL",
+                                                    "Assets"
+                                                ],
+                                                [
+                                                    "New Asset Class",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Superalgos",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Client",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "client.js",
+                                                    "Asset"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Asset Contribution Claim",
+                                        "name": "Superalgos Client package-lock.json",
+                                        "config": "{\n  \"description\": \"\"\n}",
+                                        "project": "Governance",
+                                        "id": "cacc36ed-34bc-443f-bc3a-81b67ef72eb9",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 22335.264868422022,
+                                                "y": 30289.73318384983
+                                            },
+                                            "targetPosition": {
+                                                "x": 22558.20831606524,
+                                                "y": 30088.99400194217
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset",
+                                                "name": "package-lock.json",
+                                                "id": "22997708-372d-489f-8732-868b4ae67bee"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos-CL",
+                                                    "Assets"
+                                                ],
+                                                [
+                                                    "New Asset Class",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Superalgos",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Client",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "package-lock.json",
+                                                    "Asset"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Asset Contribution Claim",
+                                        "name": "Superalgos Client package.json",
+                                        "config": "{\n  \"description\": \"\"\n}",
+                                        "project": "Governance",
+                                        "id": "bab9262b-b085-43ce-9349-24d38a83394d",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 22259.85174745476,
+                                                "y": 30120.352540922468
+                                            },
+                                            "targetPosition": {
+                                                "x": 22558.20831606524,
+                                                "y": 30088.99400194217
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset",
+                                                "name": "package.json",
+                                                "id": "487ff670-8faa-4efa-8466-0851b102b418"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos-CL",
+                                                    "Assets"
+                                                ],
+                                                [
+                                                    "New Asset Class",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Superalgos",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "Client",
+                                                    "Asset Class"
+                                                ],
+                                                [
+                                                    "package.json",
+                                                    "Asset"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "id": "7f0b653e-b368-4a77-b7e0-1619e54a9ebe",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34879.20831606524,
+                                        "y": 12316.494001942167
+                                    },
+                                    "targetPosition": {
+                                        "x": 35029.20831606524,
+                                        "y": 12056.686380806836
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": true,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Asset Class",
+                                        "name": "Client",
+                                        "id": "3a149378-35d5-44e8-99c2-33a3b4d8e718"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos-CL",
+                                            "Assets"
+                                        ],
+                                        [
+                                            "New Asset Class",
+                                            "Asset Class"
+                                        ],
+                                        [
+                                            "Superalgos",
+                                            "Asset Class"
+                                        ],
+                                        [
+                                            "Client",
+                                            "Asset Class"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "assetContributionClaims": [],
+                        "id": "ee4d9bd4-4652-4957-abee-e2c1ada381be",
+                        "savedPayload": {
+                            "position": {
+                                "x": 35029.20831606524,
+                                "y": 12056.686380806836
+                            },
+                            "targetPosition": {
+                                "x": 34907.1873231425,
+                                "y": 11782.622743514055
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "featureClaimsFolders": [
+                    {
+                        "type": "Feature Claims Folder",
+                        "name": "New Feature Claims Folder",
+                        "config": "{}",
+                        "project": "Governance",
+                        "featureClaimsFolders": [],
+                        "featureContributionClaims": [],
+                        "id": "efbab046-03a6-4093-9551-9fa593731b72",
+                        "savedPayload": {
+                            "position": {
+                                "x": 34844.81381589717,
+                                "y": 12076.067023734196
+                            },
+                            "targetPosition": {
+                                "x": 34907.1873231425,
+                                "y": 11782.622743514055
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "positionClaimsFolders": [
+                    {
+                        "type": "Position Claims Folder",
+                        "name": "New Position Claims Folder",
+                        "config": "{}",
+                        "project": "Governance",
+                        "positionClaimsFolders": [
+                            {
+                                "type": "Position Claims Folder",
+                                "name": "Community Management Position Class",
+                                "config": "{}",
+                                "project": "Governance",
+                                "positionClaimsFolders": [],
+                                "positionContributionClaims": [
+                                    {
+                                        "type": "Position Contribution Claim",
+                                        "name": "Moderator Community Management",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "704fded5-a71b-4b2e-b010-e6231a9d7d5f",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 34757.1873231425,
+                                                "y": 12642.430364649386
+                                            },
+                                            "targetPosition": {
+                                                "x": 34757.1873231425,
+                                                "y": 12342.430364649386
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position",
+                                                "name": "Moderator",
+                                                "id": "6e141ab6-cc79-44b6-a58a-60b6480f706e"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Rewarded Positions",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Community Management",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Moderator",
+                                                    "Position"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "id": "6f40923c-dc32-483f-a393-e9822195243d",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34757.1873231425,
+                                        "y": 12342.430364649386
+                                    },
+                                    "targetPosition": {
+                                        "x": 34757.1873231425,
+                                        "y": 12042.430364649386
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position Class",
+                                        "name": "Community Management",
+                                        "id": "35b790f0-c567-498c-83fd-ac0aacd8720b"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Rewarded Positions",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Community Management",
+                                            "Position Class"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Position Claims Folder",
+                                "name": "Core Team Position Class",
+                                "config": "{}",
+                                "project": "Governance",
+                                "positionClaimsFolders": [],
+                                "positionContributionClaims": [
+                                    {
+                                        "type": "Position Contribution Claim",
+                                        "name": "Member Core Team",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "892f1b17-4107-45b8-883f-70343852aa8f",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 34237.57208087183,
+                                                "y": 12342.430364649386
+                                            },
+                                            "targetPosition": {
+                                                "x": 34497.379702007165,
+                                                "y": 12192.430364649386
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position",
+                                                "name": "Member",
+                                                "id": "63bbf7f7-2d71-4075-8498-f09f754d8c0b"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Rewarded Positions",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Core Team",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Member",
+                                                    "Position"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "id": "8713d06c-c3c2-4cb2-91b2-1483f8087b57",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34497.379702007165,
+                                        "y": 12192.430364649386
+                                    },
+                                    "targetPosition": {
+                                        "x": 34757.1873231425,
+                                        "y": 12042.430364649386
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position Class",
+                                        "name": "Core Team",
+                                        "id": "0dc6759d-459b-45ff-83c5-220b7a323f75"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Rewarded Positions",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Core Team",
+                                            "Position Class"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "positionContributionClaims": [],
+                        "id": "0945e16c-9222-4593-b53b-29720bf0c6b9",
+                        "savedPayload": {
+                            "position": {
+                                "x": 34684.243875499276,
+                                "y": 11983.361925421714
+                            },
+                            "targetPosition": {
+                                "x": 34907.1873231425,
+                                "y": 11782.622743514055
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": true,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "ab59ba29-688b-4ff7-a136-01a95fdfd1fe",
+                    "savedPayload": {
+                        "position": {
+                            "x": 34608.83075453201,
+                            "y": 11813.981282494351
+                        },
+                        "targetPosition": {
+                            "x": 34907.1873231425,
+                            "y": 11782.622743514055
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "2adac02b-9f76-4c78-8adf-47d3ad8d0f45",
+                "savedPayload": {
+                    "position": {
+                        "x": 34907.1873231425,
+                        "y": 11782.622743514055
+                    },
+                    "targetPosition": {
+                        "x": 35057.1873231425,
+                        "y": 11522.815122378724
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": true,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "7241ec8c-6b20-4128-bf1a-cf77e38b5591",
+            "savedPayload": {
+                "position": {
+                    "x": 35057.1873231425,
+                    "y": 11522.815122378724
+                },
+                "targetPosition": {
+                    "x": 35057.1873231425,
+                    "y": 11222.815122378724
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 2,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "financialPrograms": {
+            "type": "Financial Programs",
+            "name": "New Financial Programs",
+            "config": "{\n    \"percentage\": 10\n}",
+            "project": "Governance",
+            "delegationProgram": {
+                "type": "Delegation Program",
+                "name": "New Delegation Program",
+                "config": "{}",
+                "project": "Governance",
+                "delegatePowerSwitch": [],
+                "tokensBonus": {
+                    "type": "Tokens Bonus",
+                    "name": "New Tokens Bonus",
+                    "project": "Governance",
+                    "id": "bc5ed26e-9007-453a-aed5-6ff085a58d8c",
+                    "savedPayload": {
+                        "position": {
+                            "x": 34420.79122007461,
+                            "y": 11859.211225446616
+                        },
+                        "targetPosition": {
+                            "x": 34632.92325443057,
+                            "y": 11647.079191090652
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "5b2bb54d-9de2-4234-9507-5c50f54617fb",
+                "savedPayload": {
+                    "position": {
+                        "x": 34632.92325443057,
+                        "y": 11647.079191090652
+                    },
+                    "targetPosition": {
+                        "x": 34845.055288786534,
+                        "y": 11434.947156734688
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "8a9806a8-eb5f-4337-8e73-db0c132cc62b",
+            "savedPayload": {
+                "position": {
+                    "x": 34845.055288786534,
+                    "y": 11434.947156734688
+                },
+                "targetPosition": {
+                    "x": 35057.1873231425,
+                    "y": 11222.815122378724
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 2,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
         "id": "d5ad1e6a-c6ea-465e-ae14-99fb54534baa",
         "savedPayload": {
             "position": {
-                "x": 14342.16634182974,
-                "y": 23303.502366806064
+                "x": 35057.1873231425,
+                "y": 11222.815122378724
             },
             "targetPosition": {
-                "x": 14342.16634182974,
-                "y": 23003.502366806064
+                "x": 35057.1873231425,
+                "y": 10922.815122378724
             },
             "floatingObject": {
                 "isPinned": false,
@@ -960,12 +2223,12 @@
         "id": "9f832420-03f7-4e4b-8973-c3520bd6f263",
         "savedPayload": {
             "position": {
-                "x": 14042.16634182974,
-                "y": 23003.502366806064
+                "x": 34757.1873231425,
+                "y": 10922.815122378724
             },
             "targetPosition": {
-                "x": 14342.16634182974,
-                "y": 23003.502366806064
+                "x": 35057.1873231425,
+                "y": 10922.815122378724
             },
             "floatingObject": {
                 "isPinned": false,
@@ -983,12 +2246,12 @@
     "id": "107d3e44-1685-4540-8316-3bc6591298e9",
     "savedPayload": {
         "position": {
-            "x": 14342.16634182974,
-            "y": 23003.502366806064
+            "x": 35057.1873231425,
+            "y": 10922.815122378724
         },
         "targetPosition": {
-            "x": 14342.16634182974,
-            "y": 23003.502366806064
+            "x": 35057.1873231425,
+            "y": 10922.815122378724
         },
         "floatingObject": {
             "isPinned": false,

@@ -1,7 +1,14 @@
 {
     "type": "Dashboard",
     "definition": {
-        "text": "A dashboard is a collection of time machines, each containing any number of charts."
+        "text": "A dashboard is a collection of time machines, each containing any number of charts.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un dashboard es una colección de máquinas del tiempo, cada una de las cuales contiene un número indeterminado de gráficos.",
+                "updated": 1628897543779
+            }
+        ]
     },
     "paragraphs": [
         {

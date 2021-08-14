@@ -1,7 +1,14 @@
 {
     "type": "Time Frame Scale",
     "definition": {
-        "text": "The time frame scale controls the time frame setting, that is, the period represented by each candle, either of the time machine or of the timeline chart, depending on where the node is located."
+        "text": "The time frame scale controls the time frame setting, that is, the period represented by each candle, either of the time machine or of the timeline chart, depending on where the node is located.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El time frame scale controla la configuración del marco de tiempo, es decir, el período representado por cada vela, ya sea de la máquina del tiempo o del gráfico de la línea de tiempo, dependiendo de dónde se encuentre el nodo.",
+                "updated": 1628898828318
+            }
+        ]
     },
     "paragraphs": [
         {

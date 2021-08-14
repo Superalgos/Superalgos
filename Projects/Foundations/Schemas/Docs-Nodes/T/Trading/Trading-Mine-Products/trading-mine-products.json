@@ -1,7 +1,14 @@
 {
     "type": "Trading Mine Products",
     "definition": {
-        "text": "Trading mine products are references established with trading mines to facilitate establishing data product references with multiple products in the given mine."
+        "text": "Trading mine products are references established with trading mines to facilitate establishing data product references with multiple products in the given mine.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Trading mine products son referencias establecidas con trading minas para facilitar el establecimiento de referencias de productos de datos con múltiples productos en la mina determinada.",
+                "updated": 1628899003801
+            }
+        ]
     },
     "paragraphs": [
         {

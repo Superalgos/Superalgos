@@ -9,7 +9,13 @@
             {
                 "language": "FR",
                 "text": "Résumé: Ce tutoriel vous présente l'univers de Superalgos. Il vous guide à travers les principaux domaines du système, vous apprend le fonctionnement de base, vous guide à travers le processus de backtesting du Trading System, et vous permet même d'obtenir votre premier Live Trading Session.",
-                "updated": 1623946807972
+                "updated": 1623946807972,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Este tutorial le presenta el universo Superalgos.Lo guía a través de las áreas principales del sistema, le enseña el funcionamiento básico, lo guía a través del proceso de backtesting de una demostración Trading System, e incluso te configura con tu primer Live Trading Session.",
+                "updated": 1628897237327
             }
         ]
     },
@@ -22,7 +28,8 @@
                 {
                     "language": "FR",
                     "text": "À propos de ce tutoriel :",
-                    "updated": 1623946884414
+                    "updated": 1623946884414,
+                    "style": "Title"
                 }
             ]
         },
@@ -34,7 +41,8 @@
                 {
                     "language": "FR",
                     "text": "Espace de travail: Getting Started Tutorials Plugin Workspace.",
-                    "updated": 1623949967730
+                    "updated": 1623949967730,
+                    "style": "List"
                 }
             ]
         },
@@ -45,7 +53,8 @@
                 {
                     "language": "FR",
                     "text": "Responsable: @julianmolina (Telegram).",
-                    "updated": 1623947189422
+                    "updated": 1623947189422,
+                    "style": "List"
                 }
             ]
         }

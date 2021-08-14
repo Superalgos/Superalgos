@@ -4,7 +4,14 @@
     "type": "Basic Education Tutorial",
     "definition": {
         "text": "This tutorial complements the information delivered in the Welcome to Superalgos Tutorial, focusing on the Nodes Menu, Backups, Clones and Shares, Plugins, Workspaces, References, and more.",
-        "updated": 1616697309196
+        "updated": 1616697309196,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este tutorial complementa la información entregada en el Welcome to Superalgos Tutorial, centrándose en el Nodes Menu, Backups, Clones y Shares, Plugins, Workspaces, References, y más.",
+                "updated": 1628897004689
+            }
+        ]
     },
     "paragraphs": [
         {

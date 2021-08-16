@@ -7,7 +7,7 @@
     "name": "Luis-Fernando-Molina"
   },
   "dependencies": {
-    "@octokit/rest": "^18.9.0",
+    "@octokit/rest": "^18.9.1",
     "ccxt": "^1.51.98",
     "child_process": "^1.0.2",
     "lookpath": "^1.2.2",

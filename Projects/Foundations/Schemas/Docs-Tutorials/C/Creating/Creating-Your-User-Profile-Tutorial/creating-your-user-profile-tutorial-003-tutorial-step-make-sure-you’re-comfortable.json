@@ -1,0 +1,20 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 3,
+    "type": "Tutorial Step - Make sure You’re Comfortable",
+    "definition": {
+        "text": "Before you jump into governance, it’s important you know what is being governed!",
+        "updated": 1629147485727
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Take some time to go through the Getting Started Tutorials if you haven't already. There is no need to be an expert, but some general knowledge of the system will make your time in the Governance project much more productive.",
+            "updated": 1629147481393
+        },
+        {
+            "style": "Callout",
+            "text": "If you’ve already done that then let’s get rolling!"
+        }
+    ]
+}

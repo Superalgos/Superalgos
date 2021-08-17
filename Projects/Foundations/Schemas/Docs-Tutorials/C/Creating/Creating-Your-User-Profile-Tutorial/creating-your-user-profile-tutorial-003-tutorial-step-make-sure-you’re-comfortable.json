@@ -4,17 +4,25 @@
     "type": "Tutorial Step - Make sure You’re Comfortable",
     "definition": {
         "text": "Before you jump into governance, it’s important you know what is being governed!",
-        "updated": 1629147485727
+        "updated": 1629147485727,
+        "icon": {
+            "name": "Charting-Space/charting-space",
+            "project": "Foundations"
+        }
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Take some time to go through the Getting Started Tutorials if you haven't already. There is no need to be an expert, but some general knowledge of the system will make your time in the Governance project much more productive.",
-            "updated": 1629147481393
+            "text": "We have got a lot of exciting things to talk about, but I want to make sure you can follow along easily. ",
+            "updated": 1629164474591
         },
         {
             "style": "Callout",
-            "text": "If you’ve already done that then let’s get rolling!"
+            "text": "If you haven't already, take some time to go through the Getting Started Tutorials."
+        },
+        {
+            "style": "Success",
+            "text": "There is no need to be an expert, but some general knowledge of the system will make your time in the Governance project much more productive."
         }
     ]
 }

@@ -4,6 +4,7 @@
         {
             "action": "Add Missing Plugin Tutorials",
             "label": "Add Missing Tutorials",
+            "iconProject": "Education",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",

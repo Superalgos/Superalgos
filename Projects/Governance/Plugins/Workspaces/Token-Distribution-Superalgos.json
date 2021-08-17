@@ -1350,11 +1350,10 @@
                 }
             }
         },
-        null,
         {
             "type": "Tutorial",
             "name": "Creating Your User Profile Tutorial",
-            "config": "{\n    \"icon\": {\n        \"name\": \"Charting-Space/chart-points\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Better Together\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
+            "config": "{\n    \"icon\": {\n        \"name\": \"governance\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Better Together\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
             "project": "Education",
             "tutorialSteps": [],
             "tutorialTopics": [
@@ -1374,7 +1373,7 @@
                                 {
                                     "type": "Tutorial Step",
                                     "name": "Make sure You’re Comfortable",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"Charting-Space/charting-space\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Make sure You’re Comfortable\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
+                                    "config": "{\n    \"icon\": {\n        \"name\": \"Pool\\\\pools\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Make sure You’re Comfortable\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
                                     "project": "Education",
                                     "id": "7c13abc2-27e4-4fe6-afd8-14cbc0b65c7d",
                                     "savedPayload": {
@@ -1396,6 +1395,9 @@
                                         },
                                         "uiObject": {
                                             "isRunning": false
+                                        },
+                                        "tutorial": {
+                                            "status": "Done"
                                         },
                                         "referenceParent": {
                                             "type": "Charting Space",
@@ -1427,7 +1429,7 @@
                                 "floatingObject": {
                                     "isPinned": false,
                                     "isFrozen": false,
-                                    "isCollapsed": false,
+                                    "isCollapsed": true,
                                     "angleToParent": 2,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
@@ -1449,7 +1451,7 @@
                                 {
                                     "type": "Tutorial Step",
                                     "name": "One Token to Rule Them All",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"design-space\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - One Token to Rule Them All\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
+                                    "config": "{\n    \"icon\": {\n        \"name\": \"Programs\\\\staking-program\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - One Token to Rule Them All\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
                                     "project": "Education",
                                     "id": "33321959-1eb0-494c-8df3-94b1e47efdb3",
                                     "savedPayload": {
@@ -1485,7 +1487,7 @@
                                 {
                                     "type": "Tutorial Step",
                                     "name": "With Tokens Comes Responsibility",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"workspace\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - With Tokens Comes Responsibility\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
+                                    "config": "{\n    \"icon\": {\n        \"name\": \"governance\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - With Tokens Comes Responsibility\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
                                     "project": "Education",
                                     "id": "a13ac48c-5743-4794-85bd-bf0794d9e1a2",
                                     "savedPayload": {
@@ -1516,7 +1518,7 @@
                                 {
                                     "type": "Tutorial Step",
                                     "name": "A Mighty Meritocracy",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"crypto-exchange\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"toggleMapView\": {\n        \"view\": \"Off\"\n    },\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - A Mighty Meritocracy\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
+                                    "config": "{\n    \"icon\": {\n        \"name\": \"Position\\\\positions\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"toggleMapView\": {\n        \"view\": \"Off\"\n    },\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - A Mighty Meritocracy\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
                                     "project": "Education",
                                     "id": "d9b824fd-a201-40b8-8a60-d0c516d9634b",
                                     "savedPayload": {
@@ -1539,7 +1541,9 @@
                                         "uiObject": {
                                             "isRunning": false
                                         },
-                                        "tutorial": {},
+                                        "tutorial": {
+                                            "status": "Done"
+                                        },
                                         "referenceParent": {
                                             "type": "Crypto Exchange",
                                             "name": "Binance",
@@ -1570,7 +1574,7 @@
                                 {
                                     "type": "Tutorial Step",
                                     "name": "A Worthy Contribution",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"Market/market\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - A Worthy Contribution\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
+                                    "config": "{\n    \"icon\": {\n        \"name\": \"Programs\\\\referral-program\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - A Worthy Contribution\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
                                     "project": "Education",
                                     "id": "a0d50140-b862-4b7e-9bc6-ed055b34a0bd",
                                     "savedPayload": {
@@ -1672,7 +1676,7 @@
                                 {
                                     "type": "Tutorial Step",
                                     "name": "What’s in a Profile?",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"Charting-Space/chart-points\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - What’s in a Profile?\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
+                                    "config": "{\n    \"icon\": {\n        \"name\": \"User\\\\user-profile\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - What’s in a Profile?\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
                                     "project": "Education",
                                     "id": "df575afd-af40-4725-a9a0-d0e3bdd64572",
                                     "savedPayload": {
@@ -1695,9 +1699,7 @@
                                         "uiObject": {
                                             "isRunning": false
                                         },
-                                        "tutorial": {
-                                            "status": "Done"
-                                        },
+                                        "tutorial": {},
                                         "referenceParent": {
                                             "type": "Charting Space",
                                             "name": "New Charting Space",
@@ -1716,7 +1718,7 @@
                                 {
                                     "type": "Tutorial Step",
                                     "name": "Program Participation",
-                                    "config": "{\n        \"icon\": {\n        \"name\": \"Charting-Space/chart-points\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Program Participation\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
+                                    "config": "{\n    \"icon\": {\n        \"name\": \"User\\\\user-referrer\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Program Participation\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
                                     "project": "Education",
                                     "id": "1a414df9-32fa-4055-b0db-7a932e4b59e1",
                                     "savedPayload": {
@@ -1738,6 +1740,9 @@
                                         },
                                         "uiObject": {
                                             "isRunning": false
+                                        },
+                                        "tutorial": {
+                                            "status": "Done"
                                         }
                                     }
                                 }
@@ -1805,7 +1810,7 @@
                         {
                             "type": "Tutorial Step",
                             "name": "Where is all Begins",
-                            "config": "{\n    \"icon\": {\n        \"name\": \"Charting-Space/dashboard\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Where is all Begins\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
+                            "config": "{\n    \"icon\": {\n        \"name\": \"governance\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Where is all Begins\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
                             "project": "Education",
                             "id": "9aec749c-46c8-45d0-99f4-f99ecd50ec44",
                             "savedPayload": {
@@ -1828,29 +1833,18 @@
                                 "uiObject": {
                                     "isRunning": false
                                 },
+                                "tutorial": {
+                                    "status": "Done"
+                                },
                                 "referenceParent": {
-                                    "type": "Dashboard",
-                                    "name": "Testing Trading Tasks My Computer",
-                                    "id": "b10709c9-2150-4055-a06e-1b9b8db2af55"
+                                    "type": "Governance Project",
+                                    "name": "New Governance Project",
+                                    "id": "db380c52-cf90-475b-87df-c005dd51cdf6"
                                 },
                                 "referenceParentCombinedNodePath": [
                                     [
-                                        "New Charting Space",
-                                        "Charting Space",
-                                        "Foundations",
-                                        "21d2ec55-9e56-4652-8e96-c7e451262c36"
-                                    ],
-                                    [
-                                        "Foundations",
-                                        "Project Dashboards",
-                                        "Foundations",
-                                        "2f92dce8-f804-40b6-9f4d-e605f4b4a55e"
-                                    ],
-                                    [
-                                        "Testing Trading Tasks My Computer",
-                                        "Dashboard",
-                                        "Foundations",
-                                        "b10709c9-2150-4055-a06e-1b9b8db2af55"
+                                        "New Governance Project",
+                                        "Governance Project"
                                     ]
                                 ]
                             }
@@ -1858,7 +1852,7 @@
                         {
                             "type": "Tutorial Step",
                             "name": "Profile in a Heartbeat",
-                            "config": "{\n    \"icon\": {\n        \"name\": \"under-construction\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Profile in a Heartbeat\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"Close\",\n        \"closeTutorialEditor\": true,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
+                            "config": "{\n    \"icon\": {\n        \"name\": \"profile-constructor\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Profile in a Heartbeat\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"Close\",\n        \"closeTutorialEditor\": true,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
                             "project": "Education",
                             "id": "cdfada38-c5e0-4c0c-aaf5-4fa24b416131",
                             "savedPayload": {
@@ -1880,13 +1874,16 @@
                                 },
                                 "uiObject": {
                                     "isRunning": false
+                                },
+                                "tutorial": {
+                                    "status": "Done"
                                 }
                             }
                         },
                         {
                             "type": "Tutorial Step",
                             "name": "Pump that Heartbeat!",
-                            "config": "{\n    \"icon\": {\n        \"name\": \"Time/time-machine\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Pump that Heartbeat!\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"Close\",\n        \"closeTutorialEditor\": true\n    },\n    \"positionAtReferenceParent\": true\n}",
+                            "config": "{\n    \"icon\": {\n        \"name\": \"configuration\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Pump that Heartbeat!\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"Close\",\n        \"closeTutorialEditor\": true\n    },\n    \"positionAtReferenceParent\": true\n}",
                             "project": "Education",
                             "id": "651e15ce-bdda-4cca-9c2d-e16a2d900e45",
                             "savedPayload": {
@@ -1908,6 +1905,9 @@
                                 },
                                 "uiObject": {
                                     "isRunning": false
+                                },
+                                "tutorial": {
+                                    "status": "Done"
                                 },
                                 "referenceParent": {
                                     "type": "Time Machine",
@@ -1992,6 +1992,9 @@
                         },
                         "uiObject": {
                             "isRunning": false
+                        },
+                        "tutorial": {
+                            "status": "Done"
                         }
                     }
                 },

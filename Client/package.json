@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@octokit/rest": "^18.9.0",
-    "ccxt": "^1.51.98",
+    "ccxt": "^1.55.8",
     "child_process": "^1.0.2",
     "lookpath": "^1.2.2",
     "open": "^6.4.0",

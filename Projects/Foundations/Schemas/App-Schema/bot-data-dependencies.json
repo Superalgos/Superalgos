@@ -9,8 +9,8 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Dependency Product Folder",
-            "relatedUiObject": "Dependency Product Folder",
+            "label": "Add Data Dependency Folder",
+            "relatedUiObject": "Data Dependency Folder",
             "actionFunction": "payload.executeAction"
         },
         {

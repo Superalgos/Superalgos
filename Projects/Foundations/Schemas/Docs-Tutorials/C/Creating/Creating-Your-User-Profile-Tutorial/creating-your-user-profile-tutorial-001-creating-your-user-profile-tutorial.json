@@ -1,0 +1,28 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 1,
+    "type": "Creating Your User Profile Tutorial",
+    "definition": {
+        "text": "This Tutorial walks you through the steps to create a User Profile and begin the journey to participating in Superalgos Governance.",
+        "updated": 1629146822189
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "About This Tutorial"
+        },
+        {
+            "style": "List",
+            "text": "Workspace: Token Distribution Superalgos.",
+            "updated": 1629146723735
+        },
+        {
+            "style": "List",
+            "text": "Maintainer: @harrellbm (Telegram, and Discord)."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

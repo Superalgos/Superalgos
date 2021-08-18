@@ -5,21 +5,42 @@
     "definition": {
         "text": "To finish this basic setup, I have gone ahead and installed the BTC/USDT market for you.",
         "icon": {
-            "name": "market",
+            "name": "Market/market",
             "project": "Foundations"
         },
-        "updated": 1619997280859
+        "updated": 1628360778811,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Para finalizar esta configuración básica, seguí adelante e instalé el BTC/USDT mercado para usted.",
+                "updated": 1628639995753
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The Install a New Market Tutorial taught you that installing a market sets up everything you need for a basic Superalgos workspace. This includes automatically setting up a Backtesting Session, Live Trading Session, and charts for each Trading System present in the workspace.",
-            "updated": 1621520234424
+            "updated": 1628361277853,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El Install a New Market Tutorial le enseñó que instalar un mercado establece todo lo que necesita para un espacio de trabajo básico de Superalgos. Esto incluye configurar automáticamente un Backtesting Session, Live Trading Session, y gráficos para cada Trading System presente en el workspace.",
+                    "updated": 1628640053192
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "You could run this basic setup as it stands. In fact, if you are looking for a basic way to set things up, installing a plugin Data Mine, Trading System, and finishing by installing a Market will get you up and running in no time. But that’s not the point of this Tutorial! Let’s dig into some custom charts!",
-            "updated": 1620005568841
+            "updated": 1628361497574,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Puede ejecutar esta configuración básica tal como está. De hecho, si estás buscando una forma básica de configurar las cosas, instala un plugin Data Mine, Trading System, y terminando instalando un Market te pondrán en funcionamiento en poco tiempo. ¡Pero ese no es el objetivo de este tutorial! ",
+                    "updated": 1628641375531
+                }
+            ]
         }
     ]
 }

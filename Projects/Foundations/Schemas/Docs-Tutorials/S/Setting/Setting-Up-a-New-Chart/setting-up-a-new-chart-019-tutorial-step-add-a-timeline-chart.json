@@ -6,20 +6,41 @@
         "text": "Now that we have something to hold our charts, let's go ahead and add one!",
         "updated": 1617800759702,
         "icon": {
-            "name": "timeline-chart",
+            "name": "Time/timeline-chart",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Ahora que tenemos algo para guardar nuestros gráficos, ¡sigamos adelante y agreguemos uno!",
+                "updated": 1628646604795
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Hover over your Time Machine and click Add Timeline Chart.",
-            "updated": 1617800816707
+            "updated": 1617800816707,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Coloca el cursor sobre tu Time Machine y has clic Add Timeline Chart.",
+                    "updated": 1628646628639
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Giving a helpful name to a Timeline Chart is important. A good naming practice is to reference the Data Mine or Data Product with which it will be connected. Right now we will be adding Candles Data Mine data to this timeline chart. A helpful name would be:",
-            "updated": 1620045091728
+            "updated": 1620045091728,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Dar un nombre útil a un Timeline Chart es importante. Una buena práctica de nomenclatura es hacer referencia a la Data Mine o Data Product con el que se conectará. Ahora mismo estaremos agregando Candles Data Mine datos a este gráfico de línea de tiempo. Un nombre útil sería:",
+                    "updated": 1628646729893
+                }
+            ]
         },
         {
             "style": "Json",
@@ -29,7 +50,14 @@
         {
             "style": "Text",
             "text": "Make sure your title is short! You'll see why soon.",
-            "updated": 1620554841489
+            "updated": 1620554841489,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Asegúrate de que tu título sea corto! ",
+                    "updated": 1628646807108
+                }
+            ]
         },
         {
             "style": "Text",

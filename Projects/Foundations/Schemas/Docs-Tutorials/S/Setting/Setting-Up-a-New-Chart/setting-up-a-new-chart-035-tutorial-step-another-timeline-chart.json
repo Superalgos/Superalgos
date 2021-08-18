@@ -6,19 +6,40 @@
         "text": "To connect with our Trading System we will need another Timeline Chart. Let's go ahead and add it!",
         "updated": 1619024596906,
         "icon": {
-            "name": "timeline-chart",
+            "name": "Time/timeline-chart",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Para conectar con nuestro Trading System Nosotros necesitaremos otro Timeline Chart ¡Sigamos adelante y agreguemos!",
+                "updated": 1628731520938
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Go find your Time Machine and add a new Timeline Chart."
+            "text": "Go find your Time Machine and add a new Timeline Chart.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Ve a buscar tu Time Machine y agrega un nuevo Timeline Chart.",
+                    "updated": 1628731576747
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Remember to name it for easy recognition. If we name it according to type of mine or data. A good name would be:",
-            "updated": 1617885817072
+            "updated": 1617885817072,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Recuerda ponerle un nombre para reconocerlo fácilmente. Si lo nombramos según tipo de mina o dato. Un buen nombre sería:",
+                    "updated": 1628731601507
+                }
+            ]
         },
         {
             "style": "Json",

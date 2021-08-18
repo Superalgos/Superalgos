@@ -6,30 +6,65 @@
         "text": "Woohoo, you did it! You have added your first custom chart. Let's see what we've got so far. Zoom all the way into your chart and take a look around.",
         "updated": 1619020412228,
         "icon": {
-            "name": "chart-points",
+            "name": "Charting-Space/chart-points",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Has agregado tu primer gráfico personalizado. Veamos qué tenemos hasta ahora. Amplía todo el recorrido de tu gráfico y eche un vistazo a tu alrededor.",
+                "updated": 1628647058651
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Your chart is there alright, but it's pretty boring still.",
-            "updated": 1619020652143
+            "updated": 1619020652143,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Su gráfico está bien, pero todavía es bastante aburrido.",
+                    "updated": 1628646906326
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Find the Layer Manager for the Timeline Chart you added. Use your mouse to scroll a few times.",
-            "updated": 1620046806923
+            "updated": 1620046806923,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Encuentra el Layer Manager para el Timeline Chart tu agregaste. Utiliza tu ratón para desplazarte unas cuantas veces.",
+                    "updated": 1628646968752
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "No matter how hard you scroll nothing happens does it? Don't worry, nothing is broken! We just haven’t hooked it up to any of your data. Let’s change that! ",
-            "updated": 1620046673656
+            "updated": 1620046673656,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "No importa cuánto te desplaces, no pasa nada. ¡No te preocupes, no hay nada roto! Simplemente no lo hemos conectado a ninguno de sus datos. ¡Cambiemos eso!",
+                    "updated": 1628647017081
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "A Layer Manager inherits the name from its Timeline Chart. That's why a short name was best!",
-            "updated": 1620555102768
+            "updated": 1620555102768,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un Layer Manager hereda el nombre de su Timeline Chart. ¡Por eso era mejor un nombre corto!",
+                    "updated": 1628647051230
+                }
+            ]
         },
         {
             "style": "Text",

@@ -160,6 +160,15 @@ exports.newHttpInterface = function newHttpInterface(
                                     respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                     return
                                 }
+                                case 'mnemonicToPrivateKey': {
+
+                                    let serverResponse = await WEB3_SERVER.mnemonicToPrivateKey(
+                                        params.mnemonic
+                                    )
+
+                                    respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                    return
+                                }
                                 default: {
                                     respondWithContent(JSON.stringify({ error: 'Method ' + params.method + ' is invalid.' }), httpResponse)
                                 }

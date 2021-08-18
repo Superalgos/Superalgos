@@ -34,7 +34,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \"githubUsername\": \"\"}"
+        "config": "{ \"githubUsername\": \"\", \"mnemonic\": \"\"}"
     },
     "addLeftIcons": true,
     "level": 2,

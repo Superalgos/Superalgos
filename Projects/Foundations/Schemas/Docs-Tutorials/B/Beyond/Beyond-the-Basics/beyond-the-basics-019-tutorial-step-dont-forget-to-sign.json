@@ -6,7 +6,7 @@
         "text": "These comments about your first impressions on Superalgos are your first contribution, and for that we thank you!",
         "updated": 1610735268141,
         "icon": {
-            "name": "bullet-warning",
+            "name": "Bullet\\bullet-warning",
             "project": "Foundations"
         },
         "translations": [
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Estos comentarios sobre tus primeras impresiones en Superalgos son tu primer aporte, ¡y por eso te agradecemos!",
-                "updated": 1628190090733
+                "updated": 1628190090733,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "Para que tu reseña se combine en el repositorio de Superalgos, debes firmarla con tu nombre de usuario de GitHub.com en el último párrafo de la página. ¡Esto es importante para que luego puedas encontrar la página usando la búsqueda! Siempre puedes volver y editarlo.",
-                    "updated": 1628190305617
+                    "updated": 1628190305617,
+                    "style": "Important"
                 }
             ]
         },
@@ -56,7 +58,8 @@
                 {
                     "language": "ES",
                     "text": "Las contribuciones te hacen ganar Superalgos SA Tokens y están sujetos a los términos de la Apache Licence 2.0. En resumen, los Colaboradores brindan una concesión expresa de derechos de autor / derechos de patente.",
-                    "updated": 1628190213182
+                    "updated": 1628190213182,
+                    "style": "Note"
                 }
             ]
         }

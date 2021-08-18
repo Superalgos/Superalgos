@@ -241,7 +241,6 @@ exports.newWeb3Server = function newWeb3Server() {
     async function mnemonicToPrivateKey(mnemonic) {
         try {
             const ethers = require('ethers')
-            const web3 = new Web3()
             let wallet = ethers.Wallet.fromMnemonic(mnemonic)
 
             if (wallet.privateKey !== undefined) {

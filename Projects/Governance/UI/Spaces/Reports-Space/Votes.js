@@ -61,6 +61,22 @@ function newGovernanceReportsVotes() {
                     "format": "2 decimals"
                 },
                 {
+                    "name": "reputation",
+                    "label": "Reputation",
+                    "type": "number",
+                    "order": "descending",
+                    "textAlign": "center",
+                    "format": "2 decimals"
+                },
+                {
+                    "name": "votingPower",
+                    "label": "Voting Power",
+                    "type": "number",
+                    "order": "descending",
+                    "textAlign": "center",
+                    "format": "2 decimals"
+                },
+                {
                     "name": "tokensBonus",
                     "label": "Bonus",
                     "type": "number",
@@ -88,8 +104,10 @@ function newGovernanceReportsVotes() {
 
             let tableRecord = {
                 "name": userProfile.name,
-                "ownPower": program.payload[programPropertyName].ownPower | 0,
+                "ownPower": program.payload[programPropertyName].ownPower - userProfile.payload.reputation | 0,
                 "incoming": program.payload[programPropertyName].incomingPower | 0,
+                "reputation": userProfile.payload.reputation | 0,
+                "votingPower": program.payload[programPropertyName].ownPower + program.payload[programPropertyName].incomingPower | 0,
                 "tokensBonus": program.payload[programPropertyName].bonus.tokens | 0
             }
 

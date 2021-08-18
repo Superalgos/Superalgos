@@ -1065,6 +1065,11 @@
                     "name": "Reports",
                     "propertyName": "reports",
                     "functionName": "newGovernanceGlobalsReports"
+                },
+                {
+                    "name": "SA Token",
+                    "propertyName": "saToken",
+                    "functionName": "newGovernanceGlobalsSaToken"
                 }
             ],
             "functionLibraries": [

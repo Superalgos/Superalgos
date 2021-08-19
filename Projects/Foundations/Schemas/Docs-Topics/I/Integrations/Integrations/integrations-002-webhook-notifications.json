@@ -146,12 +146,22 @@
         },
         {
             "style": "Text",
-            "text": "The Masters Data Mine features the definition of the Webhooks sensor bot used to monitor incoming notifications. You need to run an instance of this bot in the data mining section of the exchange and market of your choice.",
-            "updated": 1615370092995
+            "text": "The Webhooks Data Mine features the definition of the Webhooks sensor bot used to monitor incoming notifications. You need to run an instance of this bot in the data mining section of the exchange and market of your choice.",
+            "updated": 1629361373616
         },
         {
             "style": "Text",
-            "text": "The default workspace does not feature these tasks. To create a task for the Webhooks sensor bot, you need to uninstall and re-install the corresponding market."
+            "text": "The Getting-Started-Tutorials workspace does not have this Data Mine as a plugin so you will need to add it first. To do that locate the Plugins node, expand it and at the Plugins Data Mines add a New Plugin File. You can setup it's configuration like this:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"project\": \"Foundations\",\n    \"fileName\": \"Webhooks\",\n    \"folderName\": \"Data-Mines\",\n    \"nodeType\": \"Data Mine\",\n    \"saveWithWorkspace\": false\n}",
+            "updated": 1629361560976
+        },
+        {
+            "style": "Text",
+            "text": "The default workspace does not feature these tasks. To create a task for the Webhooks sensor bot, you need to uninstall and re-install the corresponding market.  The prcess of installing a market adds all the tasks needed to run all the bots defined at all Data Mines present at the workspace.",
+            "updated": 1629361603647
         },
         {
             "style": "Success",

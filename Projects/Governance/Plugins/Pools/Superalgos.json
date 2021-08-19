@@ -1,7 +1,7 @@
 {
     "type": "Pools",
     "name": "Superalgos",
-    "config": "{\n    \"tokens\": \"60000000\",\n    \"codeName\": \"Superalgos\"\n}",
+    "config": "{\"tokens\":\"60000000\",\"codeName\":\"Superalgos\"}",
     "project": "Governance",
     "poolClasses": [
         {

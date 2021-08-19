@@ -1102,7 +1102,10 @@ exports.newHttpInterface = function newHttpInterface(
                             case 'payContributors': {
 
                                 let serverResponse = await WEB3_SERVER.payContributors(
-                                    params.signature
+                                    params.contractAddress,
+                                    params.contractAbi,
+                                    params.paymentsArray,
+                                    params.mnemonic
                                 )
 
                                 respondWithContent(JSON.stringify(serverResponse), httpResponse)

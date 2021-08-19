@@ -8,7 +8,8 @@ exports.newWeb3Server = function newWeb3Server() {
         getWalletBalances: getWalletBalances,
         signData: signData,
         recoverAddress: recoverAddress,
-        mnemonicToPrivateKey: mnemonicToPrivateKey, 
+        mnemonicToPrivateKey: mnemonicToPrivateKey,
+        payContributors: payContributors,
         initialize: initialize,
         finalize: finalize,
         run: run
@@ -245,13 +246,13 @@ exports.newWeb3Server = function newWeb3Server() {
 
             if (wallet.privateKey !== undefined) {
                 return {
-                    address: wallet.address, 
+                    address: wallet.address,
                     privateKey: wallet.privateKey,
                     result: 'Ok'
                 }
             } else {
                 return {
-                    address: undefined, 
+                    address: undefined,
                     privateKey: undefined,
                     result: 'Fail'
                 }
@@ -260,6 +261,83 @@ exports.newWeb3Server = function newWeb3Server() {
         } catch (err) {
             return { error: 'Could not convert to Private Key. ' + err.stack }
         }
+    }
 
+    async function payContributors(contractAddress, contractAbi, paymentsArray, mnemonic) {
+        try {
+            let response = await mnemonicToPrivateKey(mnemonic)
+            let privateKey = response.privateKey
+
+            for (let i = 0; i < paymentsArray.length; i++) {
+                await CL.projects.foundations.utilities.asyncFunctions.sleep(10000)
+                let payment = paymentsArray[i]
+                sendTokens(
+                    i + 1,
+                    payment.userProfile,
+                    payment.from,
+                    payment.to,
+                    payment.amount
+                )
+            }
+
+            async function sendTokens(number, userProfile, fromAddress, toAddress, tokenAmount) {
+                try {
+                    console.log('')
+                    console.log('---------------------------------------------------------------------------------------------------------------------------------------------------')
+                    console.log(' Payment # ' + number + ' - User Profile: ' + userProfile + ' - SA Tokens Amount: ' +  tokenAmount / 1000000000000000000 + ' - Address: ' + toAddress)
+                    console.log('---------------------------------------------------------------------------------------------------------------------------------------------------')
+                    console.log('')
+
+                    const Tx = require('ethereumjs-tx').Transaction;
+                    const web3 = new Web3(new Web3.providers.HttpProvider('https://bsc-dataseed.binance.org/'))
+                    const amount = web3.utils.toHex(tokenAmount)
+                    privateKey = privateKey.replace('0x', '')
+                    const privateKeyBuffer = Buffer.from(privateKey, 'hex')
+                    const contractAbiObject = JSON.parse(contractAbi)
+                    const contract = new web3.eth.Contract(contractAbiObject, contractAddress, { from: fromAddress })
+                    const Common = require('ethereumjs-common').default
+                    const BSC_FORK = Common.forCustomChain(
+                        'mainnet',
+                        {
+                            name: 'Binance Smart Chain Mainnet',
+                            networkId: 56,
+                            chainId: 56,
+                            url: 'https://bsc-dataseed.binance.org/'
+                        },
+                        'istanbul',
+                    );
+
+                    const nonce = await web3.eth.getTransactionCount(fromAddress);
+
+                    const rawTransaction = {
+                        "from": fromAddress,
+                        "gasPrice": web3.utils.toHex(5000000000),
+                        "gasLimit": web3.utils.toHex(210000),
+                        "to": contractAddress, "value": "0x0",
+                        "data": contract.methods.transfer(toAddress, amount).encodeABI(),
+                        "nonce": web3.utils.toHex(nonce)
+                    };
+
+                    const transaction = new Tx(rawTransaction, { 'common': BSC_FORK })
+                    transaction.sign(privateKeyBuffer)
+
+                    console.log('Transaction:', rawTransaction)
+                    const result = await web3.eth.sendSignedTransaction('0x' + transaction.serialize().toString('hex'))
+                    console.log('Result:', result)
+                    return result
+                } catch (err) {
+                    console.log('[ERROR] web3Server -> sendTokens -> err.stack = ' + err.stack)
+                }
+            }
+
+            return {
+                address: wallet.address,
+                privateKey: wallet.privateKey,
+                result: 'Ok'
+            }
+
+        } catch (err) {
+            return { error: 'Could not convert to Private Key. ' + err.stack }
+        }
     }
 }

@@ -12031,27 +12031,39 @@
                                                                                     "referenceParentCombinedNodePath": [
                                                                                         [
                                                                                             "Superalgos-Exchanges",
-                                                                                            "Assets"
+                                                                                            "Assets",
+                                                                                            "Governance",
+                                                                                            "2cefeb95-9fde-418b-a35b-6178a97cac9d"
                                                                                         ],
                                                                                         [
                                                                                             "SA Token Listings Rewards",
-                                                                                            "Asset Class"
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "492669d5-223f-426d-845a-f26dd1ae251e"
                                                                                         ],
                                                                                         [
                                                                                             "DEXs",
-                                                                                            "Asset Class"
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "90e0c410-b1e7-4f0a-9dec-99c597a7956d"
                                                                                         ],
                                                                                         [
                                                                                             "First Listing",
-                                                                                            "Asset Class"
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "54f70f64-029a-4f2f-8847-5208c2fa94a1"
                                                                                         ],
                                                                                         [
                                                                                             " Pancakeswap SA/WBTC",
-                                                                                            "Asset Class"
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "cc6e34d9-d58a-4aa7-9049-250ea90a8430"
                                                                                         ],
                                                                                         [
                                                                                             "SA Liquidity",
-                                                                                            "Asset"
+                                                                                            "Asset",
+                                                                                            "Governance",
+                                                                                            "2e59edc7-7e37-40e3-808f-9ab3c7c5f0b3"
                                                                                         ]
                                                                                     ]
                                                                                 }
@@ -12091,27 +12103,39 @@
                                                                                     "referenceParentCombinedNodePath": [
                                                                                         [
                                                                                             "Superalgos-Exchanges",
-                                                                                            "Assets"
+                                                                                            "Assets",
+                                                                                            "Governance",
+                                                                                            "2cefeb95-9fde-418b-a35b-6178a97cac9d"
                                                                                         ],
                                                                                         [
                                                                                             "SA Token Listings Rewards",
-                                                                                            "Asset Class"
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "492669d5-223f-426d-845a-f26dd1ae251e"
                                                                                         ],
                                                                                         [
                                                                                             "DEXs",
-                                                                                            "Asset Class"
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "90e0c410-b1e7-4f0a-9dec-99c597a7956d"
                                                                                         ],
                                                                                         [
                                                                                             "First Listing",
-                                                                                            "Asset Class"
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "54f70f64-029a-4f2f-8847-5208c2fa94a1"
                                                                                         ],
                                                                                         [
                                                                                             " Pancakeswap SA/WBTC",
-                                                                                            "Asset Class"
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "cc6e34d9-d58a-4aa7-9049-250ea90a8430"
                                                                                         ],
                                                                                         [
                                                                                             "WBTC Liquidity",
-                                                                                            "Asset"
+                                                                                            "Asset",
+                                                                                            "Governance",
+                                                                                            "117afaed-83bd-4b0c-be12-40b8c8dd3a34"
                                                                                         ]
                                                                                     ]
                                                                                 }
@@ -12148,23 +12172,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos-Exchanges",
-                                                                                    "Assets"
+                                                                                    "Assets",
+                                                                                    "Governance",
+                                                                                    "2cefeb95-9fde-418b-a35b-6178a97cac9d"
                                                                                 ],
                                                                                 [
                                                                                     "SA Token Listings Rewards",
-                                                                                    "Asset Class"
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "492669d5-223f-426d-845a-f26dd1ae251e"
                                                                                 ],
                                                                                 [
                                                                                     "DEXs",
-                                                                                    "Asset Class"
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "90e0c410-b1e7-4f0a-9dec-99c597a7956d"
                                                                                 ],
                                                                                 [
                                                                                     "First Listing",
-                                                                                    "Asset Class"
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "54f70f64-029a-4f2f-8847-5208c2fa94a1"
                                                                                 ],
                                                                                 [
                                                                                     " Pancakeswap SA/WBTC",
-                                                                                    "Asset Class"
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "cc6e34d9-d58a-4aa7-9049-250ea90a8430"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -12203,19 +12237,27 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos-Exchanges",
-                                                                            "Assets"
+                                                                            "Assets",
+                                                                            "Governance",
+                                                                            "2cefeb95-9fde-418b-a35b-6178a97cac9d"
                                                                         ],
                                                                         [
                                                                             "SA Token Listings Rewards",
-                                                                            "Asset Class"
+                                                                            "Asset Class",
+                                                                            "Governance",
+                                                                            "492669d5-223f-426d-845a-f26dd1ae251e"
                                                                         ],
                                                                         [
                                                                             "DEXs",
-                                                                            "Asset Class"
+                                                                            "Asset Class",
+                                                                            "Governance",
+                                                                            "90e0c410-b1e7-4f0a-9dec-99c597a7956d"
                                                                         ],
                                                                         [
                                                                             "First Listing",
-                                                                            "Asset Class"
+                                                                            "Asset Class",
+                                                                            "Governance",
+                                                                            "54f70f64-029a-4f2f-8847-5208c2fa94a1"
                                                                         ]
                                                                     ]
                                                                 }
@@ -12254,15 +12296,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos-Exchanges",
-                                                                    "Assets"
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "2cefeb95-9fde-418b-a35b-6178a97cac9d"
                                                                 ],
                                                                 [
                                                                     "SA Token Listings Rewards",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "492669d5-223f-426d-845a-f26dd1ae251e"
                                                                 ],
                                                                 [
                                                                     "DEXs",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "90e0c410-b1e7-4f0a-9dec-99c597a7956d"
                                                                 ]
                                                             ]
                                                         }
@@ -12315,23 +12363,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos-Exchanges",
-                                                                                    "Assets"
+                                                                                    "Assets",
+                                                                                    "Governance",
+                                                                                    "2cefeb95-9fde-418b-a35b-6178a97cac9d"
                                                                                 ],
                                                                                 [
                                                                                     "SA Token Listings Rewards",
-                                                                                    "Asset Class"
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "492669d5-223f-426d-845a-f26dd1ae251e"
                                                                                 ],
                                                                                 [
                                                                                     "CEXs",
-                                                                                    "Asset Class"
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "ec0ab4b8-e3cc-47e6-94e7-6d181e1008f4"
                                                                                 ],
                                                                                 [
                                                                                     "Open Negotiations",
-                                                                                    "Asset Class"
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "144ad412-94fc-4b80-8dd9-2520f64edfcc"
                                                                                 ],
                                                                                 [
                                                                                     "Bittrex",
-                                                                                    "Asset"
+                                                                                    "Asset",
+                                                                                    "Governance",
+                                                                                    "548dd163-9991-4de3-9e68-9e8a9a051a2f"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -12370,23 +12428,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos-Exchanges",
-                                                                                    "Assets"
+                                                                                    "Assets",
+                                                                                    "Governance",
+                                                                                    "2cefeb95-9fde-418b-a35b-6178a97cac9d"
                                                                                 ],
                                                                                 [
                                                                                     "SA Token Listings Rewards",
-                                                                                    "Asset Class"
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "492669d5-223f-426d-845a-f26dd1ae251e"
                                                                                 ],
                                                                                 [
                                                                                     "CEXs",
-                                                                                    "Asset Class"
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "ec0ab4b8-e3cc-47e6-94e7-6d181e1008f4"
                                                                                 ],
                                                                                 [
                                                                                     "Open Negotiations",
-                                                                                    "Asset Class"
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "144ad412-94fc-4b80-8dd9-2520f64edfcc"
                                                                                 ],
                                                                                 [
                                                                                     "LBank",
-                                                                                    "Asset"
+                                                                                    "Asset",
+                                                                                    "Governance",
+                                                                                    "e4e7addb-a840-4ce9-9e01-74c7e57c24ad"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -12425,23 +12493,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos-Exchanges",
-                                                                                    "Assets"
+                                                                                    "Assets",
+                                                                                    "Governance",
+                                                                                    "2cefeb95-9fde-418b-a35b-6178a97cac9d"
                                                                                 ],
                                                                                 [
                                                                                     "SA Token Listings Rewards",
-                                                                                    "Asset Class"
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "492669d5-223f-426d-845a-f26dd1ae251e"
                                                                                 ],
                                                                                 [
                                                                                     "CEXs",
-                                                                                    "Asset Class"
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "ec0ab4b8-e3cc-47e6-94e7-6d181e1008f4"
                                                                                 ],
                                                                                 [
                                                                                     "Open Negotiations",
-                                                                                    "Asset Class"
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "144ad412-94fc-4b80-8dd9-2520f64edfcc"
                                                                                 ],
                                                                                 [
                                                                                     "Probit",
-                                                                                    "Asset"
+                                                                                    "Asset",
+                                                                                    "Governance",
+                                                                                    "6b27f708-c243-42e9-874b-ceceea7db21f"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -12478,19 +12556,27 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos-Exchanges",
-                                                                            "Assets"
+                                                                            "Assets",
+                                                                            "Governance",
+                                                                            "2cefeb95-9fde-418b-a35b-6178a97cac9d"
                                                                         ],
                                                                         [
                                                                             "SA Token Listings Rewards",
-                                                                            "Asset Class"
+                                                                            "Asset Class",
+                                                                            "Governance",
+                                                                            "492669d5-223f-426d-845a-f26dd1ae251e"
                                                                         ],
                                                                         [
                                                                             "CEXs",
-                                                                            "Asset Class"
+                                                                            "Asset Class",
+                                                                            "Governance",
+                                                                            "ec0ab4b8-e3cc-47e6-94e7-6d181e1008f4"
                                                                         ],
                                                                         [
                                                                             "Open Negotiations",
-                                                                            "Asset Class"
+                                                                            "Asset Class",
+                                                                            "Governance",
+                                                                            "144ad412-94fc-4b80-8dd9-2520f64edfcc"
                                                                         ]
                                                                     ]
                                                                 }
@@ -12529,15 +12615,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos-Exchanges",
-                                                                    "Assets"
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "2cefeb95-9fde-418b-a35b-6178a97cac9d"
                                                                 ],
                                                                 [
                                                                     "SA Token Listings Rewards",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "492669d5-223f-426d-845a-f26dd1ae251e"
                                                                 ],
                                                                 [
                                                                     "CEXs",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "ec0ab4b8-e3cc-47e6-94e7-6d181e1008f4"
                                                                 ]
                                                             ]
                                                         }
@@ -12576,11 +12668,15 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos-Exchanges",
-                                                            "Assets"
+                                                            "Assets",
+                                                            "Governance",
+                                                            "2cefeb95-9fde-418b-a35b-6178a97cac9d"
                                                         ],
                                                         [
                                                             "SA Token Listings Rewards",
-                                                            "Asset Class"
+                                                            "Asset Class",
+                                                            "Governance",
+                                                            "492669d5-223f-426d-845a-f26dd1ae251e"
                                                         ]
                                                     ]
                                                 }

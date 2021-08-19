@@ -1,7 +1,7 @@
 {
     "type": "Pools",
     "name": "Superalgos",
-    "config": "{\"tokens\":\"40960000\",\"codeName\":\"Superalgos\"}",
+    "config": "{\n    \"tokens\": \"60000000\",\n    \"codeName\": \"Superalgos\"\n}",
     "project": "Governance",
     "poolClasses": [
         {
@@ -1505,7 +1505,8 @@
                             "arrangementStyle": 0
                         },
                         "uiObject": {
-                            "isRunning": false
+                            "isRunning": false,
+                            "shortcutKey": "a"
                         },
                         "referenceParent": {
                             "type": "Assets",
@@ -1536,7 +1537,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -1789,7 +1790,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

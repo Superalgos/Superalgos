@@ -544,7 +544,7 @@
             "votingProgram": {
                 "type": "Voting Program",
                 "name": "New Voting Program",
-                "config": "{\n    \"percentage\": 75\n}",
+                "config": "{\n    \"percentage\": 0\n}",
                 "project": "Governance",
                 "votesSwitch": [
                     {
@@ -758,7 +758,7 @@
                             {
                                 "type": "Weight Votes Switch",
                                 "name": "New Weight Votes Switch",
-                                "config": "{\n    \"percentage\": 75\n}",
+                                "config": "{\n    \"percentage\": 80\n}",
                                 "project": "Governance",
                                 "weightVotesSwitch": [
                                     {
@@ -770,7 +770,7 @@
                                             {
                                                 "type": "Weight Votes Switch",
                                                 "name": "Exchanges Pool Class",
-                                                "config": "{\n    \"percentage\": 35\n}",
+                                                "config": "{\n    \"percentage\": 75\n}",
                                                 "project": "Governance",
                                                 "weightVotesSwitch": [],
                                                 "poolWeightVotes": [
@@ -834,12 +834,12 @@
                                                 "id": "58949e1e-3502-4317-ae8e-b4c56350902e",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30905.003798952057,
-                                                        "y": 24539.12189221862
+                                                        "x": 30945.003798952057,
+                                                        "y": 24558.121892218624
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30657.76594236545,
-                                                        "y": 24709.04376329607
+                                                        "x": 30697.76594236545,
+                                                        "y": 24728.043763296075
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -850,7 +850,8 @@
                                                         "arrangementStyle": 0
                                                     },
                                                     "uiObject": {
-                                                        "isRunning": false
+                                                        "isRunning": false,
+                                                        "shortcutKey": ""
                                                     },
                                                     "referenceParent": {
                                                         "type": "Pool Class",
@@ -876,7 +877,7 @@
                                             {
                                                 "type": "Weight Votes Switch",
                                                 "name": "Governance Programs Pool Class",
-                                                "config": "{\n    \"percentage\": 15\n}",
+                                                "config": "{\n    \"percentage\": 7.5\n}",
                                                 "project": "Governance",
                                                 "weightVotesSwitch": [
                                                     {
@@ -2558,12 +2559,12 @@
                                                 "id": "cb79b91f-d01c-4efa-8fea-e4b7374fdd8b",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30951.210222585592,
-                                                        "y": 24646.670256050744
+                                                        "x": 30991.210222585592,
+                                                        "y": 24665.670256050747
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30657.76594236545,
-                                                        "y": 24709.04376329607
+                                                        "x": 30697.76594236545,
+                                                        "y": 24728.043763296075
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2600,7 +2601,7 @@
                                             {
                                                 "type": "Weight Votes Switch",
                                                 "name": "Superalgos Software Projects Pools",
-                                                "config": "{\n    \"percentage\": 5\n}",
+                                                "config": "{\n    \"percentage\": 2.5\n}",
                                                 "project": "Governance",
                                                 "weightVotesSwitch": [],
                                                 "poolWeightVotes": [
@@ -2876,12 +2877,12 @@
                                                 "id": "33c4a72b-4908-478e-b7c3-2304cb211f05",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30952.74241463464,
-                                                        "y": 24763.714420943714
+                                                        "x": 30992.74241463464,
+                                                        "y": 24782.714420943717
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30657.76594236545,
-                                                        "y": 24709.04376329607
+                                                        "x": 30697.76594236545,
+                                                        "y": 24728.043763296075
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2918,7 +2919,7 @@
                                             {
                                                 "type": "Weight Votes Switch",
                                                 "name": "Trading Intelligence",
-                                                "config": "{\n    \"percentage\": 9\n}",
+                                                "config": "{\n    \"percentage\": 4.5\n}",
                                                 "project": "Governance",
                                                 "weightVotesSwitch": [],
                                                 "poolWeightVotes": [
@@ -3088,12 +3089,12 @@
                                                 "id": "56c59557-4ab9-4f4b-9c48-e1f9822e4899",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30909.367112749078,
-                                                        "y": 24872.43547380058
+                                                        "x": 30949.367112749078,
+                                                        "y": 24891.435473800582
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30657.76594236545,
-                                                        "y": 24709.04376329607
+                                                        "x": 30697.76594236545,
+                                                        "y": 24728.043763296075
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -3130,7 +3131,7 @@
                                             {
                                                 "type": "Weight Votes Switch",
                                                 "name": "Education, Docs, Tutorials, Videos, Icons",
-                                                "config": "{\n    \"percentage\": 4\n}",
+                                                "config": "{\n    \"percentage\": 2\n}",
                                                 "project": "Governance",
                                                 "weightVotesSwitch": [],
                                                 "poolWeightVotes": [
@@ -3406,12 +3407,12 @@
                                                 "id": "88c4df8c-48ff-4d7e-a5ed-015c3faf6e69",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30827.687813442903,
-                                                        "y": 24956.281619882677
+                                                        "x": 30867.687813442903,
+                                                        "y": 24975.28161988268
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30657.76594236545,
-                                                        "y": 24709.04376329607
+                                                        "x": 30697.76594236545,
+                                                        "y": 24728.043763296075
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -3448,7 +3449,7 @@
                                             {
                                                 "type": "Weight Votes Switch",
                                                 "name": "Marketing",
-                                                "config": "{\n    \"percentage\": 14\n}",
+                                                "config": "{\n    \"percentage\": 7\n}",
                                                 "project": "Governance",
                                                 "weightVotesSwitch": [],
                                                 "poolWeightVotes": [
@@ -3565,12 +3566,12 @@
                                                 "id": "34ddd8f7-d8a3-495d-8c7f-2a3f121b3269",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30720.13944961078,
-                                                        "y": 25002.488043516212
+                                                        "x": 30760.13944961078,
+                                                        "y": 25021.488043516216
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30657.76594236545,
-                                                        "y": 24709.04376329607
+                                                        "x": 30697.76594236545,
+                                                        "y": 24728.043763296075
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -3972,12 +3973,12 @@
                                                 "id": "c092f4bb-64fe-47ca-bb13-668d4d65f901",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30603.09528471781,
-                                                        "y": 25004.02023556526
+                                                        "x": 30643.09528471781,
+                                                        "y": 25023.020235565262
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30657.76594236545,
-                                                        "y": 24709.04376329607
+                                                        "x": 30697.76594236545,
+                                                        "y": 24728.043763296075
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -4019,17 +4020,17 @@
                                         "id": "800e3388-1ea6-40ee-ace5-1811a3373e39",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 30657.76594236545,
-                                                "y": 24709.04376329607
+                                                "x": 30697.76594236545,
+                                                "y": 24728.043763296075
                                             },
                                             "targetPosition": {
-                                                "x": 30406.164771981825,
-                                                "y": 24545.652052791564
+                                                "x": 30446.164771981825,
+                                                "y": 24564.652052791567
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
-                                                "isCollapsed": true,
+                                                "isCollapsed": false,
                                                 "angleToParent": 2,
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
@@ -7127,12 +7128,12 @@
                                         "id": "f5b54a5c-0251-4a78-94e6-5e2dc4113d5c",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 30542.36192190369,
-                                                "y": 24812.954010048074
+                                                "x": 30582.36192190369,
+                                                "y": 24831.954010048077
                                             },
                                             "targetPosition": {
-                                                "x": 30406.164771981825,
-                                                "y": 24545.652052791564
+                                                "x": 30446.164771981825,
+                                                "y": 24564.652052791567
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -11942,12 +11943,12 @@
                                         "id": "c5258958-8fd9-4d68-8a9f-481430aa1bb3",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 30390.46398510894,
-                                                "y": 24845.240913217935
+                                                "x": 30430.46398510894,
+                                                "y": 24864.24091321794
                                             },
                                             "targetPosition": {
-                                                "x": 30406.164771981825,
-                                                "y": 24545.652052791564
+                                                "x": 30446.164771981825,
+                                                "y": 24564.652052791567
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -11964,7 +11965,7 @@
                                     },
                                     {
                                         "type": "Weight Votes Switch",
-                                        "name": "Exchanges",
+                                        "name": "Superalgos-Exchanges",
                                         "config": "{\n    \"percentage\": 5\n}",
                                         "project": "Governance",
                                         "weightVotesSwitch": [
@@ -11973,23 +11974,264 @@
                                                 "name": "SA Token Listings Rewards",
                                                 "config": "{}",
                                                 "project": "Governance",
-                                                "weightVotesSwitch": [],
-                                                "poolWeightVotes": [],
-                                                "assetWeightVotes": [
+                                                "weightVotesSwitch": [
                                                     {
-                                                        "type": "Asset Weight Vote",
-                                                        "name": "Superalgos-Exchanges SA Token Listings Rewards Open Negotiations Bittrex",
-                                                        "config": "{\n    \"percentage\": 45\n}",
+                                                        "type": "Weight Votes Switch",
+                                                        "name": "DEXs",
+                                                        "config": "{\n    \"percentage\": 100\n}",
                                                         "project": "Governance",
-                                                        "id": "ed4cf0cf-3ef8-4e2e-8ec9-9809e3462994",
+                                                        "weightVotesSwitch": [
+                                                            {
+                                                                "type": "Weight Votes Switch",
+                                                                "name": "First Listing",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "weightVotesSwitch": [
+                                                                    {
+                                                                        "type": "Weight Votes Switch",
+                                                                        "name": " Pancakeswap SA/WBTC",
+                                                                        "config": "{}",
+                                                                        "project": "Governance",
+                                                                        "weightVotesSwitch": [],
+                                                                        "poolWeightVotes": [],
+                                                                        "assetWeightVotes": [
+                                                                            {
+                                                                                "type": "Asset Weight Vote",
+                                                                                "name": "DEXs First Listing  Pancakeswap SA/WBTC SA Liquidity",
+                                                                                "config": "{}",
+                                                                                "project": "Governance",
+                                                                                "id": "132eec8f-8438-429d-bebc-47a5e100e48e",
+                                                                                "savedPayload": {
+                                                                                    "position": {
+                                                                                        "x": 30208.476140276023,
+                                                                                        "y": 26233.922932094443
+                                                                                    },
+                                                                                    "targetPosition": {
+                                                                                        "x": 30072.27899035416,
+                                                                                        "y": 25966.620974837933
+                                                                                    },
+                                                                                    "floatingObject": {
+                                                                                        "isPinned": false,
+                                                                                        "isFrozen": false,
+                                                                                        "isCollapsed": false,
+                                                                                        "angleToParent": 2,
+                                                                                        "distanceToParent": 3,
+                                                                                        "arrangementStyle": 0
+                                                                                    },
+                                                                                    "uiObject": {
+                                                                                        "isRunning": false
+                                                                                    },
+                                                                                    "referenceParent": {
+                                                                                        "type": "Asset",
+                                                                                        "name": "SA Liquidity",
+                                                                                        "id": "2e59edc7-7e37-40e3-808f-9ab3c7c5f0b3"
+                                                                                    },
+                                                                                    "referenceParentCombinedNodePath": [
+                                                                                        [
+                                                                                            "Superalgos-Exchanges",
+                                                                                            "Assets"
+                                                                                        ],
+                                                                                        [
+                                                                                            "SA Token Listings Rewards",
+                                                                                            "Asset Class"
+                                                                                        ],
+                                                                                        [
+                                                                                            "DEXs",
+                                                                                            "Asset Class"
+                                                                                        ],
+                                                                                        [
+                                                                                            "First Listing",
+                                                                                            "Asset Class"
+                                                                                        ],
+                                                                                        [
+                                                                                            " Pancakeswap SA/WBTC",
+                                                                                            "Asset Class"
+                                                                                        ],
+                                                                                        [
+                                                                                            "SA Liquidity",
+                                                                                            "Asset"
+                                                                                        ]
+                                                                                    ]
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "type": "Asset Weight Vote",
+                                                                                "name": "DEXs First Listing  Pancakeswap SA/WBTC WBTC Liquidity",
+                                                                                "config": "{\n    \"percentage\": 55.555556\n}",
+                                                                                "project": "Governance",
+                                                                                "id": "99b1f5b3-d368-49ed-b848-d52e13b586d6",
+                                                                                "savedPayload": {
+                                                                                    "position": {
+                                                                                        "x": 29908.887279849652,
+                                                                                        "y": 26218.22214522156
+                                                                                    },
+                                                                                    "targetPosition": {
+                                                                                        "x": 30072.27899035416,
+                                                                                        "y": 25966.620974837933
+                                                                                    },
+                                                                                    "floatingObject": {
+                                                                                        "isPinned": false,
+                                                                                        "isFrozen": false,
+                                                                                        "isCollapsed": false,
+                                                                                        "angleToParent": 2,
+                                                                                        "distanceToParent": 3,
+                                                                                        "arrangementStyle": 0
+                                                                                    },
+                                                                                    "uiObject": {
+                                                                                        "isRunning": false,
+                                                                                        "shortcutKey": "q"
+                                                                                    },
+                                                                                    "referenceParent": {
+                                                                                        "type": "Asset",
+                                                                                        "name": "WBTC Liquidity",
+                                                                                        "id": "117afaed-83bd-4b0c-be12-40b8c8dd3a34"
+                                                                                    },
+                                                                                    "referenceParentCombinedNodePath": [
+                                                                                        [
+                                                                                            "Superalgos-Exchanges",
+                                                                                            "Assets"
+                                                                                        ],
+                                                                                        [
+                                                                                            "SA Token Listings Rewards",
+                                                                                            "Asset Class"
+                                                                                        ],
+                                                                                        [
+                                                                                            "DEXs",
+                                                                                            "Asset Class"
+                                                                                        ],
+                                                                                        [
+                                                                                            "First Listing",
+                                                                                            "Asset Class"
+                                                                                        ],
+                                                                                        [
+                                                                                            " Pancakeswap SA/WBTC",
+                                                                                            "Asset Class"
+                                                                                        ],
+                                                                                        [
+                                                                                            "WBTC Liquidity",
+                                                                                            "Asset"
+                                                                                        ]
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        "featureWeightVotes": [],
+                                                                        "positionWeightVotes": [],
+                                                                        "id": "6188434b-762d-44f9-a459-b79cea727bfe",
+                                                                        "savedPayload": {
+                                                                            "position": {
+                                                                                "x": 30072.27899035416,
+                                                                                "y": 25966.620974837933
+                                                                            },
+                                                                            "targetPosition": {
+                                                                                "x": 30087.979777227043,
+                                                                                "y": 25667.032114411562
+                                                                            },
+                                                                            "floatingObject": {
+                                                                                "isPinned": false,
+                                                                                "isFrozen": false,
+                                                                                "isCollapsed": false,
+                                                                                "angleToParent": 2,
+                                                                                "distanceToParent": 3,
+                                                                                "arrangementStyle": 0
+                                                                            },
+                                                                            "uiObject": {
+                                                                                "isRunning": false
+                                                                            },
+                                                                            "referenceParent": {
+                                                                                "type": "Asset Class",
+                                                                                "name": " Pancakeswap SA/WBTC",
+                                                                                "id": "cc6e34d9-d58a-4aa7-9049-250ea90a8430"
+                                                                            },
+                                                                            "referenceParentCombinedNodePath": [
+                                                                                [
+                                                                                    "Superalgos-Exchanges",
+                                                                                    "Assets"
+                                                                                ],
+                                                                                [
+                                                                                    "SA Token Listings Rewards",
+                                                                                    "Asset Class"
+                                                                                ],
+                                                                                [
+                                                                                    "DEXs",
+                                                                                    "Asset Class"
+                                                                                ],
+                                                                                [
+                                                                                    "First Listing",
+                                                                                    "Asset Class"
+                                                                                ],
+                                                                                [
+                                                                                    " Pancakeswap SA/WBTC",
+                                                                                    "Asset Class"
+                                                                                ]
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "poolWeightVotes": [],
+                                                                "assetWeightVotes": [],
+                                                                "featureWeightVotes": [],
+                                                                "positionWeightVotes": [],
+                                                                "id": "d987d5ba-4316-4d62-927a-cf25b16bfbdf",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 30087.979777227043,
+                                                                        "y": 25667.032114411562
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 30103.680564099926,
+                                                                        "y": 25367.44325398519
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Asset Class",
+                                                                        "name": "First Listing",
+                                                                        "id": "54f70f64-029a-4f2f-8847-5208c2fa94a1"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Superalgos-Exchanges",
+                                                                            "Assets"
+                                                                        ],
+                                                                        [
+                                                                            "SA Token Listings Rewards",
+                                                                            "Asset Class"
+                                                                        ],
+                                                                        [
+                                                                            "DEXs",
+                                                                            "Asset Class"
+                                                                        ],
+                                                                        [
+                                                                            "First Listing",
+                                                                            "Asset Class"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "poolWeightVotes": [],
+                                                        "assetWeightVotes": [],
+                                                        "featureWeightVotes": [],
+                                                        "positionWeightVotes": [],
+                                                        "id": "c06903b5-4a3f-4d0e-bfdb-84003992c271",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 30141.754858218137,
-                                                                "y": 25342.298673778958
+                                                                "x": 30103.680564099926,
+                                                                "y": 25367.44325398519
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30079.38135097281,
-                                                                "y": 25048.854393558817
+                                                                "x": 30119.38135097281,
+                                                                "y": 25067.85439355882
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -12003,116 +12245,273 @@
                                                                 "isRunning": false
                                                             },
                                                             "referenceParent": {
-                                                                "type": "Asset",
-                                                                "name": "Bittrex",
-                                                                "id": "548dd163-9991-4de3-9e68-9e8a9a051a2f"
+                                                                "type": "Asset Class",
+                                                                "name": "DEXs",
+                                                                "id": "90e0c410-b1e7-4f0a-9dec-99c597a7956d"
                                                             },
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos-Exchanges",
-                                                                    "Assets",
-                                                                    "Governance",
-                                                                    "2cefeb95-9fde-418b-a35b-6178a97cac9d"
+                                                                    "Assets"
                                                                 ],
                                                                 [
                                                                     "SA Token Listings Rewards",
-                                                                    "Asset Class",
-                                                                    "Governance",
-                                                                    "492669d5-223f-426d-845a-f26dd1ae251e"
+                                                                    "Asset Class"
                                                                 ],
                                                                 [
-                                                                    "Open Negotiations",
-                                                                    "Asset Class",
-                                                                    "Governance",
-                                                                    "144ad412-94fc-4b80-8dd9-2520f64edfcc"
-                                                                ],
-                                                                [
-                                                                    "Bittrex",
-                                                                    "Asset",
-                                                                    "Governance",
-                                                                    "548dd163-9991-4de3-9e68-9e8a9a051a2f"
+                                                                    "DEXs",
+                                                                    "Asset Class"
                                                                 ]
                                                             ]
                                                         }
                                                     },
                                                     {
-                                                        "type": "Asset Weight Vote",
-                                                        "name": "Superalgos-Exchanges SA Token Listings Rewards Open Negotiations LBank",
-                                                        "config": "{\n    \"percentage\": 25\n}",
-                                                        "project": "Governance",
-                                                        "id": "25eed22d-3f2f-4a33-92fc-d43028cfa972",
-                                                        "savedPayload": {
-                                                            "position": {
-                                                                "x": 29915.989640468302,
-                                                                "y": 25300.455563942443
-                                                            },
-                                                            "targetPosition": {
-                                                                "x": 30079.38135097281,
-                                                                "y": 25048.854393558817
-                                                            },
-                                                            "floatingObject": {
-                                                                "isPinned": false,
-                                                                "isFrozen": false,
-                                                                "isCollapsed": false,
-                                                                "angleToParent": 2,
-                                                                "distanceToParent": 3,
-                                                                "arrangementStyle": 0
-                                                            },
-                                                            "uiObject": {
-                                                                "isRunning": false
-                                                            },
-                                                            "referenceParent": {
-                                                                "type": "Asset",
-                                                                "name": "LBank",
-                                                                "id": "e4e7addb-a840-4ce9-9e01-74c7e57c24ad"
-                                                            },
-                                                            "referenceParentCombinedNodePath": [
-                                                                [
-                                                                    "Superalgos-Exchanges",
-                                                                    "Assets",
-                                                                    "Governance",
-                                                                    "2cefeb95-9fde-418b-a35b-6178a97cac9d"
-                                                                ],
-                                                                [
-                                                                    "SA Token Listings Rewards",
-                                                                    "Asset Class",
-                                                                    "Governance",
-                                                                    "492669d5-223f-426d-845a-f26dd1ae251e"
-                                                                ],
-                                                                [
-                                                                    "Open Negotiations",
-                                                                    "Asset Class",
-                                                                    "Governance",
-                                                                    "144ad412-94fc-4b80-8dd9-2520f64edfcc"
-                                                                ],
-                                                                [
-                                                                    "LBank",
-                                                                    "Asset",
-                                                                    "Governance",
-                                                                    "e4e7addb-a840-4ce9-9e01-74c7e57c24ad"
-                                                                ]
-                                                            ]
-                                                        }
-                                                    },
-                                                    {
-                                                        "type": "Asset Weight Vote",
-                                                        "name": "Superalgos-Exchanges SA Token Listings Rewards Open Negotiations Probit",
+                                                        "type": "Weight Votes Switch",
+                                                        "name": "CEXs",
                                                         "config": "{}",
                                                         "project": "Governance",
-                                                        "id": "cc322882-2489-4b4e-989b-d56d3345ad70",
+                                                        "weightVotesSwitch": [
+                                                            {
+                                                                "type": "Weight Votes Switch",
+                                                                "name": "Open Negotiations",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "weightVotesSwitch": [],
+                                                                "poolWeightVotes": [],
+                                                                "assetWeightVotes": [
+                                                                    {
+                                                                        "type": "Asset Weight Vote",
+                                                                        "name": "SA Token Listings Rewards CEXs Open Negotiations Bittrex",
+                                                                        "config": "{}",
+                                                                        "project": "Governance",
+                                                                        "id": "8f4adb75-d7f5-4ea4-94e6-9126cd9fc1da",
+                                                                        "savedPayload": {
+                                                                            "position": {
+                                                                                "x": 29492.072338147307,
+                                                                                "y": 25625.565648291093
+                                                                            },
+                                                                            "targetPosition": {
+                                                                                "x": 29584.77743645979,
+                                                                                "y": 25340.248693402547
+                                                                            },
+                                                                            "floatingObject": {
+                                                                                "isPinned": false,
+                                                                                "isFrozen": false,
+                                                                                "isCollapsed": false,
+                                                                                "angleToParent": 2,
+                                                                                "distanceToParent": 3,
+                                                                                "arrangementStyle": 0
+                                                                            },
+                                                                            "uiObject": {
+                                                                                "isRunning": false
+                                                                            },
+                                                                            "referenceParent": {
+                                                                                "type": "Asset",
+                                                                                "name": "Bittrex",
+                                                                                "id": "548dd163-9991-4de3-9e68-9e8a9a051a2f"
+                                                                            },
+                                                                            "referenceParentCombinedNodePath": [
+                                                                                [
+                                                                                    "Superalgos-Exchanges",
+                                                                                    "Assets"
+                                                                                ],
+                                                                                [
+                                                                                    "SA Token Listings Rewards",
+                                                                                    "Asset Class"
+                                                                                ],
+                                                                                [
+                                                                                    "CEXs",
+                                                                                    "Asset Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Open Negotiations",
+                                                                                    "Asset Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Bittrex",
+                                                                                    "Asset"
+                                                                                ]
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "Asset Weight Vote",
+                                                                        "name": "SA Token Listings Rewards CEXs Open Negotiations LBank",
+                                                                        "config": "{}",
+                                                                        "project": "Governance",
+                                                                        "id": "308cb2e4-23e2-4a7f-a1e2-3fa4e83fd6e2",
+                                                                        "savedPayload": {
+                                                                            "position": {
+                                                                                "x": 29317.47547920328,
+                                                                                "y": 25476.44584332441
+                                                                            },
+                                                                            "targetPosition": {
+                                                                                "x": 29584.77743645979,
+                                                                                "y": 25340.248693402547
+                                                                            },
+                                                                            "floatingObject": {
+                                                                                "isPinned": false,
+                                                                                "isFrozen": false,
+                                                                                "isCollapsed": false,
+                                                                                "angleToParent": 2,
+                                                                                "distanceToParent": 3,
+                                                                                "arrangementStyle": 0
+                                                                            },
+                                                                            "uiObject": {
+                                                                                "isRunning": false
+                                                                            },
+                                                                            "referenceParent": {
+                                                                                "type": "Asset",
+                                                                                "name": "LBank",
+                                                                                "id": "e4e7addb-a840-4ce9-9e01-74c7e57c24ad"
+                                                                            },
+                                                                            "referenceParentCombinedNodePath": [
+                                                                                [
+                                                                                    "Superalgos-Exchanges",
+                                                                                    "Assets"
+                                                                                ],
+                                                                                [
+                                                                                    "SA Token Listings Rewards",
+                                                                                    "Asset Class"
+                                                                                ],
+                                                                                [
+                                                                                    "CEXs",
+                                                                                    "Asset Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Open Negotiations",
+                                                                                    "Asset Class"
+                                                                                ],
+                                                                                [
+                                                                                    "LBank",
+                                                                                    "Asset"
+                                                                                ]
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "Asset Weight Vote",
+                                                                        "name": "SA Token Listings Rewards CEXs Open Negotiations Probit",
+                                                                        "config": "{}",
+                                                                        "project": "Governance",
+                                                                        "id": "622a822c-b952-4c17-ab4d-2a8874b60016",
+                                                                        "savedPayload": {
+                                                                            "position": {
+                                                                                "x": 29299.460481571245,
+                                                                                "y": 25247.543595090065
+                                                                            },
+                                                                            "targetPosition": {
+                                                                                "x": 29584.77743645979,
+                                                                                "y": 25340.248693402547
+                                                                            },
+                                                                            "floatingObject": {
+                                                                                "isPinned": false,
+                                                                                "isFrozen": false,
+                                                                                "isCollapsed": false,
+                                                                                "angleToParent": 2,
+                                                                                "distanceToParent": 3,
+                                                                                "arrangementStyle": 0
+                                                                            },
+                                                                            "uiObject": {
+                                                                                "isRunning": false
+                                                                            },
+                                                                            "referenceParent": {
+                                                                                "type": "Asset",
+                                                                                "name": "Probit",
+                                                                                "id": "6b27f708-c243-42e9-874b-ceceea7db21f"
+                                                                            },
+                                                                            "referenceParentCombinedNodePath": [
+                                                                                [
+                                                                                    "Superalgos-Exchanges",
+                                                                                    "Assets"
+                                                                                ],
+                                                                                [
+                                                                                    "SA Token Listings Rewards",
+                                                                                    "Asset Class"
+                                                                                ],
+                                                                                [
+                                                                                    "CEXs",
+                                                                                    "Asset Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Open Negotiations",
+                                                                                    "Asset Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Probit",
+                                                                                    "Asset"
+                                                                                ]
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "featureWeightVotes": [],
+                                                                "positionWeightVotes": [],
+                                                                "id": "3c1a71a8-58ff-42f5-b45e-feea25575e97",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 29584.77743645979,
+                                                                        "y": 25340.248693402547
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 29852.0793937163,
+                                                                        "y": 25204.051543480684
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Asset Class",
+                                                                        "name": "Open Negotiations",
+                                                                        "id": "144ad412-94fc-4b80-8dd9-2520f64edfcc"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Superalgos-Exchanges",
+                                                                            "Assets"
+                                                                        ],
+                                                                        [
+                                                                            "SA Token Listings Rewards",
+                                                                            "Asset Class"
+                                                                        ],
+                                                                        [
+                                                                            "CEXs",
+                                                                            "Asset Class"
+                                                                        ],
+                                                                        [
+                                                                            "Open Negotiations",
+                                                                            "Asset Class"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "poolWeightVotes": [],
+                                                        "assetWeightVotes": [],
+                                                        "featureWeightVotes": [],
+                                                        "positionWeightVotes": [],
+                                                        "id": "34e73e02-70aa-4154-9603-58a67a7ff047",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 29785.93707075267,
-                                                                "y": 25111.227900804144
+                                                                "x": 29852.0793937163,
+                                                                "y": 25204.051543480684
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30079.38135097281,
-                                                                "y": 25048.854393558817
+                                                                "x": 30119.38135097281,
+                                                                "y": 25067.85439355882
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
                                                                 "isFrozen": false,
-                                                                "isCollapsed": false,
+                                                                "isCollapsed": true,
                                                                 "angleToParent": 2,
                                                                 "distanceToParent": 3,
                                                                 "arrangementStyle": 0
@@ -12121,50 +12520,40 @@
                                                                 "isRunning": false
                                                             },
                                                             "referenceParent": {
-                                                                "type": "Asset",
-                                                                "name": "Probit",
-                                                                "id": "6b27f708-c243-42e9-874b-ceceea7db21f"
+                                                                "type": "Asset Class",
+                                                                "name": "CEXs",
+                                                                "id": "ec0ab4b8-e3cc-47e6-94e7-6d181e1008f4"
                                                             },
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos-Exchanges",
-                                                                    "Assets",
-                                                                    "Governance",
-                                                                    "2cefeb95-9fde-418b-a35b-6178a97cac9d"
+                                                                    "Assets"
                                                                 ],
                                                                 [
                                                                     "SA Token Listings Rewards",
-                                                                    "Asset Class",
-                                                                    "Governance",
-                                                                    "492669d5-223f-426d-845a-f26dd1ae251e"
+                                                                    "Asset Class"
                                                                 ],
                                                                 [
-                                                                    "Open Negotiations",
-                                                                    "Asset Class",
-                                                                    "Governance",
-                                                                    "144ad412-94fc-4b80-8dd9-2520f64edfcc"
-                                                                ],
-                                                                [
-                                                                    "Probit",
-                                                                    "Asset",
-                                                                    "Governance",
-                                                                    "6b27f708-c243-42e9-874b-ceceea7db21f"
+                                                                    "CEXs",
+                                                                    "Asset Class"
                                                                 ]
                                                             ]
                                                         }
                                                     }
                                                 ],
+                                                "poolWeightVotes": [],
+                                                "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
                                                 "id": "b856fe5a-4f77-4fad-8c41-1b172b9f01df",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30079.38135097281,
-                                                        "y": 25048.854393558817
+                                                        "x": 30119.38135097281,
+                                                        "y": 25067.85439355882
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30242.773061477317,
-                                                        "y": 24797.25322317519
+                                                        "x": 30282.773061477317,
+                                                        "y": 24816.253223175194
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -12185,15 +12574,11 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos-Exchanges",
-                                                            "Assets",
-                                                            "Governance",
-                                                            "2cefeb95-9fde-418b-a35b-6178a97cac9d"
+                                                            "Assets"
                                                         ],
                                                         [
                                                             "SA Token Listings Rewards",
-                                                            "Asset Class",
-                                                            "Governance",
-                                                            "492669d5-223f-426d-845a-f26dd1ae251e"
+                                                            "Asset Class"
                                                         ]
                                                     ]
                                                 }
@@ -12206,17 +12591,17 @@
                                         "id": "9017ca73-7bbd-4228-a59a-9fb85a130e1a",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 30242.773061477317,
-                                                "y": 24797.25322317519
+                                                "x": 30282.773061477317,
+                                                "y": 24816.253223175194
                                             },
                                             "targetPosition": {
-                                                "x": 30406.164771981825,
-                                                "y": 24545.652052791564
+                                                "x": 30446.164771981825,
+                                                "y": 24564.652052791567
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
-                                                "isCollapsed": true,
+                                                "isCollapsed": false,
                                                 "angleToParent": 2,
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
@@ -12838,12 +13223,12 @@
                                         "id": "066ec791-bd03-4e03-a180-58c7d90c42c4",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 30138.862814725315,
-                                                "y": 24681.849202713427
+                                                "x": 30178.862814725315,
+                                                "y": 24700.84920271343
                                             },
                                             "targetPosition": {
-                                                "x": 30406.164771981825,
-                                                "y": 24545.652052791564
+                                                "x": 30446.164771981825,
+                                                "y": 24564.652052791567
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -12876,14 +13261,14 @@
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
                                     "uiObject": {
                                         "isRunning": false,
-                                        "shortcutKey": "a"
+                                        "shortcutKey": ""
                                     }
                                 }
                             }

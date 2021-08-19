@@ -10,6 +10,8 @@
     "@octokit/rest": "^18.9.0",
     "ccxt": "^1.51.98",
     "child_process": "^1.0.2",
+    "ethereumjs-common": "^1.5.2",
+    "ethereumjs-tx": "^2.1.2",
     "ethers": "^5.4.4",
     "lookpath": "^1.2.2",
     "node-fetch": "2.6.1",

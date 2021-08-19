@@ -88,7 +88,7 @@ function newGovernanceUserProfileSpace() {
                     if (transfer.contractAddress !== UI.projects.governance.globals.saToken.SA_TOKEN_BSC_CONTRACT_ADDRESS) { continue }
                     if (transfer.from !== UI.projects.governance.globals.saToken.SA_TOKEN_BSC_TREASURY_ACCOUNT_ADDRESS) { continue }
 
-                    let currentReputation = Number(transfer.value) / 1000000000000000000
+                    let currentReputation = Number(transfer.value) / UI.projects.governance.globals.saToken.SA_TOKEN_BSC_DECIMAL_FACTOR
                     let previousReputation = reputationByAddress.get(transfer.to)
                     let newReputation = previousReputation | 0 + currentReputation
                     reputationByAddress.set(transfer.to, newReputation)

@@ -5,7 +5,7 @@
     "definition": {
         "text": "If you didn't mess up the command, you should get a new page with the title you set, an invitation to write a summary, and more instructions below!",
         "icon": {
-            "name": "docs-action-edit-paragraph",
+            "name": "Docs\\docs-action-edit-paragraph",
             "project": "Foundations"
         },
         "updated": 1616875304376,
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Si no has estropeado el comando, deberías obtener una nueva página con el título que estableciste, una invitación para escribir un resumen y más instrucciones a continuación.\n",
-                "updated": 1628187369107
+                "updated": 1628187369107,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "Si recibes un mensaje de error, léelo y soluciona el problema. Es probable que se trate de la sintaxis del comando. ¡Siempre puedes retroceder un paso para recuperar el comando original!",
-                    "updated": 1628187419945
+                    "updated": 1628187419945,
+                    "style": "Note"
                 }
             ]
         },
@@ -56,7 +58,8 @@
                 {
                     "language": "ES",
                     "text": "En el siguiente paso, analizaremos cómo funciona el comando.",
-                    "updated": 1628187437392
+                    "updated": 1628187437392,
+                    "style": "Success"
                 }
             ]
         }

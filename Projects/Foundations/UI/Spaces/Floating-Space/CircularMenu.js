@@ -73,6 +73,7 @@ function newCircularMenu() {
             menuItem.visible = menuItemInitialValue.visible
             menuItem.iconPathOn = menuItemInitialValue.iconPathOn
             menuItem.iconPathOff = menuItemInitialValue.iconPathOff
+            menuItem.iconProject = menuItemInitialValue.iconProject
             menuItem.rawRadius = menuItemInitialValue.rawRadius
             menuItem.targetRadius = menuItemInitialValue.label
             menuItem.currentRadius = menuItemInitialValue.currentRadius

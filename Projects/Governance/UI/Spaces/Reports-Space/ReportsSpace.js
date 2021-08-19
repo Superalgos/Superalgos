@@ -231,15 +231,6 @@ function newGobernanceReportsSpace() {
                 'width: ' + thisObject.container.frame.width + 'px;' +
                 'height: ' + thisObject.container.frame.height + 'px'
         }
-
-        /*
-        Monitor the Docs Space to see if its tab is opened, to close this space tab.
-        */
-        if (UI.projects.education.spaces.docsSpace.sidePanelTab.isOpen === true &&
-            thisObject.sidePanelTab.isOpen === true
-        ) {
-            thisObject.sidePanelTab.close()
-        }
     }
 
     function getContainer(point, purpose) {

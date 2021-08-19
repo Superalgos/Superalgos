@@ -871,7 +871,28 @@
                 }
             ]
         },
-        "CL": {},
+        "CL": {
+            "utilities": [
+                {
+                    "name": "Async Functions",
+                    "propertyName": "asyncFunctions",
+                    "functionName": "newFoundationsUtilitiesAsyncFunctions",
+                    "fileName": "AsyncFunctions.js"
+                },
+                {
+                    "name": "Web Access",
+                    "propertyName": "webAccess",
+                    "functionName": "newFoundationsUtilitiesWebAccess",
+                    "fileName": "WebAccess.js"
+                },
+                {
+                    "name": "Plugins",
+                    "propertyName": "plugins",
+                    "functionName": "newFoundationsUtilitiesPlugins",
+                    "fileName": "Plugins.js"
+                }
+            ]
+        },
         "plugins": [
             "Data Mines",
             "Trading Mines",

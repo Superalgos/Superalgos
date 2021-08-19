@@ -8,6 +8,7 @@ exports.newWeb3Server = function newWeb3Server() {
         getWalletBalances: getWalletBalances,
         signData: signData,
         recoverAddress: recoverAddress,
+        mnemonicToPrivateKey: mnemonicToPrivateKey, 
         initialize: initialize,
         finalize: finalize,
         run: run
@@ -235,5 +236,30 @@ exports.newWeb3Server = function newWeb3Server() {
         } catch (err) {
             return { error: 'Could not recover address. ' + err.stack }
         }
+    }
+
+    async function mnemonicToPrivateKey(mnemonic) {
+        try {
+            const ethers = require('ethers')
+            let wallet = ethers.Wallet.fromMnemonic(mnemonic)
+
+            if (wallet.privateKey !== undefined) {
+                return {
+                    address: wallet.address, 
+                    privateKey: wallet.privateKey,
+                    result: 'Ok'
+                }
+            } else {
+                return {
+                    address: undefined, 
+                    privateKey: undefined,
+                    result: 'Fail'
+                }
+            }
+
+        } catch (err) {
+            return { error: 'Could not convert to Private Key. ' + err.stack }
+        }
+
     }
 }

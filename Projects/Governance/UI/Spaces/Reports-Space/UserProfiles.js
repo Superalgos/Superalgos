@@ -46,7 +46,7 @@ function newGovernanceReportsUserProfiles() {
                     "type": "number",
                     "order": "descending",
                     "textAlign": "center",
-                    "format": "2 decimals"
+                    "format": "integer"
                 },
                 {
                     "name": "delegatedPower",
@@ -54,7 +54,7 @@ function newGovernanceReportsUserProfiles() {
                     "type": "number",
                     "order": "descending",
                     "textAlign": "center",
-                    "format": "2 decimals"
+                    "format": "integer"
                 },
                 {
                     "name": "tokenPower",
@@ -62,7 +62,7 @@ function newGovernanceReportsUserProfiles() {
                     "type": "number",
                     "order": "descending",
                     "textAlign": "center",
-                    "format": "2 decimals"
+                    "format": "integer"
                 }
             ]
         }

@@ -70,7 +70,7 @@ function newGovernanceUserProfileSpace() {
         /*
         Here we will setup the Reputation for each profile. 
         */
-        timer = timer + 15000
+        timer = timer + 10000
         waitingForResponses++
         getTreasuryAccountTransactions()
 

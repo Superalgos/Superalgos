@@ -6,25 +6,53 @@
         "text": "Let's take a look at your new working chart.  I hope you are as excited as I am!",
         "updated": 1619024389980,
         "icon": {
-            "name": "trading-system",
+            "name": "Trading/trading-system",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Echemos un vistazo a tu nueva tabla de trabajo. ¡Espero que estés tan emocionado como yo!",
+                "updated": 1628725847421
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Important",
             "text": "First make sure to run all Data Tasks and wait for them to reach 100%.",
-            "updated": 1617850764129
+            "updated": 1617850764129,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Primero asegúrate de correr todos los Data Tasks y espera a que alcancen el 100%.",
+                    "updated": 1628725915506
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Fire up the Charting Space and take a look at your Chart.  Have some fun and turn a few layers on and off.",
-            "updated": 1617850952279
+            "updated": 1617850952279,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Enciende el Charting Space y echa un vistazo a tu gráfico. Diviértete y activa y desactiva algunas capas.",
+                    "updated": 1628725952620
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "If you can see layers showing up when you turn them on, great job! If nothing is showing up, go back over previous steps and make sure you didn't miss anything.",
-            "updated": 1619023984488
+            "updated": 1619023984488,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si puedes ver que aparecen capas cuando las enciendes, ¡excelente trabajo! Si no aparece nada, vuelv ea los pasos anteriores y asegúrate de que no te haya perdido nada.",
+                    "updated": 1628726004784
+                }
+            ]
         }
     ]
 }

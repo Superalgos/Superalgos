@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "Luis-Fernando-Molina",
-    "config": "{\"tokens\":10000000,\"signature\":{\"message\":\"Luis-Fernando-Molina\",\"messageHash\":\"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\"v\":\"0x1b\",\"r\":\"0x90293b042c180aa21b05f0356f31688c597be4ff2df136f63a2b8a899c658eb0\",\"s\":\"0x42abf909024d34217430e42ebadc96b7834218cc86a4c295a2ae419ff2fca6e3\",\"signature\":\"0x90293b042c180aa21b05f0356f31688c597be4ff2df136f63a2b8a899c658eb042abf909024d34217430e42ebadc96b7834218cc86a4c295a2ae419ff2fca6e31b\"},\"codeName\":\"Luis-Fernando-Molina\"}",
+    "config": "{\"signature\":{\"message\":\"Luis-Fernando-Molina\",\"messageHash\":\"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\"v\":\"0x1c\",\"r\":\"0x8645be85fd4b053c9102194be4d007b79d971ca27acd38a7f6abe2588cb2b1a3\",\"s\":\"0x55c5bff8b6d0a038ef53287fb5feffca4eb7002f521472091a0a0014dea4d23e\",\"signature\":\"0x8645be85fd4b053c9102194be4d007b79d971ca27acd38a7f6abe2588cb2b1a355c5bff8b6d0a038ef53287fb5feffca4eb7002f521472091a0a0014dea4d23e1c\"},\"codeName\":\"Luis-Fernando-Molina\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -127,12 +127,12 @@
             "id": "f4d39b02-4324-438d-9f74-2bea2b7272ef",
             "savedPayload": {
                 "position": {
-                    "x": 30558.705098312483,
-                    "y": 23576.33557568774
+                    "x": 30598.705098312483,
+                    "y": 23595.335575687743
                 },
                 "targetPosition": {
-                    "x": 30316,
-                    "y": 23399.999999999996
+                    "x": 30356,
+                    "y": 23419
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -516,12 +516,12 @@
             "id": "b6e3c87d-a11b-4b2a-b6a6-edc96375f5da",
             "savedPayload": {
                 "position": {
-                    "x": 30408.705098312483,
-                    "y": 23685.31695488854
+                    "x": 30448.705098312483,
+                    "y": 23704.316954888545
                 },
                 "targetPosition": {
-                    "x": 30316,
-                    "y": 23399.999999999996
+                    "x": 30356,
+                    "y": 23419
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -544,7 +544,7 @@
             "votingProgram": {
                 "type": "Voting Program",
                 "name": "New Voting Program",
-                "config": "{\n    \"percentage\": 75\n}",
+                "config": "{\n    \"percentage\": 0\n}",
                 "project": "Governance",
                 "votesSwitch": [
                     {
@@ -599,7 +599,7 @@
                                                     "Luis-Fernando-Molina",
                                                     "User Profile",
                                                     "Governance",
-                                                    "148911b3-b2f3-44fb-8cb4-017991789132"
+                                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                                 ],
                                                 [
                                                     "New Token Power Switch",
@@ -682,7 +682,7 @@
                                                     "Luis-Fernando-Molina",
                                                     "User Profile",
                                                     "Governance",
-                                                    "148911b3-b2f3-44fb-8cb4-017991789132"
+                                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                                 ],
                                                 [
                                                     "New Token Power Switch",
@@ -733,12 +733,12 @@
                                 "id": "d69739f9-958e-480e-95e3-a72bb5f6ceab",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 30622.604740762366,
-                                        "y": 24469.00664000841
+                                        "x": 30662.604740762366,
+                                        "y": 24488.006640008414
                                     },
                                     "targetPosition": {
-                                        "x": 30421.865558854708,
-                                        "y": 24246.063192365193
+                                        "x": 30461.865558854708,
+                                        "y": 24265.063192365196
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -758,7 +758,7 @@
                             {
                                 "type": "Weight Votes Switch",
                                 "name": "New Weight Votes Switch",
-                                "config": "{\n    \"percentage\": 75\n}",
+                                "config": "{\n    \"percentage\": 80\n}",
                                 "project": "Governance",
                                 "weightVotesSwitch": [
                                     {
@@ -770,7 +770,7 @@
                                             {
                                                 "type": "Weight Votes Switch",
                                                 "name": "Exchanges Pool Class",
-                                                "config": "{\n    \"percentage\": 35\n}",
+                                                "config": "{\n    \"percentage\": 75\n}",
                                                 "project": "Governance",
                                                 "weightVotesSwitch": [],
                                                 "poolWeightVotes": [
@@ -834,12 +834,12 @@
                                                 "id": "58949e1e-3502-4317-ae8e-b4c56350902e",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30905.003798952057,
-                                                        "y": 24539.12189221862
+                                                        "x": 30945.003798952057,
+                                                        "y": 24558.121892218624
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30657.76594236545,
-                                                        "y": 24709.04376329607
+                                                        "x": 30697.76594236545,
+                                                        "y": 24728.043763296075
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -850,7 +850,8 @@
                                                         "arrangementStyle": 0
                                                     },
                                                     "uiObject": {
-                                                        "isRunning": false
+                                                        "isRunning": false,
+                                                        "shortcutKey": ""
                                                     },
                                                     "referenceParent": {
                                                         "type": "Pool Class",
@@ -876,13 +877,13 @@
                                             {
                                                 "type": "Weight Votes Switch",
                                                 "name": "Governance Programs Pool Class",
-                                                "config": "{\n    \"percentage\": 15\n}",
+                                                "config": "{\n    \"percentage\": 5\n}",
                                                 "project": "Governance",
                                                 "weightVotesSwitch": [
                                                     {
                                                         "type": "Weight Votes Switch",
                                                         "name": "Community Building Programs Pool Class",
-                                                        "config": "{\n    \"percentage\": 70\n}",
+                                                        "config": "{\n    \"percentage\": 50\n}",
                                                         "project": "Governance",
                                                         "weightVotesSwitch": [
                                                             {
@@ -900,12 +901,12 @@
                                                                         "id": "d5cfaf67-cacc-4ce2-bcf3-1cf86e104ff3",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 31296.69683694488,
-                                                                                "y": 24603.823102920433
+                                                                                "x": 31489.106092113674,
+                                                                                "y": 23952.029123225548
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 31053.991738632398,
-                                                                                "y": 24780.158678608175
+                                                                                "x": 31381.595707250082,
+                                                                                "y": 24232.103251174707
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -965,12 +966,12 @@
                                                                         "id": "0c7e8840-3b89-48c4-8087-b3e0c2396892",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 31334.065866581557,
-                                                                                "y": 24672.648293744583
+                                                                                "x": 31557.931282937825,
+                                                                                "y": 23989.398152862224
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 31053.991738632398,
-                                                                                "y": 24780.158678608175
+                                                                                "x": 31381.595707250082,
+                                                                                "y": 24232.103251174707
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -1029,12 +1030,12 @@
                                                                 "id": "e234520e-5755-418a-9a32-f53a4d02f04d",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 31053.991738632398,
-                                                                        "y": 24780.158678608175
+                                                                        "x": 31381.595707250082,
+                                                                        "y": 24232.103251174707
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 30790.34660483381,
-                                                                        "y": 24923.30630668606
+                                                                        "x": 31238.448079172198,
+                                                                        "y": 24495.748384973296
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -1095,12 +1096,12 @@
                                                                         "id": "90eeb2fb-aa44-4530-bbeb-44b29a574c9b",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 31370.64003199154,
-                                                                                "y": 24775.930550725934
+                                                                                "x": 31644.856507790835,
+                                                                                "y": 24056.09822382808
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 31085.323077102996,
-                                                                                "y": 24868.635649038417
+                                                                                "x": 31456.060390475883,
+                                                                                "y": 24289.24201226517
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -1160,12 +1161,12 @@
                                                                         "id": "d9180061-a15d-48dc-8330-be63446cf655",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 31384.911937529367,
-                                                                                "y": 24852.934862165534
+                                                                                "x": 31698.765488788365,
+                                                                                "y": 24112.90643657743
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 31085.323077102996,
-                                                                                "y": 24868.635649038417
+                                                                                "x": 31456.060390475883,
+                                                                                "y": 24289.24201226517
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -1224,12 +1225,12 @@
                                                                 "id": "48220c57-0e4b-4ebc-b5af-ac122b17ccf5",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 31085.323077102996,
-                                                                        "y": 24868.635649038417
+                                                                        "x": 31456.060390475883,
+                                                                        "y": 24289.24201226517
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 30790.34660483381,
-                                                                        "y": 24923.30630668606
+                                                                        "x": 31238.448079172198,
+                                                                        "y": 24495.748384973296
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -1290,12 +1291,12 @@
                                                                         "id": "1289397e-3fba-4ff6-b095-d7fb40cd2066",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 31387.78006324595,
-                                                                                "y": 24962.464164352074
+                                                                                "x": 31760.82483486078,
+                                                                                "y": 24203.2033454263
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 31087.78006324595,
-                                                                                "y": 24962.464164352074
+                                                                                "x": 31509.223664477155,
+                                                                                "y": 24366.595055930808
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -1355,12 +1356,12 @@
                                                                         "id": "945ed8a9-4d5d-4304-83ed-ca5a750b27a2",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 31377.557811132672,
-                                                                                "y": 25040.10987788283
+                                                                                "x": 31794.5406193657,
+                                                                                "y": 24273.889957618325
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 31087.78006324595,
-                                                                                "y": 24962.464164352074
+                                                                                "x": 31509.223664477155,
+                                                                                "y": 24366.595055930808
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -1419,12 +1420,12 @@
                                                                 "id": "0efc0384-5f10-493c-bf04-a2eec4b61770",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 31087.78006324595,
-                                                                        "y": 24962.464164352074
+                                                                        "x": 31509.223664477155,
+                                                                        "y": 24366.595055930808
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 30790.34660483381,
-                                                                        "y": 24923.30630668606
+                                                                        "x": 31238.448079172198,
+                                                                        "y": 24495.748384973296
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -1473,7 +1474,7 @@
                                                             {
                                                                 "type": "Weight Votes Switch",
                                                                 "name": "Influencer Program Pool Class",
-                                                                "config": "{\n    \"percentage\": 10\n}",
+                                                                "config": "{\n    \"percentage\": 0\n}",
                                                                 "project": "Governance",
                                                                 "weightVotesSwitch": [],
                                                                 "poolWeightVotes": [
@@ -1485,12 +1486,12 @@
                                                                         "id": "7f198bd2-bbe2-47fa-a5e9-b417c453faf8",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 31346.43914502731,
-                                                                                "y": 25145.16473404103
+                                                                                "x": 31825.65928547106,
+                                                                                "y": 24378.944813776525
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 31061.122190138765,
-                                                                                "y": 25052.459635728548
+                                                                                "x": 31535.88153758434,
+                                                                                "y": 24456.590527307282
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -1550,12 +1551,12 @@
                                                                         "id": "3e0ac914-7a36-4dd7-8ba3-19116faafc43",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 31312.723360522392,
-                                                                                "y": 25215.851346233056
+                                                                                "x": 31835.88153758434,
+                                                                                "y": 24456.590527307282
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 31061.122190138765,
-                                                                                "y": 25052.459635728548
+                                                                                "x": 31535.88153758434,
+                                                                                "y": 24456.590527307282
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -1614,12 +1615,12 @@
                                                                 "id": "edf91f0f-7013-428f-9165-59ccea32edff",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 31061.122190138765,
-                                                                        "y": 25052.459635728548
+                                                                        "x": 31535.88153758434,
+                                                                        "y": 24456.590527307282
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 30790.34660483381,
-                                                                        "y": 24923.30630668606
+                                                                        "x": 31238.448079172198,
+                                                                        "y": 24495.748384973296
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -1673,12 +1674,12 @@
                                                         "id": "c3f7a909-3284-4f5f-86db-41fdab0cf484",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 30790.34660483381,
-                                                                "y": 24923.30630668606
+                                                                "x": 31238.448079172198,
+                                                                "y": 24495.748384973296
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30490.44940734114,
-                                                                "y": 24931.159391178422
+                                                                "x": 30991.210222585592,
+                                                                "y": 24665.670256050747
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -1992,12 +1993,12 @@
                                                         "id": "5962ffe0-3120-4573-b996-6bf22cfdc9de",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 30770.5235352903,
-                                                                "y": 25038.669776042014
+                                                                "x": 31284.654502805734,
+                                                                "y": 24603.29674880542
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30490.44940734114,
-                                                                "y": 24931.159391178422
+                                                                "x": 30991.210222585592,
+                                                                "y": 24665.670256050747
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -2505,12 +2506,12 @@
                                                         "id": "efa27450-103f-4b2e-b0c5-b26d538e711e",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 30708.061718644825,
-                                                                "y": 25137.665763886547
+                                                                "x": 31286.18669485478,
+                                                                "y": 24720.34091369839
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30490.44940734114,
-                                                                "y": 24931.159391178422
+                                                                "x": 30991.210222585592,
+                                                                "y": 24665.670256050747
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -2558,12 +2559,12 @@
                                                 "id": "cb79b91f-d01c-4efa-8fea-e4b7374fdd8b",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30951.210222585592,
-                                                        "y": 24646.670256050744
+                                                        "x": 30991.210222585592,
+                                                        "y": 24665.670256050747
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30657.76594236545,
-                                                        "y": 24709.04376329607
+                                                        "x": 30697.76594236545,
+                                                        "y": 24728.043763296075
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2607,17 +2608,17 @@
                                                     {
                                                         "type": "Pool Weight Vote",
                                                         "name": "Foundations Project Pool",
-                                                        "config": "{\n    \"percentage\": 28\n}",
+                                                        "config": "{\n    \"percentage\": 5\n}",
                                                         "project": "Governance",
                                                         "id": "2a1c7f8b-1cf0-411b-b483-d400885c3728",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 30715.633511156124,
-                                                                "y": 24944.95077561178
+                                                                "x": 31187.576829133694,
+                                                                "y": 24554.59263126371
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30427.987590695666,
-                                                                "y": 25030.155379022955
+                                                                "x": 30992.74241463464,
+                                                                "y": 24782.714420943717
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -2660,17 +2661,17 @@
                                                     {
                                                         "type": "Pool Weight Vote",
                                                         "name": "TensorFlow Project Pool",
-                                                        "config": "{\n    \"percentage\": 22\n}",
+                                                        "config": "{\n    \"percentage\": 40\n}",
                                                         "project": "Governance",
                                                         "id": "6c19b162-0b82-4d3a-a949-7361a2ad2b22",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 30719.69856681497,
-                                                                "y": 25100.18898817973
+                                                                "x": 31275.534861962293,
+                                                                "y": 24682.572363173585
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30427.987590695666,
-                                                                "y": 25030.155379022955
+                                                                "x": 30992.74241463464,
+                                                                "y": 24782.714420943717
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -2713,17 +2714,17 @@
                                                     {
                                                         "type": "Pool Weight Vote",
                                                         "name": "Governance Project Pool",
-                                                        "config": "{\n    \"percentage\": 25\n}",
+                                                        "config": "{\n    \"percentage\": 50\n}",
                                                         "project": "Governance",
                                                         "id": "0c9cc0a5-cbc2-4c85-824e-432875d39dfc",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 30645.59990199935,
-                                                                "y": 25236.66175173108
+                                                                "x": 31287.718886903825,
+                                                                "y": 24837.38507859136
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30427.987590695666,
-                                                                "y": 25030.155379022955
+                                                                "x": 30992.74241463464,
+                                                                "y": 24782.714420943717
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -2766,17 +2767,17 @@
                                                     {
                                                         "type": "Pool Weight Vote",
                                                         "name": "Education Project Pool",
-                                                        "config": "{\n    \"percentage\": 18\n}",
+                                                        "config": "{\n    \"percentage\": 5\n}",
                                                         "project": "Governance",
                                                         "id": "39553f4f-8b18-4194-9d91-38ded93677f3",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 30513.192194106843,
-                                                                "y": 25317.801299483413
+                                                                "x": 31220.864204314646,
+                                                                "y": 24977.548835442773
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30427.987590695666,
-                                                                "y": 25030.155379022955
+                                                                "x": 30992.74241463464,
+                                                                "y": 24782.714420943717
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -2819,17 +2820,17 @@
                                                     {
                                                         "type": "Pool Weight Vote",
                                                         "name": "Ethereum Project Pool",
-                                                        "config": "{}",
+                                                        "config": "{\n    \"percentage\": 0\n}",
                                                         "project": "Governance",
                                                         "id": "c0e53819-b234-4583-b1c7-b465492ae165",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 30357.953981538893,
-                                                                "y": 25321.866355142258
+                                                                "x": 31092.88447240477,
+                                                                "y": 25065.50686827137
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30427.987590695666,
-                                                                "y": 25030.155379022955
+                                                                "x": 30992.74241463464,
+                                                                "y": 24782.714420943717
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -2876,12 +2877,12 @@
                                                 "id": "33c4a72b-4908-478e-b7c3-2304cb211f05",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30952.74241463464,
-                                                        "y": 24763.714420943714
+                                                        "x": 30992.74241463464,
+                                                        "y": 24782.714420943717
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30657.76594236545,
-                                                        "y": 24709.04376329607
+                                                        "x": 30697.76594236545,
+                                                        "y": 24728.043763296075
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2918,7 +2919,7 @@
                                             {
                                                 "type": "Weight Votes Switch",
                                                 "name": "Trading Intelligence",
-                                                "config": "{\n    \"percentage\": 9\n}",
+                                                "config": "{\n    \"percentage\": 2.5\n}",
                                                 "project": "Governance",
                                                 "weightVotesSwitch": [],
                                                 "poolWeightVotes": [
@@ -3088,12 +3089,12 @@
                                                 "id": "56c59557-4ab9-4f4b-9c48-e1f9822e4899",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30909.367112749078,
-                                                        "y": 24872.43547380058
+                                                        "x": 30949.367112749078,
+                                                        "y": 24891.435473800582
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30657.76594236545,
-                                                        "y": 24709.04376329607
+                                                        "x": 30697.76594236545,
+                                                        "y": 24728.043763296075
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -3130,7 +3131,7 @@
                                             {
                                                 "type": "Weight Votes Switch",
                                                 "name": "Education, Docs, Tutorials, Videos, Icons",
-                                                "config": "{\n    \"percentage\": 4\n}",
+                                                "config": "{\n    \"percentage\": 2\n}",
                                                 "project": "Governance",
                                                 "weightVotesSwitch": [],
                                                 "poolWeightVotes": [
@@ -3142,12 +3143,12 @@
                                                         "id": "34682b4d-a2de-49da-baa3-bfec87ac0521",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 30481.873497682933,
-                                                                "y": 25266.693831885383
+                                                                "x": 31166.763013562842,
+                                                                "y": 24951.743891164326
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30218.228363884344,
-                                                                "y": 25123.5462038075
+                                                                "x": 30867.687813442903,
+                                                                "y": 24975.28161988268
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -3190,17 +3191,17 @@
                                                     {
                                                         "type": "Pool Weight Vote",
                                                         "name": "Tensor Flow Project Pool",
-                                                        "config": "{\n    \"percentage\": 35\n}",
+                                                        "config": "{\n    \"percentage\": 30\n}",
                                                         "project": "Governance",
                                                         "id": "bd2be404-987e-4568-90c1-12bb74c850e1",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 30374.977933299127,
-                                                                "y": 25379.338253113725
+                                                                "x": 31138.46339874786,
+                                                                "y": 25104.43494892517
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30218.228363884344,
-                                                                "y": 25123.5462038075
+                                                                "x": 30867.687813442903,
+                                                                "y": 24975.28161988268
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -3243,17 +3244,17 @@
                                                     {
                                                         "type": "Pool Weight Vote",
                                                         "name": "Governance Project Pool",
-                                                        "config": "{\n    \"percentage\": 35\n}",
+                                                        "config": "{\n    \"percentage\": 40\n}",
                                                         "project": "Governance",
                                                         "id": "e279f63a-310d-4532-bfc9-54e883c537dd",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 30226.081448376706,
-                                                                "y": 25423.443401300166
+                                                                "x": 31037.609684520354,
+                                                                "y": 25222.519476469286
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30218.228363884344,
-                                                                "y": 25123.5462038075
+                                                                "x": 30867.687813442903,
+                                                                "y": 24975.28161988268
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -3296,17 +3297,17 @@
                                                     {
                                                         "type": "Pool Weight Vote",
                                                         "name": "Education Project Pool",
-                                                        "config": "{}",
+                                                        "config": "{\n    \"percentage\": 5\n}",
                                                         "project": "Governance",
                                                         "id": "5a656caa-36db-4ee7-a1c3-f748636b80aa",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 30075.08073580646,
-                                                                "y": 25387.191337606087
+                                                                "x": 30891.225542161257,
+                                                                "y": 25274.35682000262
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30218.228363884344,
-                                                                "y": 25123.5462038075
+                                                                "x": 30867.687813442903,
+                                                                "y": 24975.28161988268
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -3354,12 +3355,12 @@
                                                         "id": "af3c5702-3ce1-4a32-8987-8bbce440931b",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 29962.436314578117,
-                                                                "y": 25280.295773222282
+                                                                "x": 30738.534484400414,
+                                                                "y": 25246.057205187637
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30218.228363884344,
-                                                                "y": 25123.5462038075
+                                                                "x": 30867.687813442903,
+                                                                "y": 24975.28161988268
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -3406,23 +3407,24 @@
                                                 "id": "88c4df8c-48ff-4d7e-a5ed-015c3faf6e69",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30827.687813442903,
-                                                        "y": 24956.281619882677
+                                                        "x": 30867.687813442903,
+                                                        "y": 24975.28161988268
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30657.76594236545,
-                                                        "y": 24709.04376329607
+                                                        "x": 30697.76594236545,
+                                                        "y": 24728.043763296075
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
                                                         "isFrozen": false,
-                                                        "isCollapsed": true,
+                                                        "isCollapsed": false,
                                                         "angleToParent": 2,
                                                         "distanceToParent": 3,
                                                         "arrangementStyle": 0
                                                     },
                                                     "uiObject": {
-                                                        "isRunning": false
+                                                        "isRunning": false,
+                                                        "shortcutKey": "q"
                                                     },
                                                     "referenceParent": {
                                                         "type": "Pool Class",
@@ -3448,7 +3450,7 @@
                                             {
                                                 "type": "Weight Votes Switch",
                                                 "name": "Marketing",
-                                                "config": "{\n    \"percentage\": 14\n}",
+                                                "config": "{\n    \"percentage\": 7\n}",
                                                 "project": "Governance",
                                                 "weightVotesSwitch": [],
                                                 "poolWeightVotes": [
@@ -3565,12 +3567,12 @@
                                                 "id": "34ddd8f7-d8a3-495d-8c7f-2a3f121b3269",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30720.13944961078,
-                                                        "y": 25002.488043516212
+                                                        "x": 30760.13944961078,
+                                                        "y": 25021.488043516216
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30657.76594236545,
-                                                        "y": 24709.04376329607
+                                                        "x": 30697.76594236545,
+                                                        "y": 24728.043763296075
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -3972,12 +3974,12 @@
                                                 "id": "c092f4bb-64fe-47ca-bb13-668d4d65f901",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30603.09528471781,
-                                                        "y": 25004.02023556526
+                                                        "x": 30643.09528471781,
+                                                        "y": 25023.020235565262
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30657.76594236545,
-                                                        "y": 24709.04376329607
+                                                        "x": 30697.76594236545,
+                                                        "y": 24728.043763296075
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -4019,23 +4021,24 @@
                                         "id": "800e3388-1ea6-40ee-ace5-1811a3373e39",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 30657.76594236545,
-                                                "y": 24709.04376329607
+                                                "x": 30697.76594236545,
+                                                "y": 24728.043763296075
                                             },
                                             "targetPosition": {
-                                                "x": 30406.164771981825,
-                                                "y": 24545.652052791564
+                                                "x": 30446.164771981825,
+                                                "y": 24564.652052791567
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
-                                                "isCollapsed": true,
+                                                "isCollapsed": false,
                                                 "angleToParent": 2,
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
                                             "uiObject": {
-                                                "isRunning": false
+                                                "isRunning": false,
+                                                "shortcutKey": ""
                                             }
                                         }
                                     },
@@ -7127,12 +7130,12 @@
                                         "id": "f5b54a5c-0251-4a78-94e6-5e2dc4113d5c",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 30542.36192190369,
-                                                "y": 24812.954010048074
+                                                "x": 30582.36192190369,
+                                                "y": 24831.954010048077
                                             },
                                             "targetPosition": {
-                                                "x": 30406.164771981825,
-                                                "y": 24545.652052791564
+                                                "x": 30446.164771981825,
+                                                "y": 24564.652052791567
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -11942,12 +11945,12 @@
                                         "id": "c5258958-8fd9-4d68-8a9f-481430aa1bb3",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 30390.46398510894,
-                                                "y": 24845.240913217935
+                                                "x": 30430.46398510894,
+                                                "y": 24864.24091321794
                                             },
                                             "targetPosition": {
-                                                "x": 30406.164771981825,
-                                                "y": 24545.652052791564
+                                                "x": 30446.164771981825,
+                                                "y": 24564.652052791567
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -11964,7 +11967,7 @@
                                     },
                                     {
                                         "type": "Weight Votes Switch",
-                                        "name": "Exchanges",
+                                        "name": "Superalgos-Exchanges",
                                         "config": "{\n    \"percentage\": 5\n}",
                                         "project": "Governance",
                                         "weightVotesSwitch": [
@@ -11973,23 +11976,306 @@
                                                 "name": "SA Token Listings Rewards",
                                                 "config": "{}",
                                                 "project": "Governance",
-                                                "weightVotesSwitch": [],
-                                                "poolWeightVotes": [],
-                                                "assetWeightVotes": [
+                                                "weightVotesSwitch": [
                                                     {
-                                                        "type": "Asset Weight Vote",
-                                                        "name": "Superalgos-Exchanges SA Token Listings Rewards Open Negotiations Bittrex",
-                                                        "config": "{\n    \"percentage\": 45\n}",
+                                                        "type": "Weight Votes Switch",
+                                                        "name": "DEXs",
+                                                        "config": "{\n    \"percentage\": 100\n}",
                                                         "project": "Governance",
-                                                        "id": "ed4cf0cf-3ef8-4e2e-8ec9-9809e3462994",
+                                                        "weightVotesSwitch": [
+                                                            {
+                                                                "type": "Weight Votes Switch",
+                                                                "name": "First Listing",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "weightVotesSwitch": [
+                                                                    {
+                                                                        "type": "Weight Votes Switch",
+                                                                        "name": " Pancakeswap SA/WBTC",
+                                                                        "config": "{}",
+                                                                        "project": "Governance",
+                                                                        "weightVotesSwitch": [],
+                                                                        "poolWeightVotes": [],
+                                                                        "assetWeightVotes": [
+                                                                            {
+                                                                                "type": "Asset Weight Vote",
+                                                                                "name": "DEXs First Listing  Pancakeswap SA/WBTC SA Liquidity",
+                                                                                "config": "{}",
+                                                                                "project": "Governance",
+                                                                                "id": "132eec8f-8438-429d-bebc-47a5e100e48e",
+                                                                                "savedPayload": {
+                                                                                    "position": {
+                                                                                        "x": 30208.476140276023,
+                                                                                        "y": 26233.922932094443
+                                                                                    },
+                                                                                    "targetPosition": {
+                                                                                        "x": 30072.27899035416,
+                                                                                        "y": 25966.620974837933
+                                                                                    },
+                                                                                    "floatingObject": {
+                                                                                        "isPinned": false,
+                                                                                        "isFrozen": false,
+                                                                                        "isCollapsed": false,
+                                                                                        "angleToParent": 2,
+                                                                                        "distanceToParent": 3,
+                                                                                        "arrangementStyle": 0
+                                                                                    },
+                                                                                    "uiObject": {
+                                                                                        "isRunning": false
+                                                                                    },
+                                                                                    "referenceParent": {
+                                                                                        "type": "Asset",
+                                                                                        "name": "SA Liquidity",
+                                                                                        "id": "2e59edc7-7e37-40e3-808f-9ab3c7c5f0b3"
+                                                                                    },
+                                                                                    "referenceParentCombinedNodePath": [
+                                                                                        [
+                                                                                            "Superalgos-Exchanges",
+                                                                                            "Assets",
+                                                                                            "Governance",
+                                                                                            "2cefeb95-9fde-418b-a35b-6178a97cac9d"
+                                                                                        ],
+                                                                                        [
+                                                                                            "SA Token Listings Rewards",
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "492669d5-223f-426d-845a-f26dd1ae251e"
+                                                                                        ],
+                                                                                        [
+                                                                                            "DEXs",
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "90e0c410-b1e7-4f0a-9dec-99c597a7956d"
+                                                                                        ],
+                                                                                        [
+                                                                                            "First Listing",
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "54f70f64-029a-4f2f-8847-5208c2fa94a1"
+                                                                                        ],
+                                                                                        [
+                                                                                            " Pancakeswap SA/WBTC",
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "cc6e34d9-d58a-4aa7-9049-250ea90a8430"
+                                                                                        ],
+                                                                                        [
+                                                                                            "SA Liquidity",
+                                                                                            "Asset",
+                                                                                            "Governance",
+                                                                                            "2e59edc7-7e37-40e3-808f-9ab3c7c5f0b3"
+                                                                                        ]
+                                                                                    ]
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "type": "Asset Weight Vote",
+                                                                                "name": "DEXs First Listing  Pancakeswap SA/WBTC WBTC Liquidity",
+                                                                                "config": "{\n    \"percentage\": 55.555556\n}",
+                                                                                "project": "Governance",
+                                                                                "id": "99b1f5b3-d368-49ed-b848-d52e13b586d6",
+                                                                                "savedPayload": {
+                                                                                    "position": {
+                                                                                        "x": 29908.887279849652,
+                                                                                        "y": 26218.22214522156
+                                                                                    },
+                                                                                    "targetPosition": {
+                                                                                        "x": 30072.27899035416,
+                                                                                        "y": 25966.620974837933
+                                                                                    },
+                                                                                    "floatingObject": {
+                                                                                        "isPinned": false,
+                                                                                        "isFrozen": false,
+                                                                                        "isCollapsed": false,
+                                                                                        "angleToParent": 2,
+                                                                                        "distanceToParent": 3,
+                                                                                        "arrangementStyle": 0
+                                                                                    },
+                                                                                    "uiObject": {
+                                                                                        "isRunning": false,
+                                                                                        "shortcutKey": ""
+                                                                                    },
+                                                                                    "referenceParent": {
+                                                                                        "type": "Asset",
+                                                                                        "name": "WBTC Liquidity",
+                                                                                        "id": "117afaed-83bd-4b0c-be12-40b8c8dd3a34"
+                                                                                    },
+                                                                                    "referenceParentCombinedNodePath": [
+                                                                                        [
+                                                                                            "Superalgos-Exchanges",
+                                                                                            "Assets",
+                                                                                            "Governance",
+                                                                                            "2cefeb95-9fde-418b-a35b-6178a97cac9d"
+                                                                                        ],
+                                                                                        [
+                                                                                            "SA Token Listings Rewards",
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "492669d5-223f-426d-845a-f26dd1ae251e"
+                                                                                        ],
+                                                                                        [
+                                                                                            "DEXs",
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "90e0c410-b1e7-4f0a-9dec-99c597a7956d"
+                                                                                        ],
+                                                                                        [
+                                                                                            "First Listing",
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "54f70f64-029a-4f2f-8847-5208c2fa94a1"
+                                                                                        ],
+                                                                                        [
+                                                                                            " Pancakeswap SA/WBTC",
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "cc6e34d9-d58a-4aa7-9049-250ea90a8430"
+                                                                                        ],
+                                                                                        [
+                                                                                            "WBTC Liquidity",
+                                                                                            "Asset",
+                                                                                            "Governance",
+                                                                                            "117afaed-83bd-4b0c-be12-40b8c8dd3a34"
+                                                                                        ]
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        "featureWeightVotes": [],
+                                                                        "positionWeightVotes": [],
+                                                                        "id": "6188434b-762d-44f9-a459-b79cea727bfe",
+                                                                        "savedPayload": {
+                                                                            "position": {
+                                                                                "x": 30072.27899035416,
+                                                                                "y": 25966.620974837933
+                                                                            },
+                                                                            "targetPosition": {
+                                                                                "x": 30087.979777227043,
+                                                                                "y": 25667.032114411562
+                                                                            },
+                                                                            "floatingObject": {
+                                                                                "isPinned": false,
+                                                                                "isFrozen": false,
+                                                                                "isCollapsed": false,
+                                                                                "angleToParent": 2,
+                                                                                "distanceToParent": 3,
+                                                                                "arrangementStyle": 0
+                                                                            },
+                                                                            "uiObject": {
+                                                                                "isRunning": false
+                                                                            },
+                                                                            "referenceParent": {
+                                                                                "type": "Asset Class",
+                                                                                "name": " Pancakeswap SA/WBTC",
+                                                                                "id": "cc6e34d9-d58a-4aa7-9049-250ea90a8430"
+                                                                            },
+                                                                            "referenceParentCombinedNodePath": [
+                                                                                [
+                                                                                    "Superalgos-Exchanges",
+                                                                                    "Assets",
+                                                                                    "Governance",
+                                                                                    "2cefeb95-9fde-418b-a35b-6178a97cac9d"
+                                                                                ],
+                                                                                [
+                                                                                    "SA Token Listings Rewards",
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "492669d5-223f-426d-845a-f26dd1ae251e"
+                                                                                ],
+                                                                                [
+                                                                                    "DEXs",
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "90e0c410-b1e7-4f0a-9dec-99c597a7956d"
+                                                                                ],
+                                                                                [
+                                                                                    "First Listing",
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "54f70f64-029a-4f2f-8847-5208c2fa94a1"
+                                                                                ],
+                                                                                [
+                                                                                    " Pancakeswap SA/WBTC",
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "cc6e34d9-d58a-4aa7-9049-250ea90a8430"
+                                                                                ]
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "poolWeightVotes": [],
+                                                                "assetWeightVotes": [],
+                                                                "featureWeightVotes": [],
+                                                                "positionWeightVotes": [],
+                                                                "id": "d987d5ba-4316-4d62-927a-cf25b16bfbdf",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 30087.979777227043,
+                                                                        "y": 25667.032114411562
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 30103.680564099926,
+                                                                        "y": 25367.44325398519
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Asset Class",
+                                                                        "name": "First Listing",
+                                                                        "id": "54f70f64-029a-4f2f-8847-5208c2fa94a1"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Superalgos-Exchanges",
+                                                                            "Assets",
+                                                                            "Governance",
+                                                                            "2cefeb95-9fde-418b-a35b-6178a97cac9d"
+                                                                        ],
+                                                                        [
+                                                                            "SA Token Listings Rewards",
+                                                                            "Asset Class",
+                                                                            "Governance",
+                                                                            "492669d5-223f-426d-845a-f26dd1ae251e"
+                                                                        ],
+                                                                        [
+                                                                            "DEXs",
+                                                                            "Asset Class",
+                                                                            "Governance",
+                                                                            "90e0c410-b1e7-4f0a-9dec-99c597a7956d"
+                                                                        ],
+                                                                        [
+                                                                            "First Listing",
+                                                                            "Asset Class",
+                                                                            "Governance",
+                                                                            "54f70f64-029a-4f2f-8847-5208c2fa94a1"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "poolWeightVotes": [],
+                                                        "assetWeightVotes": [],
+                                                        "featureWeightVotes": [],
+                                                        "positionWeightVotes": [],
+                                                        "id": "c06903b5-4a3f-4d0e-bfdb-84003992c271",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 30141.754858218137,
-                                                                "y": 25342.298673778958
+                                                                "x": 30103.680564099926,
+                                                                "y": 25367.44325398519
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30079.38135097281,
-                                                                "y": 25048.854393558817
+                                                                "x": 30119.38135097281,
+                                                                "y": 25067.85439355882
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -12003,9 +12289,9 @@
                                                                 "isRunning": false
                                                             },
                                                             "referenceParent": {
-                                                                "type": "Asset",
-                                                                "name": "Bittrex",
-                                                                "id": "548dd163-9991-4de3-9e68-9e8a9a051a2f"
+                                                                "type": "Asset Class",
+                                                                "name": "DEXs",
+                                                                "id": "90e0c410-b1e7-4f0a-9dec-99c597a7956d"
                                                             },
                                                             "referenceParentCombinedNodePath": [
                                                                 [
@@ -12021,98 +12307,299 @@
                                                                     "492669d5-223f-426d-845a-f26dd1ae251e"
                                                                 ],
                                                                 [
-                                                                    "Open Negotiations",
+                                                                    "DEXs",
                                                                     "Asset Class",
                                                                     "Governance",
-                                                                    "144ad412-94fc-4b80-8dd9-2520f64edfcc"
-                                                                ],
-                                                                [
-                                                                    "Bittrex",
-                                                                    "Asset",
-                                                                    "Governance",
-                                                                    "548dd163-9991-4de3-9e68-9e8a9a051a2f"
+                                                                    "90e0c410-b1e7-4f0a-9dec-99c597a7956d"
                                                                 ]
                                                             ]
                                                         }
                                                     },
                                                     {
-                                                        "type": "Asset Weight Vote",
-                                                        "name": "Superalgos-Exchanges SA Token Listings Rewards Open Negotiations LBank",
-                                                        "config": "{\n    \"percentage\": 25\n}",
-                                                        "project": "Governance",
-                                                        "id": "25eed22d-3f2f-4a33-92fc-d43028cfa972",
-                                                        "savedPayload": {
-                                                            "position": {
-                                                                "x": 29915.989640468302,
-                                                                "y": 25300.455563942443
-                                                            },
-                                                            "targetPosition": {
-                                                                "x": 30079.38135097281,
-                                                                "y": 25048.854393558817
-                                                            },
-                                                            "floatingObject": {
-                                                                "isPinned": false,
-                                                                "isFrozen": false,
-                                                                "isCollapsed": false,
-                                                                "angleToParent": 2,
-                                                                "distanceToParent": 3,
-                                                                "arrangementStyle": 0
-                                                            },
-                                                            "uiObject": {
-                                                                "isRunning": false
-                                                            },
-                                                            "referenceParent": {
-                                                                "type": "Asset",
-                                                                "name": "LBank",
-                                                                "id": "e4e7addb-a840-4ce9-9e01-74c7e57c24ad"
-                                                            },
-                                                            "referenceParentCombinedNodePath": [
-                                                                [
-                                                                    "Superalgos-Exchanges",
-                                                                    "Assets",
-                                                                    "Governance",
-                                                                    "2cefeb95-9fde-418b-a35b-6178a97cac9d"
-                                                                ],
-                                                                [
-                                                                    "SA Token Listings Rewards",
-                                                                    "Asset Class",
-                                                                    "Governance",
-                                                                    "492669d5-223f-426d-845a-f26dd1ae251e"
-                                                                ],
-                                                                [
-                                                                    "Open Negotiations",
-                                                                    "Asset Class",
-                                                                    "Governance",
-                                                                    "144ad412-94fc-4b80-8dd9-2520f64edfcc"
-                                                                ],
-                                                                [
-                                                                    "LBank",
-                                                                    "Asset",
-                                                                    "Governance",
-                                                                    "e4e7addb-a840-4ce9-9e01-74c7e57c24ad"
-                                                                ]
-                                                            ]
-                                                        }
-                                                    },
-                                                    {
-                                                        "type": "Asset Weight Vote",
-                                                        "name": "Superalgos-Exchanges SA Token Listings Rewards Open Negotiations Probit",
+                                                        "type": "Weight Votes Switch",
+                                                        "name": "CEXs",
                                                         "config": "{}",
                                                         "project": "Governance",
-                                                        "id": "cc322882-2489-4b4e-989b-d56d3345ad70",
+                                                        "weightVotesSwitch": [
+                                                            {
+                                                                "type": "Weight Votes Switch",
+                                                                "name": "Open Negotiations",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "weightVotesSwitch": [],
+                                                                "poolWeightVotes": [],
+                                                                "assetWeightVotes": [
+                                                                    {
+                                                                        "type": "Asset Weight Vote",
+                                                                        "name": "SA Token Listings Rewards CEXs Open Negotiations Bittrex",
+                                                                        "config": "{}",
+                                                                        "project": "Governance",
+                                                                        "id": "8f4adb75-d7f5-4ea4-94e6-9126cd9fc1da",
+                                                                        "savedPayload": {
+                                                                            "position": {
+                                                                                "x": 29492.072338147307,
+                                                                                "y": 25625.565648291093
+                                                                            },
+                                                                            "targetPosition": {
+                                                                                "x": 29584.77743645979,
+                                                                                "y": 25340.248693402547
+                                                                            },
+                                                                            "floatingObject": {
+                                                                                "isPinned": false,
+                                                                                "isFrozen": false,
+                                                                                "isCollapsed": false,
+                                                                                "angleToParent": 2,
+                                                                                "distanceToParent": 3,
+                                                                                "arrangementStyle": 0
+                                                                            },
+                                                                            "uiObject": {
+                                                                                "isRunning": false
+                                                                            },
+                                                                            "referenceParent": {
+                                                                                "type": "Asset",
+                                                                                "name": "Bittrex",
+                                                                                "id": "548dd163-9991-4de3-9e68-9e8a9a051a2f"
+                                                                            },
+                                                                            "referenceParentCombinedNodePath": [
+                                                                                [
+                                                                                    "Superalgos-Exchanges",
+                                                                                    "Assets",
+                                                                                    "Governance",
+                                                                                    "2cefeb95-9fde-418b-a35b-6178a97cac9d"
+                                                                                ],
+                                                                                [
+                                                                                    "SA Token Listings Rewards",
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "492669d5-223f-426d-845a-f26dd1ae251e"
+                                                                                ],
+                                                                                [
+                                                                                    "CEXs",
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "ec0ab4b8-e3cc-47e6-94e7-6d181e1008f4"
+                                                                                ],
+                                                                                [
+                                                                                    "Open Negotiations",
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "144ad412-94fc-4b80-8dd9-2520f64edfcc"
+                                                                                ],
+                                                                                [
+                                                                                    "Bittrex",
+                                                                                    "Asset",
+                                                                                    "Governance",
+                                                                                    "548dd163-9991-4de3-9e68-9e8a9a051a2f"
+                                                                                ]
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "Asset Weight Vote",
+                                                                        "name": "SA Token Listings Rewards CEXs Open Negotiations LBank",
+                                                                        "config": "{}",
+                                                                        "project": "Governance",
+                                                                        "id": "308cb2e4-23e2-4a7f-a1e2-3fa4e83fd6e2",
+                                                                        "savedPayload": {
+                                                                            "position": {
+                                                                                "x": 29317.47547920328,
+                                                                                "y": 25476.44584332441
+                                                                            },
+                                                                            "targetPosition": {
+                                                                                "x": 29584.77743645979,
+                                                                                "y": 25340.248693402547
+                                                                            },
+                                                                            "floatingObject": {
+                                                                                "isPinned": false,
+                                                                                "isFrozen": false,
+                                                                                "isCollapsed": false,
+                                                                                "angleToParent": 2,
+                                                                                "distanceToParent": 3,
+                                                                                "arrangementStyle": 0
+                                                                            },
+                                                                            "uiObject": {
+                                                                                "isRunning": false
+                                                                            },
+                                                                            "referenceParent": {
+                                                                                "type": "Asset",
+                                                                                "name": "LBank",
+                                                                                "id": "e4e7addb-a840-4ce9-9e01-74c7e57c24ad"
+                                                                            },
+                                                                            "referenceParentCombinedNodePath": [
+                                                                                [
+                                                                                    "Superalgos-Exchanges",
+                                                                                    "Assets",
+                                                                                    "Governance",
+                                                                                    "2cefeb95-9fde-418b-a35b-6178a97cac9d"
+                                                                                ],
+                                                                                [
+                                                                                    "SA Token Listings Rewards",
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "492669d5-223f-426d-845a-f26dd1ae251e"
+                                                                                ],
+                                                                                [
+                                                                                    "CEXs",
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "ec0ab4b8-e3cc-47e6-94e7-6d181e1008f4"
+                                                                                ],
+                                                                                [
+                                                                                    "Open Negotiations",
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "144ad412-94fc-4b80-8dd9-2520f64edfcc"
+                                                                                ],
+                                                                                [
+                                                                                    "LBank",
+                                                                                    "Asset",
+                                                                                    "Governance",
+                                                                                    "e4e7addb-a840-4ce9-9e01-74c7e57c24ad"
+                                                                                ]
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "Asset Weight Vote",
+                                                                        "name": "SA Token Listings Rewards CEXs Open Negotiations Probit",
+                                                                        "config": "{}",
+                                                                        "project": "Governance",
+                                                                        "id": "622a822c-b952-4c17-ab4d-2a8874b60016",
+                                                                        "savedPayload": {
+                                                                            "position": {
+                                                                                "x": 29299.460481571245,
+                                                                                "y": 25247.543595090065
+                                                                            },
+                                                                            "targetPosition": {
+                                                                                "x": 29584.77743645979,
+                                                                                "y": 25340.248693402547
+                                                                            },
+                                                                            "floatingObject": {
+                                                                                "isPinned": false,
+                                                                                "isFrozen": false,
+                                                                                "isCollapsed": false,
+                                                                                "angleToParent": 2,
+                                                                                "distanceToParent": 3,
+                                                                                "arrangementStyle": 0
+                                                                            },
+                                                                            "uiObject": {
+                                                                                "isRunning": false
+                                                                            },
+                                                                            "referenceParent": {
+                                                                                "type": "Asset",
+                                                                                "name": "Probit",
+                                                                                "id": "6b27f708-c243-42e9-874b-ceceea7db21f"
+                                                                            },
+                                                                            "referenceParentCombinedNodePath": [
+                                                                                [
+                                                                                    "Superalgos-Exchanges",
+                                                                                    "Assets",
+                                                                                    "Governance",
+                                                                                    "2cefeb95-9fde-418b-a35b-6178a97cac9d"
+                                                                                ],
+                                                                                [
+                                                                                    "SA Token Listings Rewards",
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "492669d5-223f-426d-845a-f26dd1ae251e"
+                                                                                ],
+                                                                                [
+                                                                                    "CEXs",
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "ec0ab4b8-e3cc-47e6-94e7-6d181e1008f4"
+                                                                                ],
+                                                                                [
+                                                                                    "Open Negotiations",
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "144ad412-94fc-4b80-8dd9-2520f64edfcc"
+                                                                                ],
+                                                                                [
+                                                                                    "Probit",
+                                                                                    "Asset",
+                                                                                    "Governance",
+                                                                                    "6b27f708-c243-42e9-874b-ceceea7db21f"
+                                                                                ]
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "featureWeightVotes": [],
+                                                                "positionWeightVotes": [],
+                                                                "id": "3c1a71a8-58ff-42f5-b45e-feea25575e97",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 29584.77743645979,
+                                                                        "y": 25340.248693402547
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 29852.0793937163,
+                                                                        "y": 25204.051543480684
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Asset Class",
+                                                                        "name": "Open Negotiations",
+                                                                        "id": "144ad412-94fc-4b80-8dd9-2520f64edfcc"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Superalgos-Exchanges",
+                                                                            "Assets",
+                                                                            "Governance",
+                                                                            "2cefeb95-9fde-418b-a35b-6178a97cac9d"
+                                                                        ],
+                                                                        [
+                                                                            "SA Token Listings Rewards",
+                                                                            "Asset Class",
+                                                                            "Governance",
+                                                                            "492669d5-223f-426d-845a-f26dd1ae251e"
+                                                                        ],
+                                                                        [
+                                                                            "CEXs",
+                                                                            "Asset Class",
+                                                                            "Governance",
+                                                                            "ec0ab4b8-e3cc-47e6-94e7-6d181e1008f4"
+                                                                        ],
+                                                                        [
+                                                                            "Open Negotiations",
+                                                                            "Asset Class",
+                                                                            "Governance",
+                                                                            "144ad412-94fc-4b80-8dd9-2520f64edfcc"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "poolWeightVotes": [],
+                                                        "assetWeightVotes": [],
+                                                        "featureWeightVotes": [],
+                                                        "positionWeightVotes": [],
+                                                        "id": "34e73e02-70aa-4154-9603-58a67a7ff047",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 29785.93707075267,
-                                                                "y": 25111.227900804144
+                                                                "x": 29852.0793937163,
+                                                                "y": 25204.051543480684
                                                             },
                                                             "targetPosition": {
-                                                                "x": 30079.38135097281,
-                                                                "y": 25048.854393558817
+                                                                "x": 30119.38135097281,
+                                                                "y": 25067.85439355882
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
                                                                 "isFrozen": false,
-                                                                "isCollapsed": false,
+                                                                "isCollapsed": true,
                                                                 "angleToParent": 2,
                                                                 "distanceToParent": 3,
                                                                 "arrangementStyle": 0
@@ -12121,9 +12608,9 @@
                                                                 "isRunning": false
                                                             },
                                                             "referenceParent": {
-                                                                "type": "Asset",
-                                                                "name": "Probit",
-                                                                "id": "6b27f708-c243-42e9-874b-ceceea7db21f"
+                                                                "type": "Asset Class",
+                                                                "name": "CEXs",
+                                                                "id": "ec0ab4b8-e3cc-47e6-94e7-6d181e1008f4"
                                                             },
                                                             "referenceParentCombinedNodePath": [
                                                                 [
@@ -12139,32 +12626,28 @@
                                                                     "492669d5-223f-426d-845a-f26dd1ae251e"
                                                                 ],
                                                                 [
-                                                                    "Open Negotiations",
+                                                                    "CEXs",
                                                                     "Asset Class",
                                                                     "Governance",
-                                                                    "144ad412-94fc-4b80-8dd9-2520f64edfcc"
-                                                                ],
-                                                                [
-                                                                    "Probit",
-                                                                    "Asset",
-                                                                    "Governance",
-                                                                    "6b27f708-c243-42e9-874b-ceceea7db21f"
+                                                                    "ec0ab4b8-e3cc-47e6-94e7-6d181e1008f4"
                                                                 ]
                                                             ]
                                                         }
                                                     }
                                                 ],
+                                                "poolWeightVotes": [],
+                                                "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
                                                 "id": "b856fe5a-4f77-4fad-8c41-1b172b9f01df",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30079.38135097281,
-                                                        "y": 25048.854393558817
+                                                        "x": 30119.38135097281,
+                                                        "y": 25067.85439355882
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30242.773061477317,
-                                                        "y": 24797.25322317519
+                                                        "x": 30282.773061477317,
+                                                        "y": 24816.253223175194
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -12206,17 +12689,17 @@
                                         "id": "9017ca73-7bbd-4228-a59a-9fb85a130e1a",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 30242.773061477317,
-                                                "y": 24797.25322317519
+                                                "x": 30282.773061477317,
+                                                "y": 24816.253223175194
                                             },
                                             "targetPosition": {
-                                                "x": 30406.164771981825,
-                                                "y": 24545.652052791564
+                                                "x": 30446.164771981825,
+                                                "y": 24564.652052791567
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
-                                                "isCollapsed": true,
+                                                "isCollapsed": false,
                                                 "angleToParent": 2,
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
@@ -12838,12 +13321,12 @@
                                         "id": "066ec791-bd03-4e03-a180-58c7d90c42c4",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 30138.862814725315,
-                                                "y": 24681.849202713427
+                                                "x": 30178.862814725315,
+                                                "y": 24700.84920271343
                                             },
                                             "targetPosition": {
-                                                "x": 30406.164771981825,
-                                                "y": 24545.652052791564
+                                                "x": 30446.164771981825,
+                                                "y": 24564.652052791567
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -12866,24 +13349,24 @@
                                 "id": "1d398124-3f36-40a1-8b3b-6c77ad489b92",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 30406.164771981825,
-                                        "y": 24545.652052791564
+                                        "x": 30446.164771981825,
+                                        "y": 24564.652052791567
                                     },
                                     "targetPosition": {
-                                        "x": 30421.865558854708,
-                                        "y": 24246.063192365193
+                                        "x": 30461.865558854708,
+                                        "y": 24265.063192365196
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
                                     "uiObject": {
                                         "isRunning": false,
-                                        "shortcutKey": "a"
+                                        "shortcutKey": ""
                                     }
                                 }
                             }
@@ -12892,12 +13375,12 @@
                         "id": "2b8d3ce7-515c-44ad-8d80-3c2be6d7736f",
                         "savedPayload": {
                             "position": {
-                                "x": 30421.865558854708,
-                                "y": 24246.063192365193
+                                "x": 30461.865558854708,
+                                "y": 24265.063192365196
                             },
                             "targetPosition": {
-                                "x": 30285.668408932845,
-                                "y": 23978.761235108683
+                                "x": 30325.668408932845,
+                                "y": 23997.761235108686
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -12920,12 +13403,12 @@
                     "id": "e9c0e495-7985-4381-bf75-865d87289038",
                     "savedPayload": {
                         "position": {
-                            "x": 30269.96762205996,
-                            "y": 24278.350095535054
+                            "x": 30309.96762205996,
+                            "y": 24297.350095535057
                         },
                         "targetPosition": {
-                            "x": 30285.668408932845,
-                            "y": 23978.761235108683
+                            "x": 30325.668408932845,
+                            "y": 23997.761235108686
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -12943,17 +13426,17 @@
                 "id": "d5ed432e-78bf-432e-be3b-8649932f7a65",
                 "savedPayload": {
                     "position": {
-                        "x": 30285.668408932845,
-                        "y": 23978.761235108683
+                        "x": 30325.668408932845,
+                        "y": 23997.761235108686
                     },
                     "targetPosition": {
-                        "x": 30223.294901687517,
-                        "y": 23685.31695488854
+                        "x": 30263.294901687517,
+                        "y": 23704.316954888545
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -13300,12 +13783,12 @@
                 "id": "796dd30f-c90d-4b8d-a63d-89867347407b",
                 "savedPayload": {
                     "position": {
-                        "x": 30000.3514540443,
-                        "y": 23886.0561367962
+                        "x": 30040.3514540443,
+                        "y": 23905.056136796204
                     },
                     "targetPosition": {
-                        "x": 30223.294901687517,
-                        "y": 23685.31695488854
+                        "x": 30263.294901687517,
+                        "y": 23704.316954888545
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -13323,17 +13806,17 @@
             "id": "bb390957-b8a2-4a8a-9fbf-963ea20f6eaf",
             "savedPayload": {
                 "position": {
-                    "x": 30223.294901687517,
-                    "y": 23685.31695488854
+                    "x": 30263.294901687517,
+                    "y": 23704.316954888545
                 },
                 "targetPosition": {
-                    "x": 30316,
-                    "y": 23399.999999999996
+                    "x": 30356,
+                    "y": 23419
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 2,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -13360,12 +13843,12 @@
                     "id": "928e9ccb-1e90-48a9-af77-b3089225fc4f",
                     "savedPayload": {
                         "position": {
-                            "x": 29866,
-                            "y": 24179.422863405995
+                            "x": 29869.25291584204,
+                            "y": 24143.462850273303
                         },
                         "targetPosition": {
-                            "x": 30016,
-                            "y": 23919.615242270662
+                            "x": 29991.27390876478,
+                            "y": 23869.399212980523
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -13383,12 +13866,12 @@
                 "id": "b046f4e4-40b1-4e47-8fed-75a6a5c6029d",
                 "savedPayload": {
                     "position": {
-                        "x": 29951.27390876478,
-                        "y": 23850.39921298052
+                        "x": 29991.27390876478,
+                        "y": 23869.399212980523
                     },
                     "targetPosition": {
-                        "x": 30073.294901687517,
-                        "y": 23576.33557568774
+                        "x": 30113.294901687517,
+                        "y": 23595.335575687743
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -13406,7 +13889,7 @@
             "delegationProgram": {
                 "type": "Delegation Program",
                 "name": "New Delegation Program",
-                "config": "{\n    \"percentage\": 85\n}",
+                "config": "{\n    \"percentage\": 100\n}",
                 "project": "Governance",
                 "delegatePowerSwitch": [
                     {
@@ -13681,12 +14164,12 @@
                 "id": "3ff7f410-911d-4cb8-9094-d816dee4dccb",
                 "savedPayload": {
                     "position": {
-                        "x": 29774.938333077036,
-                        "y": 23607.694114668036
+                        "x": 29814.938333077036,
+                        "y": 23626.69411466804
                     },
                     "targetPosition": {
-                        "x": 30073.294901687517,
-                        "y": 23576.33557568774
+                        "x": 30113.294901687517,
+                        "y": 23595.335575687743
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -13704,17 +14187,17 @@
             "id": "4f35322c-3e7d-49f8-9706-10bf71f0d420",
             "savedPayload": {
                 "position": {
-                    "x": 30073.294901687517,
-                    "y": 23576.33557568774
+                    "x": 30113.294901687517,
+                    "y": 23595.335575687743
                 },
                 "targetPosition": {
-                    "x": 30316,
-                    "y": 23399.999999999996
+                    "x": 30356,
+                    "y": 23419
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 2,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -13727,12 +14210,12 @@
         "id": "f8182a9c-f830-4ec1-a238-ac3a5efd69e6",
         "savedPayload": {
             "position": {
-                "x": 30316,
-                "y": 23399.999999999996
+                "x": 30356,
+                "y": 23419
             },
             "targetPosition": {
-                "x": 30316,
-                "y": 23099.999999999996
+                "x": 30356,
+                "y": 23119
             },
             "floatingObject": {
                 "isPinned": false,
@@ -13751,21 +14234,21 @@
         "type": "Tokens Mined",
         "name": "New Tokens Mined",
         "project": "Governance",
-        "id": "ab419614-d76c-4820-ace3-970c8282daa6",
+        "id": "9870ca2a-cefc-484b-b7fc-206d62782ebc",
         "savedPayload": {
             "position": {
-                "x": 30016,
-                "y": 23099.999999999996
+                "x": 30056,
+                "y": 23119
             },
             "targetPosition": {
-                "x": 30316,
-                "y": 23099.999999999996
+                "x": 30356,
+                "y": 23119
             },
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
                 "isCollapsed": false,
-                "angleToParent": 2,
+                "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
             },
@@ -13774,21 +14257,21 @@
             }
         }
     },
-    "id": "148911b3-b2f3-44fb-8cb4-017991789132",
+    "id": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
     "savedPayload": {
         "position": {
-            "x": 30316,
-            "y": 23099.999999999996
+            "x": 30356,
+            "y": 23119
         },
         "targetPosition": {
-            "x": 30316,
-            "y": 23099.999999999996
+            "x": 30356,
+            "y": 23119
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
             "isCollapsed": false,
-            "angleToParent": 2,
+            "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0
         },

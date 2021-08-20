@@ -5,26 +5,54 @@
     "definition": {
         "text": "Now let's get your Time Machine in position to connect to some Data Products!",
         "icon": {
-            "name": "data-mine-products",
+            "name": "Data/data-mine-products",
             "project": "Foundations"
         },
-        "updated": 1620047255368
+        "updated": 1620047255368,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Ahora consigamos tu Time Machine en posición de conectarse a algunos Data Products.",
+                "updated": 1628724341266
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The first thing we need to do is drag our Time Machine over to the Data Storage hierarchy.",
-            "updated": 1620047361503
+            "updated": 1620047361503,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Lo primero que debemos hacer es arrastrar nuestro Time Machine a la jerarquía Data Storage.",
+                    "updated": 1628724393947
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Find your way to the Time Machine you created earlier, pin it, collapse it, and drag it over to the Data Mine Products nodes you found on the previous step.",
-            "updated": 1620555518613
+            "updated": 1620555518613,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Encuentra tu camino hacia el Time Machine que creaste anteriormente, anclarlo y arrastrarlo a los nodos Data Mine Products que encontraste en el paso anterior.",
+                    "updated": 1628724592372
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Don't forget Ctrl + ← → ↑ ↓. It's a bit of a trek!",
-            "updated": 1617841738597
+            "updated": 1617841738597,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "No olvides Ctrl + ← → ↑ ↓. ¡Es una como una caminata!",
+                    "updated": 1628724523333
+                }
+            ]
         }
     ]
 }

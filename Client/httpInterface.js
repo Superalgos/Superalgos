@@ -160,6 +160,15 @@ exports.newHttpInterface = function newHttpInterface(
                                     respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                     return
                                 }
+                                case 'mnemonicToPrivateKey': {
+
+                                    let serverResponse = await WEB3_SERVER.mnemonicToPrivateKey(
+                                        params.mnemonic
+                                    )
+
+                                    respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                    return
+                                }
                                 default: {
                                     respondWithContent(JSON.stringify({ error: 'Method ' + params.method + ' is invalid.' }), httpResponse)
                                 }
@@ -1093,7 +1102,10 @@ exports.newHttpInterface = function newHttpInterface(
                             case 'payContributors': {
 
                                 let serverResponse = await WEB3_SERVER.payContributors(
-                                    params.signature
+                                    params.contractAddress,
+                                    params.contractAbi,
+                                    params.paymentsArray,
+                                    params.mnemonic
                                 )
 
                                 respondWithContent(JSON.stringify(serverResponse), httpResponse)
@@ -1503,7 +1515,7 @@ exports.newHttpInterface = function newHttpInterface(
                             function onDirRead(err, fileList) {
                                 if (err) {
                                     // This happens the first time you run the software.
-                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    respondWithContent(JSON.stringify(allWorkspaces), httpResponse)
                                     return
                                 } else {
                                     let updatedFileList = []

@@ -24,6 +24,8 @@ function newGovernanceUserProfileSpace() {
     thisObject.githubWatchers = new Map()
     thisObject.githubForks = new Map()
 
+    let reputationByAddress = new Map()
+
     return thisObject
 
     function initialize() {
@@ -65,6 +67,45 @@ function newGovernanceUserProfileSpace() {
             return
         }
 
+        /*
+        Here we will setup the Reputation for each profile. 
+        */
+        timer = timer + 10000
+        waitingForResponses++
+        getTreasuryAccountTransactions()
+
+        function getTreasuryAccountTransactions() {
+            const url = "https://api.bscscan.com/api?module=account&action=tokentx&address=" + UI.projects.governance.globals.saToken.SA_TOKEN_BSC_TREASURY_ACCOUNT_ADDRESS + "&startblock=0"
+
+            fetch(url).then(function (response) {
+                return response.json();
+            }).then(function (data) {
+
+                let tokenTransfers = data.result
+                for (let i = 0; i < tokenTransfers.length; i++) {
+                    let transfer = tokenTransfers[i]
+
+                    if (transfer.contractAddress !== UI.projects.governance.globals.saToken.SA_TOKEN_BSC_CONTRACT_ADDRESS) { continue }
+                    if (transfer.from !== UI.projects.governance.globals.saToken.SA_TOKEN_BSC_TREASURY_ACCOUNT_ADDRESS) { continue }
+
+                    let currentReputation = Number(transfer.value) / UI.projects.governance.globals.saToken.SA_TOKEN_BSC_DECIMAL_FACTOR
+                    let previousReputation = reputationByAddress.get(transfer.to)
+                    let newReputation = previousReputation | 0 + currentReputation
+                    reputationByAddress.set(transfer.to, newReputation)
+                }
+                if (tokenTransfers.length > 9000) {
+                    console.log('[WARN] The total amount of BSC SA Token transfers is above 9000. After 10k this method will need pagination or otherwise users will not get their reputation calculated correctly.')
+                }
+                waitingForResponses--
+            }).catch(function (err) {
+                const message = err.message + ' - ' + 'Can not access BSC SCAN servers.'
+                console.log(message)
+                waitingForResponses--
+            });
+        }
+        /*
+        Here we will help setup the Github Programs...
+        */
         requestStars()
 
         function requestStars() {
@@ -292,7 +333,7 @@ function newGovernanceUserProfileSpace() {
 
         function getBlockchainTokens(userProfile, blockchainAccount) {
             console.log('blockchainAccount ', blockchainAccount)
-            const url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0xfb981ed9a92377ca4d75d924b9ca06df163924fd&address=" + blockchainAccount + "&tag=latest&apikey=YourApiKeyToken"
+            const url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=" + UI.projects.governance.globals.saToken.SA_TOKEN_BSC_CONTRACT_ADDRESS + "&address=" + blockchainAccount + "&tag=latest&apikey=YourApiKeyToken"
 
             fetch(url).then(function (response) {
                 return response.json();
@@ -300,6 +341,7 @@ function newGovernanceUserProfileSpace() {
                 console.log(data)
                 userProfile.payload.uiObject.setInfoMessage(data)
                 userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000
+                userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens) 
                 waitingForResponses--
             }).catch(function (err) {
                 const message = err.message + ' - ' + 'Can not access BSC SCAN servers.'

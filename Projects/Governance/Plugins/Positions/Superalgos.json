@@ -80,7 +80,7 @@
                         },
                         {
                             "type": "Position",
-                            "name": "Groups / Server Manager",
+                            "name": "Telgram Groups / Discord Server Manager",
                             "config": "{\n    \"percentage\": 1\n}",
                             "project": "Governance",
                             "positions": [],

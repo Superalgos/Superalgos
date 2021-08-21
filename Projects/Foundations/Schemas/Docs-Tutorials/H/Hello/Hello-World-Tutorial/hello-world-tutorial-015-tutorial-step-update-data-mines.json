@@ -5,7 +5,7 @@
     "definition": {
         "text": "Chances are you already have some data mined!",
         "icon": {
-            "name": "Data/data-tasks",
+            "name": "Data\\data-tasks",
             "project": "Foundations"
         },
         "updated": 1614267263084,
@@ -15,6 +15,11 @@
                 "text": "Eventuell hast du bereits ein paar Daten gemined!",
                 "updated": 1622980204621,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Lo más probable es que ya tengas algunos datos extraídos!",
+                "updated": 1629576816892
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Wenn du das Intro-Tutorial gemacht hast, dann hast du wahrscheinlich schon einige Daten geschürft. Allerdings habe ich einen neuen Indikator hinzugefügt, der in der Anfangskonfiguration nicht vorhanden ist. Führe also bitte die Data Mines aus (\"Run\") und warte, bis sie zu 100% fertig sind.",
                     "updated": 1622980292728,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si has hecho la intro Tutorial entonces probablemente ya hayas extraído algunos datos. Pero agregué un nuevo indicador que no está presente en la configuración inicial. Así que por favor Run los data Mines Y espera hasta que estén 100% listos.",
+                    "updated": 1629576956473
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Stelle sicher, dass unter Sparta Data Mine Tasks der neu hinzugefügte Indikator Simple Moving Average zu 100% aktualisiert ist.",
                     "updated": 1622980304913,
                     "style": "Important"
+                },
+                {
+                    "language": "ES",
+                    "text": "Asegúrate de que debajo Sparta Data Mine Tasks el indicador recién agregado Simple Moving Average está 100% actualizado.",
+                    "updated": 1629577044677
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "Sobald alle Indikatoren 100%ig sind, kannst du die Data Mines stoppen und Ressourcen für den Backtest sparen.",
                     "updated": 1622980322182,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ya al 100%, puedes detener los Data Mines y ahorrar recursos para el backtest.",
+                    "updated": 1629577393595
                 }
             ]
         }

@@ -16,7 +16,7 @@ function newGovernanceUserProfileSpace() {
 
     let waitingForResponses = 0
     let timer = 0
-
+    const BSC_SCAN_RATE_LIMIT_DELAY = 7000
     let reputationByAddress = new Map()
 
     return thisObject
@@ -43,7 +43,7 @@ function newGovernanceUserProfileSpace() {
         /*
         Here we will setup the Reputation for each profile. 
         */
-        timer = timer + 10000
+        timer = timer + BSC_SCAN_RATE_LIMIT_DELAY
         waitingForResponses++
         getTreasuryAccountTransactions()
 
@@ -83,25 +83,21 @@ function newGovernanceUserProfileSpace() {
 
         let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
         if (apisNode === undefined) {
-            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            console.log('[WARN] Github Program Disabled because the Github Credentials are not present at this workspace. APIs node not found.')
             return
         }
         if (apisNode.githubAPI === undefined) {
-            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            console.log('[WARN] Github Program Disabled because the Github Credentials are not present at this workspace. Github API node not found.')
             return
         }
 
         let config = JSON.parse(apisNode.githubAPI.config)
         if (config.username === undefined || config.username === "") {
-            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            console.log('[WARN] Github Program Disabled because the Github Credentials are not present at this workspace. Github Username not configured.')
             return
         }
         if (config.token === undefined || config.token === "") {
-            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            console.log('[WARN] Github Program Disabled because the Github Credentials are not present at this workspace. Github Token not configured.')
             return
         }
         /*
@@ -334,7 +330,7 @@ function newGovernanceUserProfileSpace() {
                     waitingForResponses++
                     userProfile.payload.blockchainTokens = 0 // We need to set this value here so that the next call to BSCSCAN is not done more than once.
                     setTimeout(getBlockchainTokens, timer, userProfile, blockchainAccount)
-                    timer = timer + 6000
+                    timer = timer + BSC_SCAN_RATE_LIMIT_DELAY
                 }
             }
         }

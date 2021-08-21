@@ -291,9 +291,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
     function tryToConnectChildrenWithReferenceParents() {
         /* We reconstruct here the reference relationships. */
         for (const [key, node] of mapOfNodes) {
-            if (node.id === "54854f90-d121-4365-8f40-9a26e7af1097") {
-                console.log('ACA')
-            }
+
             if (node.payload === undefined) { continue }
 
             if (node.payload.referenceParent !== undefined) {
@@ -336,14 +334,16 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                                     }
                                     // If Hierarchy Head is not located within the workspace abort reconnection
                                     if (pathNode === undefined) {
-                                        console.log("[WARN] Abort reconnection saved path head node not found in current workspace", node)
-                                        return
+                                        // LUIS : console.log("[WARN] Abort reconnection saved path head node not found in current workspace", node)
+                                        // I removed this warning because at the Governance System is common to reference nodes that are not present at the workspace.
                                     }
                                     continue
                                 } else { // Walk through children nodes and find the next node from saved path
-                                    pathName = rawPath[i][0]
-                                    pathType = rawPath[i][1]
-                                    pathNode = getNextNodeFromPath(pathNode, pathName, pathType)
+                                    if (pathNode !== undefined) { // LUIS: I added this check because it was blowing up further down the line. See why sometimes this is undefined.
+                                        pathName = rawPath[i][0]
+                                        pathType = rawPath[i][1]
+                                        pathNode = getNextNodeFromPath(pathNode, pathName, pathType)
+                                    }
                                 }
                             }
                             if (pathNode !== undefined) {

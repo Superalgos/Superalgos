@@ -1412,18 +1412,18 @@
                     "id": "fb31f94d-8c05-4c1a-89b7-92d48946ad9e",
                     "savedPayload": {
                         "position": {
-                            "x": 23895.165121735266,
-                            "y": 24783.709339629273
+                            "x": 23885,
+                            "y": 24930
                         },
                         "targetPosition": {
                             "x": 23585,
                             "y": 24930
                         },
                         "floatingObject": {
-                            "isPinned": true,
+                            "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": true,
-                            "angleToParent": 2,
+                            "angleToParent": 1,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
@@ -1637,18 +1637,18 @@
                     "id": "eca95394-e23c-4464-a0a2-955e45fd9ca5",
                     "savedPayload": {
                         "position": {
-                            "x": 23859.54944474041,
-                            "y": 25051.95305944238
+                            "x": 23772.04694055762,
+                            "y": 25164.54944474041
                         },
                         "targetPosition": {
                             "x": 23585,
                             "y": 24930
                         },
                         "floatingObject": {
-                            "isPinned": true,
+                            "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": true,
-                            "angleToParent": 2,
+                            "angleToParent": 1,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
@@ -1662,7 +1662,7 @@
                 },
                 {
                     "type": "Tutorial Topic",
-                    "name": "User Profile",
+                    "name": "Profile Overview",
                     "config": "{\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"Next\"\n}",
                     "project": "Education",
                     "tutorialSteps": [
@@ -1674,12 +1674,12 @@
                             "id": "df575afd-af40-4725-a9a0-d0e3bdd64572",
                             "savedPayload": {
                                 "position": {
-                                    "x": 24386.909782242685,
-                                    "y": 25219.77774788672
+                                    "x": 23435,
+                                    "y": 25489.807621135333
                                 },
                                 "targetPosition": {
-                                    "x": 24097.132034355964,
-                                    "y": 25142.132034355964
+                                    "x": 23435,
+                                    "y": 25189.807621135333
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1718,12 +1718,12 @@
                             "id": "1a414df9-32fa-4055-b0db-7a932e4b59e1",
                             "savedPayload": {
                                 "position": {
-                                    "x": 24174.77774788672,
-                                    "y": 25431.909782242685
+                                    "x": 23175.192378864667,
+                                    "y": 25339.807621135333
                                 },
                                 "targetPosition": {
-                                    "x": 24097.132034355964,
-                                    "y": 25142.132034355964
+                                    "x": 23435,
+                                    "y": 25189.807621135333
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1746,18 +1746,18 @@
                     "id": "47f47947-70a9-48a6-88d0-bd3dae2be578",
                     "savedPayload": {
                         "position": {
-                            "x": 23592.478373654547,
-                            "y": 25202.243719813105
+                            "x": 23518.243719813105,
+                            "y": 25222.478373654547
                         },
                         "targetPosition": {
                             "x": 23585,
                             "y": 24930
                         },
                         "floatingObject": {
-                            "isPinned": true,
+                            "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": true,
-                            "angleToParent": 2,
+                            "angleToParent": 1,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
@@ -1777,18 +1777,18 @@
                     "tutorialSteps": [
                         {
                             "type": "Tutorial Step",
-                            "name": "Where is all Begins",
-                            "config": "{\n    \"icon\": {\n        \"name\": \"governance\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Where is all Begins\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
+                            "name": "Where it all Begins",
+                            "config": "{\n    \"icon\": {\n        \"name\": \"governance\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Where it all Begins\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
                             "project": "Education",
                             "id": "9aec749c-46c8-45d0-99f4-f99ecd50ec44",
                             "savedPayload": {
                                 "position": {
-                                    "x": 23512.645713530757,
-                                    "y": 25479.585369022054
+                                    "x": 23072.867965644036,
+                                    "y": 25142.132034355964
                                 },
                                 "targetPosition": {
-                                    "x": 23435,
-                                    "y": 25189.807621135333
+                                    "x": 23285,
+                                    "y": 24930
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1827,12 +1827,12 @@
                             "id": "cdfada38-c5e0-4c0c-aaf5-4fa24b416131",
                             "savedPayload": {
                                 "position": {
-                                    "x": 23285,
-                                    "y": 25449.615242270665
+                                    "x": 22985,
+                                    "y": 24930
                                 },
                                 "targetPosition": {
-                                    "x": 23435,
-                                    "y": 25189.807621135333
+                                    "x": 23285,
+                                    "y": 24930
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1858,12 +1858,12 @@
                             "id": "651e15ce-bdda-4cca-9c2d-e16a2d900e45",
                             "savedPayload": {
                                 "position": {
-                                    "x": 23145.22225211328,
-                                    "y": 25267.45333466609
+                                    "x": 23072.867965644036,
+                                    "y": 24717.867965644036
                                 },
                                 "targetPosition": {
-                                    "x": 23435,
-                                    "y": 25189.807621135333
+                                    "x": 23285,
+                                    "y": 24930
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1917,15 +1917,15 @@
                     "id": "1b7b5af2-bb52-4090-965e-cd457b2e229c",
                     "savedPayload": {
                         "position": {
-                            "x": 23329,
-                            "y": 25090
+                            "x": 23314.709339629273,
+                            "y": 25060.165121735266
                         },
                         "targetPosition": {
                             "x": 23585,
                             "y": 24930
                         },
                         "floatingObject": {
-                            "isPinned": true,
+                            "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": true,
                             "angleToParent": 1,
@@ -1954,12 +1954,12 @@
                             "id": "a7929f0d-8dee-488c-b517-7ac95d2cb071",
                             "savedPayload": {
                                 "position": {
-                                    "x": 23072.867965644036,
-                                    "y": 25142.132034355964
+                                    "x": 23145.22225211328,
+                                    "y": 24592.54666533391
                                 },
                                 "targetPosition": {
-                                    "x": 23285,
-                                    "y": 24930
+                                    "x": 23435,
+                                    "y": 24670.192378864667
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1983,7 +1983,9 @@
                                 "referenceParentCombinedNodePath": [
                                     [
                                         "Creating Your User Profile Tutorial",
-                                        "Tutorial"
+                                        "Tutorial",
+                                        "Education",
+                                        "57e388d1-f479-4a16-af85-aee12be285a0"
                                     ]
                                 ]
                             }
@@ -1996,12 +1998,12 @@
                             "id": "5ad27b7a-b482-44ca-a06d-8db0059d1eed",
                             "savedPayload": {
                                 "position": {
-                                    "x": 22985,
-                                    "y": 24930
+                                    "x": 23285,
+                                    "y": 24410.384757729335
                                 },
                                 "targetPosition": {
-                                    "x": 23285,
-                                    "y": 24930
+                                    "x": 23435,
+                                    "y": 24670.192378864667
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2027,12 +2029,12 @@
                             "id": "577c1c57-88f8-4987-a1f1-f7ef10ace032",
                             "savedPayload": {
                                 "position": {
-                                    "x": 23072.867965644036,
-                                    "y": 24717.867965644036
+                                    "x": 23512.645713530757,
+                                    "y": 24380.414630977946
                                 },
                                 "targetPosition": {
-                                    "x": 23285,
-                                    "y": 24930
+                                    "x": 23435,
+                                    "y": 24670.192378864667
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2055,15 +2057,15 @@
                     "id": "9aaa02f8-73ec-4c89-b1ec-85d4114c5a93",
                     "savedPayload": {
                         "position": {
-                            "x": 23342,
-                            "y": 24810.192378864667
+                            "x": 23314.709339629273,
+                            "y": 24799.834878264734
                         },
                         "targetPosition": {
                             "x": 23585,
                             "y": 24930
                         },
                         "floatingObject": {
-                            "isPinned": true,
+                            "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": true,
                             "angleToParent": 1,
@@ -2080,31 +2082,247 @@
                 },
                 {
                     "type": "Tutorial Topic",
-                    "name": "New Tutorial Topic",
-                    "config": "{\"icon\": {\"name\": \"\",\"project\": \"Foundations\"},\"position\": \"Left\",\"slider\": \"toTop\",\"pressButton\": \"\",\"docs\": {\"project\": \"Foundations\",\"category\": \"Tutorial\",\"type\": \"\"},\"controlDocs\": {\"panel\": \"\",\"closeTutorialEditor\": false,\"page\": {\"project\": \"Foundations\",\"category\": \"\",\"type\": \"\"}}}",
+                    "name": "Profile Backup",
+                    "config": "{\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"Next\"\n}",
                     "project": "Education",
-                    "tutorialSteps": [],
+                    "tutorialSteps": [
+                        {
+                            "type": "Tutorial Step",
+                            "name": "Save the Key!",
+                            "config": "{\n    \"icon\": {\n        \"name\": \"Key\\\\key-reference\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Save the Key!\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
+                            "project": "Education",
+                            "id": "4147bad2-0dd4-4082-bb5a-48a0bc84f595",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 23264.226460044618,
+                                    "y": 24477.91200339085
+                                },
+                                "targetPosition": {
+                                    "x": 23518.243719813105,
+                                    "y": 24637.521626345453
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                },
+                                "tutorial": {
+                                    "status": "Done"
+                                }
+                            }
+                        },
+                        {
+                            "type": "Tutorial Step",
+                            "name": "Profile Backup",
+                            "config": "{\n    \"icon\": {\n        \"name\": \"Exchange\\\\exchange-account-asset\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Profile Backup\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
+                            "project": "Education",
+                            "id": "42cf8adb-7bee-4449-b8ab-ccc283e17796",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 23451.48743962621,
+                                    "y": 24345.043252690906
+                                },
+                                "targetPosition": {
+                                    "x": 23518.243719813105,
+                                    "y": 24637.521626345453
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                },
+                                "tutorial": {
+                                    "status": "Done"
+                                }
+                            }
+                        },
+                        {
+                            "type": "Tutorial Step",
+                            "name": "Delete the Constructor",
+                            "config": "{\n    \"icon\": {\n        \"name\": \"Docs\\\\docs-action-delete-paragraph\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Delete the Constructor\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"Close\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
+                            "project": "Education",
+                            "id": "9633816b-95cf-4b58-a231-504dd5e8e5ad",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 23677.853342767707,
+                                    "y": 24383.504366576966
+                                },
+                                "targetPosition": {
+                                    "x": 23518.243719813105,
+                                    "y": 24637.521626345453
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                },
+                                "tutorial": {
+                                    "status": "Done"
+                                }
+                            }
+                        }
+                    ],
                     "tutorialTopics": [],
                     "id": "ba99b336-1578-4a76-99f0-24e461922b4c",
                     "savedPayload": {
                         "position": {
-                            "x": 23598,
-                            "y": 24691.192378864667
+                            "x": 23518.243719813105,
+                            "y": 24637.521626345453
                         },
                         "targetPosition": {
                             "x": 23585,
                             "y": 24930
                         },
                         "floatingObject": {
-                            "isPinned": true,
+                            "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": false,
+                            "isCollapsed": true,
                             "angleToParent": 1,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
                         "uiObject": {
                             "isRunning": false
+                        },
+                        "tutorial": {
+                            "status": "Done"
+                        }
+                    }
+                },
+                {
+                    "type": "Tutorial Topic",
+                    "name": "Submit Profile",
+                    "config": "{\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"Next\"\n}",
+                    "project": "Education",
+                    "tutorialSteps": [
+                        {
+                            "type": "Tutorial Step",
+                            "name": "Make it Official",
+                            "config": "{\n    \"icon\": {\n        \"name\": \"Programs\\\\github-program\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Make it Official\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"Tutorial\",\n            \"type\": \"Tutorial Step - GitHub.com Authentication\"\n        }\n    }\n}",
+                            "project": "Education",
+                            "id": "fe74b3ae-9490-465a-a491-db4b0834dbf7",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 23738.457597726625,
+                                    "y": 24397.33689229162
+                                },
+                                "targetPosition": {
+                                    "x": 23772.04694055762,
+                                    "y": 24695.45055525959
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                },
+                                "tutorial": {}
+                            }
+                        },
+                        {
+                            "type": "Tutorial Step",
+                            "name": "Infinity and Beyond",
+                            "config": "{\n    \"icon\": {\n        \"name\": \"User\\\\user-profile\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - To Infinity and Beyond\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
+                            "project": "Education",
+                            "id": "e4c5a34f-67c4-4fdc-8c11-aef5bde92d72",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 23959.093881115237,
+                                    "y": 24460.901110519182
+                                },
+                                "targetPosition": {
+                                    "x": 23772.04694055762,
+                                    "y": 24695.45055525959
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Tutorial Step",
+                            "name": "Welcome aboard!",
+                            "config": "{\n    \"icon\": {\n        \"name\": \"Announcement\\\\announcement\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Welcome aboard!\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
+                            "project": "Education",
+                            "id": "340f9107-9b4a-424b-94f2-79d65873c572",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 24070.16060352559,
+                                    "y": 24661.861212428597
+                                },
+                                "targetPosition": {
+                                    "x": 23772.04694055762,
+                                    "y": 24695.45055525959
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "tutorialTopics": [],
+                    "id": "75373f58-ac05-4358-ad12-e50c88f08196",
+                    "savedPayload": {
+                        "position": {
+                            "x": 23772.04694055762,
+                            "y": 24695.45055525959
+                        },
+                        "targetPosition": {
+                            "x": 23585,
+                            "y": 24930
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": true,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        },
+                        "tutorial": {
+                            "status": "Done"
                         }
                     }
                 }
@@ -2131,9 +2349,7 @@
                     "isPlaying": false,
                     "isRunning": false
                 },
-                "tutorial": {
-                    "status": "Done"
-                }
+                "tutorial": {}
             }
         }
     ]

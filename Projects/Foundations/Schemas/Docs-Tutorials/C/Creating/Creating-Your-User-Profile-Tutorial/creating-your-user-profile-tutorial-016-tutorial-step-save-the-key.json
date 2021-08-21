@@ -4,21 +4,26 @@
     "type": "Tutorial Step - Save the Key!",
     "definition": {
         "text": "Now that you have a new rocking Profile, let’s talk some more about that private key. ",
-        "updated": 1629554694993
+        "updated": 1629554694993,
+        "icon": {
+            "name": "Key\\key-reference",
+            "project": "Foundations"
+        }
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Now that you have a new rocking Profile, let’s talk some more about that private key. Your private key is the way you will be able to add your governance address to a crypto wallet. Superalgos generates it locally on your computer. This means that there is no one else in the world that has access, or knowledge, of your key. This makes the next step super important!",
-            "updated": 1629554804519
+            "text": "Your private key is the way you will be able to add your governance address to a crypto wallet. Superalgos generates it locally on your computer. This means that there is no one else in the world that has access, or knowledge, of your key.",
+            "updated": 1629578744466
+        },
+        {
+            "style": "Warning",
+            "text": "This is the most important part of this tutorial! You must backup your private key!",
+            "updated": 1629578829982
         },
         {
             "style": "Note",
             "text": "If you linked a previously owned address you will not need to save the private key but should back up the contents of the constructor for safety."
-        },
-        {
-            "style": "Text",
-            "text": "Warning: This is the most important part of this tutorial! You must back up your private key! Later on, you will be rewarded or move Superalgos SA Tokens to the address you just generated. So, before any of that happens, you must safely store the private key that you will use to access the address. At this point, Superalgos doesn’t offer a built-in solution to securely back up your private keys. All the system does at this point is generate a BSC address / private key pair and deliver it in the configuration of the Profile Constructor node. It is up to you to decide how you are going to handle this sensitive information."
         },
         {
             "style": "Text",

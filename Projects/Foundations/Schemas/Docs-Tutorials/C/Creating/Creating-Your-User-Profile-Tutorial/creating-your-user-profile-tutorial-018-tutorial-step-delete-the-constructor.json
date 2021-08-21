@@ -1,0 +1,28 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 18,
+    "type": "Tutorial Step - Delete the Constructor",
+    "definition": {
+        "text": "After you have made sure to back up the contents of the Profile Constructor it's time to clean up shop.",
+        "updated": 1629582388020,
+        "icon": {
+            "name": "Docs\\docs-action-delete-paragraph",
+            "project": "Foundations"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Once you are satisfied with your backup of the private key, delete the Profile Constructor node! ",
+            "updated": 1629582405899
+        },
+        {
+            "style": "Text",
+            "text": "It is not safe to store your private key at the Workspace, as you may accidentally submit it to GitHub.com with one of your contributions. Also, remember that workspaces are saved on disk as unencrypted JSON files, with no security whatsoever."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

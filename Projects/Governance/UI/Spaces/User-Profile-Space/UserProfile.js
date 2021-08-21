@@ -9,20 +9,13 @@ function newGovernanceUserProfileSpace() {
         physics: physics,
         draw: draw,
         getContainer: getContainer,
+        reset: reset,
         finalize: finalize,
         initialize: initialize
     }
 
-    thisObject.container = newContainer()
-    thisObject.container.initialize(MODULE_NAME)
-    thisObject.container.isDraggeable = false
-
     let waitingForResponses = 0
     let timer = 0
-
-    thisObject.githubStars = new Map()
-    thisObject.githubWatchers = new Map()
-    thisObject.githubForks = new Map()
 
     let reputationByAddress = new Map()
 
@@ -34,7 +27,13 @@ function newGovernanceUserProfileSpace() {
         Superalgos Repository. This will later be used to know which user profiles are participating
         at the Github Program. 
         */
+        thisObject.githubStars = new Map()
+        thisObject.githubWatchers = new Map()
+        thisObject.githubForks = new Map()
 
+        thisObject.container = newContainer()
+        thisObject.container.initialize(MODULE_NAME)
+        thisObject.container.isDraggeable = false
         /*
         If the workspace is not related to governance, then we exit the Intialize Function
         */
@@ -95,6 +94,8 @@ function newGovernanceUserProfileSpace() {
                 }
                 if (tokenTransfers.length > 9000) {
                     console.log('[WARN] The total amount of BSC SA Token transfers is above 9000. After 10k this method will need pagination or otherwise users will not get their reputation calculated correctly.')
+                } else {
+                    console.log('[INFO] ' + tokenTransfers.length + ' reputation trasactions found at the blockchain. ')
                 }
                 waitingForResponses--
             }).catch(function (err) {
@@ -244,9 +245,16 @@ function newGovernanceUserProfileSpace() {
 
     function finalize() {
         thisObject.githubStars = undefined
+        thisObject.githubWatchers = undefined
+        thisObject.githubForks = undefined
 
         thisObject.container.finalize()
         thisObject.container = undefined
+    }
+
+    function reset() {
+        finalize()
+        initialize()
     }
 
     function getContainer(point) {
@@ -341,7 +349,7 @@ function newGovernanceUserProfileSpace() {
                 console.log(data)
                 userProfile.payload.uiObject.setInfoMessage(data)
                 userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000
-                userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens) 
+                userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens)
                 waitingForResponses--
             }).catch(function (err) {
                 const message = err.message + ' - ' + 'Can not access BSC SCAN servers.'

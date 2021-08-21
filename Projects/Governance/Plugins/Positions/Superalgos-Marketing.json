@@ -20,8 +20,8 @@
                     "id": "0759bf5b-d439-4c62-b0d9-74330b151331",
                     "savedPayload": {
                         "position": {
-                            "x": 15018.000000000004,
-                            "y": 38336.30762113533
+                            "x": 15080.132034355967,
+                            "y": 38288.632034355964
                         },
                         "targetPosition": {
                             "x": 14868.000000000004,
@@ -50,8 +50,38 @@
                     "id": "1870446d-a572-4568-9956-c3e9bb941657",
                     "savedPayload": {
                         "position": {
-                            "x": 14718.000000000004,
-                            "y": 38336.30762113533
+                            "x": 14868.000000000004,
+                            "y": 38376.5
+                        },
+                        "targetPosition": {
+                            "x": 14868.000000000004,
+                            "y": 38076.5
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Position",
+                    "name": "Webmaster Superalgos.org",
+                    "config": "{}",
+                    "project": "Governance",
+                    "positions": [],
+                    "positionClasss": [],
+                    "id": "089c3f0f-2ce6-4ba8-991b-38c8b70f6c17",
+                    "savedPayload": {
+                        "position": {
+                            "x": 14655.86796564404,
+                            "y": 38288.632034355964
                         },
                         "targetPosition": {
                             "x": 14868.000000000004,
@@ -110,7 +140,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

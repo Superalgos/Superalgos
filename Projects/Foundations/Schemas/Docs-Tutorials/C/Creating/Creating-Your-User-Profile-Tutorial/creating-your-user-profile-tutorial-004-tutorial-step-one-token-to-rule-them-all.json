@@ -6,8 +6,8 @@
         "text": "Unlike some crypto currencies the SA token actually means something!",
         "updated": 1629162158011,
         "icon": {
-            "name": "design-space",
-            "project": "Foundations"
+            "name": "Programs\\staking-program",
+            "project": "Governance"
         }
     },
     "paragraphs": [

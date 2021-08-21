@@ -1,0 +1,25 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 15,
+    "type": "Tutorial Step - Under the Hood",
+    "definition": {
+        "text": "Let's take a little closer look at the cryptographic signature in your new profile.",
+        "updated": 1629554334739,
+        "icon": {
+            "name": "User\\user-profile",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Click the configuration option on your User Profile node and take a look at what's inside.",
+            "updated": 1629554250933
+        },
+        {
+            "style": "Text",
+            "text": "Wow that’s a lot of numbers! Again, this is how the governance system will know that this User Profile belongs to the private key that signed the message, which in turn belongs to the address that will hold the tokens that confer your profile with Token Power.",
+            "updated": 1629554289159
+        }
+    ]
+}

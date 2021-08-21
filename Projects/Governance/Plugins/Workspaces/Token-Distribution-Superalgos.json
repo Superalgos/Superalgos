@@ -2239,7 +2239,9 @@
                                 "uiObject": {
                                     "isRunning": false
                                 },
-                                "tutorial": {}
+                                "tutorial": {
+                                    "status": "Done"
+                                }
                             }
                         },
                         {
@@ -2267,13 +2269,16 @@
                                 },
                                 "uiObject": {
                                     "isRunning": false
+                                },
+                                "tutorial": {
+                                    "status": "Done"
                                 }
                             }
                         },
                         {
                             "type": "Tutorial Step",
                             "name": "Welcome aboard!",
-                            "config": "{\n    \"icon\": {\n        \"name\": \"Announcement\\\\announcement\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Welcome aboard!\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
+                            "config": "{\n    \"icon\": {\n        \"name\": \"Announcement\\\\announcement\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Welcome aboard!\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"Close\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
                             "project": "Education",
                             "id": "340f9107-9b4a-424b-94f2-79d65873c572",
                             "savedPayload": {
@@ -2295,6 +2300,9 @@
                                 },
                                 "uiObject": {
                                     "isRunning": false
+                                },
+                                "tutorial": {
+                                    "status": "Done"
                                 }
                             }
                         }
@@ -2349,7 +2357,9 @@
                     "isPlaying": false,
                     "isRunning": false
                 },
-                "tutorial": {}
+                "tutorial": {
+                    "status": "Done"
+                }
             }
         }
     ]

@@ -1,7 +1,14 @@
 {
     "type": "Take Profit",
     "definition": {
-        "text": "Take profit is the current take profit target, as defined in the manage stage of the corresponding strategy."
+        "text": "Take profit is the current take profit target, as defined in the manage stage of the corresponding strategy.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Take profit es el objetivo actual de obtención de beneficios, según se define en la etapa de gestión de la estrategia correspondiente.",
+                "updated": 1629579903804
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -15,6 +15,12 @@
                 "text": "Gewinn mitnehmen (Take Profit) oder einen Verlust begrenzen (Stop Loss)?!",
                 "updated": 1622979661677,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "El Manage Stagees donde el bot comprueba si tiene que hacer Take Profit o un Stop Loss",
+                "updated": 1629356619813,
+                "style": "Definition"
             }
         ]
     },
@@ -28,6 +34,12 @@
                     "language": "DE",
                     "text": "In dieser Phase prüft der Bot, ob der Preis Take Profit (TP) oder Stop Loss (SL) erreicht hat. Die anfänglichen Bedingungen für meine Strategie waren, einen SL bei 20% vom Einstieg zu setzen und einen TP bei 100% oder wenn MA50 unter MA200 kreuzt.",
                     "updated": 1622979639862,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "En esta etapa, el bot comprueba si el precio ha llegado a Take Profit (TP) o Stop Loss (SL). Las condiciones iniciales para mi estrategia fueron establecer un SL al 20% desde la entrada y un TP al 100% o cuando MA50 cruza por debajo de MA200.",
+                    "updated": 1629356685676,
                     "style": "Text"
                 }
             ]
@@ -60,6 +72,11 @@
                     "text": "Die Take Profit Formel ist ein wenig aufwendiger:",
                     "updated": 1622979702092,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "La fórmula Take Profit es un poco más elaborada:",
+                    "updated": 1629423638424
                 }
             ]
         },

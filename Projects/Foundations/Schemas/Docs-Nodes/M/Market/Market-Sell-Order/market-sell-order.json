@@ -1,7 +1,14 @@
 {
     "type": "Market Sell Order",
     "definition": {
-        "text": "A market sell order is an instruction sent to the exchange to sell the base asset, for immediate execution at current market prices."
+        "text": "A market sell order is an instruction sent to the exchange to sell the base asset, for immediate execution at current market prices.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un market sell orderes una instrucción enviada a la bolsa para vender el activo base, para su ejecución inmediata a los precios actuales del mercado.",
+                "updated": 1629580936448
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -15,6 +15,11 @@
                 "text": "Wenn du keine Bedingung benötigst setze es einfach auf „False“ oder „True“!",
                 "updated": 1622978946854,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Si no necesitas una condición, configúrela en False o True!",
+                "updated": 1629352241171
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Für meinen Backtest benötige ich keine Trigger Off Bedingung, also schreibe ich einfach False in den Javascript-Code",
                     "updated": 1622978973861,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Para mi backtest no necesito un Trigger Off condición, así que solo escribo false en codigo Javascript",
+                    "updated": 1629354481694
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Denke daran, dass Bedingungen nur True oder False sein können. Wenn ich Javascript-Code innerhalb dieser Art von Knoten schreibe, müssen sie True oder False auswerten, weil das, was ich schreibe, im Wesentlichen ein Test ist.",
                     "updated": 1622978923884,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Recuerda que Conditions puede ser solo True o False. Cuando escribo código Javascript dentro de este tipo de nodos, deben evaluar True o False porque esencialmente lo que estoy escribiendo es una prueba.",
+                    "updated": 1629354487276
                 }
             ]
         }

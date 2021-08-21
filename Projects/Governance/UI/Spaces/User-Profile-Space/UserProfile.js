@@ -40,32 +40,6 @@ function newGovernanceUserProfileSpace() {
         let resultsArary = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
         if (resultsArary.length === 0) { return }
 
-        /* Find the Username and Password */
-
-        let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
-        if (apisNode === undefined) {
-            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
-            return
-        }
-        if (apisNode.githubAPI === undefined) {
-            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
-            return
-        }
-
-        let config = JSON.parse(apisNode.githubAPI.config)
-        if (config.username === undefined || config.username === "") {
-            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
-            return
-        }
-        if (config.token === undefined || config.token === "") {
-            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
-            return
-        }
-
         /*
         Here we will setup the Reputation for each profile. 
         */
@@ -103,6 +77,32 @@ function newGovernanceUserProfileSpace() {
                 console.log(message)
                 waitingForResponses--
             });
+        }
+
+        /* Find the Github Username and Token in order to activate the Github Program */
+
+        let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
+        if (apisNode === undefined) {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            return
+        }
+        if (apisNode.githubAPI === undefined) {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            return
+        }
+
+        let config = JSON.parse(apisNode.githubAPI.config)
+        if (config.username === undefined || config.username === "") {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            return
+        }
+        if (config.token === undefined || config.token === "") {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+            return
         }
         /*
         Here we will help setup the Github Programs...

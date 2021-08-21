@@ -6,8 +6,8 @@
         "text": "Before you jump into governance, it’s important you know what is being governed!",
         "updated": 1629147485727,
         "icon": {
-            "name": "Charting-Space/charting-space",
-            "project": "Foundations"
+            "name": "Pool\\pools",
+            "project": "Governance"
         }
     },
     "paragraphs": [

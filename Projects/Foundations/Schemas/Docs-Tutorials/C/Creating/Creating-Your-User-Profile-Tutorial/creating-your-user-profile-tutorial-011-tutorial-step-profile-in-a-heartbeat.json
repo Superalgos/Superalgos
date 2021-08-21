@@ -3,11 +3,11 @@
     "pageNumber": 11,
     "type": "Tutorial Step - Profile in a Heartbeat",
     "definition": {
-        "text": "The Profile Constructor is the device you will use to set up your profile. ",
-        "updated": 1629163751173,
+        "text": "The Profile Constructor is the device you will use to set up your profile.",
+        "updated": 1629552461547,
         "icon": {
-            "name": "under-construction",
-            "project": "Foundations"
+            "name": "profile-constructor",
+            "project": "Governance"
         }
     },
     "paragraphs": [
@@ -18,8 +18,8 @@
         },
         {
             "style": "Note",
-            "text": "This means that you will not be able to use any existing wallet addresses you may own, but will create a new one. ",
-            "updated": 1629166737533
+            "text": "However, if you already own a BSC wallet you will have the option to link that address instead of creating a new one.",
+            "updated": 1629552662270
         },
         {
             "style": "Text",

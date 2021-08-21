@@ -751,8 +751,204 @@
                                 "id": "cccfce2d-3497-419b-8c32-4cd62fb1b33f",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35331.25096043528,
-                                        "y": 10800.794129455984
+                                        "x": 35626.241539851304,
+                                        "y": 10978.042351611191
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Bitstudiocoin",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Bitstudiocoin\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Foundations",
+                                "id": "5c0f79f5-416f-46cf-8055-708b71613278",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35522.62339098297,
+                                        "y": 10967.15164531474
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "harrellbm",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"harrellbm\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Foundations",
+                                "id": "49a18a94-de50-4285-bf38-fe43c700b93f",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35428.97902204032,
+                                        "y": 10921.478234845728
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Julian-Molina",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Julian-Molina\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Foundations",
+                                "id": "7096909f-b221-4fb7-a5ec-5a76d147dc2f",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35356.60332596155,
+                                        "y": 10846.531007574467
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Lantschirky",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Lantschirky\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Foundations",
+                                "id": "bdcdfb11-07a0-42fc-b5ec-09ba55c6dcf6",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35314.22587984527,
+                                        "y": 10751.349705213144
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "MarinitaMarina",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"MarinitaMarina\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Foundations",
+                                "id": "6ebdfb57-965a-43d4-a048-31315d0947cf",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35306.95802911758,
+                                        "y": 10647.414597552948
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Raplh2502",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Raplh2502\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Foundations",
+                                "id": "00a46dc7-6fbd-45d1-870a-fab7924ee5c0",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35335.67638383831,
+                                        "y": 10547.26179249652
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "SSChana",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"SSChana\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Foundations",
+                                "id": "99c7c2c7-eb03-476e-8e0b-9480e3dca261",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35396.917086590365,
+                                        "y": 10462.971196431648
                                     },
                                     "targetPosition": {
                                         "x": 35605.314597728066,
@@ -1288,7 +1484,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 1,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -1340,7 +1536,7 @@
                 "floatingObject": {
                     "isPinned": true,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -1983,7 +2179,9 @@
                                 "referenceParentCombinedNodePath": [
                                     [
                                         "Creating Your User Profile Tutorial",
-                                        "Tutorial"
+                                        "Tutorial",
+                                        "Education",
+                                        "57e388d1-f479-4a16-af85-aee12be285a0"
                                     ]
                                 ]
                             }
@@ -2112,23 +2310,23 @@
             "id": "57e388d1-f479-4a16-af85-aee12be285a0",
             "savedPayload": {
                 "position": {
-                    "x": 23585,
-                    "y": 24930
+                    "x": 19673,
+                    "y": 30933.25
                 },
                 "targetPosition": {
-                    "x": 23585,
-                    "y": 24930
+                    "x": 19673,
+                    "y": 30933.25
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 1
                 },
                 "uiObject": {
-                    "isPlaying": false,
+                    "isPlaying": true,
                     "isRunning": false
                 },
                 "tutorial": {

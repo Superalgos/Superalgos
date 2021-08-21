@@ -565,7 +565,7 @@
                                 "featureClaimVotes": [
                                     {
                                         "type": "Feature Claim Vote",
-                                        "name": "",
+                                        "name": "Luis-Fernando-Molina Governance System New Features",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "4381f059-44c8-4843-9cac-8a7cf41fa14c",
@@ -648,7 +648,7 @@
                                     },
                                     {
                                         "type": "Feature Claim Vote",
-                                        "name": "",
+                                        "name": "Luis-Fernando-Molina API Maps New Features",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "6145983d-799e-4a3e-ac04-ed29b398cdce",
@@ -776,7 +776,7 @@
                                                 "poolWeightVotes": [
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "",
+                                                        "name": "Listings Pool",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "9a9ac5a6-8844-44b3-b30e-a131e0268c16",
@@ -895,7 +895,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Referrals Rewards Pool",
                                                                         "config": "{\n    \"percentage\": 80\n}",
                                                                         "project": "Governance",
                                                                         "id": "d5cfaf67-cacc-4ce2-bcf3-1cf86e104ff3",
@@ -960,7 +960,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Referrals Bonus Pool",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "0c7e8840-3b89-48c4-8087-b3e0c2396892",
@@ -1090,7 +1090,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Support Rewards Pool",
                                                                         "config": "{\n    \"percentage\": 80\n}",
                                                                         "project": "Governance",
                                                                         "id": "90eeb2fb-aa44-4530-bbeb-44b29a574c9b",
@@ -1155,7 +1155,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Support Bonus Pool",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "d9180061-a15d-48dc-8330-be63446cf655",
@@ -1285,7 +1285,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Mentorship Rewards Pool",
                                                                         "config": "{\n    \"percentage\": 80\n}",
                                                                         "project": "Governance",
                                                                         "id": "1289397e-3fba-4ff6-b095-d7fb40cd2066",
@@ -1350,7 +1350,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Mentorship Bonus Pool",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "945ed8a9-4d5d-4304-83ed-ca5a750b27a2",
@@ -1480,7 +1480,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Influencer Rewards Pool",
                                                                         "config": "{\n    \"percentage\": 80\n}",
                                                                         "project": "Governance",
                                                                         "id": "7f198bd2-bbe2-47fa-a5e9-b417c453faf8",
@@ -1545,7 +1545,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Influencer Bonus Pool",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "3e0ac914-7a36-4dd7-8ba3-19116faafc43",
@@ -1734,7 +1734,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Airdrop Rewards Pool",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "1c4f2be4-8f2a-4e3c-87ba-e603166fc643",
@@ -1864,7 +1864,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Github Rewards Pool",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "984b16fd-f836-4111-82d9-237bf845bf8c",
@@ -2117,7 +2117,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Voting Bonus Pool",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "ecb405c3-b560-4225-b5e8-1616c3885721",
@@ -2247,7 +2247,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Staking Rewards Pool",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "59c0fa01-f8ea-432b-85ca-ed1e4827e72d",
@@ -2377,7 +2377,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Delegation Bonus Pool",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "05e9680b-3a2d-4431-ba6e-84c9495cae24",
@@ -2607,7 +2607,7 @@
                                                 "poolWeightVotes": [
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "",
+                                                        "name": "Foundations Project Pool",
                                                         "config": "{\n    \"percentage\": 5\n}",
                                                         "project": "Governance",
                                                         "id": "2a1c7f8b-1cf0-411b-b483-d400885c3728",
@@ -2660,7 +2660,7 @@
                                                     },
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "",
+                                                        "name": "TensorFlow Project Pool",
                                                         "config": "{\n    \"percentage\": 40\n}",
                                                         "project": "Governance",
                                                         "id": "6c19b162-0b82-4d3a-a949-7361a2ad2b22",
@@ -2713,7 +2713,7 @@
                                                     },
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "",
+                                                        "name": "Governance Project Pool",
                                                         "config": "{\n    \"percentage\": 50\n}",
                                                         "project": "Governance",
                                                         "id": "0c9cc0a5-cbc2-4c85-824e-432875d39dfc",
@@ -2766,7 +2766,7 @@
                                                     },
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "",
+                                                        "name": "Education Project Pool",
                                                         "config": "{\n    \"percentage\": 5\n}",
                                                         "project": "Governance",
                                                         "id": "39553f4f-8b18-4194-9d91-38ded93677f3",
@@ -2819,7 +2819,7 @@
                                                     },
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "",
+                                                        "name": "Ethereum Project Pool",
                                                         "config": "{\n    \"percentage\": 0\n}",
                                                         "project": "Governance",
                                                         "id": "c0e53819-b234-4583-b1c7-b465492ae165",
@@ -2925,7 +2925,7 @@
                                                 "poolWeightVotes": [
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "",
+                                                        "name": "Data Mines, Indicators, Plotters Pool",
                                                         "config": "{\n    \"percentage\": 22\n}",
                                                         "project": "Governance",
                                                         "id": "21c2101a-2aa7-4a8c-9ec1-e182876f74e1",
@@ -2978,7 +2978,7 @@
                                                     },
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "",
+                                                        "name": "Trading Systems, Strategies Pool",
                                                         "config": "{\n    \"percentage\": 60\n}",
                                                         "project": "Governance",
                                                         "id": "3b6deff2-0b05-461e-8f89-f01ddac5317a",
@@ -3031,7 +3031,7 @@
                                                     },
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "",
+                                                        "name": "API Data Mines, API Data Maps, API Indicators Pool",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "06321334-e2fc-4c7e-b892-5ee9e3b11fcb",
@@ -3137,7 +3137,7 @@
                                                 "poolWeightVotes": [
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "",
+                                                        "name": "Foundations Project Pool",
                                                         "config": "{\n    \"percentage\": 25\n}",
                                                         "project": "Governance",
                                                         "id": "34682b4d-a2de-49da-baa3-bfec87ac0521",
@@ -3190,7 +3190,7 @@
                                                     },
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "",
+                                                        "name": "Tensor Flow Project Pool",
                                                         "config": "{\n    \"percentage\": 30\n}",
                                                         "project": "Governance",
                                                         "id": "bd2be404-987e-4568-90c1-12bb74c850e1",
@@ -3243,7 +3243,7 @@
                                                     },
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "",
+                                                        "name": "Governance Project Pool",
                                                         "config": "{\n    \"percentage\": 40\n}",
                                                         "project": "Governance",
                                                         "id": "e279f63a-310d-4532-bfc9-54e883c537dd",
@@ -3296,7 +3296,7 @@
                                                     },
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "",
+                                                        "name": "Education Project Pool",
                                                         "config": "{\n    \"percentage\": 5\n}",
                                                         "project": "Governance",
                                                         "id": "5a656caa-36db-4ee7-a1c3-f748636b80aa",
@@ -3349,7 +3349,7 @@
                                                     },
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "",
+                                                        "name": "Ethereum Project Pool",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "af3c5702-3ce1-4a32-8987-8bbce440931b",
@@ -3456,7 +3456,7 @@
                                                 "poolWeightVotes": [
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "",
+                                                        "name": "Assets Pool",
                                                         "config": "{\n    \"percentage\": 98\n}",
                                                         "project": "Governance",
                                                         "id": "91bcccf1-f27b-42d8-8f31-e1820088b905",
@@ -3509,7 +3509,7 @@
                                                     },
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "",
+                                                        "name": "Positions Pool",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "ced5bffc-c91a-4815-9a44-3f72c5bcab0c",
@@ -3621,7 +3621,7 @@
                                                         "poolWeightVotes": [
                                                             {
                                                                 "type": "Pool Weight Vote",
-                                                                "name": "",
+                                                                "name": "Positions Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "1c7db2f4-6bf4-4831-b262-430852eb558e",
@@ -3739,7 +3739,7 @@
                                                         "poolWeightVotes": [
                                                             {
                                                                 "type": "Pool Weight Vote",
-                                                                "name": "",
+                                                                "name": "Assets Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "64c52071-cf80-4e29-aa50-b37bb3135572",
@@ -3857,7 +3857,7 @@
                                                         "poolWeightVotes": [
                                                             {
                                                                 "type": "Pool Weight Vote",
-                                                                "name": "",
+                                                                "name": "Features Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "fce3e954-b537-4364-a2ac-1d444bb1843e",
@@ -5267,7 +5267,7 @@
                                                                         "featureWeightVotes": [
                                                                             {
                                                                                 "type": "Feature Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Superalgos Platform Existing Features Charting System",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "5b0f9e6e-67c4-47ef-aa24-1f0dd8ed794b",
@@ -5332,7 +5332,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Feature Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Superalgos Platform Existing Features Data Mining",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "b7b1fd80-e9ca-47a3-ba1d-f01ad079c990",
@@ -5397,7 +5397,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Feature Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Superalgos Platform Existing Features Visual Designer",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "cbf1082d-25ff-4fd3-8dd7-dc3c4ed5e656",
@@ -5462,7 +5462,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Feature Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Superalgos Platform Existing Features Visual Debugger",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "799ea6d7-b5b9-4c2a-b1be-cc517a599e9d",
@@ -5592,7 +5592,7 @@
                                                                         "featureWeightVotes": [
                                                                             {
                                                                                 "type": "Feature Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Superalgos Platform New Features Governance System",
                                                                                 "config": "{\n    \"percentage\": 40\n}",
                                                                                 "project": "Governance",
                                                                                 "id": "d86255f6-dc95-4365-b063-0f036449d373",
@@ -5657,7 +5657,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Feature Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Superalgos Platform New Features API Maps",
                                                                                 "config": "{\n    \"percentage\": 15\n}",
                                                                                 "project": "Governance",
                                                                                 "id": "45e4a5e7-b149-42f3-b14c-ade6183470d6",
@@ -5722,7 +5722,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Feature Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Superalgos Platform New Features User Defined Variables and Code",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "ebfc51a6-0bf2-4559-b7f5-b8f0bd90a1f9",
@@ -5787,7 +5787,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Feature Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Superalgos Platform New Features Tensor Flow Integration",
                                                                                 "config": "{\n    \"percentage\": 35\n}",
                                                                                 "project": "Governance",
                                                                                 "id": "fae5785c-52ef-4f17-ba98-77728e251be6",
@@ -5976,7 +5976,7 @@
                                                                         "featureWeightVotes": [
                                                                             {
                                                                                 "type": "Feature Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Superalgos Mobile App Needed Features Android Mobile App",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "187877ed-3c11-48ae-a8f1-f33348d64a47",
@@ -6041,7 +6041,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Feature Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Superalgos Mobile App Needed Features iOS Mobile App",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "0872f5e5-44d9-4bf4-b53d-f08452abf4b9",
@@ -6106,7 +6106,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Feature Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Superalgos Mobile App Needed Features Huawei Mobile App",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "e557489a-5c48-4313-9961-632f5a24d62a",
@@ -6295,7 +6295,7 @@
                                                                         "featureWeightVotes": [
                                                                             {
                                                                                 "type": "Feature Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Superalgos P2P Network Needed Features Node.js Implementation",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "652368bf-6e79-4001-b3de-0e44d28b177a",
@@ -6579,7 +6579,7 @@
                                                                 "positionWeightVotes": [
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Community Management Moderator",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "fe6bbf7f-c838-428f-9e3f-99b6c9c7d779",
@@ -6697,7 +6697,7 @@
                                                                 "positionWeightVotes": [
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Business Business Lead",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "51309102-9d00-417f-9c6a-f928c1f3506c",
@@ -6756,7 +6756,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Business Advisor",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "80e3f058-9c35-426d-8468-435a4c257215",
@@ -6874,7 +6874,7 @@
                                                                 "positionWeightVotes": [
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Core Team Member",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "bf988832-e97d-46a7-92f1-67914cf08402",
@@ -6987,7 +6987,7 @@
                                                         "positionWeightVotes": [
                                                             {
                                                                 "type": "Position Weight Vote",
-                                                                "name": "",
+                                                                "name": "Rewarded Positions Project Lead",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "98939a3f-34c2-4ab5-af61-36377b78d897",
@@ -7184,7 +7184,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Julian Work in Progress Superalgos Medium Blog Software News Beta 10 Announcement",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "8af5e0f3-ae55-4ef3-833b-35ca656d5f93",
@@ -7216,30 +7216,46 @@
                                                                                     "referenceParentCombinedNodePath": [
                                                                                         [
                                                                                             "Superalgos-Marketing",
-                                                                                            "Assets"
+                                                                                            "Assets",
+                                                                                            "Governance",
+                                                                                            "eeeed37c-a0e5-4d6c-a57f-01fdd8622f0f"
                                                                                         ],
                                                                                         [
-                                                                                            "Decentralized Marketing Rewards",
-                                                                                            "Asset Class"
+                                                                                            "All",
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "72f56cca-745a-4554-bf7f-4a2267700b1d"
+                                                                                        ],
+                                                                                        [
+                                                                                            "Julian Work in Progress",
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "5015dae7-e44a-4dbb-a5af-9697078f8f31"
                                                                                         ],
                                                                                         [
                                                                                             "Superalgos Medium Blog",
-                                                                                            "Asset Class"
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "361efd8b-cfdf-44bc-a11b-ad07fe5e38c8"
                                                                                         ],
                                                                                         [
                                                                                             "Software News",
-                                                                                            "Asset Class"
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "3e0a4e42-e787-47bd-9797-d83b50a768a4"
                                                                                         ],
                                                                                         [
                                                                                             "Beta 10 Announcement",
-                                                                                            "Asset"
+                                                                                            "Asset",
+                                                                                            "Governance",
+                                                                                            "3bfd7674-c175-476e-a6e9-9bfe120e2f7c"
                                                                                         ]
                                                                                     ]
                                                                                 }
                                                                             },
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Julian Work in Progress Superalgos Medium Blog Software News Beta 11 Announcement",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "9f0d3665-b326-433f-98df-3cfa51ace672",
@@ -7271,23 +7287,39 @@
                                                                                     "referenceParentCombinedNodePath": [
                                                                                         [
                                                                                             "Superalgos-Marketing",
-                                                                                            "Assets"
+                                                                                            "Assets",
+                                                                                            "Governance",
+                                                                                            "eeeed37c-a0e5-4d6c-a57f-01fdd8622f0f"
                                                                                         ],
                                                                                         [
-                                                                                            "Decentralized Marketing Rewards",
-                                                                                            "Asset Class"
+                                                                                            "All",
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "72f56cca-745a-4554-bf7f-4a2267700b1d"
+                                                                                        ],
+                                                                                        [
+                                                                                            "Julian Work in Progress",
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "5015dae7-e44a-4dbb-a5af-9697078f8f31"
                                                                                         ],
                                                                                         [
                                                                                             "Superalgos Medium Blog",
-                                                                                            "Asset Class"
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "361efd8b-cfdf-44bc-a11b-ad07fe5e38c8"
                                                                                         ],
                                                                                         [
                                                                                             "Software News",
-                                                                                            "Asset Class"
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "3e0a4e42-e787-47bd-9797-d83b50a768a4"
                                                                                         ],
                                                                                         [
                                                                                             "Beta 11 Announcement",
-                                                                                            "Asset"
+                                                                                            "Asset",
+                                                                                            "Governance",
+                                                                                            "e892f30f-5185-4d94-8db8-2c7bd8b86368"
                                                                                         ]
                                                                                     ]
                                                                                 }
@@ -7324,19 +7356,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos-Marketing",
-                                                                                    "Assets"
+                                                                                    "Assets",
+                                                                                    "Governance",
+                                                                                    "eeeed37c-a0e5-4d6c-a57f-01fdd8622f0f"
                                                                                 ],
                                                                                 [
-                                                                                    "Decentralized Marketing Rewards",
-                                                                                    "Asset Class"
+                                                                                    "All",
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "72f56cca-745a-4554-bf7f-4a2267700b1d"
+                                                                                ],
+                                                                                [
+                                                                                    "Julian Work in Progress",
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "5015dae7-e44a-4dbb-a5af-9697078f8f31"
                                                                                 ],
                                                                                 [
                                                                                     "Superalgos Medium Blog",
-                                                                                    "Asset Class"
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "361efd8b-cfdf-44bc-a11b-ad07fe5e38c8"
                                                                                 ],
                                                                                 [
                                                                                     "Software News",
-                                                                                    "Asset Class"
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "3e0a4e42-e787-47bd-9797-d83b50a768a4"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -7351,7 +7397,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Julian Work in Progress Superalgos Medium Blog Articles Add Your Article as a New Asset",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "3ab42101-e22c-483b-baff-eff4afea19dc",
@@ -7383,23 +7429,39 @@
                                                                                     "referenceParentCombinedNodePath": [
                                                                                         [
                                                                                             "Superalgos-Marketing",
-                                                                                            "Assets"
+                                                                                            "Assets",
+                                                                                            "Governance",
+                                                                                            "eeeed37c-a0e5-4d6c-a57f-01fdd8622f0f"
                                                                                         ],
                                                                                         [
-                                                                                            "Decentralized Marketing Rewards",
-                                                                                            "Asset Class"
+                                                                                            "All",
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "72f56cca-745a-4554-bf7f-4a2267700b1d"
+                                                                                        ],
+                                                                                        [
+                                                                                            "Julian Work in Progress",
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "5015dae7-e44a-4dbb-a5af-9697078f8f31"
                                                                                         ],
                                                                                         [
                                                                                             "Superalgos Medium Blog",
-                                                                                            "Asset Class"
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "361efd8b-cfdf-44bc-a11b-ad07fe5e38c8"
                                                                                         ],
                                                                                         [
                                                                                             "Articles",
-                                                                                            "Asset Class"
+                                                                                            "Asset Class",
+                                                                                            "Governance",
+                                                                                            "70c9e68f-c0f2-4e16-9dab-d0f816c23193"
                                                                                         ],
                                                                                         [
                                                                                             "Add Your Article as a New Asset",
-                                                                                            "Asset"
+                                                                                            "Asset",
+                                                                                            "Governance",
+                                                                                            "e8819534-2d2c-4783-8cb7-f88858877d93"
                                                                                         ]
                                                                                     ]
                                                                                 }
@@ -7436,19 +7498,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos-Marketing",
-                                                                                    "Assets"
+                                                                                    "Assets",
+                                                                                    "Governance",
+                                                                                    "eeeed37c-a0e5-4d6c-a57f-01fdd8622f0f"
                                                                                 ],
                                                                                 [
-                                                                                    "Decentralized Marketing Rewards",
-                                                                                    "Asset Class"
+                                                                                    "All",
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "72f56cca-745a-4554-bf7f-4a2267700b1d"
+                                                                                ],
+                                                                                [
+                                                                                    "Julian Work in Progress",
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "5015dae7-e44a-4dbb-a5af-9697078f8f31"
                                                                                 ],
                                                                                 [
                                                                                     "Superalgos Medium Blog",
-                                                                                    "Asset Class"
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "361efd8b-cfdf-44bc-a11b-ad07fe5e38c8"
                                                                                 ],
                                                                                 [
                                                                                     "Articles",
-                                                                                    "Asset Class"
+                                                                                    "Asset Class",
+                                                                                    "Governance",
+                                                                                    "70c9e68f-c0f2-4e16-9dab-d0f816c23193"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -7599,15 +7675,27 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos-Marketing",
-                                                                            "Assets"
+                                                                            "Assets",
+                                                                            "Governance",
+                                                                            "eeeed37c-a0e5-4d6c-a57f-01fdd8622f0f"
                                                                         ],
                                                                         [
-                                                                            "Decentralized Marketing Rewards",
-                                                                            "Asset Class"
+                                                                            "All",
+                                                                            "Asset Class",
+                                                                            "Governance",
+                                                                            "72f56cca-745a-4554-bf7f-4a2267700b1d"
+                                                                        ],
+                                                                        [
+                                                                            "Julian Work in Progress",
+                                                                            "Asset Class",
+                                                                            "Governance",
+                                                                            "5015dae7-e44a-4dbb-a5af-9697078f8f31"
                                                                         ],
                                                                         [
                                                                             "Superalgos Medium Blog",
-                                                                            "Asset Class"
+                                                                            "Asset Class",
+                                                                            "Governance",
+                                                                            "361efd8b-cfdf-44bc-a11b-ad07fe5e38c8"
                                                                         ]
                                                                     ]
                                                                 }
@@ -7714,7 +7802,7 @@
                                                         "positionWeightVotes": [
                                                             {
                                                                 "type": "Position Weight Vote",
-                                                                "name": "",
+                                                                "name": "Rewarded Positions Marketing Lead",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "95ec9f89-0c77-4136-8670-146699ac67a2",
@@ -7767,7 +7855,7 @@
                                                             },
                                                             {
                                                                 "type": "Position Weight Vote",
-                                                                "name": "",
+                                                                "name": "Rewarded Positions Advisor",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "5c4f1655-8f2f-46fc-9016-52248fe725d3",
@@ -7793,7 +7881,7 @@
                                                                     },
                                                                     "referenceParent": {
                                                                         "type": "Position",
-                                                                        "name": "Marketing Advisor",
+                                                                        "name": "Advisor",
                                                                         "id": "1870446d-a572-4568-9956-c3e9bb941657"
                                                                     },
                                                                     "referenceParentCombinedNodePath": [
@@ -7810,7 +7898,7 @@
                                                                             "3e191217-1e2f-4d90-a86d-0d425f8844b6"
                                                                         ],
                                                                         [
-                                                                            "Marketing Advisor",
+                                                                            "Advisor",
                                                                             "Position",
                                                                             "Governance",
                                                                             "1870446d-a572-4568-9956-c3e9bb941657"
@@ -7964,7 +8052,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "DEXs First Listing  Pancakeswap SA/WBTC SA Liquidity",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "132eec8f-8438-429d-bebc-47a5e100e48e",
@@ -8035,7 +8123,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "DEXs First Listing  Pancakeswap SA/WBTC WBTC Liquidity",
                                                                                 "config": "{\n    \"percentage\": 55.555556\n}",
                                                                                 "project": "Governance",
                                                                                 "id": "99b1f5b3-d368-49ed-b848-d52e13b586d6",
@@ -8296,7 +8384,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "SA Token Listings Rewards CEXs Open Negotiations Bittrex",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "8f4adb75-d7f5-4ea4-94e6-9126cd9fc1da",
@@ -8361,7 +8449,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "SA Token Listings Rewards CEXs Open Negotiations LBank",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "308cb2e4-23e2-4a7f-a1e2-3fa4e83fd6e2",
@@ -8426,7 +8514,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "SA Token Listings Rewards CEXs Open Negotiations Probit",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "622a822c-b952-4c17-ab4d-2a8874b60016",
@@ -9439,7 +9527,7 @@
                                         "featureContributionClaims": [
                                             {
                                                 "type": "Feature Contribution Claim",
-                                                "name": "",
+                                                "name": "Governance System New Features",
                                                 "config": "\n{\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Topic\",\n        \"type\": \"Beta 11 Claim - Governance System\"\n    }\n}",
                                                 "project": "Governance",
                                                 "id": "92f0f22e-f631-482d-88b1-c16596bf951d",
@@ -9504,7 +9592,7 @@
                                             },
                                             {
                                                 "type": "Feature Contribution Claim",
-                                                "name": "",
+                                                "name": "API Maps New Features",
                                                 "config": "{\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Topic\",\n        \"type\": \"Beta 10 Claim - API Maps\"\n    }\n}\n",
                                                 "project": "Governance",
                                                 "id": "81c477e0-c9bf-4b25-a875-d265011a6136",

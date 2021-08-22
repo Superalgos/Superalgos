@@ -505,7 +505,367 @@
                                 "name": "New Claim Votes Switch",
                                 "config": "{}",
                                 "project": "Governance",
-                                "claimVotesSwitch": [],
+                                "claimVotesSwitch": [
+                                    {
+                                        "type": "Claim Votes Switch",
+                                        "name": "Luis Claims",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "claimVotesSwitch": [
+                                            {
+                                                "type": "Claim Votes Switch",
+                                                "name": "Project Features Feature Class",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "claimVotesSwitch": [
+                                                    {
+                                                        "type": "Claim Votes Switch",
+                                                        "name": "Superalgos Platform Feature Class",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "claimVotesSwitch": [
+                                                            {
+                                                                "type": "Claim Votes Switch",
+                                                                "name": "New Features Feature Class",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "claimVotesSwitch": [],
+                                                                "positionClaimVotes": [],
+                                                                "assetClaimVotes": [],
+                                                                "featureClaimVotes": [
+                                                                    {
+                                                                        "type": "Feature Claim Vote",
+                                                                        "name": "Luis-Fernando-Molina Governance System New Features",
+                                                                        "config": "{}",
+                                                                        "project": "Governance",
+                                                                        "id": "6efe2790-61d1-4269-9725-d3824ab8d787",
+                                                                        "savedPayload": {
+                                                                            "position": {
+                                                                                "x": 26568.913555688297,
+                                                                                "y": 21447.09659901601
+                                                                            },
+                                                                            "targetPosition": {
+                                                                                "x": 26615.843895200367,
+                                                                                "y": 21743.40310119455
+                                                                            },
+                                                                            "floatingObject": {
+                                                                                "isPinned": false,
+                                                                                "isFrozen": false,
+                                                                                "isCollapsed": false,
+                                                                                "angleToParent": 2,
+                                                                                "distanceToParent": 3,
+                                                                                "arrangementStyle": 0
+                                                                            },
+                                                                            "uiObject": {
+                                                                                "isRunning": false
+                                                                            },
+                                                                            "referenceParent": {
+                                                                                "type": "Feature Contribution Claim",
+                                                                                "name": "Governance System New Features",
+                                                                                "id": "92f0f22e-f631-482d-88b1-c16596bf951d"
+                                                                            },
+                                                                            "referenceParentCombinedNodePath": [
+                                                                                [
+                                                                                    "Luis-Fernando-Molina",
+                                                                                    "User Profile"
+                                                                                ],
+                                                                                [
+                                                                                    "New Token Power Switch",
+                                                                                    "Token Power Switch"
+                                                                                ],
+                                                                                [
+                                                                                    "New Votes And Claims Programs",
+                                                                                    "Votes And Claims Programs"
+                                                                                ],
+                                                                                [
+                                                                                    "New Claims Program",
+                                                                                    "Claims Program"
+                                                                                ],
+                                                                                [
+                                                                                    "Project Features Feature Class",
+                                                                                    "Feature Claims Folder"
+                                                                                ],
+                                                                                [
+                                                                                    "Superalgos Platform Feature Class",
+                                                                                    "Feature Claims Folder"
+                                                                                ],
+                                                                                [
+                                                                                    "New Features Feature Class",
+                                                                                    "Feature Claims Folder"
+                                                                                ],
+                                                                                [
+                                                                                    "Governance System New Features",
+                                                                                    "Feature Contribution Claim"
+                                                                                ]
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "Feature Claim Vote",
+                                                                        "name": "Luis-Fernando-Molina API Maps New Features",
+                                                                        "config": "{\n    \"percentage\":  30\n}",
+                                                                        "project": "Governance",
+                                                                        "id": "643883cd-80fa-44ed-94f3-3aa7243d5f03",
+                                                                        "savedPayload": {
+                                                                            "position": {
+                                                                                "x": 26848.987683637457,
+                                                                                "y": 21554.6069838796
+                                                                            },
+                                                                            "targetPosition": {
+                                                                                "x": 26615.843895200367,
+                                                                                "y": 21743.40310119455
+                                                                            },
+                                                                            "floatingObject": {
+                                                                                "isPinned": false,
+                                                                                "isFrozen": false,
+                                                                                "isCollapsed": false,
+                                                                                "angleToParent": 2,
+                                                                                "distanceToParent": 3,
+                                                                                "arrangementStyle": 0
+                                                                            },
+                                                                            "uiObject": {
+                                                                                "isRunning": false
+                                                                            },
+                                                                            "referenceParent": {
+                                                                                "type": "Feature Contribution Claim",
+                                                                                "name": "API Maps New Features",
+                                                                                "id": "81c477e0-c9bf-4b25-a875-d265011a6136"
+                                                                            },
+                                                                            "referenceParentCombinedNodePath": [
+                                                                                [
+                                                                                    "Luis-Fernando-Molina",
+                                                                                    "User Profile"
+                                                                                ],
+                                                                                [
+                                                                                    "New Token Power Switch",
+                                                                                    "Token Power Switch"
+                                                                                ],
+                                                                                [
+                                                                                    "New Votes And Claims Programs",
+                                                                                    "Votes And Claims Programs"
+                                                                                ],
+                                                                                [
+                                                                                    "New Claims Program",
+                                                                                    "Claims Program"
+                                                                                ],
+                                                                                [
+                                                                                    "Project Features Feature Class",
+                                                                                    "Feature Claims Folder"
+                                                                                ],
+                                                                                [
+                                                                                    "Superalgos Platform Feature Class",
+                                                                                    "Feature Claims Folder"
+                                                                                ],
+                                                                                [
+                                                                                    "New Features Feature Class",
+                                                                                    "Feature Claims Folder"
+                                                                                ],
+                                                                                [
+                                                                                    "API Maps New Features",
+                                                                                    "Feature Contribution Claim"
+                                                                                ]
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "id": "c30a5c14-ef04-4066-a2f4-6429b69dae8f",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 26615.843895200367,
+                                                                        "y": 21743.40310119455
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 26508.333510336775,
+                                                                        "y": 22023.47722914371
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Feature Claims Folder",
+                                                                        "name": "New Features Feature Class",
+                                                                        "id": "c4815ebe-d3a8-47fd-b204-936242bd8f40"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Luis-Fernando-Molina",
+                                                                            "User Profile"
+                                                                        ],
+                                                                        [
+                                                                            "New Token Power Switch",
+                                                                            "Token Power Switch"
+                                                                        ],
+                                                                        [
+                                                                            "New Votes And Claims Programs",
+                                                                            "Votes And Claims Programs"
+                                                                        ],
+                                                                        [
+                                                                            "New Claims Program",
+                                                                            "Claims Program"
+                                                                        ],
+                                                                        [
+                                                                            "Project Features Feature Class",
+                                                                            "Feature Claims Folder"
+                                                                        ],
+                                                                        [
+                                                                            "Superalgos Platform Feature Class",
+                                                                            "Feature Claims Folder"
+                                                                        ],
+                                                                        [
+                                                                            "New Features Feature Class",
+                                                                            "Feature Claims Folder"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "positionClaimVotes": [],
+                                                        "assetClaimVotes": [],
+                                                        "featureClaimVotes": [],
+                                                        "id": "e4ce8751-1735-4c17-8c7a-5bbca4c05abf",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 26508.333510336775,
+                                                                "y": 22023.47722914371
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 26400.823125473184,
+                                                                "y": 22303.55135709287
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Feature Claims Folder",
+                                                                "name": "Superalgos Platform Feature Class",
+                                                                "id": "ba6b4ff8-396b-4a9d-95ba-a52d096ec9eb"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Luis-Fernando-Molina",
+                                                                    "User Profile"
+                                                                ],
+                                                                [
+                                                                    "New Token Power Switch",
+                                                                    "Token Power Switch"
+                                                                ],
+                                                                [
+                                                                    "New Votes And Claims Programs",
+                                                                    "Votes And Claims Programs"
+                                                                ],
+                                                                [
+                                                                    "New Claims Program",
+                                                                    "Claims Program"
+                                                                ],
+                                                                [
+                                                                    "Project Features Feature Class",
+                                                                    "Feature Claims Folder"
+                                                                ],
+                                                                [
+                                                                    "Superalgos Platform Feature Class",
+                                                                    "Feature Claims Folder"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "positionClaimVotes": [],
+                                                "assetClaimVotes": [],
+                                                "featureClaimVotes": [],
+                                                "id": "4bc968ed-2bec-4016-9bdc-a3c52df74929",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 26400.823125473184,
+                                                        "y": 22303.55135709287
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 26293.312740609592,
+                                                        "y": 22583.62548504203
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Feature Claims Folder",
+                                                        "name": "Project Features Feature Class",
+                                                        "id": "f8a482c4-dee0-475a-831b-7514fd255ba6"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Luis-Fernando-Molina",
+                                                            "User Profile"
+                                                        ],
+                                                        [
+                                                            "New Token Power Switch",
+                                                            "Token Power Switch"
+                                                        ],
+                                                        [
+                                                            "New Votes And Claims Programs",
+                                                            "Votes And Claims Programs"
+                                                        ],
+                                                        [
+                                                            "New Claims Program",
+                                                            "Claims Program"
+                                                        ],
+                                                        [
+                                                            "Project Features Feature Class",
+                                                            "Feature Claims Folder"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "positionClaimVotes": [],
+                                        "assetClaimVotes": [],
+                                        "featureClaimVotes": [],
+                                        "id": "656c1734-416c-4c65-b733-ee9c60f295e2",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 26293.312740609592,
+                                                "y": 22583.62548504203
+                                            },
+                                            "targetPosition": {
+                                                "x": 26185.802355746,
+                                                "y": 22863.69961299119
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    }
+                                ],
                                 "positionClaimVotes": [],
                                 "assetClaimVotes": [],
                                 "featureClaimVotes": [],
@@ -537,7 +897,7 @@
                             {
                                 "type": "Weight Votes Switch",
                                 "name": "New Weight Votes Switch",
-                                "config": "{\n    \"percentage\": 15\n}",
+                                "config": "{\n    \"percentage\": 20\n}",
                                 "project": "Governance",
                                 "weightVotesSwitch": [
                                     {
@@ -568,7 +928,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Decentralized Marketing Rewards Superalgos Medium Blog Software News Beta 10 Announcement",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "da6745cd-c069-4c44-9e34-392642acdfdc",
@@ -633,7 +993,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Decentralized Marketing Rewards Superalgos Medium Blog Software News Beta 11 Announcement",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "c162f541-6d95-4c36-a6d9-ef5ca201d3c2",
@@ -763,7 +1123,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Decentralized Marketing Rewards Superalgos Medium Blog Articles Add Your Article as a New Asset",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "adc79b8f-cb0a-418c-a233-c27cec888ecb",
@@ -893,7 +1253,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Decentralized Marketing Rewards Superalgos Medium Blog Reviews Add Your Review as a New Asset",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "f885cbb0-419b-4619-a34e-84a6103c9a07",
@@ -1088,7 +1448,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Article Publications Alternative Media Code Project Add Your Article as a New Asset",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "cc19e820-b1b0-4d35-a95e-a839eda3e28f",
@@ -1230,7 +1590,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Article Publications Alternative Media Coinmonks Add Your Article as a New Asset",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "fb73fa6d-8c7f-4272-85ca-7861cdfd7516",
@@ -1372,7 +1732,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Article Publications Alternative Media Towards Data Science Add Your Article as a New Asset",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "7a0a153a-bb6e-4842-9fe8-6af74aa84ca3",
@@ -1514,7 +1874,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Article Publications Alternative Media Hackernoon Add Your Article as a New Asset",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "19ec6716-975e-45be-a9a4-84c657d5e805",
@@ -1721,7 +2081,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Article Publications Specialized Media CoinDesk Add Your Article as a New Asset",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "ed3671da-b508-40df-a1af-2085cddd8a83",
@@ -1863,7 +2223,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Article Publications Specialized Media CoinTelegraph Add Your Article as a New Asset",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "6cb62a01-5d5d-4b2b-8a10-8f730b559bf1",
@@ -2005,7 +2365,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Article Publications Specialized Media VentureBeat Add Your Article as a New Asset",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "02dab135-0ee8-4e88-aea8-e214d903b079",
@@ -2212,7 +2572,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Article Publications Mainstream Media Forbes Add Your Article as a New Asset",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "b4e60688-09d5-484c-a8eb-e0fababeb22b",
@@ -2354,7 +2714,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Article Publications Mainstream Media Wall Street Journal Add Your Article as a New Asset",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "612e1b69-a095-4f88-8cd9-857bc4105a18",
@@ -2496,7 +2856,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "",
+                                                                                "name": "Article Publications Mainstream Media Financial Times Add Your Article as a New Asset",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "1f3c879a-caf9-415b-8447-12f7e29b8e52",
@@ -2756,7 +3116,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Decentralized Marketing Rewards Video Publications YouTube Add Your Video as a New Asset",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "14400000-ba7e-4691-acb1-2c39df549b34",
@@ -2886,7 +3246,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Decentralized Marketing Rewards Video Publications Vimeo Add Your Video as a New Asset",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "5dadb998-d325-4833-a33e-0107fd1179bc",
@@ -3075,7 +3435,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Decentralized Marketing Rewards Social Media Posts Twitter Add Your Post as a New Asset",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "9493de22-3911-40df-a69e-fda76acdef29",
@@ -3205,7 +3565,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Decentralized Marketing Rewards Social Media Posts Facebook Add Your Post as a New Asset",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "a4f26986-6522-485b-a230-2bbe3077e258",
@@ -3335,7 +3695,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Decentralized Marketing Rewards Social Media Posts Instagram Add Your Post as a New Asset",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "041404ad-4b38-4f3d-83ae-513e7b3811e7",
@@ -3465,7 +3825,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Decentralized Marketing Rewards Social Media Posts Reddit Add Your Post as a New Asset",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "6eeecaa1-ea8f-4561-b110-949a1d9fe615",
@@ -3595,7 +3955,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Decentralized Marketing Rewards Social Media Posts Hacker News Add Your Post as a New Asset",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "b2e3bb65-8d4d-432b-a638-8836b6f4dab6",
@@ -3784,7 +4144,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Decentralized Marketing Rewards Backlinks To Website Add Your Link as a New Asset",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "5e829432-7013-4321-a9b9-679429739bda",
@@ -3914,7 +4274,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Decentralized Marketing Rewards Backlinks To Repository Add Your Link as a New Asset",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "6321faa9-5c63-4745-a8d7-0353d5821e29",
@@ -4146,7 +4506,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "",
+                                                        "name": "Rewarded Positions Marketing Lead",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "70d963f8-9a14-46e0-9db8-51521692badd",
@@ -4199,7 +4559,7 @@
                                                     },
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "",
+                                                        "name": "Rewarded Positions Marketing Advisor",
                                                         "config": "{\n    \"percentage\":  25\n}",
                                                         "project": "Governance",
                                                         "id": "be920920-edfc-4af2-a69d-cd0a0f439429",
@@ -4252,7 +4612,7 @@
                                                     },
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "",
+                                                        "name": "Rewarded Positions Webmaster Superalgos.org",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "b875c124-aa5f-41b3-8417-5ffef1dd731a",
@@ -4305,7 +4665,7 @@
                                                     },
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "",
+                                                        "name": "Rewarded Positions Social Media Accounts Manager",
                                                         "config": "{\n    \"percentage\": 5\n}",
                                                         "project": "Governance",
                                                         "id": "16474331-a828-4455-93ad-c7e995f7cf2e",
@@ -6055,7 +6415,7 @@
                                                         "assetWeightVotes": [
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "Governance-Project-Docs Docs Books the-governance-project.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "075ba82b-16b1-43e7-b76c-26437c5928de",
@@ -6252,7 +6612,7 @@
                             {
                                 "type": "User Profile Votes Switch",
                                 "name": "New User Profile Votes Switch",
-                                "config": "{}",
+                                "config": "{\n    \"percentage\": 0\n}",
                                 "project": "Governance",
                                 "userProfileVotesSwitch": [],
                                 "userProfileVote": [],
@@ -6357,7 +6717,7 @@
             "claimsProgram": {
                 "type": "Claims Program",
                 "name": "New Claims Program",
-                "config": "{}",
+                "config": "{\n    \"percentage\": 50\n}",
                 "project": "Governance",
                 "assetClaimsFolders": [
                     {
@@ -6387,7 +6747,7 @@
                                                 "assetContributionClaims": [
                                                     {
                                                         "type": "Asset Contribution Claim",
-                                                        "name": "Docs Books the-governance-project.json",
+                                                        "name": "",
                                                         "config": "{\n  \"description\": \"\"\n}",
                                                         "project": "Governance",
                                                         "id": "24248a65-20e4-4f29-8663-9f4f93315910",
@@ -8453,7 +8813,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": true,
+                                "isCollapsed": false,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -8518,7 +8878,7 @@
                                         "positionContributionClaims": [
                                             {
                                                 "type": "Position Contribution Claim",
-                                                "name": "",
+                                                "name": "Marketing Lead Rewarded Positions",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "924ae88a-510a-4d4b-8d8d-906be074e3c8",
@@ -8571,7 +8931,7 @@
                                             },
                                             {
                                                 "type": "Position Contribution Claim",
-                                                "name": "",
+                                                "name": "Webmaster Superalgos.org Rewarded Positions",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "e65b1b4d-d9dc-476c-90fa-a7bf4b2ba3b0",
@@ -8624,7 +8984,7 @@
                                             },
                                             {
                                                 "type": "Position Contribution Claim",
-                                                "name": "",
+                                                "name": "Social Media Accounts Manager Rewarded Positions",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "00c47bb5-1fb4-470d-a86c-29b46836ba8c",
@@ -8764,7 +9124,7 @@
                                                 "positionContributionClaims": [
                                                     {
                                                         "type": "Position Contribution Claim",
-                                                        "name": "",
+                                                        "name": "Telgram Groups / Discord Server Manager Community Management",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "e2e294a7-bfab-43c3-821f-f8f93f4adcd7",
@@ -8879,7 +9239,7 @@
                                                 "positionContributionClaims": [
                                                     {
                                                         "type": "Position Contribution Claim",
-                                                        "name": "",
+                                                        "name": "Business Lead Business",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "f6bc13cb-c70b-4a42-9491-6796aa862d54",
@@ -8994,7 +9354,7 @@
                                                 "positionContributionClaims": [
                                                     {
                                                         "type": "Position Contribution Claim",
-                                                        "name": "",
+                                                        "name": "Member Core Team",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "74b80085-5336-4046-959d-2d7367d4e0a0",
@@ -9184,7 +9544,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": true,
+                                "isCollapsed": false,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -9258,7 +9618,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

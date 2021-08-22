@@ -1,7 +1,7 @@
 {
     "type": "Pools",
     "name": "Superalgos",
-    "config": "{\"tokens\":\"60000000\",\"codeName\":\"Superalgos\"}",
+    "config": "{\n    \"tokens\": \"66000000\",\n    \"codeName\": \"Superalgos\"\n}",
     "project": "Governance",
     "poolClasses": [
         {
@@ -792,7 +792,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -817,7 +817,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -1482,7 +1482,7 @@
             "pools": [
                 {
                     "type": "Pool",
-                    "name": "Listings",
+                    "name": "Liquidity",
                     "config": "{}",
                     "project": "Governance",
                     "poolClasses": [],
@@ -1538,7 +1538,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

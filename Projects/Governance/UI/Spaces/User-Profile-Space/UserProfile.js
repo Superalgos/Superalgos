@@ -9,21 +9,14 @@ function newGovernanceUserProfileSpace() {
         physics: physics,
         draw: draw,
         getContainer: getContainer,
+        reset: reset,
         finalize: finalize,
         initialize: initialize
     }
 
-    thisObject.container = newContainer()
-    thisObject.container.initialize(MODULE_NAME)
-    thisObject.container.isDraggeable = false
-
     let waitingForResponses = 0
     let timer = 0
-
-    thisObject.githubStars = new Map()
-    thisObject.githubWatchers = new Map()
-    thisObject.githubForks = new Map()
-
+    const BSC_SCAN_RATE_LIMIT_DELAY = 7000
     let reputationByAddress = new Map()
 
     return thisObject
@@ -34,43 +27,23 @@ function newGovernanceUserProfileSpace() {
         Superalgos Repository. This will later be used to know which user profiles are participating
         at the Github Program. 
         */
+        thisObject.githubStars = new Map()
+        thisObject.githubWatchers = new Map()
+        thisObject.githubForks = new Map()
 
+        thisObject.container = newContainer()
+        thisObject.container.initialize(MODULE_NAME)
+        thisObject.container.isDraggeable = false
         /*
         If the workspace is not related to governance, then we exit the Intialize Function
         */
         let resultsArary = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
         if (resultsArary.length === 0) { return }
 
-        /* Find the Username and Password */
-
-        let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
-        if (apisNode === undefined) {
-            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
-            return
-        }
-        if (apisNode.githubAPI === undefined) {
-            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
-            return
-        }
-
-        let config = JSON.parse(apisNode.githubAPI.config)
-        if (config.username === undefined || config.username === "") {
-            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
-            return
-        }
-        if (config.token === undefined || config.token === "") {
-            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
-            return
-        }
-
         /*
         Here we will setup the Reputation for each profile. 
         */
-        timer = timer + 10000
+        timer = timer + BSC_SCAN_RATE_LIMIT_DELAY
         waitingForResponses++
         getTreasuryAccountTransactions()
 
@@ -95,6 +68,8 @@ function newGovernanceUserProfileSpace() {
                 }
                 if (tokenTransfers.length > 9000) {
                     console.log('[WARN] The total amount of BSC SA Token transfers is above 9000. After 10k this method will need pagination or otherwise users will not get their reputation calculated correctly.')
+                } else {
+                    console.log('[INFO] ' + tokenTransfers.length + ' reputation trasactions found at the blockchain. ')
                 }
                 waitingForResponses--
             }).catch(function (err) {
@@ -102,6 +77,28 @@ function newGovernanceUserProfileSpace() {
                 console.log(message)
                 waitingForResponses--
             });
+        }
+
+        /* Find the Github Username and Token in order to activate the Github Program */
+
+        let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
+        if (apisNode === undefined) {
+            console.log('[WARN] Github Program Disabled because the Github Credentials are not present at this workspace. APIs node not found.')
+            return
+        }
+        if (apisNode.githubAPI === undefined) {
+            console.log('[WARN] Github Program Disabled because the Github Credentials are not present at this workspace. Github API node not found.')
+            return
+        }
+
+        let config = JSON.parse(apisNode.githubAPI.config)
+        if (config.username === undefined || config.username === "") {
+            console.log('[WARN] Github Program Disabled because the Github Credentials are not present at this workspace. Github Username not configured.')
+            return
+        }
+        if (config.token === undefined || config.token === "") {
+            console.log('[WARN] Github Program Disabled because the Github Credentials are not present at this workspace. Github Token not configured.')
+            return
         }
         /*
         Here we will help setup the Github Programs...
@@ -244,9 +241,16 @@ function newGovernanceUserProfileSpace() {
 
     function finalize() {
         thisObject.githubStars = undefined
+        thisObject.githubWatchers = undefined
+        thisObject.githubForks = undefined
 
         thisObject.container.finalize()
         thisObject.container = undefined
+    }
+
+    function reset() {
+        finalize()
+        initialize()
     }
 
     function getContainer(point) {
@@ -326,7 +330,7 @@ function newGovernanceUserProfileSpace() {
                     waitingForResponses++
                     userProfile.payload.blockchainTokens = 0 // We need to set this value here so that the next call to BSCSCAN is not done more than once.
                     setTimeout(getBlockchainTokens, timer, userProfile, blockchainAccount)
-                    timer = timer + 6000
+                    timer = timer + BSC_SCAN_RATE_LIMIT_DELAY
                 }
             }
         }
@@ -341,7 +345,7 @@ function newGovernanceUserProfileSpace() {
                 console.log(data)
                 userProfile.payload.uiObject.setInfoMessage(data)
                 userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000
-                userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens) 
+                userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens)
                 waitingForResponses--
             }).catch(function (err) {
                 const message = err.message + ' - ' + 'Can not access BSC SCAN servers.'

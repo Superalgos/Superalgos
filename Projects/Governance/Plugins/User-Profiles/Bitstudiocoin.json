@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "Bitstudiocoin",
-    "config": "{\n    \"signature\": {\n        \"message\": \"Bitstudiocoin\",\n        \"messageHash\": \"0xf1cb5f478ccca12afeb83bafdcde74aef98ec8eedd8ce00749f5d83c368231cc\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x9ea7876e0531fae0e811802d426f1cf1712292766c3046bdebcd2a815d2e12f1\",\n        \"s\": \"0x419ca6767dc6299953dc589267effa177d69abeef0699372e55bcea1974c3b00\",\n        \"signature\": \"0x9ea7876e0531fae0e811802d426f1cf1712292766c3046bdebcd2a815d2e12f1419ca6767dc6299953dc589267effa177d69abeef0699372e55bcea1974c3b001c\"\n    }\n}",
+    "config": "{\"signature\":{\"message\":\"Bitstudiocoin\",\"messageHash\":\"0xf1cb5f478ccca12afeb83bafdcde74aef98ec8eedd8ce00749f5d83c368231cc\",\"v\":\"0x1c\",\"r\":\"0x9ea7876e0531fae0e811802d426f1cf1712292766c3046bdebcd2a815d2e12f1\",\"s\":\"0x419ca6767dc6299953dc589267effa177d69abeef0699372e55bcea1974c3b00\",\"signature\":\"0x9ea7876e0531fae0e811802d426f1cf1712292766c3046bdebcd2a815d2e12f1419ca6767dc6299953dc589267effa177d69abeef0699372e55bcea1974c3b001c\"},\"codeName\":\"Bitstudiocoin\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -62,17 +62,17 @@
     "id": "05a8fbaf-4e84-4939-800f-b74580517b88",
     "savedPayload": {
         "position": {
-            "x": 13580,
-            "y": 10816.5
+            "x": 12626,
+            "y": 25816
         },
         "targetPosition": {
-            "x": 13580,
-            "y": 10816.5
+            "x": 12626,
+            "y": 25816
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

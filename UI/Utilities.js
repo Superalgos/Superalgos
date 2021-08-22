@@ -1,6 +1,6 @@
 function getSchemaDocument (node, project) {
   if (node === null || node === undefined) {
-    console.log('[Error] Can not get the schema document of a null or undefined node ')
+    console.log('[ERROR] Can not get the schema document of a null or undefined node ')
     return
   }
   if (project === undefined) { project = node.project }
@@ -9,7 +9,7 @@ function getSchemaDocument (node, project) {
   if (APP_SCHEMA !== undefined) {
     return SCHEMAS_BY_PROJECT.get(project).map.appSchema.get(node.type)
   } else {
-    console.log('[Error] Could not get APP Scchema for project ' + node.project)
+    console.log('[ERROR] Could not get APP Scchema for project ' + node.project)
   }
 }
 

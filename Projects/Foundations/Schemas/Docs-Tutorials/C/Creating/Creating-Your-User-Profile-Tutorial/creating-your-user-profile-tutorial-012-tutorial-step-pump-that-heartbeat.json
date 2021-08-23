@@ -18,13 +18,13 @@
         },
         {
             "style": "Json",
-            "text": "{\n\"githubUsername\": \"My Awesome Username\"\n\"mnemonic\": \"\"\n}",
-            "updated": 1629552966998
+            "text": "{\n\"githubUsername\": \"My-Awesome-Username\"\n\"mnemonic\": \"\"\n}",
+            "updated": 1629706380660
         },
         {
             "style": "Text",
-            "text": "If you want to link an address you already own, type the twelve word mnemonic associated with your address under the mnemonic property. If not, leave the property blank and the system will make one for you! ",
-            "updated": 1629552950612
+            "text": "If you want to link an address you already own, type the twelve word mnemonic associated with your address under the mnemonic property. If not, leave the property blank and the system will make a new one for you!",
+            "updated": 1629706491511
         },
         {
             "style": "Text",

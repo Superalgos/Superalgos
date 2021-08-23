@@ -3,8 +3,8 @@
     "pageNumber": 3,
     "type": "Tutorial Step - Make sure You’re Comfortable",
     "definition": {
-        "text": "Before you jump into governance, it’s important you know what is being governed!",
-        "updated": 1629147485727,
+        "text": "Before you jump into governance, it’s important you know how Superalgos works!",
+        "updated": 1629720525960,
         "icon": {
             "name": "Pool\\pools",
             "project": "Governance"
@@ -18,11 +18,13 @@
         },
         {
             "style": "Callout",
-            "text": "If you haven't already, take some time to go through the Getting Started Tutorials."
+            "text": "If you haven't already, make sure you go through the Getting Started Tutorials before continuing!",
+            "updated": 1629720338031
         },
         {
             "style": "Success",
-            "text": "There is no need to be an expert, but some general knowledge of the system will make your time in the Governance project much more productive."
+            "text": "No need to be an expert, but you will need some general knowledge of the system to understand what this is all about!",
+            "updated": 1629720316727
         }
     ]
 }

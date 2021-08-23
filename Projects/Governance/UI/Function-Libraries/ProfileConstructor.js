@@ -12,26 +12,36 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         /*
         Some validations first...
         */
-        if (node.payload.referenceParent === undefined) {
-            node.payload.uiObject.setErrorMessage("You need to reference the node that contains the data to be signed.")
-            return
-        }
-        let data = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'githubUsername')
+        let githubUsername = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'githubUsername')
+        let mnemonic = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'mnemonic')
 
-        if (data === undefined || data === "") {
-            node.payload.referenceParent.payload.uiObject.setErrorMessage("githubUsername config property missing.")
+        if (githubUsername === undefined || githubUsername === "") {
+            node.payload.uiObject.setErrorMessage("githubUsername config property missing.")
             return
         }
 
-        createNewAccount()
+        createWallet()
 
-        function createNewAccount() {
-            let params = {
-                method: 'createWalletAccount',
-                entropy: node.id + (new Date()).valueOf()
+        function createWallet() {
+            let params
+
+            /*
+            If the user provides a mnemonic then we will get the private key and address from it,
+            otherwise, we will create a new private key and address.
+            */
+            if (mnemonic === undefined || mnemonic === "") {
+                params = {
+                    method: 'createWalletAccount',
+                    entropy: node.id + (new Date()).valueOf()
+                }
+            } else {
+                params = {
+                    method: 'mnemonicToPrivateKey',
+                    mnemonic: mnemonic
+                }
             }
 
-            let url = 'WEB3' // we don't need to ask this to any specific superalgos node.
+            let url = 'WEB3' // We will access the default Client WEB3 endpoint.
 
             httpRequest(JSON.stringify(params), url, onResponse)
 
@@ -39,7 +49,6 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 /* Lets check the result of the call through the http interface */
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
                     node.payload.uiObject.setErrorMessage('Call via HTTP Interface failed.')
-                    walletAccountNode.payload.uiObject.menu.internalClick('Delete UI Object')
                     return
                 }
 
@@ -47,8 +56,16 @@ function newGovernanceFunctionLibraryProfileConstructor() {
 
                 /* Lets check the result of the method call */
                 if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    node.payload.uiObject.setErrorMessage('Call to WEB3 Server failed. ' + response.error)
-                    return
+
+                    if (mnemonic === undefined || mnemonic === "") {
+                        node.payload.uiObject.setErrorMessage('Call to WEB3 Server failed. ' + response.error)
+                        console.log('Call to WEB3 Server failed. ' + response.error)
+                        return
+                    } else {
+                        node.payload.uiObject.setErrorMessage('Call to WEB3 Server failed. Most likely the Mnemonic provided is not correct.' + response.error)
+                        console.log('Call to WEB3 Server failed. Most likely the Mnemonic provided is not correct.' + response.error)
+                        return
+                    }
                 }
 
                 signUserProfileData(response.address, response.privateKey)
@@ -62,7 +79,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 params: {
                     method: "signData",
                     privateKey: privateKey,
-                    data: data
+                    data: githubUsername
                 }
             }
 
@@ -83,11 +100,34 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     console.log('Call to WEB3 Server failed. ' + response.error)
                     return
                 }
-                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload.referenceParent.payload, 'signature', response.signature)
+                let userProfile = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(
+                    node,
+                    'User Profile',
+                    UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                )
+                /*
+                We store at the User Profile the Signed githubUsername
+                */
+                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(userProfile.payload, 'signature', response.signature)
                 UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'address', address)
                 UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'privateKey', privateKey)
-
-                node.payload.uiObject.setInfoMessage("Profile Account has been successfully created.")
+                /*
+                We set the name of the User Profile as the githubUsername
+                */
+                userProfile.name = githubUsername
+                /*
+                We also Install the User Profile as a Plugin, which in turns saves it.
+                */
+                userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
+                userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
+                /*
+                Show nice message.
+                */
+                if (mnemonic === undefined || mnemonic === "") {
+                    node.payload.uiObject.setInfoMessage("Profile Private Key has been successfully created. User Profile installed as a plugin and saved. Use the Private Key at a crypto wallet and delete this node once done.", 10000)
+                } else {
+                    node.payload.uiObject.setInfoMessage("Mnemonic successfully imported. User Profile installed as a plugin and saved. Your external wallet was sucessfully linked to your profile.", 10000)
+                }
             }
         }
     }

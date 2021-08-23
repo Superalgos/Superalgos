@@ -4,24 +4,52 @@
     "type": "Tutorial Topic - Frame It Flexibly!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-system"
+            "name": "Trading\\trading-system",
+            "project": "Foundations"
         },
-        "text": "A Trading System governs trading strategies, and provides a flexible&mdash;but structured&mdash; framework to build them."
+        "text": "A Trading System governs trading strategies, and provides a flexible&mdash;but structured&mdash; framework to build them.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un Trading System rige las estrategias trading proporciona un marco flexible, pero estructurado, para desarrollarlas.",
+                "updated": 1629587546135
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Please, read this page to get up to speed with how trading systems work!",
-            "updated": 1610367185240
+            "updated": 1610367185240,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Por favor, lea esta página para ponerse al día con el funcionamiento de los sistemas comerciales.",
+                    "updated": 1629587573430
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "There is no substitute for knowledge, so you will need to do some reading before I get your hands dirty with good ol' trading logic!"
+            "text": "There is no substitute for knowledge, so you will need to do some reading before I get your hands dirty with good ol' trading logic!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡No hay sustituto para el conocimiento, por lo que tendrás que leer un poco antes de que me ensucie las manos con la buena lógica del trading!",
+                    "updated": 1629587618899
+                }
+            ]
         },
         {
             "style": "Warning",
-            "text": "Skipping the reading may result in permanent neurological impairment. Your call!"
+            "text": "Skipping the reading may result in permanent neurological impairment. Your call!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Saltarse la lectura puede resultar en un deterioro neurológico permanente. ¡Tu llamada!",
+                    "updated": 1629587887766
+                }
+            ]
         }
     ]
 }

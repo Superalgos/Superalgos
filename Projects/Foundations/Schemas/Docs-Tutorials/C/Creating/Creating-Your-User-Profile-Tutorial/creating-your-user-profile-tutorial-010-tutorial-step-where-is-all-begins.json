@@ -1,0 +1,25 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 10,
+    "type": "Tutorial Step - Where is all Begins",
+    "definition": {
+        "text": "Here we are at the head of the governance project. Let’s get that profile created!",
+        "updated": 1629163572836,
+        "icon": {
+            "name": "Charting-Space/dashboard",
+            "project": "Foundations"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Click the Add Profile Constructor button.",
+            "updated": 1629163599518
+        },
+        {
+            "style": "Text",
+            "text": "Now position the resulting Profile Constructor node where it is easy to see.",
+            "updated": 1629163626525
+        }
+    ]
+}

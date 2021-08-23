@@ -4,21 +4,42 @@
     "type": "Tutorial Topic - Install the Market",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "market"
+            "name": "Market/market",
+            "project": "Foundations"
         },
         "text": "You finished the setup required to install the market! The rest is fully automated!",
-        "updated": 1617212322242
+        "updated": 1617212322242,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¡Terminaste la configuración requerida para instalar el mercado! ¡El resto está completamente automatizado!",
+                "updated": 1629247436746
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Click the Install Market button on the Market node you just finished setting up. Now that the Market is set up, installing it is just a click away.",
-            "updated": 1617212281868
+            "updated": 1617212281868,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Haz clic en el botón Install Market en el nodo Market que acabas de terminar de configurar. Ahora que el Market está configurado, instalarlo está a solo un clic de distancia.",
+                    "updated": 1629247557848
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The Install Market function sets up many data structures in the local Network Node and in the Charting Space. The next few steps in the tutorial will help you get familiar with the installation."
+            "text": "The Install Market function sets up many data structures in the local Network Node and in the Charting Space. The next few steps in the tutorial will help you get familiar with the installation.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La Install Market La función configura muchas estructuras de datos en el local Network Node y en el Charting Space. Los siguientes pasos del tutorial te ayudarán a familiarizarse con la instalación.",
+                    "updated": 1629247622619
+                }
+            ]
         }
     ]
 }

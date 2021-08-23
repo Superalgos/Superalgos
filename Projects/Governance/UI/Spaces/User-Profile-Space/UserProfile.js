@@ -43,7 +43,7 @@ function newGovernanceUserProfileSpace() {
         We are going to collapse all User Profiles to save processing resources at the UI
         */
         for (let i = 0; i < userProfiles.length; i++) {
-            userProfile = userProfiles[i]
+            let userProfile = userProfiles[i]
             if (userProfile.payload.floatingObject.isCollapsed !== true) {
                 userProfile.payload.floatingObject.collapseToggle()
             }

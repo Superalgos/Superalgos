@@ -30,15 +30,15 @@
                                     "project": "Governance",
                                     "featureClasses": [],
                                     "features": [],
-                                    "id": "992fe8ce-bd27-4857-900c-e0330b7ccc51",
+                                    "id": "50a35ceb-f25a-4481-b329-ec23152fe463",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 36272.63568645637,
-                                            "y": 37996.39973758739
+                                            "x": 36363.053570679775,
+                                            "y": 38199.48163057177
                                         },
                                         "targetPosition": {
-                                            "x": 36136.43853653451,
-                                            "y": 38263.7016948439
+                                            "x": 36129.909782242685,
+                                            "y": 38388.27774788672
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -60,15 +60,15 @@
                                     "project": "Governance",
                                     "featureClasses": [],
                                     "features": [],
-                                    "id": "afa546fa-799b-4c50-baa3-65c8409aaab9",
+                                    "id": "6ff01b26-9efe-407b-bfea-36e5f94947d6",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 36403.74049379102,
-                                            "y": 38127.504544922034
+                                            "x": 36429.49864266906,
+                                            "y": 38372.57696101384
                                         },
                                         "targetPosition": {
-                                            "x": 36136.43853653451,
-                                            "y": 38263.7016948439
+                                            "x": 36129.909782242685,
+                                            "y": 38388.27774788672
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -90,15 +90,15 @@
                                     "project": "Governance",
                                     "featureClasses": [],
                                     "features": [],
-                                    "id": "b88a3b22-7060-45c8-90bd-57ec53e95c4f",
+                                    "id": "2c2c9ca6-f1b4-4933-98ee-5d6a06c10395",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 36432.74503871305,
-                                            "y": 38310.632034355964
+                                            "x": 36381.51095262631,
+                                            "y": 38551.66945839123
                                         },
                                         "targetPosition": {
-                                            "x": 36136.43853653451,
-                                            "y": 38263.7016948439
+                                            "x": 36129.909782242685,
+                                            "y": 38388.27774788672
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -120,15 +120,15 @@
                                     "project": "Governance",
                                     "featureClasses": [],
                                     "features": [],
-                                    "id": "f713d118-f53a-4fc6-9b39-9e8717c4bd6f",
+                                    "id": "bc0a7224-275f-4c5d-8557-48a01913e457",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 36348.57057089047,
-                                            "y": 38475.83372919986
+                                            "x": 36237.42016710628,
+                                            "y": 38668.351875835884
                                         },
                                         "targetPosition": {
-                                            "x": 36136.43853653451,
-                                            "y": 38263.7016948439
+                                            "x": 36129.909782242685,
+                                            "y": 38388.27774788672
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -144,7 +144,7 @@
                                     }
                                 }
                             ],
-                            "id": "b46ffee0-7c89-4155-8450-678d7cea24f8",
+                            "id": "aa486758-108e-41f4-9f97-e618472a3dcb",
                             "savedPayload": {
                                 "position": {
                                     "x": 36129.909782242685,
@@ -181,11 +181,11 @@
                                     "project": "Governance",
                                     "featureClasses": [],
                                     "features": [],
-                                    "id": "a5a7304e-155a-47d1-97f7-c50b88082000",
+                                    "id": "d86cdc6e-8e19-44de-bdb1-c5345fb6c28b",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 36197.851875835884,
-                                            "y": 38707.92016710628
+                                            "x": 36217.69278629466,
+                                            "y": 38607.54909150652
                                         },
                                         "targetPosition": {
                                             "x": 35917.77774788672,
@@ -211,11 +211,11 @@
                                     "project": "Governance",
                                     "featureClasses": [],
                                     "features": [],
-                                    "id": "28c5218d-3213-4a10-8e28-11d5ae460547",
+                                    "id": "5e1bb7d4-4ae5-4391-a12a-f935e32bd935",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 36081.16945839123,
-                                            "y": 38852.01095262631
+                                            "x": 36203.53274406748,
+                                            "y": 38691.75572992366
                                         },
                                         "targetPosition": {
                                             "x": 35917.77774788672,
@@ -241,11 +241,11 @@
                                     "project": "Governance",
                                     "featureClasses": [],
                                     "features": [],
-                                    "id": "55e7b969-383c-4ae8-95c0-2dc18473404f",
+                                    "id": "dd64c774-edf1-4a05-9fbd-c43a6006c800",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 35902.07696101384,
-                                            "y": 38899.99864266906
+                                            "x": 36166.222531500134,
+                                            "y": 38768.562062914956
                                         },
                                         "targetPosition": {
                                             "x": 35917.77774788672,
@@ -271,11 +271,191 @@
                                     "project": "Governance",
                                     "featureClasses": [],
                                     "features": [],
-                                    "id": "68388215-3e97-4864-9804-72e91ecff02b",
+                                    "id": "ee907b62-290d-4e6b-ab14-7ae127752c9c",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 35728.98163057177,
-                                            "y": 38833.553570679775
+                                            "x": 36108.78480012245,
+                                            "y": 38831.7456981663
+                                        },
+                                        "targetPosition": {
+                                            "x": 35917.77774788672,
+                                            "y": 38600.409782242685
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "name": "Node Setup Script",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "featureClasses": [],
+                                    "features": [],
+                                    "id": "c56a150f-f833-4eff-8972-31af09ee0e48",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 36035.87281333531,
+                                            "y": 38876.18787331718
+                                        },
+                                        "targetPosition": {
+                                            "x": 35917.77774788672,
+                                            "y": 38600.409782242685
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "name": "Shortcuts",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "featureClasses": [],
+                                    "features": [],
+                                    "id": "1716b6c4-ae46-4a62-94df-d5c63e88ff58",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 35953.39346668391,
+                                            "y": 38898.28814764467
+                                        },
+                                        "targetPosition": {
+                                            "x": 35917.77774788672,
+                                            "y": 38600.409782242685
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "name": "Reference Auto Fix",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "featureClasses": [],
+                                    "features": [],
+                                    "id": "c299f24d-20ad-4ec9-8727-695a43fc0da3",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 35868.02874631041,
+                                            "y": 38896.25608835814
+                                        },
+                                        "targetPosition": {
+                                            "x": 35917.77774788672,
+                                            "y": 38600.409782242685
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "name": "Find Missing References Utility",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "featureClasses": [],
+                                    "features": [],
+                                    "id": "53b31a21-37c0-4895-90cf-23d792b83a46",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 35786.69439417592,
+                                            "y": 38870.25632081587
+                                        },
+                                        "targetPosition": {
+                                            "x": 35917.77774788672,
+                                            "y": 38600.409782242685
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "name": "Uninstall Script",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "featureClasses": [],
+                                    "features": [],
+                                    "id": "002f174e-ce7a-4935-b33d-c9efb243f0ad",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 35715.97963577635,
+                                            "y": 38822.39519155755
+                                        },
+                                        "targetPosition": {
+                                            "x": 35917.77774788672,
+                                            "y": 38600.409782242685
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "name": "Tutorial Smooth Transition and Maptoggle Option",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "featureClasses": [],
+                                    "features": [],
+                                    "id": "b36c4283-db40-43c3-9e3f-88c01c38caac",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 35661.613360280375,
+                                            "y": 38756.5501246346
                                         },
                                         "targetPosition": {
                                             "x": 35917.77774788672,
@@ -295,7 +475,7 @@
                                     }
                                 }
                             ],
-                            "id": "372acad9-fb7b-4ac7-9620-28a66ac9c40d",
+                            "id": "8a5c10f2-e19c-49fe-bb2e-fde87271548a",
                             "savedPayload": {
                                 "position": {
                                     "x": 35917.77774788672,
@@ -308,7 +488,7 @@
                                 "floatingObject": {
                                     "isPinned": false,
                                     "isFrozen": false,
-                                    "isCollapsed": false,
+                                    "isCollapsed": true,
                                     "angleToParent": 2,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
@@ -320,7 +500,7 @@
                         }
                     ],
                     "features": [],
-                    "id": "f83a751e-ff0c-49bd-a306-8b5ab6a8cc83",
+                    "id": "66ff697d-490b-47c6-927a-26f92564b4c5",
                     "savedPayload": {
                         "position": {
                             "x": 35840.132034355964,
@@ -333,7 +513,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -363,7 +543,7 @@
                                     "project": "Governance",
                                     "featureClasses": [],
                                     "features": [],
-                                    "id": "22e0864c-5a2a-40b5-a24d-fe46cde7dd64",
+                                    "id": "114567ff-11e7-4414-b704-f9a897a3c346",
                                     "savedPayload": {
                                         "position": {
                                             "x": 35840.132034355964,
@@ -393,7 +573,7 @@
                                     "project": "Governance",
                                     "featureClasses": [],
                                     "features": [],
-                                    "id": "dc029fe2-d4f7-46a1-908d-3d3251af002e",
+                                    "id": "c702c9e8-a866-472c-8a78-7c5f1a02a9ac",
                                     "savedPayload": {
                                         "position": {
                                             "x": 35628,
@@ -423,7 +603,7 @@
                                     "project": "Governance",
                                     "featureClasses": [],
                                     "features": [],
-                                    "id": "198f47fc-61bd-41a1-9b2f-7bc1bea082f9",
+                                    "id": "39afc83a-ff8e-4470-87db-0e889dc4c2b6",
                                     "savedPayload": {
                                         "position": {
                                             "x": 35415.867965644036,
@@ -447,7 +627,7 @@
                                     }
                                 }
                             ],
-                            "id": "243a3f35-62a2-4193-ab19-da643accd275",
+                            "id": "045d6b4c-7c3f-4429-8588-c3e4d74d8f59",
                             "savedPayload": {
                                 "position": {
                                     "x": 35628,
@@ -460,7 +640,7 @@
                                 "floatingObject": {
                                     "isPinned": false,
                                     "isFrozen": false,
-                                    "isCollapsed": false,
+                                    "isCollapsed": true,
                                     "angleToParent": 2,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
@@ -472,7 +652,7 @@
                         }
                     ],
                     "features": [],
-                    "id": "f193b1f9-c97d-4831-87b4-defe9f6aab9a",
+                    "id": "48c37e94-02a7-450e-b612-7ef0c36e6ab6",
                     "savedPayload": {
                         "position": {
                             "x": 35628,
@@ -515,7 +695,7 @@
                                     "project": "Governance",
                                     "featureClasses": [],
                                     "features": [],
-                                    "id": "bda64809-41d7-41a8-9166-792a6df000e1",
+                                    "id": "5fda4f99-0447-4c1a-a8a0-86ab7e43c3db",
                                     "savedPayload": {
                                         "position": {
                                             "x": 34991.60389693211,
@@ -539,7 +719,7 @@
                                     }
                                 }
                             ],
-                            "id": "0253c529-e28f-43b5-8b3a-a86abb38dc4a",
+                            "id": "96e23494-0caf-4e3d-9cb2-4587eb21822e",
                             "savedPayload": {
                                 "position": {
                                     "x": 35203.73593128807,
@@ -564,7 +744,7 @@
                         }
                     ],
                     "features": [],
-                    "id": "e205d4f2-140e-4d4b-a839-e37a6537dfa9",
+                    "id": "0d7d13ee-d348-4c77-baf6-fa795c8f0d66",
                     "savedPayload": {
                         "position": {
                             "x": 35415.867965644036,
@@ -589,7 +769,7 @@
                 }
             ],
             "features": [],
-            "id": "136b6e7a-f042-441b-84be-395b56b65b70",
+            "id": "791d4a3d-f4a5-495a-9d9b-be157c24c14a",
             "savedPayload": {
                 "position": {
                     "x": 35628,
@@ -614,7 +794,7 @@
         }
     ],
     "features": [],
-    "id": "1d2c1985-c762-4ece-b350-15bd893bd1f4",
+    "id": "7c27de79-0ac7-4d48-81f0-5d7b6a4d93c6",
     "savedPayload": {
         "position": {
             "x": 35628,

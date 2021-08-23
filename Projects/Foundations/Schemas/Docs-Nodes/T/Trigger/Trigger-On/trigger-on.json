@@ -1,7 +1,14 @@
 {
     "type": "Trigger On",
     "definition": {
-        "text": "Counts the periods since the last time a strategy was triggered on."
+        "text": "Counts the periods since the last time a strategy was triggered on.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Cuenta los períodos desde la última vez que se activó una estrategia.",
+                "updated": 1629580287934
+            }
+        ]
     },
     "paragraphs": [
         {

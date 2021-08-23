@@ -5,7 +5,7 @@
     "definition": {
         "text": "Enjoy your backtest!",
         "icon": {
-            "name": "Charting-space/charting-space",
+            "name": "Charting-Space\\charting-space",
             "project": "Foundations"
         },
         "updated": 1614269880685,
@@ -15,6 +15,11 @@
                 "text": "Viel Spaß mit deinem Backtest!",
                 "updated": 1622980702656,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Disfruta tu backtest!",
+                "updated": 1629578516025
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Jetzt ist es an der Zeit, in den Charting Space zu wechseln und (falls noch nicht geschehen) starte:",
                     "updated": 1622980744641,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ahora es el momento de pasar al Charting Spacey (si aún no se está ejecutando) enciende:",
+                    "updated": 1629578564301
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "text": "Nimm dir Zeit und erkunde die visuellen Ergebnisse. Wende den SMA-Indikator auf den Chart an und vergewissere dich, dass der Bot die Position zum erwarteten Zeitpunkt eingenommen hat.",
                     "updated": 1622980791002,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Tómese su tiempo y explore los resultados visuales. Aplique el indicador SMA al gráfico y asegúrese de que el bot haya tomado posición cuando se esperaba",
+                    "updated": 1629578671372
                 }
             ]
         }

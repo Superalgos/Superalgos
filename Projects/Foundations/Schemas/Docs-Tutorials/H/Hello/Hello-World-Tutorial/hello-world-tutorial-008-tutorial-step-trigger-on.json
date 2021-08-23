@@ -15,6 +15,11 @@
                 "text": "Reserviere Geldmittel!",
                 "updated": 1622978638588,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Reserva algunos fondos!",
+                "updated": 1629349159115
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Beim Ereignis Trigger On geht es darum, deine Mittel zu reservieren (zu sperren) und sie dem Bot zur Verfügung zu stellen.",
                     "updated": 1622981206455,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "El evento Trigger On consiste en reservar (bloquear) sus fondos y ponerlos a disposición del bot.",
+                    "updated": 1629349408557
                 }
             ]
         },
@@ -45,6 +55,11 @@
                     "text": "Was ich tun muss, ist:",
                     "updated": 1622978676342,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Lo que necesito hacer es:",
+                    "updated": 1629349429401
                 }
             ]
         },
@@ -57,6 +72,11 @@
                     "text": "Definiere den TF (Time Frame)",
                     "updated": 1622978697311,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Definir el TF",
+                    "updated": 1629349443558
                 }
             ]
         },
@@ -69,6 +89,11 @@
                     "text": "Definiere das SMA50/200 Kreuz",
                     "updated": 1622978711889,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Definir el SMA50/200 cross",
+                    "updated": 1629349524087
                 }
             ]
         },
@@ -81,6 +106,11 @@
                     "text": "Zur Definition, verwende ich zwei Bedingungen:",
                     "updated": 1622981248271,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Para definir una cruz utilizo 2 condiciones:",
+                    "updated": 1629351309083
                 }
             ]
         },

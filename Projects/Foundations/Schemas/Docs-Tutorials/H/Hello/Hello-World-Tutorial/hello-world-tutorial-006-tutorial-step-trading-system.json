@@ -5,7 +5,7 @@
     "definition": {
         "text": "Trading System is already set up. Let's have a look!",
         "icon": {
-            "name": "Trading/trading-system-reference",
+            "name": "Trading\\trading-system-reference",
             "project": "Foundations"
         },
         "updated": 1614242955916,
@@ -15,6 +15,11 @@
                 "text": "Das Trading System ist bereits aufgesetzt. Lass es uns anschauen!",
                 "updated": 1622978283268,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Trading System ya está configurado. ¡Echemos un vistazo!",
+                "updated": 1629348173186
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "ie Strategie ist bereits umgesetzt. Schauen wir sie uns einmal an, um sie zu verstehen!",
                     "updated": 1622978294304,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "La estrategia ya está desplegada. ¡Así que echemos un vistazo para entenderlo!",
+                    "updated": 1629348191210
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Wie du sehen kannst, hat ein Tradingsystem zwei Hauptnachfolger:",
                     "updated": 1622978319793,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Como puedes ver, un Trading System tiene 2 descendientes principales:",
+                    "updated": 1629348227357
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "text": "Dynamic Indicators (\"Dynamische Indikatoren\"): Damit kannst du On-The-Fly-Indikatoren erstellen",
                     "updated": 1622978351655,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Dynamic Indicators: Esto te permite crear indicadores sobre la marcha",
+                    "updated": 1629348275874
                 }
             ]
         },
@@ -67,6 +87,11 @@
                     "text": "Trading Strategy (\"Handelsstrategie\"): Hier definieren wir Parameter, Bedingungen und Formeln für unsere Strategie",
                     "updated": 1622978372386,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Trading Strategy: Es donde definimos parámetros, condiciones y fórmulas para nuestra estrategia.",
+                    "updated": 1629348244296
                 }
             ]
         },
@@ -79,6 +104,11 @@
                     "text": "Dieses Tutorial behandelt keine Definitionen oder Konzepte, die in SA verwendet werden. In diesem Tutorial geht es nur darum, wie man eine Strategie einsetzt!",
                     "updated": 1622978385419,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Este tutorial no cubre definiciones o conceptos usados ​​en SA. ¡Este tutorial solo trata sobre cómo implementar una estrategia!",
+                    "updated": 1629348296182
                 }
             ]
         }

@@ -1,7 +1,14 @@
 {
     "type": "Trigger Off Event",
     "definition": {
-        "text": "The trigger-off event defines the situation in which the corresponding strategy shall be triggered-off. A strategy that is triggered-off releases the capital in reserve and makes it available to other strategies in the trading system."
+        "text": "The trigger-off event defines the situation in which the corresponding strategy shall be triggered-off. A strategy that is triggered-off releases the capital in reserve and makes it available to other strategies in the trading system.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El evento trigger-off define la situación en la que se activará la estrategia correspondiente. Una estrategia que se activa libera el capital en reserva y lo pone a disposición de otras estrategias en el sistema de trading.",
+                "updated": 1629580571614
+            }
+        ]
     },
     "paragraphs": [
         {

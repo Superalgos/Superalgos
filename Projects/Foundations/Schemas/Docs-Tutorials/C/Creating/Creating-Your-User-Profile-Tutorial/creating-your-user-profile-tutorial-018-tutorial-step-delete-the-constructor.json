@@ -17,7 +17,7 @@
             "updated": 1629582405899
         },
         {
-            "style": "Text",
+            "style": "Warning",
             "text": "It is not safe to store your private key at the Workspace, as you may accidentally submit it to GitHub.com with one of your contributions. Also, remember that workspaces are saved on disk as unencrypted JSON files, with no security whatsoever."
         },
         {

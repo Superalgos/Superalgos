@@ -4,23 +4,51 @@
     "type": "Tutorial Step - Charts Verification 2",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "time-machine"
+            "name": "Time/time-machine",
+            "project": "Foundations"
         },
-        "text": "Verify that the time machines created show up on the charting space... you should find..."
+        "text": "Verify that the time machines created show up on the charting space... you should find...",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Verifica que las máquinas del tiempo creadas aparezcan en el espacio de gráficos ... deberías encontrar ...",
+                "updated": 1629251601715
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
-            "text": "A Time Machine for each trading session created in the Testing Trading Tasks."
+            "text": "A Time Machine for each trading session created in the Testing Trading Tasks.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un Time Machine para cada Trading Session crada en el Testing Trading Tasks.",
+                    "updated": 1629251649077
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "A Time Machine for each trading session created in the Production Trading Tasks."
+            "text": "A Time Machine for each trading session created in the Production Trading Tasks.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un Time Machine para cada Trading Session creado en el Production Trading Tasks.",
+                    "updated": 1629251693396
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Hover your mouse over a chart to see what Crypto Exchange and Market  it features."
+            "text": "Hover your mouse over a chart to see what Crypto Exchange and Market  it features.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Pasa el mouse sobre un gráfico para ver qué Crypto Exchange y Market contiene.",
+                    "updated": 1629251750388
+                }
+            ]
         }
     ]
 }

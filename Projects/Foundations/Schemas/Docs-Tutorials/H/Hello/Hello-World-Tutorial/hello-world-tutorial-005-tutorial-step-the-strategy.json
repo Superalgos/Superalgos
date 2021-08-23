@@ -5,7 +5,7 @@
     "definition": {
         "text": "Let's build the mother of all strategies!",
         "icon": {
-            "name": "Strategy/strategy",
+            "name": "Strategy\\strategy",
             "project": "Foundations"
         },
         "updated": 1614241902261,
@@ -15,6 +15,11 @@
                 "text": "Lass uns die Mutter aller Strategien erstellen!",
                 "updated": 1622977892890,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Construyamos la madre de todas las estrategias!",
+                "updated": 1629347747877
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Um eine Strategie backtesten zu können, müssen wir sie erst einmal schreiben oder klar im Kopf haben. Auf folgenden Eckpfeilern basiert unser Test:",
                     "updated": 1622979087886,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Para realizar una prueba retrospectiva de una estrategia, primero debemos escribirla o tenerla clara en nuestra mente. Así que estas son las piedras angulares en las que se basa nuestra prueba:",
+                    "updated": 1629347848333
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Strategie verwendet SMA50 und SMA200",
                     "updated": 1622977962657,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Strategy usa SMA50 y SMA200",
+                    "updated": 1629347862168
                 }
             ]
         },
@@ -53,6 +68,11 @@
                     "text": "Die Strategie basiert auf 4h TF (Time Frame)",
                     "updated": 1622979509680,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Strategy está basado en 4H TF",
+                    "updated": 1629347891997
                 }
             ]
         },
@@ -65,6 +85,11 @@
                     "text": "Der Bot wird das Asset kaufen, wenn der SMA50 den SMA200 nach oben kreuzt",
                     "updated": 1622978113525,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "El bot comprará el asset cuando SMA50 cruzar hasta SMA200",
+                    "updated": 1629347952235
                 }
             ]
         },
@@ -77,6 +102,11 @@
                     "text": "Stop Loss wird auf 20% vom Einstiegspunkt gesetzt",
                     "updated": 1622978127244,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Stop Loss está fijado en 20% desde la entrada",
+                    "updated": 1629348020213
                 }
             ]
         },
@@ -89,6 +119,11 @@
                     "text": "Take Profit wird auf 100% oder auf SMA50 kreuzt SMA200 nach unten gesetzt",
                     "updated": 1622978244002,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Take Profit está fijado en 100% o en SMA50 cruzar abajo SMA200",
+                    "updated": 1629348082752
                 }
             ]
         }

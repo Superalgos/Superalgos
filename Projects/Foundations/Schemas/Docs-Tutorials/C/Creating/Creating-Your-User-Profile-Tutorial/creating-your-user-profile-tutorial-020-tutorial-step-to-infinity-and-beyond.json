@@ -13,12 +13,13 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "open the docs panel and type the following command into the search bar",
-            "updated": 1629583933500
+            "text": "Go to the docs panel and type the following command into the search bar:",
+            "updated": 1629726858200
         },
         {
             "style": "Json",
-            "text": "App.contribute This is my first submission of User Profile [add your name here]"
+            "text": "app.contribute This is my first submission of User Profile [add your name here]",
+            "updated": 1629726765903
         },
         {
             "style": "Text",

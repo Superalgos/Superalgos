@@ -4,19 +4,40 @@
     "type": "Tutorial Step - Add the Assets 3",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "asset"
+            "name": "Market/asset",
+            "project": "Foundations"
         },
-        "text": "Label the assets with the descriptive name of the coin or token, for ease of use. For example: Ether."
+        "text": "Label the assets with the descriptive name of the coin or token, for ease of use. For example: Ether.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Etiqueta los assets con el nombre descriptivo de la moneda o ficha, para facilitar su uso. Por ejemplo: Ether.",
+                "updated": 1629163866099
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
-            "text": "Step 3: Label Nodes"
+            "text": "Step 3: Label Nodes",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Step 3: Etiqueta lols nodos",
+                    "updated": 1629163910016
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Keeping a tidy Workspace with proper labels for significant nodes helps in managing large operations and administering complexity."
+            "text": "Keeping a tidy Workspace with proper labels for significant nodes helps in managing large operations and administering complexity.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Mantener un espacio de trabajo ordenado con etiquetas adecuadas para nodos importantes ayuda a gestionar grandes operaciones y a administrar la complejidad.",
+                    "updated": 1629163971957
+                }
+            ]
         }
     ]
 }

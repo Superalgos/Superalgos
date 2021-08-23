@@ -4,9 +4,9 @@
     "type": "Tutorial Step - Look around",
     "definition": {
         "text": "Workspaces can be changed!",
-        "updated": 1614241100778,
+        "updated": 1629344688461,
         "icon": {
-            "name": "Layer/layer",
+            "name": "Layer\\layer",
             "project": "Foundations"
         },
         "translations": [
@@ -15,6 +15,11 @@
                 "text": "Workspaces können angepasst werden!",
                 "updated": 1622977673407,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Workspaces pueden ser cambiados",
+                "updated": 1629344801370
             }
         ]
     },
@@ -22,26 +27,36 @@
         {
             "style": "Text",
             "text": "I arranged the workspace in a slightly different way compared to Getting Started. It's a good practice to customize the workspace to keep it tidy and clean. Remember that every hierarchy, node or offspring can impact on your machine resources.",
-            "updated": 1614241304126,
+            "updated": 1629344708619,
             "translations": [
                 {
                     "language": "DE",
                     "text": "Ich habe den Workspace im Vergleich zu Getting Started (\"Erste Schritte\") etwas anders angeordnet. Es ist eine gute Praxis, den Workspace anzupassen, um ihn aufgeräumt und sauber zu halten. Denke daran, dass jede Hierarchie, jeder Knoten und jeder Nachfolgende Auswirkungen auf deine Maschinenressourcen haben kann.",
                     "updated": 1622977620392,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Arreglé el workspace de una manera ligeramente diferente en comparación con Getting Started. Es una buena práctica personalizar el workspace para mantenerlo ordenado y limpio. Recuerda que cada jerarquía, nodo o descendencia puede afectar los recursos de tu máquina.",
+                    "updated": 1629344864911
                 }
             ]
         },
         {
             "style": "Success",
             "text": "Have a look around, right click on empty space and explore the Workspace I arranged for you!",
-            "updated": 1614334045360,
+            "updated": 1629344734628,
             "translations": [
                 {
                     "language": "DE",
                     "text": "Schau dich um, klicke mit der rechten Maustaste auf eine leere Fläche und erkunde den Workspace, den ich für dich eingerichtet habe!",
                     "updated": 1622977643971,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Echa un vistazo, haga clic derecho en el espacio vacío y explore el Workspace. ¡Lo arreglé para ti!",
+                    "updated": 1629344896872
                 }
             ]
         },

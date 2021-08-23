@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "Lantschirky",
-    "config": "{\n    \"signature\": {\n        \"message\": \"Lantschirky\",\n        \"messageHash\": \"0x1b79be6842729e220247448ede7b032d95910ab138eb632761c01cf57265f209\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x2f83a05859796e1ce83a2ac9bf633768525f78b04089c96e972f139e091af335\",\n        \"s\": \"0x725596cb459b25940c17ba4061b93c1692e11f84a54a3ce94897fac8168d83e8\",\n        \"signature\": \"0x2f83a05859796e1ce83a2ac9bf633768525f78b04089c96e972f139e091af335725596cb459b25940c17ba4061b93c1692e11f84a54a3ce94897fac8168d83e81c\"\n    }\n}",
+    "config": "{\"signature\":{\"message\":\"Lantschirky\",\"messageHash\":\"0x1b79be6842729e220247448ede7b032d95910ab138eb632761c01cf57265f209\",\"v\":\"0x1c\",\"r\":\"0x2f83a05859796e1ce83a2ac9bf633768525f78b04089c96e972f139e091af335\",\"s\":\"0x725596cb459b25940c17ba4061b93c1692e11f84a54a3ce94897fac8168d83e8\",\"signature\":\"0x2f83a05859796e1ce83a2ac9bf633768525f78b04089c96e972f139e091af335725596cb459b25940c17ba4061b93c1692e11f84a54a3ce94897fac8168d83e81c\"},\"codeName\":\"Lantschirky\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -62,17 +62,17 @@
     "id": "c07f1ad2-31cf-4b93-bcf1-182ed1f1b6e6",
     "savedPayload": {
         "position": {
-            "x": 13479,
-            "y": 10737.5
+            "x": 11665,
+            "y": 25820.25
         },
         "targetPosition": {
-            "x": 13479,
-            "y": 10737.5
+            "x": 11665,
+            "y": 25820.25
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

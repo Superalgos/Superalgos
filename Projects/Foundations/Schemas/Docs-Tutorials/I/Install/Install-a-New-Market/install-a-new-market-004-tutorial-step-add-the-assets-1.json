@@ -4,15 +4,29 @@
     "type": "Tutorial Step - Add the Assets 1",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "exchange-assets"
+            "name": "Exchange/exchange-assets",
+            "project": "Foundations"
         },
-        "text": "Open the Exchange Assets node menu and use the Add Asset button to add the required assets."
+        "text": "Open the Exchange Assets node menu and use the Add Asset button to add the required assets.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Abre el menú del nodo Exchange Assets y usa el botón Add Asset para agregar los requeridos assets.",
+                "updated": 1628992100719
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Important",
-            "text": "Assets under Exchange Assets may not be duplicated. If the definitions for the assets you are interested in already exist, you may reuse them instead of creating new ones. If such is the case, simply skip the next few steps until you need to set up the Market."
+            "text": "Assets under Exchange Assets may not be duplicated. If the definitions for the assets you are interested in already exist, you may reuse them instead of creating new ones. If such is the case, simply skip the next few steps until you need to set up the Market.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Assets bajo Exchange Assets no se puede duplicar. Si las definiciones de la assets si te interesa que ya existan, puedes reutilizarlos en lugar de crear otros nuevos. Si ese es el caso, simplemente omite los siguientes pasos hasta que necesites configurar el Market.",
+                    "updated": 1628992173230
+                }
+            ]
         }
     ]
 }

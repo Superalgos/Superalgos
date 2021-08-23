@@ -15,6 +15,11 @@
                 "text": "Stelle sicher, dass alle Parameter korrekt sind!",
                 "updated": 1622980368660,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Asegurarte que los Parameters están en su lugar!",
+                "updated": 1629577782178
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Bevor du den Backtest ausführst, stelle sicher, dass der Knoten Trading Parameters konsistente Daten hat. Ich habe bereits alles für dich vorbereitet, aber nimm dir etwas Zeit und beachte, dass:",
                     "updated": 1622980410674,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Antes de ejecutar el backtest, asegúrese de que el Trading Parameters nodo tiene datos consistentes. Ya preparé todo para ti, pero tómate un tiempo y fíjate que:",
+                    "updated": 1629577823477
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Session Base Asset auf 0 eingestellt ist",
                     "updated": 1622980449763,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Session Base Asset está establecido en 0",
+                    "updated": 1629577840744
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "text": "Session Quoted Asset auf 1000 eingestellt ist (das sind in diesem Fall 1000$ USDT)",
                     "updated": 1622980491671,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Session Quoted Assetestá establecido en 1000 (es decir, 1000 $ USDT en este caso)",
+                    "updated": 1629577866359
                 }
             ]
         },
@@ -67,6 +87,11 @@
                     "text": "Slippage auf 0 gesetzt ist, da ich kleine Beträge backteste und ich davon ausgehen kann, dass die Aufträge ohne Slippage ausgeführt werden",
                     "updated": 1622980519600,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Slippage se establece en 0 porque estoy probando pequeñas cantidades y puedo asumir que los pedidos se llenan sin slippage",
+                    "updated": 1629577911905
                 }
             ]
         },
@@ -80,6 +105,11 @@
                     "text": "Bist du bereit? Führe (\"Run\") den Backtest aus!",
                     "updated": 1622980556540,
                     "style": "Important"
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Estás listo? ¡Ejecuta el backtest!",
+                    "updated": 1629578196637
                 }
             ]
         }

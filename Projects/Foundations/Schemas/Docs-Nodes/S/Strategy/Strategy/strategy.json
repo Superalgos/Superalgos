@@ -1,7 +1,14 @@
 {
     "type": "Strategy",
     "definition": {
-        "text": "The strategy section of the trading engine keeps track of information relating to the trading strategies that are triggered-on, during the time they remain open."
+        "text": "The strategy section of the trading engine keeps track of information relating to the trading strategies that are triggered-on, during the time they remain open.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El strategy sección del motor de trading realiza un seguimiento de la información relacionada con las estrategias de trading que se activan, durante el tiempo que permanecen abiertas.",
+                "updated": 1629580247307
+            }
+        ]
     },
     "paragraphs": [
         {

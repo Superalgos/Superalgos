@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Aim High, Trade Big!",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "network-node"
         },
         "text": "Picture an army of bots working with multiple exchanges, markets, and strategies, running on a network <i>à la</i> trading farm.",
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "Imagínate un ejército de bots trabajando con múltiples exchanges, mercados y estrategias, ejecutándose en una red al estilo de una granja trading.",
-                "updated": 1624415133666
+                "updated": 1624415133666,
+                "style": "Definition"
             }
         ],
         "updated": 1622200549490
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "De eso se trata el nodo Network. Lo que haz visto hasta ahora se ejecuta en una sola máquina. Pero...",
-                    "updated": 1624415210197
+                    "updated": 1624415210197,
+                    "style": "Text"
                 }
             ]
         },
@@ -56,13 +58,14 @@
                 {
                     "language": "ES",
                     "text": "¡Superalgos soporta la distribución y coordinación de tareas a través de redes de nodos que ejecutan el Client! Esto permite operaciones inteligentes y escalables. ¡Cualquier máquina que ejecute la GUI puede controlar el trabajo!",
-                    "updated": 1624415389550
+                    "updated": 1624415389550,
+                    "style": "Callout"
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "You may set up a network with a few Raspberry Pi, an industrial-grade datacenter&mdash;or anything in between.",
+            "text": "You may set up a network with a few Raspberry Pi, an industrial-grade datacenter, or anything in between.",
             "translations": [
                 {
                     "language": "IT",
@@ -73,9 +76,11 @@
                 {
                     "language": "ES",
                     "text": "Puede configurar una red con algunos Raspberry Pi, un centro de datos de grado industrial o cualquier cosa entre medio.",
-                    "updated": 1624415501921
+                    "updated": 1624415501921,
+                    "style": "Text"
                 }
-            ]
+            ],
+            "updated": 1629821982211
         }
     ]
 }

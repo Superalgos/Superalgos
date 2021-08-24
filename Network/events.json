@@ -1,28 +1,10 @@
-[
-    {
-        "type": "post",
-        "timestamp": 12343242342, 
-        "userProfile": "Luis-Fernando-Molina",
-        "hash": "dhaHSkjasdmwhdajSHSJhewshed"
-    },
-    {
-        "type": "reply",
-        "timestamp": 12343242342, 
-        "userProfile": "Luis-Fernando-Molina",
-        "hash": "dhaHSkjasdmwhdajSHSJhewshed",
-        "relatedEvent": "daawerewdhkasdSdGHGjdsasd"
-    },
-    {
-        "type": "trade",
-        "timestamp": 12343242342, 
-        "userProfile": "Luis-Fernando-Molina",
-        "hash": "dhaHSkjasdmwhdajSHSJhewshed"
-    },
-    {
-        "type": "reaction",
-        "timestamp": 12343242342, 
-        "userProfile": "Luis-Fernando-Molina",
-        "hash": "dhaHSkjasdmwhdajSHSJhewshed"
-    }
-]
-
+{
+    "eventId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+    "eventType": 10, 
+    "emitterUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+    "targetUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+    "asset": "BTC",
+    "timestamp": 124234234234,
+    "postHash": "dasdhqJKGdadjlasgjaGSHAJGSDjhagsg",
+    "postId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
+}

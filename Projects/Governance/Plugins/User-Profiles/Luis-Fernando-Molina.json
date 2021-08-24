@@ -12827,7 +12827,9 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Smidy13",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "4b5eca40-4d97-454d-91f3-8627a98ef682"
                                                 ]
                                             ]
                                         }
@@ -13078,7 +13080,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

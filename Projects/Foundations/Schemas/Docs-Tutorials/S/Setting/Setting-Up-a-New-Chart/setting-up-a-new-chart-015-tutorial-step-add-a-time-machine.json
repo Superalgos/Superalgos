@@ -6,19 +6,40 @@
         "text": "Look at you! You are making great progress. Now lets get that Time Machine added!",
         "updated": 1620554388969,
         "icon": {
-            "name": "chart-points",
+            "name": "Charting-Space/chart-points",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¡Mírate! Estás haciendo un gran progreso. Ahora vamos a conseguir eso Time Machine agregado!",
+                "updated": 1628645834818
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Hover over your Dashboard and click Add Time Machine.",
-            "updated": 1620261013606
+            "updated": 1620261013606,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Coloca el cursor sobre tu Dashboard y has clic en Add Time Machine.",
+                    "updated": 1628645866697
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When naming a Time Machine it is helpful to reference the Trading System and type of Trading Session that will be connected to the chart. For us that would be:"
+            "text": "When naming a Time Machine it is helpful to reference the Trading System and type of Trading Session that will be connected to the chart. For us that would be:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Al nombrar un Time Machine es útil hacer referencia al Trading System y tipo de Trading Session que se conectará al gráfico. Para nosotros eso sería:",
+                    "updated": 1628645933656
+                }
+            ]
         },
         {
             "style": "Json",
@@ -28,7 +49,14 @@
         {
             "style": "Text",
             "text": "Other helpful information you can use to label your charts can include the exchange, market pair, and network node associated with the information featured.",
-            "updated": 1620554455184
+            "updated": 1620554455184,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Otra información útil que puede utilizar para etiquetar sus gráficos puede incluir el intercambio, el par de mercado y el nodo de red asociado con la información presentada.",
+                    "updated": 1628645952313
+                }
+            ]
         },
         {
             "style": "Text",

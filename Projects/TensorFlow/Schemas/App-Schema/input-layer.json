@@ -5,6 +5,15 @@
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "inputFeatures",
+            "label": "Add Input Features",
+            "relatedUiObject": "Input Features",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "inputShape",
             "label": "Add Input Shape",
             "relatedUiObject": "Input Shape",
@@ -23,9 +32,9 @@
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "inputFeatures",
-            "label": "Add Input Features",
-            "relatedUiObject": "Input Features",
+            "propertyToCheckFor": "collectionCondition",
+            "label": "Add Collection Condition",
+            "relatedUiObject": "Collection Condition",
             "actionFunction": "payload.executeAction"
         },
         {
@@ -53,6 +62,11 @@
     "propertyNameAtParent": "inputLayer",
     "childrenNodesProperties": [
         {
+            "name": "inputFeatures",
+            "type": "node",
+            "childType": "Input Features"
+        },
+        {
             "name": "inputShape",
             "type": "node",
             "childType": "Input Shape"
@@ -63,9 +77,9 @@
             "childType": "Batch Input Shape"
         },
         {
-            "name": "inputFeatures",
-            "type": "node",
-            "childType": "Input Features"
+          "name": "collectionCondition",
+          "type": "node",
+          "childType": "Collection Condition"
         }
     ],
     "icon": "tensorflow"

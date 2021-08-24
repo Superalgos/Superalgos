@@ -322,7 +322,7 @@
                     "onMouseOverIndex": 2,
                     "onMouseClickIndex": 7,
                     "onMouseDownIndex": 0
-                },            
+                },
                 {
                     "name": "Chat Space",
                     "folderName": "Chat-Space",
@@ -982,6 +982,20 @@
                     "functionName": "newTensorFlowBotModulesTensorFlowLibrary",
                     "fileName": "TensorFlowLibrary.js",
                     "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                  "name": "TensorFlow Models Manager",
+                  "propertyName": "tensorFlowModelsManager",
+                  "functionName": "newTensorFlowModelsManager",
+                  "fileName": "TensorFlowModelsManager.js",
+                  "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                  "name": "ML Data Manager",
+                  "propertyName": "mlData",
+                  "functionName": "newMLDataObj",
+                  "fileName": "MLDataManager.js",
+                  "folderName": "Learning-Bot/Low-Frequency-Learning"
                 }
             ]
         }
@@ -1065,6 +1079,11 @@
                     "name": "Reports",
                     "propertyName": "reports",
                     "functionName": "newGovernanceGlobalsReports"
+                },
+                {
+                    "name": "SA Token",
+                    "propertyName": "saToken",
+                    "functionName": "newGovernanceGlobalsSaToken"
                 }
             ],
             "functionLibraries": [

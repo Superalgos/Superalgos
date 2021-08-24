@@ -1,0 +1,34 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 12,
+    "type": "Tutorial Step - Pump that Heartbeat!",
+    "definition": {
+        "text": "Now let’s configure that Profile Constructor!",
+        "updated": 1629167519082,
+        "icon": {
+            "name": "configuration",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Click the configuration option and enter your GitHub username like this:",
+            "updated": 1629553104003
+        },
+        {
+            "style": "Json",
+            "text": "{\n\"githubUsername\": \"My-Awesome-Username\"\n\"mnemonic\": \"\"\n}",
+            "updated": 1629706380660
+        },
+        {
+            "style": "Text",
+            "text": "If you want to link an address you already own, type the twelve word mnemonic associated with your address under the mnemonic property. If not, leave the property blank and the system will make a new one for you!",
+            "updated": 1629706491511
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

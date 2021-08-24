@@ -1,0 +1,27 @@
+[
+    {
+        "type": "post",
+        "timestamp": 12343242342,
+        "userProfile": "Luis-Fernando-Molina",
+        "hash": "dhaHSkjasdmwhdajSHSJhewshed"
+    },
+    {
+        "type": "post",
+        "timestamp": 12343242342,
+        "userProfile": "Luis-Fernando-Molina",
+        "hash": "dhaHSkjasdmwhdajSHSJhewshed",
+        "relatedEvent": "daawerewdhkasdSdGHGjdsasd"
+    },
+    {
+        "type": "trade",
+        "timestamp": 12343242342,
+        "userProfile": "Luis-Fernando-Molina",
+        "hash": "dhaHSkjasdmwhdajSHSJhewshed"
+    },
+    {
+        "type": "post",
+        "timestamp": 12343242342,
+        "userProfile": "Luis-Fernando-Molina",
+        "hash": "dhaHSkjasdmwhdajSHSJhewshed"
+    }
+]

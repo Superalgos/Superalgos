@@ -4,23 +4,51 @@
     "type": "Tutorial Topic - Charts Verification",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "charting-space"
+            "name": "Charting-Space/charting-space",
+            "project": "Foundations"
         },
-        "text": "Beyond the data structures set up in the Network hierarchy, the Install Market function also sets up charts matching the trading sessions created."
+        "text": "Beyond the data structures set up in the Network hierarchy, the Install Market function also sets up charts matching the trading sessions created.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Más allá de las estructuras de datos configuradas en la jerarquía de la Network, la función Install Market también configura gráficos que coinciden las sesiones de trading creadas.",
+                "updated": 1629250291168
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "In the next few steps you will verify that the expected data structures were created successfully."
+            "text": "In the next few steps you will verify that the expected data structures were created successfully.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En los siguientes pasos, verificará que las estructuras de datos esperadas se hayan creado correctamente.",
+                    "updated": 1629250307906
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "The charts created allow working with each of the trading sessions independently."
+            "text": "The charts created allow working with each of the trading sessions independently.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los gráficos creados permiten trabajar con las Trading Session de forma independiente.",
+                    "updated": 1629250720714
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Notice from the organization of the charts that Superalgos allows scaling up your operation to unlimited trading systems and charts."
+            "text": "Notice from the organization of the charts that Superalgos allows scaling up your operation to unlimited trading systems and charts.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Observa desde la organización de los gráficos que Superalgos permite escalar tu operación a gráficos y sistemas comerciales ilimitados.",
+                    "updated": 1629250466323
+                }
+            ]
         }
     ]
 }

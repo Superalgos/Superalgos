@@ -1,0 +1,29 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 9,
+    "type": "Tutorial Step - Program Participation",
+    "definition": {
+        "text": "How you use your Token Power is defined within a number of different Programs within your profile hierarchy.",
+        "updated": 1629163374967,
+        "icon": {
+            "name": "User\\user-referrer",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "These programs help organize the types of development and community relationships you want to reward. ",
+            "updated": 1629166399952
+        },
+        {
+            "style": "Note",
+            "text": "For instance, the Claims Program lets you present claims for the work you’ve done. While the Support Program lets you thank other Superalgos users that have helped you with technical support. ",
+            "updated": 1629166416422
+        },
+        {
+            "style": "Text",
+            "text": "We’ll cover all these and other programs in detail once you have a working profile!"
+        }
+    ]
+}

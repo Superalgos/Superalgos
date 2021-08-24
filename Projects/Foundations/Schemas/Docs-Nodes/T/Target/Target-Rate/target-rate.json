@@ -1,7 +1,14 @@
 {
     "type": "Target Rate",
     "definition": {
-        "text": "The target rate is a reference rate that may affect simulations and that, in combination with the placement of managed stop loss and managed take profit targets, is used to determine whether the targets have been hit."
+        "text": "The target rate is a reference rate that may affect simulations and that, in combination with the placement of managed stop loss and managed take profit targets, is used to determine whether the targets have been hit.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El target rate es una tasa de referencia que puede afectar a las simulaciones y que, en combinación con la ubicación de los objetivos de stop loss gestionados y take profit gestionados, se utiliza para determinar si se han alcanzado los objetivos.",
+                "updated": 1629580668142
+            }
+        ]
     },
     "paragraphs": [
         {

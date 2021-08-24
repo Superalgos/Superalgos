@@ -10,6 +10,14 @@
             "actionFunction": "payload.executeAction"
         },
         {
+            "action": "Add UI Object",
+            "label": "Add Web3 API",
+            "relatedUiObject": "Web3 API",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "web3API",
+            "actionFunction": "payload.executeAction"
+        },
+        {
             "action": "Delete UI Object",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
@@ -27,6 +35,11 @@
             "name": "githubAPI",
             "type": "node",
             "childType": "Github API"
+        },
+        {
+            "name": "web3API",
+            "type": "node",
+            "childType": "Web3 API"
         }
     ],
     "isPersonalData": true

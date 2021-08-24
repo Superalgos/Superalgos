@@ -5,6 +5,15 @@
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "datasetArgs",
+            "label": "Add Dataset Args",
+            "relatedUiObject": "Dataset Args",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "verbose",
             "label": "Add Verbose",
             "relatedUiObject": "Verbose",
@@ -46,6 +55,11 @@
     },
     "propertyNameAtParent": "fitDataset",
     "childrenNodesProperties": [
+        {
+          "name": "datasetArgs",
+          "type": "node",
+          "childType": "Dataset Args"
+        },
         {
             "name": "verbose",
             "type": "node",

@@ -1,0 +1,34 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 2,
+    "type": "Tutorial Step - Better Together",
+    "definition": {
+        "text": "Welcome to Superalgos Governance! Today I will walk you through everything you need to know about creating a Superalgos User Profile and joining the Governance network!",
+        "updated": 1629164302622,
+        "icon": {
+            "name": "governance",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "As a completely open source and collaborative project, Superalgos is not run by any singular set of people. ",
+            "updated": 1629164311647
+        },
+        {
+            "style": "Note",
+            "text": "Even the core team, who are dedicated to improving and maintaining Superalgos, do not directly control the path development will take. ",
+            "updated": 1629164322397
+        },
+        {
+            "style": "Text",
+            "text": "Instead, the governance system distributes decision making power across all User Profiles by leveraging the SA token.",
+            "updated": 1629701444641
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -9,6 +9,7 @@ function newCircularMenuItem() {
         confirmationLabel: undefined,
         iconOn: undefined,
         iconOff: undefined,
+        iconProject: undefined,
         icons: undefined,
         currentIcon: undefined,
         disableIfPropertyIsDefined: undefined,
@@ -94,6 +95,7 @@ function newCircularMenuItem() {
         thisObject.container = undefined
         thisObject.iconOn = undefined
         thisObject.iconOff = undefined
+        thisObject.iconProject = undefined
         thisObject.icons = undefined
         thisObject.currentIcon = undefined
         thisObject.payload = undefined
@@ -261,11 +263,18 @@ function newCircularMenuItem() {
             thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
             thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
         } else {
-            if (thisObject.relatedUiObject !== undefined) {
+            if (thisObject.label === "Add Dependency Product Folder") { console.log ("Test") }
+            if (thisObject.relatedUiObject !== undefined && thisObject.iconProject !== undefined) {
+                thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.iconProject, thisObject.relatedUiObject)
+                thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.iconProject, thisObject.relatedUiObject)
+            } else if (thisObject.relatedUiObject !== undefined && thisObject.iconProject === undefined) {
                 thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
                 thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
             } else {
-                if (thisObject.iconPathOn !== undefined && thisObject.iconPathOff !== undefined) {
+                if (thisObject.iconPathOn !== undefined && thisObject.iconPathOff !== undefined && thisObject.iconProject !== undefined) {
+                    thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.iconPathOn)
+                    thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.iconPathOff)
+                } else if (thisObject.iconPathOn !== undefined && thisObject.iconPathOff !== undefined && thisObject.iconProject === undefined) {
                     thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.iconPathOn)
                     thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.iconPathOff)
                 } else {

@@ -10,6 +10,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Tutorial",
+            "iconProject": "Education",
             "relatedUiObject": "Tutorial",
             "actionFunction": "payload.executeAction"
         },
@@ -17,6 +18,13 @@
             "action": "Add UI Object",
             "label": "Add Plugins",
             "relatedUiObject": "Plugins",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Crypto Ecosystem",
+            "disableIfPropertyIsDefined": true,
+            "relatedUiObject": "Crypto Ecosystem",
             "actionFunction": "payload.executeAction"
         },
         {

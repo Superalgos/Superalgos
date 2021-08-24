@@ -1,5 +1,5 @@
 {
-    "type": "Batch Size",
+    "type": "Data Reporting",
     "menuItems": [
         {
             "action": "Configure",
@@ -23,14 +23,14 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n  \"value\": 1\n}"
+        "config": "{ \n  \"printDataReports\": true \n}"
     },
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Dense Layer->"
+        "compatibleTypes": "->Model->"
     },
-    "propertyNameAtParent": "batchSize",
+    "propertyNameAtParent": "dataReporting",
     "childrenNodesProperties": [],
     "icon": "tensorflow"
 }

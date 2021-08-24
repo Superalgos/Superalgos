@@ -6,7 +6,7 @@
         "text": "Free-riding is not cool! We know that once you start contributing, you will inspire more people to follow your lead!",
         "updated": 1619786483852,
         "icon": {
-            "name": "bullet-error",
+            "name": "Bullet\\bullet-error",
             "project": "Foundations"
         },
         "translations": [
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "¡Aprovecharse no es cool! Sabemos que una vez que comiences a contribuir, inspirarás a más personas a seguir tu ejemplo.",
-                "updated": 1628119445138
+                "updated": 1628119445138,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "El proyecto ha implementado un poderoso esquema de incentivos para promover el comportamiento deseado y fomentar una cultura de colaboración. ¡Estamos distribuyendo el token de Superalgos (SA) exclusivamente entre los contribuyentes!",
-                    "updated": 1628121558894
+                    "updated": 1628121558894,
+                    "style": "Text"
                 }
             ]
         },
@@ -60,7 +62,8 @@
                 {
                     "language": "ES",
                     "text": "¡Combatimos el free-riding con incentivos!",
-                    "updated": 1628121572845
+                    "updated": 1628121572845,
+                    "style": "Success"
                 }
             ]
         },
@@ -78,7 +81,8 @@
                 {
                     "language": "ES",
                     "text": "¡Pongamos en marcha tu primera contribución! ¡Primero, te enseñaré cómo cambiar de rama!",
-                    "updated": 1628121589878
+                    "updated": 1628121589878,
+                    "style": "Callout"
                 }
             ]
         }

@@ -1,7 +1,14 @@
 {
     "type": "Manage Stage",
     "definition": {
-        "text": "The manage stage deals with the setting and management of stop loss and take profit targets, both to protect your capital and to increase the efficiency of your trading system."
+        "text": "The manage stage deals with the setting and management of stop loss and take profit targets, both to protect your capital and to increase the efficiency of your trading system.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El manage stage se ocupa del establecimiento y la gestión de objetivos de stop loss y take profit, tanto para proteger su capital como para aumentar la eficiencia de su sistema de trading.",
+                "updated": 1629580869439
+            }
+        ]
     },
     "paragraphs": [
         {

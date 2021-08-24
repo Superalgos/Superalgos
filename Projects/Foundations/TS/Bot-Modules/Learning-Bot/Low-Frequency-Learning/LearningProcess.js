@@ -16,7 +16,7 @@
 
             let dataFiles = new Map()
             let multiTimeFrameDataFiles = new Map()
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT = TS.projects.foundations.botModules.learningEngine.newFoundationsBotModulesLearningEngine(processIndex)
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).LEARNING_ENGINE_MODULE_OBJECT = TS.projects.foundations.botModules.learningEngine.newFoundationsBotModulesLearningEngine(processIndex)
             let learningOutputModuleObject = TS.projects.foundations.botModules.learningOutput.newFoundationsBotModulesLearningOutput(processIndex)
 
             let currentTimeFrame = {}
@@ -46,12 +46,12 @@
             }
 
             /* We set up the Learning Engine Module. */
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initialize()
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).LEARNING_ENGINE_MODULE_OBJECT.initialize()
 
             /* Initializing the Learning Process Date */
             if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
                 /* 
-                This function is going to be called many times by the Learning Bot Loop.
+                This funcion is going to be called many times by the Learning Bot Loop.
                 Only during the first execution and when the User is not resuming the execution
                 of a stopped session / task; we are going to initialize the Process Date Time.
                 This variable tell us which day we are standing at, specially while working
@@ -65,7 +65,7 @@
             This is the Date that is going to be used across the execution of this Learning Process. 
             We need this because it has a different life cycle than the processData stored at the 
             Learning Engine data structure. This date has to remain the same during the whole execution
-            of the Learning Process until the end, inclusind the writing of Data Ranges and Status Reports.
+            of the Learning Process until the end, inclusind the writting of Data Ranges and Status Reports.
             The processDate of the Learning Engine data structure on the other hand can be changed during
             the simulation loop, once we discover that all candles from a certain date have benn processed.
             Here is the point where we sync one and the other.

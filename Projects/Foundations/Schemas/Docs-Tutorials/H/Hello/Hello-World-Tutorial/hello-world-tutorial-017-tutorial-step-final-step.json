@@ -15,6 +15,11 @@
                 "text": "Zeit sich die Charts anzuschauen!",
                 "updated": 1622980596813,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Es hora de mirar el gráfico!",
+                "updated": 1629578259488
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Wenn der Backtest beendet ist, halte ich die gesamte Hierarchie über den Knoten Testing Trading Tasks an. Erweitere den Knoten und klicke auf Stop All.",
                     "updated": 1622980659088,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando finaliza el backtest, detengo toda la jerarquía del nodo Testing Trading Tasks. Expande el nodo y has clic en Stop All.",
+                    "updated": 1629578317859
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Denk daran, dass es eine gute Praxis ist, Hierarchien zusammengeklappt zu halten und nicht benötigte Aufgaben zu stoppen, um Ressourcen zu sparen!",
                     "updated": 1622980636929,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Recuerda que es una buena práctica mantener las jerarquías colapsadas y detener las tareas inútiles para ahorrar recursos.",
+                    "updated": 1629578351656
                 }
             ]
         },

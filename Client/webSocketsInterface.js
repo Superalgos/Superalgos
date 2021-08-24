@@ -1,6 +1,5 @@
-﻿exports.newWebSocketsInterface = function newWebSocketsInterface(EVENT_SERVER) {
+﻿exports.newWebSocketsInterface = function newWebSocketsInterface() {
 
-    const MODULE = "Web Sockets Interface"
     const LOG_INFO = false
 
     let thisObject = {
@@ -76,7 +75,7 @@
                             lastNonce = nonce
 
                             try {
-                                let jsonCheck = JSON.parse(messageToEventServer)
+                                JSON.parse(messageToEventServer)
                             } catch (err) {
                                 console.log('[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Message received from the browser is not a valid JSON. message = ' + message.substring(0, 1000))
                                 console.log('[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> Message received from the browser is not a valid JSON. messageToEventServer = ' + messageToEventServer)
@@ -92,7 +91,7 @@
                         }
 
 
-                        EVENT_SERVER.onMessage(messageToEventServer, onResponse)
+                        CL.servers.EVENT_SERVER.onMessage(messageToEventServer, onResponse)
 
                         function onResponse(message) {
                             socket.send(message)

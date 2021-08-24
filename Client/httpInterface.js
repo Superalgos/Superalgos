@@ -1,13 +1,4 @@
-exports.newHttpInterface = function newHttpInterface(
-    WEB_SERVER,
-    DATA_FILE_SERVER,
-    PROJECT_FILE_SERVER,
-    UI_FILE_SERVER,
-    PLUGIN_SERVER,
-    CCXT_SERVER,
-    WEB3_SERVER,
-    GITHUB_SERVER
-) {
+exports.newHttpInterface = function newHttpInterface() {
 
     /*
     IMPORTANT: If you are reviewing the code of the project please note 
@@ -111,7 +102,7 @@ exports.newHttpInterface = function newHttpInterface(
                             switch (params.method) {
                                 case 'getNetworkClientStatus': {
 
-                                    let serverResponse = await WEB3_SERVER.getNetworkClientStatus(
+                                    let serverResponse = await CL.servers.WEB3_SERVER.getNetworkClientStatus(
                                         params.host,
                                         params.port,
                                         params.interface
@@ -122,7 +113,7 @@ exports.newHttpInterface = function newHttpInterface(
                                 }
                                 case 'createWalletAccount': {
 
-                                    let serverResponse = await WEB3_SERVER.createWalletAccount(
+                                    let serverResponse = await CL.servers.WEB3_SERVER.createWalletAccount(
                                         params.entropy
                                     )
 
@@ -131,7 +122,7 @@ exports.newHttpInterface = function newHttpInterface(
                                 }
                                 case 'getWalletBalances': {
 
-                                    let serverResponse = await WEB3_SERVER.getWalletBalances(
+                                    let serverResponse = await CL.servers.WEB3_SERVER.getWalletBalances(
                                         params.host,
                                         params.port,
                                         params.interface,
@@ -143,7 +134,7 @@ exports.newHttpInterface = function newHttpInterface(
                                 }
                                 case 'signData': {
 
-                                    let serverResponse = await WEB3_SERVER.signData(
+                                    let serverResponse = await CL.servers.WEB3_SERVER.signData(
                                         params.privateKey,
                                         params.data
                                     )
@@ -153,8 +144,17 @@ exports.newHttpInterface = function newHttpInterface(
                                 }
                                 case 'recoverAddress': {
 
-                                    let serverResponse = await WEB3_SERVER.recoverAddress(
+                                    let serverResponse = await CL.servers.WEB3_SERVER.recoverAddress(
                                         params.signature
+                                    )
+
+                                    respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                    return
+                                }
+                                case 'mnemonicToPrivateKey': {
+
+                                    let serverResponse = await CL.servers.WEB3_SERVER.mnemonicToPrivateKey(
+                                        params.mnemonic
                                     )
 
                                     respondWithContent(JSON.stringify(serverResponse), httpResponse)
@@ -1048,7 +1048,7 @@ exports.newHttpInterface = function newHttpInterface(
                         switch (params.method) {
                             case 'getGithubStars': {
 
-                                let serverResponse = await GITHUB_SERVER.getGithubStars(
+                                let serverResponse = await CL.servers.GITHUB_SERVER.getGithubStars(
                                     params.repository,
                                     params.username,
                                     params.token
@@ -1059,7 +1059,7 @@ exports.newHttpInterface = function newHttpInterface(
                             }
                             case 'getGithubWatchers': {
 
-                                let serverResponse = await GITHUB_SERVER.getGithubWatchers(
+                                let serverResponse = await CL.servers.GITHUB_SERVER.getGithubWatchers(
                                     params.repository,
                                     params.username,
                                     params.token
@@ -1070,7 +1070,7 @@ exports.newHttpInterface = function newHttpInterface(
                             }
                             case 'getGithubForks': {
 
-                                let serverResponse = await GITHUB_SERVER.getGithubForks(
+                                let serverResponse = await CL.servers.GITHUB_SERVER.getGithubForks(
                                     params.repository,
                                     params.username,
                                     params.token
@@ -1081,7 +1081,7 @@ exports.newHttpInterface = function newHttpInterface(
                             }
                             case 'mergePullRequests': {
 
-                                let serverResponse = await GITHUB_SERVER.mergePullRequests(
+                                let serverResponse = await CL.servers.GITHUB_SERVER.mergePullRequests(
                                     params.commitMessage,
                                     params.username,
                                     params.token
@@ -1092,8 +1092,11 @@ exports.newHttpInterface = function newHttpInterface(
                             }
                             case 'payContributors': {
 
-                                let serverResponse = await WEB3_SERVER.payContributors(
-                                    params.signature
+                                let serverResponse = await CL.servers.WEB3_SERVER.payContributors(
+                                    params.contractAddress,
+                                    params.contractAbi,
+                                    params.paymentsArray,
+                                    params.mnemonic
                                 )
 
                                 respondWithContent(JSON.stringify(serverResponse), httpResponse)

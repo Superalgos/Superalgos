@@ -284,7 +284,7 @@ exports.newMLDataObj = function(featureLen, labelLen) {
         let separator2 = "||||||||||||||||||||||||||||||||||||||||||||||||||";
         buf += separator;
         let fkLen = fkeys.length, fvLen = fvalues[0].length;
-        let lkLen = lkeys.length, lvLen = lvalues[0].length;
+        let lkLen = lkeys.length;
         console.log(buf);
 
         // Features / Labels Hard Numbers:
@@ -306,8 +306,6 @@ exports.newMLDataObj = function(featureLen, labelLen) {
 
         // Statistics:
         buf = separator2 + "\n" + separator + "\n\n" + topSeparator + "\nSuperalgos ML DataFrame Statistics:\n" + separator;
-        let fName = "Feature #";
-        let lName = "Label #";
         let statistics = stats.all();
         console.log(buf);
 

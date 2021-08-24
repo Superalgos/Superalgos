@@ -110,12 +110,12 @@ exports.newTensorFlowModelsManager = function (processIndex, learningSystem) {
                     layerFunction = _tensorFlowAPI.layers.dense
                     break
                 }
-                case ' ': {
+                /*case ' ': {
                     break
                 }
                 case ' ': {
                     break
-                }
+                }*/
                 default: {
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         '[WARN] Layer of type ' + layerNode.typeOfLayer.layer.type + ' not implemented yet.')

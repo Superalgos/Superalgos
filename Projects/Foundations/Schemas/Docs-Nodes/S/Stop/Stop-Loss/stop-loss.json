@@ -1,7 +1,14 @@
 {
     "type": "Stop Loss",
     "definition": {
-        "text": "Stop loss is the current stop loss target, as defined in the manage stage of the corresponding strategy."
+        "text": "Stop loss is the current stop loss target, as defined in the manage stage of the corresponding strategy.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Stop loss es el objetivo actual de stop loss, según se define en la etapa de gestión de la estrategia correspondiente.",
+                "updated": 1629580794189
+            }
+        ]
     },
     "paragraphs": [
         {

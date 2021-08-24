@@ -302,6 +302,7 @@ exports.newGithubServer = function newGithubServer() {
                             if (await validateMessageSignedIsGithubUsername() === false) { continue }
                             if (await validateUserProfileNodeNameEqualsGithubUsername() === false) { continue }
                             if (await validateUserProfileIdDoesNotBelongtoAnotherUserProfile() === false) { continue }
+                            if (await validateUserProfileBlockchainAccountDoesNotBelongtoAnotherUserProfile() === false) { continue }
 
                             if (await mergePullRequest() === false) {
                                 console.log('[WARN] Github Server -> mergeGithubPullRequests -> Merge Failed -> Pull Request "' + pullRequest.title + '" not merged because Github could not merge it. -> mergeResponse.message = ' + mergeResponse.data.message)
@@ -499,6 +500,68 @@ exports.newGithubServer = function newGithubServer() {
                                         repo: repo,
                                         issue_number: pullRequest.number,
                                         body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because the User Profile Id already exists and belongs to another User Profile on record. \n\nUser Profile Id = "' + userProfile.id + '" \n\n User Profile with the same Id = "' + testUserProfile + '"'
+                                    });
+
+                                    await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await octokit.rest.pulls.update({
+                                        owner: owner,
+                                        repo: repo,
+                                        pull_number: pullRequest.number,
+                                        state: 'closed'
+                                    });
+                                    return false
+                                }
+                            }
+
+                            async function validateUserProfileBlockchainAccountDoesNotBelongtoAnotherUserProfile() {
+                                /*
+                                Validation #7 The blockchain account of the User Profile can not be the 
+                                blockchain account of an already existing User Profile
+                                unless the existing one belongs to the same Github username.
+                                */
+                                let userProfileIdMap = new Map()
+                                let pluginFileNames = await CL.projects.foundations.utilities.plugins.getPluginFileNames(
+                                    'Governance',
+                                    'User-Profiles'
+                                )
+                                for (let i = 0; i < pluginFileNames.length; i++) {
+                                    let pluginFileName = pluginFileNames[i]
+
+                                    let pluginFileContent = await CL.projects.foundations.utilities.plugins.getPluginFileContent(
+                                        'Governance',
+                                        'User-Profiles',
+                                        pluginFileName
+                                    )
+
+                                    let otherUserProfile = JSON.parse(pluginFileContent)
+
+                                    let config = JSON.parse(otherUserProfile.config)
+                                    let messageSigned = config.signature.message
+                                    let serverResponse = await CL.servers.WEB3_SERVER.recoverAddress(
+                                        messageSigned
+                                    )
+
+                                    userProfileIdMap.set(serverResponse.address, otherUserProfile.name)
+                                }
+
+                                let config = JSON.parse(userProfile.config)
+                                let messageSigned = config.signature.message
+                                let serverResponse = await CL.servers.WEB3_SERVER.recoverAddress(
+                                    messageSigned
+                                )
+
+                                let testUserProfile = userProfileIdMap.get(serverResponse.address)
+                                if (testUserProfile === undefined) { return true }
+                                if (testUserProfile !== userProfile.name) {
+
+                                    console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #7 Failed -> Pull Request "' + pullRequest.title + '" not merged because the User Profile Blockchain Account already exists and belongs to another User Profile on record. -> Profile Blockchain Account = ' + serverResponse.address + '-> User Profile with the same Blockchain Account = ' + testUserProfile)
+
+                                    await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await octokit.rest.issues.createComment({
+                                        owner: owner,
+                                        repo: repo,
+                                        issue_number: pullRequest.number,
+                                        body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because the User Profile Blockchain Account already exists and belongs to another User Profile on record. \n\nUser Profile Blockchain Account = "' + serverResponse.address + '" \n\n User Profile with the same Blockchain Account = "' + testUserProfile + '"'
                                     });
 
                                     await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)

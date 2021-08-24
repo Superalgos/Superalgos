@@ -4,19 +4,40 @@
     "type": "Tutorial Step - A Particular Case...",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-strategy"
+            "name": "Trading\\trading-strategy",
+            "project": "Foundations"
         },
-        "text": "Both strategies are virtually the same in that they share the same base rules for triggering... with minor differences..."
+        "text": "Both strategies are virtually the same in that they share the same base rules for triggering... with minor differences...",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Ambas estrategias son prácticamente iguales en el sentido de que comparten las mismas reglas básicas para la activación... ",
+                "updated": 1629590239242
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Beyond the seven conditions in common, the Steep strategy has one additional Condition while the Xtreme strategy has three. We won't analyze those differences one by one, although you may if you wish! Let's instead reveal the underlying concept behind the differences:"
+            "text": "Beyond the seven conditions in common, the Steep strategy has one additional Condition while the Xtreme strategy has three. We won't analyze those differences one by one, although you may if you wish! Let's instead reveal the underlying concept behind the differences:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Más allá de las siete condiciones en común, la Steep strategy tiene un Condition adicional mientras que la estrategia Xtreme tiene tres. No analizaremos esas diferencias una a una, ¡aunque puede hacerlo si lo desea! En su lugar, revelemos el concepto subyacente detrás de las diferencias:",
+                    "updated": 1629590038879
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Within the market Situation defined by the first seven conditions, the Steep strategy deals with a certain type of price action&mdash;price falling on a steep curve&mdash;while the Xtreme strategy deals with price falling on an extremely steep curve!"
+            "text": "Within the market Situation defined by the first seven conditions, the Steep strategy deals with a certain type of price action&mdash;price falling on a steep curve&mdash;while the Xtreme strategy deals with price falling on an extremely steep curve!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Dentro de la situación de mercado definida por las primeras siete condiciones, la estrategia Steep se ocupa de un cierto tipo de acción del precio, el precio que cae en una curva pronunciada, mientras que la estrategia Xtreme se ocupa de la caída del precio en una curva extremadamente pronunciada.",
+                    "updated": 1629590224948
+                }
+            ]
         }
     ]
 }

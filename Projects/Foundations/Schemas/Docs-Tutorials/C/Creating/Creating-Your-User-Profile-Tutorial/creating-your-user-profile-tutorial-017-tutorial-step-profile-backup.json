@@ -1,0 +1,29 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 17,
+    "type": "Tutorial Step - Profile Backup",
+    "definition": {
+        "text": "Later on, you will be rewarded with Superalgos SA Tokens to the address you just generated. But before that happens, you must safely store the private key that you will use to access the address.",
+        "updated": 1629579328664,
+        "icon": {
+            "name": "Exchange\\exchange-account-asset",
+            "project": "Foundations"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "At this point, Superalgos doesn’t offer a built-in solution to securely back up your private keys. All the system does is generate a BSC address / private key pair and deliver it in the configuration of the Profile Constructor node. It is up to you to decide how you are going to handle this sensitive information.",
+            "updated": 1629578959187
+        },
+        {
+            "style": "Callout",
+            "text": "Access the configuration of the Profile Constructor. You will find the address and private key, so that you may back up the information in whatever way you see fit.",
+            "updated": 1629578990303
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

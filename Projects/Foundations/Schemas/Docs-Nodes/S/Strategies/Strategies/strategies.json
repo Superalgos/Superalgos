@@ -1,7 +1,14 @@
 {
     "type": "Strategies",
     "definition": {
-        "text": "Strategies counts the number of times strategies have been triggered-on, in the context of the parent node."
+        "text": "Strategies counts the number of times strategies have been triggered-on, in the context of the parent node.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Strategies cuenta el número de veces que se han activado las estrategias, en el contexto del nodo padre.",
+                "updated": 1629581287671
+            }
+        ]
     },
     "paragraphs": [
         {

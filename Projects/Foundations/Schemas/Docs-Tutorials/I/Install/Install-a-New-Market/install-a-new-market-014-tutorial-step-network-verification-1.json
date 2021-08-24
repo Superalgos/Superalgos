@@ -4,27 +4,62 @@
     "type": "Tutorial Step - Network Verification 1",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "data-tasks"
+            "name": "Data/data-tasks",
+            "project": "Foundations"
         },
-        "text": "Verify that the Data Tasks tasks for the corresponding Market were created successfully."
+        "text": "Verify that the Data Tasks tasks for the corresponding Market were created successfully.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Verifica que las tareas del Data Tasks para el correspondiente Market fueron creadas con éxito.",
+                "updated": 1629248555223
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Look for the following data structures:"
+            "text": "Look for the following data structures:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Busca las siguientes estructuras de datos:",
+                    "updated": 1629248659569
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "A Market Data Tasks node for the new market."
+            "text": "A Market Data Tasks node for the new market.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un nodo Market Data Tasks para el nuevo mercado.",
+                    "updated": 1629248644175
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "One Data Mine Tasks node for each Data Mine included in the Workspace."
+            "text": "One Data Mine Tasks node for each Data Mine included in the Workspace.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un nodo Data Mine Taskspor cada Data Mine incluido en el Workspace.",
+                    "updated": 1629248688491
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "One Task Manager per Data Mine and one Task for each bot defined in each data mine."
+            "text": "One Task Manager per Data Mine and one Task for each bot defined in each data mine.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un Task Manager por Data Mine y un Task para cada bot definido en cada mina de datos.",
+                    "updated": 1629248744863
+                }
+            ]
         }
     ]
 }

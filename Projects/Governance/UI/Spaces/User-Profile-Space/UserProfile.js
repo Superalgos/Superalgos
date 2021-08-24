@@ -37,9 +37,17 @@ function newGovernanceUserProfileSpace() {
         /*
         If the workspace is not related to governance, then we exit the Intialize Function
         */
-        let resultsArary = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
-        if (resultsArary.length === 0) { return }
-
+        let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+        if (userProfiles.length === 0) { return }
+        /*
+        We are going to collapse all User Profiles to save processing resources at the UI
+        */
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+            if (userProfile.payload.floatingObject.isCollapsed !== true) {
+                userProfile.payload.floatingObject.collapseToggle()
+            }
+        }
         /*
         Here we will setup the Reputation for each profile. 
         */

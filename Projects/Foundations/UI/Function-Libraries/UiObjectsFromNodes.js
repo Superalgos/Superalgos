@@ -353,7 +353,6 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                             }
 
                             function getNextNodeFromPath(node, pathName, pathType) {
-                                console.log("pathNode", node)
                                 let schemaDocument = getSchemaDocument(node)
                                 if (schemaDocument === undefined) { return }
                                 let nextNode = undefined

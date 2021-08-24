@@ -1,6 +1,6 @@
 exports.newFoundationsBotModulesLearningSimulation = function (processIndex) {
     /*
-    This Module represents the learning simulacion. Escentially a loop through a set of candles and 
+    This Module represents the learning simulation. Essentially a loop through a set of candles and 
     the execution at each loop cycle of the Learning System Protocol.
     */
     const MODULE_NAME = 'Learning Simulation -> ' + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name
@@ -23,7 +23,6 @@ exports.newFoundationsBotModulesLearningSimulation = function (processIndex) {
         writeFiles,
     ) {
         try {
-
             let learningSystem = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.learningSystem
             let learningEngine = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.learningEngine
             let sessionParameters = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters
@@ -67,7 +66,7 @@ exports.newFoundationsBotModulesLearningSimulation = function (processIndex) {
                     }
                 } else {
                     /*
-                    Form Market Files, we are only going to load the model from this and continue the
+                    For Market Files, we are only going to load the model from this and continue the
                     training it already has when the user resumes the training session. If the user
                     runs the training session, we will not load from disk, but create a new empty model
                     instead.
@@ -169,14 +168,15 @@ exports.newFoundationsBotModulesLearningSimulation = function (processIndex) {
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                     '[INFO] runSimulation -> loop -> Candle End @ ' + (new Date(candle.end)).toUTCString())
 
-                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCandle(candle) // We move the current candle we are standing at, to the learning engine data structure to make it available to anyone, including conditions and formulas.
+                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).LEARNING_ENGINE_MODULE_OBJECT.setCurrentCandle(candle) // We move the current candle we are standing at, to the learning engine data structure to make it available to anyone, including conditions and formulas.
 
-                /* We emit a heart beat so that the UI can now where we are at the overal process.*/
+                /* We emit a heart beat so that the UI can know where we are at the overall process. */
                 heartBeat()
 
                 /* Opening the Episode, if needed. */
                 learningEpisodeModuleObject.openEpisode()
-
+                
+                // Skipping current loop if we are before initial candle:
                 if (checkInitialDatetime() === false) {
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         '[INFO] runSimulation -> loop -> Candle Before the Initia Date Time @ ' + (new Date(candle.begin)).toUTCString())
@@ -197,26 +197,17 @@ exports.newFoundationsBotModulesLearningSimulation = function (processIndex) {
                 Episode Counters and Statistics update. Mantaince is done
                 once per simulation candle.
                 */
-                learningSystemModuleObject.mantain()
+                learningSystemModuleObject.mantain() /* ***NOTE*** Currently empty */
                 learningEpisodeModuleObject.mantain()
-                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.mantain()
+                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).LEARNING_ENGINE_MODULE_OBJECT.mantain()
 
-                /* 
-                Run the first cycle of the Learning System. In this first cycle we
-                give some room so that orders can be canceled or filled and we can
-                write those records into the output memory. During this cycle new
-                orders can not be created, since otherwise the could be cancelled at
-                the second cycle without spending real time at the order book.
-                */
-                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCycle('First')
+                /* Run the Learning System: */
+                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).LEARNING_ENGINE_MODULE_OBJECT.setCurrentCycle('First')
                 await runCycle()
 
                 /* 
                 We check if we need to stop before appending the records so that the stop 
-                reason is also propery recorded. Note also that we check this after the first
-                cycle, where orders have not been submitted to the exchange yet, but we
-                had the chance to check for the status of placed orders or even cancel 
-                the ones that needed cancellation.
+                reason is also properly recorded.
                 */
                 checkIfWeNeedToStopBetweenCycles()
 
@@ -224,29 +215,17 @@ exports.newFoundationsBotModulesLearningSimulation = function (processIndex) {
                 learningRecordsModuleObject.appendRecords()
 
                 if (breakLoop === true) { break }
-                /* 
-                Run the second cycle of the Learning System. During this second run
-                some new orders might be created at slots freed up during the first 
-                run. This allows for example for a Limit Order to be cancelled during the 
-                first run, and the same Limit Order definition to spawn a new order 
-                without the need to wait until the next candle. Orders can not be cancelled
-                during the second cycle.
-                */
-                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCycle('Second')
-                await runCycle()
 
                 checkIfWeNeedToStopAfterBothCycles()
 
-                /* Add new records to the process output */
-                learningRecordsModuleObject.appendRecords()
-
                 if (breakLoop === true) { break }
+
 
                 async function runCycle() {
                     /* Reset Data Structures */
                     learningSystemModuleObject.reset()
                     learningEpisodeModuleObject.reset()
-                    TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.reset()
+                    TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).LEARNING_ENGINE_MODULE_OBJECT.reset()
 
                     let infoMessage = 'Processing candle # ' + learningEngine.learningCurrent.learningEpisode.candle.index.value + ' @ the ' + learningEngine.learningCurrent.learningEpisode.cycle.value + ' cycle.'
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -342,7 +321,7 @@ exports.newFoundationsBotModulesLearningSimulation = function (processIndex) {
                         let currentDate = new Date(heartBeatDate)
                         let percentage = TS.projects.foundations.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
                         /*
-                        Theere are a few tasks that we need to do only when the date changes,
+                        There are a few tasks that we need to do only when the date changes,
                         otherwise it would be suboptimal.
                         */
                         if (heartBeatDate.valueOf() !== previousHeartBeatDate) {
@@ -367,7 +346,7 @@ exports.newFoundationsBotModulesLearningSimulation = function (processIndex) {
                         }
 
                         /* 
-                        When the Candle Index nees to be shown, then we can not send the hearbet
+                        When the Candle Index needs to be shown, then we can not send the heartbeat
                         only when the dates changes, we have to send it for every candle.
                         It might also contain the date information.
                         */
@@ -587,4 +566,3 @@ exports.newFoundationsBotModulesLearningSimulation = function (processIndex) {
         }
     }
 }
-

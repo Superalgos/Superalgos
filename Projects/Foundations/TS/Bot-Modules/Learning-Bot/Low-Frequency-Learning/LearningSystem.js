@@ -241,7 +241,7 @@ exports.newFoundationsBotModulesLearningSystem = function (processIndex) {
     async function run() {
         try {
             /* Dynamic Indicators */
-            buildDynamicIndicators()
+            // buildDynamicIndicators()  /* ***NOTE*** Would need to be implemented. */
 
             /*
             Initialize the Learning Algorithm
@@ -274,7 +274,7 @@ exports.newFoundationsBotModulesLearningSystem = function (processIndex) {
         }
 
         /* Here we check if there is a codition to be evaluated */
-        if (node.type === 'Condition' && evaluating === 'Conditions') {
+        if ((node.type === 'Condition' || node.type === 'Collection Condition') && evaluating === 'Conditions') {
             /* We will eval this condition */
             if (isDescendent === true) {
                 evalCondition(node)
@@ -429,4 +429,3 @@ exports.newFoundationsBotModulesLearningSystem = function (processIndex) {
         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> value = ' + value)
     }
 }
-

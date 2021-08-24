@@ -62,26 +62,28 @@ function newFoundationsFunctionLibraryLearningSessionFunctions() {
 
         let lightingPath = '' +
             'Learning System->' +
-            'TensorFlow Library->' + 
-            'Execution Environment->Supervised Learning->Unsupervised Learning->Self Learning->Reinforcement Learning->' + 
-            'WebGL Backend->NodeJS Backend->WASM Backend->CPU Backend->' + 
+            'TensorFlow Library->' +
+            'Execution Environment->Supervised Learning->Unsupervised Learning->Self Learning->Reinforcement Learning->' +
+            'WebGL Backend->NodeJS Backend->WASM Backend->CPU Backend->' +
             'Environment Flags->Debug Mode->Production Mode->' +
             'Supervised Learning->Unsupervised Learning->Self Learning->Reinforcement Learning->' +
             'Artificial Neural Network->Model->' +
-            'Compile->Optimizer->Loss Function->Metrics->' +
-            'Fit Dataset->Verbose->Epochs->Callbacks->' +
-            'Layers API->Code API->' +
-            'Sequential Model->Functional Model->' + 
+            'Logistic Regression->Model->' +
+            'Compile->Optimizer->Loss Function->Metrics->Optimizer by Name->SGD Instance->Momentum Instance->Adagrad Instance->Adadelta Instance->Adam Instance->Rmsprop Instance->' +
+            'Fit Dataset->Verbose->Epochs->Callbacks->Dataset Args->Batches Per Gradient Update->Shuffle->' +
+            'Layers API->Core API->' +
+            'Sequential Model->Functional Model->' +
+            'Data Reporting->' +
             'Input Layer->Sequential layer->Output Layer->'+
-            'Input Shape->Batch Input Shape->Input Features->Data Feature->Feature Formula->' + 
-            'Output Labels->Data Label->Label Formula->' + 
+            'Input Features->Data Feature->Feature Formula->Input Shape->Batch Input Shape->Feature Preprocessing->MinMax Scaler->Standard Scaler->Collection Condition->' +
+            'Output Labels->Data Label->Label Formula->' +
             'Advanced Activation Layers->Basic Layers->Convolutional Layers->' +
             'Conv 1D Layer->Conv 2D Layer->Conv 2D Transpose Layer->Conv 3D Layer->Cropping 2D Layer->Depthwise Convo 2D Layer->Separable Convo 2D Layer->Up Sampling 2D Layer->' +
             'Activation Layer->Dense Layer->Dropout Layer->Embedding Layer->Flatten Layer->Permutable Layer->Rrepeat Vector Layer->Reshape Layer->Spatial Dropout 1D Layer->' +
             'Elu Layer->Leaky Relu Layer->Prelu Layer->Relu Layer->Softmax Layer->Thresholded Relu Layer->'+
-            'Dimensionality Units->Activation Function->Batch Size->Dtype->Trainable->Weights->Tensor->Kernel->Bias->' + 
+            'Dimensionality Units->Activation Function->Dtype->Trainable->Weights->Tensor->Kernel->Bias->' +
             'Kernel Initializer->Kernel Constraint->Kernel Regularizer->' +
-            'Bias Initializer->Bias Constraint->Bias Regularizer->' 
+            'Bias Initializer->Bias Constraint->Bias Regularizer->'
 
         let learningSystem = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node.learningSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
@@ -118,9 +120,9 @@ function newFoundationsFunctionLibraryLearningSessionFunctions() {
             'Begin->End->Exit Type->Status->Begin Rate->End Rate->Stage Base Asset->Stage Quoted Asset->Size Placed->Target Size->Size Filled->Fees Paid->Stage Defined In->' +
             'Serial Number->Identifier->Begin->End->Begin Rate->End Rate->Strategy Name->Status->Exit Type->' +
             'Balance->Begin Balance->End Balance->' +
-            'Index->Situation Name->Formula->Periods->' + 
-            'Features->Feature->Begin->End->Feature Value->'+ 
-            'Labels->Label->Begin->End->Label Value->'+ 
+            'Index->Situation Name->Formula->Periods->' +
+            'Features->Feature->Begin->End->Feature Value->'+
+            'Labels->Label->Begin->End->Label Value->'+
             'Predictions->Prediction->Begin->End->Prediction Value->'
 
         let learningEngine = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node.learningEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
@@ -136,7 +138,7 @@ function newFoundationsFunctionLibraryLearningSessionFunctions() {
         let defaultExchange = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.exchange.payload, 'codeName')
         let defaultMarket =
             UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.market.baseAsset.payload.referenceParent.payload, 'codeName')
-            + '-' + 
+            + '-' +
             UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.market.quotedAsset.payload.referenceParent.payload, 'codeName')
 
         let dependencyFilter = UI.projects.foundations.functionLibraries.dependenciesFilter.createDependencyFilter(

@@ -17,6 +17,10 @@
             "updated": 1629164803435
         },
         {
+            "style": "Note",
+            "text": "The project distributes tokens exclusively among contributors!"
+        },
+        {
             "style": "Success",
             "text": "This means that the more you contribute to the project and help others, the more tokens you will earn!",
             "updated": 1629164817915

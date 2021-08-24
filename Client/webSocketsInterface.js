@@ -1,4 +1,4 @@
-﻿exports.newWebSocketsInterface = function newWebSocketsInterface(EVENT_SERVER) {
+﻿exports.newWebSocketsInterface = function newWebSocketsInterface() {
 
     const MODULE = "Web Sockets Interface"
     const LOG_INFO = false
@@ -92,7 +92,7 @@
                         }
 
 
-                        EVENT_SERVER.onMessage(messageToEventServer, onResponse)
+                        CL.servers.EVENT_SERVER.onMessage(messageToEventServer, onResponse)
 
                         function onResponse(message) {
                             socket.send(message)

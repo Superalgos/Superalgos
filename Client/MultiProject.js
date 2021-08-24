@@ -16,9 +16,8 @@ exports.newMultiProject = function () {
         Here we will setup the CL object, with all the
         projects and modules that will have inside.
         */
-        global.CL = {
-            projects: {}
-        }
+        CL.projects = {}
+
         for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
             let projectDefinition = PROJECTS_SCHEMA[i]
             global.CL.projects[projectDefinition.propertyName] = {}

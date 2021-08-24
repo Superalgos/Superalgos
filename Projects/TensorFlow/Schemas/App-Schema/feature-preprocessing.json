@@ -1,0 +1,54 @@
+{
+    "type": "Feature Preprocessing",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "minMaxScaler",
+            "label": "Add MinMax Scaler",
+            "relatedUiObject": "MinMax Scaler",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "standardScaler",
+            "label": "Add Standard Scaler",
+            "relatedUiObject": "Standard Scaler",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Data Feature->"
+    },
+    "propertyNameAtParent": "featurePreprocessing",
+    "childrenNodesProperties": [
+        {
+            "name": "minMaxScaler",
+            "type": "node",
+            "childType": "MinMax Scaler",
+            "autoAdd": false
+        },
+        {
+            "name": "standardScaler",
+            "type": "node",
+            "childType": "Standard Scaler",
+            "autoAdd": false
+        }
+    ],
+    "icon": "tensorflow"
+}

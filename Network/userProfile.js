@@ -1,28 +1,24 @@
 exports.newUserProfile = function newUserProfile() {
 
     let thisObject = {
-        id: undefined,
+        userProfieId: undefined,
         githubUsername: undefined,
         blockchainAccount: undefined,
-        following: undefined,
-        followers: undefined,
-        followingCount: undefined,
-        followersCount: undefined,
-        tradeCopying: undefined,
-        tradeCopiers: undefined,
-        tradeCopyingCount: undefined,
-        tradeCopiersCount: undefined,
+        postFollowing: undefined,
+        postFollowers: undefined,
+        tradeFollowing: undefined,
+        tradeFollowers: undefined,
         ranking: undefined,
-        joined: undefined,
+        events: undefined,
+        postFollowingCount: undefined,
+        postFollowersCount: undefined,
+        tradeFollowingCount: undefined,
+        tradeFollowersCount: undefined,
+        eventsCount: undefined,
+        postsCount: undefined,
         initialize: initialize,
         finalize: finalize
     }
-
-    thisObject.following = new Map()
-    thisObject.followers = new Map()
-
-    thisObject.tradeCopying = new Map()
-    thisObject.tradeCopiersCount = new Map()
 
     return thisObject
 
@@ -31,6 +27,21 @@ exports.newUserProfile = function newUserProfile() {
     }
 
     function initialize() {
+
+        thisObject.postFollowing = new Map()
+        thisObject.postFollowers = new Map()
+
+        thisObject.tradeFollowing = new Map()
+        thisObject.tradeFollowers = new Map()
+
+        thisObject.events = []
+
+        thisObject.postFollowingCount = 0
+        thisObject.postFollowersCount = 0
+        thisObject.tradeFollowingCount = 0
+        thisObject.tradeFollowersCount = 0
+        thisObject.eventsCount = 0
+        thisObject.postsCount = 0
 
     }
 }

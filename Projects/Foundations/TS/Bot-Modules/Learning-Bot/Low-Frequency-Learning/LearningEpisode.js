@@ -73,7 +73,7 @@ exports.newFoundationsBotModulesLearningEpisode = function (processIndex) {
     }
 
     function resetEpisode() {
-        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(learningEngine.learningCurrent.learningEpisode)
+        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).LEARNING_ENGINE_MODULE_OBJECT.initializeNode(learningEngine.learningCurrent.learningEpisode)
     }
 
     function updateEnds() {

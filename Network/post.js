@@ -54,12 +54,12 @@ exports.newPost = function newPost() {
         Let's find the Target Post
         */
         if (
-            event.eventType === EVENT_TYPES.REPLY_TO_MULTI_MEDIA_POST ||
-            event.eventType === EVENT_TYPES.REPOST_MULTI_MEDIA ||
-            event.eventType === EVENT_TYPES.QUOTE_REPOST_MULTI_MEDIA ||
-            event.eventType === EVENT_TYPES.REPLY_TO_TRADE_POST ||
-            event.eventType === EVENT_TYPES.RE_POST_TRADE ||
-            event.eventType === EVENT_TYPES.QUOTE_REPOST_TRADE
+            event.eventType === POST_TYPES.REPLY_TO_MULTI_MEDIA_POST ||
+            event.eventType === POST_TYPES.REPOST_MULTI_MEDIA ||
+            event.eventType === POST_TYPES.QUOTE_REPOST_MULTI_MEDIA ||
+            event.eventType === POST_TYPES.REPLY_TO_TRADE_POST ||
+            event.eventType === POST_TYPES.RE_POST_TRADE ||
+            event.eventType === POST_TYPES.QUOTE_REPOST_TRADE
         ) {
             thisObject.targetPost = NT.memory.POSTS.get(thisObject.targetPostHash)
 
@@ -71,8 +71,8 @@ exports.newPost = function newPost() {
          Let's add this post to the replies of the Target Post
          */
         if (
-            event.eventType === EVENT_TYPES.REPLY_TO_MULTI_MEDIA_POST ||
-            event.eventType === EVENT_TYPES.REPLY_TO_TRADE_POST
+            event.eventType === POST_TYPES.REPLY_TO_MULTI_MEDIA_POST ||
+            event.eventType === POST_TYPES.REPLY_TO_TRADE_POST
         ) {
             thisObject.targetPost.replies.push(thisObject)
         }

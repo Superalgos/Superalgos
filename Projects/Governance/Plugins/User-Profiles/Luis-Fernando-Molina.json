@@ -12687,7 +12687,7 @@
                             {
                                 "type": "Delegate Power Switch",
                                 "name": "Thomas",
-                                "config": "{\n    \"percentage\": 20\n}",
+                                "config": "{\n    \"percentage\": 25\n}",
                                 "project": "Governance",
                                 "delegatePowerSwitch": [],
                                 "userDelegates": [
@@ -12759,10 +12759,50 @@
                             {
                                 "type": "Delegate Power Switch",
                                 "name": "Carl",
-                                "config": "{\n    \"percentage\": 10\n}",
+                                "config": "{\n    \"percentage\": 5\n}",
                                 "project": "Governance",
                                 "delegatePowerSwitch": [],
-                                "userDelegates": [],
+                                "userDelegates": [
+                                    {
+                                        "type": "User Delegate",
+                                        "name": "cozed-gh",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "ee1b374b-d4af-494c-93b8-3f83849d85f2",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 29086.823038139588,
+                                                "y": 24155.700841731268
+                                            },
+                                            "targetPosition": {
+                                                "x": 29329.52813645207,
+                                                "y": 23979.365266043525
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "User Profile",
+                                                "name": "cozed-gh",
+                                                "id": "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "cozed-gh",
+                                                    "User Profile"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
                                 "id": "7edd2cfb-0e46-4d2a-8899-0e7193c85815",
                                 "savedPayload": {
                                     "position": {
@@ -12899,7 +12939,9 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "ssplatt",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "56600855-7a91-49e8-8a58-2fa28d07efd1"
                                                 ]
                                             ]
                                         }
@@ -13047,7 +13089,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 2,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

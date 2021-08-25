@@ -5,7 +5,7 @@
     "definition": {
         "text": "Superalgos is free for everyone because we want your help! We want the best minds in the space to help us build the ultimate trading automation platform!",
         "icon": {
-            "name": "nodes-highlights",
+            "name": "Nodes\\nodes-highlights",
             "project": "Foundations"
         },
         "updated": 1610719931963,
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "¡Superalgos es gratis para todos porque queremos tu ayuda! ¡Queremos que las mejores mentes nos ayuden a construir la plataforma de automatización trading definitiva!",
-                "updated": 1628116911425
+                "updated": 1628116911425,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "¡Tu primera contribución es tu feedback!",
-                    "updated": 1628116797218
+                    "updated": 1628116797218,
+                    "style": "Callout"
                 }
             ]
         },
@@ -56,7 +58,8 @@
                 {
                     "language": "ES",
                     "text": " ¡Queremos tener tu primera impresión, fresca de la experiencia reciente! Y queremos que sus comentarios iniciales sean la primera de muchas contribuciones al proyecto.",
-                    "updated": 1628117475146
+                    "updated": 1628117475146,
+                    "style": "Text"
                 }
             ]
         },
@@ -74,7 +77,8 @@
                 {
                     "language": "ES",
                     "text": "No necesitas ser un programador estrella o un trader profesional para contribuir. ¡Se espera que cada usuario retribuya! ¡Te diré cómo!",
-                    "updated": 1628118458317
+                    "updated": 1628118458317,
+                    "style": "Success"
                 }
             ]
         }

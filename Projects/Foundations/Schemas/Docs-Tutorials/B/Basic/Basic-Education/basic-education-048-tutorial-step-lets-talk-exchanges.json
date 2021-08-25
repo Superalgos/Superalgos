@@ -1,9 +1,9 @@
 {
     "tutorial": "Basic Education",
     "pageNumber": 48,
-    "type": "Tutorial Step - Talking Exchanges",
+    "type": "Tutorial Step - Let's Talk Exchanges",
     "definition": {
-        "text": "Now that I mentioned testing exchanges, let's talk a bit about how Superalgos deals with them and which ones you may use...",
+        "text": "We all have our preferred exchanges... let's talk a bit about how Superalgos deals with them and which ones you may use...",
         "icon": {
             "name": "crypto-exchange",
             "project": "Foundations"

@@ -46,8 +46,8 @@
         },
         {
             "style": "Text",
-            "text": "New Plugin File nodes are created for every plugin in \\Plugins\\Trading-Systems. You may delete the Plugin File nodes you don't need and keep the ones you do need! Then, you may add and pin the Plugin File Position node where you wish to place the actual plugin!",
-            "updated": 1622376327556,
+            "text": "New Plugin File nodes are created for every plugin in \\Foundations\\Plugins\\Trading-Systems. You may delete the Plugin File nodes you don't need and keep the ones you want! Now add and pin the Plugin File Position node where you wish to place the plugin hierarchy!",
+            "updated": 1629896019687,
             "translations": [
                 {
                     "language": "IT",

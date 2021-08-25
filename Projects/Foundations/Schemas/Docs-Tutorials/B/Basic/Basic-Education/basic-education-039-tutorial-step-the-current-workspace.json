@@ -3,12 +3,12 @@
     "pageNumber": 39,
     "type": "Tutorial Step - The Current Workspace",
     "definition": {
-        "text": "The current workspace is the User Workspace you are using at any point.",
+        "text": "The current workspace is the User Workspace or the Plugin Workspace you are using at any point.",
         "icon": {
             "name": "workspace",
             "project": "Foundations"
         },
-        "updated": 1622375537282,
+        "updated": 1629895521103,
         "translations": [
             {
                 "language": "IT",
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "El espacio de trabajo actual es el User Workspace que estés utilizando en cualquier momento.",
-                "updated": 1626621294273
+                "updated": 1626621294273,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "Si cierras y reinicias la aplicación, o actualizas el User Interface, el sistema carga el ultimo Workspace usado.",
-                    "updated": 1626622914590
+                    "updated": 1626622914590,
+                    "style": "Text"
                 }
             ]
         },
@@ -56,7 +58,8 @@
                 {
                     "language": "ES",
                     "text": "Accede al menú del nodo Workspace, doble clic en la etiqueta  \"Getting Started Tutorials\" y cámbialo a \"Basic Education\".",
-                    "updated": 1626621401640
+                    "updated": 1626621401640,
+                    "style": "Callout"
                 }
             ]
         },
@@ -74,7 +77,8 @@
                 {
                     "language": "ES",
                     "text": "Ahora presiona  Ctrl + Shift + Alt + Key-S",
-                    "updated": 1626621439639
+                    "updated": 1626621439639,
+                    "style": "Text"
                 }
             ]
         },
@@ -92,7 +96,8 @@
                 {
                     "language": "ES",
                     "text": "Ve a la carpeta My-Workspaces para verificar que el nuevo archivo está allí. ¡Encuéntralo también en la pestaña de espacios de trabajo!",
-                    "updated": 1626622475717
+                    "updated": 1626622475717,
+                    "style": "Success"
                 }
             ]
         }

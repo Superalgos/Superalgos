@@ -1,7 +1,7 @@
 {
     "tutorial": "Basic Education",
     "pageNumber": 6,
-    "type": "Tutorial Step - Mary Go Round",
+    "type": "Tutorial Step - Merry Go Round",
     "definition": {
         "text": "By default, nodes are locked to a rotational symmetry around their parent node. The symmetry may span 360 degrees or less, depending on the setting!",
         "updated": 1615316869620,

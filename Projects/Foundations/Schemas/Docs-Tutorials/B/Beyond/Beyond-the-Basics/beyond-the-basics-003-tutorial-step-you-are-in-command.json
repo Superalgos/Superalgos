@@ -6,7 +6,7 @@
         "text": "Let's talk about my friend, the search box in the Docs. She has a bit of a double life: she searches, but also commands!",
         "updated": 1616756994691,
         "icon": {
-            "name": "strategy-manage-stage",
+            "name": "Strategy\\strategy-manage-stage",
             "project": "Foundations"
         },
         "translations": [
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Hablemos de mi amigo, el cuadro de búsqueda en Documentos. Tiene una doble vida: busca, ¡pero también manda!",
-                "updated": 1628112617535
+                "updated": 1628112617535,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "El cuadro de búsqueda también es interfaz de línea de comandos! La lista de comandos tiene que ver con:",
-                    "updated": 1628113873377
+                    "updated": 1628113873377,
+                    "style": "Text"
                 }
             ]
         },
@@ -56,7 +58,8 @@
                 {
                     "language": "ES",
                     "text": "Producir y editar los documentos.",
-                    "updated": 1628113477717
+                    "updated": 1628113477717,
+                    "style": "List"
                 }
             ]
         },
@@ -67,7 +70,8 @@
                 {
                     "language": "ES",
                     "text": "Obteniendo actualizaciones.",
-                    "updated": 1628113492383
+                    "updated": 1628113492383,
+                    "style": "List"
                 }
             ]
         },
@@ -85,7 +89,8 @@
                 {
                     "language": "ES",
                     "text": "Contribuir con trabajo al proyecto.",
-                    "updated": 1628113514180
+                    "updated": 1628113514180,
+                    "style": "List"
                 }
             ]
         },
@@ -103,7 +108,8 @@
                 {
                     "language": "ES",
                     "text": "¡Trabajemos en un ejemplo práctico! ¡Te enseñaré cómo editar los documentos y cómo contribuir con un par de comandos!",
-                    "updated": 1628113897204
+                    "updated": 1628113897204,
+                    "style": "Callout"
                 }
             ]
         },
@@ -121,7 +127,8 @@
                 {
                     "language": "ES",
                     "text": "Prepararé los siguientes pasos con una pequeña historia ... ¡Espero que les guste la idea!",
-                    "updated": 1628113581278
+                    "updated": 1628113581278,
+                    "style": "Text"
                 }
             ]
         }

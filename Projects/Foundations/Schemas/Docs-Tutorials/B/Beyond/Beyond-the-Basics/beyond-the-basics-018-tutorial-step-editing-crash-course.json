@@ -5,7 +5,7 @@
     "definition": {
         "text": "I'll give you a few pointers on how to edit the page! Right-click on a paragraph to get the styles menu. The pencil starts edit mode...",
         "icon": {
-            "name": "docs-action-edit-paragraph",
+            "name": "Docs\\docs-action-edit-paragraph",
             "project": "Foundations"
         },
         "updated": 1616880288897,
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "¡Te daré algunos consejos sobre cómo editar la página! Haga clic derecho en un párrafo para obtener el menú de estilos. El lápiz inicia el modo de edición ...",
-                "updated": 1628189538173
+                "updated": 1628189538173,
+                "style": "Definition"
             }
         ]
     },
@@ -32,7 +33,8 @@
                 {
                     "language": "ES",
                     "text": "Esto es un H1... H2 es mas pequeño!",
-                    "updated": 1628189607019
+                    "updated": 1628189607019,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -63,7 +65,8 @@
                 {
                     "language": "ES",
                     "text": "La cuarta columna presenta notas (como esta), junto con consejos, recuadros importantes y de advertencia.",
-                    "updated": 1628189734281
+                    "updated": 1628189734281,
+                    "style": "Note"
                 }
             ]
         },
@@ -75,7 +78,8 @@
                 {
                     "language": "ES",
                     "text": "Utiliza JS para agregar código === \"¡diseñado por prisma!\"",
-                    "updated": 1628189857508
+                    "updated": 1628189857508,
+                    "style": "Javascript"
                 }
             ]
         },
@@ -93,7 +97,8 @@
                 {
                     "language": "ES",
                     "text": "Abc| convierte el párrafo en texto sin formato. ¡Eso debería ser suficiente para que tu reseña se vea genial! ¡Explicaré el resto del menú más adelante!",
-                    "updated": 1628189894586
+                    "updated": 1628189894586,
+                    "style": "Text"
                 }
             ]
         }

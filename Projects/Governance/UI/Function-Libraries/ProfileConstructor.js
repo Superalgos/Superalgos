@@ -62,8 +62,8 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                         console.log('Call to WEB3 Server failed. ' + response.error)
                         return
                     } else {
-                        node.payload.uiObject.setErrorMessage('Call to WEB3 Server failed. Most likely the Mnemonic provided is not correct.' + response.error)
-                        console.log('Call to WEB3 Server failed. Most likely the Mnemonic provided is not correct.' + response.error)
+                        node.payload.uiObject.setErrorMessage('Call to WEB3 Server failed. Most likely the Mnemonic provided is not correct or you need to run node setup because a dependency is missing. ' + response.error)
+                        console.log('Call to WEB3 Server failed. Most likely the Mnemonic provided is not correct or you need to run node setup because a dependency is missing. ' + response.error)
                         return
                     }
                 }

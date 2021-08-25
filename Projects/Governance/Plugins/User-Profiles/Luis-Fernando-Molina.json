@@ -12864,7 +12864,47 @@
                                 "config": "{}",
                                 "project": "Governance",
                                 "delegatePowerSwitch": [],
-                                "userDelegates": [],
+                                "userDelegates": [
+                                    {
+                                        "type": "User Delegate",
+                                        "name": "ssplatt",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "b053ef35-1efe-46f4-81b2-d0c2e8ad0732",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 28979.620230407472,
+                                                "y": 23709.169011331644
+                                            },
+                                            "targetPosition": {
+                                                "x": 29275.926732586013,
+                                                "y": 23756.099350843713
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "User Profile",
+                                                "name": "ssplatt",
+                                                "id": "56600855-7a91-49e8-8a58-2fa28d07efd1"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "ssplatt",
+                                                    "User Profile"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
                                 "id": "3bb3c6f2-4b7a-4605-a4f8-41bc39ad8268",
                                 "savedPayload": {
                                     "position": {

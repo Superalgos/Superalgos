@@ -15,8 +15,7 @@ function newGovernanceUserProfileSpace() {
     }
 
     let waitingForResponses = 0
-    let timer = 0
-    const BSC_SCAN_RATE_LIMIT_DELAY = 7000
+    const BSC_SCAN_RATE_LIMIT_DELAY = 6000
     let reputationByAddress = new Map()
 
     return thisObject
@@ -51,7 +50,7 @@ function newGovernanceUserProfileSpace() {
         /*
         Here we will setup the Reputation for each profile. 
         */
-        timer = timer + BSC_SCAN_RATE_LIMIT_DELAY
+
         waitingForResponses++
         getTreasuryAccountTransactions()
 
@@ -294,9 +293,9 @@ function newGovernanceUserProfileSpace() {
 
             if (userProfile.payload.blockchainTokens === undefined) {
                 getBlockchainAccount(userProfile)
+                return
             }
         }
-
 
         function getBlockchainAccount(userProfile) {
             let signature = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'signature')
@@ -337,8 +336,7 @@ function newGovernanceUserProfileSpace() {
                 ) {
                     waitingForResponses++
                     userProfile.payload.blockchainTokens = 0 // We need to set this value here so that the next call to BSCSCAN is not done more than once.
-                    setTimeout(getBlockchainTokens, timer, userProfile, blockchainAccount)
-                    timer = timer + BSC_SCAN_RATE_LIMIT_DELAY
+                    setTimeout(getBlockchainTokens, BSC_SCAN_RATE_LIMIT_DELAY, userProfile, blockchainAccount)
                 }
             }
         }
@@ -351,9 +349,13 @@ function newGovernanceUserProfileSpace() {
                 return response.json();
             }).then(function (data) {
                 console.log(data)
-                userProfile.payload.uiObject.setInfoMessage(data)
-                userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000
-                userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens)
+                if (data.result === "Max rate limit reached, please use API Key for higher rate limit") {
+                    userProfile.payload.blockchainTokens = undefined // This enables this profile to query the blockchain again.
+                } else {
+                    userProfile.payload.uiObject.setInfoMessage(data)
+                    userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000
+                    userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens)
+                }
                 waitingForResponses--
             }).catch(function (err) {
                 const message = err.message + ' - ' + 'Can not access BSC SCAN servers.'

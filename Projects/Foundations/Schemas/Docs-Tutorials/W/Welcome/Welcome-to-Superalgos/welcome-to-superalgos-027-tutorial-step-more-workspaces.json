@@ -7,7 +7,7 @@
             "project": "Foundations",
             "name": "workspace"
         },
-        "text": "Most are Plugin Workspaces shipping with the system! There should be one User Workspace at the end of the list too!",
+        "text": "Plugin Workspaces shipping with the system feature a black background in the Workspaces Tab on the left.",
         "translations": [
             {
                 "language": "IT",
@@ -28,13 +28,13 @@
                 "style": "Definition"
             }
         ],
-        "updated": 1622193005692
+        "updated": 1629803469668
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "As soon as you launched the UI for the first time, the Getting Started Tutorials Plugin Workspace was loaded. The Workspace was saved as a new User Workspace after 60 seconds in the My-Workspaces folder.",
-            "updated": 1622193268470,
+            "text": "Workspaces save all the information relative to the data structures that are included in the workspace.",
+            "updated": 1629803440353,
             "translations": [
                 {
                     "language": "IT",
@@ -57,9 +57,9 @@
             ]
         },
         {
-            "style": "Success",
-            "text": "The workspace is saved automatically every minute. It is also saved before closing the browser or browser tab, and you may save it manually using the Ctrl + Shift + Key-S",
-            "updated": 1622634511330,
+            "style": "Callout",
+            "text": "Let's create a copy of this Plugin Workspace and make it your own! Hit the following key combination: Ctrl + Shift + Key-S",
+            "updated": 1629803279820,
             "translations": [
                 {
                     "language": "ES",
@@ -71,7 +71,7 @@
         },
         {
             "style": "Important",
-            "text": "Changes is Plugins Workspaces don't persist in the plugin. They do in the User Workspace",
+            "text": "Now open the Workspaces Tab on the left, scroll to the bottom, and find the only workspace with a purple background! That's your workspace! But no need to click on it!",
             "translations": [
                 {
                     "language": "IT",
@@ -92,7 +92,7 @@
                     "style": "Important"
                 }
             ],
-            "updated": 1622193520113
+            "updated": 1629803460646
         }
     ]
 }

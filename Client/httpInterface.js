@@ -738,6 +738,12 @@ exports.newHttpInterface = function newHttpInterface() {
                                     console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
                                     console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
                                     console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
+                                    console.log('')
+                                    console.log('Torubleshooting Tips:')
+                                    console.log('')
+                                    console.log('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
+                                    console.log('2. Make sure you are running the latest version of Git available for your OS.')
+                                    console.log('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
                                     error = err
                                 }
                             }

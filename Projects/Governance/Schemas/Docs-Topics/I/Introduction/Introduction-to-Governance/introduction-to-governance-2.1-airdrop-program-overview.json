@@ -1,0 +1,20 @@
+{
+    "topic": "Introduction to Governance",
+    "pageNumber": "2.1",
+    "type": "Airdrop Program Overview",
+    "definition": {
+        "text": "We don't like meaningless airdrops. But what if airdrops bring users a step closer to participating in governance?",
+        "updated": 1629995579855
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Airdrops program is designed to incentivize users to take the very first step: creating and submitting their User Profiles. This is the sole technical requirement to receive the airdropped tokens and is — at the same time — the first step to participate in governance and contribute to the project.",
+            "updated": 1629995714192
+        },
+        {
+            "style": "Success",
+            "text": "The Airdrop program distributes the tokens in the Airdrops pool evenly to all existing profiles, with a cap of SA 1,000 per profile, on each release!"
+        }
+    ]
+}

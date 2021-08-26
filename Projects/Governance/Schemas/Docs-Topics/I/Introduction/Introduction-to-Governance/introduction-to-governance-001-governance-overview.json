@@ -58,11 +58,18 @@
         },
         {
             "style": "Text",
-            "text": "To participate in governance, users must set up and submit a User Profile plugin defining how they intend to exert the influence conferred by their Supearlgos (SA) Token holdings. The influence and participation is defined through different types of programs, votes, and claims."
+            "text": "To participate in governance, users must set up and submit a User Profile plugin defining how they intend to exert the influence conferred by their Superalgos SA Token holdings. The influence and participation is defined through different types of programs, votes, and claims.",
+            "updated": 1629992750219
         },
         {
             "style": "Note",
-            "text": "The system does all calculations dynamically, in real-time, with every change in the definitions, and computes all the hierarchies loaded in and referenced from the Current Workspace."
+            "text": "The system does all calculations dynamically, in real-time, with every change in the definitions, and computes all the hierarchies loaded in the Current Workspace.",
+            "updated": 1629992786999
+        },
+        {
+            "style": "Important",
+            "text": "The above means that the calculations that you see from within any given Workspace is a partial calculation within the scope of the Current Workspace only. Definitions, claims, votes, and so on, existing on other workspaces or plugins are not computed.",
+            "updated": 1629993191549
         },
         {
             "style": "Title",
@@ -74,7 +81,12 @@
         },
         {
             "style": "List",
-            "text": "Any user may, at any point, load the corresponding Plugin Workspaces and visualize how influence is being exerted by all Superalgos SA Token holders participating. "
+            "text": "Any user may, at any point, load the corresponding Plugin Workspaces and visualize how influence is being exerted by all Superalgos SA Token holders participating.",
+            "updated": 1629995410591
+        },
+        {
+            "style": "List",
+            "text": "Any user may verify all metrics managed by the Governance Project in the tables displayed in the Governace Tab."
         },
         {
             "style": "List",

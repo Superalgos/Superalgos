@@ -9,12 +9,12 @@ exports.newUserProfile = function newUserProfile() {
         tradePostsFollowing: undefined,
         tradePostsFollowers: undefined,
         ranking: undefined,
-        events: undefined,
         multiMediaPostFollowingCount: undefined,
         multiMediaPostFollowersCount: undefined,
         tradePostsFollowingCount: undefined,
         tradePostsFollowersCount: undefined,
-        eventsCount: undefined,
+        emitterEventsCount: undefined,
+        targetEventsCount: undefined,
         postsCount: undefined,
         addMultiMediaPostsFollowing: addMultiMediaPostsFollowing, 
         removeMultiMediaPostsFollowing: removeMultiMediaPostsFollowing, 
@@ -42,13 +42,12 @@ exports.newUserProfile = function newUserProfile() {
         thisObject.tradePostsFollowing = new Map()
         thisObject.tradePostsFollowers = new Map()
 
-        thisObject.events = [] // Dont know what this is
-
         thisObject.multiMediaPostFollowingCount = 0
         thisObject.multiMediaPostFollowersCount = 0
         thisObject.tradePostsFollowingCount = 0
         thisObject.tradePostsFollowersCount = 0
-        thisObject.eventsCount = 0
+        thisObject.emitterEventsCount = 0
+        thisObject.targetEventsCount = 0
         thisObject.postsCount = 0
 
     }

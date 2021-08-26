@@ -67,9 +67,9 @@ exports.newEvent = function newEvent() {
 
         thisObject.emitterUserProfile = NT.memory.USER_PROFILES.get(event.emitterUserProfileId)
         if (thisObject.emitterUserProfile === undefined) {
-            /* The message is ignored */
-            return
+            throw ('Emitter User Profile Not Found.')
         }
+        thisObject.emitterUserProfile.emitterEventsCount++
 
         thisObject.targetUserProfile = NT.memory.USER_PROFILES.get(event.targetUserProfileId)
         if (thisObject.targetUserProfile === undefined) {
@@ -77,8 +77,11 @@ exports.newEvent = function newEvent() {
             if (
                 event.eventType !== EVENT_TYPES.NEW_MULTI_MEDIA_POST &&
                 event.eventType !== EVENT_TYPES.NEW_TRADE_POST
-            )
-                throw ('Target User Profile Not Found.')
+            ) { 
+                throw ('Target User Profile Not Found.') 
+            }  
+        } else {
+            thisObject.targetUserProfile.targetEventsCount++
         }
 
         thisObject.eventId = event.eventId

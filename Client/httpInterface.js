@@ -1388,7 +1388,14 @@ exports.newHttpInterface = function newHttpInterface() {
                                 project,
                                 folder,
                                 fileName
-                            )
+                            ).catch(err => {
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err
+                                }
+                                respondWithContent(JSON.stringify(error), httpResponse)
+                                return
+                            })
 
                             respondWithContent(response, httpResponse)
 

@@ -1214,34 +1214,6 @@
                                         "isRunning": false
                                     }
                                 }
-                            },
-                            {
-                                "type": "Plugin File",
-                                "name": "test",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"test\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":true}",
-                                "project": "Foundations",
-                                "id": "752c1c55-e983-4ead-a52c-4193015469fc",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 35572.314597728066,
-                                        "y": 10724.773136533244
-                                    },
-                                    "targetPosition": {
-                                        "x": 35605.314597728066,
-                                        "y": 10678.773136533244
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
                             }
                         ],
                         "id": "2c899fe9-1335-4e9f-b2d0-45a83e478fd0",

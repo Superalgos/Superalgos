@@ -1214,6 +1214,34 @@
                                         "isRunning": false
                                     }
                                 }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "test",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"test\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":true}",
+                                "project": "Foundations",
+                                "id": "752c1c55-e983-4ead-a52c-4193015469fc",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35572.314597728066,
+                                        "y": 10724.773136533244
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
                             }
                         ],
                         "id": "2c899fe9-1335-4e9f-b2d0-45a83e478fd0",
@@ -1856,12 +1884,12 @@
                     "id": "fb31f94d-8c05-4c1a-89b7-92d48946ad9e",
                     "savedPayload": {
                         "position": {
-                            "x": 19973,
-                            "y": 30933.25
+                            "x": 19972,
+                            "y": 30934.25
                         },
                         "targetPosition": {
-                            "x": 19673,
-                            "y": 30933.25
+                            "x": 19672,
+                            "y": 30934.25
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -2081,12 +2109,12 @@
                     "id": "eca95394-e23c-4464-a0a2-955e45fd9ca5",
                     "savedPayload": {
                         "position": {
-                            "x": 19860.04694055762,
-                            "y": 31167.79944474041
+                            "x": 19884.132034355964,
+                            "y": 31146.382034355964
                         },
                         "targetPosition": {
-                            "x": 19673,
-                            "y": 30933.25
+                            "x": 19672,
+                            "y": 30934.25
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -2190,12 +2218,12 @@
                     "id": "47f47947-70a9-48a6-88d0-bd3dae2be578",
                     "savedPayload": {
                         "position": {
-                            "x": 19606.243719813105,
-                            "y": 31225.728373654547
+                            "x": 19672,
+                            "y": 31234.25
                         },
                         "targetPosition": {
-                            "x": 19673,
-                            "y": 30933.25
+                            "x": 19672,
+                            "y": 30934.25
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -2361,12 +2389,12 @@
                     "id": "1b7b5af2-bb52-4090-965e-cd457b2e229c",
                     "savedPayload": {
                         "position": {
-                            "x": 19402.709339629273,
-                            "y": 31063.415121735266
+                            "x": 19459.867965644036,
+                            "y": 31146.382034355964
                         },
                         "targetPosition": {
-                            "x": 19673,
-                            "y": 30933.25
+                            "x": 19672,
+                            "y": 30934.25
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -2501,12 +2529,12 @@
                     "id": "9aaa02f8-73ec-4c89-b1ec-85d4114c5a93",
                     "savedPayload": {
                         "position": {
-                            "x": 19402.709339629273,
-                            "y": 30803.084878264734
+                            "x": 19372,
+                            "y": 30934.25
                         },
                         "targetPosition": {
-                            "x": 19673,
-                            "y": 30933.25
+                            "x": 19672,
+                            "y": 30934.25
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -2587,9 +2615,7 @@
                                 "uiObject": {
                                     "isRunning": false
                                 },
-                                "tutorial": {
-                                    "status": "Done"
-                                }
+                                "tutorial": {}
                             }
                         },
                         {
@@ -2628,12 +2654,12 @@
                     "id": "ba99b336-1578-4a76-99f0-24e461922b4c",
                     "savedPayload": {
                         "position": {
-                            "x": 19606.243719813105,
-                            "y": 30640.771626345453
+                            "x": 19459.867965644036,
+                            "y": 30722.117965644036
                         },
                         "targetPosition": {
-                            "x": 19673,
-                            "y": 30933.25
+                            "x": 19672,
+                            "y": 30934.25
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -2653,6 +2679,121 @@
                 },
                 {
                     "type": "Tutorial Topic",
+                    "name": "Add Onboarding Programs",
+                    "config": "{\"icon\": {\"name\": \"\",\"project\": \"Foundations\"},\"position\": \"Left\",\"slider\": \"toTop\",\"pressButton\": \"\",\"docs\": {\"project\": \"Foundations\",\"category\": \"Tutorial\",\"type\": \"\"},\"controlDocs\": {\"panel\": \"\",\"closeTutorialEditor\": false,\"page\": {\"project\": \"Foundations\",\"category\": \"\",\"type\": \"\"}}}",
+                    "project": "Education",
+                    "tutorialSteps": [
+                        {
+                            "type": "Tutorial Step",
+                            "name": "Program Partners",
+                            "config": "{\n    \"icon\": {\n        \"name\": \"Programs\\\\onboarding-programs\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Program Partners\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
+                            "project": "Education",
+                            "id": "18c61fe9-3cc1-4f88-9499-b873fbcb9db0",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 19460.867965644036,
+                                    "y": 30421.117965644036
+                                },
+                                "targetPosition": {
+                                    "x": 19673,
+                                    "y": 30633.25
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Tutorial Step",
+                            "name": "Drop it like it’s Hot",
+                            "config": "{\n    \"icon\": {\n        \"name\": \"Programs\\\\airdrop-program\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Drop it like it’s Hot\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
+                            "project": "Education",
+                            "id": "7c1c466e-a5a4-4e67-94cb-6dc9e040f89b",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 19673,
+                                    "y": 30333.25
+                                },
+                                "targetPosition": {
+                                    "x": 19673,
+                                    "y": 30633.25
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Tutorial Step",
+                            "name": "GitHub Glory",
+                            "config": "{\n    \"icon\": {\n        \"name\": \"Programs\\\\github-program\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - GitHub Glory\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
+                            "project": "Education",
+                            "id": "e580ebc9-097b-46d6-bb6d-145621548377",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 19885.132034355964,
+                                    "y": 30421.117965644036
+                                },
+                                "targetPosition": {
+                                    "x": 19673,
+                                    "y": 30633.25
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "tutorialTopics": [],
+                    "id": "578fdee3-64ad-4836-8feb-3e41746bceda",
+                    "savedPayload": {
+                        "position": {
+                            "x": 19672,
+                            "y": 30634.25
+                        },
+                        "targetPosition": {
+                            "x": 19672,
+                            "y": 30934.25
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": true,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Tutorial Topic",
                     "name": "Submit Profile",
                     "config": "{\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"Next\"\n}",
                     "project": "Education",
@@ -2665,12 +2806,12 @@
                             "id": "fe74b3ae-9490-465a-a491-db4b0834dbf7",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19826.457597726625,
-                                    "y": 30400.58689229162
+                                    "x": 19885.132034355964,
+                                    "y": 30421.117965644036
                                 },
                                 "targetPosition": {
-                                    "x": 19860.04694055762,
-                                    "y": 30698.70055525959
+                                    "x": 19885.132034355964,
+                                    "y": 30721.117965644036
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2683,9 +2824,7 @@
                                 "uiObject": {
                                     "isRunning": false
                                 },
-                                "tutorial": {
-                                    "status": "Done"
-                                }
+                                "tutorial": {}
                             }
                         },
                         {
@@ -2696,12 +2835,12 @@
                             "id": "e4c5a34f-67c4-4fdc-8c11-aef5bde92d72",
                             "savedPayload": {
                                 "position": {
-                                    "x": 20047.093881115237,
-                                    "y": 30464.151110519182
+                                    "x": 20097.264068711927,
+                                    "y": 30508.985931288073
                                 },
                                 "targetPosition": {
-                                    "x": 19860.04694055762,
-                                    "y": 30698.70055525959
+                                    "x": 19885.132034355964,
+                                    "y": 30721.117965644036
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2727,12 +2866,12 @@
                             "id": "340f9107-9b4a-424b-94f2-79d65873c572",
                             "savedPayload": {
                                 "position": {
-                                    "x": 20158.16060352559,
-                                    "y": 30665.111212428597
+                                    "x": 20185.132034355964,
+                                    "y": 30721.117965644036
                                 },
                                 "targetPosition": {
-                                    "x": 19860.04694055762,
-                                    "y": 30698.70055525959
+                                    "x": 19885.132034355964,
+                                    "y": 30721.117965644036
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2755,12 +2894,12 @@
                     "id": "75373f58-ac05-4358-ad12-e50c88f08196",
                     "savedPayload": {
                         "position": {
-                            "x": 19860.04694055762,
-                            "y": 30698.70055525959
+                            "x": 19884.132034355964,
+                            "y": 30722.117965644036
                         },
                         "targetPosition": {
-                            "x": 19673,
-                            "y": 30933.25
+                            "x": 19672,
+                            "y": 30934.25
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -2782,12 +2921,12 @@
             "id": "57e388d1-f479-4a16-af85-aee12be285a0",
             "savedPayload": {
                 "position": {
-                    "x": 19673,
-                    "y": 30933.25
+                    "x": 19672,
+                    "y": 30934.25
                 },
                 "targetPosition": {
-                    "x": 19673,
-                    "y": 30933.25
+                    "x": 19672,
+                    "y": 30934.25
                 },
                 "floatingObject": {
                     "isPinned": false,

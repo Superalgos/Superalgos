@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "cozed-gh",
-    "config": "{\n    \"signature\": {\n        \"message\": \"cozed-gh\",\n        \"messageHash\": \"0x08288dd0b003ecf15293773b5f61702d6a1833baafa5409642b2828d4623fd2c\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x6d4b7a7df2526f879ba0f34cdec0f11c112f33417b88ae03f046eb50aa6af610\",\n        \"s\": \"0x5c666f3ff74c102607b07c7b2019664d04f8b59142d4d7a8e40f96eb72c13b79\",\n        \"signature\": \"0x6d4b7a7df2526f879ba0f34cdec0f11c112f33417b88ae03f046eb50aa6af6105c666f3ff74c102607b07c7b2019664d04f8b59142d4d7a8e40f96eb72c13b791b\"\n    },\n    \"codeName\": \"cozed-gh\"\n}",
+    "config": "{\"signature\":{\"message\":\"cozed-gh\",\"messageHash\":\"0x08288dd0b003ecf15293773b5f61702d6a1833baafa5409642b2828d4623fd2c\",\"v\":\"0x1b\",\"r\":\"0x6d4b7a7df2526f879ba0f34cdec0f11c112f33417b88ae03f046eb50aa6af610\",\"s\":\"0x5c666f3ff74c102607b07c7b2019664d04f8b59142d4d7a8e40f96eb72c13b79\",\"signature\":\"0x6d4b7a7df2526f879ba0f34cdec0f11c112f33417b88ae03f046eb50aa6af6105c666f3ff74c102607b07c7b2019664d04f8b59142d4d7a8e40f96eb72c13b791b\"},\"codeName\":\"cozed-gh\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -9,15 +9,345 @@
         "config": "{}",
         "project": "Governance",
         "tokenPowerSwitch": [],
+        "votesAndClaimsPrograms": {
+            "type": "Votes And Claims Programs",
+            "name": "New Votes And Claims Programs",
+            "config": "{}",
+            "project": "Governance",
+            "claimsProgram": {
+                "type": "Claims Program",
+                "name": "New Claims Program",
+                "config": "{\n    \"percentage\": 50\n}",
+                "project": "Governance",
+                "assetClaimsFolders": [],
+                "featureClaimsFolders": [
+                    {
+                        "type": "Feature Claims Folder",
+                        "name": "Existing Features Feature Class",
+                        "config": "{}",
+                        "project": "Governance",
+                        "featureClaimsFolders": [],
+                        "featureContributionClaims": [
+                            {
+                                "type": "Feature Contribution Claim",
+                                "name": "Data Mining Existing Features",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "ca1bea6b-71e9-4f23-9b1d-35031c81d8fb",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 10463,
+                                        "y": 22487
+                                    },
+                                    "targetPosition": {
+                                        "x": 10463,
+                                        "y": 22787
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Feature",
+                                        "name": "Data Mining",
+                                        "id": "6ff01b26-9efe-407b-bfea-36e5f94947d6"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Features",
+                                            "Governance",
+                                            "7c27de79-0ac7-4d48-81f0-5d7b6a4d93c6"
+                                        ],
+                                        [
+                                            "Project Features",
+                                            "Feature Class",
+                                            "Governance",
+                                            "791d4a3d-f4a5-495a-9d9b-be157c24c14a"
+                                        ],
+                                        [
+                                            "Superalgos Platform",
+                                            "Feature Class",
+                                            "Governance",
+                                            "66ff697d-490b-47c6-927a-26f92564b4c5"
+                                        ],
+                                        [
+                                            "Existing Features",
+                                            "Feature Class",
+                                            "Governance",
+                                            "aa486758-108e-41f4-9f97-e618472a3dcb"
+                                        ],
+                                        [
+                                            "Data Mining",
+                                            "Feature",
+                                            "Governance",
+                                            "6ff01b26-9efe-407b-bfea-36e5f94947d6"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "id": "0e5f2302-1f64-41f2-9f9e-b7e71bd44963",
+                        "savedPayload": {
+                            "position": {
+                                "x": 10463,
+                                "y": 22787
+                            },
+                            "targetPosition": {
+                                "x": 10463,
+                                "y": 23087
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "Feature Class",
+                                "name": "Existing Features",
+                                "id": "aa486758-108e-41f4-9f97-e618472a3dcb"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "Superalgos",
+                                    "Features",
+                                    "Governance",
+                                    "7c27de79-0ac7-4d48-81f0-5d7b6a4d93c6"
+                                ],
+                                [
+                                    "Project Features",
+                                    "Feature Class",
+                                    "Governance",
+                                    "791d4a3d-f4a5-495a-9d9b-be157c24c14a"
+                                ],
+                                [
+                                    "Superalgos Platform",
+                                    "Feature Class",
+                                    "Governance",
+                                    "66ff697d-490b-47c6-927a-26f92564b4c5"
+                                ],
+                                [
+                                    "Existing Features",
+                                    "Feature Class",
+                                    "Governance",
+                                    "aa486758-108e-41f4-9f97-e618472a3dcb"
+                                ]
+                            ]
+                        }
+                    }
+                ],
+                "positionClaimsFolders": [
+                    {
+                        "type": "Position Claims Folder",
+                        "name": "Community Management Position Class",
+                        "config": "{\n    \"percentage\": 20\n}",
+                        "project": "Governance",
+                        "positionClaimsFolders": [],
+                        "positionContributionClaims": [
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Moderator Community Management",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "c5da27f7-9aa9-47c5-b9ce-59e393a9cf8d",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 11063,
+                                        "y": 23087
+                                    },
+                                    "targetPosition": {
+                                        "x": 10763,
+                                        "y": 23087
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Moderator",
+                                        "id": "6e141ab6-cc79-44b6-a58a-60b6480f706e"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions",
+                                            "Governance",
+                                            "50c68665-5da2-48a8-b229-7a1563ae82d2"
+                                        ],
+                                        [
+                                            "Rewarded Positions",
+                                            "Position Class",
+                                            "Governance",
+                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                        ],
+                                        [
+                                            "Community Management",
+                                            "Position Class",
+                                            "Governance",
+                                            "35b790f0-c567-498c-83fd-ac0aacd8720b"
+                                        ],
+                                        [
+                                            "Moderator",
+                                            "Position",
+                                            "Governance",
+                                            "6e141ab6-cc79-44b6-a58a-60b6480f706e"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "id": "501e8c09-0a51-483d-9990-1d98cfd05464",
+                        "savedPayload": {
+                            "position": {
+                                "x": 10763,
+                                "y": 23087
+                            },
+                            "targetPosition": {
+                                "x": 10463,
+                                "y": 23087
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "Position Class",
+                                "name": "Community Management",
+                                "id": "35b790f0-c567-498c-83fd-ac0aacd8720b"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "Superalgos",
+                                    "Positions",
+                                    "Governance",
+                                    "50c68665-5da2-48a8-b229-7a1563ae82d2"
+                                ],
+                                [
+                                    "Rewarded Positions",
+                                    "Position Class",
+                                    "Governance",
+                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                ],
+                                [
+                                    "Community Management",
+                                    "Position Class",
+                                    "Governance",
+                                    "35b790f0-c567-498c-83fd-ac0aacd8720b"
+                                ]
+                            ]
+                        }
+                    }
+                ],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "2d437820-0e2a-402b-abec-a706453cc283",
+                    "savedPayload": {
+                        "position": {
+                            "x": 10463,
+                            "y": 23387
+                        },
+                        "targetPosition": {
+                            "x": 10463,
+                            "y": 23087
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "f1bb5d1d-5d33-46d3-a223-c8103a4b2bb6",
+                "savedPayload": {
+                    "position": {
+                        "x": 10463,
+                        "y": 23087
+                    },
+                    "targetPosition": {
+                        "x": 10163,
+                        "y": 23087
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "638049d6-5c82-47ce-8837-7c6f8e461cff",
+            "savedPayload": {
+                "position": {
+                    "x": 10163,
+                    "y": 23087
+                },
+                "targetPosition": {
+                    "x": 9863,
+                    "y": 23087
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
         "id": "e0ed557e-bd72-458f-9f88-f7a8aeb20905",
         "savedPayload": {
             "position": {
-                "x": 9876,
-                "y": 23100
+                "x": 9863,
+                "y": 23087
             },
             "targetPosition": {
-                "x": 9576,
-                "y": 23100
+                "x": 9563,
+                "y": 23087
             },
             "floatingObject": {
                 "isPinned": false,
@@ -39,12 +369,12 @@
         "id": "d772e222-3b30-461e-9434-87fc28fb9c29",
         "savedPayload": {
             "position": {
-                "x": 9276,
-                "y": 23100
+                "x": 9263,
+                "y": 23087
             },
             "targetPosition": {
-                "x": 9576,
-                "y": 23100
+                "x": 9563,
+                "y": 23087
             },
             "floatingObject": {
                 "isPinned": false,
@@ -62,17 +392,17 @@
     "id": "07f0b13a-a50f-4488-8a2c-a3f8f08e889d",
     "savedPayload": {
         "position": {
-            "x": 9587,
-            "y": 23086
+            "x": 9563,
+            "y": 23087
         },
         "targetPosition": {
-            "x": 9587,
-            "y": 23086
+            "x": 9563,
+            "y": 23087
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

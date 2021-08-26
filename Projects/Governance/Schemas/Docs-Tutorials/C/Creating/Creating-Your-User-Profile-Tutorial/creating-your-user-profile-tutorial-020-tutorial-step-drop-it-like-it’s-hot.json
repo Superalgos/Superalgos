@@ -22,8 +22,9 @@
             "updated": 1629925540228
         },
         {
-            "style": "Text",
-            "text": "Now you will receive 1,000 SA tokens at the next distribution! "
+            "style": "Success",
+            "text": "Now you will receive 1,000 SA tokens at the next distribution if you submit a PR with your User Profile! We'll get to that!",
+            "updated": 1629980519400
         }
     ]
 }

@@ -667,7 +667,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": false,
+                            "isCollapsed": true,
                             "angleToParent": 1,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -751,36 +751,8 @@
                                 "id": "cccfce2d-3497-419b-8c32-4cd62fb1b33f",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35663.291373066735,
-                                        "y": 10973.117651551496
-                                    },
-                                    "targetPosition": {
-                                        "x": 35605.314597728066,
-                                        "y": 10678.773136533244
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Plugin File",
-                                "name": "Bitstudiocoin",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Bitstudiocoin\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
-                                "project": "Foundations",
-                                "id": "5c0f79f5-416f-46cf-8055-708b71613278",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 35596.339957877244,
-                                        "y": 10978.638866218294
+                                        "x": 35626.241539851304,
+                                        "y": 10978.042351611191
                                     },
                                     "targetPosition": {
                                         "x": 35605.314597728066,
@@ -834,8 +806,8 @@
                                 "id": "49a18a94-de50-4285-bf38-fe43c700b93f",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35529.83856860471,
-                                        "y": 10969.123561068443
+                                        "x": 35522.62339098297,
+                                        "y": 10967.15164531474
                                     },
                                     "targetPosition": {
                                         "x": 35605.314597728066,
@@ -862,8 +834,8 @@
                                 "id": "7096909f-b221-4fb7-a5ec-5a76d147dc2f",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35467.121862592874,
-                                        "y": 10945.04887323461
+                                        "x": 35428.97902204032,
+                                        "y": 10921.478234845728
                                     },
                                     "targetPosition": {
                                         "x": 35605.314597728066,
@@ -873,62 +845,6 @@
                                         "isPinned": false,
                                         "isFrozen": false,
                                         "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Plugin File",
-                                "name": "Lantschirky",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Lantschirky\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
-                                "project": "Foundations",
-                                "id": "bdcdfb11-07a0-42fc-b5ec-09ba55c6dcf6",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 35411.33471736332,
-                                        "y": 10907.622008091923
-                                    },
-                                    "targetPosition": {
-                                        "x": 35605.314597728066,
-                                        "y": 10678.773136533244
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Plugin File",
-                                "name": "MarinitaMarina",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"MarinitaMarina\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
-                                "project": "Foundations",
-                                "id": "6ebdfb57-965a-43d4-a048-31315d0947cf",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 35365.2745333247,
-                                        "y": 10858.719704939618
-                                    },
-                                    "targetPosition": {
-                                        "x": 35605.314597728066,
-                                        "y": 10678.773136533244
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": true,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -946,36 +862,8 @@
                                 "id": "00a46dc7-6fbd-45d1-870a-fab7924ee5c0",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35331.25096043528,
-                                        "y": 10800.794129455984
-                                    },
-                                    "targetPosition": {
-                                        "x": 35605.314597728066,
-                                        "y": 10678.773136533244
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Plugin File",
-                                "name": "SSChana",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"SSChana\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
-                                "project": "Foundations",
-                                "id": "99c7c2c7-eb03-476e-8e0b-9480e3dca261",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 35310.97008270981,
-                                        "y": 10736.74991187191
+                                        "x": 35356.60332596155,
+                                        "y": 10846.531007574467
                                     },
                                     "targetPosition": {
                                         "x": 35605.314597728066,
@@ -1029,8 +917,8 @@
                                 "id": "aeed0c96-3e89-426c-bf61-12b6e23c6916",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35305.448868043015,
-                                        "y": 10669.798496682424
+                                        "x": 35314.22587984527,
+                                        "y": 10751.349705213144
                                     },
                                     "targetPosition": {
                                         "x": 35605.314597728066,
@@ -1084,63 +972,8 @@
                                 "id": "5d42dd71-edb0-409a-8caa-20a74e7ca269",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35314.964173192864,
-                                        "y": 10603.297107409891
-                                    },
-                                    "targetPosition": {
-                                        "x": 35605.314597728066,
-                                        "y": 10678.773136533244
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": true,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Plugin File",
-                                "name": "teehanming",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"teehanming\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
-                                "project": "Foundations",
-                                "pluginFilePosition": {
-                                    "type": "Plugin File Position",
-                                    "name": "teehanming",
-                                    "project": "Foundations",
-                                    "id": "1a9a03b1-1444-4756-afee-7503814b92b4",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 30371.18858563142,
-                                            "y": 16671.726514323018
-                                        },
-                                        "targetPosition": {
-                                            "x": 35421.25159167974,
-                                            "y": 10441.87482542813
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": true,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                "id": "e7165758-71ad-44dd-b6c4-585b5e295d85",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 35339.0388610267,
-                                        "y": 10540.580401398054
+                                        "x": 35306.95802911758,
+                                        "y": 10647.414597552948
                                     },
                                     "targetPosition": {
                                         "x": 35605.314597728066,
@@ -1167,8 +1000,8 @@
                                 "id": "21126c69-67ed-4839-8611-8feac8578cf6",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35376.46572616939,
-                                        "y": 10484.793256168505
+                                        "x": 35335.67638383831,
+                                        "y": 10547.26179249652
                                     },
                                     "targetPosition": {
                                         "x": 35605.314597728066,
@@ -1195,8 +1028,8 @@
                                 "id": "ded04ad6-6b18-4166-bb97-35a9521b9104",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35425.36802932169,
-                                        "y": 10438.733072129882
+                                        "x": 35396.917086590365,
+                                        "y": 10462.971196431648
                                     },
                                     "targetPosition": {
                                         "x": 35605.314597728066,
@@ -1229,7 +1062,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -1784,7 +1617,7 @@
                 "floatingObject": {
                     "isPinned": true,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -1834,7 +1667,7 @@
                                     "isRunning": false
                                 },
                                 "tutorial": {
-                                    "status": "Done"
+                                    "status": "Reset"
                                 },
                                 "referenceParent": {
                                     "type": "Charting Space",
@@ -1875,7 +1708,7 @@
                             "isRunning": false
                         },
                         "tutorial": {
-                            "status": "Done"
+                            "status": "Reset"
                         }
                     }
                 },
@@ -1912,7 +1745,7 @@
                                     "isRunning": false
                                 },
                                 "tutorial": {
-                                    "status": "Done"
+                                    "status": "Reset"
                                 },
                                 "referenceParent": {
                                     "type": "Workspace",
@@ -1948,7 +1781,7 @@
                                     "isRunning": false
                                 },
                                 "tutorial": {
-                                    "status": "Done"
+                                    "status": "Reset"
                                 }
                             }
                         },
@@ -1979,7 +1812,7 @@
                                     "isRunning": false
                                 },
                                 "tutorial": {
-                                    "status": "Done"
+                                    "status": "Reset"
                                 },
                                 "referenceParent": {
                                     "type": "Crypto Exchange",
@@ -2035,7 +1868,7 @@
                                     "isRunning": false
                                 },
                                 "tutorial": {
-                                    "status": "Done"
+                                    "status": "Reset"
                                 },
                                 "referenceParent": {
                                     "type": "Market",
@@ -2100,7 +1933,7 @@
                             "isRunning": false
                         },
                         "tutorial": {
-                            "status": "Done"
+                            "status": "Reset"
                         }
                     }
                 },
@@ -2137,7 +1970,7 @@
                                     "isRunning": false
                                 },
                                 "tutorial": {
-                                    "status": "Done"
+                                    "status": "Reset"
                                 },
                                 "referenceParent": {
                                     "type": "Charting Space",
@@ -2181,7 +2014,7 @@
                                     "isRunning": false
                                 },
                                 "tutorial": {
-                                    "status": "Done"
+                                    "status": "Reset"
                                 }
                             }
                         }
@@ -2209,7 +2042,7 @@
                             "isRunning": false
                         },
                         "tutorial": {
-                            "status": "Done"
+                            "status": "Reset"
                         }
                     }
                 },
@@ -2227,12 +2060,12 @@
                             "id": "9aec749c-46c8-45d0-99f4-f99ecd50ec44",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19303.625621042724,
-                                    "y": 31346.580120827777
+                                    "x": 19459.867965644036,
+                                    "y": 31446.382034355964
                                 },
                                 "targetPosition": {
-                                    "x": 19402.709339629273,
-                                    "y": 31063.415121735266
+                                    "x": 19459.867965644036,
+                                    "y": 31146.382034355964
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2246,7 +2079,7 @@
                                     "isRunning": false
                                 },
                                 "tutorial": {
-                                    "status": "Done"
+                                    "status": "Reset"
                                 },
                                 "referenceParent": {
                                     "type": "Governance Project",
@@ -2271,12 +2104,12 @@
                             "id": "cdfada38-c5e0-4c0c-aaf5-4fa24b416131",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19132.418679258546,
-                                    "y": 31193.580243470533
+                                    "x": 19247.735931288073,
+                                    "y": 31358.514068711927
                                 },
                                 "targetPosition": {
-                                    "x": 19402.709339629273,
-                                    "y": 31063.415121735266
+                                    "x": 19459.867965644036,
+                                    "y": 31146.382034355964
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2290,7 +2123,7 @@
                                     "isRunning": false
                                 },
                                 "tutorial": {
-                                    "status": "Done"
+                                    "status": "Reset"
                                 }
                             }
                         },
@@ -2302,12 +2135,12 @@
                             "id": "651e15ce-bdda-4cca-9c2d-e16a2d900e45",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19119.544340536762,
-                                    "y": 30964.331403148717
+                                    "x": 19159.867965644036,
+                                    "y": 31146.382034355964
                                 },
                                 "targetPosition": {
-                                    "x": 19402.709339629273,
-                                    "y": 31063.415121735266
+                                    "x": 19459.867965644036,
+                                    "y": 31146.382034355964
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2321,7 +2154,7 @@
                                     "isRunning": false
                                 },
                                 "tutorial": {
-                                    "status": "Done"
+                                    "status": "Reset"
                                 },
                                 "referenceParent": {
                                     "type": "Time Machine",
@@ -2380,7 +2213,7 @@
                             "isRunning": false
                         },
                         "tutorial": {
-                            "status": "Done"
+                            "status": "Reset"
                         }
                     }
                 },
@@ -2398,12 +2231,12 @@
                             "id": "a7929f0d-8dee-488c-b517-7ac95d2cb071",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19119.544340536762,
-                                    "y": 30902.168596851283
+                                    "x": 19159.867965644036,
+                                    "y": 31146.382034355964
                                 },
                                 "targetPosition": {
-                                    "x": 19402.709339629273,
-                                    "y": 30803.084878264734
+                                    "x": 19372,
+                                    "y": 30934.25
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2417,7 +2250,7 @@
                                     "isRunning": false
                                 },
                                 "tutorial": {
-                                    "status": "Done"
+                                    "status": "Reset"
                                 },
                                 "referenceParent": {
                                     "type": "Tutorial",
@@ -2442,12 +2275,12 @@
                             "id": "5ad27b7a-b482-44ca-a06d-8db0059d1eed",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19132.418679258546,
-                                    "y": 30672.919756529467
+                                    "x": 19072,
+                                    "y": 30934.25
                                 },
                                 "targetPosition": {
-                                    "x": 19402.709339629273,
-                                    "y": 30803.084878264734
+                                    "x": 19372,
+                                    "y": 30934.25
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2461,7 +2294,7 @@
                                     "isRunning": false
                                 },
                                 "tutorial": {
-                                    "status": "Done"
+                                    "status": "Reset"
                                 }
                             }
                         },
@@ -2473,12 +2306,12 @@
                             "id": "577c1c57-88f8-4987-a1f1-f7ef10ace032",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19303.625621042724,
-                                    "y": 30519.919879172223
+                                    "x": 19159.867965644036,
+                                    "y": 30722.117965644036
                                 },
                                 "targetPosition": {
-                                    "x": 19402.709339629273,
-                                    "y": 30803.084878264734
+                                    "x": 19372,
+                                    "y": 30934.25
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2492,7 +2325,7 @@
                                     "isRunning": false
                                 },
                                 "tutorial": {
-                                    "status": "Done"
+                                    "status": "Reset"
                                 }
                             }
                         }
@@ -2520,7 +2353,7 @@
                             "isRunning": false
                         },
                         "tutorial": {
-                            "status": "Done"
+                            "status": "Reset"
                         }
                     }
                 },
@@ -2538,12 +2371,12 @@
                             "id": "4147bad2-0dd4-4082-bb5a-48a0bc84f595",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19352.226460044618,
-                                    "y": 30481.16200339085
+                                    "x": 19159.867965644036,
+                                    "y": 30722.117965644036
                                 },
                                 "targetPosition": {
-                                    "x": 19606.243719813105,
-                                    "y": 30640.771626345453
+                                    "x": 19459.867965644036,
+                                    "y": 30722.117965644036
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2557,7 +2390,7 @@
                                     "isRunning": false
                                 },
                                 "tutorial": {
-                                    "status": "Done"
+                                    "status": "Reset"
                                 }
                             }
                         },
@@ -2569,41 +2402,12 @@
                             "id": "42cf8adb-7bee-4449-b8ab-ccc283e17796",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19539.48743962621,
-                                    "y": 30348.293252690906
+                                    "x": 19247.735931288073,
+                                    "y": 30509.985931288073
                                 },
                                 "targetPosition": {
-                                    "x": 19606.243719813105,
-                                    "y": 30640.771626345453
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
-                                "tutorial": {}
-                            }
-                        },
-                        {
-                            "type": "Tutorial Step",
-                            "name": "Delete the Constructor",
-                            "config": "{\n    \"icon\": {\n        \"name\": \"Docs\\\\docs-action-delete-paragraph\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Delete the Constructor\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"Close\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
-                            "project": "Education",
-                            "id": "9633816b-95cf-4b58-a231-504dd5e8e5ad",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 19765.853342767707,
-                                    "y": 30386.754366576966
-                                },
-                                "targetPosition": {
-                                    "x": 19606.243719813105,
-                                    "y": 30640.771626345453
+                                    "x": 19459.867965644036,
+                                    "y": 30722.117965644036
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2617,7 +2421,38 @@
                                     "isRunning": false
                                 },
                                 "tutorial": {
-                                    "status": "Done"
+                                    "status": "Reset"
+                                }
+                            }
+                        },
+                        {
+                            "type": "Tutorial Step",
+                            "name": "Delete the Constructor",
+                            "config": "{\n    \"icon\": {\n        \"name\": \"Docs\\\\docs-action-delete-paragraph\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Delete the Constructor\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"Close\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
+                            "project": "Education",
+                            "id": "9633816b-95cf-4b58-a231-504dd5e8e5ad",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 19459.867965644036,
+                                    "y": 30422.117965644036
+                                },
+                                "targetPosition": {
+                                    "x": 19459.867965644036,
+                                    "y": 30722.117965644036
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                },
+                                "tutorial": {
+                                    "status": "Reset"
                                 }
                             }
                         }
@@ -2645,14 +2480,14 @@
                             "isRunning": false
                         },
                         "tutorial": {
-                            "status": "Done"
+                            "status": "Reset"
                         }
                     }
                 },
                 {
                     "type": "Tutorial Topic",
                     "name": "Add Onboarding Programs",
-                    "config": "{\"icon\": {\"name\": \"\",\"project\": \"Foundations\"},\"position\": \"Left\",\"slider\": \"toTop\",\"pressButton\": \"\",\"docs\": {\"project\": \"Foundations\",\"category\": \"Tutorial\",\"type\": \"\"},\"controlDocs\": {\"panel\": \"\",\"closeTutorialEditor\": false,\"page\": {\"project\": \"Foundations\",\"category\": \"\",\"type\": \"\"}}}",
+                    "config": "{\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"Next\"\n}",
                     "project": "Education",
                     "tutorialSteps": [
                         {
@@ -2663,12 +2498,12 @@
                             "id": "18c61fe9-3cc1-4f88-9499-b873fbcb9db0",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19460.867965644036,
-                                    "y": 30421.117965644036
+                                    "x": 19459.867965644036,
+                                    "y": 30422.117965644036
                                 },
                                 "targetPosition": {
-                                    "x": 19673,
-                                    "y": 30633.25
+                                    "x": 19672,
+                                    "y": 30634.25
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2680,6 +2515,9 @@
                                 },
                                 "uiObject": {
                                     "isRunning": false
+                                },
+                                "tutorial": {
+                                    "status": "Reset"
                                 }
                             }
                         },
@@ -2691,12 +2529,12 @@
                             "id": "7c1c466e-a5a4-4e67-94cb-6dc9e040f89b",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19673,
-                                    "y": 30333.25
+                                    "x": 19672,
+                                    "y": 30334.25
                                 },
                                 "targetPosition": {
-                                    "x": 19673,
-                                    "y": 30633.25
+                                    "x": 19672,
+                                    "y": 30634.25
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2708,6 +2546,9 @@
                                 },
                                 "uiObject": {
                                     "isRunning": false
+                                },
+                                "tutorial": {
+                                    "status": "Reset"
                                 }
                             }
                         },
@@ -2719,12 +2560,12 @@
                             "id": "e580ebc9-097b-46d6-bb6d-145621548377",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19885.132034355964,
-                                    "y": 30421.117965644036
+                                    "x": 19884.132034355964,
+                                    "y": 30422.117965644036
                                 },
                                 "targetPosition": {
-                                    "x": 19673,
-                                    "y": 30633.25
+                                    "x": 19672,
+                                    "y": 30634.25
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2736,6 +2577,9 @@
                                 },
                                 "uiObject": {
                                     "isRunning": false
+                                },
+                                "tutorial": {
+                                    "status": "Reset"
                                 }
                             }
                         }
@@ -2754,13 +2598,16 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 1,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
                         "uiObject": {
                             "isRunning": false
+                        },
+                        "tutorial": {
+                            "status": "Reset"
                         }
                     }
                 },
@@ -2796,7 +2643,9 @@
                                 "uiObject": {
                                     "isRunning": false
                                 },
-                                "tutorial": {}
+                                "tutorial": {
+                                    "status": "Reset"
+                                }
                             }
                         },
                         {
@@ -2826,7 +2675,7 @@
                                     "isRunning": false
                                 },
                                 "tutorial": {
-                                    "status": "Done"
+                                    "status": "Reset"
                                 }
                             }
                         },
@@ -2857,7 +2706,7 @@
                                     "isRunning": false
                                 },
                                 "tutorial": {
-                                    "status": "Done"
+                                    "status": "Reset"
                                 }
                             }
                         }
@@ -2885,7 +2734,7 @@
                             "isRunning": false
                         },
                         "tutorial": {
-                            "status": "Done"
+                            "status": "Reset"
                         }
                     }
                 }
@@ -2914,6 +2763,33 @@
                 },
                 "tutorial": {
                     "status": "Done"
+                }
+            }
+        },
+        {
+            "type": "APIs",
+            "name": "New APIs",
+            "project": "Foundations",
+            "id": "d9d1ab81-0cf6-4269-b4f1-ffe20566f239",
+            "savedPayload": {
+                "position": {
+                    "x": 30283.083333333336,
+                    "y": 10760.951150794494
+                },
+                "targetPosition": {
+                    "x": 30283.083333333336,
+                    "y": 10760.951150794494
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
                 }
             }
         }

@@ -58,13 +58,13 @@ exports.newEvent = function newEvent() {
 
     function initialize(eventReceived) {
 
-        thisObject.emitterUserProfile = NT.memory.USER_PROFILES.get(eventReceived.emitterUserProfileId)
+        thisObject.emitterUserProfile = NT.memory.USER_PROFILES_BY_ID.get(eventReceived.emitterUserProfileId)
         if (thisObject.emitterUserProfile === undefined) {
             throw ('Emitter User Profile Not Found.')
         }
         thisObject.emitterUserProfile.emitterEventsCount++
 
-        thisObject.targetUserProfile = NT.memory.USER_PROFILES.get(eventReceived.targetUserProfileId)
+        thisObject.targetUserProfile = NT.memory.USER_PROFILES_BY_ID.get(eventReceived.targetUserProfileId)
         if (thisObject.targetUserProfile === undefined) {
             /* We thow an exception when it does not have a target user profile and is required*/
             if (

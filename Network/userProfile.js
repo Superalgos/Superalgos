@@ -2,7 +2,7 @@ exports.newUserProfile = function newUserProfile() {
 
     let thisObject = {
         userProfieId: undefined,
-        githubUsername: undefined,
+        userHandle: undefined,
         blockchainAccount: undefined,
         multiMediaPostsFollowing: undefined,
         multiMediaPostsFollowers: undefined,

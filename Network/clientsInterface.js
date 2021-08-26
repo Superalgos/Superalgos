@@ -54,6 +54,8 @@ exports.newClientInterface = function newClientInterface() {
             "queryType": 10, 
             "emitterUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "emitterUserProfileHandle": "Luis-Fernando-Molina",
+            "targetUserProfileHandle":  "Luis-Fernando-Molina",
             "emitterPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "timestamp": 124234234234,

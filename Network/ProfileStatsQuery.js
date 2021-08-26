@@ -15,8 +15,12 @@ exports.newProfileStatsQuery = function newProfileStatsQuery() {
 
     function initialize(queryReceived) {
 
-        thisObject.profile = NT.memory.PROFILES.get(queryReceived.targetUserProfileId)
-
+        if (queryReceived.targetUserProfileId !== undefined) {
+            thisObject.profile = NT.memory.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
+        } else {
+            thisObject.profile = NT.memory.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileHandle)
+        }
+        
         if (thisObject.profile === undefined) {
             throw ('Target User Profile Not Found.')
         }
@@ -27,7 +31,7 @@ exports.newProfileStatsQuery = function newProfileStatsQuery() {
 
         return {
             "userProfieId": thisObject.profile.userProfieId,
-            "githubUsername": thisObject.profile.githubUsername,
+            "userHandle": thisObject.profile.userHandle,
             "blockchainAccount": thisObject.profile.blockchainAccount,
             "ranking": thisObject.profile.ranking,
             "multiMediaPostFollowingCount": thisObject.profile.multiMediaPostFollowingCount,

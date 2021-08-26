@@ -360,7 +360,9 @@ function newGovernanceUserProfileSpace() {
             }).catch(function (err) {
                 const message = err.message + ' - ' + 'Can not access BSC SCAN servers.'
                 console.log(message)
-                userProfile.payload.uiObject.setErrorMessage(message, 1000)
+                if (userProfile.payload !== undefined) {
+                    userProfile.payload.uiObject.setErrorMessage(message, 1000)
+                }
                 waitingForResponses--
             });
         }

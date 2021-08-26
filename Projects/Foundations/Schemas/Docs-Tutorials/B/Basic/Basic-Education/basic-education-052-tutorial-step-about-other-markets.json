@@ -5,7 +5,7 @@
     "definition": {
         "text": "You may work with any of the markets listed at the exchange! Take a look at the setup in the Exchange Markets node!",
         "icon": {
-            "name": "market",
+            "name": "Market\\market",
             "project": "Foundations"
         },
         "updated": 1616176775093,
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "¡Puedes trabajar con cualquiera de los mercados listados en el exchange! ¡Echa un vistazo a la configuración en el nodo Exchange Markets!",
-                "updated": 1628020751758
+                "updated": 1628020751758,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "No voy a explicar cómo configurar nuevos mercados, ya que el tema se trata en Install a New Market Tutorial in the Install a New Market Tutorial Plugin Workspace. ¡Solo quería hacerte saber que es fácil!",
-                    "updated": 1628020854073
+                    "updated": 1628020854073,
+                    "style": "Text"
                 }
             ]
         },
@@ -56,7 +58,8 @@
                 {
                     "language": "ES",
                     "text": "¡Eche un vistazo al menú del mercado BTC/USDT! Observe los botones \"Install Market\" y \"Uninstall Market\" . ¡Asi es como lo haces!",
-                    "updated": 1628021245760
+                    "updated": 1628021245760,
+                    "style": "Callout"
                 }
             ]
         },
@@ -74,7 +77,8 @@
                 {
                     "language": "ES",
                     "text": "¡Lo dejaré así y te dejaré hacer el Install a New Market Tutorial cuando sea tu tiempo!",
-                    "updated": 1628021318712
+                    "updated": 1628021318712,
+                    "style": "Success"
                 }
             ]
         }

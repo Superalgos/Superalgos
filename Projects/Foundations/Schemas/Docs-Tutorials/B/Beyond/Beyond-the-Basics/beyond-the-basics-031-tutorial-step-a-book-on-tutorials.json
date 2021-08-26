@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "¡Felicidades! ¡Has llegado al final de otro tutorial! ¡Espero que sienta que está empezando a comprender cómo funciona Superalgos!",
-                "updated": 1628200006294
+                "updated": 1628200006294,
+                "style": "Definition"
             }
         ]
     },
@@ -38,14 +39,15 @@
                 {
                     "language": "ES",
                     "text": "¡Hablemos de lo que viene después! La página que acabo de abrir es First Steps Tutorials book. ¡A partir de ahora, puede elegir qué tutoriales deseas hacer!",
-                    "updated": 1628200392617
+                    "updated": 1628200392617,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Take a look at the list of tutorials available on each of the Plugin Worspaces and choose which one to do next! I believe the order in the list may be appropriate, but it probably depends on your interests, so I'll leave it up to you!",
-            "updated": 1617034816159,
+            "text": "Take a look at the list of tutorials available on each of the Plugin Worspaces and choose which one to do next!",
+            "updated": 1629914136171,
             "translations": [
                 {
                     "language": "IT",
@@ -56,13 +58,14 @@
                 {
                     "language": "ES",
                     "text": "Echa un vistazo a la lista de tutoriales disponibles en los Plugin Worspaces ¡y elige cuál hacer a continuación! Creo que el orden en la lista puede ser apropiado, pero probablemente dependa de tus intereses, ¡así que lo dejaré en tus manos!",
-                    "updated": 1628200313162
+                    "updated": 1628200313162,
+                    "style": "Callout"
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "See you on the next tutorial!",
+            "text": "To participate in the next Airdrop and Governance in general, get started by loading the Token Distribution Superalgos Plugin Workspace!",
             "translations": [
                 {
                     "language": "IT",
@@ -73,9 +76,11 @@
                 {
                     "language": "ES",
                     "text": "¡Nos vemos en el próximo tutorial!",
-                    "updated": 1628200369762
+                    "updated": 1628200369762,
+                    "style": "Success"
                 }
-            ]
+            ],
+            "updated": 1629914176718
         }
     ]
 }

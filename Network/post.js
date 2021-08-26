@@ -9,6 +9,7 @@ exports.newPost = function newPost() {
         replies: undefined,
         targetPost: undefined,
         reactionsCount: undefined,
+        reactionTypesCount: undefined, 
         addReaction: addReaction,
         removeReactions: removeReaction,
         initialize: initialize,
@@ -35,6 +36,8 @@ exports.newPost = function newPost() {
         REACTION_ANGRY: 5,
         REACTION_HUG: 6
     }
+
+    thisObject.reactionTypesCount = 7
 
     thisObject.reactionsCount = new Map()
     thisObject.reactionsCount.set(REACTION_TYPES.REACTION_LIKE, 0)

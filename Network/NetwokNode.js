@@ -16,9 +16,9 @@ global.NT = {
         POST: require('./Post.js'),
         BOT: require('./Bot.js'),
         QUERY: require('./Query.js'),
-        PROFILE_STATS_QUERY: require('./ProfileStatsQuery.js'),
-        PROFILE_POSTS_QUERY: require('./ProfilePostsQuery.js'),
-        POST_REPLIES_QUERY: require('./ProfileRepliesQuery.js'),
-        TIMELINE_CHUNK_QUERY: require('./TimelineChunkQuery.js')
+        QUERY_PROFILE_STATS: require('./Queries/ProfileStats.js'),
+        QUERY_PROFILE_POSTS: require('./Queries/ProfilePosts.js'),
+        QUERY_POST_REPLIES: require('./Queries/ProfileReplies.js'),
+        QUERY_TIMELINE_CHUNK: require('./Queries/TimelineChunk.js')
     }
 }

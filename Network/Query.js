@@ -31,25 +31,25 @@ exports.newQuery = function newQuery() {
         switch (thisObject.queryType) {
             
             case QUERY_TYPES.PROFILE_STATS: {
-                thisObject.query = NT.modules.PROFILE_STATS_QUERY.newProfileStatsQuery()
+                thisObject.query = NT.modules.QUERY_PROFILE_STATS.newProfileStats()
                 query.initialize(queryReceived)
                 break
             }
 
             case QUERY_TYPES.PROFILE_POSTS: {
-                thisObject.query = NT.modules.PROFILE_POSTS_QUERY.newProfileStatsQuery()
+                thisObject.query = NT.modules.QUERY_PROFILE_POSTS.newProfilePosts()
                 query.initialize(queryReceived)
                 break
             }
 
             case QUERY_TYPES.POST_REPLIES: {
-                thisObject.query = NT.modules.POST_REPLIES_QUERY.newProfileStatsQuery()
+                thisObject.query = NT.modules.QUERY_POST_REPLIES.newPostReplies()
                 query.initialize(queryReceived)
                 break
             }
 
             case QUERY_TYPES.TIMELINE_CHUNK: {
-                thisObject.query = NT.modules.TIMELINE_CHUNK_QUERY.newProfileStatsQuery()
+                thisObject.query = NT.modules.QUERY_TIMELINE_CHUNK.newTimelineChunk()
                 query.initialize(queryReceived)
                 break
             }

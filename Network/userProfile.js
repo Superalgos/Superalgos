@@ -2,7 +2,7 @@ exports.newUserProfile = function newUserProfile() {
 
     let thisObject = {
         userProfieId: undefined,
-        userHandle: undefined,
+        userProfileHandle: undefined,
         blockchainAccount: undefined,
         multiMediaPostsFollowing: undefined,
         multiMediaPostsFollowers: undefined,
@@ -67,7 +67,7 @@ exports.newUserProfile = function newUserProfile() {
         thisObject.postsCount = 0
         thisObject.botsCount = 0
 
-        thisObject.posts = undefined
+        thisObject.posts = []
         thisObject.bots = undefined
     }
 
@@ -78,10 +78,6 @@ exports.newUserProfile = function newUserProfile() {
         userProfile,
         timestamp
     ) {
-        if (thisObject.posts.get(emitterPostHash) !== undefined) {
-            throw ('Post Already Exists.')
-        }
-
         if (NT.memory.POSTS.get(emitterPostHash) !== undefined) {
             throw ('Post Already Exists.')
         }
@@ -95,7 +91,7 @@ exports.newUserProfile = function newUserProfile() {
             timestamp
         )
 
-        thisObject.posts.set(emitterPostHash, post)
+        thisObject.posts.push(post)
         NT.memory.POSTS.set(emitterPostHash, post)
         thisObject.postsCount++
     }
@@ -103,10 +99,6 @@ exports.newUserProfile = function newUserProfile() {
     function removePost(
         emitterPostHash
     ) {
-        if (thisObject.posts.get(emitterPostHash) === undefined) {
-            throw ('Post Does Not Exist.')
-        }
-
         if (NT.memory.POSTS.get(emitterPostHash) === undefined) {
             throw ('Post Does Not Exist.')
         }
@@ -114,7 +106,12 @@ exports.newUserProfile = function newUserProfile() {
         let post = thisObject.posts.get(emitterPostHash)
         post.finalize()
 
-        thisObject.posts.delete(emitterPostHash)
+        for (let i = thisObject.posts.length - 1; i >= 0; i-- {
+            if (thisObject.posts[i].emitterPostHash === emitterPostHash) {
+                thisObject.posts.splice(i, 1)
+                break
+            }
+        }
         NT.memory.POSTS.delete(emitterPostHash)
         thisObject.postsCount--
     }

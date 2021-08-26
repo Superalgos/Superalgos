@@ -1,4 +1,4 @@
-exports.newProfileStatsQuery = function newProfileStatsQuery() {
+exports.newProfileStats = function newProfileStats() {
 
     let thisObject = {
         profile: undefined,
@@ -14,11 +14,13 @@ exports.newProfileStatsQuery = function newProfileStatsQuery() {
     }
 
     function initialize(queryReceived) {
-
+        /*
+        Validate User Profile
+        */
         if (queryReceived.targetUserProfileId !== undefined) {
             thisObject.profile = NT.memory.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
         } else {
-            thisObject.profile = NT.memory.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileHandle)
+            thisObject.profile = NT.memory.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
         }
         
         if (thisObject.profile === undefined) {
@@ -31,7 +33,7 @@ exports.newProfileStatsQuery = function newProfileStatsQuery() {
 
         return {
             "userProfieId": thisObject.profile.userProfieId,
-            "userHandle": thisObject.profile.userHandle,
+            "userProfileHandle": thisObject.profile.userProfileHandle,
             "blockchainAccount": thisObject.profile.blockchainAccount,
             "ranking": thisObject.profile.ranking,
             "multiMediaPostFollowingCount": thisObject.profile.multiMediaPostFollowingCount,

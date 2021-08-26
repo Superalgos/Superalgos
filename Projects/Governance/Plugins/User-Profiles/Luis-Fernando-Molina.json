@@ -150,7 +150,7 @@
         "communityBuildingPrograms": {
             "type": "Community Building Programs",
             "name": "New Community Building Programs",
-            "config": "{}",
+            "config": "{\n    \"percentage\": 0\n}",
             "project": "Governance",
             "referralProgram": {
                 "type": "Referral Program",
@@ -539,7 +539,7 @@
         "votesAndClaimsPrograms": {
             "type": "Votes And Claims Programs",
             "name": "New Votes And Claims Programs",
-            "config": "{\n    \"percentage\": 10\n}",
+            "config": "{\n    \"percentage\": 30\n}",
             "project": "Governance",
             "votingProgram": {
                 "type": "Voting Program",

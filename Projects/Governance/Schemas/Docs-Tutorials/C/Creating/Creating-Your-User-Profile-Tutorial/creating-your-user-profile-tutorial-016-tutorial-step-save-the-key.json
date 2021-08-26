@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Your private key is the way you will be able to add your governance address to a crypto wallet. Superalgos generates it locally on your computer. This means that there is no one else in the world that has access, or knowledge, of your key.",
-            "updated": 1629578744466
+            "text": "You need the private key to add your governance address to a crypto wallet. Superalgos generates it locally on your computer. This means that there is no one else in the world that has access, or knowledge, of your key, as long as your machine is secure.",
+            "updated": 1629980024465
         },
         {
             "style": "Warning",

@@ -152,118 +152,6 @@
             "name": "New Community Building Programs",
             "config": "{\n    \"percentage\": 10\n}",
             "project": "Governance",
-            "referralProgram": {
-                "type": "Referral Program",
-                "name": "New Referral Program",
-                "config": "{}",
-                "project": "Governance",
-                "userReferrers": [
-                    {
-                        "type": "User Referrer",
-                        "name": "",
-                        "config": "{}",
-                        "project": "Governance",
-                        "id": "7989a057-1d20-4065-a34b-a78c711d2d27",
-                        "savedPayload": {
-                            "position": {
-                                "x": 25482.768495334443,
-                                "y": 22293.74756520946
-                            },
-                            "targetPosition": {
-                                "x": 25552.802104491217,
-                                "y": 22585.458541328764
-                            },
-                            "floatingObject": {
-                                "isPinned": false,
-                                "isFrozen": false,
-                                "isCollapsed": false,
-                                "angleToParent": 3,
-                                "distanceToParent": 3,
-                                "arrangementStyle": 0
-                            },
-                            "uiObject": {
-                                "isRunning": false
-                            }
-                        }
-                    }
-                ],
-                "tokensAwarded": {
-                    "type": "Tokens Awarded",
-                    "name": "New Tokens Awarded",
-                    "project": "Governance",
-                    "id": "f0fc322e-cfd5-4c9a-a615-522a795f637b",
-                    "savedPayload": {
-                        "position": {
-                            "x": 25599.732444003286,
-                            "y": 22289.152039150224
-                        },
-                        "targetPosition": {
-                            "x": 25552.802104491217,
-                            "y": 22585.458541328764
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": false,
-                            "angleToParent": 3,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                "tokensBonus": {
-                    "type": "Tokens Bonus",
-                    "name": "New Tokens Bonus",
-                    "project": "Governance",
-                    "id": "ca3817c4-8e19-444f-85d1-d5a25c893a90",
-                    "savedPayload": {
-                        "position": {
-                            "x": 25709.551673906,
-                            "y": 22329.666492022538
-                        },
-                        "targetPosition": {
-                            "x": 25552.802104491217,
-                            "y": 22585.458541328764
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": false,
-                            "angleToParent": 3,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                "id": "f34698bc-1ff7-4923-b5fb-dd5b47daafa2",
-                "savedPayload": {
-                    "position": {
-                        "x": 25552.802104491217,
-                        "y": 22585.458541328764
-                    },
-                    "targetPosition": {
-                        "x": 25505.871764979147,
-                        "y": 22881.765043507305
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": true,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    }
-                }
-            },
             "supportProgram": {
                 "type": "Support Program",
                 "name": "New Support Program",
@@ -272,18 +160,18 @@
                 "userSupporters": [
                     {
                         "type": "User Supporter",
-                        "name": "",
+                        "name": "Raplh2502",
                         "config": "{}",
                         "project": "Governance",
                         "id": "c84af7b3-b580-41df-bd9a-d873a126b486",
                         "savedPayload": {
                             "position": {
-                                "x": 25905.326432706413,
-                                "y": 22449.637418513335
+                                "x": 26016.435081953594,
+                                "y": 22191.778320955997
                             },
                             "targetPosition": {
-                                "x": 25748.57686329163,
-                                "y": 22705.429467819562
+                                "x": 25869.929412447873,
+                                "y": 22617.26167997569
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -295,7 +183,213 @@
                             },
                             "uiObject": {
                                 "isRunning": false
-                            }
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "Raplh2502",
+                                "id": "59a87d1a-0457-4a49-a11b-216716e5c889"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "Raplh2502",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        "type": "User Supporter",
+                        "name": "Smidy13",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "326139c1-d5bf-4353-9d5c-4277bd670699",
+                        "savedPayload": {
+                            "position": {
+                                "x": 26088.093741558725,
+                                "y": 22223.682811762963
+                            },
+                            "targetPosition": {
+                                "x": 25869.929412447873,
+                                "y": 22617.26167997569
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 3,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "Smidy13",
+                                "id": "4b5eca40-4d97-454d-91f3-8627a98ef682"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "Smidy13",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        "type": "User Supporter",
+                        "name": "harrellbm",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "456319d1-ae7f-4bae-9764-5bba2200a7c9",
+                        "savedPayload": {
+                            "position": {
+                                "x": 26153.1235884203,
+                                "y": 22267.545997320052
+                            },
+                            "targetPosition": {
+                                "x": 25869.929412447873,
+                                "y": 22617.26167997569
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 3,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "harrellbm",
+                                "id": "3af73d3b-7c0e-4de7-a1e1-a72238081740"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "harrellbm",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        "type": "User Supporter",
+                        "name": "PLuv",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "3c1b332e-80e5-45a3-b381-8f988ba7cb54",
+                        "savedPayload": {
+                            "position": {
+                                "x": 26209.54872354812,
+                                "y": 22322.03511692996
+                            },
+                            "targetPosition": {
+                                "x": 25869.929412447873,
+                                "y": 22617.26167997569
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 3,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "PLuv",
+                                "id": "142f5de2-3762-4f55-a839-22eac5c03c8f"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "PLuv",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        "type": "User Supporter",
+                        "name": "cozed-gh",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "8e626e39-c496-42f9-979c-ee94da1ca13e",
+                        "savedPayload": {
+                            "position": {
+                                "x": 26255.654697763825,
+                                "y": 22385.494546266167
+                            },
+                            "targetPosition": {
+                                "x": 25869.929412447873,
+                                "y": 22617.26167997569
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 3,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "cozed-gh",
+                                "id": "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "cozed-gh",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        "type": "User Supporter",
+                        "name": "ssplatt",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "739e3adf-372a-41c9-9102-cc8587f7cd28",
+                        "savedPayload": {
+                            "position": {
+                                "x": 26290.040604371614,
+                                "y": 22455.996102680307
+                            },
+                            "targetPosition": {
+                                "x": 25869.929412447873,
+                                "y": 22617.26167997569
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 3,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "ssplatt",
+                                "id": "56600855-7a91-49e8-8a58-2fa28d07efd1"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "ssplatt",
+                                    "User Profile"
+                                ]
+                            ]
                         }
                     }
                 ],
@@ -306,12 +400,12 @@
                     "id": "476c3118-677c-4dff-a117-18d5ef2b75fd",
                     "savedPayload": {
                         "position": {
-                            "x": 25991.281961604112,
-                            "y": 22529.09389213182
+                            "x": 26311.661644999323,
+                            "y": 22531.397632056247
                         },
                         "targetPosition": {
-                            "x": 25748.57686329163,
-                            "y": 22705.429467819562
+                            "x": 25869.929412447873,
+                            "y": 22617.26167997569
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -333,12 +427,12 @@
                     "id": "73a5b457-3e8b-4364-a375-0c35a9802ebc",
                     "savedPayload": {
                         "position": {
-                            "x": 26040.287839410932,
-                            "y": 22635.39585866279
+                            "x": 26319.86087526825,
+                            "y": 22609.408097078915
                         },
                         "targetPosition": {
-                            "x": 25748.57686329163,
-                            "y": 22705.429467819562
+                            "x": 25869.929412447873,
+                            "y": 22617.26167997569
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -356,8 +450,8 @@
                 "id": "22fce0f5-15bf-461e-9574-d43b0dc5ea18",
                 "savedPayload": {
                     "position": {
-                        "x": 25748.57686329163,
-                        "y": 22705.429467819562
+                        "x": 25869.929412447873,
+                        "y": 22617.26167997569
                     },
                     "targetPosition": {
                         "x": 25505.871764979147,
@@ -368,90 +462,7 @@
                         "isFrozen": false,
                         "isCollapsed": false,
                         "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    }
-                }
-            },
-            "mentorshipProgram": {
-                "type": "Mentorship Program",
-                "name": "New Mentorship Program",
-                "config": "{}",
-                "project": "Governance",
-                "userMentors": [],
-                "tokensAwarded": {
-                    "type": "Tokens Awarded",
-                    "name": "New Tokens Awarded",
-                    "project": "Governance",
-                    "id": "1e85273d-0b9b-4c42-aec7-95bdfb6648ad",
-                    "savedPayload": {
-                        "position": {
-                            "x": 26100.53483576817,
-                            "y": 22897.336844039077
-                        },
-                        "targetPosition": {
-                            "x": 25802.178267157688,
-                            "y": 22928.695383019374
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": false,
-                            "angleToParent": 3,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                "tokensBonus": {
-                    "type": "Tokens Bonus",
-                    "name": "New Tokens Bonus",
-                    "project": "Governance",
-                    "id": "69cb71a8-cb6c-455b-b391-2cf3329461c4",
-                    "savedPayload": {
-                        "position": {
-                            "x": 26076.241904450468,
-                            "y": 23050.716375942113
-                        },
-                        "targetPosition": {
-                            "x": 25802.178267157688,
-                            "y": 22928.695383019374
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": false,
-                            "angleToParent": 3,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                "id": "d152256e-f496-479e-b0e3-b8bf8f9f0a3b",
-                "savedPayload": {
-                    "position": {
-                        "x": 25802.178267157688,
-                        "y": 22928.695383019374
-                    },
-                    "targetPosition": {
-                        "x": 25505.871764979147,
-                        "y": 22881.765043507305
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
+                        "distanceToParent": 4,
                         "arrangementStyle": 0
                     },
                     "uiObject": {
@@ -567,35 +578,51 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Luis-Fernando-Molina",
-                                                                                    "User Profile"
+                                                                                    "User Profile",
+                                                                                    "Governance",
+                                                                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                                                                 ],
                                                                                 [
                                                                                     "New Token Power Switch",
-                                                                                    "Token Power Switch"
+                                                                                    "Token Power Switch",
+                                                                                    "Governance",
+                                                                                    "f8182a9c-f830-4ec1-a238-ac3a5efd69e6"
                                                                                 ],
                                                                                 [
                                                                                     "New Votes And Claims Programs",
-                                                                                    "Votes And Claims Programs"
+                                                                                    "Votes And Claims Programs",
+                                                                                    "Governance",
+                                                                                    "bb390957-b8a2-4a8a-9fbf-963ea20f6eaf"
                                                                                 ],
                                                                                 [
                                                                                     "New Claims Program",
-                                                                                    "Claims Program"
+                                                                                    "Claims Program",
+                                                                                    "Governance",
+                                                                                    "796dd30f-c90d-4b8d-a63d-89867347407b"
                                                                                 ],
                                                                                 [
                                                                                     "Project Features Feature Class",
-                                                                                    "Feature Claims Folder"
+                                                                                    "Feature Claims Folder",
+                                                                                    "Governance",
+                                                                                    "f8a482c4-dee0-475a-831b-7514fd255ba6"
                                                                                 ],
                                                                                 [
                                                                                     "Superalgos Platform Feature Class",
-                                                                                    "Feature Claims Folder"
+                                                                                    "Feature Claims Folder",
+                                                                                    "Governance",
+                                                                                    "ba6b4ff8-396b-4a9d-95ba-a52d096ec9eb"
                                                                                 ],
                                                                                 [
                                                                                     "New Features Feature Class",
-                                                                                    "Feature Claims Folder"
+                                                                                    "Feature Claims Folder",
+                                                                                    "Governance",
+                                                                                    "c4815ebe-d3a8-47fd-b204-936242bd8f40"
                                                                                 ],
                                                                                 [
                                                                                     "Governance System New Features",
-                                                                                    "Feature Contribution Claim"
+                                                                                    "Feature Contribution Claim",
+                                                                                    "Governance",
+                                                                                    "92f0f22e-f631-482d-88b1-c16596bf951d"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -634,35 +661,51 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Luis-Fernando-Molina",
-                                                                                    "User Profile"
+                                                                                    "User Profile",
+                                                                                    "Governance",
+                                                                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                                                                 ],
                                                                                 [
                                                                                     "New Token Power Switch",
-                                                                                    "Token Power Switch"
+                                                                                    "Token Power Switch",
+                                                                                    "Governance",
+                                                                                    "f8182a9c-f830-4ec1-a238-ac3a5efd69e6"
                                                                                 ],
                                                                                 [
                                                                                     "New Votes And Claims Programs",
-                                                                                    "Votes And Claims Programs"
+                                                                                    "Votes And Claims Programs",
+                                                                                    "Governance",
+                                                                                    "bb390957-b8a2-4a8a-9fbf-963ea20f6eaf"
                                                                                 ],
                                                                                 [
                                                                                     "New Claims Program",
-                                                                                    "Claims Program"
+                                                                                    "Claims Program",
+                                                                                    "Governance",
+                                                                                    "796dd30f-c90d-4b8d-a63d-89867347407b"
                                                                                 ],
                                                                                 [
                                                                                     "Project Features Feature Class",
-                                                                                    "Feature Claims Folder"
+                                                                                    "Feature Claims Folder",
+                                                                                    "Governance",
+                                                                                    "f8a482c4-dee0-475a-831b-7514fd255ba6"
                                                                                 ],
                                                                                 [
                                                                                     "Superalgos Platform Feature Class",
-                                                                                    "Feature Claims Folder"
+                                                                                    "Feature Claims Folder",
+                                                                                    "Governance",
+                                                                                    "ba6b4ff8-396b-4a9d-95ba-a52d096ec9eb"
                                                                                 ],
                                                                                 [
                                                                                     "New Features Feature Class",
-                                                                                    "Feature Claims Folder"
+                                                                                    "Feature Claims Folder",
+                                                                                    "Governance",
+                                                                                    "c4815ebe-d3a8-47fd-b204-936242bd8f40"
                                                                                 ],
                                                                                 [
                                                                                     "API Maps New Features",
-                                                                                    "Feature Contribution Claim"
+                                                                                    "Feature Contribution Claim",
+                                                                                    "Governance",
+                                                                                    "81c477e0-c9bf-4b25-a875-d265011a6136"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -697,31 +740,45 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Luis-Fernando-Molina",
-                                                                            "User Profile"
+                                                                            "User Profile",
+                                                                            "Governance",
+                                                                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
-                                                                            "Token Power Switch"
+                                                                            "Token Power Switch",
+                                                                            "Governance",
+                                                                            "f8182a9c-f830-4ec1-a238-ac3a5efd69e6"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
-                                                                            "Votes And Claims Programs"
+                                                                            "Votes And Claims Programs",
+                                                                            "Governance",
+                                                                            "bb390957-b8a2-4a8a-9fbf-963ea20f6eaf"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
-                                                                            "Claims Program"
+                                                                            "Claims Program",
+                                                                            "Governance",
+                                                                            "796dd30f-c90d-4b8d-a63d-89867347407b"
                                                                         ],
                                                                         [
                                                                             "Project Features Feature Class",
-                                                                            "Feature Claims Folder"
+                                                                            "Feature Claims Folder",
+                                                                            "Governance",
+                                                                            "f8a482c4-dee0-475a-831b-7514fd255ba6"
                                                                         ],
                                                                         [
                                                                             "Superalgos Platform Feature Class",
-                                                                            "Feature Claims Folder"
+                                                                            "Feature Claims Folder",
+                                                                            "Governance",
+                                                                            "ba6b4ff8-396b-4a9d-95ba-a52d096ec9eb"
                                                                         ],
                                                                         [
                                                                             "New Features Feature Class",
-                                                                            "Feature Claims Folder"
+                                                                            "Feature Claims Folder",
+                                                                            "Governance",
+                                                                            "c4815ebe-d3a8-47fd-b204-936242bd8f40"
                                                                         ]
                                                                     ]
                                                                 }
@@ -759,27 +816,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Luis-Fernando-Molina",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "f8182a9c-f830-4ec1-a238-ac3a5efd69e6"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "bb390957-b8a2-4a8a-9fbf-963ea20f6eaf"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "796dd30f-c90d-4b8d-a63d-89867347407b"
                                                                 ],
                                                                 [
                                                                     "Project Features Feature Class",
-                                                                    "Feature Claims Folder"
+                                                                    "Feature Claims Folder",
+                                                                    "Governance",
+                                                                    "f8a482c4-dee0-475a-831b-7514fd255ba6"
                                                                 ],
                                                                 [
                                                                     "Superalgos Platform Feature Class",
-                                                                    "Feature Claims Folder"
+                                                                    "Feature Claims Folder",
+                                                                    "Governance",
+                                                                    "ba6b4ff8-396b-4a9d-95ba-a52d096ec9eb"
                                                                 ]
                                                             ]
                                                         }
@@ -817,23 +886,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Luis-Fernando-Molina",
-                                                            "User Profile"
+                                                            "User Profile",
+                                                            "Governance",
+                                                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                                         ],
                                                         [
                                                             "New Token Power Switch",
-                                                            "Token Power Switch"
+                                                            "Token Power Switch",
+                                                            "Governance",
+                                                            "f8182a9c-f830-4ec1-a238-ac3a5efd69e6"
                                                         ],
                                                         [
                                                             "New Votes And Claims Programs",
-                                                            "Votes And Claims Programs"
+                                                            "Votes And Claims Programs",
+                                                            "Governance",
+                                                            "bb390957-b8a2-4a8a-9fbf-963ea20f6eaf"
                                                         ],
                                                         [
                                                             "New Claims Program",
-                                                            "Claims Program"
+                                                            "Claims Program",
+                                                            "Governance",
+                                                            "796dd30f-c90d-4b8d-a63d-89867347407b"
                                                         ],
                                                         [
                                                             "Project Features Feature Class",
-                                                            "Feature Claims Folder"
+                                                            "Feature Claims Folder",
+                                                            "Governance",
+                                                            "f8a482c4-dee0-475a-831b-7514fd255ba6"
                                                         ]
                                                     ]
                                                 }
@@ -9618,7 +9697,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

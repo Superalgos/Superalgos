@@ -8,8 +8,10 @@ global.NT = {
         TIMELINE: []                    // A time ordered list of Posts and Trades.
     },
     modules: {
-        EVENT: require('./event.js'),
-        POST: require('./post.js')
+        EVENT: require('./UserProfile.js'),
+        EVENT: require('./Event.js'),
+        POST: require('./Post.js'),
+        BOT: require('./Bot.js')
     }
 }
 

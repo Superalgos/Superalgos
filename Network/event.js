@@ -12,18 +12,26 @@ exports.newEvent = function newEvent() {
     }
 
     const EVENT_TYPES = {
+
         NEW_MULTI_MEDIA_POST: 10,
         REPLY_TO_MULTI_MEDIA_POST: 11,
         REPOST_MULTI_MEDIA: 12,
         QUOTE_REPOST_MULTI_MEDIA: 13,
         FOLLOW_USER_PROFILE_MULTI_MEDIA_POSTS: 14,
         UNFOLLOW_USER_PROFILE_MULTI_MEDIA_POSTS: 15,
+
         NEW_TRADE_POST: 20,
         REPLY_TO_TRADE_POST: 21,
         RE_POST_TRADE: 22,
         QUOTE_REPOST_TRADE: 23,
         FOLLOW_USER_PROFILE_TRADE_POSTS: 24,
         UNFOLLOW_USER_PROFILE_TRADE_POSTS: 25,
+
+        ADD_BOT: 50,
+        REMOVE_BOT: 51,
+        ENABLE_BOT: 52,
+        DISABLE_BOT: 53,
+
         ADD_REACTION_LIKE: 100,
         ADD_REACTION_LOVE: 101,
         ADD_REACTION_HAHA: 102,
@@ -31,6 +39,7 @@ exports.newEvent = function newEvent() {
         ADD_REACTION_SAD: 104,
         ADD_REACTION_ANGRY: 105,
         ADD_REACTION_HUG: 106,
+
         REMOVE_REACTION_LIKE: 200,
         REMOVE_REACTION_LOVE: 201,
         REMOVE_REACTION_HAHA: 202,
@@ -58,8 +67,10 @@ exports.newEvent = function newEvent() {
             "targetUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "emitterPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "asset": "BTC",
-            "timestamp": 124234234234
+            "timestamp": 124234234234,
+            "botId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "botAsset": "BTC",
+            "botExchange": "Binance"
         }
         */
 
@@ -77,9 +88,9 @@ exports.newEvent = function newEvent() {
             if (
                 event.eventType !== EVENT_TYPES.NEW_MULTI_MEDIA_POST &&
                 event.eventType !== EVENT_TYPES.NEW_TRADE_POST
-            ) { 
-                throw ('Target User Profile Not Found.') 
-            }  
+            ) {
+                throw ('Target User Profile Not Found.')
+            }
         } else {
             thisObject.targetUserProfile.targetEventsCount++
         }
@@ -88,7 +99,6 @@ exports.newEvent = function newEvent() {
         thisObject.eventType = event.eventType
         thisObject.asset = event.asset
         thisObject.timestamp = event.timestamp
-
         /*
         Is is a new post?
         */
@@ -199,6 +209,45 @@ exports.newEvent = function newEvent() {
             }
 
             targetPost.removeReaction(event.eventType - 200)
+            return
+        }
+        /*
+        Is is a Bot?
+        */
+        if (
+            event.eventType === EVENT_TYPES.ADD_BOT ||
+            event.eventType === EVENT_TYPES.REMOVE_BOT ||
+            event.eventType === EVENT_TYPES.ENABLE_BOT ||
+            event.eventType === EVENT_TYPES.DISABLE_BOT
+        ) {
+            switch (event.eventType) {
+                case EVENT_TYPES.ADD_BOT: {
+                    thisObject.emitterUserProfile.addBot(
+                        thisObject.botId,
+                        thisObject.botAsset,
+                        thisObject.botExchange
+                    )
+                    break
+                }
+                case EVENT_TYPES.REMOVE_BOT: {
+                    thisObject.emitterUserProfile.removeBot(
+                        thisObject.botId
+                    )
+                    break
+                }
+                case EVENT_TYPES.ENABLE_BOT: {
+                    thisObject.emitterUserProfile.enableBot(
+                        thisObject.botId
+                    )
+                    break
+                }
+                case EVENT_TYPES.DISABLE_BOT: {
+                    thisObject.emitterUserProfile.disableBot(
+                        thisObject.botId
+                    )
+                    break
+                }
+            }
             return
         }
     }

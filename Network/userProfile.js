@@ -16,14 +16,19 @@ exports.newUserProfile = function newUserProfile() {
         emitterEventsCount: undefined,
         targetEventsCount: undefined,
         postsCount: undefined,
-        addMultiMediaPostsFollowing: addMultiMediaPostsFollowing, 
-        removeMultiMediaPostsFollowing: removeMultiMediaPostsFollowing, 
-        addTradePostsFollowing: addTradePostsFollowing, 
+        bots: undefined,
+        addMultiMediaPostsFollowing: addMultiMediaPostsFollowing,
+        removeMultiMediaPostsFollowing: removeMultiMediaPostsFollowing,
+        addTradePostsFollowing: addTradePostsFollowing,
         removeTradePostsFollowing: removeTradePostsFollowing,
         addMultiMediaPostsFollower: addMultiMediaPostsFollower,
         removeMultiMediaPostsFollower: removeMultiMediaPostsFollower,
         addTradePostsFollower: addTradePostsFollower,
         removeTradePostsFollower: removeTradePostsFollower,
+        addBot: addBot,
+        removeBot: removeBot,
+        enableBot: enableBot,
+        disableBot: disableBot,
         initialize: initialize,
         finalize: finalize
     }
@@ -31,7 +36,13 @@ exports.newUserProfile = function newUserProfile() {
     return thisObject
 
     function finalize() {
+        thisObject.multiMediaPostsFollowing = undefined
+        thisObject.multiMediaPostsFollowers = undefined
 
+        thisObject.tradePostsFollowing = undefined
+        thisObject.tradePostsFollowers = undefined
+
+        thisObject.bots = undefined
     }
 
     function initialize() {
@@ -50,8 +61,9 @@ exports.newUserProfile = function newUserProfile() {
         thisObject.targetEventsCount = 0
         thisObject.postsCount = 0
 
+        thisObject.bots = new Map()
     }
-    
+
     function addMultiMediaPostsFollowing(
         userProfile
     ) {
@@ -122,5 +134,63 @@ exports.newUserProfile = function newUserProfile() {
             thisObject.tradePostsFollowers.delete(userProfile.id)
             thisObject.tradePostsFollowersCount--
         }
+    }
+
+    function addBot(
+        botId,
+        botAsset,
+        botExchange
+    ) {
+        if (thisObject.bots.get(botId) !== undefined) {
+            throw ('Bot Already Exists.')
+        }
+
+        let bot = NT.modules.BOTS.newBot()
+        bot.initialize(
+            botId,
+            botAsset,
+            botExchange
+        )
+        thisObject.bots.set(botId, bot)
+    }
+
+    function removeBot(
+        botId
+    ) {
+        if (thisObject.bots.get(botId) === undefined) {
+            throw ('Bot Does Not Exist.')
+        }
+
+        thisObject.bots.delete(botId)
+    }
+
+    function enableBot(
+        botId
+    ) {
+        let bot = thisObject.bots.get(botId)
+        if (bot === undefined) {
+            throw ('Bot Does Not Exist.')
+        }
+
+        if (bot.enabled === true) {
+            throw ('Bot Already Enabled.')
+        }
+
+        bot.enabled = true
+    }
+
+    function disableBot(
+        botId
+    ) {
+        let bot = thisObject.bots.get(botId)
+        if (bot === undefined) {
+            throw ('Bot Does Not Exist.')
+        }
+
+        if (bot.enabled === false) {
+            throw ('Bot Already Disabled.')
+        }
+
+        bot.enabled = false
     }
 }

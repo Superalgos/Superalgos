@@ -3,14 +3,14 @@
     "pageNumber": "2.2",
     "type": "Github Program Overview",
     "definition": {
-        "text": "This program is designed to incentivize users to fork the Superalgos repository so that they are another step closer to contributing. ",
-        "updated": 1629995761559
+        "text": "This program is designed to incentivize users to fork the Superalgos repository, a necessary step to contributing.",
+        "updated": 1630004483687
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Giving a star to and watching the repository is incentivized so that it is easier to find by other developers.",
-            "updated": 1629995776936
+            "text": "Giving a star and watching the repository is incentivized to make the repository easier to find by developers serching on Github.com.",
+            "updated": 1630004556023
         },
         {
             "style": "Success",

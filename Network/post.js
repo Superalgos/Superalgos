@@ -1,14 +1,15 @@
 exports.newPost = function newPost() {
 
     let thisObject = {
-        postHash: undefined,
+        emitterPostHash: undefined,
+        targetPostHash: undefined,
         postType: undefined,
         userProfile: undefined,
-        asset: undefined,
         timestamp: undefined,
         replies: undefined,
         targetPost: undefined,
         reactionsCount: undefined,
+        reactionTypesCount: undefined, 
         addReaction: addReaction,
         removeReactions: removeReaction,
         initialize: initialize,
@@ -36,6 +37,8 @@ exports.newPost = function newPost() {
         REACTION_HUG: 6
     }
 
+    thisObject.reactionTypesCount = 7
+
     thisObject.reactionsCount = new Map()
     thisObject.reactionsCount.set(REACTION_TYPES.REACTION_LIKE, 0)
     thisObject.reactionsCount.set(REACTION_TYPES.REACTION_LOVE, 0)
@@ -48,10 +51,10 @@ exports.newPost = function newPost() {
     return thisObject
 
     function finalize() {
-        thisObject.postHash = undefined
+        thisObject.emitterPostHash = undefined
+        thisObject.targetPostHash = undefined
         thisObject.postType = undefined
         thisObject.userProfile = undefined
-        thisObject.asset = undefined
         thisObject.timestamp = undefined
         thisObject.replies = undefined
         thisObject.targetPost = undefined
@@ -62,7 +65,6 @@ exports.newPost = function newPost() {
         targetPostHash,
         postType,
         userProfile,
-        asset,
         timestamp
     ) {
 
@@ -70,8 +72,9 @@ exports.newPost = function newPost() {
         thisObject.targetPostHash = targetPostHash
         thisObject.postType = postType
         thisObject.userProfile = userProfile
-        thisObject.asset = asset
         thisObject.timestamp = timestamp
+
+        thisObject.replies = []
         /*
         Let's find the Target Post
         */

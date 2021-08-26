@@ -12,18 +12,26 @@ exports.newEvent = function newEvent() {
     }
 
     const EVENT_TYPES = {
+
         NEW_MULTI_MEDIA_POST: 10,
         REPLY_TO_MULTI_MEDIA_POST: 11,
         REPOST_MULTI_MEDIA: 12,
         QUOTE_REPOST_MULTI_MEDIA: 13,
         FOLLOW_USER_PROFILE_MULTI_MEDIA_POSTS: 14,
         UNFOLLOW_USER_PROFILE_MULTI_MEDIA_POSTS: 15,
+
         NEW_TRADE_POST: 20,
         REPLY_TO_TRADE_POST: 21,
         RE_POST_TRADE: 22,
         QUOTE_REPOST_TRADE: 23,
         FOLLOW_USER_PROFILE_TRADE_POSTS: 24,
         UNFOLLOW_USER_PROFILE_TRADE_POSTS: 25,
+
+        ADD_BOT: 50,
+        REMOVE_BOT: 51,
+        ENABLE_BOT: 52,
+        DISABLE_BOT: 53,
+
         ADD_REACTION_LIKE: 100,
         ADD_REACTION_LOVE: 101,
         ADD_REACTION_HAHA: 102,
@@ -31,6 +39,7 @@ exports.newEvent = function newEvent() {
         ADD_REACTION_SAD: 104,
         ADD_REACTION_ANGRY: 105,
         ADD_REACTION_HUG: 106,
+
         REMOVE_REACTION_LIKE: 200,
         REMOVE_REACTION_LOVE: 201,
         REMOVE_REACTION_HAHA: 202,
@@ -47,79 +56,71 @@ exports.newEvent = function newEvent() {
         thisObject.targetUserProfile = undefined
     }
 
-    function initialize(eventMessage) {
-        /*
-        We expect here a JSON string with the following properties:
+    function initialize(eventReceived) {
 
-        {
-            "eventId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "eventType": 10, 
-            "emitterUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "targetUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "emitterPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "targetPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "asset": "BTC",
-            "timestamp": 124234234234
-        }
-        */
-
-        let event = JSON.parse(eventMessage)
-
-        thisObject.emitterUserProfile = NT.memory.USER_PROFILES.get(event.emitterUserProfileId)
+        thisObject.emitterUserProfile = NT.memory.USER_PROFILES_BY_ID.get(eventReceived.emitterUserProfileId)
         if (thisObject.emitterUserProfile === undefined) {
-            /* The message is ignored */
-            return
+            throw ('Emitter User Profile Not Found.')
         }
+        thisObject.emitterUserProfile.emitterEventsCount++
 
-        thisObject.targetUserProfile = NT.memory.USER_PROFILES.get(event.targetUserProfileId)
+        thisObject.targetUserProfile = NT.memory.USER_PROFILES_BY_ID.get(eventReceived.targetUserProfileId)
         if (thisObject.targetUserProfile === undefined) {
             /* We thow an exception when it does not have a target user profile and is required*/
             if (
-                event.eventType !== EVENT_TYPES.NEW_MULTI_MEDIA_POST &&
-                event.eventType !== EVENT_TYPES.NEW_TRADE_POST
-            )
+                eventReceived.eventType !== EVENT_TYPES.NEW_MULTI_MEDIA_POST &&
+                eventReceived.eventType !== EVENT_TYPES.NEW_TRADE_POST
+            ) {
                 throw ('Target User Profile Not Found.')
+            }
+        } else {
+            thisObject.targetUserProfile.targetEventsCount++
         }
 
-        thisObject.eventId = event.eventId
-        thisObject.eventType = event.eventType
-        thisObject.asset = event.asset
-        thisObject.timestamp = event.timestamp
-
+        thisObject.eventId = eventReceived.eventId
+        thisObject.eventType = eventReceived.eventType
+        thisObject.asset = eventReceived.asset
+        thisObject.timestamp = eventReceived.timestamp
         /*
         Is is a new post?
         */
         if (
-            event.eventType === EVENT_TYPES.NEW_MULTI_MEDIA_POST ||
-            event.eventType === EVENT_TYPES.REPLY_TO_MULTI_MEDIA_POST ||
-            event.eventType === EVENT_TYPES.REPOST_MULTI_MEDIA ||
-            event.eventType === EVENT_TYPES.QUOTE_REPOST_MULTI_MEDIA ||
-            event.eventType === EVENT_TYPES.NEW_TRADE_POST ||
-            event.eventType === EVENT_TYPES.REPLY_TO_TRADE_POST ||
-            event.eventType === EVENT_TYPES.RE_POST_TRADE ||
-            event.eventType === EVENT_TYPES.QUOTE_REPOST_TRADE
+            eventReceived.eventType === EVENT_TYPES.NEW_MULTI_MEDIA_POST ||
+            eventReceived.eventType === EVENT_TYPES.REPLY_TO_MULTI_MEDIA_POST ||
+            eventReceived.eventType === EVENT_TYPES.REPOST_MULTI_MEDIA ||
+            eventReceived.eventType === EVENT_TYPES.QUOTE_REPOST_MULTI_MEDIA ||
+            eventReceived.eventType === EVENT_TYPES.NEW_TRADE_POST ||
+            eventReceived.eventType === EVENT_TYPES.REPLY_TO_TRADE_POST ||
+            eventReceived.eventType === EVENT_TYPES.RE_POST_TRADE ||
+            eventReceived.eventType === EVENT_TYPES.QUOTE_REPOST_TRADE
         ) {
-            let post = NT.modules.POST.newPost()
-            post.initialize(
-                event.emitterPostHash,
-                event.targetPostHash,
-                thisObject.eventType,
-                thisObject.emitterUserProfile,
-                thisObject.asset,
-                thisObject.timestamp
-            )
+            if (
+                eventReceived.eventType === EVENT_TYPES.NEW_MULTI_MEDIA_POST ||
+                eventReceived.eventType === EVENT_TYPES.REPLY_TO_MULTI_MEDIA_POST ||
+                eventReceived.eventType === EVENT_TYPES.REPOST_MULTI_MEDIA ||
+                eventReceived.eventType === EVENT_TYPES.QUOTE_REPOST_MULTI_MEDIA 
+            ) {
+                thisObject.emitterUserProfile.addPost(
+                    eventReceived.emitterPostHash,
+                    eventReceived.targetPostHash,
+                    thisObject.eventType,
+                    thisObject.emitterUserProfile,
+                    thisObject.timestamp
+                )
+            }
+
             return
         }
         /*
         Is is a following?
         */
         if (
-            event.eventType === EVENT_TYPES.FOLLOW_USER_PROFILE_MULTI_MEDIA_POSTS ||
-            event.eventType === EVENT_TYPES.UNFOLLOW_USER_PROFILE_MULTI_MEDIA_POSTS ||
-            event.eventType === EVENT_TYPES.FOLLOW_USER_PROFILE_TRADE_POSTS ||
-            event.eventType === EVENT_TYPES.UNFOLLOW_USER_PROFILE_TRADE_POSTS
+            eventReceived.eventType === EVENT_TYPES.FOLLOW_USER_PROFILE_MULTI_MEDIA_POSTS ||
+            eventReceived.eventType === EVENT_TYPES.UNFOLLOW_USER_PROFILE_MULTI_MEDIA_POSTS ||
+            eventReceived.eventType === EVENT_TYPES.FOLLOW_USER_PROFILE_TRADE_POSTS ||
+            eventReceived.eventType === EVENT_TYPES.UNFOLLOW_USER_PROFILE_TRADE_POSTS
         ) {
-            switch (event.eventType) {
+            switch (eventReceived.eventType) {
                 case EVENT_TYPES.FOLLOW_USER_PROFILE_MULTI_MEDIA_POSTS: {
                     thisObject.emitterUserProfile.addMultiMediaPostsFollowing(
                         thisObject.targetUserProfile
@@ -163,39 +164,78 @@ exports.newEvent = function newEvent() {
         Is is a Reaction?
         */
         if (
-            event.eventType === EVENT_TYPES.ADD_REACTION_LIKE ||
-            event.eventType === EVENT_TYPES.ADD_REACTION_LOVE ||
-            event.eventType === EVENT_TYPES.ADD_REACTION_HAHA ||
-            event.eventType === EVENT_TYPES.ADD_REACTION_WOW ||
-            event.eventType === EVENT_TYPES.ADD_REACTION_SAD ||
-            event.eventType === EVENT_TYPES.ADD_REACTION_ANGRY ||
-            event.eventType === EVENT_TYPES.ADD_REACTION_HUG
+            eventReceived.eventType === EVENT_TYPES.ADD_REACTION_LIKE ||
+            eventReceived.eventType === EVENT_TYPES.ADD_REACTION_LOVE ||
+            eventReceived.eventType === EVENT_TYPES.ADD_REACTION_HAHA ||
+            eventReceived.eventType === EVENT_TYPES.ADD_REACTION_WOW ||
+            eventReceived.eventType === EVENT_TYPES.ADD_REACTION_SAD ||
+            eventReceived.eventType === EVENT_TYPES.ADD_REACTION_ANGRY ||
+            eventReceived.eventType === EVENT_TYPES.ADD_REACTION_HUG
         ) {
-            let targetPost = NT.memory.POSTS.get(event.targetPostHash)
+            let targetPost = NT.memory.POSTS.get(eventReceived.targetPostHash)
 
             if (targetPost === undefined) {
                 throw ('Target Post Not Found')
             }
 
-            targetPost.addReaction(event.eventType - 100)
+            targetPost.addReaction(eventReceived.eventType - 100)
             return
         }
         if (
-            event.eventType === EVENT_TYPES.REMOVE_REACTION_LIKE ||
-            event.eventType === EVENT_TYPES.REMOVE_REACTION_LOVE ||
-            event.eventType === EVENT_TYPES.REMOVE_REACTION_HAHA ||
-            event.eventType === EVENT_TYPES.REMOVE_REACTION_WOW ||
-            event.eventType === EVENT_TYPES.REMOVE_REACTION_SAD ||
-            event.eventType === EVENT_TYPES.REMOVE_REACTION_ANGRY ||
-            event.eventType === EVENT_TYPES.REMOVE_REACTION_HUG
+            eventReceived.eventType === EVENT_TYPES.REMOVE_REACTION_LIKE ||
+            eventReceived.eventType === EVENT_TYPES.REMOVE_REACTION_LOVE ||
+            eventReceived.eventType === EVENT_TYPES.REMOVE_REACTION_HAHA ||
+            eventReceived.eventType === EVENT_TYPES.REMOVE_REACTION_WOW ||
+            eventReceived.eventType === EVENT_TYPES.REMOVE_REACTION_SAD ||
+            eventReceived.eventType === EVENT_TYPES.REMOVE_REACTION_ANGRY ||
+            eventReceived.eventType === EVENT_TYPES.REMOVE_REACTION_HUG
         ) {
-            let targetPost = NT.memory.POSTS.get(event.targetPostHash)
+            let targetPost = NT.memory.POSTS.get(eventReceived.targetPostHash)
 
             if (targetPost === undefined) {
                 throw ('Target Post Not Found')
             }
 
-            targetPost.removeReaction(event.eventType - 200)
+            targetPost.removeReaction(eventReceived.eventType - 200)
+            return
+        }
+        /*
+        Is is a Bot?
+        */
+        if (
+            eventReceived.eventType === EVENT_TYPES.ADD_BOT ||
+            eventReceived.eventType === EVENT_TYPES.REMOVE_BOT ||
+            eventReceived.eventType === EVENT_TYPES.ENABLE_BOT ||
+            eventReceived.eventType === EVENT_TYPES.DISABLE_BOT
+        ) {
+            switch (eventReceived.eventType) {
+                case EVENT_TYPES.ADD_BOT: {
+                    thisObject.emitterUserProfile.addBot(
+                        thisObject.botId,
+                        thisObject.botAsset,
+                        thisObject.botExchange
+                    )
+                    break
+                }
+                case EVENT_TYPES.REMOVE_BOT: {
+                    thisObject.emitterUserProfile.removeBot(
+                        thisObject.botId
+                    )
+                    break
+                }
+                case EVENT_TYPES.ENABLE_BOT: {
+                    thisObject.emitterUserProfile.enableBot(
+                        thisObject.botId
+                    )
+                    break
+                }
+                case EVENT_TYPES.DISABLE_BOT: {
+                    thisObject.emitterUserProfile.disableBot(
+                        thisObject.botId
+                    )
+                    break
+                }
+            }
             return
         }
     }

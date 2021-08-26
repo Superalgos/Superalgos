@@ -16,7 +16,11 @@ exports.newUserProfile = function newUserProfile() {
         emitterEventsCount: undefined,
         targetEventsCount: undefined,
         postsCount: undefined,
+        botsCount: undefined,
         bots: undefined,
+        posts: undefined,
+        addPost: addPost,
+        removePost: removePost,
         addMultiMediaPostsFollowing: addMultiMediaPostsFollowing,
         removeMultiMediaPostsFollowing: removeMultiMediaPostsFollowing,
         addTradePostsFollowing: addTradePostsFollowing,
@@ -42,6 +46,7 @@ exports.newUserProfile = function newUserProfile() {
         thisObject.tradePostsFollowing = undefined
         thisObject.tradePostsFollowers = undefined
 
+        thisObject.posts = undefined
         thisObject.bots = undefined
     }
 
@@ -60,8 +65,58 @@ exports.newUserProfile = function newUserProfile() {
         thisObject.emitterEventsCount = 0
         thisObject.targetEventsCount = 0
         thisObject.postsCount = 0
+        thisObject.botsCount = 0
 
-        thisObject.bots = new Map()
+        thisObject.posts = undefined
+        thisObject.bots = undefined
+    }
+
+    function addPost(
+        emitterPostHash,
+        targetPostHash,
+        postType,
+        userProfile,
+        timestamp
+    ) {
+        if (thisObject.posts.get(emitterPostHash) !== undefined) {
+            throw ('Post Already Exists.')
+        }
+
+        if (NT.memory.POSTS.get(emitterPostHash) !== undefined) {
+            throw ('Post Already Exists.')
+        }
+
+        let post = NT.modules.POST.newPost()
+        post.initialize(
+            emitterPostHash,
+            targetPostHash,
+            postType,
+            userProfile,
+            timestamp
+        )
+
+        thisObject.posts.set(emitterPostHash, post)
+        NT.memory.POSTS.set(emitterPostHash, post)
+        thisObject.postsCount++
+    }
+
+    function removePost(
+        emitterPostHash
+    ) {
+        if (thisObject.posts.get(emitterPostHash) === undefined) {
+            throw ('Post Does Not Exist.')
+        }
+
+        if (NT.memory.POSTS.get(emitterPostHash) === undefined) {
+            throw ('Post Does Not Exist.')
+        }
+
+        let post = thisObject.posts.get(emitterPostHash)
+        post.finalize()
+
+        thisObject.posts.delete(emitterPostHash)
+        NT.memory.POSTS.delete(emitterPostHash)
+        thisObject.postsCount--
     }
 
     function addMultiMediaPostsFollowing(
@@ -152,6 +207,7 @@ exports.newUserProfile = function newUserProfile() {
             botExchange
         )
         thisObject.bots.set(botId, bot)
+        thisObject.botsCount++
     }
 
     function removeBot(
@@ -160,8 +216,9 @@ exports.newUserProfile = function newUserProfile() {
         if (thisObject.bots.get(botId) === undefined) {
             throw ('Bot Does Not Exist.')
         }
-
+        thisObject.bots.get(botId).finalize()
         thisObject.bots.delete(botId)
+        thisObject.botsCount--
     }
 
     function enableBot(

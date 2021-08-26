@@ -1,0 +1,30 @@
+{
+    "tutorial": "Governance Program Walk Through Tutorial",
+    "pageNumber": 2,
+    "type": "Tutorial Step - Into the Thick of It",
+    "definition": {
+        "text": "Now that you have a working profile, it's time to dive into the real governance of Superalgos!",
+        "updated": 1630009993777,
+        "icon": {
+            "name": "Programs\\financial-programs",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I will walk you through all the main programs and help you get aquainted with the way they work. ",
+            "updated": 1630010162848
+        },
+        {
+            "style": "Success",
+            "text": "The Governance system is a living part of our collaboration so there will always be something new to check out! ",
+            "updated": 1630010228910
+        },
+        {
+            "style": "Text",
+            "text": "Each program aims to foster valuable types of user interaction and contribution from mentoring new users to contributing code. So let's dive in!",
+            "updated": 1630010267953
+        }
+    ]
+}

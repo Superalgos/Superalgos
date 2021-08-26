@@ -3,8 +3,8 @@
     "pageNumber": 24,
     "type": "Tutorial Step - Welcome aboard!",
     "definition": {
-        "text": "You did it! You are now officially a part of the Superalgos governance community! Now that you have a profile there are a few important things to do.",
-        "updated": 1629585105331,
+        "text": "You did it! You are now officially a part of the Superalgos governance community! Now that you have a profile, there are a few important things to do.",
+        "updated": 1629984755637,
         "icon": {
             "name": "Announcement\\announcement",
             "project": "Foundations"
@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "If you generated a Governance address using the profile constructor then you will want to connect that address to a wallet so that you have control of your tokens. ",
-            "updated": 1629585389120
+            "text": "If you generated a Governance address using the profile constructor then you may want to connect that address to a wallet so that you have control of your tokens.",
+            "updated": 1629984765258
         },
         {
             "style": "List",

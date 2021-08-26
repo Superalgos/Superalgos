@@ -17,8 +17,9 @@
             "text": "Your User Profile points to a Superalgos SA Token address you create from within Superalgos. You validate your address by signing a cryptographic proof, also from within Superalgos, so that the system becomes aware of the number of tokens in the address, and assigns your profile an equivalent amount of Token Power."
         },
         {
-            "style": "Text",
-            "text": "The address you generate is also the address to which the project will send the tokens you earn for your contributions."
+            "style": "Success",
+            "text": "The address you generate is also the address to which the project will send the tokens you earn for your contributions. We call it you Governance Address.",
+            "updated": 1629993655810
         }
     ]
 }

@@ -8,6 +8,9 @@ exports.newPost = function newPost() {
         timestamp: undefined,
         replies: undefined,
         targetPost: undefined,
+        reactionsCount: undefined,
+        addReaction: addReaction,
+        removeReactions: removeReaction,
         initialize: initialize,
         finalize: finalize
     }
@@ -22,6 +25,25 @@ exports.newPost = function newPost() {
         RE_POST_TRADE: 22,
         QUOTE_REPOST_TRADE: 23
     }
+
+    const REACTION_TYPES = {
+        REACTION_LIKE: 0,
+        REACTION_LOVE: 1,
+        REACTION_HAHA: 2,
+        REACTION_WOW: 3,
+        REACTION_SAD: 4,
+        REACTION_ANGRY: 5,
+        REACTION_HUG: 6
+    }
+
+    thisObject.reactionsCount = new Map()
+    thisObject.reactionsCount.set(REACTION_TYPES.REACTION_LIKE, 0)
+    thisObject.reactionsCount.set(REACTION_TYPES.REACTION_LOVE, 0)
+    thisObject.reactionsCount.set(REACTION_TYPES.REACTION_HAHA, 0)
+    thisObject.reactionsCount.set(REACTION_TYPES.REACTION_WOW, 0)
+    thisObject.reactionsCount.set(REACTION_TYPES.REACTION_SAD, 0)
+    thisObject.reactionsCount.set(REACTION_TYPES.REACTION_ANGRY, 0)
+    thisObject.reactionsCount.set(REACTION_TYPES.REACTION_HUG, 0)
 
     return thisObject
 
@@ -76,5 +98,25 @@ exports.newPost = function newPost() {
         ) {
             thisObject.targetPost.replies.push(thisObject)
         }
+    }
+
+    function addReaction(reactionType) {
+        let reactionCount = thisObject.reactionsCount.get(reactionType)
+
+        if (reactionCount === undefined) {
+            throw ('Reaction Type Not Supported.')
+        }
+
+        thisObject.reactionsCount.set(reactionType, reactionsCount + 1)
+    }
+
+    function removeReaction(reactionType) {
+        let reactionCount = thisObject.reactionsCount.get(reactionType)
+
+        if (reactionCount === undefined) {
+            throw ('Reaction Type Not Supported.')
+        }
+
+        thisObject.reactionsCount.set(reactionType, reactionsCount - 1)
     }
 }

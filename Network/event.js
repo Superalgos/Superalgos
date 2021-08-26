@@ -24,13 +24,20 @@ exports.newEvent = function newEvent() {
         QUOTE_REPOST_TRADE: 23,
         FOLLOW_USER_PROFILE_TRADE_POSTS: 24,
         UNFOLLOW_USER_PROFILE_TRADE_POSTS: 25,
-        REACTION_LIKE: 100,
-        REACTION_LOVE: 101,
-        REACTION_HAHA: 102,
-        REACTION_WOW: 103,
-        REACTION_SAD: 104,
-        REACTION_ANGRY: 105,
-        REACTION_HUG: 106
+        ADD_REACTION_LIKE: 100,
+        ADD_REACTION_LOVE: 101,
+        ADD_REACTION_HAHA: 102,
+        ADD_REACTION_WOW: 103,
+        ADD_REACTION_SAD: 104,
+        ADD_REACTION_ANGRY: 105,
+        ADD_REACTION_HUG: 106,
+        REMOVE_REACTION_LIKE: 200,
+        REMOVE_REACTION_LOVE: 201,
+        REMOVE_REACTION_HAHA: 202,
+        REMOVE_REACTION_WOW: 203,
+        REMOVE_REACTION_SAD: 204,
+        REMOVE_REACTION_ANGRY: 205,
+        REMOVE_REACTION_HUG: 206
     }
 
     return thisObject
@@ -150,6 +157,45 @@ exports.newEvent = function newEvent() {
                     break
                 }
             }
+            return
+        }
+        /*
+        Is is a Reaction?
+        */
+        if (
+            event.eventType === EVENT_TYPES.ADD_REACTION_LIKE ||
+            event.eventType === EVENT_TYPES.ADD_REACTION_LOVE ||
+            event.eventType === EVENT_TYPES.ADD_REACTION_HAHA ||
+            event.eventType === EVENT_TYPES.ADD_REACTION_WOW ||
+            event.eventType === EVENT_TYPES.ADD_REACTION_SAD ||
+            event.eventType === EVENT_TYPES.ADD_REACTION_ANGRY ||
+            event.eventType === EVENT_TYPES.ADD_REACTION_HUG
+        ) {
+            let targetPost = NT.memory.POSTS.get(event.targetPostHash)
+
+            if (targetPost === undefined) {
+                throw ('Target Post Not Found')
+            }
+
+            targetPost.addReaction(event.eventType - 100)
+            return
+        }
+        if (
+            event.eventType === EVENT_TYPES.REMOVE_REACTION_LIKE ||
+            event.eventType === EVENT_TYPES.REMOVE_REACTION_LOVE ||
+            event.eventType === EVENT_TYPES.REMOVE_REACTION_HAHA ||
+            event.eventType === EVENT_TYPES.REMOVE_REACTION_WOW ||
+            event.eventType === EVENT_TYPES.REMOVE_REACTION_SAD ||
+            event.eventType === EVENT_TYPES.REMOVE_REACTION_ANGRY ||
+            event.eventType === EVENT_TYPES.REMOVE_REACTION_HUG
+        ) {
+            let targetPost = NT.memory.POSTS.get(event.targetPostHash)
+
+            if (targetPost === undefined) {
+                throw ('Target Post Not Found')
+            }
+
+            targetPost.removeReaction(event.eventType - 200)
             return
         }
     }

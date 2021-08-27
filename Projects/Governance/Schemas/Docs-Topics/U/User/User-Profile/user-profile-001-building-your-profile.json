@@ -3,30 +3,38 @@
     "pageNumber": "1",
     "type": "Building Your Profile",
     "definition": {
-        "text": "Your Governance Address is a Superalgos SA Token address generated from within Superalgos, using the Profile Constructor. The tokens you hold in this address confer you Token Power, that you may use from within your User Profile to participate in governance.",
-        "updated": 1624722284024
+        "text": "Building your User Profile involves linking your Governance Address to your identity in Github.com, using the Profile Constructor. ",
+        "updated": 1630067747645
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "This guide will get you up to speed in just a few minutes. This is what you’ll need:",
-            "updated": 1624721971524
+            "text": "This guide will get you up to speed in just a few minutes. This is what you’ll need (requirements):",
+            "updated": 1630066775182
         },
         {
             "style": "List",
-            "text": "The latest version of Superalgos in the develop branch."
+            "text": "Up-to-date software: the latest version of the Superalgos Platform in the Develop branch.",
+            "updated": 1630067794445
         },
         {
             "style": "List",
-            "text": "A basic understanding of how the Superalgos Platform works. If you haven't yet, make sure you do the tutorials in the Getting Started Tutorials Plugin Workspace before you dive into the Governance Project."
+            "text": "Prior knowledge: a basic understanding of how the Superalgos Platform works. If you haven't yet, make sure you do the tutorials in the Getting Started Tutorials Plugin Workspace before diving into the Governance Project.",
+            "updated": 1630067826681
         },
         {
             "style": "List",
-            "text": "Trust Wallet, or any wallet that may import a Binance Smart Chain (BSC) private key."
+            "text": "Identity: your GitHub.com username.",
+            "updated": 1630066924264
         },
         {
             "style": "List",
-            "text": "Your GitHub.com username."
+            "text": "Optional: Trust Wallet, or any wallet that may import a Binance Smart Chain (BSC) private key."
+        },
+        {
+            "style": "Success",
+            "text": "The process described below is covered, step by step, in the Creating Your User Profile Tutorial. Doing the tutorial is highly recommended. If you do, then you do not need to follow the below instructions.",
+            "updated": 1630067119898
         },
         {
             "style": "Title",
@@ -38,7 +46,8 @@
         },
         {
             "style": "Text",
-            "text": "You may start with this Plugin Workspace so that you may later interact with the top-level Superalgos Project definitions."
+            "text": "You may start with the Token Distribution Superalgos Plugin Workspace so that you may later interact with the top-level Superalgos Project definitions.",
+            "updated": 1630067911494
         },
         {
             "style": "Subtitle",

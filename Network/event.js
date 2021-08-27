@@ -4,6 +4,8 @@ exports.newEvent = function newEvent() {
         eventId: undefined,
         emitterUserProfileId: undefined,
         targetUserProfileId: undefined,
+        emitterBotProfileId: undefined,
+        targetBotProfileId: undefined,
         emitterPostHash: undefined,
         targetPostHash: undefined,
         timestamp: undefined,
@@ -16,19 +18,19 @@ exports.newEvent = function newEvent() {
 
     const EVENT_TYPES = {
 
-        NEW_MULTI_MEDIA_POST: 10,
-        REPLY_TO_MULTI_MEDIA_POST: 11,
-        REPOST_MULTI_MEDIA: 12,
-        QUOTE_REPOST_MULTI_MEDIA: 13,
-        FOLLOW_USER_PROFILE_MULTI_MEDIA_POSTS: 14,
-        UNFOLLOW_USER_PROFILE_MULTI_MEDIA_POSTS: 15,
+        NEW_USER_POST: 10,
+        REPLY_TO_USER_POST: 11,
+        REPOST_USER_POST: 12,
+        QUOTE_REPOST_USER_POST: 13,
+        FOLLOW_USER_PROFILE: 14,
+        UNFOLLOW_USER_PROFILE: 15,
 
-        NEW_TRADE_POST: 20,
-        REPLY_TO_TRADE_POST: 21,
-        RE_POST_TRADE: 22,
-        QUOTE_REPOST_TRADE: 23,
-        FOLLOW_USER_PROFILE_TRADE_POSTS: 24,
-        UNFOLLOW_USER_PROFILE_TRADE_POSTS: 25,
+        NEW_BOT_POST: 20,
+        REPLY_TO_BOT_POST: 21,
+        REPOST_BOT_POST: 22,
+        QUOTE_REPOST_BOT_POST: 23,
+        FOLLOW_BOT_PROFILE: 24,
+        UNFOLLOW_BOT_PROFILE: 25,
 
         ADD_BOT: 50,
         REMOVE_BOT: 51,
@@ -66,6 +68,8 @@ exports.newEvent = function newEvent() {
         thisObject.eventId = eventReceived.eventId
         thisObject.emitterUserProfileId = eventReceived.emitterUserProfileId
         thisObject.targetUserProfileId = eventReceived.targetUserProfileId
+        thisObject.emitterBotProfileId = eventReceived.emitterBotProfileId
+        thisObject.targetBotProfileId = eventReceived.targetBotProfileId
         thisObject.emitterPostHash = eventReceived.emitterPostHash
         thisObject.targetPostHash = eventReceived.targetPostHash
         thisObject.timestamp = eventReceived.timestamp
@@ -87,8 +91,8 @@ exports.newEvent = function newEvent() {
         if (targetUserProfile === undefined) {
             /* We thow an exception when it does not have a target user profile and is required*/
             if (
-                thisObject.eventType !== EVENT_TYPES.NEW_MULTI_MEDIA_POST &&
-                thisObject.eventType !== EVENT_TYPES.NEW_TRADE_POST
+                thisObject.eventType !== EVENT_TYPES.NEW_USER_POST &&
+                thisObject.eventType !== EVENT_TYPES.NEW_BOT_POST
             ) {
                 throw ('Target User Profile Not Found.')
             }
@@ -99,27 +103,29 @@ exports.newEvent = function newEvent() {
         Is is a new post?
         */
         if (
-            thisObject.eventType === EVENT_TYPES.NEW_MULTI_MEDIA_POST ||
-            thisObject.eventType === EVENT_TYPES.REPLY_TO_MULTI_MEDIA_POST ||
-            thisObject.eventType === EVENT_TYPES.REPOST_MULTI_MEDIA ||
-            thisObject.eventType === EVENT_TYPES.QUOTE_REPOST_MULTI_MEDIA ||
-            thisObject.eventType === EVENT_TYPES.NEW_TRADE_POST ||
-            thisObject.eventType === EVENT_TYPES.REPLY_TO_TRADE_POST ||
-            thisObject.eventType === EVENT_TYPES.RE_POST_TRADE ||
-            thisObject.eventType === EVENT_TYPES.QUOTE_REPOST_TRADE
+            thisObject.eventType === EVENT_TYPES.NEW_USER_POST ||
+            thisObject.eventType === EVENT_TYPES.REPLY_TO_USER_POST ||
+            thisObject.eventType === EVENT_TYPES.REPOST_USER_POST ||
+            thisObject.eventType === EVENT_TYPES.QUOTE_REPOST_USER_POST ||
+            thisObject.eventType === EVENT_TYPES.NEW_BOT_POST ||
+            thisObject.eventType === EVENT_TYPES.REPLY_TO_BOT_POST ||
+            thisObject.eventType === EVENT_TYPES.REPOST_BOT_POST ||
+            thisObject.eventType === EVENT_TYPES.QUOTE_REPOST_BOT_POST
         ) {
             if (
-                thisObject.eventType === EVENT_TYPES.NEW_MULTI_MEDIA_POST ||
-                thisObject.eventType === EVENT_TYPES.REPLY_TO_MULTI_MEDIA_POST ||
-                thisObject.eventType === EVENT_TYPES.REPOST_MULTI_MEDIA ||
-                thisObject.eventType === EVENT_TYPES.QUOTE_REPOST_MULTI_MEDIA
+                thisObject.eventType === EVENT_TYPES.NEW_USER_POST ||
+                thisObject.eventType === EVENT_TYPES.REPLY_TO_USER_POST ||
+                thisObject.eventType === EVENT_TYPES.REPOST_USER_POST ||
+                thisObject.eventType === EVENT_TYPES.QUOTE_REPOST_USER_POST
             ) {
                 emitterUserProfile.addPost(
                     thisObject.emitterUserProfileId,
                     thisObject.targetUserProfileId,
+                    thisObject.emitterBotProfileId,
+                    thisObject.targetBotProfileId,
                     thisObject.emitterPostHash,
                     thisObject.targetPostHash,
-                    thisObject.eventType,
+                    thisObject.eventType - 10,
                     thisObject.timestamp
                 )
             }
@@ -130,13 +136,13 @@ exports.newEvent = function newEvent() {
         Is is a following?
         */
         if (
-            thisObject.eventType === EVENT_TYPES.FOLLOW_USER_PROFILE_MULTI_MEDIA_POSTS ||
-            thisObject.eventType === EVENT_TYPES.UNFOLLOW_USER_PROFILE_MULTI_MEDIA_POSTS ||
-            thisObject.eventType === EVENT_TYPES.FOLLOW_USER_PROFILE_TRADE_POSTS ||
-            thisObject.eventType === EVENT_TYPES.UNFOLLOW_USER_PROFILE_TRADE_POSTS
+            thisObject.eventType === EVENT_TYPES.FOLLOW_USER_PROFILE ||
+            thisObject.eventType === EVENT_TYPES.UNFOLLOW_USER_PROFILE ||
+            thisObject.eventType === EVENT_TYPES.FOLLOW_BOT_PROFILE ||
+            thisObject.eventType === EVENT_TYPES.UNFOLLOW_BOT_PROFILE
         ) {
             switch (thisObject.eventType) {
-                case EVENT_TYPES.FOLLOW_USER_PROFILE_MULTI_MEDIA_POSTS: {
+                case EVENT_TYPES.FOLLOW_USER_PROFILE: {
                     emitterUserProfile.addFollowing(
                         targetUserProfile
                     )
@@ -145,7 +151,7 @@ exports.newEvent = function newEvent() {
                     )
                     break
                 }
-                case EVENT_TYPES.UNFOLLOW_USER_PROFILE_MULTI_MEDIA_POSTS: {
+                case EVENT_TYPES.UNFOLLOW_USER_PROFILE: {
                     emitterUserProfile.removeFollowing(
                         targetUserProfile
                     )
@@ -154,7 +160,7 @@ exports.newEvent = function newEvent() {
                     )
                     break
                 }
-                case EVENT_TYPES.FOLLOW_USER_PROFILE_TRADE_POSTS: {
+                case EVENT_TYPES.FOLLOW_BOT_PROFILE: {
                     emitterUserProfile.addTradePostsFollowing(
                         targetUserProfile
                     )
@@ -163,7 +169,7 @@ exports.newEvent = function newEvent() {
                     )
                     break
                 }
-                case EVENT_TYPES.UNFOLLOW_USER_PROFILE_TRADE_POSTS: {
+                case EVENT_TYPES.UNFOLLOW_BOT_PROFILE: {
                     emitterUserProfile.removeTradePostsFollowing(
                         targetUserProfile
                     )

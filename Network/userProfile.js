@@ -53,10 +53,12 @@ exports.newUserProfile = function newUserProfile() {
         thisObject.botsCount = 0
 
         thisObject.posts = []
-        thisObject.bots = undefined
+        thisObject.bots = []
     }
 
     function addPost(
+        emitterUserProfileId,
+        targetUserProfileId,
         emitterPostHash,
         targetPostHash,
         postType,
@@ -69,6 +71,10 @@ exports.newUserProfile = function newUserProfile() {
 
         let post = NT.modules.POST.newPost()
         post.initialize(
+            emitterUserProfileId,
+            targetUserProfileId,
+            undefined,
+            undefined,
             emitterPostHash,
             targetPostHash,
             postType,

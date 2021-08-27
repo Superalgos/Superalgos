@@ -13,8 +13,6 @@ exports.newUserProfile = function newUserProfile() {
         emitterEventsCount: undefined,
         targetEventsCount: undefined,
         postsCount: undefined,
-        botsCount: undefined,
-        bots: undefined,
         posts: undefined,
         addPost: addPost,
         removePost: removePost,
@@ -33,7 +31,6 @@ exports.newUserProfile = function newUserProfile() {
         thisObject.followers = undefined
 
         thisObject.posts = undefined
-        thisObject.bots = undefined
     }
 
     function initialize() {
@@ -47,10 +44,8 @@ exports.newUserProfile = function newUserProfile() {
         thisObject.emitterEventsCount = 0
         thisObject.targetEventsCount = 0
         thisObject.postsCount = 0
-        thisObject.botsCount = 0
 
         thisObject.posts = []
-        thisObject.bots = undefined
     }
 
     function addPost(

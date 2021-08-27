@@ -3,6 +3,8 @@ exports.newPost = function newPost() {
     let thisObject = {
         emitterUserProfileId: undefined,
         targetUserProfileId: undefined,
+        emitterBotProfileId: undefined,
+        targetBotProfileId: undefined,
         emitterPostHash: undefined,
         targetPostHash: undefined,
         postType: undefined,
@@ -17,14 +19,10 @@ exports.newPost = function newPost() {
     }
 
     const POST_TYPES = {
-        NEW_MULTI_MEDIA_POST: 10,
-        REPLY_TO_MULTI_MEDIA_POST: 11,
-        REPOST_MULTI_MEDIA: 12,
-        QUOTE_REPOST_MULTI_MEDIA: 13,
-        NEW_TRADE_POST: 20,
-        REPLY_TO_TRADE_POST: 21,
-        RE_POST_TRADE: 22,
-        QUOTE_REPOST_TRADE: 23
+        NEW_POST: 0,
+        REPLY_TO_POST: 1,
+        REPOST_: 2,
+        QUOTE_REPOST_: 3
     }
 
     const REACTION_TYPES = {
@@ -53,6 +51,8 @@ exports.newPost = function newPost() {
     function finalize() {
         thisObject.emitterUserProfileId = undefined
         thisObject.targetUserProfileId = undefined
+        thisObject.emitterBotProfileId = undefined
+        thisObject.targetBotProfileId = undefined
         thisObject.emitterPostHash = undefined
         thisObject.targetPostHash = undefined
         thisObject.postType = undefined
@@ -63,6 +63,8 @@ exports.newPost = function newPost() {
     function initialize(
         emitterUserProfileId,
         targetUserProfileId,
+        emitterBotProfileId,
+        targetBotProfileId,
         emitterPostHash,
         targetPostHash,
         postType,
@@ -71,6 +73,8 @@ exports.newPost = function newPost() {
 
         thisObject.emitterUserProfileId = emitterUserProfileId
         thisObject.targetUserProfileId = targetUserProfileId
+        thisObject.emitterBotProfileId = emitterBotProfileId
+        thisObject.targetBotProfileId = targetBotProfileId
         thisObject.emitterPostHash = emitterPostHash
         thisObject.targetPostHash = targetPostHash
         thisObject.postType = postType
@@ -83,12 +87,9 @@ exports.newPost = function newPost() {
         let targetPost
 
         if (
-            event.eventType === POST_TYPES.REPLY_TO_MULTI_MEDIA_POST ||
-            event.eventType === POST_TYPES.REPOST_MULTI_MEDIA ||
-            event.eventType === POST_TYPES.QUOTE_REPOST_MULTI_MEDIA ||
-            event.eventType === POST_TYPES.REPLY_TO_TRADE_POST ||
-            event.eventType === POST_TYPES.RE_POST_TRADE ||
-            event.eventType === POST_TYPES.QUOTE_REPOST_TRADE
+            thisObject.postType === POST_TYPES.REPLY_TO_POST ||
+            thisObject.postType === POST_TYPES.REPOST_ ||
+            thisObject.postType === POST_TYPES.QUOTE_REPOST_ 
         ) {
             targetPost = NT.memory.maps.POSTS.get(thisObject.targetPostHash)
 
@@ -100,8 +101,7 @@ exports.newPost = function newPost() {
          Let's add this post to the replies of the Target Post
          */
         if (
-            event.eventType === POST_TYPES.REPLY_TO_MULTI_MEDIA_POST ||
-            event.eventType === POST_TYPES.REPLY_TO_TRADE_POST
+            thisObject.postType === POST_TYPES.REPLY_TO_POST 
         ) {
             targetPost.replies.push(thisObject)
         }

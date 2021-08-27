@@ -446,7 +446,7 @@ exports.newGithubServer = function newGithubServer() {
                                 */
                                 if (userProfile.name !== githubUsername) {
                                     console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #5 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the User Profile node\'s name. -> Github Username = ' + githubUsername + '-> userProfile.name = ' + userProfile.name)
-  
+
                                     await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.issues.createComment({
                                         owner: owner,
@@ -596,56 +596,75 @@ exports.newGithubServer = function newGithubServer() {
 
                     async function closePrsToMaster() {
 
+                        let githubPrListMaster = []
                         const per_page = 100 // Max
                         let page = 0
-                        let lastPage = false
 
-                        while (lastPage === false) {
-                            try {
-                                page++
+                        try {
+                            page++
+
+                            await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+
+                            let listResponse = await octokit.rest.pulls.list({
+                                owner: owner,
+                                repo: repo,
+                                state: 'open',
+                                head: undefined,
+                                base: 'master',
+                                sort: undefined,
+                                direction: undefined,
+                                per_page: per_page,
+                                page: page
+                            });
+
+                            if (listResponse.data.length < 100) {
+                                lastPage = true
+                            }
+                            console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster -> Receiving Page = ' + page)
+                            for (let i = 0; i < listResponse.data.length; i++) {
+                                let pullRequest = listResponse.data[i]
+                                console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster -> Pull Request "' + pullRequest.title + '" found and added to the list to validate. ')
+                                githubPrListMaster.push(pullRequest)
+                            }
+                            console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster -> Received = ' + listResponse.data.length)
+
+                            for (let i = 0; i < githubPrListMaster.length; i++) {
+                                let pullRequest = githubPrListMaster[i]
 
                                 await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
-
-                                let listResponse = await octokit.rest.pulls.list({
+                                await octokit.rest.issues.createComment({
                                     owner: owner,
                                     repo: repo,
-                                    state: 'open',
-                                    head: 'develop',
-                                    base: 'develop',
-                                    sort: undefined,
-                                    direction: undefined,
-                                    per_page: per_page,
-                                    page: page
+                                    issue_number: pullRequest.number,
+                                    body: 'Hi, this is the Superalgos Governance System taking notice that you have submitted a pull request directly to the master branch.\n\nThanks for submitting a PR to the Superalgos Project. We value every contribution and everyone is welcome to send PRs. Unfortunatelly we are not merging pull requests directly into the master branch. Consider resubmitting to the develop branch intstead. For your convinienve, you can swithch branches from within the app, at the footer of the Docs tab. \n\n I will close this pull request now and look forward for your next contribution either to the develop branch or any other branch available for this purpose.'
                                 });
 
-                                if (listResponse.data.length < 100) {
-                                    lastPage = true
-                                }
-                                console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Receiving Page = ' + page)
-                                for (let i = 0; i < listResponse.data.length; i++) {
-                                    let pullRequest = listResponse.data[i]
-                                    console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Pull Request "' + pullRequest.title + '" found and added to the list to validate. ')
-                                    githubPrListArray.push(pullRequest)
-                                }
-                                console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Received = ' + listResponse.data.length)
+                                await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                await octokit.rest.pulls.update({
+                                    owner: owner,
+                                    repo: repo,
+                                    pull_number: pullRequest.number,
+                                    state: 'closed'
+                                });
+                            }
 
-                            } catch (err) {
-                                console.log(err)
+                        } catch (err) {
+                            console.log(err)
 
-                                if (err.stack.indexOf('last page') >= 0) {
-                                    return
-                                } else {
-                                    console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->Method call produced an error.')
-                                    console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->err.stack = ' + err.stack)
-                                    console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->repository = ' + repository)
-                                    console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->username = ' + username)
-                                    console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token starts with = ' + token.substring(0, 10) + '...')
-                                    console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token ends with = ' + '...' + token.substring(token.length - 10))
-                                    error = err
-                                    return
-                                }
+                            if (err.stack.indexOf('last page') >= 0) {
+                                return
+                            } else {
+                                console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->Method call produced an error.')
+                                console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->err.stack = ' + err.stack)
+                                console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->repository = ' + repository)
+                                console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->username = ' + username)
+                                console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->token starts with = ' + token.substring(0, 10) + '...')
+                                console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->token ends with = ' + '...' + token.substring(token.length - 10))
+                                error = err
+                                return
                             }
                         }
+
                     }
 
                 } catch (err) {

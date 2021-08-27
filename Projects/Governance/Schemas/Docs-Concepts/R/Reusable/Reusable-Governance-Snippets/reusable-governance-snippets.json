@@ -1,0 +1,26 @@
+{
+    "type": "Reusable Governance Snippets",
+    "definition": {
+        "text": "A collection of reusable snippets of text to be reused within the Governance Project.",
+        "updated": 1630091213561
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Computational Limitations",
+            "updated": 1630091226791
+        },
+        {
+            "style": "Title",
+            "text": "Computational Limitations"
+        },
+        {
+            "style": "Note",
+            "text": "The governance system does all calculations dynamically, in real-time, with every change in the definitions, and computes all the hierarchies loaded in the Current Workspace."
+        },
+        {
+            "style": "Important",
+            "text": "The above means that the calculations that you see from within any given Workspace is a partial calculation within the scope of the Current Workspace only. Definitions, claims, votes, and so on, existing on other workspaces or plugins are not computed."
+        }
+    ]
+}

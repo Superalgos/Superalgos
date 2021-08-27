@@ -58,13 +58,13 @@ exports.newEvent = function newEvent() {
 
     function initialize(eventReceived) {
 
-        thisObject.emitterUserProfile = NT.memory.USER_PROFILES_BY_ID.get(eventReceived.emitterUserProfileId)
+        thisObject.emitterUserProfile = NT.memory.maps.USER_PROFILES_BY_ID.get(eventReceived.emitterUserProfileId)
         if (thisObject.emitterUserProfile === undefined) {
             throw ('Emitter User Profile Not Found.')
         }
         thisObject.emitterUserProfile.emitterEventsCount++
 
-        thisObject.targetUserProfile = NT.memory.USER_PROFILES_BY_ID.get(eventReceived.targetUserProfileId)
+        thisObject.targetUserProfile = NT.memory.maps.USER_PROFILES_BY_ID.get(eventReceived.targetUserProfileId)
         if (thisObject.targetUserProfile === undefined) {
             /* We thow an exception when it does not have a target user profile and is required*/
             if (
@@ -172,7 +172,7 @@ exports.newEvent = function newEvent() {
             eventReceived.eventType === EVENT_TYPES.ADD_REACTION_ANGRY ||
             eventReceived.eventType === EVENT_TYPES.ADD_REACTION_HUG
         ) {
-            let targetPost = NT.memory.POSTS.get(eventReceived.targetPostHash)
+            let targetPost = NT.memory.maps.POSTS.get(eventReceived.targetPostHash)
 
             if (targetPost === undefined) {
                 throw ('Target Post Not Found')
@@ -190,7 +190,7 @@ exports.newEvent = function newEvent() {
             eventReceived.eventType === EVENT_TYPES.REMOVE_REACTION_ANGRY ||
             eventReceived.eventType === EVENT_TYPES.REMOVE_REACTION_HUG
         ) {
-            let targetPost = NT.memory.POSTS.get(eventReceived.targetPostHash)
+            let targetPost = NT.memory.maps.POSTS.get(eventReceived.targetPostHash)
 
             if (targetPost === undefined) {
                 throw ('Target Post Not Found')

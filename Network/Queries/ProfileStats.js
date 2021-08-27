@@ -18,9 +18,9 @@ exports.newProfileStats = function newProfileStats() {
         Validate User Profile
         */
         if (queryReceived.targetUserProfileId !== undefined) {
-            thisObject.profile = NT.memory.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
+            thisObject.profile = NT.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
         } else {
-            thisObject.profile = NT.memory.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
+            thisObject.profile = NT.memory.maps.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
         }
         
         if (thisObject.profile === undefined) {
@@ -42,7 +42,7 @@ exports.newProfileStats = function newProfileStats() {
             "tradePostsFollowersCount": thisObject.profile.tradePostsFollowersCount,
             "emitterEventsCount": thisObject.profile.emitterEventsCount,
             "targetEventsCount": thisObject.profile.targetEventsCount,
-            "postsCount": thisObject.profile.postsCount,
+            "postsCount": thisObject.profile.maps.POSTSCount,
             "botsCount": thisObject.profile.botsCount
         }
     }

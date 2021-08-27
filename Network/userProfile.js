@@ -46,7 +46,7 @@ exports.newUserProfile = function newUserProfile() {
         thisObject.tradePostsFollowing = undefined
         thisObject.tradePostsFollowers = undefined
 
-        thisObject.posts = undefined
+        thisObject.maps.POSTS = undefined
         thisObject.bots = undefined
     }
 
@@ -64,10 +64,10 @@ exports.newUserProfile = function newUserProfile() {
         thisObject.tradePostsFollowersCount = 0
         thisObject.emitterEventsCount = 0
         thisObject.targetEventsCount = 0
-        thisObject.postsCount = 0
+        thisObject.maps.POSTSCount = 0
         thisObject.botsCount = 0
 
-        thisObject.posts = []
+        thisObject.maps.POSTS = []
         thisObject.bots = undefined
     }
 
@@ -78,7 +78,7 @@ exports.newUserProfile = function newUserProfile() {
         userProfile,
         timestamp
     ) {
-        if (NT.memory.POSTS.get(emitterPostHash) !== undefined) {
+        if (NT.memory.maps.POSTS.get(emitterPostHash) !== undefined) {
             throw ('Post Already Exists.')
         }
 
@@ -91,29 +91,29 @@ exports.newUserProfile = function newUserProfile() {
             timestamp
         )
 
-        thisObject.posts.push(post)
-        NT.memory.POSTS.set(emitterPostHash, post)
-        thisObject.postsCount++
+        thisObject.maps.POSTS.push(post)
+        NT.memory.maps.POSTS.set(emitterPostHash, post)
+        thisObject.maps.POSTSCount++
     }
 
     function removePost(
         emitterPostHash
     ) {
-        if (NT.memory.POSTS.get(emitterPostHash) === undefined) {
+        if (NT.memory.maps.POSTS.get(emitterPostHash) === undefined) {
             throw ('Post Does Not Exist.')
         }
 
-        let post = thisObject.posts.get(emitterPostHash)
+        let post = thisObject.maps.POSTS.get(emitterPostHash)
         post.finalize()
 
-        for (let i = thisObject.posts.length - 1; i >= 0; i-- {
-            if (thisObject.posts[i].emitterPostHash === emitterPostHash) {
-                thisObject.posts.splice(i, 1)
+        for (let i = thisObject.maps.POSTS.length - 1; i >= 0; i--) {
+            if (thisObject.maps.POSTS[i].emitterPostHash === emitterPostHash) {
+                thisObject.maps.POSTS.splice(i, 1)
                 break
             }
         }
-        NT.memory.POSTS.delete(emitterPostHash)
-        thisObject.postsCount--
+        NT.memory.maps.POSTS.delete(emitterPostHash)
+        thisObject.maps.POSTSCount--
     }
 
     function addMultiMediaPostsFollowing(

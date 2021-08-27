@@ -28,9 +28,9 @@ exports.newProfilePosts = function newProfilePosts() {
         Validate User Profile
         */
         if (queryReceived.targetUserProfileId !== undefined) {
-            thisObject.profile = NT.memory.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
+            thisObject.profile = NT.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
         } else {
-            thisObject.profile = NT.memory.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
+            thisObject.profile = NT.memory.maps.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
         }
 
         if (thisObject.profile === undefined) {
@@ -44,7 +44,7 @@ exports.newProfilePosts = function newProfilePosts() {
         }
 
         if (queryReceived.initialPostIndex === INITIAL_POST_INDEX_LAST) {
-            queryReceived.initialPostIndex = thisObject.profile.posts.length - 1
+            queryReceived.initialPostIndex = thisObject.profile.maps.POSTS.length - 1
         }
 
         if (queryReceived.initialPostIndex === INITIAL_POST_INDEX_FIRST) {
@@ -94,14 +94,14 @@ exports.newProfilePosts = function newProfilePosts() {
         switch (thisObject.direction) {
             case DIRECTION_FUTURE: {
                 for (let i = thisObject.initialPostIndex; i < thisObject.initialPostIndex + thisObject.amountRequested; i++) {
-                    let post = thisObject.profile.posts[i]
+                    let post = thisObject.profile.maps.POSTS[i]
                     if (post === undefined) { break }
                     addPostToResponse(post)
                 }
             }
             case DIRECTION_PAST: {
                 for (let i = thisObject.initialPostIndex; i > thisObject.initialPostIndex - thisObject.amountRequested; i--) {
-                    let post = thisObject.profile.posts[i]
+                    let post = thisObject.profile.maps.POSTS[i]
                     if (post === undefined) { break }
                     addPostToResponse(post)
                 }

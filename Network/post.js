@@ -86,7 +86,7 @@ exports.newPost = function newPost() {
             event.eventType === POST_TYPES.RE_POST_TRADE ||
             event.eventType === POST_TYPES.QUOTE_REPOST_TRADE
         ) {
-            thisObject.targetPost = NT.memory.POSTS.get(thisObject.targetPostHash)
+            thisObject.targetPost = NT.memory.maps.POSTS.get(thisObject.targetPostHash)
 
             if (thisObject.targetPost === undefined) {
                 throw ('Target Post Not Found.')

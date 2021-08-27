@@ -27,7 +27,7 @@ exports.newPostReplies = function newPostReplies() {
         /*
         Validate Post
         */
-        thisObject.post = NT.memory.POSTS.get(queryReceived.targetPostHash)
+        thisObject.post = NT.memory.maps.POSTS.get(queryReceived.targetPostHash)
 
         if (thisObject.post === undefined) {
             throw ('Target Post Not Found.')

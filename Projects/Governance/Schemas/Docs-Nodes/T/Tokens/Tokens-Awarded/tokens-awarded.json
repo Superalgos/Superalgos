@@ -1,8 +1,8 @@
 {
     "type": "Tokens Awarded",
     "definition": {
-        "text": "The Tokens Awarded node is present on each of the programs in the hierarchy. It exists to accumulate and display the number of Superalgos SA Tokens awarded to your profile through each of the existing programs.",
-        "updated": 1624726369909
+        "text": "The Tokens Awarded node is present on each of the programs in the hierarchy. It exists to accumulate and display the number of Superalgos SA Tokens awarded to your profile through each the corresponding program.",
+        "updated": 1630095292390
     },
     "paragraphs": [
         {
@@ -12,11 +12,8 @@
         },
         {
             "style": "Text",
-            "text": "The information on how many tokens the particular program has awarded you is displayed as a notice below the node, along with the number of people that helped you get them."
-        },
-        {
-            "style": "Callout",
-            "text": "The system calculates the token distribution dynamically with every change in the definitions, and computes all the hierarchies loaded in and referenced from the Current Workspace. This may or may not be accurate, depending on many things, including whether or not you are computing all relevant hierarchies."
+            "text": "The information on how many tokens the particular program has awarded you is displayed as a notice below the node, along with other relevant information that depends on the context, like the number of people that helped you get them, or the number of claims computed, etc.",
+            "updated": 1630095366072
         },
         {
             "style": "Block",

@@ -18,6 +18,10 @@
         },
         {
             "style": "List",
+            "text": "A basic understanding of how the Superalgos Platform works. If you haven't yet, make sure you do the tutorials in the Getting Started Tutorials Plugin Workspace before you dive into the Governance Project."
+        },
+        {
+            "style": "List",
             "text": "Trust Wallet, or any wallet that may import a Binance Smart Chain (BSC) private key."
         },
         {

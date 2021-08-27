@@ -42,7 +42,7 @@ exports.newProfileStats = function newProfileStats() {
             "tradePostsFollowersCount": thisObject.profile.tradePostsFollowersCount,
             "emitterEventsCount": thisObject.profile.emitterEventsCount,
             "targetEventsCount": thisObject.profile.targetEventsCount,
-            "postsCount": thisObject.profile.maps.POSTSCount,
+            "postsCount": thisObject.profile.postsCount,
             "botsCount": thisObject.profile.botsCount
         }
     }

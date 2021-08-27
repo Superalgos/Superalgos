@@ -44,7 +44,7 @@ exports.newEvents = function newEvents() {
         }
 
         if (queryReceived.initialIndex === INITIAL_EVENT_INDEX_LAST) {
-            queryReceived.initialIndex = thisObject.profile.maps.POSTS.length - 1
+            queryReceived.initialIndex = thisObject.profile.posts.length - 1
         }
 
         if (queryReceived.initialIndex === INITIAL_EVENT_INDEX_FIRST) {
@@ -94,38 +94,52 @@ exports.newEvents = function newEvents() {
         switch (thisObject.direction) {
             case DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
-                    let post = thisObject.profile.maps.POSTS[i]
-                    if (post === undefined) { break }
-                    addPostToResponse(post)
+                    let event = NT.memory.arrays.EVENTS[i]
+                    if (event === undefined) { break }
+                    addToResponse(event)
                 }
             }
             case DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
-                    let post = thisObject.profile.maps.POSTS[i]
-                    if (post === undefined) { break }
-                    addPostToResponse(post)
+                    let event = NT.memory.arrays.EVENTS[i]
+                    if (event === undefined) { break }
+                    addToResponse(event)
                 }
             }
         }
         return response
 
-        function addPostToResponse(post) {
-            let postResponse = {
-                "emitterPostHash": post.emitterPostHash,
-                "targetPostHash": post.targetPostHash,
-                "postType": post.postType,
-                "userProfile": post.userProfile.userProfieId,
-                "timestamp": post.timestamp,
-                "repliesCount": post.replies.length,
-                "targetPostHash": post.targetPost.emitterPostHash,
-                "reactionsCount": []
+        function addToResponse(event) {
+            let eventResponse = {
+                eventId: event.eventId,
+                eventType: event.eventType,
+                emitterUserProfileId: event.emitterUserProfileId,
+                targetUserProfileId: event.targetUserProfileId,
+                emitterPostHash: event.emitterPostHash,
+                targetPostHash: event.targetPostHash,
+                timestamp: event.timestamp,
+                botId: event.botId,
+                botAsset: event.botAsset,
+                botExchange: event.botExchange,
+                emitterUserProfile: {
+
+                },
+                targetUserProfile: {
+
+                },
+                emitterPost: {
+
+                },
+                targetPost: {
+
+                }
             }
 
             for (let i = 0; i < post.reactionTypesCount; i++) {
-                postResponse.reactionsCount.push(post.reactionsCount.get(i))
+                eventResponse.reactionsCount.push(post.reactionsCount.get(i))
             }
 
-            response.push(postResponse)
+            response.push(eventResponse)
         }
     }
 }

@@ -46,7 +46,7 @@ exports.newUserProfile = function newUserProfile() {
         thisObject.tradePostsFollowing = undefined
         thisObject.tradePostsFollowers = undefined
 
-        thisObject.maps.POSTS = undefined
+        thisObject.posts = undefined
         thisObject.bots = undefined
     }
 
@@ -64,10 +64,10 @@ exports.newUserProfile = function newUserProfile() {
         thisObject.tradePostsFollowersCount = 0
         thisObject.emitterEventsCount = 0
         thisObject.targetEventsCount = 0
-        thisObject.maps.POSTSCount = 0
+        thisObject.postsCount = 0
         thisObject.botsCount = 0
 
-        thisObject.maps.POSTS = []
+        thisObject.posts = []
         thisObject.bots = undefined
     }
 
@@ -93,7 +93,7 @@ exports.newUserProfile = function newUserProfile() {
 
         thisObject.maps.POSTS.push(post)
         NT.memory.maps.POSTS.set(emitterPostHash, post)
-        thisObject.maps.POSTSCount++
+        thisObject.postsCount++
     }
 
     function removePost(
@@ -103,17 +103,17 @@ exports.newUserProfile = function newUserProfile() {
             throw ('Post Does Not Exist.')
         }
 
-        let post = thisObject.maps.POSTS.get(emitterPostHash)
+        let post = thisObject.posts.get(emitterPostHash)
         post.finalize()
 
-        for (let i = thisObject.maps.POSTS.length - 1; i >= 0; i--) {
-            if (thisObject.maps.POSTS[i].emitterPostHash === emitterPostHash) {
-                thisObject.maps.POSTS.splice(i, 1)
+        for (let i = thisObject.posts.length - 1; i >= 0; i--) {
+            if (thisObject.posts[i].emitterPostHash === emitterPostHash) {
+                thisObject.posts.splice(i, 1)
                 break
             }
         }
         NT.memory.maps.POSTS.delete(emitterPostHash)
-        thisObject.maps.POSTSCount--
+        thisObject.postsCount--
     }
 
     function addMultiMediaPostsFollowing(

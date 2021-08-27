@@ -44,7 +44,7 @@ exports.newProfilePosts = function newProfilePosts() {
         }
 
         if (queryReceived.initialIndex === INITIAL_POST_INDEX_LAST) {
-            queryReceived.initialIndex = thisObject.profile.maps.POSTS.length - 1
+            queryReceived.initialIndex = thisObject.profile.posts.length - 1
         }
 
         if (queryReceived.initialIndex === INITIAL_POST_INDEX_FIRST) {
@@ -94,31 +94,31 @@ exports.newProfilePosts = function newProfilePosts() {
         switch (thisObject.direction) {
             case DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
-                    let post = thisObject.profile.maps.POSTS[i]
+                    let post = thisObject.profile.posts[i]
                     if (post === undefined) { break }
-                    addPostToResponse(post)
+                    addToResponse(post)
                 }
             }
             case DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
-                    let post = thisObject.profile.maps.POSTS[i]
+                    let post = thisObject.profile.posts[i]
                     if (post === undefined) { break }
-                    addPostToResponse(post)
+                    addToResponse(post)
                 }
             }
         }
         return response
 
-        function addPostToResponse(post) {
+        function addToResponse(post) {
             let postResponse = {
-                "emitterPostHash": post.emitterPostHash,
-                "targetPostHash": post.targetPostHash,
-                "postType": post.postType,
-                "userProfile": post.userProfile.userProfieId,
-                "timestamp": post.timestamp,
-                "repliesCount": post.replies.length,
-                "targetPostHash": post.targetPost.emitterPostHash,
-                "reactionsCount": []
+                emitterPostHash: post.emitterPostHash,
+                targetPostHash: post.targetPostHash,
+                postType: post.postType,
+                userProfile: post.userProfile.userProfieId,
+                timestamp: post.timestamp,
+                repliesCount: post.replies.length,
+                targetPostHash: post.targetPost.emitterPostHash,
+                reactionsCount: []
             }
 
             for (let i = 0; i < post.reactionTypesCount; i++) {

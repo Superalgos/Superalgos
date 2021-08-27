@@ -109,13 +109,13 @@ exports.newPostReplies = function newPostReplies() {
 
         function addToResponse(post) {
             let postResponse = {
+                emitterUserProfileId: post.emitterUserProfileId,
+                targetUserProfileId: post.targetUserProfileId,
                 emitterPostHash: post.emitterPostHash,
                 targetPostHash: post.targetPostHash,
                 postType: post.postType,
-                userProfile: post.userProfile.userProfieId,
                 timestamp: post.timestamp,
                 repliesCount: post.replies.length,
-                targetPostHash: post.targetPost.emitterPostHash,
                 reactionsCount: []
             }
 

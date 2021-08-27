@@ -61,7 +61,11 @@ exports.newClientInterface = function newClientInterface() {
             "timestamp": 124234234234,
             "botId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "botAsset": "BTC",
-            "botExchange": "Binance"
+            "botExchange": "Binance",
+            "initialReplyIndex": 25,
+            "initialPostIndex": 35,
+            "amountRequested": 50,
+            "direction": "Past"
         }
         */
 

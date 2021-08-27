@@ -1,8 +1,8 @@
-exports.newProfilePosts = function newProfilePosts() {
+exports.newPostReplies = function newPostReplies() {
 
     let thisObject = {
-        profile: undefined,
-        initialPostIndex: undefined,
+        post: undefined,
+        initialReplyIndex: undefined,
         amountRequested: undefined,
         direction: undefined,
         execute: execute,
@@ -10,8 +10,8 @@ exports.newProfilePosts = function newProfilePosts() {
         finalize: finalize
     }
 
-    const INITIAL_POST_INDEX_FIRST = 'First'
-    const INITIAL_POST_INDEX_LAST = 'Last'
+    const INITIAL_REPLY_INDEX_FIRST = 'First'
+    const INITIAL_REPLY_INDEX_LAST = 'Last'
     const MIN_AMOUNT_REQUESTED = 1
     const MAX_AMOUNT_REQUESTED = 100
     const DIRECTION_FUTURE = 'Future'
@@ -25,37 +25,33 @@ exports.newProfilePosts = function newProfilePosts() {
 
     function initialize(queryReceived) {
         /*
-        Validate User Profile
+        Validate Post
         */
-        if (queryReceived.targetUserProfileId !== undefined) {
-            thisObject.profile = NT.memory.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
-        } else {
-            thisObject.profile = NT.memory.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
-        }
+        thisObject.post = NT.memory.POSTS.get(queryReceived.targetPostHash)
 
-        if (thisObject.profile === undefined) {
-            throw ('Target User Profile Not Found.')
+        if (thisObject.post === undefined) {
+            throw ('Target Post Not Found.')
         }
         /* 
-        Validate Initial Post Index 
+        Validate Initial Reply Index 
         */
-        if (queryReceived.initialPostIndex === undefined) {
-            throw ('Initial Post Index Undefined.')
+        if (queryReceived.initialReplyIndex === undefined) {
+            throw ('Initial Reply Index Undefined.')
         }
 
-        if (queryReceived.initialPostIndex === INITIAL_POST_INDEX_LAST) {
-            queryReceived.initialPostIndex = thisObject.profile.posts.length - 1
+        if (queryReceived.initialReplyIndex === INITIAL_REPLY_INDEX_LAST) {
+            queryReceived.initialReplyIndex = thisObject.poat.replies.length - 1
         }
 
-        if (queryReceived.initialPostIndex === INITIAL_POST_INDEX_FIRST) {
-            queryReceived.initialPostIndex = 0
+        if (queryReceived.initialReplyIndex === INITIAL_REPLY_INDEX_FIRST) {
+            queryReceived.initialReplyIndex = 0
         }
 
-        if (isNaN(queryReceived.initialPostIndex) === true) {
-            throw ('Initial Post Is Not a Number.')
+        if (isNaN(queryReceived.initialReplyIndex) === true) {
+            throw ('Initial Reply Is Not a Number.')
         }
 
-        thisObject.initialPostIndex = queryReceived.initialPostIndex
+        thisObject.initialReplyIndex = queryReceived.initialReplyIndex
         /* 
         Validate Amount Requested 
         */
@@ -93,15 +89,15 @@ exports.newProfilePosts = function newProfilePosts() {
         let response = []
         switch (thisObject.direction) {
             case DIRECTION_FUTURE: {
-                for (let i = thisObject.initialPostIndex; i < thisObject.initialPostIndex + thisObject.amountRequested; i++) {
-                    let post = thisObject.profile.posts[i]
+                for (let i = thisObject.initialReplyIndex; i < thisObject.initialReplyIndex + thisObject.amountRequested; i++) {
+                    let post = thisObject.post.replies[i]
                     if (post === undefined) { break }
                     addPostToResponse(post)
                 }
             }
             case DIRECTION_PAST: {
-                for (let i = thisObject.initialPostIndex; i > thisObject.initialPostIndex - thisObject.amountRequested; i--) {
-                    let post = thisObject.profile.posts[i]
+                for (let i = thisObject.initialReplyIndex; i > thisObject.initialReplyIndex - thisObject.amountRequested; i--) {
+                    let post = thisObject.post.replies[i]
                     if (post === undefined) { break }
                     addPostToResponse(post)
                 }

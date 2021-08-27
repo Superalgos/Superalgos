@@ -96,78 +96,147 @@ exports.newEvents = function newEvents() {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let event = NT.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }
-                    addToResponse(event)
+                    checkEventContext(event)
                 }
             }
             case DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let event = NT.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }
-                    addToResponse(event)
+                    checkEventContext(event)
                 }
             }
         }
         return response
 
-        function addToResponse(event) {
+        function checkEventContext(event) {
+            /*
+            For an event to be returned at the response of this query, it needs to be related
+            to the profile making the query. How it can be related?
 
+            1. The Emitter or Target profile must be the same as the Query Profile.
+            2. The Emitter or Traget profile must be at the Following map of the Query Profile.
+            3. The Emmiter or Target post must be belong to any profile at the Following of the Query Profile.
+
+            Any of the above happening, means that indeed it is related.
+            */
             let emitterUserProfile = NT.memory.maps.USER_PROFILES_BY_ID.get(eventReceived.emitterUserProfileId)
             let targetUserProfile = NT.memory.maps.USER_PROFILES_BY_ID.get(eventReceived.targetUserProfileId)
             let emitterPost = NT.memory.maps.POSTS.get(eventReceived.emitterPostHash)
             let targetPost = NT.memory.maps.POSTS.get(eventReceived.targetPostHash)
-
-            let eventResponse = {
-                eventId: event.eventId,
-                eventType: event.eventType,
-                emitterUserProfileId: event.emitterUserProfileId,
-                targetUserProfileId: event.targetUserProfileId,
-                emitterPostHash: event.emitterPostHash,
-                targetPostHash: event.targetPostHash,
-                timestamp: event.timestamp,
-                botId: event.botId,
-                botAsset: event.botAsset,
-                botExchange: event.botExchange
-            }
-
+            /*
+            Test #1 : The Emitter or Target profile must be the same as the Query Profile.
+            */
             if (emitterUserProfile !== undefined) {
-                let query = NT.modules.QUERY_PROFILE_STATS.newProfileStats()
-                query.initialize({ targetUserProfileId: event.emitterUserProfileId })
-                eventResponse.emitterUserProfile = query.execute()
+                if (emitterUserProfile.userProfieId === thisObject.profile.userProfieId) {
+                    addToResponse(event)
+                    return
+                }
             }
-
             if (targetUserProfile !== undefined) {
-                let query = NT.modules.QUERY_PROFILE_STATS.newProfileStats()
-                query.initialize({ targetUserProfileId: event.targetUserProfileId })
-                eventResponse.targetUserProfile = query.execute()
+                if (targetUserProfile.userProfieId === thisObject.profile.userProfieId) {
+                    addToResponse(event)
+                    return
+                }
             }
-
+            /*
+            Test #2 : The Emitter or Traget profile must be at the Following map of the Query Profile.
+            */
+            if (emitterUserProfile !== undefined) {
+                if (thisObject.profile.multiMediaPostsFollowing.get(emitterUserProfile.userProfieId) !== undefined) {
+                    addToResponse(event)
+                    return
+                }
+            }
+            if (targetUserProfile !== undefined) {
+                if (thisObject.profile.multiMediaPostsFollowing.get(targetUserProfile.userProfieId) !== undefined) {
+                    addToResponse(event)
+                    return
+                }
+            }
+            /*
+            Test #3 : The Emmiter or Target post must be belong to any profile at the Following of the Query Profile.
+            */
             if (emitterPost !== undefined) {
-                eventResponse.emitterPost = addPost(emitterPost)
+                if (thisObject.profile.multiMediaPostsFollowing.get(emitterPost.emitterUserProfileId) !== undefined) {
+                    addToResponse(event)
+                    return
+                }
             }
-
+            if (emitterPost !== undefined) {
+                if (thisObject.profile.multiMediaPostsFollowing.get(emitterPost.targetUserProfileId) !== undefined) {
+                    addToResponse(event)
+                    return
+                }
+            }
             if (targetPost !== undefined) {
-                eventResponse.targetPost = addPost(targetPost)
+                if (thisObject.profile.multiMediaPostsFollowing.get(targetPost.emitterUserProfileId) !== undefined) {
+                    addToResponse(event)
+                    return
+                }
+            }
+            if (targetPost !== undefined) {
+                if (thisObject.profile.multiMediaPostsFollowing.get(targetPost.targetUserProfileId) !== undefined) {
+                    addToResponse(event)
+                    return
+                }
             }
 
-            response.push(eventResponse)
+            function addToResponse(event) {
 
-            function addPost(post) {
-                let postResponse = {
-                    emitterPostHash: post.emitterPostHash,
-                    targetPostHash: post.targetPostHash,
-                    postType: post.postType,
-                    userProfile: post.userProfile.userProfieId,
-                    timestamp: post.timestamp,
-                    repliesCount: post.replies.length,
-                    targetPostHash: post.targetPost.emitterPostHash,
-                    reactionsCount: []
+                let eventResponse = {
+                    eventId: event.eventId,
+                    eventType: event.eventType,
+                    emitterUserProfileId: event.emitterUserProfileId,
+                    targetUserProfileId: event.targetUserProfileId,
+                    emitterPostHash: event.emitterPostHash,
+                    targetPostHash: event.targetPostHash,
+                    timestamp: event.timestamp,
+                    botId: event.botId,
+                    botAsset: event.botAsset,
+                    botExchange: event.botExchange
                 }
 
-                for (let i = 0; i < post.reactionTypesCount; i++) {
-                    postResponse.reactionsCount.push(post.reactionsCount.get(i))
+                if (emitterUserProfile !== undefined) {
+                    let query = NT.modules.QUERY_PROFILE_STATS.newProfileStats()
+                    query.initialize({ targetUserProfileId: event.emitterUserProfileId })
+                    eventResponse.emitterUserProfile = query.execute()
                 }
 
-                return postResponse
+                if (targetUserProfile !== undefined) {
+                    let query = NT.modules.QUERY_PROFILE_STATS.newProfileStats()
+                    query.initialize({ targetUserProfileId: event.targetUserProfileId })
+                    eventResponse.targetUserProfile = query.execute()
+                }
+
+                if (emitterPost !== undefined) {
+                    eventResponse.emitterPost = addPost(emitterPost)
+                }
+
+                if (targetPost !== undefined) {
+                    eventResponse.targetPost = addPost(targetPost)
+                }
+
+                response.push(eventResponse)
+
+                function addPost(post) {
+                    let postResponse = {
+                        emitterPostHash: post.emitterPostHash,
+                        targetPostHash: post.targetPostHash,
+                        postType: post.postType,
+                        userProfile: post.userProfile.userProfieId,
+                        timestamp: post.timestamp,
+                        repliesCount: post.replies.length,
+                        targetPostHash: post.targetPost.emitterPostHash,
+                        reactionsCount: []
+                    }
+
+                    for (let i = 0; i < post.reactionTypesCount; i++) {
+                        postResponse.reactionsCount.push(post.reactionsCount.get(i))
+                    }
+
+                    return postResponse
+                }
             }
         }
     }

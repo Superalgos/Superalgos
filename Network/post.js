@@ -1,10 +1,11 @@
 exports.newPost = function newPost() {
 
     let thisObject = {
+        emitterUserProfileId: undefined,
+        targetUserProfileId: undefined,
         emitterPostHash: undefined,
         targetPostHash: undefined,
         postType: undefined,
-        userProfile: undefined,
         timestamp: undefined,
         replies: undefined,
         targetPost: undefined,
@@ -51,27 +52,30 @@ exports.newPost = function newPost() {
     return thisObject
 
     function finalize() {
+        thisObject.emitterUserProfileId = undefined
+        thisObject.targetUserProfileId = undefined
         thisObject.emitterPostHash = undefined
         thisObject.targetPostHash = undefined
         thisObject.postType = undefined
-        thisObject.userProfile = undefined
         thisObject.timestamp = undefined
         thisObject.replies = undefined
         thisObject.targetPost = undefined
     }
 
     function initialize(
+        emitterUserProfileId,
+        targetUserProfileId,
         emitterPostHash,
         targetPostHash,
         postType,
-        userProfile,
         timestamp
     ) {
 
+        thisObject.emitterUserProfileId = emitterUserProfileId
+        thisObject.targetUserProfileId = targetUserProfileId
         thisObject.emitterPostHash = emitterPostHash
         thisObject.targetPostHash = targetPostHash
         thisObject.postType = postType
-        thisObject.userProfile = userProfile
         thisObject.timestamp = timestamp
 
         thisObject.replies = []

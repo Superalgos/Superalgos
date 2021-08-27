@@ -1,8 +1,8 @@
 {
     "type": "Claims Program",
     "definition": {
-        "text": "This node helps define the section of the User Profile hierarchy that is going to be used to define the claims users make for the contributions they have done. These claims need later to be voted by other users in order to be considered during the token distribution process.",
-        "updated": 1629702697773
+        "text": "This node helps define the section of the User Profile hierarchy used to define the claims users make for the contributions they have done. Other users may vote for this claims so that they are computed during the token distribution process.",
+        "updated": 1630056746833
     },
     "paragraphs": [
         {

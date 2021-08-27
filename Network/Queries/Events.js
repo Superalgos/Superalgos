@@ -110,6 +110,12 @@ exports.newEvents = function newEvents() {
         return response
 
         function addToResponse(event) {
+
+            let emitterUserProfile = NT.memory.maps.USER_PROFILES_BY_ID.get(eventReceived.emitterUserProfileId)
+            let targetUserProfile = NT.memory.maps.USER_PROFILES_BY_ID.get(eventReceived.targetUserProfileId)
+            let emitterPost = NT.memory.maps.POSTS.get(eventReceived.emitterPostHash)
+            let targetPost = NT.memory.maps.POSTS.get(eventReceived.targetPostHash)
+
             let eventResponse = {
                 eventId: event.eventId,
                 eventType: event.eventType,
@@ -120,26 +126,49 @@ exports.newEvents = function newEvents() {
                 timestamp: event.timestamp,
                 botId: event.botId,
                 botAsset: event.botAsset,
-                botExchange: event.botExchange,
-                emitterUserProfile: {
-
-                },
-                targetUserProfile: {
-
-                },
-                emitterPost: {
-
-                },
-                targetPost: {
-
-                }
+                botExchange: event.botExchange
             }
 
-            for (let i = 0; i < post.reactionTypesCount; i++) {
-                eventResponse.reactionsCount.push(post.reactionsCount.get(i))
+            if (emitterUserProfile !== undefined) {
+                let query = NT.modules.QUERY_PROFILE_STATS.newProfileStats()
+                query.initialize({ targetUserProfileId: event.emitterUserProfileId })
+                eventResponse.emitterUserProfile = query.execute()
+            }
+
+            if (targetUserProfile !== undefined) {
+                let query = NT.modules.QUERY_PROFILE_STATS.newProfileStats()
+                query.initialize({ targetUserProfileId: event.targetUserProfileId })
+                eventResponse.targetUserProfile = query.execute()
+            }
+
+            if (emitterPost !== undefined) {
+                eventResponse.emitterPost = addPost(emitterPost)
+            }
+
+            if (targetPost !== undefined) {
+                eventResponse.targetPost = addPost(targetPost)
             }
 
             response.push(eventResponse)
+
+            function addPost(post) {
+                let postResponse = {
+                    emitterPostHash: post.emitterPostHash,
+                    targetPostHash: post.targetPostHash,
+                    postType: post.postType,
+                    userProfile: post.userProfile.userProfieId,
+                    timestamp: post.timestamp,
+                    repliesCount: post.replies.length,
+                    targetPostHash: post.targetPost.emitterPostHash,
+                    reactionsCount: []
+                }
+
+                for (let i = 0; i < post.reactionTypesCount; i++) {
+                    postResponse.reactionsCount.push(post.reactionsCount.get(i))
+                }
+
+                return postResponse
+            }
         }
     }
 }

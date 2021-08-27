@@ -98,6 +98,7 @@ exports.newProfilePosts = function newProfilePosts() {
                     if (post === undefined) { break }
                     addToResponse(post)
                 }
+                break
             }
             case DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
@@ -105,6 +106,7 @@ exports.newProfilePosts = function newProfilePosts() {
                     if (post === undefined) { break }
                     addToResponse(post)
                 }
+                break
             }
         }
         return response

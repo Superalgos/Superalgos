@@ -98,6 +98,7 @@ exports.newEvents = function newEvents() {
                     if (event === undefined) { break }
                     checkEventContext(event)
                 }
+                break
             }
             case DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
@@ -105,6 +106,7 @@ exports.newEvents = function newEvents() {
                     if (event === undefined) { break }
                     checkEventContext(event)
                 }
+                break
             }
         }
         return response

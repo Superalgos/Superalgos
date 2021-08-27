@@ -1,0 +1,14 @@
+{
+    "type": "Tokens Mined",
+    "definition": {
+        "text": "The Tokens Mined node features the total number of tokens you will get, adding all Token Rewards and Tokens Bonus from the programs you participate in.",
+        "updated": 1630090191493
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Computational Limitations",
+            "updated": 1630091305104
+        }
+    ]
+}

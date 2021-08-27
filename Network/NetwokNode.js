@@ -16,9 +16,9 @@ global.NT = {
     },
     modules: {
         USER_PROFILE: require('./UserProfile.js'),
+        BOT: require('./BotProfile.js'),
         EVENT: require('./Event.js'),
         POST: require('./Post.js'),
-        BOT: require('./Bot.js'),
         QUERY: require('./Query.js'),
         QUERY_PROFILE_STATS: require('./Queries/ProfileStats.js'),
         QUERY_PROFILE_POSTS: require('./Queries/ProfilePosts.js'),

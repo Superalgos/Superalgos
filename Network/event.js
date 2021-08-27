@@ -137,19 +137,19 @@ exports.newEvent = function newEvent() {
         ) {
             switch (thisObject.eventType) {
                 case EVENT_TYPES.FOLLOW_USER_PROFILE_MULTI_MEDIA_POSTS: {
-                    emitterUserProfile.addMultiMediaPostsFollowing(
+                    emitterUserProfile.addFollowing(
                         targetUserProfile
                     )
-                    targetUserProfile.addMultiMediaPostsFollower(
+                    targetUserProfile.addFollower(
                         emitterUserProfile
                     )
                     break
                 }
                 case EVENT_TYPES.UNFOLLOW_USER_PROFILE_MULTI_MEDIA_POSTS: {
-                    emitterUserProfile.removeMultiMediaPostsFollowing(
+                    emitterUserProfile.removeFollowing(
                         targetUserProfile
                     )
-                    targetUserProfile.removeMultiMediaPostsFollower(
+                    targetUserProfile.removeFollower(
                         emitterUserProfile
                     )
                     break

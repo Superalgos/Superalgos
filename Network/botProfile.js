@@ -2,6 +2,7 @@ exports.newBot = function newBot() {
 
     let thisObject = {
         botId: undefined,
+        botProfileHandle: undefined,
         botAsset: undefined,
         botExchange: undefined,
         enabled: undefined,

@@ -1,15 +1,15 @@
 exports.newPost = function newPost() {
 
     let thisObject = {
+        emitterUserProfileId: undefined,
+        targetUserProfileId: undefined,
         emitterPostHash: undefined,
         targetPostHash: undefined,
         postType: undefined,
-        userProfile: undefined,
         timestamp: undefined,
         replies: undefined,
-        targetPost: undefined,
         reactionsCount: undefined,
-        reactionTypesCount: undefined, 
+        reactionTypesCount: undefined,
         addReaction: addReaction,
         removeReactions: removeReaction,
         initialize: initialize,
@@ -51,33 +51,37 @@ exports.newPost = function newPost() {
     return thisObject
 
     function finalize() {
+        thisObject.emitterUserProfileId = undefined
+        thisObject.targetUserProfileId = undefined
         thisObject.emitterPostHash = undefined
         thisObject.targetPostHash = undefined
         thisObject.postType = undefined
-        thisObject.userProfile = undefined
         thisObject.timestamp = undefined
         thisObject.replies = undefined
-        thisObject.targetPost = undefined
     }
 
     function initialize(
+        emitterUserProfileId,
+        targetUserProfileId,
         emitterPostHash,
         targetPostHash,
         postType,
-        userProfile,
         timestamp
     ) {
 
+        thisObject.emitterUserProfileId = emitterUserProfileId
+        thisObject.targetUserProfileId = targetUserProfileId
         thisObject.emitterPostHash = emitterPostHash
         thisObject.targetPostHash = targetPostHash
         thisObject.postType = postType
-        thisObject.userProfile = userProfile
         thisObject.timestamp = timestamp
 
         thisObject.replies = []
         /*
         Let's find the Target Post
         */
+        let targetPost
+
         if (
             event.eventType === POST_TYPES.REPLY_TO_MULTI_MEDIA_POST ||
             event.eventType === POST_TYPES.REPOST_MULTI_MEDIA ||
@@ -86,9 +90,9 @@ exports.newPost = function newPost() {
             event.eventType === POST_TYPES.RE_POST_TRADE ||
             event.eventType === POST_TYPES.QUOTE_REPOST_TRADE
         ) {
-            thisObject.targetPost = NT.memory.POSTS.get(thisObject.targetPostHash)
+            targetPost = NT.memory.maps.POSTS.get(thisObject.targetPostHash)
 
-            if (thisObject.targetPost === undefined) {
+            if (targetPost === undefined) {
                 throw ('Target Post Not Found.')
             }
         }
@@ -99,7 +103,7 @@ exports.newPost = function newPost() {
             event.eventType === POST_TYPES.REPLY_TO_MULTI_MEDIA_POST ||
             event.eventType === POST_TYPES.REPLY_TO_TRADE_POST
         ) {
-            thisObject.targetPost.replies.push(thisObject)
+            targetPost.replies.push(thisObject)
         }
     }
 

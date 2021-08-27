@@ -78,7 +78,7 @@ exports.newUserProfile = function newUserProfile() {
         userProfile,
         timestamp
     ) {
-        if (NT.memory.POSTS.get(emitterPostHash) !== undefined) {
+        if (NT.memory.maps.POSTS.get(emitterPostHash) !== undefined) {
             throw ('Post Already Exists.')
         }
 
@@ -91,28 +91,28 @@ exports.newUserProfile = function newUserProfile() {
             timestamp
         )
 
-        thisObject.posts.push(post)
-        NT.memory.POSTS.set(emitterPostHash, post)
+        thisObject.maps.POSTS.push(post)
+        NT.memory.maps.POSTS.set(emitterPostHash, post)
         thisObject.postsCount++
     }
 
     function removePost(
         emitterPostHash
     ) {
-        if (NT.memory.POSTS.get(emitterPostHash) === undefined) {
+        if (NT.memory.maps.POSTS.get(emitterPostHash) === undefined) {
             throw ('Post Does Not Exist.')
         }
 
         let post = thisObject.posts.get(emitterPostHash)
         post.finalize()
 
-        for (let i = thisObject.posts.length - 1; i >= 0; i-- {
+        for (let i = thisObject.posts.length - 1; i >= 0; i--) {
             if (thisObject.posts[i].emitterPostHash === emitterPostHash) {
                 thisObject.posts.splice(i, 1)
                 break
             }
         }
-        NT.memory.POSTS.delete(emitterPostHash)
+        NT.memory.maps.POSTS.delete(emitterPostHash)
         thisObject.postsCount--
     }
 

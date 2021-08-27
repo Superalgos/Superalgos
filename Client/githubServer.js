@@ -211,6 +211,7 @@ exports.newGithubServer = function newGithubServer() {
                     })
                     await getPrList()
                     await mergePrs()
+                    await closePrsToMaster()
 
                     async function getPrList() {
 
@@ -592,6 +593,61 @@ exports.newGithubServer = function newGithubServer() {
                             }
                         }
                     }
+
+                    async function closePrsToMaster() {
+
+                        const per_page = 100 // Max
+                        let page = 0
+                        let lastPage = false
+
+                        while (lastPage === false) {
+                            try {
+                                page++
+
+                                await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+
+                                let listResponse = await octokit.rest.pulls.list({
+                                    owner: owner,
+                                    repo: repo,
+                                    state: 'open',
+                                    head: 'develop',
+                                    base: 'develop',
+                                    sort: undefined,
+                                    direction: undefined,
+                                    per_page: per_page,
+                                    page: page
+                                });
+
+                                if (listResponse.data.length < 100) {
+                                    lastPage = true
+                                }
+                                console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Receiving Page = ' + page)
+                                for (let i = 0; i < listResponse.data.length; i++) {
+                                    let pullRequest = listResponse.data[i]
+                                    console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Pull Request "' + pullRequest.title + '" found and added to the list to validate. ')
+                                    githubPrListArray.push(pullRequest)
+                                }
+                                console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList -> Received = ' + listResponse.data.length)
+
+                            } catch (err) {
+                                console.log(err)
+
+                                if (err.stack.indexOf('last page') >= 0) {
+                                    return
+                                } else {
+                                    console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->Method call produced an error.')
+                                    console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->err.stack = ' + err.stack)
+                                    console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->repository = ' + repository)
+                                    console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->username = ' + username)
+                                    console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token starts with = ' + token.substring(0, 10) + '...')
+                                    console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token ends with = ' + '...' + token.substring(token.length - 10))
+                                    error = err
+                                    return
+                                }
+                            }
+                        }
+                    }
+
                 } catch (err) {
                     console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> err.stack = ' + err.stack)
                 }

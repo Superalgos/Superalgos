@@ -36,13 +36,13 @@ exports.newClientInterface = function newClientInterface() {
         */
 
         let eventReceived = JSON.parse(eventMessage)
-        if (NT.memory.EVENTS.get(eventReceived.eventId) !== undefined) {
+        if (NT.memory.maps.EVENTS.get(eventReceived.eventId) !== undefined) {
             throw ('Event Already Exists.')
         }
 
         let event = NT.modules.EVENT.newEvent()
         event.initialize(eventReceived)
-        NT.memory.EVENTS.set(eventReceived.eventId, event)
+        NT.memory.maps.EVENTS.set(eventReceived.eventId, event)
     }
 
     function queryReceived(queryMessage) {
@@ -61,7 +61,10 @@ exports.newClientInterface = function newClientInterface() {
             "timestamp": 124234234234,
             "botId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "botAsset": "BTC",
-            "botExchange": "Binance"
+            "botExchange": "Binance",
+            "initialIndex": 35,
+            "amountRequested": 50,
+            "direction": "Past"
         }
         */
 

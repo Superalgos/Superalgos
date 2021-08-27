@@ -1,7 +1,7 @@
-exports.newProfilePosts = function newProfilePosts() {
+exports.newPostReplies = function newPostReplies() {
 
     let thisObject = {
-        profile: undefined,
+        post: undefined,
         initialIndex: undefined,
         amountRequested: undefined,
         direction: undefined,
@@ -10,8 +10,8 @@ exports.newProfilePosts = function newProfilePosts() {
         finalize: finalize
     }
 
-    const INITIAL_POST_INDEX_FIRST = 'First'
-    const INITIAL_POST_INDEX_LAST = 'Last'
+    const INITIAL_REPLY_INDEX_FIRST = 'First'
+    const INITIAL_REPLY_INDEX_LAST = 'Last'
     const MIN_AMOUNT_REQUESTED = 1
     const MAX_AMOUNT_REQUESTED = 100
     const DIRECTION_FUTURE = 'Future'
@@ -20,21 +20,17 @@ exports.newProfilePosts = function newProfilePosts() {
     return thisObject
 
     function finalize() {
-        thisObject.profile = undefined
+        thisObject.post = undefined
     }
 
     function initialize(queryReceived) {
         /*
-        Validate User Profile
+        Validate Post
         */
-        if (queryReceived.targetUserProfileId !== undefined) {
-            thisObject.profile = NT.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
-        } else {
-            thisObject.profile = NT.memory.maps.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
-        }
+        thisObject.post = NT.memory.maps.POSTS.get(queryReceived.targetPostHash)
 
-        if (thisObject.profile === undefined) {
-            throw ('Target User Profile Not Found.')
+        if (thisObject.post === undefined) {
+            throw ('Target Post Not Found.')
         }
         /* 
         Validate Initial Index 
@@ -43,16 +39,16 @@ exports.newProfilePosts = function newProfilePosts() {
             throw ('Initial Index Undefined.')
         }
 
-        if (queryReceived.initialIndex === INITIAL_POST_INDEX_LAST) {
-            queryReceived.initialIndex = thisObject.profile.posts.length - 1
+        if (queryReceived.initialIndex === INITIAL_REPLY_INDEX_LAST) {
+            queryReceived.initialIndex = thisObject.poat.replies.length - 1
         }
 
-        if (queryReceived.initialIndex === INITIAL_POST_INDEX_FIRST) {
+        if (queryReceived.initialIndex === INITIAL_REPLY_INDEX_FIRST) {
             queryReceived.initialIndex = 0
         }
 
         if (isNaN(queryReceived.initialIndex) === true) {
-            throw ('Initial Post Is Not a Number.')
+            throw ('Initial Reply Is Not a Number.')
         }
 
         thisObject.initialIndex = queryReceived.initialIndex
@@ -94,7 +90,7 @@ exports.newProfilePosts = function newProfilePosts() {
         switch (thisObject.direction) {
             case DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
-                    let post = thisObject.profile.posts[i]
+                    let post = thisObject.post.replies[i]
                     if (post === undefined) { break }
                     addToResponse(post)
                 }
@@ -102,7 +98,7 @@ exports.newProfilePosts = function newProfilePosts() {
             }
             case DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
-                    let post = thisObject.profile.posts[i]
+                    let post = thisObject.post.replies[i]
                     if (post === undefined) { break }
                     addToResponse(post)
                 }

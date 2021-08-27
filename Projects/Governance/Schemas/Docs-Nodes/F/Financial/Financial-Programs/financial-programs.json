@@ -1,0 +1,13 @@
+{
+    "type": "Financial Programs",
+    "definition": {
+        "text": "Use this node to spawn the Staking Program and the Delegation Program.",
+        "updated": 1630056638318
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

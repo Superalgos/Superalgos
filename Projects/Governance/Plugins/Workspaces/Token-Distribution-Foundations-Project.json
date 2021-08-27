@@ -1,7 +1,7 @@
 {
     "type": "Workspace",
     "name": "Token-Distribution-Foundations-Project",
-    "config": "{\n    \"docsLanguage\": \"EN\",\n    \"currentBranch\": \"master\",\n    \"contributionsBranch\": \"develop\"\n}",
+    "config": "{\n    \"docsLanguage\": \"EN\",\n    \"contributionsBranch\": \"develop\"\n}",
     "rootNodes": [
         {
             "type": "Design Space",
@@ -30,7 +30,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "spaceSettings": {
@@ -56,7 +58,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "id": "f8485ce5-67f3-4476-b9e2-80994e49c318",
@@ -92,32 +96,6 @@
             "type": "APIs",
             "name": "New APIs",
             "project": "Foundations",
-            "githubAPI": {
-                "type": "Github API",
-                "name": "New Github API",
-                "config": "{\n    \"username\": \"Luis-Fernando-Molina\",\n    \"token\": \"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\"\n}",
-                "project": "Foundations",
-                "id": "90d121ab-9f19-4437-a051-1222287085fc",
-                "savedPayload": {
-                    "position": {
-                        "x": 30630.458333333332,
-                        "y": 10730.006707946337
-                    },
-                    "targetPosition": {
-                        "x": 30330.458333333332,
-                        "y": 10730.006707946337
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": true,
-                        "angleToParent": 1,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {}
-                }
-            },
             "id": "23021bb7-9997-4fe6-8199-71ebf70aef76",
             "savedPayload": {
                 "position": {
@@ -168,7 +146,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "id": "db380c52-cf90-475b-87df-c005dd51cdf6",
@@ -221,7 +201,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "spaceSettings": {
@@ -247,7 +229,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "id": "016e464a-2b86-4c73-b79b-35c95751c339",
@@ -300,7 +284,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "spaces": {
@@ -325,7 +311,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "mines": {
@@ -350,7 +338,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "trading": {
@@ -375,7 +365,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "learning": {
@@ -400,7 +392,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "otherHierarchies": {
@@ -425,7 +419,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "id": "cf9f8b3b-77c6-43c6-b01f-95cf366a91f6",

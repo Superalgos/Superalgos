@@ -150,7 +150,7 @@ function newGovernanceUtilitiesTables() {
                         }
                         case 'percentage': {
                             if (isNaN(value)) { value = 0 }
-                            value = (value * 100).toFixed(2) + " %"
+                            value = (value * 100).toFixed(2) + "%"
                             break
                         }
                     }

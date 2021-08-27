@@ -1,0 +1,35 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": "115",
+    "type": "Tutorial Step - About our Governance",
+    "definition": {
+        "text": "Before I leave you with the next tutorial, you must know that Superalgos is a crypto project with distributed governance!",
+        "icon": {
+            "name": "\\governance-project",
+            "project": "Governance"
+        },
+        "updated": 1629835261024
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "You may earn Superalgos SA Tokens and Reputation by contributing to the project.",
+            "updated": 1630065210887
+        },
+        {
+            "style": "List",
+            "text": "Then you may leverage your tokens and reputation to participate in Governance Programs.",
+            "updated": 1629834501563
+        },
+        {
+            "style": "List",
+            "text": "Participating in governance earns you more tokens, as helping direct the project is an important contribution in and of itself!",
+            "updated": 1629834600057
+        },
+        {
+            "style": "Note",
+            "text": "You may earn your first few tokens with the Airdrops Program just by setting up your User Profile. But before you do that, you need to do a couple more tutorials to complete your education!",
+            "updated": 1629835202298
+        }
+    ]
+}

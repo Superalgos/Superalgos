@@ -1,0 +1,30 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 24,
+    "type": "Tutorial Step - Welcome aboard!",
+    "definition": {
+        "text": "You did it! You are now officially a part of the Superalgos governance community! Now that you have a profile, there are a few important things to do.",
+        "updated": 1629984755637,
+        "icon": {
+            "name": "Announcement\\announcement",
+            "project": "Foundations"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If you generated a Governance address using the profile constructor then you may want to connect that address to a wallet so that you have control of your tokens.",
+            "updated": 1629984765258
+        },
+        {
+            "style": "Note",
+            "text": "You will find guides for how to do this under the Building Your Profile topic in the docs.",
+            "updated": 1630009326066
+        },
+        {
+            "style": "Text",
+            "text": "Not only that, but you will want to begin participating in all of the exciting governance programs available! My friend here will take you through that next step in your governance journey.",
+            "updated": 1629585212515
+        }
+    ]
+}

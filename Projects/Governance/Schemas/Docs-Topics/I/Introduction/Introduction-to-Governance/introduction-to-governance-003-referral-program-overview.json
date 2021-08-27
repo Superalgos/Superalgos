@@ -3,8 +3,8 @@
     "pageNumber": "3",
     "type": "Referral Program Overview",
     "definition": {
-        "text": "The referral program built-in the Governance Project is designed to incentivize the promotion of the project, either by word-of-mouth or “en masse” through articles, social media posts, videos, and other forms of influencer marketing.",
-        "updated": 1628099865032
+        "text": "The referral program is one of the Community Building Programs designed to incentivize the promotion of the project, either by word-of-mouth or “en masse” through articles, social media posts, videos, and other forms of influencer marketing.",
+        "updated": 1629994461511
     },
     "paragraphs": [
         {
@@ -14,8 +14,13 @@
         },
         {
             "style": "Text",
-            "text": "The core idea is that you may earn a percentage of the tokens allocated to the Referrals Rewards Pool on each release. The amount depends on the Token Power that the people you refer — and those they refer — let into their Referral Program.",
-            "updated": 1624698404815
+            "text": "Users may declare who referred them to Superalgos and pass on some Referral Power to their referrers. The more people you refer, the more Referral Power you may get!",
+            "updated": 1630004903819
+        },
+        {
+            "style": "Text",
+            "text": "The Referral Power that you get determines the proportion of the tokens allocated to the Referrals Rewards Pool that you may get on each release.",
+            "updated": 1630004849661
         },
         {
             "style": "Title",
@@ -39,7 +44,8 @@
         },
         {
             "style": "Text",
-            "text": "The program features a Token Bonus. That is, simply by declaring your referrers, you earn tokens!"
+            "text": "The program features a Token Bonus. That is, simply by spawning the program and declaring your referrers, you earn tokens!",
+            "updated": 1629996937677
         }
     ]
 }

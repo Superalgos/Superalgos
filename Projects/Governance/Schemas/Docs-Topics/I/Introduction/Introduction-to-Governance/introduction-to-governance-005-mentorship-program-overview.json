@@ -9,15 +9,16 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "In a nutshell, mentors earn Superalgos SA Tokens for the work of their mentee Contributors and all their descendants!",
-            "updated": 1624705402820
+            "text": "In a nutshell, when you spawn the Mentorship Program and declare a User Mentor by referencing the User Profile of your mentor, you pass him or her 10% of the Mentorship Power you direct to the User Mentor node!",
+            "updated": 1629998677982
         },
         {
             "style": "Text",
-            "text": "The core idea is that you may earn a percentage of the tokens allocated to the Mentorship Rewards Pool on each release. How much of the pool you get depends on the Token Power that each of the Contributors you mentor accrue in their User Profiles. In fact, not only will you earn for the work of Contributors you bring and mentor, but you will earn for the work of Contributors they bring and mentor too, in a fractal manner, for all generations of mentees!"
+            "text": "The core idea is that mentors may earn a percentage of the tokens allocated to the Mentorship Rewards Pool on each release. How much of the pool they get depends on the Mentorship Power they get from their mentees.",
+            "updated": 1630005807344
         },
         {
-            "style": "Text",
+            "style": "Note",
             "text": "This incentive encourages power users to help newcomers with the initial learning curve, all the way until they get to the point in which they may contribute something of value."
         },
         {
@@ -26,7 +27,8 @@
         },
         {
             "style": "Text",
-            "text": "You declare who your mentors are by establishing references from Contributor Mentor nodes under the Mentorship Program node to the User Profile of the persons that:"
+            "text": "You declare who your mentors are by establishing references from User Mentor nodes under the Mentorship Program node to the User Profile of the persons that:",
+            "updated": 1629998973037
         },
         {
             "style": "List",

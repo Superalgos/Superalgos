@@ -37,7 +37,8 @@ exports.newFoundationsUtilitiesPlugins = function () {
 
             function onFileRead(err, file) {
                 if (err) {
-                    reject()
+                    console.log('[WARN] getPluginFileContent -> File not Found -> Path = ' + path)
+                    reject('File not Found')
                     return
                 }
                 resolve(file.toString())

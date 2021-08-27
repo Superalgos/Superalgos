@@ -40,8 +40,8 @@
         },
         {
             "style": "List",
-            "text": "In this folder, you will find a file named Getting Started Tutorials.json. This is the current workspace; the one you are using at this moment. Everything you have been doing lately has been stored here.",
-            "updated": 1622374674340,
+            "text": "This is where you will find the workspaces you may have saved earlier. If the folder is empty or doesn't exist, it means you haven't saved any workspaces yet!",
+            "updated": 1629895377178,
             "translations": [
                 {
                     "language": "IT",

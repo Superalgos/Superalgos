@@ -34,7 +34,13 @@
         },
         {
             "style": "Text",
-            "text": "To pick your favorite supporters, set up references from User Support nodes to their User Profiles."
+            "text": "To designate a supporter, you must spawn the Support Program within the Community Building Programs node, spawn a User Supporter node, and use it to reference the User Profile of the person of your choice. Then you will pass him or her 10% of the Support Power you direct to the User Supporter node!",
+            "updated": 1630005725102
+        },
+        {
+            "style": "Note",
+            "text": "You may declare as many supporters as you wish.",
+            "updated": 1630005323368
         },
         {
             "style": "Text",
@@ -50,7 +56,8 @@
         },
         {
             "style": "Text",
-            "text": "You guessed right! You may earn tokens simply by declaring your favorite supporters!"
+            "text": "You guessed right! You may earn tokens simply by spawning the program and declaring your favorite supporters!",
+            "updated": 1629997651973
         }
     ]
 }

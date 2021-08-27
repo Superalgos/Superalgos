@@ -1,0 +1,41 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 21,
+    "type": "Tutorial Step - GitHub Glory",
+    "definition": {
+        "text": "The GitHub Program allows you to receive some tokens for starting to get involved with the project!",
+        "updated": 1629926259120,
+        "icon": {
+            "name": "Programs\\github-program",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "There are three ways to gain more tokens with the Github Program. Doing all three will land you a nice Token bonus!",
+            "updated": 1629926280944
+        },
+        {
+            "style": "List",
+            "text": "Give a star to the Superalgos repository."
+        },
+        {
+            "style": "List",
+            "text": "Fork the Superalgos repository to your Github account.",
+            "updated": 1629926002868
+        },
+        {
+            "style": "List",
+            "text": "Watch the Superalgos repository with your Github account."
+        },
+        {
+            "style": "Callout",
+            "text": "Adding the Github program is just like adding the Airdrop Program! On the Onboarding Programs node click Add Github Program."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -52,17 +52,36 @@ function newGovernanceUserProfileSpace() {
         */
         let spaceWitdh = UI.projects.foundations.spaces.floatingSpace.container.frame.width
         const X_STEP = spaceWitdh / (userProfiles.length + 1)
+        const Y_STEP = 3000
+
         const Y_LEVEL = userProfiles[0].payload.floatingObject.container.frame.position.y
         let xOffset = X_STEP
-        let yOffset = 2000
-     
+        let yOffset = 0
+
         for (let i = 0; i < userProfiles.length; i++) {
-            userProfiles[i].payload.floatingObject.container.frame.position.x =  xOffset
+            userProfiles[i].payload.floatingObject.container.frame.position.x = xOffset
             xOffset = xOffset + X_STEP
         }
         for (let i = 1; i < userProfiles.length; i++) {
+            switch (true) {
+                case (yOffset === 0): {
+                    yOffset = Y_STEP
+                    break
+                }
+                case (yOffset === Y_STEP): {
+                    yOffset = 1
+                    break
+                }
+                case (yOffset === 1): {
+                    yOffset = -Y_STEP
+                    break
+                }
+                case (yOffset === -Y_STEP): {
+                    yOffset = 0
+                    break
+                }
+            }
             userProfiles[i].payload.floatingObject.container.frame.position.y = Y_LEVEL + yOffset
-            yOffset = -yOffset
         }
 
         for (let i = 0; i < userProfiles.length; i++) {

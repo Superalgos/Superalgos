@@ -1,8 +1,8 @@
 {
     "type": "Token Power Switch",
     "definition": {
-        "text": "The concept of a switch may be used throughout the different programs in the User Profile hierarchy. A switch is a device used to distribute the flow of Token Power to multiple offspring nodes. In the case of the Token Power Switch, it is the sole offspring node of the User Profile hierarchy used to distribute Token Power to the different programs.",
-        "updated": 1624726163960
+        "text": "The concept of a switch may be used throughout the different programs in the User Profile hierarchy. A switch is a device used to distribute the flow of Token Power to offspring nodes. In the case of the Token Power Switch, it is the sole offspring node of the User Profile hierarchy used to distribute Token Power to the different programs.",
+        "updated": 1630094625909
     },
     "paragraphs": [
         {
@@ -11,8 +11,9 @@
             "updated": 1624726181844
         },
         {
-            "style": "Text",
-            "text": "Other switches in the hierarchy adopt specific names describing what exactly is that they distribute among offspring nodes."
+            "style": "Note",
+            "text": "Most nodes in the hierarchy act as switches, even when their name does not include the word switch!",
+            "updated": 1630094810003
         },
         {
             "style": "Block",

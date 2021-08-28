@@ -52,20 +52,18 @@
             "text": "each hierarchy may be better visualized in different workspaces in which they may interact with other definitions; etc."
         },
         {
-            "style": "Subtitle",
+            "style": "Title",
             "text": "Superalgos Pools"
         },
         {
-            "style": "Text",
-            "text": "The Superalgos Pools hierarchy is where everything starts, meaning that it is the top-level hierarchy kickstarting the definition of the whole Project."
+            "style": "Include",
+            "text": "Governance->Concept->Superalgos Pools->Definition",
+            "updated": 1630171005510
         },
         {
-            "style": "Text",
-            "text": "Many of the Pool nodes defined in this hierarchy link to further definitions on other hierarchies. "
-        },
-        {
-            "style": "Text",
-            "text": "The configuration of the top-level node in the hierarchy determines how many tokens will be distributed in the release."
+            "style": "Include",
+            "text": "Governance->Concept->Superalgos Pools->Content",
+            "updated": 1630171012564
         },
         {
             "style": "Block",

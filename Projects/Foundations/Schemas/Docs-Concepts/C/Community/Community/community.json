@@ -1,13 +1,14 @@
 {
     "type": "Community",
     "definition": {
-        "text": "The Community, or the Superalgos Community, is the group of entities participating in the Superalgos project, either actively contributing to advancing the project or passively using the Superalgos software.",
-        "updated": 1618832930339,
+        "text": "The Community, or the Superalgos Community, is the group of entities participating in the Superalgos project, either actively contributing to advancing the project or passively using the Superalgos Network.",
+        "updated": 1630096402584,
         "translations": [
             {
                 "language": "ES",
                 "text": "La Community, o la Superalgos Community, es el grupo de entidades que participan en el proyecto Superalgos, ya sea contribuyendo activamente al avance del proyecto o utilizando pasivamente el software Superalgos.",
-                "updated": 1628046272721
+                "updated": 1628046272721,
+                "style": "Definition"
             }
         ]
     },

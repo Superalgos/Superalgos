@@ -33,7 +33,9 @@ let nodeModulesDirs = [
     path.join( process.cwd(), "Projects", "Foundations", "TS", "Bot-Modules", "Trading-Bot", "Announcements"),
     path.join( process.cwd(), "Projects", "Foundations", "TS", "Bot-Modules", "Trading-Bot", "Low-Frequency-Trading", "APIs"),
     path.join( process.cwd(), "Projects", "Foundations", "TS", "Task-Modules"),
+    /* Aug-27-21 - TensorFlow dependency integration undergoing modifications. Should be resolved within a day or two:
     path.join( process.cwd(), "Projects", "TensorFlow", "TS", "Bot-Modules", "Learning-Bot", "Low-Frequency-Learning")
+    */
 ];
 
 console.log('');

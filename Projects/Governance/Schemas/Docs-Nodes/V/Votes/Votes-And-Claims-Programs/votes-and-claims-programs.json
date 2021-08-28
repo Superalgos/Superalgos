@@ -1,0 +1,13 @@
+{
+    "type": "Votes And Claims Programs",
+    "definition": {
+        "text": "Use this node to spawn the Claims Program and the Voting Program.",
+        "updated": 1630056577950
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

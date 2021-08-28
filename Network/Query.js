@@ -13,7 +13,7 @@ exports.newQuery = function newQuery() {
         PROFILE_STATS: 0,
         PROFILE_POSTS: 1,
         POST_REPLIES: 2,
-        TIMELINE_CHUNK: 3
+        EVENTS: 3
 
     }
 
@@ -48,8 +48,8 @@ exports.newQuery = function newQuery() {
                 break
             }
 
-            case QUERY_TYPES.TIMELINE_CHUNK: {
-                thisObject.query = NT.modules.QUERY_TIMELINE_CHUNK.newTimelineChunk()
+            case QUERY_TYPES.maps.EVENTS: {
+                thisObject.query = NT.modules.QUERY_EVENTS.newEvents()
                 query.initialize(queryReceived)
                 break
             }

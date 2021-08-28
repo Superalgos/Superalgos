@@ -218,6 +218,10 @@
             "updated": 1613828879531
         },
         {
+            "style": "Text",
+            "text": ""
+        },
+        {
             "style": "Block",
             "text": "Dummy",
             "updated": 1613588341297

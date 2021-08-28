@@ -2,7 +2,7 @@ exports.newProfilePosts = function newProfilePosts() {
 
     let thisObject = {
         profile: undefined,
-        initialPostIndex: undefined,
+        initialIndex: undefined,
         amountRequested: undefined,
         direction: undefined,
         execute: execute,
@@ -20,7 +20,7 @@ exports.newProfilePosts = function newProfilePosts() {
     return thisObject
 
     function finalize() {
-
+        thisObject.profile = undefined
     }
 
     function initialize(queryReceived) {
@@ -28,34 +28,34 @@ exports.newProfilePosts = function newProfilePosts() {
         Validate User Profile
         */
         if (queryReceived.targetUserProfileId !== undefined) {
-            thisObject.profile = NT.memory.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
+            thisObject.profile = NT.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
         } else {
-            thisObject.profile = NT.memory.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
+            thisObject.profile = NT.memory.maps.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
         }
 
         if (thisObject.profile === undefined) {
             throw ('Target User Profile Not Found.')
         }
         /* 
-        Validate Initial Post Index 
+        Validate Initial Index 
         */
-        if (queryReceived.initialPostIndex === undefined) {
-            throw ('Initial Post Index Undefined.')
+        if (queryReceived.initialIndex === undefined) {
+            throw ('Initial Index Undefined.')
         }
 
-        if (queryReceived.initialPostIndex === INITIAL_POST_INDEX_LAST) {
-            queryReceived.initialPostIndex = thisObject.posts.length - 1
+        if (queryReceived.initialIndex === INITIAL_POST_INDEX_LAST) {
+            queryReceived.initialIndex = thisObject.profile.posts.length - 1
         }
 
-        if (queryReceived.initialPostIndex === INITIAL_POST_INDEX_FIRST) {
-            queryReceived.initialPostIndex = 0
+        if (queryReceived.initialIndex === INITIAL_POST_INDEX_FIRST) {
+            queryReceived.initialIndex = 0
         }
 
-        if (isNaN(queryReceived.initialPostIndex) === true) {
+        if (isNaN(queryReceived.initialIndex) === true) {
             throw ('Initial Post Is Not a Number.')
         }
 
-        thisObject.initialPostIndex = queryReceived.initialPostIndex
+        thisObject.initialIndex = queryReceived.initialIndex
         /* 
         Validate Amount Requested 
         */
@@ -75,7 +75,7 @@ exports.newProfilePosts = function newProfilePosts() {
             throw ('Amount Requested Above Max.')
         }
         /* 
-        Validate Amount Requested 
+        Validate Direction
         */
         if (queryReceived.direction === undefined) {
             throw ('Direction Undefined.')
@@ -90,33 +90,44 @@ exports.newProfilePosts = function newProfilePosts() {
     }
 
     function execute() {
-
         let response = []
         switch (thisObject.direction) {
             case DIRECTION_FUTURE: {
-                for (let i = thisObject.initialPostIndex; i < thisObject.initialPostIndex + thisObject.amountRequested; i++) {
+                for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let post = thisObject.profile.posts[i]
                     if (post === undefined) { break }
-
-                    let postResponse = {
-                        "emitterPostHash": post.emitterPostHash,
-                        "targetPostHash": post.targetPostHash,
-                        "postType": post.postType,
-                        "userProfile": post.userProfile.userProfieId,
-                        "timestamp": post.timestamp,
-                        "repliesCount": post.replies.length,
-                        "targetPostHash": post.targetPost.emitterPostHash,
-                        "reactionsCount": []
-                    }
-
-                    for (let i = 0; i < post.reactionTypesCount; i++) {
-                        postResponse.reactionsCount.push(post.reactionsCount.get(i))
-                    }
-
-                    response.push(postResponse)
+                    addToResponse(post)
                 }
+                break
+            }
+            case DIRECTION_PAST: {
+                for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
+                    let post = thisObject.profile.posts[i]
+                    if (post === undefined) { break }
+                    addToResponse(post)
+                }
+                break
             }
         }
         return response
+
+        function addToResponse(post) {
+            let postResponse = {
+                emitterUserProfileId: post.emitterUserProfileId,
+                targetUserProfileId: post.targetUserProfileId,
+                emitterPostHash: post.emitterPostHash,
+                targetPostHash: post.targetPostHash,
+                postType: post.postType,
+                timestamp: post.timestamp,
+                repliesCount: post.replies.length,
+                reactionsCount: []
+            }
+
+            for (let i = 0; i < post.reactionTypesCount; i++) {
+                postResponse.reactionsCount.push(post.reactionsCount.get(i))
+            }
+
+            response.push(postResponse)
+        }
     }
 }

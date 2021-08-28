@@ -128,9 +128,33 @@ exports.newEvent = function newEvent() {
                     thisObject.eventType - 10,
                     thisObject.timestamp
                 )
+                return
             }
+            if (
+                thisObject.eventType === EVENT_TYPES.NEW_BOT_POST ||
+                thisObject.eventType === EVENT_TYPES.REPLY_TO_BOT_POST ||
+                thisObject.eventType === EVENT_TYPES.REPOST_BOT_POST ||
+                thisObject.eventType === EVENT_TYPES.QUOTE_REPOST_BOT_POST
+            ) {
+                let botProfile = emitterUserProfile.bots.get(emitterBotProfileId)
+                if (
+                    botProfile === undefined
+                ) {
+                    throw ('Emitter BOt Profile Not Found.')
+                }
 
-            return
+                botProfile.addPost(
+                    thisObject.emitterUserProfileId,
+                    thisObject.targetUserProfileId,
+                    thisObject.emitterBotProfileId,
+                    thisObject.targetBotProfileId,
+                    thisObject.emitterPostHash,
+                    thisObject.targetPostHash,
+                    thisObject.eventType - 20,
+                    thisObject.timestamp
+                )
+                return
+            }
         }
         /*
         Is is a following?

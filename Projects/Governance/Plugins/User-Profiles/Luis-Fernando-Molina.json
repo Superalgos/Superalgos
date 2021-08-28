@@ -150,7 +150,7 @@
         "communityBuildingPrograms": {
             "type": "Community Building Programs",
             "name": "New Community Building Programs",
-            "config": "{}",
+            "config": "{\n    \"percentage\": 0\n}",
             "project": "Governance",
             "referralProgram": {
                 "type": "Referral Program",
@@ -539,7 +539,7 @@
         "votesAndClaimsPrograms": {
             "type": "Votes And Claims Programs",
             "name": "New Votes And Claims Programs",
-            "config": "{\n    \"percentage\": 50\n}",
+            "config": "{\n    \"percentage\": 30\n}",
             "project": "Governance",
             "votingProgram": {
                 "type": "Voting Program",
@@ -12078,7 +12078,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -12435,7 +12435,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -12471,7 +12471,7 @@
         "financialPrograms": {
             "type": "Financial Programs",
             "name": "New Financial Programs",
-            "config": "{\n    \"percentage\": 30\n}",
+            "config": "{\n    \"percentage\": 70\n}",
             "project": "Governance",
             "stakingProgram": {
                 "type": "Staking Program",
@@ -12543,7 +12543,7 @@
                             {
                                 "type": "Delegate Power Switch",
                                 "name": "Phill",
-                                "config": "{\n    \"percentage\": 30\n}",
+                                "config": "{\n    \"percentage\": 35\n}",
                                 "project": "Governance",
                                 "delegatePowerSwitch": [],
                                 "userDelegates": [
@@ -12759,7 +12759,7 @@
                             {
                                 "type": "Delegate Power Switch",
                                 "name": "Carl",
-                                "config": "{\n    \"percentage\": 5\n}",
+                                "config": "{\n    \"percentage\": 0\n}",
                                 "project": "Governance",
                                 "delegatePowerSwitch": [],
                                 "userDelegates": [
@@ -12797,7 +12797,9 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "cozed-gh",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
                                                 ]
                                             ]
                                         }
@@ -13162,7 +13164,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

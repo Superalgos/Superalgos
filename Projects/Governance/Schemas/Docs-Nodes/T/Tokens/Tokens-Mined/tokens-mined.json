@@ -6,9 +6,13 @@
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1630157979224
+        },
+        {
             "style": "Include",
-            "text": "Governance->Concept->Reusable Governance Snippets->Computational Limitations",
-            "updated": 1630091305104
+            "text": "Governance->Concept->Reusable Governance Snippets->Computational Limitations"
         }
     ]
 }

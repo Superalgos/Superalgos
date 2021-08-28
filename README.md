@@ -5,11 +5,11 @@
 ![last-commit](https://img.shields.io/github/last-commit/Superalgos/Superalgos/develop?label=last%20commit%20to%20develop)
 ![bot-friendliness](https://img.shields.io/badge/Bot%20Friendliness%20Level-119%25-yellow)
 
-Superalgos is not just another open-source project. We are an open and welcoming community devised, nurtured, and incentivized with the project's native <a href="https://superalgos.org/token-overview.shtml" target="_blank">Superalgos (SA) Token</a> to build an open trading intelligence network.
+Superalgos is not just another open-source project. We are an open and welcoming community devised, nurtured, and incentivized with the project's native <a href="https://superalgos.org/token-overview.shtml" target="_blank">Superalgos (SA) Token</a> to build an <a href="https://superalgos.org/" target="_blank">open trading intelligence network</a>.
 
 You will notice the difference as soon as you join the [Telegram Community Group](https://t.me/superalgoscommunity) or the new [Discord Server](https://discord.gg/CGeKC6WQQb)!
 
-> Can't wait to contribute? No need to wait! You may start by giving a star to this repository in the top-right corner of this page!
+> Can't wait to contribute? Sstart by giving a star to this repository in the top-right corner of this page!
 
 ![superalgos-readme](https://user-images.githubusercontent.com/13994516/106380124-844d8980-63b0-11eb-9bd9-4f977b6c183b.gif)
 
@@ -34,6 +34,7 @@ Node JS is an open-source server environment required to run Superalgos.
 **C.** Run the installer with the default configuration — just click Next until Node.JS is fully installed. That's it! You can continue with step 2 (Git Installation).
 
 <hr>
+<div style="padding-left: 30px;">
 
 **NODE JS INSTALLATION FOR RASPBERRY PI USERS**
 
@@ -59,6 +60,8 @@ node -v
 ```
 npm -v 
 ```
+
+</div>
 <hr>
 
 ## 2. Git Installation
@@ -78,6 +81,7 @@ Git is an open-source distributed version control system required to download an
 **NOTE FOR MAC USERS:** Depending on your setup, installing Git may be optional. The native XCode Command Line Developer Tools seems to work well. If you do install Git, we have tested Tim Harper's binary installer successfully.
 
 <hr>
+<div style="padding-left: 30px;">
 
 **GIT INSTALLATION FOR RASPBERRY PI USERS**
 
@@ -85,7 +89,7 @@ Just like with Node.JS, you may follow the above instructions to install Git, or
 ```
 sudo apt-get install git
 ```
-
+</div>
 <hr>
 
 ## 3. Google Chrome or Safari
@@ -151,6 +155,7 @@ Congratulations your installation is complete!
 > **The Usage section below explains how to run the app.**
 
 <hr>
+<div style="padding-left: 30px;">
 
 **DEPENDENCY INSTALLATION FOR RASPBERRY PI USERS**
 
@@ -159,7 +164,7 @@ As noted above, running `node setup` installs GUI shortcuts by default. To suppr
 ```
 node setup noShortcuts
 ```
-
+</div>
 <hr>
 
 **Troubleshooting Dependency Installation**

@@ -1,8 +1,8 @@
 {
     "type": "Tokens Awarded",
     "definition": {
-        "text": "The Tokens Awarded node is present on each of the programs in the hierarchy. It exists to accumulate and display the number of Superalgos SA Tokens awarded to your profile through each the corresponding program.",
-        "updated": 1630095292390
+        "text": "The Tokens Awarded node is present on each of the programs in the hierarchy. It exists to accumulate and display the number of Superalgos SA Tokens awarded to your profile through each program.",
+        "updated": 1630164138055
     },
     "paragraphs": [
         {
@@ -14,6 +14,24 @@
             "style": "Text",
             "text": "The information on how many tokens the particular program has awarded you is displayed as a notice below the node, along with other relevant information that depends on the context, like the number of people that helped you get them, or the number of claims computed, etc.",
             "updated": 1630095366072
+        },
+        {
+            "style": "Subtitle",
+            "text": "Community Building Programs Calculations",
+            "updated": 1630165409867
+        },
+        {
+            "style": "Text",
+            "text": "The Community Building Programs node page explains how Tokens Rewards are calculated for these particular program.",
+            "updated": 1630171164026
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
         },
         {
             "style": "Block",

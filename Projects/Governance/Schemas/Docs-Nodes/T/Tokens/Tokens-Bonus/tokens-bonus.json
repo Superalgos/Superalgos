@@ -12,8 +12,8 @@
         },
         {
             "style": "Text",
-            "text": "Programs that feature a Tokens Bonus have an associated Pool under the Governance Programs section of the Superalgos Pools hierarchy. These pools are used specifically to allocate tokens for these incentives.",
-            "updated": 1630096702504
+            "text": "Programs that feature a Tokens Bonus have an associated Bonus Pool under the Governance Programs section of the Superalgos Pools hierarchy. These pools are used specifically to allocate tokens for these incentives.",
+            "updated": 1630168414638
         },
         {
             "style": "Callout",
@@ -32,8 +32,8 @@
         },
         {
             "style": "Json",
-            "text": "Total Token Power [*] -> 100% of the pool\n Your Token Power [**] -> X% of the pool\n\nX = Your Token Power * 100% / Total Token Power\n\n[*] The power driven to the given program by all User Profiles combined.\n[**] The power you drive to the given program.",
-            "updated": 1630157176789
+            "text": "Total Token Power [*] -> 100% of the pool\n Your Token Power [**] -> X% of the pool -> Tokens Bonus\n\nTokens Bonus = Your Token Power * 100% / Total Token Power\n\n[*] The power driven to the given program by all User Profiles combined.\n[**] The power you drive to the given program.",
+            "updated": 1630171226134
         }
     ]
 }

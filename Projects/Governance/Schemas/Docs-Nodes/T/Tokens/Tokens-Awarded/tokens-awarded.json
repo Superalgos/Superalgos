@@ -22,22 +22,12 @@
         },
         {
             "style": "Text",
-            "text": "In general terms, the Referral Program, Support Program, and Mentorship Program have the following common rules:",
-            "updated": 1630164392230
+            "text": "The Community Building Programs node page explains how Tokens Rewards are calculated for these particular program.",
+            "updated": 1630171164026
         },
         {
             "style": "Text",
             "text": ""
-        },
-        {
-            "style": "List",
-            "text": "When your profile is referenced by others (through their User Referrer, User Supporter, or User Mentor nodes), they pass on 10% of the Token Power available in the node to you. This is your Incoming Power.",
-            "updated": 1630164987701
-        },
-        {
-            "style": "List",
-            "text": "The Incoming Power is added to your Own Power in the corresponding program, so that you may pass on more power to other User Profiles. Like in the reverse case, when you reference other User Profiles, you pass on 10% of power that reaches the node establishing the reference.",
-            "updated": 1630165213925
         },
         {
             "style": "Text",

@@ -12,8 +12,18 @@
         },
         {
             "style": "Text",
-            "text": "In general terms, the Referral Program, Support Program, and Mentorship Program all have the following common rules:",
-            "updated": 1630167199898
+            "text": "Each of the Community Building Programs has an associated Rewards Pool and a Bonus Pool under the Governance Programs > Community Building Programs section of the Superalgos Pools hierarchy.",
+            "updated": 1630168361008
+        },
+        {
+            "style": "Note",
+            "text": "The incentives entailed in a Bonus Pool are explained in the Tokens Bonus node.",
+            "updated": 1630170463942
+        },
+        {
+            "style": "Text",
+            "text": "Let's explore how Rewards Pools are distributed in the case of Community Building Programs. In general terms, the Referral Program, Support Program, and Mentorship Program all have the following common rules:",
+            "updated": 1630168572231
         },
         {
             "style": "List",
@@ -36,13 +46,13 @@
         },
         {
             "style": "Text",
-            "text": "The Incoming Power you get from other users is in a Direct Proportion to the number of tokens you get from the corresponding program rewards pool. The calculation is based on a Rule of Three, and the result is displayed under the Tokens Bonus node of the corresponding program.",
-            "updated": 1630167868785
+            "text": "The Incoming Power you get from other users is in a Direct Proportion to the number of tokens you get from the corresponding program Rewards Pool. The calculation is based on a Rule of Three, and the result is displayed under the Tokens Bonus node of the corresponding program.",
+            "updated": 1630170674503
         },
         {
             "style": "Json",
-            "text": "Total Incoming Power [*] -> 100% of the pool\n Your Incoming Power [**] -> X% of the pool\n\nX = Your Incoming Power * 100% / Total Incoming Power\n\n[*] The sum of all Incoming Power in all User Profiles combined for the given program.\n[**] Your Incoming Power in the given program.",
-            "updated": 1630167666938
+            "text": "Total Incoming Power [*] -> 100% of the pool\n Your Incoming Power [**] -> X% of the pool -> Tokens Rewards\n\nTokens Rewards = Your Incoming Power * 100% / Total Incoming Power\n\n[*] The sum of all Incoming Power (in the given program) in all User Profiles combined.\n[**] Your Incoming Power (in the given program).",
+            "updated": 1630170860166
         }
     ]
 }

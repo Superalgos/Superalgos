@@ -130,13 +130,13 @@ exports.newEvents = function newEvents() {
             Test #1 : The Emitter or Target profile must be the same as the Query Profile.
             */
             if (emitterUserProfile !== undefined) {
-                if (emitterUserProfile.userProfieId === thisObject.profile.userProfieId) {
+                if (emitterUserProfile.userProfileId === thisObject.profile.userProfileId) {
                     addToResponse(event)
                     return
                 }
             }
             if (targetUserProfile !== undefined) {
-                if (targetUserProfile.userProfieId === thisObject.profile.userProfieId) {
+                if (targetUserProfile.userProfileId === thisObject.profile.userProfileId) {
                     addToResponse(event)
                     return
                 }
@@ -145,13 +145,13 @@ exports.newEvents = function newEvents() {
             Test #2 : The Emitter or Traget profile must be at the Following map of the Query Profile.
             */
             if (emitterUserProfile !== undefined) {
-                if (thisObject.profile.following.get(emitterUserProfile.userProfieId) !== undefined) {
+                if (thisObject.profile.following.get(emitterUserProfile.userProfileId) !== undefined) {
                     addToResponse(event)
                     return
                 }
             }
             if (targetUserProfile !== undefined) {
-                if (thisObject.profile.following.get(targetUserProfile.userProfieId) !== undefined) {
+                if (thisObject.profile.following.get(targetUserProfile.userProfileId) !== undefined) {
                     addToResponse(event)
                     return
                 }
@@ -200,15 +200,17 @@ exports.newEvents = function newEvents() {
                 }
 
                 if (emitterUserProfile !== undefined) {
-                    let query = NT.modules.QUERY_PROFILE_STATS.newProfileStats()
+                    let query = NT.modules.QUERY_PROFILE_STATS.newUserProfileStats()
                     query.initialize({ targetUserProfileId: event.emitterUserProfileId })
                     eventResponse.emitterUserProfile = query.execute()
+                    query.finalize()
                 }
 
                 if (targetUserProfile !== undefined) {
-                    let query = NT.modules.QUERY_PROFILE_STATS.newProfileStats()
+                    let query = NT.modules.QUERY_PROFILE_STATS.newUserProfileStats()
                     query.initialize({ targetUserProfileId: event.targetUserProfileId })
                     eventResponse.targetUserProfile = query.execute()
+                    query.finalize()
                 }
 
                 if (emitterPost !== undefined) {

@@ -1,7 +1,7 @@
 exports.newUserProfile = function newUserProfile() {
 
     let thisObject = {
-        userProfieId: undefined,
+        userProfileId: undefined,
         userProfileHandle: undefined,
         blockchainAccount: undefined,
         ranking: undefined,

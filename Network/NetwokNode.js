@@ -20,7 +20,8 @@ global.NT = {
         EVENT: require('./Event.js'),
         POST: require('./Post.js'),
         QUERY: require('./Query.js'),
-        QUERY_PROFILE_STATS: require('./Queries/ProfileStats.js'),
+        QUERY_USER_PROFILE_STATS: require('./Queries/UserProfileStats.js'),
+        QUERY_BOT_PROFILE_STATS: require('./Queries/BotProfileStats.js'),
         QUERY_PROFILE_POSTS: require('./Queries/ProfilePosts.js'),
         QUERY_POST_REPLIES: require('./Queries/ProfileReplies.js'),
         QUERY_EVENTS: require('./Queries/Events.js')

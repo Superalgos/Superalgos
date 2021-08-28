@@ -145,13 +145,13 @@ exports.newEvents = function newEvents() {
             Test #2 : The Emitter or Traget profile must be at the Following map of the Query Profile.
             */
             if (emitterUserProfile !== undefined) {
-                if (thisObject.profile.multiMediaPostsFollowing.get(emitterUserProfile.userProfieId) !== undefined) {
+                if (thisObject.profile.following.get(emitterUserProfile.userProfieId) !== undefined) {
                     addToResponse(event)
                     return
                 }
             }
             if (targetUserProfile !== undefined) {
-                if (thisObject.profile.multiMediaPostsFollowing.get(targetUserProfile.userProfieId) !== undefined) {
+                if (thisObject.profile.following.get(targetUserProfile.userProfieId) !== undefined) {
                     addToResponse(event)
                     return
                 }
@@ -160,25 +160,25 @@ exports.newEvents = function newEvents() {
             Test #3 : The Emmiter or Target post must be belong to any profile at the Following of the Query Profile.
             */
             if (emitterPost !== undefined) {
-                if (thisObject.profile.multiMediaPostsFollowing.get(emitterPost.emitterUserProfileId) !== undefined) {
+                if (thisObject.profile.following.get(emitterPost.emitterUserProfileId) !== undefined) {
                     addToResponse(event)
                     return
                 }
             }
             if (emitterPost !== undefined) {
-                if (thisObject.profile.multiMediaPostsFollowing.get(emitterPost.targetUserProfileId) !== undefined) {
+                if (thisObject.profile.following.get(emitterPost.targetUserProfileId) !== undefined) {
                     addToResponse(event)
                     return
                 }
             }
             if (targetPost !== undefined) {
-                if (thisObject.profile.multiMediaPostsFollowing.get(targetPost.emitterUserProfileId) !== undefined) {
+                if (thisObject.profile.following.get(targetPost.emitterUserProfileId) !== undefined) {
                     addToResponse(event)
                     return
                 }
             }
             if (targetPost !== undefined) {
-                if (thisObject.profile.multiMediaPostsFollowing.get(targetPost.targetUserProfileId) !== undefined) {
+                if (thisObject.profile.following.get(targetPost.targetUserProfileId) !== undefined) {
                     addToResponse(event)
                     return
                 }

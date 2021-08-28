@@ -1,8 +1,8 @@
 {
     "type": "Tokens Awarded",
     "definition": {
-        "text": "The Tokens Awarded node is present on each of the programs in the hierarchy. It exists to accumulate and display the number of Superalgos SA Tokens awarded to your profile through each the corresponding program.",
-        "updated": 1630095292390
+        "text": "The Tokens Awarded node is present on each of the programs in the hierarchy. It exists to accumulate and display the number of Superalgos SA Tokens awarded to your profile through each program.",
+        "updated": 1630164138055
     },
     "paragraphs": [
         {
@@ -14,6 +14,34 @@
             "style": "Text",
             "text": "The information on how many tokens the particular program has awarded you is displayed as a notice below the node, along with other relevant information that depends on the context, like the number of people that helped you get them, or the number of claims computed, etc.",
             "updated": 1630095366072
+        },
+        {
+            "style": "Subtitle",
+            "text": "Community Building Programs Calculations",
+            "updated": 1630165409867
+        },
+        {
+            "style": "Text",
+            "text": "In general terms, the Referral Program, Support Program, and Mentorship Program have the following common rules:",
+            "updated": 1630164392230
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "List",
+            "text": "When your profile is referenced by others (through their User Referrer, User Supporter, or User Mentor nodes), they pass on 10% of the Token Power available in the node to you. This is your Incoming Power.",
+            "updated": 1630164987701
+        },
+        {
+            "style": "List",
+            "text": "The Incoming Power is added to your Own Power in the corresponding program, so that you may pass on more power to other User Profiles. Like in the reverse case, when you reference other User Profiles, you pass on 10% of power that reaches the node establishing the reference.",
+            "updated": 1630165213925
+        },
+        {
+            "style": "Text",
+            "text": ""
         },
         {
             "style": "Block",

@@ -1,13 +1,48 @@
 {
     "type": "Community Building Programs",
     "definition": {
-        "text": "Superalgos thrives through contributions and collaboration. We designed the Community Building Programs to foster a community in which members are always ready to help and give back!",
-        "updated": 1629994549969
+        "text": "Superalgos thrives through contributions and collaboration. We designed the Community Building Programs to foster a community in which members are always ready to help and give back! The node may spawn the Referral Program, Support Program, and Mentorship Program nodes.",
+        "updated": 1630167175719
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1630165468473
+        },
+        {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "In general terms, the Referral Program, Support Program, and Mentorship Program all have the following common rules:",
+            "updated": 1630167199898
+        },
+        {
+            "style": "List",
+            "text": "When your profile is referenced by others through their User Referrer, User Supporter, or User Mentor nodes, they pass on 10% of the Referral Power, Support Power, or Mentorship Power available in the node to you. This is your Incoming Power in the corresponding program.",
+            "updated": 1630166954607
+        },
+        {
+            "style": "List",
+            "text": "Your Incoming Power is added to your Own Power in the corresponding program, so that you may pass on more power to other User Profiles. Like in the reverse case, when you reference other User Profiles, you pass on 10% of the power that reaches the node establishing the reference.",
+            "updated": 1630166856996
+        },
+        {
+            "style": "Callout",
+            "text": "This passing of 10% of the power from one user to the next has the effect of rewarding collaboration chains. For instance, Alice tells her friend Bob about Superalgos. When Bob eventually sets up his User Profile, he declares Alice as his referrer. This means that Alice gets 10% of the Referral Power that Bob drives to his User Referrer node. Then, Bob brings his friend Charly to Superalgos. Charly sets up his profile and declares Bob as his referrer. So now Bob gets 10% of the Referral Power that Charly drives to his User Referrer node. Can you see what happens with Alice's Incoming Referral Power? That's it! She gets 10% of Bob's power, which includes 10% of Charly's power!",
+            "updated": 1630167091644
+        },
+        {
+            "style": "Note",
+            "text": "Pretty much the same happens with the Support Program and the Mentorship Program."
+        },
+        {
+            "style": "Text",
+            "text": "The Incoming Power you get from other users is in a Direct Proportion to the number of tokens you get from the corresponding program rewards pool. The calculation is based on a Rule of Three, and the result is displayed under the Tokens Bonus node of the corresponding program.",
+            "updated": 1630167868785
+        },
+        {
+            "style": "Json",
+            "text": "Total Incoming Power [*] -> 100% of the pool\n Your Incoming Power [**] -> X% of the pool\n\nX = Your Incoming Power * 100% / Total Incoming Power\n\n[*] The sum of all Incoming Power in all User Profiles combined for the given program.\n[**] Your Incoming Power in the given program.",
+            "updated": 1630167666938
         }
     ]
 }

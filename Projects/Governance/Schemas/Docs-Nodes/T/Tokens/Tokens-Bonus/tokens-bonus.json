@@ -1,8 +1,8 @@
 {
     "type": "Tokens Bonus",
     "definition": {
-        "text": "A Tokens Bonus is a reward in tokens that you obtain for participating in a program that is incentivized. Taking part in these programs is desirable, as they foster Community bonds, develop healthy social relations, or encourage specific collaborative dynamics. It is for those reasons that participation is incentivized.",
-        "updated": 1630095845787
+        "text": "A Tokens Bonus is a reward that you obtain for participating in a program that is incentivized. Taking part in these programs is desirable, as they foster Community bonds, develop healthy social relations, or encourage specific collaborative dynamics. It is for those reasons that participation is incentivized.",
+        "updated": 1630141035393
     },
     "paragraphs": [
         {
@@ -16,13 +16,24 @@
             "updated": 1630096702504
         },
         {
-            "style": "Text",
-            "text": "You participate in the pool of the Tokens Bonus for any given program in a Direct Proportion to the Token Power that you drive into the said program. That is, the more Token Power you drive into an incentivized program, the more tokens you get from the corresponding pool.",
-            "updated": 1630096882680
+            "style": "Callout",
+            "text": "The Tokens Bonus you may get on any given program is in a Direct Proportion to the Token Power that you drive into the said program. That is, the more Token Power you drive into an incentivized program, the more tokens you get from the corresponding pool.",
+            "updated": 1630141193081
+        },
+        {
+            "style": "Subtitle",
+            "text": "Calculation",
+            "updated": 1630141623710
         },
         {
             "style": "Text",
-            "text": "asdf"
+            "text": "The calculation of the Tokens Bonus is a direct Rule of Three:",
+            "updated": 1630142120510
+        },
+        {
+            "style": "Json",
+            "text": "Total Token Power [*] -> 100% of the pool\n Your Token Power [**] -> X% of the pool\n\nX = Your Token Power * 100% / Total Token Power\n\n[*] The power driven to the given program by all User Profiles combined.\n[**] The power you drive to the given program.",
+            "updated": 1630157176789
         }
     ]
 }

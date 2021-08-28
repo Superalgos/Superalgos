@@ -48,6 +48,30 @@ function newGovernanceUserProfileSpace() {
             }
         }
         /*
+        Here we will change the Y position of all profiles so that they are all at the same level.
+        */
+        let spaceWitdh = UI.projects.foundations.spaces.floatingSpace.container.frame.width
+        const X_STEP = spaceWitdh / (userProfiles.length + 1)
+        const Y_LEVEL = userProfiles[0].payload.floatingObject.container.frame.position.y
+        let xOffset = X_STEP
+        let yOffset = 2000
+     
+        for (let i = 0; i < userProfiles.length; i++) {
+            userProfiles[i].payload.floatingObject.container.frame.position.x =  xOffset
+            xOffset = xOffset + X_STEP
+        }
+        for (let i = 1; i < userProfiles.length; i++) {
+            userProfiles[i].payload.floatingObject.container.frame.position.y = Y_LEVEL + yOffset
+            yOffset = -yOffset
+        }
+
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+            if (userProfile.payload.floatingObject.isCollapsed !== true) {
+                userProfile.payload.floatingObject.collapseToggle()
+            }
+        }
+        /*
         Here we will setup the Reputation for each profile. 
         */
 

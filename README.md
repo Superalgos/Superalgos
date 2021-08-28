@@ -14,7 +14,7 @@ Superalgos is not just another open-source project. We are an open and welcoming
 
 # Getting Started Guide
 
-Follow the link to [INSTALL.md](https://github.com/Eddict/Superalgos/blob/master/INSTALL.md).
+Follow the link to [INSTALL.md](INSTALL.md).
 
 # The Superalgos Project
 

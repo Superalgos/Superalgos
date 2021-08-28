@@ -50,11 +50,13 @@ function newGovernanceUserProfileSpace() {
         /*
         Here we will change the Y position of all profiles so that they are all at the same level.
         */
-        let spaceWitdh = UI.projects.foundations.spaces.floatingSpace.container.frame.width
-        const X_STEP = spaceWitdh / (userProfiles.length + 1)
+        const SPACE_WIDTH = UI.projects.foundations.spaces.floatingSpace.container.frame.width
+        const SPACE_HEIGHT = UI.projects.foundations.spaces.floatingSpace.container.frame.height
+
+        const X_STEP = SPACE_WIDTH / (userProfiles.length + 1)
         const Y_STEP = 3000
 
-        const Y_LEVEL = userProfiles[0].payload.floatingObject.container.frame.position.y
+        const Y_LEVEL = SPACE_HEIGHT * 0.45
         let xOffset = X_STEP
         let yOffset = 0
 
@@ -62,7 +64,7 @@ function newGovernanceUserProfileSpace() {
             userProfiles[i].payload.floatingObject.container.frame.position.x = xOffset
             xOffset = xOffset + X_STEP
         }
-        for (let i = 1; i < userProfiles.length; i++) {
+        for (let i = 0; i < userProfiles.length; i++) {
             switch (true) {
                 case (yOffset === 0): {
                     yOffset = Y_STEP

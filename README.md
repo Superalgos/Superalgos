@@ -34,7 +34,6 @@ Node JS is an open-source server environment required to run Superalgos.
 **C.** Run the installer with the default configuration — just click Next until Node.JS is fully installed. That's it! You can continue with step 2 (Git Installation).
 
 <hr>
-<div style="padding-left: 30px;">
 
 **NODE JS INSTALLATION FOR RASPBERRY PI USERS**
 
@@ -61,7 +60,6 @@ node -v
 npm -v 
 ```
 
-</div>
 <hr>
 
 ## 2. Git Installation
@@ -81,7 +79,6 @@ Git is an open-source distributed version control system required to download an
 **NOTE FOR MAC USERS:** Depending on your setup, installing Git may be optional. The native XCode Command Line Developer Tools seems to work well. If you do install Git, we have tested Tim Harper's binary installer successfully.
 
 <hr>
-<div style="padding-left: 30px;">
 
 **GIT INSTALLATION FOR RASPBERRY PI USERS**
 
@@ -89,7 +86,7 @@ Just like with Node.JS, you may follow the above instructions to install Git, or
 ```
 sudo apt-get install git
 ```
-</div>
+
 <hr>
 
 ## 3. Google Chrome or Safari
@@ -155,7 +152,6 @@ Congratulations your installation is complete!
 > **The Usage section below explains how to run the app.**
 
 <hr>
-<div style="padding-left: 30px;">
 
 **DEPENDENCY INSTALLATION FOR RASPBERRY PI USERS**
 
@@ -164,7 +160,7 @@ As noted above, running `node setup` installs GUI shortcuts by default. To suppr
 ```
 node setup noShortcuts
 ```
-</div>
+
 <hr>
 
 **Troubleshooting Dependency Installation**

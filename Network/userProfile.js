@@ -80,7 +80,7 @@ exports.newUserProfile = function newUserProfile() {
             timestamp
         )
 
-        thisObject.maps.POSTS.push(post)
+        thisObject.posts.push(post)
         NT.memory.maps.POSTS.set(emitterPostHash, post)
         thisObject.postsCount++
     }

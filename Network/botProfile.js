@@ -49,10 +49,13 @@ exports.newUserProfile = function newUserProfile() {
     }
 
     function addPost(
+        emitterUserProfileId,
+        targetUserProfileId,
+        emitterBotProfileId,
+        targetBotProfileId,
         emitterPostHash,
         targetPostHash,
         postType,
-        botProfile,
         timestamp
     ) {
         if (NT.memory.maps.POSTS.get(emitterPostHash) !== undefined) {
@@ -61,14 +64,17 @@ exports.newUserProfile = function newUserProfile() {
 
         let post = NT.modules.POST.newPost()
         post.initialize(
+            emitterUserProfileId,
+            targetUserProfileId,
+            emitterBotProfileId,
+            targetBotProfileId,
             emitterPostHash,
             targetPostHash,
             postType,
-            botProfile,
             timestamp
         )
 
-        thisObject.maps.POSTS.push(post)
+        thisObject.posts.push(post)
         NT.memory.maps.POSTS.set(emitterPostHash, post)
         thisObject.postsCount++
     }

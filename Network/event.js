@@ -22,15 +22,17 @@ exports.newEvent = function newEvent() {
         REPLY_TO_USER_POST: 11,
         REPOST_USER_POST: 12,
         QUOTE_REPOST_USER_POST: 13,
-        FOLLOW_USER_PROFILE: 14,
-        UNFOLLOW_USER_PROFILE: 15,
+        REMOVE_USER_POST: 14,
+        FOLLOW_USER_PROFILE: 15,
+        UNFOLLOW_USER_PROFILE: 16,
 
         NEW_BOT_POST: 20,
         REPLY_TO_BOT_POST: 21,
         REPOST_BOT_POST: 22,
         QUOTE_REPOST_BOT_POST: 23,
-        FOLLOW_BOT_PROFILE: 24,
-        UNFOLLOW_BOT_PROFILE: 25,
+        REMOVE_BOT_POST: 24,
+        FOLLOW_BOT_PROFILE: 25,
+        UNFOLLOW_BOT_PROFILE: 26,
 
         ADD_BOT: 50,
         REMOVE_BOT: 51,
@@ -100,7 +102,18 @@ exports.newEvent = function newEvent() {
             targetUserProfile.targetEventsCount++
         }
         /*
-        Is is a new post?
+        Validate Emitter Bot Profile.
+        */
+        if (emitterBotProfileId !== undefined) {
+            let botProfile = emitterUserProfile.bots.get(emitterBotProfileId)
+            if (
+                emitterBotProfile === undefined
+            ) {
+                throw ('Emitter BOt Profile Not Found.')
+            }
+        }
+        /*
+        Is is related to Posting?
         */
         if (
             thisObject.eventType === EVENT_TYPES.NEW_USER_POST ||
@@ -112,6 +125,9 @@ exports.newEvent = function newEvent() {
             thisObject.eventType === EVENT_TYPES.REPOST_BOT_POST ||
             thisObject.eventType === EVENT_TYPES.QUOTE_REPOST_BOT_POST
         ) {
+            /*
+            New User Post
+            */
             if (
                 thisObject.eventType === EVENT_TYPES.NEW_USER_POST ||
                 thisObject.eventType === EVENT_TYPES.REPLY_TO_USER_POST ||
@@ -128,9 +144,51 @@ exports.newEvent = function newEvent() {
                     thisObject.eventType - 10,
                     thisObject.timestamp
                 )
+                return
             }
-
-            return
+            /*
+            New Bot Post
+            */
+            if (
+                thisObject.eventType === EVENT_TYPES.NEW_BOT_POST ||
+                thisObject.eventType === EVENT_TYPES.REPLY_TO_BOT_POST ||
+                thisObject.eventType === EVENT_TYPES.REPOST_BOT_POST ||
+                thisObject.eventType === EVENT_TYPES.QUOTE_REPOST_BOT_POST
+            ) {
+                emitterBotProfile.addPost(
+                    thisObject.emitterUserProfileId,
+                    thisObject.targetUserProfileId,
+                    thisObject.emitterBotProfileId,
+                    thisObject.targetBotProfileId,
+                    thisObject.emitterPostHash,
+                    thisObject.targetPostHash,
+                    thisObject.eventType - 20,
+                    thisObject.timestamp
+                )
+                return
+            }
+            /*
+            Remove User Post
+            */
+            if (
+                thisObject.eventType === EVENT_TYPES.REMOVE_USER_POST
+            ) {
+                emitterUserProfile.removePost(
+                    thisObject.emitterPostHash
+                )
+                return
+            }
+            /*
+            Remove Bot Post
+            */
+            if (
+                thisObject.eventType === EVENT_TYPES.REMOVE_USER_POST
+            ) {
+                emitterBotProfile.removePost(
+                    thisObject.emitterPostHash
+                )
+                return
+            }
         }
         /*
         Is is a following?

@@ -62,7 +62,6 @@ exports.newUserProfile = function newUserProfile() {
         emitterPostHash,
         targetPostHash,
         postType,
-        userProfile,
         timestamp
     ) {
         if (NT.memory.maps.POSTS.get(emitterPostHash) !== undefined) {
@@ -78,11 +77,10 @@ exports.newUserProfile = function newUserProfile() {
             emitterPostHash,
             targetPostHash,
             postType,
-            userProfile,
             timestamp
         )
 
-        thisObject.maps.POSTS.push(post)
+        thisObject.posts.push(post)
         NT.memory.maps.POSTS.set(emitterPostHash, post)
         thisObject.postsCount++
     }

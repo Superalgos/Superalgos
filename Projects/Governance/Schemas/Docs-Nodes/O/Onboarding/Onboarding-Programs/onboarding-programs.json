@@ -1,13 +1,27 @@
 {
     "type": "Onboarding Programs",
     "definition": {
-        "text": "These programs incentivize Superalgos users to take the first couple of steps to participate in governance and start giving back to the project. They make earning the first few tokens a breeze and allow every user to become invested!",
-        "updated": 1630056526452
+        "text": "These programs incentivize Superalgos users to take the first couple of steps to participate in governance and start giving back to the project. They make earning the first few tokens a breeze and allow everyone to become invested in the Superalgos SA Token! We are talking about the Airdrop Program and the Github Program.",
+        "updated": 1630216446725
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1630216357301
+        },
+        {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "What these two programs have in common is that they don't require Token Power to function. That is, even if you have zero Superalgos SA Tokens and zero Delegated Power, you may still participate to earn your first few tokens!",
+            "updated": 1630218079736
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
         }
     ]
 }

@@ -1,5 +1,9 @@
 exports.newProfilePosts = function newProfilePosts() {
-
+    /*
+    Each User or Bot Profile can have posts. This query
+    is designed for Network Clients to fetch the posts
+    metadata they need from the Social Graph.
+    */
     let thisObject = {
         profile: undefined,
         initialIndex: undefined,
@@ -29,9 +33,7 @@ exports.newProfilePosts = function newProfilePosts() {
         */
         if (queryReceived.targetUserProfileId !== undefined) {
             thisObject.profile = NT.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
-        } else {
-            thisObject.profile = NT.memory.maps.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
-        }
+        } 
 
         if (thisObject.profile === undefined) {
             throw ('Target User Profile Not Found.')
@@ -41,13 +43,6 @@ exports.newProfilePosts = function newProfilePosts() {
         */
         if (queryReceived.targetBotProfileId !== undefined) {
             thisObject.profile = thisObject.profile.bots.get(queryReceived.targetBotProfileId)
-            if (thisObject.profile === undefined) {
-                throw ('Target Bot Profile Not Found.')
-            }
-        }
-
-        if (queryReceived.targetBotProfileHandle !== undefined) {
-            thisObject.profile = thisObject.profile.bots.get(queryReceived.targetBotProfileHandle)
             if (thisObject.profile === undefined) {
                 throw ('Target Bot Profile Not Found.')
             }
@@ -106,10 +101,12 @@ exports.newProfilePosts = function newProfilePosts() {
     }
 
     function execute() {
+
         let response = []
+        let array = Array.from(thisObject.profile.posts)
+
         switch (thisObject.direction) {
             case DIRECTION_FUTURE: {
-                let array = Array.from(thisObject.profile.posts)
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let arrayItem = array[i]
                     if (arrayItem === undefined) { break }
@@ -118,7 +115,6 @@ exports.newProfilePosts = function newProfilePosts() {
                 break
             }
             case DIRECTION_PAST: {
-                let array = Array.from(thisObject.profile.posts)
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let arrayItem = array[i]
                     if (arrayItem === undefined) { break }

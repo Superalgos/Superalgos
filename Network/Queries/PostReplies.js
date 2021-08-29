@@ -1,5 +1,9 @@
 exports.newPostReplies = function newPostReplies() {
-
+    /*
+    Each Post regardless if it is authored by a User or Bot Profile,
+    can have replies. This query is designed for Network Clients to 
+    fetch the posts metadata that are replies to a certain post.
+    */
     let thisObject = {
         post: undefined,
         initialIndex: undefined,
@@ -24,10 +28,30 @@ exports.newPostReplies = function newPostReplies() {
     }
 
     function initialize(queryReceived) {
+        let profile
+        /*
+        Validate User Profile
+        */
+        if (queryReceived.targetUserProfileId !== undefined) {
+            profile = NT.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
+        }
+
+        if (profile === undefined) {
+            throw ('Target User Profile Not Found.')
+        }
+        /*
+        Validate Bot Profile
+        */
+        if (queryReceived.targetBotProfileId !== undefined) {
+            profile = profile.bots.get(queryReceived.targetBotProfileId)
+            if (profile === undefined) {
+                throw ('Target Bot Profile Not Found.')
+            }
+        }
         /*
         Validate Post
         */
-        thisObject.post = NT.memory.maps.POSTS.get(queryReceived.targetPostHash)
+        thisObject.post = profile.posts.get(queryReceived.targetPostHash)
 
         if (thisObject.post === undefined) {
             throw ('Target Post Not Found.')
@@ -86,21 +110,24 @@ exports.newPostReplies = function newPostReplies() {
     }
 
     function execute() {
+
         let response = []
+        let array = Array.from(thisObject.post.replies)
+
         switch (thisObject.direction) {
             case DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
-                    let post = thisObject.post.replies[i]
+                    let arrayItem = array[i]
                     if (post === undefined) { break }
-                    addToResponse(post)
+                    addToResponse(arrayItem)
                 }
                 break
             }
             case DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
-                    let post = thisObject.post.replies[i]
+                    let arrayItem = array[i]
                     if (post === undefined) { break }
-                    addToResponse(post)
+                    addToResponse(arrayItem)
                 }
                 break
             }
@@ -111,11 +138,13 @@ exports.newPostReplies = function newPostReplies() {
             let postResponse = {
                 emitterUserProfileId: post.emitterUserProfileId,
                 targetUserProfileId: post.targetUserProfileId,
+                emitterBotProfileId: post.emitterBotProfileId,
+                targetBotProfileId: post.targetBotProfileId,
                 emitterPostHash: post.emitterPostHash,
                 targetPostHash: post.targetPostHash,
                 postType: post.postType,
                 timestamp: post.timestamp,
-                repliesCount: post.replies.length,
+                repliesCount: post.replies.size,
                 reactions: Array.from(post.reactions)
             }
             response.push(postResponse)

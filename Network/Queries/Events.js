@@ -1,5 +1,8 @@
 exports.newEvents = function newEvents() {
+    /*
+    This is the query executed to fill the timeline of a certain User or Bot Profile.
 
+    */
     let thisObject = {
         profile: undefined,
         initialIndex: undefined,
@@ -17,68 +20,9 @@ exports.newEvents = function newEvents() {
     }
 
     function initialize(queryReceived) {
-        /*
-        Validate User Profile
-        */
-        if (queryReceived.emitterUserProfileId !== undefined) {
-            thisObject.profile = NT.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.emitterUserProfileId)
-        } else {
-            thisObject.profile = NT.memory.maps.USER_PROFILES_BY_HANDLE.get(queryReceived.emitterUserProfileHandle)
-        }
 
-        if (thisObject.profile === undefined) {
-            throw ('Emitter User Profile Not Found.')
-        }
-        /* 
-        Validate Initial Index 
-        */
-        if (queryReceived.initialIndex === undefined) {
-            throw ('Initial Index Undefined.')
-        }
-
-        if (queryReceived.initialIndex === NT.globals.constants.queries.INITIAL_INDEX_LAST) {
-            queryReceived.initialIndex = thisObject.profile.posts.length - 1
-        }
-
-        if (queryReceived.initialIndex === NT.globals.constants.queries.INITIAL_INDEX_FIRST) {
-            queryReceived.initialIndex = 0
-        }
-
-        if (isNaN(queryReceived.initialIndex) === true) {
-            throw ('Initial Event Is Not a Number.')
-        }
-
-        thisObject.initialIndex = queryReceived.initialIndex
-        /* 
-        Validate Amount Requested 
-        */
-        if (queryReceived.amountRequested === undefined) {
-            throw ('Amount Requested Undefined.')
-        }
-
-        if (isNaN(queryReceived.amountRequested) === true) {
-            throw ('Amount Requested Is Not a Number.')
-        }
-
-        if (queryReceived.amountRequested < NT.globals.constants.queries.MIN_AMOUNT_REQUESTED) {
-            throw ('Amount Requested Below Min.')
-        }
-
-        if (queryReceived.amountRequested > NT.globals.constants.queries.MAX_AMOUNT_REQUESTED) {
-            throw ('Amount Requested Above Max.')
-        }
-        /* 
-        Validate Direction
-        */
-        if (queryReceived.direction === undefined) {
-            throw ('Direction Undefined.')
-        }
-
-        if (queryReceived.direction !== NT.globals.constants.queries.DIRECTION_FUTURE && queryReceived.direction !== NT.globals.constants.queries.DIRECTION_PAST) {
-            throw ('Direction Not Supported.')
-        }
-
-        thisObject.direction = queryReceived.direction
+        NT.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
+        NT.utilities.queriesValidations.arrayValidations(queryReceived, thisObject)
 
     }
 
@@ -109,71 +53,149 @@ exports.newEvents = function newEvents() {
             For an event to be returned at the response of this query, it needs to be related
             to the profile making the query. How it can be related?
 
-            1. The Emitter or Target profile must be the same as the Query Profile.
-            2. The Emitter or Traget profile must be at the Following map of the Query Profile.
-            3. The Emmiter or Target post must be belong to any profile at the Following of the Query Profile.
+            1. The Emitter or Target profile must be the same as the Context Profile.
+            2. The Emitter or Traget profile must be at the Following map of the Context Profile.
+            3. The Emmiter or Target post must be belong to any profile at the Following of the Context Profile.
 
             Any of the above happening, means that indeed it is related.
             */
             let emitterUserProfile = NT.memory.maps.USER_PROFILES_BY_ID.get(eventReceived.emitterUserProfileId)
             let targetUserProfile = NT.memory.maps.USER_PROFILES_BY_ID.get(eventReceived.targetUserProfileId)
-            let emitterPost = NT.memory.maps.POSTS.get(eventReceived.emitterPostHash)
-            let targetPost = NT.memory.maps.POSTS.get(eventReceived.targetPostHash)
+            let emitterBotProfile = emitterUserProfile.bots.get(eventReceived.emitterBotProfileId)
+            let targetBotProfile = targetUserProfile.bots.get(eventReceived.targetBotProfileId)
+            let emitterPost = emitterUserProfile.posts.get(eventReceived.emitterPostHash)
+            let targetPost = targetUserProfile.posts.get(eventReceived.targetPostHash)
             /*
-            Test #1 : The Emitter or Target profile must be the same as the Query Profile.
+            Test #1 : The Emitter or Target profile must be the same as the Context Profile.
             */
-            if (emitterUserProfile !== undefined) {
-                if (emitterUserProfile.userProfileId === thisObject.profile.userProfileId) {
-                    addToResponse(event)
-                    return
+            if (thisObject.profile.botProfileId === undefined) {
+                /*
+                The context is a User Profile
+                */
+                if (emitterUserProfile !== undefined) {
+                    if (emitterUserProfile.userProfileId === thisObject.profile.userProfileId) {
+                        addToResponse(event)
+                        return
+                    }
+                }
+                if (targetUserProfile !== undefined) {
+                    if (targetUserProfile.userProfileId === thisObject.profile.userProfileId) {
+                        addToResponse(event)
+                        return
+                    }
+                }
+            } else {
+                /*
+                The context is a Bot Profile
+                */
+                if (emitterBotProfile !== undefined) {
+                    if (emitterBotProfile.botProfileId === thisObject.profile.botProfileId) {
+                        addToResponse(event)
+                        return
+                    }
+                }
+                if (targetBotProfile !== undefined) {
+                    if (targetBotProfile.botProfileId === thisObject.profile.botProfileId) {
+                        addToResponse(event)
+                        return
+                    }
                 }
             }
-            if (targetUserProfile !== undefined) {
-                if (targetUserProfile.userProfileId === thisObject.profile.userProfileId) {
-                    addToResponse(event)
-                    return
+
+            /*
+            Test #2 : The Emitter or Traget profile must be at the Following map of the Context Profile.
+            */
+            if (thisObject.profile.botProfileId === undefined) {
+                /*
+                The context is a User Profile
+                */
+                if (emitterUserProfile !== undefined) {
+                    if (thisObject.profile.following.get(emitterUserProfile.userProfileId) !== undefined) {
+                        addToResponse(event)
+                        return
+                    }
+                }
+                if (targetUserProfile !== undefined) {
+                    if (thisObject.profile.following.get(targetUserProfile.userProfileId) !== undefined) {
+                        addToResponse(event)
+                        return
+                    }
+                }
+            } else {
+                /*
+                The context is a Bot Profile
+                */
+                if (emitterBotProfile !== undefined) {
+                    if (thisObject.profile.following.get(emitterBotProfile.botProfileId) !== undefined) {
+                        addToResponse(event)
+                        return
+                    }
+                }
+                if (targetBotProfile !== undefined) {
+                    if (thisObject.profile.following.get(targetBotProfile.botProfileId) !== undefined) {
+                        addToResponse(event)
+                        return
+                    }
                 }
             }
             /*
-            Test #2 : The Emitter or Traget profile must be at the Following map of the Query Profile.
+            Test #3 : The Emmiter or Target post must be belong to any profile at the Following of the Context Profile.
             */
-            if (emitterUserProfile !== undefined) {
-                if (thisObject.profile.following.get(emitterUserProfile.userProfileId) !== undefined) {
-                    addToResponse(event)
-                    return
+            if (thisObject.profile.botProfileId === undefined) {
+                /*
+                The context is a User Profile
+                */
+                if (emitterPost !== undefined) {
+                    if (thisObject.profile.following.get(emitterPost.emitterUserProfileId) !== undefined) {
+                        addToResponse(event)
+                        return
+                    }
                 }
-            }
-            if (targetUserProfile !== undefined) {
-                if (thisObject.profile.following.get(targetUserProfile.userProfileId) !== undefined) {
-                    addToResponse(event)
-                    return
+                if (emitterPost !== undefined) {
+                    if (thisObject.profile.following.get(emitterPost.targetUserProfileId) !== undefined) {
+                        addToResponse(event)
+                        return
+                    }
                 }
-            }
-            /*
-            Test #3 : The Emmiter or Target post must be belong to any profile at the Following of the Query Profile.
-            */
-            if (emitterPost !== undefined) {
-                if (thisObject.profile.following.get(emitterPost.emitterUserProfileId) !== undefined) {
-                    addToResponse(event)
-                    return
+                if (targetPost !== undefined) {
+                    if (thisObject.profile.following.get(targetPost.emitterUserProfileId) !== undefined) {
+                        addToResponse(event)
+                        return
+                    }
                 }
-            }
-            if (emitterPost !== undefined) {
-                if (thisObject.profile.following.get(emitterPost.targetUserProfileId) !== undefined) {
-                    addToResponse(event)
-                    return
+                if (targetPost !== undefined) {
+                    if (thisObject.profile.following.get(targetPost.targetUserProfileId) !== undefined) {
+                        addToResponse(event)
+                        return
+                    }
                 }
-            }
-            if (targetPost !== undefined) {
-                if (thisObject.profile.following.get(targetPost.emitterUserProfileId) !== undefined) {
-                    addToResponse(event)
-                    return
+            } else {
+                /*
+                The context is a Bot Profile
+                */
+                if (emitterPost !== undefined) {
+                    if (thisObject.profile.following.get(emitterPost.emitterBotProfileId) !== undefined) {
+                        addToResponse(event)
+                        return
+                    }
                 }
-            }
-            if (targetPost !== undefined) {
-                if (thisObject.profile.following.get(targetPost.targetUserProfileId) !== undefined) {
-                    addToResponse(event)
-                    return
+                if (emitterPost !== undefined) {
+                    if (thisObject.profile.following.get(emitterPost.targetBotProfileId) !== undefined) {
+                        addToResponse(event)
+                        return
+                    }
+                }
+                if (targetPost !== undefined) {
+                    if (thisObject.profile.following.get(targetPost.emitterBotProfileId) !== undefined) {
+                        addToResponse(event)
+                        return
+                    }
+                }
+                if (targetPost !== undefined) {
+                    if (thisObject.profile.following.get(targetPost.targetBotProfileId) !== undefined) {
+                        addToResponse(event)
+                        return
+                    }
                 }
             }
 
@@ -184,25 +206,41 @@ exports.newEvents = function newEvents() {
                     eventType: event.eventType,
                     emitterUserProfileId: event.emitterUserProfileId,
                     targetUserProfileId: event.targetUserProfileId,
+                    emitterBotProfileId: event.emitterBotProfileId,
+                    targetBotProfileId: event.targetBotProfileId,
                     emitterPostHash: event.emitterPostHash,
                     targetPostHash: event.targetPostHash,
                     timestamp: event.timestamp,
-                    botId: event.botId,
                     botAsset: event.botAsset,
-                    botExchange: event.botExchange
+                    botExchange: event.botExchange,
+                    botEnabled: event.botEnabled
                 }
 
                 if (emitterUserProfile !== undefined) {
-                    let query = NT.modules.QUERY_PROFILE_STATS.newUserProfileStats()
+                    let query = NT.modules.QUERY_USER_PROFILE_STATS.newUserProfileStats()
                     query.initialize({ targetUserProfileId: event.emitterUserProfileId })
                     eventResponse.emitterUserProfile = query.execute()
                     query.finalize()
                 }
 
                 if (targetUserProfile !== undefined) {
-                    let query = NT.modules.QUERY_PROFILE_STATS.newUserProfileStats()
+                    let query = NT.modules.QUERY_USER_PROFILE_STATS.newUserProfileStats()
                     query.initialize({ targetUserProfileId: event.targetUserProfileId })
                     eventResponse.targetUserProfile = query.execute()
+                    query.finalize()
+                }
+
+                if (emitterBotProfile !== undefined) {
+                    let query = NT.modules.QUERY_BOT_PROFILE_STATS.newBotProfileStats()
+                    query.initialize({ targetUserProfileId: event.emitterUserProfileId, targetBotProfileId: emitterBotProfileId })
+                    eventResponse.emitterBotProfile = query.execute()
+                    query.finalize()
+                }
+
+                if (targetBotProfile !== undefined) {
+                    let query = NT.modules.QUERY_BOT_PROFILE_STATS.newBotProfileStats()
+                    query.initialize({ targetUserProfileId: event.targetUserProfileId, targetBotProfileId: targetBotProfileId })
+                    eventResponse.targetBotProfile = query.execute()
                     query.finalize()
                 }
 
@@ -220,11 +258,13 @@ exports.newEvents = function newEvents() {
                     let postResponse = {
                         emitterUserProfileId: post.emitterUserProfileId,
                         targetUserProfileId: post.targetUserProfileId,
+                        emitterBotProfileId: post.emitterBotProfileId,
+                        targetBotProfileId: post.targetBotProfileId,
                         emitterPostHash: post.emitterPostHash,
                         targetPostHash: post.targetPostHash,
                         postType: post.postType,
                         timestamp: post.timestamp,
-                        repliesCount: post.replies.length,
+                        repliesCount: post.replies.size,
                         reactions: Array.from(post.reactions)
                     }
                     return postResponse

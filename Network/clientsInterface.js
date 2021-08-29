@@ -1,5 +1,12 @@
 exports.newClientInterface = function newClientInterface() {
+    /*
+    This module represents the Interface the Network Node have 
+    with Network Clients connected to it. There are two things
+    Network Clients can do with this Network Node:
 
+    * Send an Event that happened at the Network Client to the Network.
+    * Make a Query to the Network Node for info needed at the Network Client. 
+    */
     let thisObject = {
         eventReceived: eventReceived,
         queryReceived: queryReceived,
@@ -19,7 +26,7 @@ exports.newClientInterface = function newClientInterface() {
 
     function eventReceived(eventMessage) {
         /*
-        We expect here a JSON string with the following properties:
+        We expect here a JSON string with some or all of the following properties:
 
         {
             "eventId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
@@ -49,7 +56,7 @@ exports.newClientInterface = function newClientInterface() {
 
     function queryReceived(queryMessage) {
         /*
-        We expect here a JSON string with the following properties:
+        We expect here a JSON string with some or all of the following properties:
 
         {
             "equeryId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",

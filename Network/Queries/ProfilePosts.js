@@ -3,6 +3,9 @@ exports.newProfilePosts = function newProfilePosts() {
     Each User or Bot Profile can have posts. This query
     is designed for Network Clients to fetch the posts
     metadata they need from the Social Graph.
+
+    This is the query to be executed to fill a Profile page
+    with all of its posts.
     */
     let thisObject = {
         profile: undefined,

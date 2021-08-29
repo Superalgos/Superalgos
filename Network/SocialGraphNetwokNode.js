@@ -1,4 +1,15 @@
+/*
+The Superalgos Network will have 3 types of nodes:
 
+    * Social Graph Nodes
+    * Search Index Nodes
+    * Private Message Nodes
+    
+This module is the starting point of the Social Graph Network Node.
+
+This type of node is responsible for mantaining the whole Social Graph
+or relationships between User and Bot profiles and also between their posts.
+*/
 
 global.NT = {
     memory: {

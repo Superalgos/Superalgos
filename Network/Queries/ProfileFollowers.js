@@ -1,5 +1,8 @@
 exports.newProfileFollowers = function newProfileFollowers() {
-
+    /*
+    This module represents the query that allows a Network Client to know
+    all the User or Bot profiles that are following a certain User or Bot profile.
+    */
     let thisObject = {
         profile: undefined,
         initialIndex: undefined,

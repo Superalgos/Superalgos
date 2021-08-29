@@ -1,5 +1,7 @@
 exports.newEvents = function newEvents() {
-
+    /*
+    This is the query executed to fill the timeline of a certain User or Bot Profile.
+    */
     let thisObject = {
         profile: undefined,
         initialIndex: undefined,

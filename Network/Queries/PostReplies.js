@@ -3,6 +3,9 @@ exports.newPostReplies = function newPostReplies() {
     Each Post regardless if it is authored by a User or Bot Profile,
     can have replies. This query is designed for Network Clients to 
     fetch the posts metadata that are replies to a certain post.
+
+    This is the query executed at the Network Client to fill the page
+    of a certain post, with all its replies.
     */
     let thisObject = {
         profile: undefined,

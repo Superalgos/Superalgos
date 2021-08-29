@@ -1,5 +1,7 @@
 exports.newProfileFollowers = function newProfileFollowers() {
-
+    /*
+    This module have a few funcions that are often needed at Queries Modules.
+    */
     let thisObject = {
         profilesValidations: profilesValidations,
         postValidations: postValidations, 

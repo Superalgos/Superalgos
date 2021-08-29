@@ -1,9 +1,9 @@
 {
     "topic": "Governance Flow",
     "pageNumber": "3",
-    "type": "Token Rewards, Claims Power and Claim Votes",
+    "type": "How Claims are Resolved",
     "definition": {
-        "text": "These three concepts are intimately related and make up the logic of the token distribution.",
+        "text": "These three concepts, Claims Power, Claim Votes, and Token Rewards are intimately related and make up the logic of the token distribution.",
         "updated": 1624781724176
     },
     "paragraphs": [

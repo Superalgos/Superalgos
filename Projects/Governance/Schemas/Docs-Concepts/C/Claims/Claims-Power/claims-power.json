@@ -12,7 +12,8 @@
         },
         {
             "style": "Callout",
-            "text": "Claims Power is the Token Power that goes into the Claims Program, and determines the number of tokens you are claiming with any of the existing types of claims: Position Contribution Claim, Feature Contribution Claim, and Asset Contribution Claim."
+            "text": "Claims Power is the Token Power that goes into the Claims Program, and determines the number of tokens you are claiming with any of the existing types of claims: Position Contribution Claim, Feature Contribution Claim, and Asset Contribution Claim.",
+            "updated": 1630254492262
         }
     ]
 }

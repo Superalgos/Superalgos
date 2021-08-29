@@ -1,8 +1,8 @@
 {
     "type": "Asset Claims Folder",
     "definition": {
-        "text": "The Asset Contribution Claims Folder node is an organizational device used to arrange Asset Contribution Claim nodes in suitable hierarchical structures.",
-        "updated": 1624728516601
+        "text": "The Asset Claims Folder node is an organizational device used to arrange Asset Contribution Claim nodes in arbitrary arrangements or to map entire structures in the Assets hierarchy.",
+        "updated": 1630259461725
     },
     "paragraphs": [
         {
@@ -11,8 +11,9 @@
             "updated": 1624728536229
         },
         {
-            "style": "Text",
-            "text": "You may use this node to reference an Asset Class node in the Assets hierarchy. Once the reference is established, you may use the Install Missing Claims option on the menu to map the data structure of the referenced node with claims for each Asset."
+            "style": "Include",
+            "text": "Governance->Concept->Claims Folder->Content",
+            "updated": 1630259502301
         },
         {
             "style": "Block",

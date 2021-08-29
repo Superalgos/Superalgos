@@ -5,7 +5,6 @@ global.NT = {
         maps: {
             USER_PROFILES_BY_ID: new Map(),         // Here we will store the user profiles by User Profile Id.
             USER_PROFILES_BY_HANDLE: new Map(),     // Here we will store the user profiles by User Profile Handle.
-            POSTS: new Map(),                       // This are all the posts we are keeping track of.
             EVENTS: new Map(),                      // This is the registry of all events received that prevents processing them more than once.
         },
         arrays: {
@@ -23,16 +22,24 @@ global.NT = {
         QUERY_BOT_PROFILE_STATS: require('./Queries/BotProfileStats.js'),
         QUERY_PROFILE_POSTS: require('./Queries/ProfilePosts.js'),
         QUERY_PROFILE_FOLLOWERS: require('./Queries/ProfileFollowers.js'),
-        //QUERY_PROFILE_FOLLOWING: require('./Queries/ProfileFollowing.js'),
-        //QUERY_POST_REPLIES: require('./Queries/ProfileReplies.js'),
+        QUERY_PROFILE_FOLLOWING: require('./Queries/ProfileFollowing.js'),
+        QUERY_POST_REPLIES: require('./Queries/PostReplies.js'),
         QUERY_EVENTS: require('./Queries/Events.js')
+    },
+    utilities: {
+        queriesValidations: require('./Utilities/QueriesValidations.js').newProfileQueries()
+    },
+    globals: {
+        constants: {
+            queries: {
+                INITIAL_INDEX_FIRST: 'First',
+                INITIAL_INDEX_LAST: 'Last',
+                MIN_AMOUNT_REQUESTED: 1,
+                MAX_AMOUNT_REQUESTED: 100,
+                DIRECTION_FUTURE: 'Future',
+                DIRECTION_PAST: 'Past'
+            }
+        }
     }
 }
 
-const map = new Map([[1, { a: 2 }], [2, { a: 4 }], [4, { a: 8 }]])
-map.set(3, { a: 6 })
-map.delete(2)
-map.set(2, { a: 12 })
-let array = Array.from(map)
-
-console.log(JSON.stringify(array))

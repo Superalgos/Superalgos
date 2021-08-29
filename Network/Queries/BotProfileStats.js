@@ -15,13 +15,13 @@ exports.newBotProfileStats = function newBotProfileStats() {
 
     function initialize(queryReceived) {
         /*
-        Validate Bot Profile
+        Validate User Profile
         */
         let userProfile
-        if (queryReceived.targetBotProfileId !== undefined) {
+        if (queryReceived.targetUserProfileId !== undefined) {
             userProfile = NT.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
         } else {
-            userProfile = NT.memory.maps.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileId)
+            userProfile = NT.memory.maps.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
         }
 
         if (userProfile === undefined) {
@@ -39,13 +39,14 @@ exports.newBotProfileStats = function newBotProfileStats() {
     function execute() {
 
         return {
+            "userProfileId": thisObject.profile.userProfileId,
             "botProfileId": thisObject.profile.botProfileId,
             "botProfileHandle": thisObject.profile.botProfileHandle,
-            "followingCount": thisObject.profile.followingCount,
-            "followersCount": thisObject.profile.followersCount,
+            "followingCount": thisObject.profile.following.size,
+            "followersCount": thisObject.profile.followers.size,
+            "postsCount": thisObject.profile.posts.size,
             "emitterEventsCount": thisObject.profile.emitterEventsCount,
-            "targetEventsCount": thisObject.profile.targetEventsCount,
-            "postsCount": thisObject.profile.postsCount
+            "targetEventsCount": thisObject.profile.targetEventsCount            
         }
     }
 }

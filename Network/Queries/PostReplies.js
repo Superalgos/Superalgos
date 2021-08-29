@@ -1,6 +1,11 @@
 exports.newPostReplies = function newPostReplies() {
-
+    /*
+    Each Post regardless if it is authored by a User or Bot Profile,
+    can have replies. This query is designed for Network Clients to 
+    fetch the posts metadata that are replies to a certain post.
+    */
     let thisObject = {
+        profile: undefined,
         post: undefined,
         initialIndex: undefined,
         amountRequested: undefined,
@@ -10,97 +15,40 @@ exports.newPostReplies = function newPostReplies() {
         finalize: finalize
     }
 
-    const INITIAL_REPLY_INDEX_FIRST = 'First'
-    const INITIAL_REPLY_INDEX_LAST = 'Last'
-    const MIN_AMOUNT_REQUESTED = 1
-    const MAX_AMOUNT_REQUESTED = 100
-    const DIRECTION_FUTURE = 'Future'
-    const DIRECTION_PAST = 'Past'
-
     return thisObject
 
     function finalize() {
+        thisObject.profile = undefined
         thisObject.post = undefined
     }
 
     function initialize(queryReceived) {
-        /*
-        Validate Post
-        */
-        thisObject.post = NT.memory.maps.POSTS.get(queryReceived.targetPostHash)
 
-        if (thisObject.post === undefined) {
-            throw ('Target Post Not Found.')
-        }
-        /* 
-        Validate Initial Index 
-        */
-        if (queryReceived.initialIndex === undefined) {
-            throw ('Initial Index Undefined.')
-        }
-
-        if (queryReceived.initialIndex === INITIAL_REPLY_INDEX_LAST) {
-            queryReceived.initialIndex = thisObject.poat.replies.length - 1
-        }
-
-        if (queryReceived.initialIndex === INITIAL_REPLY_INDEX_FIRST) {
-            queryReceived.initialIndex = 0
-        }
-
-        if (isNaN(queryReceived.initialIndex) === true) {
-            throw ('Initial Reply Is Not a Number.')
-        }
-
-        thisObject.initialIndex = queryReceived.initialIndex
-        /* 
-        Validate Amount Requested 
-        */
-        if (queryReceived.amountRequested === undefined) {
-            throw ('Amount Requested Undefined.')
-        }
-
-        if (isNaN(queryReceived.amountRequested) === true) {
-            throw ('Amount Requested Is Not a Number.')
-        }
-
-        if (queryReceived.amountRequested < MIN_AMOUNT_REQUESTED) {
-            throw ('Amount Requested Below Min.')
-        }
-
-        if (queryReceived.amountRequested > MAX_AMOUNT_REQUESTED) {
-            throw ('Amount Requested Above Max.')
-        }
-        /* 
-        Validate Direction
-        */
-        if (queryReceived.direction === undefined) {
-            throw ('Direction Undefined.')
-        }
-
-        if (queryReceived.direction !== DIRECTION_FUTURE && queryReceived.direction !== DIRECTION_PAST) {
-            throw ('Direction Not Supported.')
-        }
-
-        thisObject.direction = queryReceived.direction
+        NT.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
+        NT.utilities.queriesValidations.postValidations(queryReceived, thisObject)
+        NT.utilities.queriesValidations.arrayValidations(queryReceived, thisObject)
 
     }
 
     function execute() {
+
         let response = []
+        let array = Array.from(thisObject.post.replies)
+
         switch (thisObject.direction) {
-            case DIRECTION_FUTURE: {
+            case NT.globals.constants.queries.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
-                    let post = thisObject.post.replies[i]
+                    let arrayItem = array[i]
                     if (post === undefined) { break }
-                    addToResponse(post)
+                    addToResponse(arrayItem)
                 }
                 break
             }
-            case DIRECTION_PAST: {
+            case NT.globals.constants.queries.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
-                    let post = thisObject.post.replies[i]
+                    let arrayItem = array[i]
                     if (post === undefined) { break }
-                    addToResponse(post)
+                    addToResponse(arrayItem)
                 }
                 break
             }
@@ -111,11 +59,13 @@ exports.newPostReplies = function newPostReplies() {
             let postResponse = {
                 emitterUserProfileId: post.emitterUserProfileId,
                 targetUserProfileId: post.targetUserProfileId,
+                emitterBotProfileId: post.emitterBotProfileId,
+                targetBotProfileId: post.targetBotProfileId,
                 emitterPostHash: post.emitterPostHash,
                 targetPostHash: post.targetPostHash,
                 postType: post.postType,
                 timestamp: post.timestamp,
-                repliesCount: post.replies.length,
+                repliesCount: post.replies.size,
                 reactions: Array.from(post.reactions)
             }
             response.push(postResponse)

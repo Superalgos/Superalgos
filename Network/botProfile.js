@@ -7,6 +7,7 @@ exports.newBotProfile = function newBotProfile() {
     */
     let thisObject = {
         /* Unique Keys */
+        userProfileId: undefined,
         botProfileId: undefined,
         botProfileHandle: undefined,
         /* Bot Unitque Properties */
@@ -45,11 +46,13 @@ exports.newBotProfile = function newBotProfile() {
     }
 
     function initialize(
+        userProfileId,
         botProfileId,
         botAsset,
         botExchange,
         botEnabled
     ) {
+        thisObject.userProfileId = userProfileId
         thisObject.botProfileId = botProfileId
         thisObject.botAsset = botAsset
         thisObject.botExchange = botExchange
@@ -106,38 +109,40 @@ exports.newBotProfile = function newBotProfile() {
     }
 
     function addFollowing(
-        targetUserProfileId
+        targetUserProfileId,
+        targetBotProfileId
     ) {
-        if (thisObject.following.get(targetUserProfileId) === undefined) {
-            thisObject.following.set(targetUserProfileId, targetUserProfileId)
+        if (thisObject.following.get(targetBotProfileId) === undefined) {
+            thisObject.following.set(targetBotProfileId, { targetUserProfileId: targetUserProfileId, targetBotProfileId: targetBotProfileId })
         } else {
             throw ('Already Following.')
         }
     }
 
     function removeFollowing(
-        targetUserProfileId
+        targetBotProfileId
     ) {
-        if (thisObject.following.get(targetUserProfileId) !== undefined) {
-            thisObject.following.delete(targetUserProfileId)
+        if (thisObject.following.get(targetBotProfileId) !== undefined) {
+            thisObject.following.delete(targetBotProfileId)
         } else {
             throw ('Not Following.')
         }
     }
 
     function addFollower(
-        emitterUserProfileId
+        emitterUserProfileId,
+        emitterBotProfileId
     ) {
-        if (thisObject.followers.get(emitterUserProfileId) === undefined) {
-            thisObject.followers.set(emitterUserProfileId, emitterUserProfileId)
+        if (thisObject.followers.get(emitterBotProfileId) === undefined) {
+            thisObject.followers.set(emitterBotProfileId, { emitterUserProfileId: emitterUserProfileId, emitterBotProfileId: emitterBotProfileId })
         }
     }
 
     function removeFollower(
-        emitterUserProfileId
+        emitterBotProfileId
     ) {
-        if (thisObject.followers.get(emitterUserProfileId) !== undefined) {
-            thisObject.followers.delete(emitterUserProfileId)
+        if (thisObject.followers.get(emitterBotProfileId) !== undefined) {
+            thisObject.followers.delete(emitterBotProfileId)
         }
     }
 }

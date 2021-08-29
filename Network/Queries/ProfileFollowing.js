@@ -1,4 +1,4 @@
-exports.newProfileFollowers = function newProfileFollowers() {
+exports.newProfileFollowing = function newProfileFollowing() {
 
     let thisObject = {
         profile: undefined,
@@ -26,7 +26,7 @@ exports.newProfileFollowers = function newProfileFollowers() {
     function execute() {
 
         let response = []
-        let array = Array.from(thisObject.profile.followers)
+        let array = Array.from(thisObject.profile.following)
 
         switch (thisObject.direction) {
             case NT.globals.constants.queries.DIRECTION_FUTURE: {

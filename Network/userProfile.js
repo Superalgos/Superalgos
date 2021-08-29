@@ -149,6 +149,7 @@ exports.newUserProfile = function newUserProfile() {
     }
 
     function addBot(
+        userProfileId,
         botProfileId,
         botAsset,
         botExchange,
@@ -160,6 +161,7 @@ exports.newUserProfile = function newUserProfile() {
         } else {
             let bot = NT.modules.BOTS.newBot()
             bot.initialize(
+                userProfileId,
                 botProfileId,
                 botAsset,
                 botExchange,

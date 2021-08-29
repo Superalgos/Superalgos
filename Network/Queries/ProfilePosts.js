@@ -45,6 +45,13 @@ exports.newProfilePosts = function newProfilePosts() {
                 throw ('Target Bot Profile Not Found.')
             }
         }
+
+        if (queryReceived.targetBotProfileHandle !== undefined) {
+            thisObject.profile = thisObject.profile.bots.get(queryReceived.targetBotProfileHandle)
+            if (thisObject.profile === undefined) {
+                throw ('Target Bot Profile Not Found.')
+            }
+        }
         /* 
         Validate Initial Index 
         */
@@ -102,16 +109,18 @@ exports.newProfilePosts = function newProfilePosts() {
         let response = []
         switch (thisObject.direction) {
             case DIRECTION_FUTURE: {
+                let array = Array.from(thisObject.profile.posts)
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
-                    let arrayItem = thisObject.profile.arrays.posts[i]
+                    let arrayItem = array[i]
                     if (arrayItem === undefined) { break }
                     addToResponse(arrayItem)
                 }
                 break
             }
             case DIRECTION_PAST: {
+                let array = Array.from(thisObject.profile.posts)
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
-                    let arrayItem = thisObject.profile.arrays.posts[i]
+                    let arrayItem = array[i]
                     if (arrayItem === undefined) { break }
                     addToResponse(arrayItem)
                 }
@@ -124,11 +133,13 @@ exports.newProfilePosts = function newProfilePosts() {
             let postResponse = {
                 emitterUserProfileId: post.emitterUserProfileId,
                 targetUserProfileId: post.targetUserProfileId,
+                emitterBotProfileId: post.emitterBotProfileId,
+                targetBotProfileId: post.targetBotProfileId,
                 emitterPostHash: post.emitterPostHash,
                 targetPostHash: post.targetPostHash,
                 postType: post.postType,
                 timestamp: post.timestamp,
-                repliesCount: post.replies.length,
+                repliesCount: post.replies.size,
                 reactions: Array.from(post.reactions)
             }
             response.push(postResponse)

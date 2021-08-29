@@ -289,9 +289,11 @@ exports.newEvent = function newEvent() {
                         }
 
                         emitterBotProfile.addFollowing(
+                            targetUserProfileId,
                             targetBotProfileId
                         )
                         targetBotProfile.addFollower(
+                            emitterUserProfileId,
                             emitterBotProfileId
                         )
                         break

@@ -26,6 +26,9 @@ global.NT = {
         //QUERY_PROFILE_FOLLOWING: require('./Queries/ProfileFollowing.js'),
         //QUERY_POST_REPLIES: require('./Queries/ProfileReplies.js'),
         QUERY_EVENTS: require('./Queries/Events.js')
+    },
+    utilities: {
+        queriesValidations:  require('./Utilities/QueriesValidations.js').newProfileQueries()
     }
 }
 

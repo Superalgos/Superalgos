@@ -5,6 +5,7 @@ exports.newPostReplies = function newPostReplies() {
     fetch the posts metadata that are replies to a certain post.
     */
     let thisObject = {
+        profile: undefined,
         post: undefined,
         initialIndex: undefined,
         amountRequested: undefined,
@@ -14,98 +15,21 @@ exports.newPostReplies = function newPostReplies() {
         finalize: finalize
     }
 
-    const INITIAL_REPLY_INDEX_FIRST = 'First'
-    const INITIAL_REPLY_INDEX_LAST = 'Last'
-    const MIN_AMOUNT_REQUESTED = 1
-    const MAX_AMOUNT_REQUESTED = 100
     const DIRECTION_FUTURE = 'Future'
     const DIRECTION_PAST = 'Past'
 
     return thisObject
 
     function finalize() {
+        thisObject.profile = undefined
         thisObject.post = undefined
     }
 
     function initialize(queryReceived) {
-        let profile
-        /*
-        Validate User Profile
-        */
-        if (queryReceived.targetUserProfileId !== undefined) {
-            profile = NT.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
-        }
 
-        if (profile === undefined) {
-            throw ('Target User Profile Not Found.')
-        }
-        /*
-        Validate Bot Profile
-        */
-        if (queryReceived.targetBotProfileId !== undefined) {
-            profile = profile.bots.get(queryReceived.targetBotProfileId)
-            if (profile === undefined) {
-                throw ('Target Bot Profile Not Found.')
-            }
-        }
-        /*
-        Validate Post
-        */
-        thisObject.post = profile.posts.get(queryReceived.targetPostHash)
-
-        if (thisObject.post === undefined) {
-            throw ('Target Post Not Found.')
-        }
-        /* 
-        Validate Initial Index 
-        */
-        if (queryReceived.initialIndex === undefined) {
-            throw ('Initial Index Undefined.')
-        }
-
-        if (queryReceived.initialIndex === INITIAL_REPLY_INDEX_LAST) {
-            queryReceived.initialIndex = thisObject.poat.replies.length - 1
-        }
-
-        if (queryReceived.initialIndex === INITIAL_REPLY_INDEX_FIRST) {
-            queryReceived.initialIndex = 0
-        }
-
-        if (isNaN(queryReceived.initialIndex) === true) {
-            throw ('Initial Reply Is Not a Number.')
-        }
-
-        thisObject.initialIndex = queryReceived.initialIndex
-        /* 
-        Validate Amount Requested 
-        */
-        if (queryReceived.amountRequested === undefined) {
-            throw ('Amount Requested Undefined.')
-        }
-
-        if (isNaN(queryReceived.amountRequested) === true) {
-            throw ('Amount Requested Is Not a Number.')
-        }
-
-        if (queryReceived.amountRequested < MIN_AMOUNT_REQUESTED) {
-            throw ('Amount Requested Below Min.')
-        }
-
-        if (queryReceived.amountRequested > MAX_AMOUNT_REQUESTED) {
-            throw ('Amount Requested Above Max.')
-        }
-        /* 
-        Validate Direction
-        */
-        if (queryReceived.direction === undefined) {
-            throw ('Direction Undefined.')
-        }
-
-        if (queryReceived.direction !== DIRECTION_FUTURE && queryReceived.direction !== DIRECTION_PAST) {
-            throw ('Direction Not Supported.')
-        }
-
-        thisObject.direction = queryReceived.direction
+        NT.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
+        NT.utilities.queriesValidations.postValidations(queryReceived, thisObject)
+        NT.utilities.queriesValidations.arrayValidations(queryReceived, thisObject)
 
     }
 

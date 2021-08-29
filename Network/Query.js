@@ -10,10 +10,13 @@ exports.newQuery = function newQuery() {
 
     const QUERY_TYPES = {
 
-        PROFILE_STATS: 0,
-        PROFILE_POSTS: 1,
-        POST_REPLIES: 2,
-        EVENTS: 3
+        USER_PROFILE_STATS: 0,
+        BOT_PROFILE_STATS: 1,
+        PROFILE_POSTS: 2,
+        PROFILE_FOLLOWERS: 3,
+        PROFILE_FOLLOWING: 4,
+        POST_REPLIES: 5,
+        EVENTS: 6
 
     }
 
@@ -30,27 +33,52 @@ exports.newQuery = function newQuery() {
 
         switch (thisObject.queryType) {
             
-            case QUERY_TYPES.PROFILE_STATS: {
-                thisObject.query = NT.modules.QUERY_PROFILE_STATS.newProfileStats()
+            case QUERY_TYPES.USER_PROFILE_STATS: {
+                thisObject.query = NT.modules.QUERY_USER_PROFILE_STATS.newUserProfileStats()
                 query.initialize(queryReceived)
+                query.finalize()
+                break
+            }
+
+            case QUERY_TYPES.BOT_PROFILE_STATS: {
+                thisObject.query = NT.modules.QUERY_BOT_PROFILE_STATS.newBotProfileStats()
+                query.initialize(queryReceived)
+                query.finalize()
                 break
             }
 
             case QUERY_TYPES.PROFILE_POSTS: {
                 thisObject.query = NT.modules.QUERY_PROFILE_POSTS.newProfilePosts()
                 query.initialize(queryReceived)
+                query.finalize()
                 break
             }
 
             case QUERY_TYPES.POST_REPLIES: {
                 thisObject.query = NT.modules.QUERY_POST_REPLIES.newPostReplies()
                 query.initialize(queryReceived)
+                query.finalize()
+                break
+            }
+
+            case QUERY_TYPES.PROFILE_FOLLOWERS: {
+                thisObject.query = NT.modules.QUERY_PROFILE_FOLLOWERS.newProfileFollowers()
+                query.initialize(queryReceived)
+                query.finalize()
+                break
+            }
+
+            case QUERY_TYPES.PROFILE_FOLLOWING: {
+                thisObject.query = NT.modules.QUERY_PROFILE_FOLLOWING.newProfileFollowing()
+                query.initialize(queryReceived)
+                query.finalize()
                 break
             }
 
             case QUERY_TYPES.maps.EVENTS: {
                 thisObject.query = NT.modules.QUERY_EVENTS.newEvents()
                 query.initialize(queryReceived)
+                query.finalize()
                 break
             }
             default: throw('Query Type Not Supported.')

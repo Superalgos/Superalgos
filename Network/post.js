@@ -1,19 +1,35 @@
 exports.newPost = function newPost() {
-
+    /*
+    Posts represent a collection of multimedia content sotored somewhere else
+    and identified by that content hash. Posts might belong to:
+        * a User Profile.
+        * a Bot Profile.
+    
+    Posts might be linked to other posts when they are a reply or quote.
+    
+    Posts migth have:
+        * replies, when a user or bot replies to a post.
+        * reactions,  when a user or bot reacts to a post.
+    */
     let thisObject = {
+        /* Parents Ids */
         emitterUserProfileId: undefined,
         targetUserProfileId: undefined,
         emitterBotProfileId: undefined,
         targetBotProfileId: undefined,
+        /* Unique Keys */
         emitterPostHash: undefined,
         targetPostHash: undefined,
+        /* Post Unitque Properties */
         postType: undefined,
         timestamp: undefined,
+        /* Maps */
         replies: undefined,
-        reactionsCount: undefined,
-        reactionTypesCount: undefined,
+        reactions: undefined,
+        /* Reaction Functions */
         addReaction: addReaction,
         removeReactions: removeReaction,
+        /* Framework Functions */
         initialize: initialize,
         finalize: finalize
     }
@@ -32,32 +48,23 @@ exports.newPost = function newPost() {
         REACTION_WOW: 3,
         REACTION_SAD: 4,
         REACTION_ANGRY: 5,
-        REACTION_HUG: 6
+        REACTION_CARE: 6
     }
 
-    thisObject.reactionTypesCount = 7
-
-    thisObject.reactionsCount = new Map()
-    thisObject.reactionsCount.set(REACTION_TYPES.REACTION_LIKE, 0)
-    thisObject.reactionsCount.set(REACTION_TYPES.REACTION_LOVE, 0)
-    thisObject.reactionsCount.set(REACTION_TYPES.REACTION_HAHA, 0)
-    thisObject.reactionsCount.set(REACTION_TYPES.REACTION_WOW, 0)
-    thisObject.reactionsCount.set(REACTION_TYPES.REACTION_SAD, 0)
-    thisObject.reactionsCount.set(REACTION_TYPES.REACTION_ANGRY, 0)
-    thisObject.reactionsCount.set(REACTION_TYPES.REACTION_HUG, 0)
+    thisObject.reactions = new Map()
+    thisObject.reactions.set(REACTION_TYPES.REACTION_LIKE, 0)
+    thisObject.reactions.set(REACTION_TYPES.REACTION_LOVE, 0)
+    thisObject.reactions.set(REACTION_TYPES.REACTION_HAHA, 0)
+    thisObject.reactions.set(REACTION_TYPES.REACTION_WOW, 0)
+    thisObject.reactions.set(REACTION_TYPES.REACTION_SAD, 0)
+    thisObject.reactions.set(REACTION_TYPES.REACTION_ANGRY, 0)
+    thisObject.reactions.set(REACTION_TYPES.REACTION_CARE, 0)
 
     return thisObject
 
     function finalize() {
-        thisObject.emitterUserProfileId = undefined
-        thisObject.targetUserProfileId = undefined
-        thisObject.emitterBotProfileId = undefined
-        thisObject.targetBotProfileId = undefined
-        thisObject.emitterPostHash = undefined
-        thisObject.targetPostHash = undefined
-        thisObject.postType = undefined
-        thisObject.timestamp = undefined
         thisObject.replies = undefined
+        thisObject.reactions = undefined
     }
 
     function initialize(
@@ -79,51 +86,55 @@ exports.newPost = function newPost() {
         thisObject.targetPostHash = targetPostHash
         thisObject.postType = postType
         thisObject.timestamp = timestamp
-
-        thisObject.replies = []
         /*
         Let's find the Target Post
         */
-        let targetPost
-
         if (
             thisObject.postType === POST_TYPES.REPLY_TO_POST ||
             thisObject.postType === POST_TYPES.REPOST_ ||
-            thisObject.postType === POST_TYPES.QUOTE_REPOST_ 
+            thisObject.postType === POST_TYPES.QUOTE_REPOST_
         ) {
-            targetPost = NT.memory.maps.POSTS.get(thisObject.targetPostHash)
+            /*
+            Validate Target User Profile.
+            */
+            let targetUserProfile = NT.memory.maps.USER_PROFILES_BY_ID.get(thisObject.targetUserProfileId)
+            if (targetUserProfile === undefined) {
+                throw ('Target User Profile Not Found.')
+            }
+
+            let targetPost = targetUserProfile.posts.get(thisObject.targetPostHash)
 
             if (targetPost === undefined) {
                 throw ('Target Post Not Found.')
             }
-        }
-        /*
-         Let's add this post to the replies of the Target Post
-         */
-        if (
-            thisObject.postType === POST_TYPES.REPLY_TO_POST 
-        ) {
-            targetPost.replies.push(thisObject)
+            /*
+            Let's add this post to the replies of the Target Post
+            */
+            if (
+                thisObject.postType === POST_TYPES.REPLY_TO_POST
+            ) {
+                targetPost.replies.set(thisObject.targetPostHash, thisObject.targetPostHash)
+            }
         }
     }
 
     function addReaction(reactionType) {
-        let reactionCount = thisObject.reactionsCount.get(reactionType)
+        let reactionCount = thisObject.reactions.get(reactionType)
 
         if (reactionCount === undefined) {
             throw ('Reaction Type Not Supported.')
         }
 
-        thisObject.reactionsCount.set(reactionType, reactionsCount + 1)
+        thisObject.reactions.set(reactionType, reactionCount + 1)
     }
 
     function removeReaction(reactionType) {
-        let reactionCount = thisObject.reactionsCount.get(reactionType)
+        let reactionCount = thisObject.reactions.get(reactionType)
 
         if (reactionCount === undefined) {
             throw ('Reaction Type Not Supported.')
         }
 
-        thisObject.reactionsCount.set(reactionType, reactionsCount - 1)
+        thisObject.reactions.set(reactionType, reactionCount - 1)
     }
 }

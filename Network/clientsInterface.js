@@ -62,6 +62,7 @@ exports.newClientInterface = function newClientInterface() {
             "botId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "botAsset": "BTC",
             "botExchange": "Binance",
+            "botEnabled": true,
             "initialIndex": 35,
             "amountRequested": 50,
             "direction": "Past"

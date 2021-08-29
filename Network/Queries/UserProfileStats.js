@@ -1,4 +1,4 @@
-exports.newProfileStats = function newProfileStats() {
+exports.newUserProfileStats = function newUserProfileStats() {
 
     let thisObject = {
         profile: undefined,
@@ -10,7 +10,7 @@ exports.newProfileStats = function newProfileStats() {
     return thisObject
 
     function finalize() {
-
+        thisObject.profile = undefined
     }
 
     function initialize(queryReceived) {
@@ -32,7 +32,7 @@ exports.newProfileStats = function newProfileStats() {
     function execute() {
 
         return {
-            "userProfieId": thisObject.profile.userProfieId,
+            "userProfileId": thisObject.profile.userProfileId,
             "userProfileHandle": thisObject.profile.userProfileHandle,
             "blockchainAccount": thisObject.profile.blockchainAccount,
             "ranking": thisObject.profile.ranking,

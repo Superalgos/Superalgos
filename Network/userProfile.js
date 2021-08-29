@@ -1,30 +1,41 @@
 exports.newUserProfile = function newUserProfile() {
-
+    /*
+    Users can have a Profile that can:
+        * follow other user profiles.
+        * be followed by other user profiles.
+        * have posts linked to the profile.
+        * have bots linked to the profile.
+    */
     let thisObject = {
-        userProfieId: undefined,
+        /* Unique Keys */
+        userProfileId: undefined,
         userProfileHandle: undefined,
+        /* User Unitque Properties */
         blockchainAccount: undefined,
+        /* SA Reputation + SA Token Balance */
         ranking: undefined,
+        /* Maps */
         following: undefined,
         followers: undefined,
-        followingCount: undefined,
-        followersCount: undefined,
+        posts: undefined,
+        bots: undefined,
+        /* Stats */
         emitterEventsCount: undefined,
         targetEventsCount: undefined,
-        postsCount: undefined,
-        botsCount: undefined,
-        bots: undefined,
-        posts: undefined,
+        /* Post Functions */
         addPost: addPost,
         removePost: removePost,
+        /* Follow - Unfollow Functions */
         addFollowing: addFollowing,
         removeFollowing: removeFollowing,
         addFollower: addFollower,
         removeFollower: removeFollower,
+        /* Bot Functions */
         addBot: addBot,
         removeBot: removeBot,
         enableBot: enableBot,
         disableBot: disableBot,
+        /* Framework Functions */
         initialize: initialize,
         finalize: finalize
     }
@@ -32,28 +43,34 @@ exports.newUserProfile = function newUserProfile() {
     return thisObject
 
     function finalize() {
+
         thisObject.following = undefined
         thisObject.followers = undefined
-
         thisObject.posts = undefined
         thisObject.bots = undefined
+
     }
 
-    function initialize() {
+    function initialize(
+        userProfileId,
+        userProfileHandle,
+        blockchainAccount,
+        ranking
+    ) {
+
+        thisObject.userProfileId = userProfileId
+        thisObject.userProfileHandle = userProfileHandle
+        thisObject.blockchainAccount = blockchainAccount
+        thisObject.ranking = ranking
 
         thisObject.following = new Map()
         thisObject.followers = new Map()
-
-        thisObject.followingCount = 0
-        thisObject.followersCount = 0
+        thisObject.posts = new Map()
+        thisObject.bots = new Map()
 
         thisObject.emitterEventsCount = 0
         thisObject.targetEventsCount = 0
-        thisObject.postsCount = 0
-        thisObject.botsCount = 0
 
-        thisObject.posts = []
-        thisObject.bots = []
     }
 
     function addPost(
@@ -64,140 +81,129 @@ exports.newUserProfile = function newUserProfile() {
         postType,
         timestamp
     ) {
-        if (NT.memory.maps.POSTS.get(emitterPostHash) !== undefined) {
+        if (thisObject.posts.get(emitterPostHash) !== undefined) {
             throw ('Post Already Exists.')
+        } else {
+            let post = NT.modules.POST.newPost()
+            post.initialize(
+                emitterUserProfileId,
+                targetUserProfileId,
+                undefined,
+                undefined,
+                emitterPostHash,
+                targetPostHash,
+                postType,
+                timestamp
+            )
+
+            thisObject.posts.set(emitterPostHash, post)
         }
-
-        let post = NT.modules.POST.newPost()
-        post.initialize(
-            emitterUserProfileId,
-            targetUserProfileId,
-            undefined,
-            undefined,
-            emitterPostHash,
-            targetPostHash,
-            postType,
-            timestamp
-        )
-
-        thisObject.posts.push(post)
-        NT.memory.maps.POSTS.set(emitterPostHash, post)
-        thisObject.postsCount++
     }
 
     function removePost(
         emitterPostHash
     ) {
-        if (NT.memory.maps.POSTS.get(emitterPostHash) === undefined) {
+        if (thisObject.posts.get(emitterPostHash) === undefined) {
             throw ('Post Does Not Exist.')
+        } else {
+            let post = thisObject.posts.get(emitterPostHash)
+            post.finalize()
+            thisObject.posts.delete(emitterPostHash)
         }
-
-        let post = thisObject.posts.get(emitterPostHash)
-        post.finalize()
-
-        for (let i = thisObject.posts.length - 1; i >= 0; i--) {
-            if (thisObject.posts[i].emitterPostHash === emitterPostHash) {
-                thisObject.posts.splice(i, 1)
-                break
-            }
-        }
-        NT.memory.maps.POSTS.delete(emitterPostHash)
-        thisObject.postsCount--
     }
 
     function addFollowing(
-        userProfile
+        targetUserProfileId
     ) {
-        if (thisObject.following.get(userProfile.id) === undefined) {
-            thisObject.following.set(userProfile.id, userProfile)
-            thisObject.followingCount++
+        if (thisObject.following.get(targetUserProfileId) === undefined) {
+            thisObject.following.set(targetUserProfileId, targetUserProfileId)
+        } else {
+            throw ('Already Following.')
         }
     }
 
     function removeFollowing(
-        userProfile
+        targetUserProfileId
     ) {
-        if (thisObject.following.get(userProfile.id) !== undefined) {
-            thisObject.following.delete(userProfile.id)
-            thisObject.followingCount--
+        if (thisObject.following.get(targetUserProfileId) !== undefined) {
+            thisObject.following.delete(targetUserProfileId)
+        } else {
+            throw ('Not Following.')
         }
     }
 
     function addFollower(
-        userProfile
+        emitterUserProfileId
     ) {
-        if (thisObject.followers.get(userProfile.id) === undefined) {
-            thisObject.followers.set(userProfile.id, userProfile)
-            thisObject.followersCount++
+        if (thisObject.followers.get(emitterUserProfileId) === undefined) {
+            thisObject.followers.set(emitterUserProfileId, emitterUserProfileId)
         }
     }
 
     function removeFollower(
-        userProfile
+        emitterUserProfileId
     ) {
-        if (thisObject.followers.get(userProfile.id) !== undefined) {
-            thisObject.followers.delete(userProfile.id)
-            thisObject.followersCount--
+        if (thisObject.followers.get(emitterUserProfileId) !== undefined) {
+            thisObject.followers.delete(emitterUserProfileId)
         }
     }
 
     function addBot(
-        botId,
+        botProfileId,
         botAsset,
-        botExchange
+        botExchange,
+        botEnabled
     ) {
-        if (thisObject.bots.get(botId) !== undefined) {
+        let bot = thisObject.bots.get(botProfileId)
+        if (bot !== undefined) {
             throw ('Bot Already Exists.')
+        } else {
+            let bot = NT.modules.BOTS.newBot()
+            bot.initialize(
+                botProfileId,
+                botAsset,
+                botExchange,
+                botEnabled
+            )
+            thisObject.bots.set(botProfileId, bot)
         }
-
-        let bot = NT.modules.BOTS.newBot()
-        bot.initialize(
-            botId,
-            botAsset,
-            botExchange
-        )
-        thisObject.bots.set(botId, bot)
-        thisObject.botsCount++
     }
 
     function removeBot(
-        botId
+        botProfileId
     ) {
-        if (thisObject.bots.get(botId) === undefined) {
+        let bot = thisObject.bots.get(botProfileId)
+        if (bot === undefined) {
             throw ('Bot Does Not Exist.')
+        } else {
+            thisObject.bots.get(botProfileId).finalize()
+            thisObject.bots.delete(botProfileId)
         }
-        thisObject.bots.get(botId).finalize()
-        thisObject.bots.delete(botId)
-        thisObject.botsCount--
     }
 
     function enableBot(
-        botId
+        botProfileId
     ) {
-        let bot = thisObject.bots.get(botId)
+        let bot = thisObject.bots.get(botProfileId)
         if (bot === undefined) {
             throw ('Bot Does Not Exist.')
         }
-
-        if (bot.enabled === true) {
+        if (bot.botEnabled === true) {
             throw ('Bot Already Enabled.')
         }
-
-        bot.enabled = true
+        bot.botEnabled = true
     }
 
     function disableBot(
-        botId
+        botProfileId
     ) {
-        let bot = thisObject.bots.get(botId)
+        let bot = thisObject.bots.get(botProfileId)
         if (bot === undefined) {
             throw ('Bot Does Not Exist.')
         }
-
-        if (bot.enabled === false) {
+        if (bot.botEnabled === false) {
             throw ('Bot Already Disabled.')
         }
-
-        bot.enabled = false
+        bot.botEnabled = false
     }
 }

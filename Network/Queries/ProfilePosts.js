@@ -36,6 +36,15 @@ exports.newProfilePosts = function newProfilePosts() {
         if (thisObject.profile === undefined) {
             throw ('Target User Profile Not Found.')
         }
+        /*
+        Validate Bot Profile
+        */
+        if (queryReceived.targetBotProfileId !== undefined) {
+            thisObject.profile = thisObject.profile.bots.get(queryReceived.targetBotProfileId)
+            if (thisObject.profile === undefined) {
+                throw ('Target Bot Profile Not Found.')
+            }
+        }
         /* 
         Validate Initial Index 
         */
@@ -94,17 +103,17 @@ exports.newProfilePosts = function newProfilePosts() {
         switch (thisObject.direction) {
             case DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
-                    let post = thisObject.profile.posts[i]
-                    if (post === undefined) { break }
-                    addToResponse(post)
+                    let arrayItem = thisObject.profile.arrays.posts[i]
+                    if (arrayItem === undefined) { break }
+                    addToResponse(arrayItem)
                 }
                 break
             }
             case DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
-                    let post = thisObject.profile.posts[i]
-                    if (post === undefined) { break }
-                    addToResponse(post)
+                    let arrayItem = thisObject.profile.arrays.posts[i]
+                    if (arrayItem === undefined) { break }
+                    addToResponse(arrayItem)
                 }
                 break
             }
@@ -120,13 +129,8 @@ exports.newProfilePosts = function newProfilePosts() {
                 postType: post.postType,
                 timestamp: post.timestamp,
                 repliesCount: post.replies.length,
-                reactionsCount: []
+                reactions: Array.from(post.reactions)
             }
-
-            for (let i = 0; i < post.reactionTypesCount; i++) {
-                postResponse.reactionsCount.push(post.reactionsCount.get(i))
-            }
-
             response.push(postResponse)
         }
     }

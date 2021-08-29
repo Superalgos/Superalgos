@@ -1,7 +1,7 @@
-exports.newPostReplies = function newPostReplies() {
+exports.newProfileFollowers = function newProfileFollowers() {
 
     let thisObject = {
-        post: undefined,
+        profile: undefined,
         initialIndex: undefined,
         amountRequested: undefined,
         direction: undefined,
@@ -10,8 +10,8 @@ exports.newPostReplies = function newPostReplies() {
         finalize: finalize
     }
 
-    const INITIAL_REPLY_INDEX_FIRST = 'First'
-    const INITIAL_REPLY_INDEX_LAST = 'Last'
+    const INITIAL_POST_INDEX_FIRST = 'First'
+    const INITIAL_POST_INDEX_LAST = 'Last'
     const MIN_AMOUNT_REQUESTED = 1
     const MAX_AMOUNT_REQUESTED = 100
     const DIRECTION_FUTURE = 'Future'
@@ -20,17 +20,30 @@ exports.newPostReplies = function newPostReplies() {
     return thisObject
 
     function finalize() {
-        thisObject.post = undefined
+        thisObject.profile = undefined
     }
 
     function initialize(queryReceived) {
         /*
-        Validate Post
+        Validate User Profile
         */
-        thisObject.post = NT.memory.maps.POSTS.get(queryReceived.targetPostHash)
+        if (queryReceived.targetUserProfileId !== undefined) {
+            thisObject.profile = NT.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
+        } else {
+            thisObject.profile = NT.memory.maps.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
+        }
 
-        if (thisObject.post === undefined) {
-            throw ('Target Post Not Found.')
+        if (thisObject.profile === undefined) {
+            throw ('Target User Profile Not Found.')
+        }
+        /*
+        Validate Bot Profile
+        */
+        if (queryReceived.targetBotProfileId !== undefined) {
+            thisObject.profile = thisObject.profile.bots.get(queryReceived.targetBotProfileId)
+            if (thisObject.profile === undefined) {
+                throw ('Target Bot Profile Not Found.')
+            }
         }
         /* 
         Validate Initial Index 
@@ -39,16 +52,16 @@ exports.newPostReplies = function newPostReplies() {
             throw ('Initial Index Undefined.')
         }
 
-        if (queryReceived.initialIndex === INITIAL_REPLY_INDEX_LAST) {
-            queryReceived.initialIndex = thisObject.poat.replies.length - 1
+        if (queryReceived.initialIndex === INITIAL_POST_INDEX_LAST) {
+            queryReceived.initialIndex = thisObject.profile.posts.length - 1
         }
 
-        if (queryReceived.initialIndex === INITIAL_REPLY_INDEX_FIRST) {
+        if (queryReceived.initialIndex === INITIAL_POST_INDEX_FIRST) {
             queryReceived.initialIndex = 0
         }
 
         if (isNaN(queryReceived.initialIndex) === true) {
-            throw ('Initial Reply Is Not a Number.')
+            throw ('Initial Post Is Not a Number.')
         }
 
         thisObject.initialIndex = queryReceived.initialIndex
@@ -90,17 +103,17 @@ exports.newPostReplies = function newPostReplies() {
         switch (thisObject.direction) {
             case DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
-                    let post = thisObject.post.replies[i]
-                    if (post === undefined) { break }
-                    addToResponse(post)
+                    let arrayItem = thisObject.profile.arrays.followers[i]
+                    if (arrayItem === undefined) { break }
+                    addToResponse(arrayItem)
                 }
                 break
             }
             case DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
-                    let post = thisObject.post.replies[i]
-                    if (post === undefined) { break }
-                    addToResponse(post)
+                    let arrayItem = thisObject.profile.arrays.followers[i]
+                    if (arrayItem === undefined) { break }
+                    addToResponse(arrayItem)
                 }
                 break
             }

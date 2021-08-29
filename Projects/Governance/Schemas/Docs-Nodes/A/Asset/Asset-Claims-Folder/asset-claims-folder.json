@@ -6,11 +6,6 @@
     },
     "paragraphs": [
         {
-            "style": "Block",
-            "text": "Content",
-            "updated": 1624728536229
-        },
-        {
             "style": "Include",
             "text": "Governance->Concept->Claims Folder->Content",
             "updated": 1630259502301

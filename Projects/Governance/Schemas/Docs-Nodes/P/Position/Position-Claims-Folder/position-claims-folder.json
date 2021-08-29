@@ -1,18 +1,14 @@
 {
     "type": "Position Claims Folder",
     "definition": {
-        "text": "The Position Contribution Claims Folder node is an organizational device used to arrange Position Contribution Claim nodes in suitable hierarchical structures.",
-        "updated": 1624728437926
+        "text": "The Position Claims Folder node is an organizational device used to arrange Position Contribution Claim nodes in arbitrary arrangements or to map entire structures in the Positions hierarchy.",
+        "updated": 1630260192942
     },
     "paragraphs": [
         {
-            "style": "Block",
-            "text": "Content",
-            "updated": 1624728455607
-        },
-        {
-            "style": "Text",
-            "text": "You may use this node to reference a Position Class node in the Positions hierarchy. Once the reference is established, you may use the Install Missing Claims option on the menu to map the data structure of the referenced node with claims for each Position."
+            "style": "Include",
+            "text": "Governance->Concept->Claims Folder->Content",
+            "updated": 1630260202600
         },
         {
             "style": "Block",

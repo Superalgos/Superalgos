@@ -1,18 +1,14 @@
 {
     "type": "Feature Claims Folder",
     "definition": {
-        "text": "The Feature Contribution Claims Folder node is an organizational device used to arrange Feature Contribution Claim nodes in suitable hierarchical structures.",
-        "updated": 1624728474759
+        "text": "The Feature Claims Folder node is an organizational device used to arrange Feature Contribution Claim nodes in arbitrary arrangements or to map entire structures in the Features hierarchy.",
+        "updated": 1630260148773
     },
     "paragraphs": [
         {
-            "style": "Block",
-            "text": "Content",
-            "updated": 1624728497197
-        },
-        {
-            "style": "Text",
-            "text": "You may use this node to reference a Feature Class node in the Features hierarchy. Once the reference is established, you may use the Install Missing Claims option on the menu to map the data structure of the referenced node with claims for each Feature."
+            "style": "Include",
+            "text": "Governance->Concept->Claims Folder->Content",
+            "updated": 1630260159250
         },
         {
             "style": "Block",

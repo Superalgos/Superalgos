@@ -13,8 +13,10 @@ exports.newQuery = function newQuery() {
         USER_PROFILE_STATS: 0,
         BOT_PROFILE_STATS: 1,
         PROFILE_POSTS: 2,
-        POST_REPLIES: 3,
-        EVENTS: 4
+        PROFILE_FOLLOWERS: 3,
+        PROFILE_FOLLOWING: 4,
+        POST_REPLIES: 5,
+        EVENTS: 6
 
     }
 
@@ -54,6 +56,20 @@ exports.newQuery = function newQuery() {
 
             case QUERY_TYPES.POST_REPLIES: {
                 thisObject.query = NT.modules.QUERY_POST_REPLIES.newPostReplies()
+                query.initialize(queryReceived)
+                query.finalize()
+                break
+            }
+
+            case QUERY_TYPES.PROFILE_FOLLOWERS: {
+                thisObject.query = NT.modules.QUERY_PROFILE_FOLLOWERS.newProfileFollowers()
+                query.initialize(queryReceived)
+                query.finalize()
+                break
+            }
+
+            case QUERY_TYPES.PROFILE_FOLLOWING: {
+                thisObject.query = NT.modules.QUERY_PROFILE_FOLLOWING.newProfileFollowing()
                 query.initialize(queryReceived)
                 query.finalize()
                 break

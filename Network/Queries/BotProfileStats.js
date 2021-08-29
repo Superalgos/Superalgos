@@ -41,7 +41,6 @@ exports.newBotProfileStats = function newBotProfileStats() {
         return {
             "botProfileId": thisObject.profile.botProfileId,
             "botProfileHandle": thisObject.profile.botProfileHandle,
-            "ranking": thisObject.profile.ranking,
             "followingCount": thisObject.profile.followingCount,
             "followersCount": thisObject.profile.followersCount,
             "emitterEventsCount": thisObject.profile.emitterEventsCount,

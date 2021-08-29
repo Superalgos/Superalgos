@@ -56,7 +56,7 @@ function newGovernanceUserProfileSpace() {
         const X_STEP = SPACE_WIDTH / (userProfiles.length + 1)
         const Y_STEP = 3000
 
-        const Y_LEVEL = SPACE_HEIGHT * 0.45
+        const Y_LEVEL = SPACE_HEIGHT * 0.425
         let xOffset = X_STEP
         let yOffset = 0
 

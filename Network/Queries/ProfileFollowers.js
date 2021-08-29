@@ -1,4 +1,4 @@
-exports.newProfilePosts = function newProfilePosts() {
+exports.newProfileFollowers = function newProfileFollowers() {
 
     let thisObject = {
         profile: undefined,
@@ -103,7 +103,7 @@ exports.newProfilePosts = function newProfilePosts() {
         switch (thisObject.direction) {
             case DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
-                    let arrayItem = thisObject.profile.arrays.posts[i]
+                    let arrayItem = thisObject.profile.arrays.followers[i]
                     if (arrayItem === undefined) { break }
                     addToResponse(arrayItem)
                 }
@@ -111,7 +111,7 @@ exports.newProfilePosts = function newProfilePosts() {
             }
             case DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
-                    let arrayItem = thisObject.profile.arrays.posts[i]
+                    let arrayItem = thisObject.profile.arrays.followers[i]
                     if (arrayItem === undefined) { break }
                     addToResponse(arrayItem)
                 }

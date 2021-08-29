@@ -23,7 +23,17 @@ global.NT = {
         QUERY_USER_PROFILE_STATS: require('./Queries/UserProfileStats.js'),
         QUERY_BOT_PROFILE_STATS: require('./Queries/BotProfileStats.js'),
         QUERY_PROFILE_POSTS: require('./Queries/ProfilePosts.js'),
-        QUERY_POST_REPLIES: require('./Queries/ProfileReplies.js'),
+        QUERY_PROFILE_FOLLOWERS: require('./Queries/ProfileFollowers.js'),
+        //QUERY_PROFILE_FOLLOWING: require('./Queries/ProfileFollowing.js'),
+        //QUERY_POST_REPLIES: require('./Queries/ProfileReplies.js'),
         QUERY_EVENTS: require('./Queries/Events.js')
     }
 }
+
+const map = new Map([[1, { a: 2 }], [2, { a: 4 }], [4, { a: 8 }]])
+map.set(3, { a: 6 })
+map.delete(2)
+map.set(2, { a: 12 })
+let array = Array.from(map)
+
+console.log(JSON.stringify(array))

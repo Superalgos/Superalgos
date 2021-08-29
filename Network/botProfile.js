@@ -6,14 +6,23 @@ exports.newUserProfile = function newUserProfile() {
         botAsset: undefined,
         botExchange: undefined,
         enabled: undefined,
-        following: undefined,
-        followers: undefined,
+        arrays: {
+            following: undefined,
+            followers: undefined,
+            posts: undefined,
+            bots: undefined
+        },
+        maps: {
+            following: undefined,
+            followers: undefined,
+            posts: undefined,
+            bots: undefined
+        },
         followingCount: undefined,
         followersCount: undefined,
         emitterEventsCount: undefined,
         targetEventsCount: undefined,
         postsCount: undefined,
-        posts: undefined,
         addPost: addPost,
         removePost: removePost,
         addFollowing: addFollowing,
@@ -27,16 +36,35 @@ exports.newUserProfile = function newUserProfile() {
     return thisObject
 
     function finalize() {
-        thisObject.following = undefined
-        thisObject.followers = undefined
 
-        thisObject.posts = undefined
+        thisObject.arrays = {
+            following: undefined,
+            followers: undefined,
+            posts: undefined,
+            bots: undefined
+        }
+
+        thisObject.maps = {
+            following: undefined,
+            followers: undefined,
+            posts: undefined,
+            bots: undefined
+        }
     }
 
     function initialize() {
 
-        thisObject.following = new Map()
-        thisObject.followers = new Map()
+        thisObject.arrays = {
+            following: [],
+            followers: [],
+            posts: []
+        }
+
+        thisObject.maps = {
+            following: new Map(),
+            followers: new Map(),
+            posts: new Map()
+        }
 
         thisObject.followingCount = 0
         thisObject.followersCount = 0

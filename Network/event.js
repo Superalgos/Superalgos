@@ -107,7 +107,7 @@ exports.newEvent = function newEvent() {
         if (emitterBotProfileId !== undefined) {
             let botProfile = emitterUserProfile.bots.get(emitterBotProfileId)
             if (
-                emitterBotProfile === undefined
+                botProfile === undefined
             ) {
                 throw ('Emitter BOt Profile Not Found.')
             }
@@ -202,37 +202,37 @@ exports.newEvent = function newEvent() {
             switch (thisObject.eventType) {
                 case EVENT_TYPES.FOLLOW_USER_PROFILE: {
                     emitterUserProfile.addFollowing(
-                        targetUserProfile
+                        targetUserProfileId
                     )
                     targetUserProfile.addFollower(
-                        emitterUserProfile
+                        emitterUserProfileId
                     )
                     break
                 }
                 case EVENT_TYPES.UNFOLLOW_USER_PROFILE: {
                     emitterUserProfile.removeFollowing(
-                        targetUserProfile
+                        targetUserProfileId
                     )
                     targetUserProfile.removeFollower(
-                        emitterUserProfile
+                        emitterUserProfileId
                     )
                     break
                 }
                 case EVENT_TYPES.FOLLOW_BOT_PROFILE: {
                     emitterUserProfile.addTradePostsFollowing(
-                        targetUserProfile
+                        targetBotProfileId
                     )
                     targetUserProfile.addTradePostsFollower(
-                        emitterUserProfile
+                        emitterUserProfileId
                     )
                     break
                 }
                 case EVENT_TYPES.UNFOLLOW_BOT_PROFILE: {
                     emitterUserProfile.removeTradePostsFollowing(
-                        targetUserProfile
+                        targetBotProfileId
                     )
                     targetUserProfile.removeTradePostsFollower(
-                        emitterUserProfile
+                        emitterBotProfileId
                     )
                     break
                 }

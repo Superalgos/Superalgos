@@ -374,6 +374,7 @@ exports.newEvent = function newEvent() {
                 switch (thisObject.eventType) {
                     case EVENT_TYPES.ADD_BOT: {
                         emitterUserProfile.addBot(
+                            thisObject.emitterUserProfileId,
                             thisObject.emitterBotProfileId,
                             thisObject.botAsset,
                             thisObject.botExchange,

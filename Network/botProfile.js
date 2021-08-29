@@ -7,6 +7,7 @@ exports.newBotProfile = function newBotProfile() {
     */
     let thisObject = {
         /* Unique Keys */
+        userProfileId: undefined,
         botProfileId: undefined,
         botProfileHandle: undefined,
         /* Bot Unitque Properties */
@@ -45,11 +46,13 @@ exports.newBotProfile = function newBotProfile() {
     }
 
     function initialize(
+        userProfileId,
         botProfileId,
         botAsset,
         botExchange,
         botEnabled
     ) {
+        thisObject.userProfileId = userProfileId
         thisObject.botProfileId = botProfileId
         thisObject.botAsset = botAsset
         thisObject.botExchange = botExchange

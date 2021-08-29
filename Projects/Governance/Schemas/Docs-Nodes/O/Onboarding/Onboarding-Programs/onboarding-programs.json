@@ -11,9 +11,18 @@
             "updated": 1630216357301
         },
         {
+            "style": "Success",
+            "text": "Learn more about how Token Power Flows into these programs!",
+            "updated": 1630228322651
+        },
+        {
             "style": "Text",
-            "text": "What these two programs have in common is that they don't require Token Power to function. That is, even if you have zero Superalgos SA Tokens and zero Delegated Power, you may still participate to earn your first few tokens!",
-            "updated": 1630218079736
+            "text": "What these two programs have in common is that they don't require Token Power to function. That is, even if you have zero Superalgos SA Tokens and zero Delegated Power, you may still participate to earn your first few tokens!"
+        },
+        {
+            "style": "Callout",
+            "text": "All you need to do to participate is spawn each of the program nodes and submit your User Profile!",
+            "updated": 1630228214813
         },
         {
             "style": "Block",

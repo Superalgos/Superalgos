@@ -1,5 +1,11 @@
 exports.newUserProfile = function newUserProfile() {
-
+    /*
+    Users can have a Profile that can:
+        * follow other user profiles.
+        * be followed by other user profiles.
+        * have posts linked to the profile.
+        * have bots linked to the profile.
+    */
     let thisObject = {
         /* Unique Keys */
         userProfileId: undefined,
@@ -45,7 +51,17 @@ exports.newUserProfile = function newUserProfile() {
 
     }
 
-    function initialize() {
+    function initialize(
+        userProfileId,
+        userProfileHandle,
+        blockchainAccount,
+        ranking
+    ) {
+
+        thisObject.userProfileId = userProfileId
+        thisObject.userProfileHandle = userProfileHandle
+        thisObject.blockchainAccount = blockchainAccount
+        thisObject.ranking = ranking
 
         thisObject.following = new Map()
         thisObject.followers = new Map()

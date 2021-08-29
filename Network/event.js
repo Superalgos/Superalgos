@@ -21,7 +21,6 @@ exports.newEvent = function newEvent() {
         eventType: undefined,
         timestamp: undefined,
         /* Bot Related Properties */
-        botProfileId: undefined,
         botAsset: undefined,
         botExchange: undefined,
         botEnabled: undefined,
@@ -89,7 +88,6 @@ exports.newEvent = function newEvent() {
         thisObject.targetPostHash = eventReceived.targetPostHash
         thisObject.eventType = eventReceived.eventType
         thisObject.timestamp = eventReceived.timestamp
-        thisObject.botProfileId = eventReceived.botProfileId
         thisObject.botAsset = eventReceived.botAsset
         thisObject.botExchange = eventReceived.botExchange
         thisObject.botEnabled = eventReceived.botEnabled
@@ -98,6 +96,8 @@ exports.newEvent = function newEvent() {
         */
         let emitterUserProfile
         let targetUserProfile
+        let emitterBotProfile
+        let targetBotProfile
         /*
         Validate Emitter User Profile.
         */
@@ -121,9 +121,18 @@ exports.newEvent = function newEvent() {
         Validate Emitter Bot Profile.
         */
         if (emitterBotProfileId !== undefined) {
-            let botProfile = emitterUserProfile.bots.get(emitterBotProfileId)
-            if (botProfile === undefined) {
+            emitterBotProfile = emitterUserProfile.bots.get(emitterBotProfileId)
+            if (emitterBotProfile === undefined) {
                 throw ('Emitter Bot Profile Not Found.')
+            }
+        }
+        /*
+        Validate Target Bot Profile.
+        */
+        if (targetBotProfileId !== undefined) {
+            targetBotProfile = emitterUserProfile.bots.get(targetBotProfileId)
+            if (targetBotProfile === undefined) {
+                throw ('Target Bot Profile Not Found.')
             }
         }
 
@@ -252,6 +261,15 @@ exports.newEvent = function newEvent() {
                         break
                     }
                     case EVENT_TYPES.UNFOLLOW_USER_PROFILE: {
+
+                        if (thisObject.emitterUserProfileId === undefined) {
+                            throw ('Emitter User Profile Id Not Provided.')
+                        }
+
+                        if (thisObject.targetUserProfileId === undefined) {
+                            throw ('Target User Profile Id Not Provided.')
+                        }
+
                         emitterUserProfile.removeFollowing(
                             targetUserProfileId
                         )
@@ -261,19 +279,37 @@ exports.newEvent = function newEvent() {
                         break
                     }
                     case EVENT_TYPES.FOLLOW_BOT_PROFILE: {
-                        emitterUserProfile.addTradePostsFollowing(
+
+                        if (thisObject.emitterBotProfileId === undefined) {
+                            throw ('Emitter Bot Profile Id Not Provided.')
+                        }
+
+                        if (thisObject.targetBotProfileId === undefined) {
+                            throw ('Target Bot Profile Id Not Provided.')
+                        }
+
+                        emitterBotProfile.addFollowing(
                             targetBotProfileId
                         )
-                        targetUserProfile.addTradePostsFollower(
-                            emitterUserProfileId
+                        targetBotProfile.addFollower(
+                            emitterBotProfileId
                         )
                         break
                     }
                     case EVENT_TYPES.UNFOLLOW_BOT_PROFILE: {
-                        emitterUserProfile.removeTradePostsFollowing(
+
+                        if (thisObject.emitterBotProfileId === undefined) {
+                            throw ('Emitter Bot Profile Id Not Provided.')
+                        }
+
+                        if (thisObject.targetBotProfileId === undefined) {
+                            throw ('Target Bot Profile Id Not Provided.')
+                        }
+
+                        emitterBotProfile.removeFollowing(
                             targetBotProfileId
                         )
-                        targetUserProfile.removeTradePostsFollower(
+                        targetBotProfile.removeFollower(
                             emitterBotProfileId
                         )
                         break
@@ -287,6 +323,18 @@ exports.newEvent = function newEvent() {
             /*
             Is is a Reaction?
             */
+            let targetPost
+
+            if (targetBotProfile !== undefined) {
+                targetPost = targetBotProfile.posts.get(thisObject.targetPostHash)
+            } else {
+                targetPost = targetUserProfile.posts.get(thisObject.targetPostHash)
+            }
+
+            if (targetPost === undefined) {
+                throw ('Target Post Not Found')
+            }
+
             if (
                 thisObject.eventType === EVENT_TYPES.ADD_REACTION_LIKE ||
                 thisObject.eventType === EVENT_TYPES.ADD_REACTION_LOVE ||
@@ -296,12 +344,6 @@ exports.newEvent = function newEvent() {
                 thisObject.eventType === EVENT_TYPES.ADD_REACTION_ANGRY ||
                 thisObject.eventType === EVENT_TYPES.ADD_REACTION_CARE
             ) {
-                let targetPost = NT.memory.maps.POSTS.get(thisObject.targetPostHash)
-
-                if (targetPost === undefined) {
-                    throw ('Target Post Not Found')
-                }
-
                 targetPost.addReaction(thisObject.eventType - 100)
                 return
             }
@@ -314,12 +356,6 @@ exports.newEvent = function newEvent() {
                 thisObject.eventType === EVENT_TYPES.REMOVE_REACTION_ANGRY ||
                 thisObject.eventType === EVENT_TYPES.REMOVE_REACTION_CARE
             ) {
-                let targetPost = NT.memory.maps.POSTS.get(thisObject.targetPostHash)
-
-                if (targetPost === undefined) {
-                    throw ('Target Post Not Found')
-                }
-
                 targetPost.removeReaction(thisObject.eventType - 200)
                 return
             }
@@ -338,7 +374,7 @@ exports.newEvent = function newEvent() {
                 switch (thisObject.eventType) {
                     case EVENT_TYPES.ADD_BOT: {
                         emitterUserProfile.addBot(
-                            thisObject.botProfileId,
+                            thisObject.emitterBotProfileId,
                             thisObject.botAsset,
                             thisObject.botExchange,
                             thisObject.botEnabled
@@ -347,19 +383,19 @@ exports.newEvent = function newEvent() {
                     }
                     case EVENT_TYPES.REMOVE_BOT: {
                         emitterUserProfile.removeBot(
-                            thisObject.botProfileId
+                            thisObject.emitterBotProfileId
                         )
                         break
                     }
                     case EVENT_TYPES.ENABLE_BOT: {
                         emitterUserProfile.enableBot(
-                            thisObject.botProfileId
+                            thisObject.emitterBotProfileId
                         )
                         break
                     }
                     case EVENT_TYPES.DISABLE_BOT: {
                         emitterUserProfile.disableBot(
-                            thisObject.botProfileId
+                            thisObject.emitterBotProfileId
                         )
                         break
                     }
@@ -372,6 +408,12 @@ exports.newEvent = function newEvent() {
             emitterUserProfile.emitterEventsCount++
             if (targetUserProfile !== undefined) {
                 targetUserProfile.targetEventsCount++
+            }
+            if (emitterBotProfile !== undefined) {
+                emitterUserProfile.emitterEventsCount++
+            }
+            if (targetBotProfile !== undefined) {
+                targetBotProfile.targetEventsCount++
             }
         }
     }

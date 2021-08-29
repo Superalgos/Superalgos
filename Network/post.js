@@ -1,5 +1,16 @@
 exports.newPost = function newPost() {
-
+    /*
+    Posts represent a collection of multimedia content sotored somewhere else
+    and identified by that content hash. Posts might belong to:
+        * a User Profile.
+        * a Bot Profile.
+    
+    Posts might be linked to other posts when they are a reply or quote.
+    
+    Posts migth have:
+        * replies, when a user or bot replies to a post.
+        * reactions,  when a user or bot reacts to a post.
+    */
     let thisObject = {
         /* Parents Ids */
         emitterUserProfileId: undefined,

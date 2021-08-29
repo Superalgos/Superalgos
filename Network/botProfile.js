@@ -1,5 +1,10 @@
 exports.newBotProfile = function newBotProfile() {
-
+    /*
+    Users can have a Profile that can:
+        * follow other bots profiles.
+        * be followed by other bots profiles.
+        * have posts linked to the profile.
+    */
     let thisObject = {
         /* Unique Keys */
         botProfileId: undefined,

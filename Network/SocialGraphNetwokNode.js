@@ -28,7 +28,19 @@ global.NT = {
         QUERY_EVENTS: require('./Queries/Events.js')
     },
     utilities: {
-        queriesValidations:  require('./Utilities/QueriesValidations.js').newProfileQueries()
+        queriesValidations: require('./Utilities/QueriesValidations.js').newProfileQueries()
+    },
+    globals: {
+        constants: {
+            queries: {
+                INITIAL_INDEX_FIRST: 'First',
+                INITIAL_INDEX_LAST: 'Last',
+                MIN_AMOUNT_REQUESTED: 1,
+                MAX_AMOUNT_REQUESTED: 100,
+                DIRECTION_FUTURE: 'Future',
+                DIRECTION_PAST: 'Past'
+            }
+        }
     }
 }
 

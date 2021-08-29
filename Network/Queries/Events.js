@@ -10,13 +10,6 @@ exports.newEvents = function newEvents() {
         finalize: finalize
     }
 
-    const INITIAL_EVENT_INDEX_FIRST = 'First'
-    const INITIAL_EVENT_INDEX_LAST = 'Last'
-    const MIN_AMOUNT_REQUESTED = 1
-    const MAX_AMOUNT_REQUESTED = 100
-    const DIRECTION_FUTURE = 'Future'
-    const DIRECTION_PAST = 'Past'
-
     return thisObject
 
     function finalize() {
@@ -43,11 +36,11 @@ exports.newEvents = function newEvents() {
             throw ('Initial Index Undefined.')
         }
 
-        if (queryReceived.initialIndex === INITIAL_EVENT_INDEX_LAST) {
+        if (queryReceived.initialIndex === NT.globals.constants.queries.INITIAL_INDEX_LAST) {
             queryReceived.initialIndex = thisObject.profile.posts.length - 1
         }
 
-        if (queryReceived.initialIndex === INITIAL_EVENT_INDEX_FIRST) {
+        if (queryReceived.initialIndex === NT.globals.constants.queries.INITIAL_INDEX_FIRST) {
             queryReceived.initialIndex = 0
         }
 
@@ -67,11 +60,11 @@ exports.newEvents = function newEvents() {
             throw ('Amount Requested Is Not a Number.')
         }
 
-        if (queryReceived.amountRequested < MIN_AMOUNT_REQUESTED) {
+        if (queryReceived.amountRequested < NT.globals.constants.queries.MIN_AMOUNT_REQUESTED) {
             throw ('Amount Requested Below Min.')
         }
 
-        if (queryReceived.amountRequested > MAX_AMOUNT_REQUESTED) {
+        if (queryReceived.amountRequested > NT.globals.constants.queries.MAX_AMOUNT_REQUESTED) {
             throw ('Amount Requested Above Max.')
         }
         /* 
@@ -81,7 +74,7 @@ exports.newEvents = function newEvents() {
             throw ('Direction Undefined.')
         }
 
-        if (queryReceived.direction !== DIRECTION_FUTURE && queryReceived.direction !== DIRECTION_PAST) {
+        if (queryReceived.direction !== NT.globals.constants.queries.DIRECTION_FUTURE && queryReceived.direction !== NT.globals.constants.queries.DIRECTION_PAST) {
             throw ('Direction Not Supported.')
         }
 
@@ -92,7 +85,7 @@ exports.newEvents = function newEvents() {
     function execute() {
         let response = []
         switch (thisObject.direction) {
-            case DIRECTION_FUTURE: {
+            case NT.globals.constants.queries.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let event = NT.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }
@@ -100,7 +93,7 @@ exports.newEvents = function newEvents() {
                 }
                 break
             }
-            case DIRECTION_PAST: {
+            case NT.globals.constants.queries.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let event = NT.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }

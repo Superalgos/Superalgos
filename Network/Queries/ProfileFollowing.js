@@ -10,9 +10,6 @@ exports.newProfileFollowing = function newProfileFollowing() {
         finalize: finalize
     }
 
-    const DIRECTION_FUTURE = 'Future'
-    const DIRECTION_PAST = 'Past'
-
     return thisObject
 
     function finalize() {
@@ -32,7 +29,7 @@ exports.newProfileFollowing = function newProfileFollowing() {
         let array = Array.from(thisObject.profile.following)
 
         switch (thisObject.direction) {
-            case DIRECTION_FUTURE: {
+            case NT.globals.constants.queries.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let arrayItem = array[i]
                     if (arrayItem === undefined) { break }
@@ -40,7 +37,7 @@ exports.newProfileFollowing = function newProfileFollowing() {
                 }
                 break
             }
-            case DIRECTION_PAST: {
+            case NT.globals.constants.queries.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let arrayItem = array[i]
                     if (arrayItem === undefined) { break }

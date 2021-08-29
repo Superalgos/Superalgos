@@ -15,9 +15,6 @@ exports.newPostReplies = function newPostReplies() {
         finalize: finalize
     }
 
-    const DIRECTION_FUTURE = 'Future'
-    const DIRECTION_PAST = 'Past'
-
     return thisObject
 
     function finalize() {
@@ -39,7 +36,7 @@ exports.newPostReplies = function newPostReplies() {
         let array = Array.from(thisObject.post.replies)
 
         switch (thisObject.direction) {
-            case DIRECTION_FUTURE: {
+            case NT.globals.constants.queries.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let arrayItem = array[i]
                     if (post === undefined) { break }
@@ -47,7 +44,7 @@ exports.newPostReplies = function newPostReplies() {
                 }
                 break
             }
-            case DIRECTION_PAST: {
+            case NT.globals.constants.queries.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let arrayItem = array[i]
                     if (post === undefined) { break }

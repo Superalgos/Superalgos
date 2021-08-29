@@ -11,9 +11,13 @@
             "updated": 1630165468473
         },
         {
+            "style": "Success",
+            "text": "Learn more about how Token Power Flows into these programs!",
+            "updated": 1630218909731
+        },
+        {
             "style": "Text",
-            "text": "Each of the Community Building Programs has an associated Rewards Pool and a Bonus Pool under the Governance Programs > Community Building Programs section of the Superalgos Pools hierarchy.",
-            "updated": 1630168361008
+            "text": "Each of the Community Building Programs has an associated Rewards Pool and a Bonus Pool under the Governance Programs > Community Building Programs section of the Superalgos Pools hierarchy."
         },
         {
             "style": "Note",
@@ -52,7 +56,17 @@
         {
             "style": "Json",
             "text": "Total Incoming Power [*] -> 100% of the pool\n Your Incoming Power [**] -> X% of the pool -> Tokens Rewards\n\nTokens Rewards = Your Incoming Power * 100% / Total Incoming Power\n\n[*] The sum of all Incoming Power (in the given program) in all User Profiles combined.\n[**] Your Incoming Power (in the given program).",
-            "updated": 1630170860166
+            "updated": 1630215178623
+        },
+        {
+            "style": "Block",
+            "text": "Configuration",
+            "updated": 1630215228441
+        },
+        {
+            "style": "Title",
+            "text": "Configuration",
+            "updated": 1630215233190
         }
     ]
 }

@@ -135,7 +135,8 @@ exports.newUserProfile = function newUserProfile() {
     function addBot(
         botProfileId,
         botAsset,
-        botExchange
+        botExchange,
+        botEnabled
     ) {
         let bot = thisObject.bots.get(botProfileId)
         if (bot !== undefined) {
@@ -145,7 +146,8 @@ exports.newUserProfile = function newUserProfile() {
             bot.initialize(
                 botProfileId,
                 botAsset,
-                botExchange
+                botExchange,
+                botEnabled
             )
             thisObject.bots.set(botProfileId, bot)
         }
@@ -170,10 +172,10 @@ exports.newUserProfile = function newUserProfile() {
         if (bot === undefined) {
             throw ('Bot Does Not Exist.')
         }
-        if (bot.enabled === true) {
+        if (bot.botEnabled === true) {
             throw ('Bot Already Enabled.')
         }
-        bot.enabled = true
+        bot.botEnabled = true
     }
 
     function disableBot(
@@ -183,9 +185,9 @@ exports.newUserProfile = function newUserProfile() {
         if (bot === undefined) {
             throw ('Bot Does Not Exist.')
         }
-        if (bot.enabled === false) {
+        if (bot.botEnabled === false) {
             throw ('Bot Already Disabled.')
         }
-        bot.enabled = false
+        bot.botEnabled = false
     }
 }

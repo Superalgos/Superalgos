@@ -7,7 +7,7 @@ exports.newBotProfile = function newBotProfile() {
         /* Bot Unitque Properties */
         botAsset: undefined,
         botExchange: undefined,
-        enabled: undefined,
+        botEnabled: undefined,
         /* Maps */
         following: undefined,
         followers: undefined,
@@ -39,7 +39,16 @@ exports.newBotProfile = function newBotProfile() {
 
     }
 
-    function initialize() {
+    function initialize(
+        botProfileId,
+        botAsset,
+        botExchange,
+        botEnabled
+    ) {
+        thisObject.botProfileId = botProfileId
+        thisObject.botAsset = botAsset
+        thisObject.botExchange = botExchange
+        thisObject.botEnabled = botEnabled
 
         thisObject.following = new Map()
         thisObject.followers = new Map()

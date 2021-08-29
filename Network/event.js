@@ -12,6 +12,7 @@ exports.newEvent = function newEvent() {
         botId: undefined,
         botAsset: undefined,
         botExchange: undefined,
+        botEnabled: undefined,
         initialize: initialize,
         finalize: finalize
     }
@@ -78,6 +79,7 @@ exports.newEvent = function newEvent() {
         thisObject.botId = eventReceived.botId
         thisObject.botAsset = eventReceived.botAsset
         thisObject.botExchange = eventReceived.botExchange
+        thisObject.botEnabled = eventReceived.botEnabled
         /*
         Validate Emitter User Profile.
         */
@@ -292,7 +294,8 @@ exports.newEvent = function newEvent() {
                     emitterUserProfile.addBot(
                         thisObject.botId,
                         thisObject.botAsset,
-                        thisObject.botExchange
+                        thisObject.botExchange,
+                        thisObject.botEnabled
                     )
                     break
                 }

@@ -116,13 +116,8 @@ exports.newPostReplies = function newPostReplies() {
                 postType: post.postType,
                 timestamp: post.timestamp,
                 repliesCount: post.replies.length,
-                reactionsCount: []
+                reactions: Array.from(post.reactions)
             }
-
-            for (let i = 0; i < post.reactionTypesCount; i++) {
-                postResponse.reactionsCount.push(post.reactionsCount.get(i))
-            }
-
             response.push(postResponse)
         }
     }

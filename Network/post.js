@@ -37,7 +37,7 @@ exports.newPost = function newPost() {
         REACTION_WOW: 3,
         REACTION_SAD: 4,
         REACTION_ANGRY: 5,
-        REACTION_HUG: 6
+        REACTION_CARE: 6
     }
 
     thisObject.reactions = new Map()
@@ -47,7 +47,7 @@ exports.newPost = function newPost() {
     thisObject.reactions.set(REACTION_TYPES.REACTION_WOW, 0)
     thisObject.reactions.set(REACTION_TYPES.REACTION_SAD, 0)
     thisObject.reactions.set(REACTION_TYPES.REACTION_ANGRY, 0)
-    thisObject.reactions.set(REACTION_TYPES.REACTION_HUG, 0)
+    thisObject.reactions.set(REACTION_TYPES.REACTION_CARE, 0)
 
     return thisObject
 
@@ -78,8 +78,6 @@ exports.newPost = function newPost() {
         /*
         Let's find the Target Post
         */
-        let targetPost
-
         if (
             thisObject.postType === POST_TYPES.REPLY_TO_POST ||
             thisObject.postType === POST_TYPES.REPOST_ ||
@@ -91,21 +89,21 @@ exports.newPost = function newPost() {
             let targetUserProfile = NT.memory.maps.USER_PROFILES_BY_ID.get(thisObject.targetUserProfileId)
             if (targetUserProfile === undefined) {
                 throw ('Target User Profile Not Found.')
-            } 
+            }
 
-            targetPost = targetUserProfile.posts.get(thisObject.targetPostHash)
+            let targetPost = targetUserProfile.posts.get(thisObject.targetPostHash)
 
             if (targetPost === undefined) {
                 throw ('Target Post Not Found.')
             }
-        }
-        /*
-         Let's add this post to the replies of the Target Post
-         */
-        if (
-            thisObject.postType === POST_TYPES.REPLY_TO_POST
-        ) {
-            targetPost.replies.set(thisObject.targetPostHash, thisObject.targetPostHash)
+            /*
+            Let's add this post to the replies of the Target Post
+            */
+            if (
+                thisObject.postType === POST_TYPES.REPLY_TO_POST
+            ) {
+                targetPost.replies.set(thisObject.targetPostHash, thisObject.targetPostHash)
+            }
         }
     }
 

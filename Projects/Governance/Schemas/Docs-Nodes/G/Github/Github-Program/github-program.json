@@ -16,13 +16,17 @@
             "updated": 1630221340561
         },
         {
-            "style": "Success",
+            "style": "Callout",
             "text": "Spawning the Github Program and submitting your User Profile is all you need to do to participate in the program. To maximize your Tokens Awarded, make sure you have a fork, a star, and are watching the repository! The system does automatic checks on Github.com and verifies their existence in real-time."
         },
         {
-            "style": "Callout",
-            "text": "There is a cap of SA 1,000 for each of these incentives. This means that you may get up to SA 3,000 in Tokens Awarded if you maximize your participation. In case there aren't enough tokens in the Rewards Pool to cover each incentive up to the defined cap for all User Profiles, then each profile gets an equal proportion for each of the applicable incentives.",
-            "updated": 1630221717446
+            "style": "Text",
+            "text": "There is a cap of SA 1,000 for each of these incentives. This means that you may get up to SA 3,000 in Tokens Awarded if you maximize your participation. ",
+            "updated": 1630228105213
+        },
+        {
+            "style": "Text",
+            "text": "In case there aren't enough tokens in the Rewards Pool to cover each incentive up to the defined cap for all User Profiles, then each profile gets an equal proportion for each of the applicable incentives."
         },
         {
             "style": "Text",

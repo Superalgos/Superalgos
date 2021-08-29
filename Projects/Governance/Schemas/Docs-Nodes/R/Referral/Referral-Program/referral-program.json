@@ -1,8 +1,8 @@
 {
     "type": "Referral Program",
     "definition": {
-        "text": "The referral program is designed to incentivize both word-of-mouth and influencer referrals. You may earn tokens for each user you refer, but also for each user they refer as well, and the chain goes on infinitely!",
-        "updated": 1624726453093
+        "text": "The referral program incentivizes the promotion of the project, either by word-of-mouth or “en masse” through articles, social media posts, videos, and other forms of influencer marketing.",
+        "updated": 1630227795694
     },
     "paragraphs": [
         {
@@ -11,24 +11,30 @@
             "updated": 1624726477501
         },
         {
-            "style": "Text",
-            "text": "When you declare one or more referrers, you confer them 10% of your Referral Power, but without losing any of your power! That is, you are not giving your power away… you’re empowering someone else through your power!"
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Featuring Tokens Bonus",
+            "updated": 1630230465415
         },
         {
             "style": "Text",
-            "text": "The power you confer to your referrer is added to his or her own power. Now, guess what happens when your referrer declares his or her referrer? That's right! 10% of the total Referral Power is conferred to his or her referrer too! And the chain continues on and on."
+            "text": "With this program, you may earn Superalgos SA Tokens for every user you refer to the project, and also for the users they refer!"
         },
         {
             "style": "Callout",
-            "text": "Now, let’s look at this the other way round. The people you refer confer 10% of their Referral Power to you. When they get to refer people, they get 10% of their Referral Power. This means that you get 10% of the Referral Power from the first generation of people you refer, but you also get 1% of the power of the second generation, and 0.1% of the third generation, and so on!"
+            "text": "To participate, you must spawn the Referral Program and declare your referrer. To do that, add a User Referrer node and use it to establish a reference to the User Profile of the person that referred you to Superalgos. If you have more than one referrer, simply add more User Referrer nodes."
         },
         {
             "style": "Text",
-            "text": "At the time of each Distribution Event, your total Referral Power determines the Direct Proportion of tokens you get from the Referral Reward Pool."
+            "text": "Maybe you learned about Superalgos from an article, a video, a comment on Reddit, a tweet, the official website, or someone who told you about us!"
         },
         {
-            "style": "Success",
-            "text": "As you can see, there is a very good incentive for spreading the word about Superalgos. It’s good for you, for your friends, for their friends, and for the project!"
+            "style": "Text",
+            "text": "Declaring your referrers is the best way to thank the people that may have written that article or tweet, produced that video, maintained the website, or told you about Superalgos! Without them, you probably wouldn’t be here yet!"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Community Building Programs",
+            "updated": 1630230671246
         },
         {
             "style": "Block",

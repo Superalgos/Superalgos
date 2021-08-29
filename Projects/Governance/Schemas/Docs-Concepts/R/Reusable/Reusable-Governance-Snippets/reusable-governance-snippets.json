@@ -24,6 +24,43 @@
         {
             "style": "Important",
             "text": "The above means that the calculations that you see from within any given Workspace is a partial calculation within the scope of the Current Workspace only. Definitions, claims, votes, and so on, existing on other workspaces or plugins are not computed."
+        },
+        {
+            "style": "Block",
+            "text": "Dummy",
+            "updated": 1630230740442
+        },
+        {
+            "style": "Title",
+            "text": "Featuring Tokens Bonus"
+        },
+        {
+            "style": "Block",
+            "text": "Featuring Tokens Bonus",
+            "updated": 1630230362519
+        },
+        {
+            "style": "Important",
+            "text": "Participation in this program is incentivized with a Tokens Bonus, meaning you earn tokens just by participating! Read about Tokens Bonus to learn more!",
+            "updated": 1630230393431
+        },
+        {
+            "style": "Block",
+            "text": "Dummy",
+            "updated": 1630230754699
+        },
+        {
+            "style": "Title",
+            "text": "Community Building Programs"
+        },
+        {
+            "style": "Block",
+            "text": "Community Building Programs"
+        },
+        {
+            "style": "Success",
+            "text": "Read about the Community Building Programs to learn how this program calculates Tokens Awarded.",
+            "updated": 1630232362107
         }
     ]
 }

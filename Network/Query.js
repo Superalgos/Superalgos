@@ -1,5 +1,12 @@
 exports.newQuery = function newQuery() {
+    /*
+    A Query is a call from a Network Client to 
+    a Network Node with the purpose to get 
+    relevant information from the Social Graph.
 
+    A Query does not produce changes
+    on the state of the Social Graph. 
+    */
     let thisObject = {
         query: undefined,
         queryType: undefined,

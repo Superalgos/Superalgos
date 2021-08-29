@@ -26,12 +26,14 @@ exports.newClientInterface = function newClientInterface() {
             "eventType": 10, 
             "emitterUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "emitterBotProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "targetBBotProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "emitterPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "timestamp": 124234234234,
-            "botId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "botAsset": "BTC",
-            "botExchange": "Binance"
+            "botExchange": "Binance",
+            "botEnabled": true
         }
         */
 
@@ -56,10 +58,11 @@ exports.newClientInterface = function newClientInterface() {
             "targetUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "emitterUserProfileHandle": "Luis-Fernando-Molina",
             "targetUserProfileHandle":  "Luis-Fernando-Molina",
+            "emitterBotProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "targetBBotProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "emitterPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "timestamp": 124234234234,
-            "botId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "botAsset": "BTC",
             "botExchange": "Binance",
             "botEnabled": true,

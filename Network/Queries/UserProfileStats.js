@@ -26,7 +26,6 @@ exports.newUserProfileStats = function newUserProfileStats() {
         if (thisObject.profile === undefined) {
             throw ('Target User Profile Not Found.')
         }
-
     }
 
     function execute() {
@@ -36,12 +35,12 @@ exports.newUserProfileStats = function newUserProfileStats() {
             "userProfileHandle": thisObject.profile.userProfileHandle,
             "blockchainAccount": thisObject.profile.blockchainAccount,
             "ranking": thisObject.profile.ranking,
-            "followingCount": thisObject.profile.followingCount,
-            "followersCount": thisObject.profile.followersCount,
+            "followingCount": thisObject.profile.following.size,
+            "followersCount": thisObject.profile.followers.size,
+            "postsCount": thisObject.profile.posts.size,
+            "botsCount": thisObject.profile.bots.size,
             "emitterEventsCount": thisObject.profile.emitterEventsCount,
-            "targetEventsCount": thisObject.profile.targetEventsCount,
-            "postsCount": thisObject.profile.postsCount,
-            "botsCount": thisObject.profile.botsCount
+            "targetEventsCount": thisObject.profile.targetEventsCount
         }
     }
 }

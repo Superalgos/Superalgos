@@ -30,18 +30,53 @@
         },
         {
             "style": "Title",
-            "text": "Tokens Awarded",
-            "updated": 1624732384407
+            "text": "Tokens Mined",
+            "updated": 1630157369136
         },
         {
             "style": "Include",
-            "text": "Governance->Node->Tokens Awarded->Definition",
-            "updated": 1624732391024
+            "text": "Governance->Node->Tokens Mined->Definition",
+            "updated": 1630157540123
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Tokens Mined->Content",
+            "updated": 1630157564129
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Tokens Awarded"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Tokens Awarded->Definition"
         },
         {
             "style": "Include",
             "text": "Governance->Node->Tokens Awarded->Content",
-            "updated": 1624732395456
+            "updated": 1630157469517
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Tokens Bonus"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Tokens Bonus->Definition",
+            "updated": 1630157687352
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Tokens Bonus->Content",
+            "updated": 1630157696368
         }
     ]
 }

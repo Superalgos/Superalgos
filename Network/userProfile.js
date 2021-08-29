@@ -1,33 +1,35 @@
 exports.newUserProfile = function newUserProfile() {
 
     let thisObject = {
-        
+        /* Unique Keys */
         userProfileId: undefined,
         userProfileHandle: undefined,
+        /* User Unitque Properties */
         blockchainAccount: undefined,
+        /* SA Reputation + SA Token Balance */
         ranking: undefined,
-
+        /* Maps */
         following: undefined,
         followers: undefined,
         posts: undefined,
         bots: undefined,
-
+        /* Stats */
         emitterEventsCount: undefined,
         targetEventsCount: undefined,
-
+        /* Post Functions */
         addPost: addPost,
         removePost: removePost,
-
+        /* Follow - Unfollow Functions */
         addFollowing: addFollowing,
         removeFollowing: removeFollowing,
         addFollower: addFollower,
         removeFollower: removeFollower,
-
+        /* Bot Functions */
         addBot: addBot,
         removeBot: removeBot,
         enableBot: enableBot,
         disableBot: disableBot,
-
+        /* Framework Functions */
         initialize: initialize,
         finalize: finalize
     }

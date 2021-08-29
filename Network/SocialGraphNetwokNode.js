@@ -9,15 +9,14 @@ global.NT = {
             EVENTS: new Map(),                      // This is the registry of all events received that prevents processing them more than once.
         },
         arrays: {
-            EVENTS: [],                             // A time ordered list of events.
             NETWORK_CLIENTS: [],                    // These are the Network Clients connected to this Network Node ordered by Ranking.
             NETWORK_PEERS: [],                      // These are the Network Peers connected to this Network Node ordered by Ranking.
         }
     },
     modules: {
+        EVENT: require('./Event.js'),
         USER_PROFILE: require('./UserProfile.js'),
         BOT_PROFILE: require('./BotProfile.js'),
-        EVENT: require('./Event.js'),
         POST: require('./Post.js'),
         QUERY: require('./Query.js'),
         QUERY_USER_PROFILE_STATS: require('./Queries/UserProfileStats.js'),

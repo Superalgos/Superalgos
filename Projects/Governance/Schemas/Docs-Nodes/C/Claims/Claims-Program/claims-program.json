@@ -72,8 +72,8 @@
         },
         {
             "style": "Callout",
-            "text": "To place a claim, use the appropriate type of contribution claim node to reference the matching type of definition. For example, use an Asset Contribution Claims node to reference an Asset node within an Assets hierarchy. When you do that, you are effectively placing a claim on that asset. ",
-            "updated": 1630257103981
+            "text": "To place a claim, use the appropriate type of contribution claim node to reference the matching type of definition. For example, use an Asset Contribution Claim node to reference an Asset node within an Assets hierarchy. When you do that, you are effectively placing a claim on that asset.",
+            "updated": 1630323960334
         },
         {
             "style": "Note",

@@ -61,6 +61,29 @@
             "style": "Success",
             "text": "Read about the Community Building Programs to learn how this program calculates Tokens Awarded.",
             "updated": 1630232362107
+        },
+        {
+            "style": "Block",
+            "text": "Dummy",
+            "updated": 1630325147588
+        },
+        {
+            "style": "Title",
+            "text": "Claims Content",
+            "updated": 1630325166381
+        },
+        {
+            "style": "Block",
+            "text": "Claims Content"
+        },
+        {
+            "style": "Success",
+            "text": "Make sure you're driving enough Claim Power to the node so that you may get the reward you deserve! And remember to ask the people who know your work to vouch for your claims with their Claim Votes. That is how your contribution gets validated and how you get the associated rewards.",
+            "updated": 1630325171869
+        },
+        {
+            "style": "Note",
+            "text": "Learn more about How Claims are Resolved!"
         }
     ]
 }

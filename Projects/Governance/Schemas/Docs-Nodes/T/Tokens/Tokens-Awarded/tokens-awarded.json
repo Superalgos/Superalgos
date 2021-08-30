@@ -17,13 +17,32 @@
         },
         {
             "style": "Subtitle",
-            "text": "Community Building Programs Calculations",
-            "updated": 1630165409867
+            "text": "Calculations",
+            "updated": 1630324592451
         },
         {
-            "style": "Text",
-            "text": "The Community Building Programs node page explains how Tokens Awarded is calculated for these particular programs.",
-            "updated": 1630219835777
+            "style": "Note",
+            "text": "Each program calculates Tokens Awarded in a particular way. Follow the links below to learn the details about each program.",
+            "updated": 1630324671871
+        },
+        {
+            "style": "List",
+            "text": "In the Airdrop Program.",
+            "updated": 1630324552707
+        },
+        {
+            "style": "List",
+            "text": "In the Github Program.",
+            "updated": 1630324714648
+        },
+        {
+            "style": "List",
+            "text": "The Community Building Programs node page explains how Tokens Awarded is calculated for the referral, support, and mentorship programs.",
+            "updated": 1630324749961
+        },
+        {
+            "style": "List",
+            "text": "The How Claims are Resolved page explains how tokens are awarded in the Claims Program."
         },
         {
             "style": "Text",

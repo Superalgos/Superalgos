@@ -15,7 +15,7 @@ exports.newNetworkUtilitiesQueriesValidations = function newNetworkUtilitiesQuer
         Validate User Profile
         */
         if (queryReceived.targetUserProfileId !== undefined) {
-            thisObject.profile = NT.globals.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
+            thisObject.profile = NT.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
         }
 
         if (thisObject.profile === undefined) {
@@ -51,11 +51,11 @@ exports.newNetworkUtilitiesQueriesValidations = function newNetworkUtilitiesQuer
             throw ('Initial Index Undefined.')
         }
 
-        if (queryReceived.initialIndex === NT.globals.queryConstants.INITIAL_INDEX_LAST) {
+        if (queryReceived.initialIndex === NT.projects.network.globals.queryConstants.INITIAL_INDEX_LAST) {
             queryReceived.initialIndex = thisObject.profile.posts.length - 1
         }
 
-        if (queryReceived.initialIndex === NT.globals.queryConstants.INITIAL_INDEX_FIRST) {
+        if (queryReceived.initialIndex === NT.projects.network.globals.queryConstants.INITIAL_INDEX_FIRST) {
             queryReceived.initialIndex = 0
         }
 
@@ -75,11 +75,11 @@ exports.newNetworkUtilitiesQueriesValidations = function newNetworkUtilitiesQuer
             throw ('Amount Requested Is Not a Number.')
         }
 
-        if (queryReceived.amountRequested < NT.globals.queryConstants.MIN_AMOUNT_REQUESTED) {
+        if (queryReceived.amountRequested < NT.projects.network.globals.queryConstants.MIN_AMOUNT_REQUESTED) {
             throw ('Amount Requested Below Min.')
         }
 
-        if (queryReceived.amountRequested > NT.globals.queryConstants.MAX_AMOUNT_REQUESTED) {
+        if (queryReceived.amountRequested > NT.projects.network.globals.queryConstants.MAX_AMOUNT_REQUESTED) {
             throw ('Amount Requested Above Max.')
         }
         /* 
@@ -89,7 +89,7 @@ exports.newNetworkUtilitiesQueriesValidations = function newNetworkUtilitiesQuer
             throw ('Direction Undefined.')
         }
 
-        if (queryReceived.direction !== NT.globals.queryConstants.DIRECTION_FUTURE && queryReceived.direction !== NT.globals.queryConstants.DIRECTION_PAST) {
+        if (queryReceived.direction !== NT.projects.network.globals.queryConstants.DIRECTION_FUTURE && queryReceived.direction !== NT.projects.network.globals.queryConstants.DIRECTION_PAST) {
             throw ('Direction Not Supported.')
         }
 

@@ -16,12 +16,13 @@ exports.newBootstrap = function newBootstrap() {
 
     }
 
-    function initialize() {
-        
-         let pluginFileNames = await SA.projects.foundations.utilities.plugins.getPluginFileNames(
+    async function initialize() {
+
+        let pluginFileNames = await SA.projects.foundations.utilities.plugins.getPluginFileNames(
             'Governance',
             'User-Profiles'
         )
+
         for (let i = 0; i < pluginFileNames.length; i++) {
             let pluginFileName = pluginFileNames[i]
 
@@ -33,14 +34,14 @@ exports.newBootstrap = function newBootstrap() {
 
             let userProfilePlugin = JSON.parse(pluginFileContent)
             let config = JSON.parse(userProfilePlugin.config)
-            let signatureObject = JSON.parse(config.signature)
-            let web3 = new NT.nodeModules.web3()
+            let signatureObject = config.signature
+            let web3 = new SA.nodeModules.web3()
             let bloackchainAddress = web3.eth.accounts.recover(signatureObject)
             let ranking = 0 // TODO: read the blockchain balance and transactions from the Treasury Account to calculate the profile ranking.
             let userProfileId = userProfilePlugin.id
             let userHandle = config.signature.message
 
-            let userProfile = NT.modules.socialGraphUserProfile.newNetworkModulesSocialGraphUserProfile()
+            let userProfile = NT.projects.network.modules.socialGraphUserProfile.newNetworkModulesSocialGraphUserProfile()
             userProfile.initialize(
                 userProfileId,
                 userHandle,
@@ -48,8 +49,8 @@ exports.newBootstrap = function newBootstrap() {
                 ranking
             )
 
-            NT.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfileId, userProfile)
-            NT.globals.memory.maps.USER_PROFILES_BY_HANDLE.set(userHandle, userProfile)
+            NT.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfileId, userProfile)
+            NT.projects.network.globals.memory.maps.USER_PROFILES_BY_HANDLE.set(userHandle, userProfile)
 
         }
     }

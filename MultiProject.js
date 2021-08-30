@@ -21,6 +21,7 @@ exports.newMultiProject = function () {
             projectInstance.utilities = {}
             projectInstance.globals = {}
             projectInstance.functionLibraries = {}
+            projectInstance.modules = {}
             projectInstance.taskModules = {}
             projectInstance.processModules = {}
             projectInstance.botModules = {}

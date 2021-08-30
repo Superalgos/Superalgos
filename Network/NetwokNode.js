@@ -22,7 +22,7 @@ It provides access to all modules built for Superalgos in general.
 */
 global.SA = {}
 /* Load Environment Variables */
-let ENVIRONMENT = require('../Environment.js');
+let ENVIRONMENT = require('../EnvironmentForDebug.js');
 let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
 global.env = ENVIRONMENT_MODULE
 /*
@@ -34,12 +34,20 @@ Setting up the modules that will be available for the Servers Running inside thi
 */
 let MULTI_PROJECT = require('../MultiProject.js');
 let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
-MULTI_PROJECT_MODULE.initialize(CL, 'CL')
+MULTI_PROJECT_MODULE.initialize(NT, 'NT')
 MULTI_PROJECT_MODULE.initialize(SA, 'SA')
 /*
-Node Modules Dependencies
+Setting up external dependencies.
 */
-NT.nodeModules.web3 = require('web3')
+SA.nodeModules = {
+    fs: require('fs'),
+    nodeFetch: require('node-fetch'),
+    web3: require('web3')
+}
 
-let socialGraphService = NT.modules.socialGraph.newSocialGraph()
-socialGraphService.initialize()
+start()
+
+async function start() {
+    let socialGraphService = NT.projects.network.modules.socialGraph.newSocialGraph()
+    await socialGraphService.initialize()
+}

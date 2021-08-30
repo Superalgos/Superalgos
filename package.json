@@ -1,1 +1,6 @@
-{}
+{
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "web3": "^1.5.2"
+  }
+}

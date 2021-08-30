@@ -32,7 +32,7 @@ exports.newNetworkModulesQueriesProfileFollowing = function newNetworkModulesQue
         let array = Array.from(thisObject.profile.following)
 
         switch (thisObject.direction) {
-            case NT.globals.queryConstants.DIRECTION_FUTURE: {
+            case NT.projects.network.globals.queryConstants.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let arrayItem = array[i]
                     if (arrayItem === undefined) { break }
@@ -40,7 +40,7 @@ exports.newNetworkModulesQueriesProfileFollowing = function newNetworkModulesQue
                 }
                 break
             }
-            case NT.globals.queryConstants.DIRECTION_PAST: {
+            case NT.projects.network.globals.queryConstants.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let arrayItem = array[i]
                     if (arrayItem === undefined) { break }

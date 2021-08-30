@@ -41,49 +41,49 @@ exports.newNetworkModulesQuery = function newNetworkModulesQuery() {
         switch (thisObject.queryType) {
             
             case QUERY_TYPES.USER_PROFILE_STATS: {
-                thisObject.query = NT.modules.queriesUserProfileStats.newNetworkModulesQueriesUserProfileStats()
+                thisObject.query = NT.projects.network.modules.queriesUserProfileStats.newNetworkModulesQueriesUserProfileStats()
                 query.initialize(queryReceived)
                 query.finalize()
                 break
             }
 
             case QUERY_TYPES.BOT_PROFILE_STATS: {
-                thisObject.query = NT.modules.queriesBotProfileStats.newNetworkModulesQueriesBotProfileStats()
+                thisObject.query = NT.projects.network.modules.queriesBotProfileStats.newNetworkModulesQueriesBotProfileStats()
                 query.initialize(queryReceived)
                 query.finalize()
                 break
             }
 
             case QUERY_TYPES.PROFILE_POSTS: {
-                thisObject.query = NT.modules.queriesProfilePosts.newNetworkModulesQueriesProfilePosts()
+                thisObject.query = NT.projects.network.modules.queriesProfilePosts.newNetworkModulesQueriesProfilePosts()
                 query.initialize(queryReceived)
                 query.finalize()
                 break
             }
 
             case QUERY_TYPES.POST_REPLIES: {
-                thisObject.query = NT.modules.queriesPostReplies.newNetworkModulesQueriesPostReplies()
+                thisObject.query = NT.projects.network.modules.queriesPostReplies.newNetworkModulesQueriesPostReplies()
                 query.initialize(queryReceived)
                 query.finalize()
                 break
             }
 
             case QUERY_TYPES.PROFILE_FOLLOWERS: {
-                thisObject.query = NT.modules.queriesProfileFollowers.newNetworkModulesQueriesProfileFollowers()
+                thisObject.query = NT.projects.network.modules.queriesProfileFollowers.newNetworkModulesQueriesProfileFollowers()
                 query.initialize(queryReceived)
                 query.finalize()
                 break
             }
 
             case QUERY_TYPES.PROFILE_FOLLOWING: {
-                thisObject.query = NT.modules.queriesProfileFollowing.newNetworkModulesQueriesProfileFollowing()
+                thisObject.query = NT.projects.network.modules.queriesProfileFollowing.newNetworkModulesQueriesProfileFollowing()
                 query.initialize(queryReceived)
                 query.finalize()
                 break
             }
 
             case QUERY_TYPES.maps.EVENTS: {
-                thisObject.query = NT.modules.queriesEvents.newNetworkModulesQueriesEvents()
+                thisObject.query = NT.projects.network.modules.queriesEvents.newNetworkModulesQueriesEvents()
                 query.initialize(queryReceived)
                 query.finalize()
                 break

@@ -12,7 +12,7 @@ exports.newFoundationsUtilitiesPlugins = function () {
 
             let path = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + folder
 
-            CL.nodeModules.fs.readdir(path, (err, files) => {
+            SA.nodeModules.fs.readdir(path, (err, files) => {
                 if (err) {
                     reject()
                     return
@@ -33,7 +33,7 @@ exports.newFoundationsUtilitiesPlugins = function () {
 
             let path = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + folder + '/' + fileName
 
-            CL.nodeModules.fs.readFile(path, onFileRead)
+            SA.nodeModules.fs.readFile(path, onFileRead)
 
             function onFileRead(err, file) {
                 if (err) {

@@ -80,7 +80,7 @@ exports.newNetworkModulesSocialGraphBotProfile = function newNetworkModulesSocia
         if (thisObject.posts.get(emitterPostHash) !== undefined) {
             throw ('Post Already Exists.')
         } else {
-            let post = NT.modules.socialGraphPost.newNetworkModulesSocialGraphPost()
+            let post = NT.projects.network.modules.socialGraphPost.newNetworkModulesSocialGraphPost()
             post.initialize(
                 emitterUserProfileId,
                 targetUserProfileId,

@@ -20,8 +20,8 @@ exports.newSocialGraph = function newSocialGraph() {
 
     }
 
-    function initialize() {
-        let bootstrapProcess = NT.modules.bootstrap.newBootstrap()
-        bootstrapProcess.initialize()
+    async function initialize() {
+        let bootstrapProcess = NT.projects.network.modules.bootstrap.newBootstrap()
+        await bootstrapProcess.initialize()
     }
 }

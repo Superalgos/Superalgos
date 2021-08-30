@@ -1,8 +1,8 @@
 {
     "type": "Voting Program",
     "definition": {
-        "text": "The Voting Program is the heart and soul of governance, as it is the section of the hierarchy Contributors use to cast various types of votes. The program is designed to incentivize participation. For that reason, voting earns you tokens too!",
-        "updated": 1624729344266
+        "text": "The Voting Program is the heart and soul of governance, as it enables you to cast various types of votes. You may decide what to incentivize, weighing Pools, Assets, Features, and Positions. You may also evaluate contributions and transfer Voting Power to other users.",
+        "updated": 1630329477687
     },
     "paragraphs": [
         {
@@ -11,48 +11,69 @@
             "updated": 1624729363885
         },
         {
-            "style": "Text",
-            "text": "At the time of each Distribution Event, your Voting Power — that is, the Token Power you assign to the Voting Program — determines the Direct Proportion of tokens you get from the Voting Program Pool."
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Featuring Tokens Bonus",
+            "updated": 1630329521827
         },
         {
             "style": "Text",
-            "text": "A top-level Votes Switch node allows spawning several other particular switches. A switch allows channeling Voting Power in a specific direction and a specific proportion."
-        },
-        {
-            "style": "Text",
-            "text": "By default, the Votes Switch node passes on an equal amount of Voting Power to its offspring. However, you may override the percentage of Voting Power allocated to each switch below a Votes Switch by using the following parameter in the configuration of the particular switch:"
-        },
-        {
-            "style": "Json",
-            "text": "{\n    \"percentage\": 50\n}",
-            "updated": 1624729399791
-        },
-        {
-            "style": "Text",
-            "text": "If you define less than a total of 100% of the Voting Power flowing at any level of the hierarchy, then the remaining Voting Power is distributed evenly across the rest of the offspring at the same level.",
-            "updated": 1624729413463
-        },
-        {
-            "style": "Text",
-            "text": "There are three categories of votes, each with their corresponding switch that helps organize votes in hierarchical structures:"
+            "text": "The features in the Voting Program allow you to cast three different broad categories of votes:",
+            "updated": 1630329757543
         },
         {
             "style": "List",
-            "text": "Claim Votes Switch;"
+            "text": "Claim Votes include Asset Claim Vote, Feature Claim Vote, and Position Claim Vote nodes."
         },
         {
             "style": "List",
-            "text": "Weight Votes Switch;"
+            "text": "Weight Votes include Pool Weight Vote, Asset Weight Vote, Feature Weight Vote, and Position Weight Vote nodes."
         },
         {
             "style": "List",
-            "text": "User Profile Votes Switch",
-            "updated": 1624735526746
+            "text": "User Profile Vote"
+        },
+        {
+            "style": "Text",
+            "text": "There is a top-level Votes Switch node that allows spawning several other switches, each associated to the different types of votes described above:"
+        },
+        {
+            "style": "List",
+            "text": "Claim Votes Switch",
+            "updated": 1630329624666
+        },
+        {
+            "style": "List",
+            "text": "Weight Votes Switch"
+        },
+        {
+            "style": "List",
+            "text": "User Profile Votes Switch"
+        },
+        {
+            "style": "Text",
+            "text": "All of the above switches feature three different functions:"
+        },
+        {
+            "style": "List",
+            "text": "They work like organizational devices, so that you may create arbitrary arrangements of votes, spawning more switches and votes."
+        },
+        {
+            "style": "List",
+            "text": "They may reference Class types of nodes in Project Definition Hierarchies and map entire structures of those hierarchies."
+        },
+        {
+            "style": "List",
+            "text": "They also work like switches, allowing the control of the flow of Voting Power, pretty much like the Token Power Switch, but within the Voting Program. If you need a reminder, read about Token Power Flows."
+        },
+        {
+            "style": "Text",
+            "text": "The different types of votes are explained in the page each type of switch node.",
+            "updated": 1630329669482
         },
         {
             "style": "Success",
-            "text": "Each switch may spawn specialized types of voting nodes, each with the capacity of casting votes towards specific types of nodes on other hierarchies. The Token Rewards and Voting Power Flow page in the Governance Flow topic covers important details of how Votes work. Make sure you read the whole topic!",
-            "updated": 1624735504965
+            "text": "The Token Rewards and Voting Power Flow page in the Governance Flow topic covers important details of how votes work. Make sure you read the whole topic!",
+            "updated": 1630329713208
         },
         {
             "style": "Block",

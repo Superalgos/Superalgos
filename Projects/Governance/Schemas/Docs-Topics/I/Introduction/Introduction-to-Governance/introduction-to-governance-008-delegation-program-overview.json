@@ -9,12 +9,12 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "This is another feature with characteristics inspired in liquid democracy, and also plays an important societal function: new Contributors need Claims Power to place their first claims, but — given that they are new to Superalgos — they may hold no tokens.",
+            "text": "This is another feature with characteristics inspired in liquid democracy, and also plays an important societal function: new Contributors need Claim Power to place their first claims, but — given that they are new to Superalgos — they may hold no tokens.",
             "updated": 1630056075583
         },
         {
             "style": "Text",
-            "text": "In such cases, new Contributors may ask their mentors to borrow some Token Power that they may turn into Claims Power to place their first few claims."
+            "text": "In such cases, new Contributors may ask their mentors to borrow some Token Power that they may turn into Claim Power to place their first few claims."
         },
         {
             "style": "Callout",

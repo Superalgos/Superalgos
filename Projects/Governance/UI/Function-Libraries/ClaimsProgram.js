@@ -457,7 +457,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
 
-                node.payload.uiObject.setStatus(ownPowerText + ' Claims Power')
+                node.payload.uiObject.setStatus(ownPowerText + ' Claim Power')
             }
         }
 

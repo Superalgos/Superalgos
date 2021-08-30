@@ -1,4 +1,4 @@
-exports.newUserProfileStats = function newUserProfileStats() {
+exports.newNetworkModulesQueriesUserProfileStats = function newNetworkModulesQueriesUserProfileStats() {
 
     let thisObject = {
         profile: undefined,

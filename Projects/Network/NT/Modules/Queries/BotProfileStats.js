@@ -1,4 +1,4 @@
-exports.newBotProfileStats = function newBotProfileStats() {
+exports.newNetworkModulesQueriesBotProfileStats = function newNetworkModulesQueriesBotProfileStats() {
 
     let thisObject = {
         profile: undefined,

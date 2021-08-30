@@ -1,11 +1,7 @@
-exports.newProfilePosts = function newProfilePosts() {
+exports.newNetworkModulesQueriesProfileFollowers = function newNetworkModulesQueriesProfileFollowers() {
     /*
-    Each User or Bot Profile can have posts. This query
-    is designed for Network Clients to fetch the posts
-    metadata they need from the Social Graph.
-
-    This is the query to be executed to fill a Profile page
-    with all of its posts.
+    This module represents the query that allows a Network Client to know
+    all the User or Bot profiles that are following a certain User or Bot profile.
     */
     let thisObject = {
         profile: undefined,
@@ -27,12 +23,13 @@ exports.newProfilePosts = function newProfilePosts() {
 
         NT.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
         NT.utilities.queriesValidations.arrayValidations(queryReceived, thisObject)
+
     }
 
     function execute() {
 
         let response = []
-        let array = Array.from(thisObject.profile.posts)
+        let array = Array.from(thisObject.profile.followers)
 
         switch (thisObject.direction) {
             case NT.globals.queryConstants.DIRECTION_FUTURE: {
@@ -54,18 +51,10 @@ exports.newProfilePosts = function newProfilePosts() {
         }
         return response
 
-        function addToResponse(post) {
+        function addToResponse(arrayItem) {
             let postResponse = {
-                emitterUserProfileId: post.emitterUserProfileId,
-                targetUserProfileId: post.targetUserProfileId,
-                emitterBotProfileId: post.emitterBotProfileId,
-                targetBotProfileId: post.targetBotProfileId,
-                emitterPostHash: post.emitterPostHash,
-                targetPostHash: post.targetPostHash,
-                postType: post.postType,
-                timestamp: post.timestamp,
-                repliesCount: post.replies.size,
-                reactions: Array.from(post.reactions)
+                emitterUserProfileId: arrayItem.emitterUserProfileId,
+                emitterBotProfileId: arrayItem.emitterBotProfileId
             }
             response.push(postResponse)
         }

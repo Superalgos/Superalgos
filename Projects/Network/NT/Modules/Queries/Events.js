@@ -1,4 +1,4 @@
-exports.newEvents = function newEvents() {
+exports.newNetworkModulesQueriesEvents = function newNetworkModulesQueriesEvents() {
     /*
     This is the query executed to fill the timeline of a certain User or Bot Profile.
 
@@ -217,28 +217,28 @@ exports.newEvents = function newEvents() {
                 }
 
                 if (emitterUserProfile !== undefined) {
-                    let query = NT.modules.QUERY_USER_PROFILE_STATS.newUserProfileStats()
+                    let query = NT.modules.queriesUserProfileStats.newNetworkModulesQueriesUserProfileStats()
                     query.initialize({ targetUserProfileId: event.emitterUserProfileId })
                     eventResponse.emitterUserProfile = query.execute()
                     query.finalize()
                 }
 
                 if (targetUserProfile !== undefined) {
-                    let query = NT.modules.QUERY_USER_PROFILE_STATS.newUserProfileStats()
+                    let query = NT.modules.queriesUserProfileStats.newNetworkModulesQueriesUserProfileStats()
                     query.initialize({ targetUserProfileId: event.targetUserProfileId })
                     eventResponse.targetUserProfile = query.execute()
                     query.finalize()
                 }
 
                 if (emitterBotProfile !== undefined) {
-                    let query = NT.modules.QUERY_BOT_PROFILE_STATS.newBotProfileStats()
+                    let query = NT.modules.queriesBotProfileStats.newNetworkModulesQueriesBotProfileStats()
                     query.initialize({ targetUserProfileId: event.emitterUserProfileId, targetBotProfileId: emitterBotProfileId })
                     eventResponse.emitterBotProfile = query.execute()
                     query.finalize()
                 }
 
                 if (targetBotProfile !== undefined) {
-                    let query = NT.modules.QUERY_BOT_PROFILE_STATS.newBotProfileStats()
+                    let query = NT.modules.queriesBotProfileStats.newNetworkModulesQueriesBotProfileStats()
                     query.initialize({ targetUserProfileId: event.targetUserProfileId, targetBotProfileId: targetBotProfileId })
                     eventResponse.targetBotProfile = query.execute()
                     query.finalize()

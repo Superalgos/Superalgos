@@ -80,7 +80,7 @@ exports.newClientInterface = function newClientInterface() {
         */
 
         let queryReceived = JSON.parse(queryMessage)
-        let query = NT.modules.QUERY.newQuery()
+        let query = NT.modules.queriesQuery.newNetworkModulesQuery()
         query.initialize(queryReceived)
         return query.execute()
     }

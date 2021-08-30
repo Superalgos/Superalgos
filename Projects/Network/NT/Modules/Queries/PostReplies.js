@@ -1,4 +1,4 @@
-exports.newPostReplies = function newPostReplies() {
+exports.newNetworkModulesQueriesPostReplies = function newNetworkModulesQueriesPostReplies() {
     /*
     Each Post regardless if it is authored by a User or Bot Profile,
     can have replies. This query is designed for Network Clients to 

@@ -1,4 +1,4 @@
-exports.newProfileFollowing = function newProfileFollowing() {
+exports.newNetworkModulesQueriesProfileFollowing = function newNetworkModulesQueriesProfileFollowing() {
     /*
     This module represents the query that allows a Network Client to know
     all the User or Bot profiles that are being followed by a certain User or Bot profile.

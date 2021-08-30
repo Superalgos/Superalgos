@@ -1288,10 +1288,90 @@
             ],
             "modules": [
                 {
+                    "name": "Bot Profile Stats",
+                    "propertyName": "queriesBotProfileStats",
+                    "functionName": "newNetworkModulesQueriesBotProfileStats",
+                    "fileName": "Queries/BotProfileStats.js"
+                },
+                {
+                    "name": "User Profile Stats",
+                    "propertyName": "queriesUserProfileStats",
+                    "functionName": "newNetworkModulesQueriesUserProfileStats",
+                    "fileName": "Queries/UserProfileStats.js"
+                },
+                {
+                    "name": "Profile Posts",
+                    "propertyName": "queriesProfilePosts",
+                    "functionName": "newNetworkModulesQueriesProfilePosts",
+                    "fileName": "Queries/ProfilePosts.js"
+                },
+                {
+                    "name": "Profile Followers",
+                    "propertyName": "queriesProfileFollowers",
+                    "functionName": "newNetworkModulesQueriesProfileFollowers",
+                    "fileName": "Queries/ProfileFollowers.js"
+                },
+                {
+                    "name": "Profile Following",
+                    "propertyName": "queriesProfileFollowing",
+                    "functionName": "newNetworkModulesQueriesProfileFollowing",
+                    "fileName": "Queries/ProfileFollowing.js"
+                },
+                {
+                    "name": "Post Replies",
+                    "propertyName": "queriesPostReplies",
+                    "functionName": "newNetworkModulesQueriesPostReplies",
+                    "fileName": "Queries/PostReplies.js"
+                },
+                {
+                    "name": "Events",
+                    "propertyName": "queriesEvents",
+                    "functionName": "newNetworkModulesQueriesEvents",
+                    "fileName": "Queries/Events.js"
+                },
+                {
+                    "name": "User Profile",
+                    "propertyName": "socialGraphUserProfile",
+                    "functionName": "newNetworkModulesSocialGraphUserProfile",
+                    "fileName": "Social-Graph/UserProfile.js"
+                },
+                {
+                    "name": "Bot Profile",
+                    "propertyName": "socialGraphBotProfile",
+                    "functionName": "newNetworkModulesSocialGraphBotProfile",
+                    "fileName": "Social-Graph/BotProfile.js"
+                },
+                {
+                    "name": "Post",
+                    "propertyName": "socialGraphPost",
+                    "functionName": "newNetworkModulesSocialGraphPost",
+                    "fileName": "Social-Graph/Post.js"
+                },
+                {
+                    "name": "Bootstrap",
+                    "propertyName": "bootstrap",
+                    "functionName": "newNetworkModulesBootstrap",
+                    "fileName": "Bootstrap.js"
+                },
+                {
+                    "name": "Query",
+                    "propertyName": "Query",
+                    "functionName": "newNetworkModulesQuery",
+                    "fileName": "Query.js"
+                },
+                {
                     "name": "Event",
                     "propertyName": "event",
                     "functionName": "newNetworkModulesEvent",
                     "fileName": "Event.js"
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Queries Validations",
+                    "propertyName": "queriesValidations",
+                    "functionName": "newNetworkUtilitiesQueriesValidations",
+                    "fileName": "QueriesValidations.js"
                 }
             ]
         }

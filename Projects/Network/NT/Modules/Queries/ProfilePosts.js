@@ -1,7 +1,11 @@
-exports.newProfileFollowers = function newProfileFollowers() {
+exports.newNetworkModulesQueriesUserProfileStats = function newNetworkModulesQueriesUserProfileStats() {
     /*
-    This module represents the query that allows a Network Client to know
-    all the User or Bot profiles that are following a certain User or Bot profile.
+    Each User or Bot Profile can have posts. This query
+    is designed for Network Clients to fetch the posts
+    metadata they need from the Social Graph.
+
+    This is the query to be executed to fill a Profile page
+    with all of its posts.
     */
     let thisObject = {
         profile: undefined,
@@ -23,13 +27,12 @@ exports.newProfileFollowers = function newProfileFollowers() {
 
         NT.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
         NT.utilities.queriesValidations.arrayValidations(queryReceived, thisObject)
-
     }
 
     function execute() {
 
         let response = []
-        let array = Array.from(thisObject.profile.followers)
+        let array = Array.from(thisObject.profile.posts)
 
         switch (thisObject.direction) {
             case NT.globals.queryConstants.DIRECTION_FUTURE: {
@@ -51,10 +54,18 @@ exports.newProfileFollowers = function newProfileFollowers() {
         }
         return response
 
-        function addToResponse(arrayItem) {
+        function addToResponse(post) {
             let postResponse = {
-                emitterUserProfileId: arrayItem.emitterUserProfileId,
-                emitterBotProfileId: arrayItem.emitterBotProfileId
+                emitterUserProfileId: post.emitterUserProfileId,
+                targetUserProfileId: post.targetUserProfileId,
+                emitterBotProfileId: post.emitterBotProfileId,
+                targetBotProfileId: post.targetBotProfileId,
+                emitterPostHash: post.emitterPostHash,
+                targetPostHash: post.targetPostHash,
+                postType: post.postType,
+                timestamp: post.timestamp,
+                repliesCount: post.replies.size,
+                reactions: Array.from(post.reactions)
             }
             response.push(postResponse)
         }

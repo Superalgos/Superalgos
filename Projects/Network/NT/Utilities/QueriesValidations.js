@@ -1,4 +1,4 @@
-exports.newQueriesValidations = function newQueriesValidations() {
+exports.newNetworkUtilitiesQueriesValidations = function newNetworkUtilitiesQueriesValidations() {
     /*
     This module have a few funcions that are often needed at Queries Modules.
     */

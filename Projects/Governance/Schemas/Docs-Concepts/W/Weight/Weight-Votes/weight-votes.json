@@ -1,8 +1,8 @@
 {
     "type": "Weight Votes",
     "definition": {
-        "text": "A type of vote within the Voting Program used to confer Weight to different types of nodes in the multiple project definition hierarchies. ",
-        "updated": 1624729793292
+        "text": "A type of vote within the Voting Program used to confer Weight to different types of nodes in the multiple Project Definition Hierarchies. The term is a generalization describing any or all of the types of weight vote nodes, namely Pool Weight Vote, Position Weight Vote, Feature Weight Vote, and Asset Weight Vote.",
+        "updated": 1630355074330
     },
     "paragraphs": [
         {
@@ -11,9 +11,13 @@
             "updated": 1630345048703
         },
         {
+            "style": "Important",
+            "text": "The Weight Power you drive into Weight Votes nodes is significant, as it is a measure of how much you wish to incentivize the referenced node. Nodes in Project Definition Hierarchies get Token Rewards proportional to the Weight Power they get from all Weight Votes they receive!",
+            "updated": 1630355171054
+        },
+        {
             "style": "Success",
-            "text": "The Token Rewards and Voting Power Flow page in the Governance Flow topic covers important details of how Weight Votes work. Make sure you read the whole topic!",
-            "updated": 1630345114908
+            "text": "You may want to learn more about Token Rewards and Voting Power Flow!"
         }
     ]
 }

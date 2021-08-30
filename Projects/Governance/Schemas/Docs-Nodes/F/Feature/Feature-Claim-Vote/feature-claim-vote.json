@@ -1,8 +1,8 @@
 {
     "type": "Feature Claim Vote",
     "definition": {
-        "text": "Use this node to establish a reference with a Feature Contribution Claim placed by your colleague in the Claims Program section of their User Profile. This vote means that you support your colleague's claim with the Voting Power you drive into the Claims Vote node!",
-        "updated": 1630351095609
+        "text": "Use this node to establish a reference with a Feature Contribution Claim placed by your colleague in the Claims Program section of their User Profile. This vote means that you support your colleague's claim with the Claim Support Power you drive into the Claim Votes node!",
+        "updated": 1630356075429
     },
     "paragraphs": [
         {

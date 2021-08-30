@@ -102,8 +102,8 @@
         },
         {
             "style": "Important",
-            "text": "The Voting Power you drive into Claim Votes nodes is significant, as it is a measure of your support to the claim. The ideal case scenario for the party placing the claim is that the claim gets enough Claim Votes with enough Voting Power to match the Claim Power the claim carries.",
-            "updated": 1630350695978
+            "text": "The Claim Support Power you drive into Claim Votes nodes is significant, as it is a measure of your support to the claim. The ideal case scenario for the party placing the claim is that the claim gets enough Claim Votes with enough Claim Support Power to match the Claim Power the claim carries.",
+            "updated": 1630356135160
         },
         {
             "style": "Success",

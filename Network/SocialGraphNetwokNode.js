@@ -1,5 +1,5 @@
 /*
-The Superalgos Network will have 3 types of nodes:
+The Superalgos Network have 3 types of nodes:
 
     * Social Graph Nodes
     * Search Index Nodes
@@ -38,7 +38,7 @@ global.NT = {
         QUERY_EVENTS: require('./Queries/Events.js')
     },
     utilities: {
-        queriesValidations: require('./Utilities/QueriesValidations.js').newProfileQueries()
+        queriesValidations: require('./Utilities/QueriesValidations.js').newQueriesValidations()
     },
     globals: {
         constants: {

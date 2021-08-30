@@ -1,4 +1,4 @@
-exports.newProfileFollowers = function newProfileFollowers() {
+exports.newQueriesValidations = function newQueriesValidations() {
     /*
     This module have a few funcions that are often needed at Queries Modules.
     */

@@ -1,4 +1,4 @@
-exports.newProfileFollowers = function newProfileFollowers() {
+exports.newNetworkModulesQueriesProfileFollowers = function newNetworkModulesQueriesProfileFollowers() {
     /*
     This module represents the query that allows a Network Client to know
     all the User or Bot profiles that are following a certain User or Bot profile.
@@ -32,7 +32,7 @@ exports.newProfileFollowers = function newProfileFollowers() {
         let array = Array.from(thisObject.profile.followers)
 
         switch (thisObject.direction) {
-            case NT.globals.constants.queries.DIRECTION_FUTURE: {
+            case NT.projects.network.globals.queryConstants.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let arrayItem = array[i]
                     if (arrayItem === undefined) { break }
@@ -40,7 +40,7 @@ exports.newProfileFollowers = function newProfileFollowers() {
                 }
                 break
             }
-            case NT.globals.constants.queries.DIRECTION_PAST: {
+            case NT.projects.network.globals.queryConstants.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let arrayItem = array[i]
                     if (arrayItem === undefined) { break }

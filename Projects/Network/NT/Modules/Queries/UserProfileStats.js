@@ -1,4 +1,4 @@
-exports.newBotProfileStats = function newBotProfileStats() {
+exports.newNetworkModulesQueriesUserProfileStats = function newNetworkModulesQueriesUserProfileStats() {
 
     let thisObject = {
         profile: undefined,
@@ -17,22 +17,14 @@ exports.newBotProfileStats = function newBotProfileStats() {
         /*
         Validate User Profile
         */
-        let userProfile
         if (queryReceived.targetUserProfileId !== undefined) {
-            userProfile = NT.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
+            thisObject.profile = NT.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
         } else {
-            userProfile = NT.memory.maps.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
+            thisObject.profile = NT.projects.network.globals.memory.maps.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
         }
-
-        if (userProfile === undefined) {
-            throw ('Target User Profile Not Found.')
-        }
-        /*
-        Validate Bot Profile
-        */
-        thisObject.profile = userProfile.bots.get(queryReceived.targetBotProfileId)
+        
         if (thisObject.profile === undefined) {
-            throw ('Target Bot Profile Not Found.')
+            throw ('Target User Profile Not Found.')
         }
     }
 
@@ -40,13 +32,15 @@ exports.newBotProfileStats = function newBotProfileStats() {
 
         return {
             "userProfileId": thisObject.profile.userProfileId,
-            "botProfileId": thisObject.profile.botProfileId,
-            "botProfileHandle": thisObject.profile.botProfileHandle,
+            "userProfileHandle": thisObject.profile.userProfileHandle,
+            "blockchainAccount": thisObject.profile.blockchainAccount,
+            "ranking": thisObject.profile.ranking,
             "followingCount": thisObject.profile.following.size,
             "followersCount": thisObject.profile.followers.size,
             "postsCount": thisObject.profile.posts.size,
+            "botsCount": thisObject.profile.bots.size,
             "emitterEventsCount": thisObject.profile.emitterEventsCount,
-            "targetEventsCount": thisObject.profile.targetEventsCount            
+            "targetEventsCount": thisObject.profile.targetEventsCount
         }
     }
 }

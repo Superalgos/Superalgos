@@ -1,4 +1,4 @@
-exports.newPost = function newPost() {
+exports.newNetworkModulesSocialGraphPost = function newNetworkModulesSocialGraphPost() {
     /*
     Posts represent a collection of multimedia content sotored somewhere else
     and identified by that content hash. Posts might belong to:
@@ -97,7 +97,7 @@ exports.newPost = function newPost() {
             /*
             Validate Target User Profile.
             */
-            let targetUserProfile = NT.memory.maps.USER_PROFILES_BY_ID.get(thisObject.targetUserProfileId)
+            let targetUserProfile = NT.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(thisObject.targetUserProfileId)
             if (targetUserProfile === undefined) {
                 throw ('Target User Profile Not Found.')
             }

@@ -21,6 +21,7 @@ exports.newMultiProject = function () {
             projectInstance.utilities = {}
             projectInstance.globals = {}
             projectInstance.functionLibraries = {}
+            projectInstance.modules = {}
             projectInstance.taskModules = {}
             projectInstance.processModules = {}
             projectInstance.botModules = {}
@@ -60,6 +61,21 @@ exports.newMultiProject = function () {
                     let requiredObject = require(path)
                     let requiredFunction = requiredObject[functionLibraryDefinition.functionName]
                     projectInstance.functionLibraries[functionLibraryDefinition.propertyName] = requiredFunction.call()
+                }
+            }
+
+            /*
+            From here we will require and get the modules, but without instantiation thisObject. 
+            */
+
+            /* Set up  Modules for this Project */
+            if (projectDefinition[rootObjectName].modules !== undefined) {
+                for (let j = 0; j < projectDefinition[rootObjectName].modules.length; j++) {
+                    let taskModuleDefinition = projectDefinition[rootObjectName].modules[j]
+                    let path = global.env.PATH_TO_PROJECTS_REQUIRED + '/' + projectDefinition.name + '/' + rootObjectName + '/' + 'Modules' + '/' + taskModuleDefinition.fileName
+
+                    let requiredObject = require(path)
+                    projectInstance.modules[taskModuleDefinition.propertyName] = requiredObject
                 }
             }
 

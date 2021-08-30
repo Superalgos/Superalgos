@@ -1,4 +1,4 @@
-exports.newUserProfile = function newUserProfile() {
+exports.newNetworkModulesSocialGraphUserProfile = function newNetworkModulesSocialGraphUserProfile() {
     /*
     Users can have a Profile that can:
         * follow other user profiles.
@@ -84,7 +84,7 @@ exports.newUserProfile = function newUserProfile() {
         if (thisObject.posts.get(emitterPostHash) !== undefined) {
             throw ('Post Already Exists.')
         } else {
-            let post = NT.modules.POST.newPost()
+            let post = NT.projects.network.modules.socialGraphPost.newNetworkModulesSocialGraphPost()
             post.initialize(
                 emitterUserProfileId,
                 targetUserProfileId,
@@ -159,7 +159,7 @@ exports.newUserProfile = function newUserProfile() {
         if (bot !== undefined) {
             throw ('Bot Already Exists.')
         } else {
-            let bot = NT.modules.BOTS.newBot()
+            let bot = NT.projects.network.modules.BOTS.newBot()
             bot.initialize(
                 userProfileId,
                 botProfileId,

@@ -1,4 +1,4 @@
-exports.newPostReplies = function newPostReplies() {
+exports.newNetworkModulesQueriesPostReplies = function newNetworkModulesQueriesPostReplies() {
     /*
     Each Post regardless if it is authored by a User or Bot Profile,
     can have replies. This query is designed for Network Clients to 
@@ -39,7 +39,7 @@ exports.newPostReplies = function newPostReplies() {
         let array = Array.from(thisObject.post.replies)
 
         switch (thisObject.direction) {
-            case NT.globals.constants.queries.DIRECTION_FUTURE: {
+            case NT.projects.network.globals.queryConstants.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let arrayItem = array[i]
                     if (post === undefined) { break }
@@ -47,7 +47,7 @@ exports.newPostReplies = function newPostReplies() {
                 }
                 break
             }
-            case NT.globals.constants.queries.DIRECTION_PAST: {
+            case NT.projects.network.globals.queryConstants.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let arrayItem = array[i]
                     if (post === undefined) { break }

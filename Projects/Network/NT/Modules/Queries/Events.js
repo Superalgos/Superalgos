@@ -1,4 +1,4 @@
-exports.newEvents = function newEvents() {
+exports.newNetworkModulesQueriesEvents = function newNetworkModulesQueriesEvents() {
     /*
     This is the query executed to fill the timeline of a certain User or Bot Profile.
 
@@ -29,7 +29,7 @@ exports.newEvents = function newEvents() {
     function execute() {
         let response = []
         switch (thisObject.direction) {
-            case NT.globals.constants.queries.DIRECTION_FUTURE: {
+            case NT.projects.network.globals.queryConstants.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let event = NT.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }
@@ -37,7 +37,7 @@ exports.newEvents = function newEvents() {
                 }
                 break
             }
-            case NT.globals.constants.queries.DIRECTION_PAST: {
+            case NT.projects.network.globals.queryConstants.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let event = NT.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }
@@ -59,12 +59,18 @@ exports.newEvents = function newEvents() {
 
             Any of the above happening, means that indeed it is related.
             */
-            let emitterUserProfile = NT.memory.maps.USER_PROFILES_BY_ID.get(eventReceived.emitterUserProfileId)
-            let targetUserProfile = NT.memory.maps.USER_PROFILES_BY_ID.get(eventReceived.targetUserProfileId)
+            let emitterUserProfile = NT.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(eventReceived.emitterUserProfileId)
             let emitterBotProfile = emitterUserProfile.bots.get(eventReceived.emitterBotProfileId)
-            let targetBotProfile = targetUserProfile.bots.get(eventReceived.targetBotProfileId)
             let emitterPost = emitterUserProfile.posts.get(eventReceived.emitterPostHash)
-            let targetPost = targetUserProfile.posts.get(eventReceived.targetPostHash)
+
+            let targetUserProfile = NT.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(eventReceived.targetUserProfileId)
+            let targetBotProfile
+            let targetPost
+
+            if (targetUserProfile !== undefined) {
+                targetBotProfile = targetUserProfile.bots.get(eventReceived.targetBotProfileId)
+                targetPost = targetUserProfile.posts.get(eventReceived.targetPostHash)
+            }
             /*
             Test #1 : The Emitter or Target profile must be the same as the Context Profile.
             */
@@ -217,28 +223,28 @@ exports.newEvents = function newEvents() {
                 }
 
                 if (emitterUserProfile !== undefined) {
-                    let query = NT.modules.QUERY_USER_PROFILE_STATS.newUserProfileStats()
+                    let query = NT.projects.network.modules.queriesUserProfileStats.newNetworkModulesQueriesUserProfileStats()
                     query.initialize({ targetUserProfileId: event.emitterUserProfileId })
                     eventResponse.emitterUserProfile = query.execute()
                     query.finalize()
                 }
 
                 if (targetUserProfile !== undefined) {
-                    let query = NT.modules.QUERY_USER_PROFILE_STATS.newUserProfileStats()
+                    let query = NT.projects.network.modules.queriesUserProfileStats.newNetworkModulesQueriesUserProfileStats()
                     query.initialize({ targetUserProfileId: event.targetUserProfileId })
                     eventResponse.targetUserProfile = query.execute()
                     query.finalize()
                 }
 
                 if (emitterBotProfile !== undefined) {
-                    let query = NT.modules.QUERY_BOT_PROFILE_STATS.newBotProfileStats()
+                    let query = NT.projects.network.modules.queriesBotProfileStats.newNetworkModulesQueriesBotProfileStats()
                     query.initialize({ targetUserProfileId: event.emitterUserProfileId, targetBotProfileId: emitterBotProfileId })
                     eventResponse.emitterBotProfile = query.execute()
                     query.finalize()
                 }
 
                 if (targetBotProfile !== undefined) {
-                    let query = NT.modules.QUERY_BOT_PROFILE_STATS.newBotProfileStats()
+                    let query = NT.projects.network.modules.queriesBotProfileStats.newNetworkModulesQueriesBotProfileStats()
                     query.initialize({ targetUserProfileId: event.targetUserProfileId, targetBotProfileId: targetBotProfileId })
                     eventResponse.targetBotProfile = query.execute()
                     query.finalize()

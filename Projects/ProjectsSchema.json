@@ -1267,5 +1267,19 @@
             "Features",
             "Positions"
         ]
+    },
+    {
+        "name": "Network",
+        "propertyName": "network",
+        "NT": {
+            "globals": [
+                {
+                    "name": "Query Constants",
+                    "propertyName": "queryConstants",
+                    "functionName": "newNetworkGlobalsQueryConstants",
+                    "fileName": "QueryConstants.js"
+                }
+            ]
+        }
     }
 ]

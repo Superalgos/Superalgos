@@ -28,18 +28,6 @@ global.NT = {
     },
     utilities: {
         queriesValidations: require('./Utilities/QueriesValidations.js').newQueriesValidations()
-    },
-    globals: {
-        constants: {
-            queries: {
-                INITIAL_INDEX_FIRST: 'First',
-                INITIAL_INDEX_LAST: 'Last',
-                MIN_AMOUNT_REQUESTED: 1,
-                MAX_AMOUNT_REQUESTED: 100,
-                DIRECTION_FUTURE: 'Future',
-                DIRECTION_PAST: 'Past'
-            }
-        }
     }
 }
 /* 

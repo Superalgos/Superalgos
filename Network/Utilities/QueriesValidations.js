@@ -51,11 +51,11 @@ exports.newQueriesValidations = function newQueriesValidations() {
             throw ('Initial Index Undefined.')
         }
 
-        if (queryReceived.initialIndex === NT.globals.constants.queries.INITIAL_INDEX_LAST) {
+        if (queryReceived.initialIndex === NT.globals.queryConstants.INITIAL_INDEX_LAST) {
             queryReceived.initialIndex = thisObject.profile.posts.length - 1
         }
 
-        if (queryReceived.initialIndex === NT.globals.constants.queries.INITIAL_INDEX_FIRST) {
+        if (queryReceived.initialIndex === NT.globals.queryConstants.INITIAL_INDEX_FIRST) {
             queryReceived.initialIndex = 0
         }
 
@@ -75,11 +75,11 @@ exports.newQueriesValidations = function newQueriesValidations() {
             throw ('Amount Requested Is Not a Number.')
         }
 
-        if (queryReceived.amountRequested < NT.globals.constants.queries.MIN_AMOUNT_REQUESTED) {
+        if (queryReceived.amountRequested < NT.globals.queryConstants.MIN_AMOUNT_REQUESTED) {
             throw ('Amount Requested Below Min.')
         }
 
-        if (queryReceived.amountRequested > NT.globals.constants.queries.MAX_AMOUNT_REQUESTED) {
+        if (queryReceived.amountRequested > NT.globals.queryConstants.MAX_AMOUNT_REQUESTED) {
             throw ('Amount Requested Above Max.')
         }
         /* 
@@ -89,7 +89,7 @@ exports.newQueriesValidations = function newQueriesValidations() {
             throw ('Direction Undefined.')
         }
 
-        if (queryReceived.direction !== NT.globals.constants.queries.DIRECTION_FUTURE && queryReceived.direction !== NT.globals.constants.queries.DIRECTION_PAST) {
+        if (queryReceived.direction !== NT.globals.queryConstants.DIRECTION_FUTURE && queryReceived.direction !== NT.globals.queryConstants.DIRECTION_PAST) {
             throw ('Direction Not Supported.')
         }
 

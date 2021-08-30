@@ -29,7 +29,7 @@ exports.newEvents = function newEvents() {
     function execute() {
         let response = []
         switch (thisObject.direction) {
-            case NT.globals.constants.queries.DIRECTION_FUTURE: {
+            case NT.globals.queryConstants.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let event = NT.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }
@@ -37,7 +37,7 @@ exports.newEvents = function newEvents() {
                 }
                 break
             }
-            case NT.globals.constants.queries.DIRECTION_PAST: {
+            case NT.globals.queryConstants.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let event = NT.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }

@@ -1,8 +1,8 @@
 {
     "type": "Position Contribution Claim",
     "definition": {
-        "text": "Use this node to reference a Position node in one of the Positions hierarchy to establish a Position Contribution Claim.",
-        "updated": 1630325495738
+        "text": "Use this node to reference a Position node in one of the Positions hierarchy to establish a Position Contribution Claim. This claim means that you declare that you have worked on that Position, and that you expect to be rewarded accordingly!",
+        "updated": 1630349455755
     },
     "paragraphs": [
         {

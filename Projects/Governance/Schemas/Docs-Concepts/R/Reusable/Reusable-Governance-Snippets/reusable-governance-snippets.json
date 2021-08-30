@@ -77,13 +77,46 @@
             "text": "Claims Content"
         },
         {
-            "style": "Success",
+            "style": "Important",
             "text": "Make sure you're driving enough Claim Power to the node so that you may get the reward you deserve! And remember to ask the people who know your work to vouch for your claims with their Claim Votes. That is how your contribution gets validated and how you get the associated rewards.",
             "updated": 1630325171869
         },
         {
             "style": "Note",
             "text": "Learn more about How Claims are Resolved!"
+        },
+        {
+            "style": "Block",
+            "text": "Dummy",
+            "updated": 1630350577178
+        },
+        {
+            "style": "Title",
+            "text": "Claim Votes Content",
+            "updated": 1630350592141
+        },
+        {
+            "style": "Block",
+            "text": "Claim Votes Content",
+            "updated": 1630350596729
+        },
+        {
+            "style": "Important",
+            "text": "The Claim Support Power you drive into Claim Votes nodes is significant, as it is a measure of your support to the claim. The ideal case scenario for the party placing the claim is that the claim gets enough Claim Votes with enough Claim Support Power to match the Claim Power the claim carries.",
+            "updated": 1630356135160
+        },
+        {
+            "style": "Success",
+            "text": "You may want to learn more about How Claims are Resolved!"
+        },
+        {
+            "style": "Block",
+            "text": "Dummy"
+        },
+        {
+            "style": "Text",
+            "text": "Title",
+            "updated": 1630350617116
         }
     ]
 }

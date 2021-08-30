@@ -1,8 +1,8 @@
 {
     "type": "Feature Contribution Claim",
     "definition": {
-        "text": "Use this node to reference a Feature node in one of the Features hierarchy to establish a Feature Contribution Claim.",
-        "updated": 1630325556674
+        "text": "Use this node to reference a Feature node in one of the Features hierarchy to establish a Feature Contribution Claim. This claim means that you declare that you have worked on that Feature, either creating or improving it, and that you expect to be rewarded accordingly!",
+        "updated": 1630349366359
     },
     "paragraphs": [
         {

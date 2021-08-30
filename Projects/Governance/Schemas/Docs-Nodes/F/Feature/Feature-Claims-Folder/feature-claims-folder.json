@@ -1,8 +1,8 @@
 {
     "type": "Feature Claims Folder",
     "definition": {
-        "text": "The Feature Claims Folder node is an organizational device used to arrange Feature Contribution Claim nodes in arbitrary arrangements or to map entire structures in the Features hierarchy.",
-        "updated": 1630260148773
+        "text": "Use this node as an organizational device, to spawn Feature Contribution Claim nodes, and to map entire structures in a Features hierarchy to place multiple Contribution Claims at once.",
+        "updated": 1630352152356
     },
     "paragraphs": [
         {

@@ -1,8 +1,8 @@
 {
     "type": "Position Claims Folder",
     "definition": {
-        "text": "The Position Claims Folder node is an organizational device used to arrange Position Contribution Claim nodes in arbitrary arrangements or to map entire structures in the Positions hierarchy.",
-        "updated": 1630260192942
+        "text": "Use this node as an organizational device, to spawn Position Contribution Claim nodes, and to map entire structures in a Positions hierarchy to place multiple Contribution Claims at once.",
+        "updated": 1630352182572
     },
     "paragraphs": [
         {

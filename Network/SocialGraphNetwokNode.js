@@ -78,7 +78,5 @@ NT.memory = {
     }
 }
 
-
-
 let bootstrapProcess = NT.modules.BOOTSTRAP.newBootstrap()
 bootstrapProcess.initialize()

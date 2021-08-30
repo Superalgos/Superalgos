@@ -3,18 +3,18 @@
     "pageNumber": "3",
     "type": "How Claims are Resolved",
     "definition": {
-        "text": "These three concepts, Claims Power, Claim Votes, and Token Rewards are intimately related and make up the logic of the token distribution.",
+        "text": "These three concepts, Claim Power, Claim Votes, and Token Rewards are intimately related and make up the logic of the token distribution.",
         "updated": 1624781724176
     },
     "paragraphs": [
         {
             "style": "Include",
-            "text": "Governance->Concept->Claims Power->Content",
+            "text": "Governance->Concept->Claim Power->Content",
             "updated": 1624781714508
         },
         {
             "style": "Text",
-            "text": "You control the flow of your Claims Power so that the appropriate number reaches the node with which you wish to present a claim. That is, you present claims for a specific number of tokens, determined by the Claims Power that reaches the corresponding claim node.",
+            "text": "You control the flow of your Claim Power so that the appropriate number reaches the node with which you wish to present a claim. That is, you present claims for a specific number of tokens, determined by the Claim Power that reaches the corresponding claim node.",
             "updated": 1624781792664
         },
         {
@@ -23,7 +23,7 @@
         },
         {
             "style": "Callout",
-            "text": "When you place a claim on a definition node, you are declaring that you wish the Community to reward you with the number of tokens in your claim (Claims Power) for the work done on the concept embodied by the corresponding definition node."
+            "text": "When you place a claim on a definition node, you are declaring that you wish the Community to reward you with the number of tokens in your claim (Claim Power) for the work done on the concept embodied by the corresponding definition node."
         },
         {
             "style": "Text",
@@ -43,7 +43,7 @@
         },
         {
             "style": "List",
-            "text": "The total Claims Power in all existing claims may be equal, smaller, or greater than the Token Rewards available in the node."
+            "text": "The total Claim Power in all existing claims may be equal, smaller, or greater than the Token Rewards available in the node."
         },
         {
             "style": "Text",
@@ -56,7 +56,7 @@
         },
         {
             "style": "Text",
-            "text": "The flow of Voting Power into Claim Votes follows the same principles as the rest of the flows in the Voting Program. This means that Claim Votes have a specific Voting Power, pretty much like claims have a specific Claims Power.",
+            "text": "The flow of Voting Power into Claim Votes follows the same principles as the rest of the flows in the Voting Program. This means that Claim Votes have a specific Voting Power, pretty much like claims have a specific Claim Power.",
             "updated": 1624781873207
         },
         {
@@ -81,11 +81,11 @@
         },
         {
             "style": "List",
-            "text": "When the sum of Voting Power of all Claim Votes associated with a claim is lesser than the Claims Power of the claim, the claim is not paid in full. The Token Rewards is capped by the total Voting Power of all Claim Votes. In other words, claims are paid up to the amount the Community decides with their Claim Votes."
+            "text": "When the sum of Voting Power of all Claim Votes associated with a claim is lesser than the Claim Power of the claim, the claim is not paid in full. The Token Rewards is capped by the total Voting Power of all Claim Votes. In other words, claims are paid up to the amount the Community decides with their Claim Votes."
         },
         {
             "style": "List",
-            "text": "When Token Rewards are enough to pay all claims, then each claim is paid in full, as expected. In more precise, albeit complex terms, when Token Rewards are greater than the sum of Voting Power for any given number of claims, or the sum of Claims Power for any given number of claims, whichever is lesser, each claim gets the Token Reward equal to its Claims Power or equal to the Voting Power of associated Claim Votes, whichever is lesser. "
+            "text": "When Token Rewards are enough to pay all claims, then each claim is paid in full, as expected. In more precise, albeit complex terms, when Token Rewards are greater than the sum of Voting Power for any given number of claims, or the sum of Claim Power for any given number of claims, whichever is lesser, each claim gets the Token Reward equal to its Claim Power or equal to the Voting Power of associated Claim Votes, whichever is lesser. "
         },
         {
             "style": "List",

@@ -60,11 +60,17 @@ exports.newNetworkModulesQueriesEvents = function newNetworkModulesQueriesEvents
             Any of the above happening, means that indeed it is related.
             */
             let emitterUserProfile = NT.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(eventReceived.emitterUserProfileId)
-            let targetUserProfile = NT.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(eventReceived.targetUserProfileId)
             let emitterBotProfile = emitterUserProfile.bots.get(eventReceived.emitterBotProfileId)
-            let targetBotProfile = targetUserProfile.bots.get(eventReceived.targetBotProfileId)
             let emitterPost = emitterUserProfile.posts.get(eventReceived.emitterPostHash)
-            let targetPost = targetUserProfile.posts.get(eventReceived.targetPostHash)
+
+            let targetUserProfile = NT.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(eventReceived.targetUserProfileId)
+            let targetBotProfile
+            let targetPost
+
+            if (targetUserProfile !== undefined) {
+                targetBotProfile = targetUserProfile.bots.get(eventReceived.targetBotProfileId)
+                targetPost = targetUserProfile.posts.get(eventReceived.targetPostHash)
+            }
             /*
             Test #1 : The Emitter or Target profile must be the same as the Context Profile.
             */

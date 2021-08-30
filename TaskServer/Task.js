@@ -8,10 +8,27 @@ let NODE_JS_PROCESS = require('./NodeJsProcess.js');
 let NODE_JS_PROCESS_MODULE = NODE_JS_PROCESS.newNodeJsProcess()
 NODE_JS_PROCESS_MODULE.initialize()
 
-/* Setting up the modules that will be available for the Task and it's processes */
-let MULTI_PROJECT = require('./MultiProject.js');
+/* 
+The TS object is accesible everywhere at the Superalgos Client. 
+It provides access to all modules built for the Task Server.
+*/
+global.TS = {}
+/* 
+The SA object is accesible everywhere at the Superalgos Client. 
+It provides access to all modules built Superalgos in general.
+*/
+global.SA = {}
+/*
+First thing is to load the project schema file.
+*/
+global.PROJECTS_SCHEMA = require(global.env.PATH_TO_PROJECT_SCHEMA)
+/* 
+Setting up the modules that will be available for the Servers Running inside this Client 
+*/
+let MULTI_PROJECT = require('../MultiProject.js');
 let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
-MULTI_PROJECT_MODULE.initialize()
+MULTI_PROJECT_MODULE.initialize(TS, 'TS')
+MULTI_PROJECT_MODULE.initialize(SA, 'SA')
 
 /* Setting up the global Event Handler */
 TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT = TS.projects.foundations.taskModules.eventServerClient.newFoundationsTaskModulesEventServerClient()

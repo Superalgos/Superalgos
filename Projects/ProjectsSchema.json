@@ -884,7 +884,11 @@
                     "propertyName": "webAccess",
                     "functionName": "newFoundationsUtilitiesWebAccess",
                     "fileName": "WebAccess.js"
-                },
+                }
+            ]
+        },
+        "SA": {
+            "utilities": [
                 {
                     "name": "Plugins",
                     "propertyName": "plugins",
@@ -984,18 +988,18 @@
                     "folderName": "Learning-Bot/Low-Frequency-Learning"
                 },
                 {
-                  "name": "TensorFlow Models Manager",
-                  "propertyName": "tensorFlowModelsManager",
-                  "functionName": "newTensorFlowModelsManager",
-                  "fileName": "TensorFlowModelsManager.js",
-                  "folderName": "Learning-Bot/Low-Frequency-Learning"
+                    "name": "TensorFlow Models Manager",
+                    "propertyName": "tensorFlowModelsManager",
+                    "functionName": "newTensorFlowModelsManager",
+                    "fileName": "TensorFlowModelsManager.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
                 },
                 {
-                  "name": "ML Data Manager",
-                  "propertyName": "mlData",
-                  "functionName": "newMLDataObj",
-                  "fileName": "MLDataManager.js",
-                  "folderName": "Learning-Bot/Low-Frequency-Learning"
+                    "name": "ML Data Manager",
+                    "propertyName": "mlData",
+                    "functionName": "newMLDataObj",
+                    "fileName": "MLDataManager.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
                 }
             ]
         }

@@ -54,9 +54,6 @@ global.CUSTOM_FAIL_RESPONSE = {
     message: 'Custom Message'
 }
 
-/* The CL object is accesible everywhere at the Superalgos Client */
-global.CL = {}
-
 /* Servers */
 let WEB_SERVER = require('./webServer.js')
 let DATA_FILE_SERVER = require('./dataFileServer.js')
@@ -75,11 +72,26 @@ let HTTP_INTERFACE = require('./httpInterface.js')
 
 try {
     /* 
+    The CL object is accesible everywhere at the Superalgos Client. 
+    It provides access to all modules built for this Client.
+    */
+    global.CL = {}
+    /* 
+    The SA object is accesible everywhere at the Superalgos Client. 
+    It provides access to all modules built Superalgos in general.
+    */
+    global.SA = {}
+    /*
+    First thing is to load the project schema file.
+    */
+    global.PROJECTS_SCHEMA = require(global.env.PATH_TO_PROJECT_SCHEMA)
+    /* 
     Setting up the modules that will be available for the Servers Running inside this Client 
     */
-    let MULTI_PROJECT = require('./MultiProject.js');
+    let MULTI_PROJECT = require('../MultiProject.js');
     let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
-    MULTI_PROJECT_MODULE.initialize()
+    MULTI_PROJECT_MODULE.initialize(CL, 'CL')
+    MULTI_PROJECT_MODULE.initialize(SA, 'SA')
     /*
     Setting up external dependencies.
     */

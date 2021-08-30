@@ -1,8 +1,8 @@
 {
     "type": "Feature Contribution Claim",
     "definition": {
-        "text": "Use this node to reference a Feature node in the Features hierarchy to establish a Feature Contribution Claim.",
-        "updated": 1624728695500
+        "text": "Use this node to reference a Feature node in one of the Features hierarchy to establish a Feature Contribution Claim.",
+        "updated": 1630325556674
     },
     "paragraphs": [
         {
@@ -11,8 +11,9 @@
             "updated": 1624728714757
         },
         {
-            "style": "Text",
-            "text": "Remember to ask the people who know about your work to vouch for your claim with their Claim Votes. This is how your contribution gets validated so that you may get the associated rewards."
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Claims Content",
+            "updated": 1630325534128
         },
         {
             "style": "Block",

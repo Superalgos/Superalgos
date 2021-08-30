@@ -1,8 +1,8 @@
 {
     "type": "Asset Contribution Claim",
     "definition": {
-        "text": "Use this node to reference an Asset node in the Assets hierarchy to establish an Asset Contribution Claim.",
-        "updated": 1624728739277
+        "text": "Use this node to reference an Asset node in one of the Assets hierarchy to establish an Asset Contribution Claim.",
+        "updated": 1630324852856
     },
     "paragraphs": [
         {
@@ -11,8 +11,9 @@
             "updated": 1624728761840
         },
         {
-            "style": "Text",
-            "text": "Remember to ask the people who know about your work to vouch for your claim with their Claim Votes. This is how your contribution gets validated so that you may get the associated rewards."
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Claims Content",
+            "updated": 1630325363447
         },
         {
             "style": "Block",

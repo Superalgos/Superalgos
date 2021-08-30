@@ -1,8 +1,8 @@
 {
     "type": "Position Contribution Claim",
     "definition": {
-        "text": "Use this node to reference a Position node in the Positions hierarchy to establish a Position Contribution Claim.",
-        "updated": 1624728585219
+        "text": "Use this node to reference a Position node in one of the Positions hierarchy to establish a Position Contribution Claim.",
+        "updated": 1630325495738
     },
     "paragraphs": [
         {
@@ -11,8 +11,9 @@
             "updated": 1624728656474
         },
         {
-            "style": "Text",
-            "text": "Remember to ask the people who know about your work to vouch for your claim with their Claim Votes. This is how your contribution gets validated so that you may get the associated rewards."
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Claims Content",
+            "updated": 1630325507398
         },
         {
             "style": "Block",

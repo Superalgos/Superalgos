@@ -1348,6 +1348,12 @@
                     "fileName": "Social-Graph/Post.js"
                 },
                 {
+                    "name": "Social Graph",
+                    "propertyName": "socialGraph",
+                    "functionName": "newNetworkModulesSocialGraph",
+                    "fileName": "SocialGraph.js"
+                },
+                {
                     "name": "Bootstrap",
                     "propertyName": "bootstrap",
                     "functionName": "newNetworkModulesBootstrap",

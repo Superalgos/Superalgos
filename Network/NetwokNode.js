@@ -33,5 +33,5 @@ let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
 MULTI_PROJECT_MODULE.initialize(CL, 'CL')
 MULTI_PROJECT_MODULE.initialize(SA, 'SA')
 
-let bootstrapProcess = NT.modules.BOOTSTRAP.newBootstrap()
-bootstrapProcess.initialize()
+let socialGraphService = NT.modules.socialGraph.newSocialGraph()
+socialGraphService.initialize()

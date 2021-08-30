@@ -45,13 +45,13 @@ exports.newClientInterface = function newClientInterface() {
         */
 
         let eventReceived = JSON.parse(eventMessage)
-        if (NT.memory.maps.EVENTS.get(eventReceived.eventId) !== undefined) {
+        if (NT.globals.memory.EVENTS.get(eventReceived.eventId) !== undefined) {
             throw ('Event Already Exists.')
         }
 
-        let event = NT.modules.EVENT.newEvent()
+        let event = NT.modules.event.newNetworkModulesEvent()
         event.initialize(eventReceived)
-        NT.memory.maps.EVENTS.set(eventReceived.eventId, event)
+        NT.globals.memory.EVENTS.set(eventReceived.eventId, event)
     }
 
     function queryReceived(queryMessage) {

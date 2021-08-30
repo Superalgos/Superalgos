@@ -15,7 +15,7 @@ exports.newQueriesValidations = function newQueriesValidations() {
         Validate User Profile
         */
         if (queryReceived.targetUserProfileId !== undefined) {
-            thisObject.profile = NT.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
+            thisObject.profile = NT.globals.memory.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
         }
 
         if (thisObject.profile === undefined) {

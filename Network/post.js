@@ -97,7 +97,7 @@ exports.newPost = function newPost() {
             /*
             Validate Target User Profile.
             */
-            let targetUserProfile = NT.memory.maps.USER_PROFILES_BY_ID.get(thisObject.targetUserProfileId)
+            let targetUserProfile = NT.globals.memory.USER_PROFILES_BY_ID.get(thisObject.targetUserProfileId)
             if (targetUserProfile === undefined) {
                 throw ('Target User Profile Not Found.')
             }

@@ -13,7 +13,6 @@ or relationships between User and Bot profiles and also between their posts.
 global.NT = {
     modules: {
         BOOTSTRAP: require('./Bootstrap.js'),
-        EVENT: require('./Event.js'),
         USER_PROFILE: require('./UserProfile.js'),
         BOT_PROFILE: require('./BotProfile.js'),
         POST: require('./Post.js'),
@@ -51,20 +50,6 @@ let MULTI_PROJECT = require('../MultiProject.js');
 let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
 MULTI_PROJECT_MODULE.initialize(CL, 'CL')
 MULTI_PROJECT_MODULE.initialize(SA, 'SA')
-/*
-Here is the Data we are going to keep in memory.
-*/
-NT.memory = {
-    maps: {
-        USER_PROFILES_BY_ID: new Map(),         // Here we will store the user profiles by User Profile Id.
-        USER_PROFILES_BY_HANDLE: new Map(),     // Here we will store the user profiles by User Profile Handle.
-        EVENTS: new Map(),                      // This is the registry of all events received that prevents processing them more than once.
-    },
-    arrays: {
-        NETWORK_CLIENTS: [],                    // These are the Network Clients connected to this Network Node ordered by Ranking.
-        NETWORK_PEERS: [],                      // These are the Network Peers connected to this Network Node ordered by Ranking.
-    }
-}
 
 let bootstrapProcess = NT.modules.BOOTSTRAP.newBootstrap()
 bootstrapProcess.initialize()

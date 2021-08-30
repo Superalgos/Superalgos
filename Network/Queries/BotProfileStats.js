@@ -19,9 +19,9 @@ exports.newBotProfileStats = function newBotProfileStats() {
         */
         let userProfile
         if (queryReceived.targetUserProfileId !== undefined) {
-            userProfile = NT.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
+            userProfile = NT.globals.memory.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
         } else {
-            userProfile = NT.memory.maps.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
+            userProfile = NT.globals.memory.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
         }
 
         if (userProfile === undefined) {

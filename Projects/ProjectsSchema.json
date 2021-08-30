@@ -1278,6 +1278,20 @@
                     "propertyName": "queryConstants",
                     "functionName": "newNetworkGlobalsQueryConstants",
                     "fileName": "QueryConstants.js"
+                },
+                {
+                    "name": "Memory",
+                    "propertyName": "memory",
+                    "functionName": "newNetworkGlobalsMemory",
+                    "fileName": "Memory.js"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "Event",
+                    "propertyName": "event",
+                    "functionName": "newNetworkModulesEvent",
+                    "fileName": "Event.js"
                 }
             ]
         }

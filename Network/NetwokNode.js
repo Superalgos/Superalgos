@@ -1,14 +1,14 @@
 /*
-The Superalgos Network have 3 types of nodes:
+The Superalgos Network offers 3 types of services:
 
-    * Social Graph Nodes
-    * Search Index Nodes
-    * Private Message Nodes
+    * Social Graph Service
+    * Search Index Service
+    * Private Message Service
     
-This module is the starting point of the Social Graph Network Node.
+Users can decide which services to run at their node.
 
-This type of node is responsible for mantaining the whole Social Graph
-or relationships between User and Bot profiles and also between their posts.
+This module is the starting point of the Network Node.
+
 */
 
 /* 

@@ -19,6 +19,4 @@ exports.newBootstrap = function newBootstrap() {
     function initialize() {
 
     }
-
-    
 }

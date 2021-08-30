@@ -6,7 +6,7 @@ exports.newMultiProject = function () {
 
     return thisObject;
 
-    function initialize() {
+    function initialize(rootObject, rootObjectName) {
         /*
         First thing is to load the project schema file.
         */
@@ -16,27 +16,24 @@ exports.newMultiProject = function () {
         Here we will setup the CL object, with all the
         projects and modules that will have inside.
         */
-        CL.projects = {}
+        rootObject.projects = {}
 
         for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
             let projectDefinition = PROJECTS_SCHEMA[i]
-            global.CL.projects[projectDefinition.propertyName] = {}
-            let projectInstance = global.CL.projects[projectDefinition.propertyName]
+            global[rootObjectName].projects[projectDefinition.propertyName] = {}
+            let projectInstance = global[rootObjectName].projects[projectDefinition.propertyName]
 
             projectInstance.utilities = {}
             projectInstance.globals = {}
             projectInstance.functionLibraries = {}
-            projectInstance.taskModules = {}
-            projectInstance.processModules = {}
-            projectInstance.botModules = {}
 
-            if (projectDefinition.CL === undefined) { continue }
+            if (projectDefinition[rootObjectName] === undefined) { continue }
 
             /* Set up Utilities of this Project */
-            if (projectDefinition.CL.utilities !== undefined) {
-                for (let j = 0; j < projectDefinition.CL.utilities.length; j++) {
-                    let utilityDefinition = projectDefinition.CL.utilities[j]
-                    let path = global.env.PATH_TO_PROJECTS_REQUIRED + '/' + projectDefinition.name + '/' + 'CL' + '/' + 'Utilities' + '/' + utilityDefinition.fileName
+            if (projectDefinition[rootObjectName].utilities !== undefined) {
+                for (let j = 0; j < projectDefinition[rootObjectName].utilities.length; j++) {
+                    let utilityDefinition = projectDefinition[rootObjectName].utilities[j]
+                    let path = global.env.PATH_TO_PROJECTS_REQUIRED + '/' + projectDefinition.name + '/' + rootObjectName + '/' + 'Utilities' + '/' + utilityDefinition.fileName
 
                     let requiredObject = require(path)
                     let requiredFunction = requiredObject[utilityDefinition.functionName]
@@ -45,10 +42,10 @@ exports.newMultiProject = function () {
             }
 
             /* Set up Globals of this Project */
-            if (projectDefinition.CL.globals !== undefined) {
-                for (let j = 0; j < projectDefinition.CL.globals.length; j++) {
-                    let globalDefinition = projectDefinition.CL.globals[j]
-                    let path = global.env.PATH_TO_PROJECTS_REQUIRED + '/' + projectDefinition.name + '/' + 'CL' + '/' + 'Globals' + '/' + globalDefinition.fileName
+            if (projectDefinition[rootObjectName].globals !== undefined) {
+                for (let j = 0; j < projectDefinition[rootObjectName].globals.length; j++) {
+                    let globalDefinition = projectDefinition[rootObjectName].globals[j]
+                    let path = global.env.PATH_TO_PROJECTS_REQUIRED + '/' + projectDefinition.name + '/' + rootObjectName + '/' + 'Globals' + '/' + globalDefinition.fileName
 
                     let requiredObject = require(path)
                     let requiredFunction = requiredObject[globalDefinition.functionName]
@@ -57,10 +54,10 @@ exports.newMultiProject = function () {
             }
 
             /* Set up Function Libraries of this Project */
-            if (projectDefinition.CL.functionLibraries !== undefined) {
-                for (let j = 0; j < projectDefinition.CL.functionLibraries.length; j++) {
-                    let functionLibraryDefinition = projectDefinition.CL.functionLibraries[j]
-                    let path = global.env.PATH_TO_PROJECTS_REQUIRED + '/' + projectDefinition.name + '/' + 'CL' + '/' + 'Function-Libraries' + '/' + functionLibraryDefinition.fileName
+            if (projectDefinition[rootObjectName].functionLibraries !== undefined) {
+                for (let j = 0; j < projectDefinition[rootObjectName].functionLibraries.length; j++) {
+                    let functionLibraryDefinition = projectDefinition[rootObjectName].functionLibraries[j]
+                    let path = global.env.PATH_TO_PROJECTS_REQUIRED + '/' + projectDefinition.name + '/' + rootObjectName + '/' + 'Function-Libraries' + '/' + functionLibraryDefinition.fileName
 
                     let requiredObject = require(path)
                     let requiredFunction = requiredObject[functionLibraryDefinition.functionName]

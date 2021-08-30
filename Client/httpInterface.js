@@ -1350,7 +1350,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             let project = unescape(requestParameters[2])
                             let folder = unescape(requestParameters[3])
 
-                            let response = await CL.projects.foundations.utilities.plugins.getPluginFileNames(
+                            let response = await SA.projects.foundations.utilities.plugins.getPluginFileNames(
                                 project,
                                 folder
                             )
@@ -1384,7 +1384,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             let folder = unescape(requestParameters[3])
                             let fileName = unescape(requestParameters[4])
 
-                            let response = await CL.projects.foundations.utilities.plugins.getPluginFileContent(
+                            let response = await SA.projects.foundations.utilities.plugins.getPluginFileContent(
                                 project,
                                 folder,
                                 fileName

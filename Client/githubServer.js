@@ -472,14 +472,14 @@ exports.newGithubServer = function newGithubServer() {
                                 unless the existing one belongs to the same Github username.
                                 */
                                 let userProfileIdMap = new Map()
-                                let pluginFileNames = await CL.projects.foundations.utilities.plugins.getPluginFileNames(
+                                let pluginFileNames = await SA.projects.foundations.utilities.plugins.getPluginFileNames(
                                     'Governance',
                                     'User-Profiles'
                                 )
                                 for (let i = 0; i < pluginFileNames.length; i++) {
                                     let pluginFileName = pluginFileNames[i]
 
-                                    let pluginFileContent = await CL.projects.foundations.utilities.plugins.getPluginFileContent(
+                                    let pluginFileContent = await SA.projects.foundations.utilities.plugins.getPluginFileContent(
                                         'Governance',
                                         'User-Profiles',
                                         pluginFileName
@@ -522,13 +522,13 @@ exports.newGithubServer = function newGithubServer() {
                                     unless the existing one belongs to the same Github username.
                                     */
                                     let userProfileIdMap = new Map()
-                                    let pluginFileNames = await CL.projects.foundations.utilities.plugins.getPluginFileNames(
+                                    let pluginFileNames = await SA.projects.foundations.utilities.plugins.getPluginFileNames(
                                         'Governance',
                                         'User-Profiles'
                                     )
                                     for (let i = 0; i < pluginFileNames.length; i++) {
                                         let pluginFileName = pluginFileNames[i]
-                                        let pluginFileContent = await CL.projects.foundations.utilities.plugins.getPluginFileContent(
+                                        let pluginFileContent = await SA.projects.foundations.utilities.plugins.getPluginFileContent(
                                             'Governance',
                                             'User-Profiles',
                                             pluginFileName

@@ -10,7 +10,6 @@ This module is the starting point of the Social Graph Network Node.
 This type of node is responsible for mantaining the whole Social Graph
 or relationships between User and Bot profiles and also between their posts.
 */
-
 global.NT = {
     memory: {
         maps: {
@@ -24,6 +23,7 @@ global.NT = {
         }
     },
     modules: {
+        BOOTSTRAP: require('./Bootstrap.js'),
         EVENT: require('./Event.js'),
         USER_PROFILE: require('./UserProfile.js'),
         BOT_PROFILE: require('./BotProfile.js'),
@@ -54,3 +54,5 @@ global.NT = {
     }
 }
 
+let bootstrapProcess = NT.modules.BOOTSTRAP.newBootstrap()
+bootstrapProcess.initialize()

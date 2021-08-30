@@ -54,8 +54,16 @@ global.CUSTOM_FAIL_RESPONSE = {
     message: 'Custom Message'
 }
 
-/* The CL object is accesible everywhere at the Superalgos Client */
+/* 
+The CL object is accesible everywhere at the Superalgos Client. 
+It provides access to all modules built for this Client.
+*/
 global.CL = {}
+/* 
+The SA object is accesible everywhere at the Superalgos Client. 
+It provides access to all modules built Superalgos in general.
+*/
+global.SA = {}
 
 /* Servers */
 let WEB_SERVER = require('./webServer.js')
@@ -79,7 +87,8 @@ try {
     */
     let MULTI_PROJECT = require('./MultiProject.js');
     let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
-    MULTI_PROJECT_MODULE.initialize()
+    MULTI_PROJECT_MODULE.initialize(CL, 'CL')
+    MULTI_PROJECT_MODULE.initialize(SA, 'SA')
     /*
     Setting up external dependencies.
     */

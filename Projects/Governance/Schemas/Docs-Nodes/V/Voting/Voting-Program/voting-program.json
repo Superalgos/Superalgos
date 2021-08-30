@@ -17,24 +17,28 @@
         },
         {
             "style": "Text",
-            "text": "The features in the Voting Program allow you to cast three different broad categories of votes:",
-            "updated": 1630329757543
+            "text": "The features in the Voting Program allow you to cast three different categories of votes:",
+            "updated": 1630344509716
         },
         {
             "style": "List",
-            "text": "Claim Votes include Asset Claim Vote, Feature Claim Vote, and Position Claim Vote nodes."
+            "text": "Claim Votes: Use Claim Votes to support the claims of other users so that they may get the rewards they deserve for their contributions. There are three types of claim vote nodes, namely Asset Claim Vote, Feature Claim Vote, and Position Claim Vote nodes.",
+            "updated": 1630344722135
         },
         {
             "style": "List",
-            "text": "Weight Votes include Pool Weight Vote, Asset Weight Vote, Feature Weight Vote, and Position Weight Vote nodes."
+            "text": "Weight Votes: Use Weight Votes to influence what areas of the project should be incentivized. There are four types of weight votes, namely Pool Weight Vote, Asset Weight Vote, Feature Weight Vote, and Position Weight Vote nodes.",
+            "updated": 1630344790466
         },
         {
             "style": "List",
-            "text": "User Profile Vote"
+            "text": "User Profile Votes: Use a User Profile Vote to transfer Voting Power to other users.",
+            "updated": 1630344853204
         },
         {
             "style": "Text",
-            "text": "There is a top-level Votes Switch node that allows spawning several other switches, each associated to the different types of votes described above:"
+            "text": "There is a top-level Votes Switch node that allows spawning several other switches, each one associated to the different types of votes described above:",
+            "updated": 1630343139964
         },
         {
             "style": "List",
@@ -50,30 +54,9 @@
             "text": "User Profile Votes Switch"
         },
         {
-            "style": "Text",
-            "text": "All of the above switches feature three different functions:"
-        },
-        {
-            "style": "List",
-            "text": "They work like organizational devices, so that you may create arbitrary arrangements of votes, spawning more switches and votes."
-        },
-        {
-            "style": "List",
-            "text": "They may reference Class types of nodes in Project Definition Hierarchies and map entire structures of those hierarchies."
-        },
-        {
-            "style": "List",
-            "text": "They also work like switches, allowing the control of the flow of Voting Power, pretty much like the Token Power Switch, but within the Voting Program. If you need a reminder, read about Token Power Flows."
-        },
-        {
-            "style": "Text",
-            "text": "The different types of votes are explained in the page each type of switch node.",
-            "updated": 1630329669482
-        },
-        {
             "style": "Success",
-            "text": "The Token Rewards and Voting Power Flow page in the Governance Flow topic covers important details of how votes work. Make sure you read the whole topic!",
-            "updated": 1630329713208
+            "text": "These switches control the flow of Voting Power, may be used as organizational devices, may spawn the different types of votes, and may help you map entire data structures easily. Find the details on the page of each switch!",
+            "updated": 1630348670996
         },
         {
             "style": "Block",

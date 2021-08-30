@@ -1,13 +1,27 @@
 {
     "type": "Position Claim Vote",
     "definition": {
-        "text": "This node is used to pass votes, via a reference, to a Position Claim made by a user, in order to support that claim and allow the user making the claim to receive tokens for playing a role at the said position.",
-        "updated": 1622988653975
+        "text": "Use this node to establish a reference with a Position Contribution Claim placed by your colleague in the Claims Program section of their User Profile. This vote means that you support your colleague's claim with the Voting Power you drive into the Claims Vote node!",
+        "updated": 1630350980353
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "style": "Block",
+            "text": "Content",
+            "updated": 1630350078214
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Claim Votes Content",
+            "updated": 1630350813522
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
         }
     ]
 }

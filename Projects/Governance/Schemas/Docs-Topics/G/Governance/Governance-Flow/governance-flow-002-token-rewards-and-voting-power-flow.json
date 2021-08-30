@@ -23,11 +23,13 @@
         },
         {
             "style": "Text",
-            "text": "This is where Token Rewards intersect with Voting Power, as it is Voting Power that drives Token Rewards."
+            "text": "This is where Token Rewards intersect with Voting Power, as it is Voting Power that drives Token Rewards through Weight Votes.",
+            "updated": 1630343425368
         },
         {
             "style": "Text",
-            "text": "Your Token Power flows into the different programs available under your User Profile. The portion of Token Power that flows into your Voting Program turns into Voting Power, which is channeled through different types of switches. You use Weight Vote Switch nodes to turn Voting Power into Weight Votes."
+            "text": "Your Token Power flows into the different programs available under your User Profile. The portion of Token Power that flows into your Voting Program turns into Voting Power, which is channeled through different types of switches. You use Weight Votes Switch nodes to turn Voting Power into Weight Votes.",
+            "updated": 1630343456190
         },
         {
             "style": "Text",
@@ -44,8 +46,8 @@
         },
         {
             "style": "Json",
-            "text": "Weight (of a node) = Node’s Incoming Weight Votes / Sum of Weight Votes in the Hierarchy * 100",
-            "updated": 1624781181588
+            "text": "Weight (of a node) = Node's Incoming Weight Votes / \n                      Sum of Weight Votes in the Hierarchy * 100",
+            "updated": 1630343557835
         },
         {
             "style": "Note",

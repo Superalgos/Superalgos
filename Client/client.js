@@ -78,7 +78,7 @@ try {
     global.CL = {}
     /* 
     The SA object is accesible everywhere at the Superalgos Client. 
-    It provides access to all modules built Superalgos in general.
+    It provides access to all modules built for Superalgos in general.
     */
     global.SA = {}
     /*

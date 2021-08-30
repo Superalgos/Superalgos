@@ -32,8 +32,8 @@ exports.newFoundationsFunctionLibrariesTaskFunctions = function () {
             We will scan the project schema until we find the module that will run the bot
             botModule with the name provided. 
             */
-           for (let i = 0; i < TS.projects.foundations.globals.taskConstants.PROJECTS_SCHEMA.length; i++) {
-            let project = TS.projects.foundations.globals.taskConstants.PROJECTS_SCHEMA[i]
+           for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+            let project = PROJECTS_SCHEMA[i]
             if (project.name !== TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName) { continue }
             for (let j = 0; j < project.TS.botModules.length; j++) {
                 botModuleDefinition = project.TS.botModules[j]

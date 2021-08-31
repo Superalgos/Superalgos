@@ -140,7 +140,7 @@ exports.newNetworkModulesClientInterface = function newNetworkModulesClientInter
         }
     }
 
-    async function queryReceived(queryMessage) {
+    async function queryReceived(queryMessage, userProfile) {
         /*
         We expect here a JSON string with some or all of the following properties:
 

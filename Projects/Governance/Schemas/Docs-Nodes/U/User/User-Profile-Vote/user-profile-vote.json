@@ -21,13 +21,13 @@
         },
         {
             "style": "Text",
-            "text": "The same Voting Power may be delegated multiple times, and the delegation may be withdrawn at any point as well, simply by removing the User Profile Vote node or its reference.",
-            "updated": 1630396998228
+            "text": "The same Voting Power may be delegated multiple times with the caveat in the below warning box. The delegation may be withdrawn at any point as well, simply by removing the User Profile Vote node or its reference.",
+            "updated": 1630423697159
         },
         {
-            "style": "Important",
-            "text": "The Voting Power you drive into User Profile Vote nodes is significant, as it is that much Voting Power you will be passing on. Your colleague will be able to use the Incoming Power in whatever way, within the Voting Program.",
-            "updated": 1630397320144
+            "style": "Warning",
+            "text": "Only 10% of the Voting Power you drive into a User Profile Vote node reaches the recipient User Profile. This is to disincentivize fraudulent behaviors that may arise involving circular declarations, fake profiles, or trading of votes.",
+            "updated": 1630408559866
         },
         {
             "style": "Block",

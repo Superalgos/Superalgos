@@ -10,7 +10,7 @@
 
     const WEB_SOCKET = require('ws')
     let socketServer
-    let port = global.env.WEB_SOCKETS_INTERFACE_PORT  
+    let port = global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT  
 
     return thisObject
 

@@ -36,7 +36,7 @@ exports.newBootstrap = function newBootstrap() {
             let config = JSON.parse(userProfilePlugin.config)
             let signatureObject = config.signature
             let web3 = new SA.nodeModules.web3()
-            let bloackchainAddress = web3.eth.accounts.recover(signatureObject)
+            let blockchainAccount = web3.eth.accounts.recover(signatureObject)
             let ranking = 0 // TODO: read the blockchain balance and transactions from the Treasury Account to calculate the profile ranking.
             let userProfileId = userProfilePlugin.id
             let userHandle = config.signature.message
@@ -45,12 +45,13 @@ exports.newBootstrap = function newBootstrap() {
             userProfile.initialize(
                 userProfileId,
                 userHandle,
-                bloackchainAddress,
+                blockchainAccount,
                 ranking
             )
 
             NT.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfileId, userProfile)
             NT.projects.network.globals.memory.maps.USER_PROFILES_BY_HANDLE.set(userHandle, userProfile)
+            NT.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOCHAIN_ACCOUNT.set(blockchainAccount, userProfile)
 
         }
     }

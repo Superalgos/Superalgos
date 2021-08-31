@@ -120,6 +120,13 @@ exports.newNetworkModulesClientInterface = function newNetworkModulesClientInter
             let event = NT.projects.network.modules.event.newNetworkModulesEvent()
             event.initialize(eventReceived)
             NT.projects.network.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
+
+            let response = {
+                result: 'Ok',
+                message: 'Client Interface Event Processed.' 
+            }
+            return response
+
         } catch (err) {
             /*
             Any exception that happens while trying to change the state of the Social Graph,
@@ -158,9 +165,44 @@ exports.newNetworkModulesClientInterface = function newNetworkModulesClientInter
         }
         */
 
-        let queryReceived = JSON.parse(queryMessage)
-        let query = NT.projects.network.modules.queriesQuery.newNetworkModulesQuery()
-        query.initialize(queryReceived)
-        return query.execute()
+        let queryReceived
+        try {
+            queryReceived = JSON.parse(queryMessage)
+        } catch (err) {
+            let response = {
+                result: 'Error',
+                message: 'Client Interface queryMessage Not Coorrect JSON Format.'
+            }
+            return response
+        }
+        /*
+        At the Client Interface, queries need to be emmitted by the same userProfile that is
+        connected at the Network Node.
+        */
+        if (queryReceived.emitterUserProfileId !== userProfile.userProfileId) {
+            let response = {
+                result: 'Error',
+                message: 'Client Interface emitterUserProfileId !== userProfileId Connected to Network Node.'
+            }
+            return response
+        }
+        /*
+        Here we will process the query. This does not change the state of the Social Graph.
+        */
+        try {
+            let query = NT.projects.network.modules.queriesQuery.newNetworkModulesQuery()
+            query.initialize(queryReceived)
+            return query.execute()
+ 
+        } catch (err) {
+            /*
+            Any exception that happens while trying to execute the query.
+            */
+            let response = {
+                result: 'Error',
+                message: 'Client Interface ' + err.message
+            }
+            return response
+        }
     }
 }

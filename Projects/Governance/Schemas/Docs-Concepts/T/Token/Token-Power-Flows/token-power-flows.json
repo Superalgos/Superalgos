@@ -33,11 +33,13 @@
         },
         {
             "style": "Text",
-            "text": "For example, let's say you have 1,000 Token Power flowing into your Token Power Switch node. Let's say you spawn the Onboarding Programs, Community Building Programs, Votes and Claims Programs, and Financial Programs nodes."
+            "text": "For example, let's say you have 1,000 Token Power flowing into your Token Power Switch node. Let's say you spawn the Onboarding Programs, Community Building Programs, Votes And Claims Programs, and Financial Programs nodes.",
+            "updated": 1630436060757
         },
         {
             "style": "Callout",
-            "text": "As soon as you deploy these four offspring of the Token Power Switch node, you will see that each of these nodes gets 25% of the Token Power by default."
+            "text": "As soon as you deploy these four offspring of the Token Power Switch node, you will see that each of the nodes gets 25% of the Token Power by default.",
+            "updated": 1630436087763
         },
         {
             "style": "Text",
@@ -54,7 +56,8 @@
         },
         {
             "style": "Text",
-            "text": "Now let's say you wish to use only 10% of your Token Power in the Onboarding Programs. So you set up the following config:"
+            "text": "Now let's say you wish to use only 10% of your Token Power in the Community Building Programs. So you set up the following config:",
+            "updated": 1630436162265
         },
         {
             "style": "Json",
@@ -63,12 +66,13 @@
         },
         {
             "style": "Callout",
-            "text": "As a result, 10% of the Token Power flows into the Onboarding Programs, while the remaining nodes get 45% of the Token Power each."
+            "text": "As a result, 10% of the Token Power flows into the Community Building Programs, while the remaining nodes get 45% of the Token Power each.",
+            "updated": 1630436168281
         },
         {
-            "style": "Success",
-            "text": "The same logic applies to the flow of Token Power throughout the hierarchy!",
-            "updated": 1630216063140
+            "style": "Important",
+            "text": "One more thing! When Token Power flows into a specific program, it turns into a specific form of power associated with the said program! For example, Token Power that flows into the Support Program turns into Support Power. In the Voting Program, it turns into Voting Power. Notice that this is just a change in the name, as all these forms of powers behave in the same manner throughout the User Profile hierarchy.",
+            "updated": 1630436471069
         }
     ]
 }

@@ -19,7 +19,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
     }
 
     function initialize() {
-        socketClient = new SA.nodeModules.ws({ host: 'localhost', port: global.env.NETWORK_WEB_SOCKETS_INTERFACE_PORT })
+        socketClient = new SA.nodeModules.ws('ws://' + 'localhost' + ':' + global.env.NETWORK_WEB_SOCKETS_INTERFACE_PORT)
         //networkInterface = SA.projects.socialTrading.modules.networkInterface.newSocialTradingModulesNetworkInterface()
 
         setUpWebsocketClient()
@@ -29,11 +29,11 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
         try {
             let handshakeDone = false
 
-            socketClient.on('onopen', onConnection)
-            socketClient.on('onmessage', onMenssage)
-            socketClient.on('onerror', onError)
+            socketClient.onopen = () => { onConnection() }
+            socketClient.onmessage = socketMessage => { onMenssage(socketMessage) }
+            socketClient.onerror = err => { onError(err) }
 
-            function onConnection(socket) {
+            function onConnection() {
                 /*
                 Send Handshake Message
                 */
@@ -44,28 +44,32 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
             async function onMenssage(socketMessage) {
                 try {
 
-                    let message = JSON.parse(socketMessage.data)
+                    let response = JSON.parse(socketMessage.data)
                     /*
                     Chack if we are waiting for the Handshake response.
                     */
                     if (handshakeDone === false) {
-                        if (message.result === 'Ok') {
+                        if (response.result === 'Ok') {
                             handshakeDone = true
                             return
+                        } else {
+                            console.log('[ERROR] Web Sockets Client -> onMenssage -> handshakeDone -> message.response = ' + response.message)
+                            return
                         }
-                    }
-                    
+                    } 
+
                     callbackFunction.receiveResponse(message)
                     callbackFunction = undefined
 
                 } catch (err) {
                     callbackFunction = undefined
-                    console.log('[ERROR] Web Sockets Client -> setUpWebsocketClient -> err.stack = ' + err.stack)
+                    console.log('[ERROR] Web Sockets Client -> err.stack = ' + err.stack)
                 }
             }
 
             function onError(err) {
-                console.log('[ERROR] Web Sockets Client -> setUpWebsocketClient -> onError -> err.stack = ' + err.stack)
+                console.log('[ERROR] Web Sockets Client -> onError -> err.message = ' + err.message)
+                console.log('[ERROR] Web Sockets Client -> onError -> err.stack = ' + err.stack)
             }
 
         } catch (err) {

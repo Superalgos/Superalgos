@@ -10,7 +10,7 @@ exports.newDesktopApp = function newDesktopApp() {
         /*
         Let's start the Network Interfaces
         */
-        DK.webSocketsClient = DK.projects.network.modules.webSocketsClient.newDesktopModulesWebSocketsClient()
+        DK.webSocketsClient = SA.projects.network.modules.webSocketsClient.newNetworkModulesWebSocketsClient()
         DK.webSocketsClient.initialize()
 
 

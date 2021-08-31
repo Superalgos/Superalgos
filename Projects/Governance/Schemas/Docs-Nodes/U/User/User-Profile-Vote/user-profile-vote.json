@@ -1,13 +1,41 @@
 {
     "type": "User Profile Vote",
     "definition": {
-        "text": "A type of vote within the Voting Program used to confer Voting Power to another User Profile.",
-        "updated": 1624729935183
+        "text": "Use this node to establish a reference with a colleague's User Profile. With this vote, you are passing on Voting Power directly into your colleague's Voting Program, effectively delegating your Voting Power.",
+        "updated": 1630394852693
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1630394887268
+        },
+        {
+            "style": "Success",
+            "text": "You may delegate your Voting Power to empower voices you trust! Trusted members of the Community may make good use of your Voting Power, particularly if you feel you don't have the time or expertise to be on top of certain aspects of governance.",
+            "updated": 1630397257327
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Liquid Democracy->Content"
+        },
+        {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "The same Voting Power may be delegated multiple times, and the delegation may be withdrawn at any point as well, simply by removing the User Profile Vote node or its reference.",
+            "updated": 1630396998228
+        },
+        {
+            "style": "Important",
+            "text": "The Voting Power you drive into User Profile Vote nodes is significant, as it is that much Voting Power you will be passing on. Your colleague will be able to use the Incoming Power in whatever way, within the Voting Program.",
+            "updated": 1630397320144
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
         }
     ]
 }

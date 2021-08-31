@@ -1,4 +1,4 @@
-exports.newNetworkModulesClientInterface = function newNetworkModulesClientInterface() {
+exports.newSocialTradingModulesClientInterface = function newSocialTradingModulesClientInterface() {
     /*
     This module represents the Interface the Network Node have 
     with Network Clients connected to it. There are two things
@@ -106,7 +106,7 @@ exports.newNetworkModulesClientInterface = function newNetworkModulesClientInter
         We will not accept events that have already been processed.
         */
 
-        if (NT.projects.network.globals.memory.maps.EVENTS.get(eventReceived.eventId) !== undefined) {
+        if (NT.projects.socialTrading.globals.memory.maps.EVENTS.get(eventReceived.eventId) !== undefined) {
             let response = {
                 result: 'Error',
                 message: 'Client Interface Event Already Exists.'
@@ -117,9 +117,9 @@ exports.newNetworkModulesClientInterface = function newNetworkModulesClientInter
         Here we will process the event and change the state of the Social Graph.
         */
         try {
-            let event = NT.projects.network.modules.event.newNetworkModulesEvent()
+            let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
             event.initialize(eventReceived)
-            NT.projects.network.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
+            NT.projects.socialTrading.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
 
             let response = {
                 result: 'Ok',
@@ -190,7 +190,7 @@ exports.newNetworkModulesClientInterface = function newNetworkModulesClientInter
         Here we will process the query. This does not change the state of the Social Graph.
         */
         try {
-            let query = NT.projects.network.modules.queriesQuery.newNetworkModulesQuery()
+            let query = NT.projects.socialTrading.modules.queriesQuery.newSocialTradingModulesQuery()
             query.initialize(queryReceived)
             return query.execute()
  

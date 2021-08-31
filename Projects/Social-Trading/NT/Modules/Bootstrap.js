@@ -41,7 +41,7 @@ exports.newBootstrap = function newBootstrap() {
             let userProfileId = userProfilePlugin.id
             let userHandle = config.signature.message
 
-            let userProfile = NT.projects.network.modules.socialGraphUserProfile.newNetworkModulesSocialGraphUserProfile()
+            let userProfile = NT.projects.socialTrading.modules.socialGraphUserProfile.newSocialTradingModulesSocialGraphUserProfile()
             userProfile.initialize(
                 userProfileId,
                 userHandle,
@@ -49,9 +49,9 @@ exports.newBootstrap = function newBootstrap() {
                 ranking
             )
 
-            NT.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfileId, userProfile)
-            NT.projects.network.globals.memory.maps.USER_PROFILES_BY_HANDLE.set(userHandle, userProfile)
-            NT.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOCHAIN_ACCOUNT.set(blockchainAccount, userProfile)
+            NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfileId, userProfile)
+            NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_HANDLE.set(userHandle, userProfile)
+            NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_BLOCHAIN_ACCOUNT.set(blockchainAccount, userProfile)
 
         }
     }

@@ -1,4 +1,4 @@
-exports.newNetworkModulesSocialGraphBotProfile = function newNetworkModulesSocialGraphBotProfile() {
+exports.newSocialTradingModulesSocialGraphBotProfile = function newSocialTradingModulesSocialGraphBotProfile() {
     /*
     Users can have a Profile that can:
         * follow other bots profiles.
@@ -80,7 +80,7 @@ exports.newNetworkModulesSocialGraphBotProfile = function newNetworkModulesSocia
         if (thisObject.posts.get(emitterPostHash) !== undefined) {
             throw ('Post Already Exists.')
         } else {
-            let post = NT.projects.network.modules.socialGraphPost.newNetworkModulesSocialGraphPost()
+            let post = NT.projects.socialTrading.modules.socialGraphPost.newSocialTradingModulesSocialGraphPost()
             post.initialize(
                 emitterUserProfileId,
                 targetUserProfileId,

@@ -1,4 +1,4 @@
-exports.newNetworkModulesQuery = function newNetworkModulesQuery() {
+exports.newSocialTradingModulesQuery = function newSocialTradingModulesQuery() {
     /*
     A Query is a call from a Network Client to 
     a Network Node with the purpose to get 
@@ -41,49 +41,49 @@ exports.newNetworkModulesQuery = function newNetworkModulesQuery() {
         switch (thisObject.queryType) {
             
             case QUERY_TYPES.USER_PROFILE_STATS: {
-                thisObject.query = NT.projects.network.modules.queriesUserProfileStats.newNetworkModulesQueriesUserProfileStats()
+                thisObject.query = NT.projects.socialTrading.modules.queriesUserProfileStats.newSocialTradingModulesQueriesUserProfileStats()
                 query.initialize(queryReceived)
                 query.finalize()
                 break
             }
 
             case QUERY_TYPES.BOT_PROFILE_STATS: {
-                thisObject.query = NT.projects.network.modules.queriesBotProfileStats.newNetworkModulesQueriesBotProfileStats()
+                thisObject.query = NT.projects.socialTrading.modules.queriesBotProfileStats.newSocialTradingModulesQueriesBotProfileStats()
                 query.initialize(queryReceived)
                 query.finalize()
                 break
             }
 
             case QUERY_TYPES.PROFILE_POSTS: {
-                thisObject.query = NT.projects.network.modules.queriesProfilePosts.newNetworkModulesQueriesProfilePosts()
+                thisObject.query = NT.projects.socialTrading.modules.queriesProfilePosts.newSocialTradingModulesQueriesProfilePosts()
                 query.initialize(queryReceived)
                 query.finalize()
                 break
             }
 
             case QUERY_TYPES.POST_REPLIES: {
-                thisObject.query = NT.projects.network.modules.queriesPostReplies.newNetworkModulesQueriesPostReplies()
+                thisObject.query = NT.projects.socialTrading.modules.queriesPostReplies.newSocialTradingModulesQueriesPostReplies()
                 query.initialize(queryReceived)
                 query.finalize()
                 break
             }
 
             case QUERY_TYPES.PROFILE_FOLLOWERS: {
-                thisObject.query = NT.projects.network.modules.queriesProfileFollowers.newNetworkModulesQueriesProfileFollowers()
+                thisObject.query = NT.projects.socialTrading.modules.queriesProfileFollowers.newSocialTradingModulesQueriesProfileFollowers()
                 query.initialize(queryReceived)
                 query.finalize()
                 break
             }
 
             case QUERY_TYPES.PROFILE_FOLLOWING: {
-                thisObject.query = NT.projects.network.modules.queriesProfileFollowing.newNetworkModulesQueriesProfileFollowing()
+                thisObject.query = NT.projects.socialTrading.modules.queriesProfileFollowing.newSocialTradingModulesQueriesProfileFollowing()
                 query.initialize(queryReceived)
                 query.finalize()
                 break
             }
 
             case QUERY_TYPES.maps.EVENTS: {
-                thisObject.query = NT.projects.network.modules.queriesEvents.newNetworkModulesQueriesEvents()
+                thisObject.query = NT.projects.socialTrading.modules.queriesEvents.newSocialTradingModulesQueriesEvents()
                 query.initialize(queryReceived)
                 query.finalize()
                 break

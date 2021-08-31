@@ -1,4 +1,4 @@
-exports.newNetworkGlobalsQueryConstants = function () {
+exports.newSocialTradingGlobalsQueryConstants = function () {
 
     let thisObject = {
         INITIAL_INDEX_FIRST: 'First',

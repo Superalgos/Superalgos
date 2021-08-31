@@ -21,7 +21,7 @@ exports.newSocialGraph = function newSocialGraph() {
     }
 
     async function initialize() {
-        let bootstrapProcess = NT.projects.network.modules.bootstrap.newBootstrap()
+        let bootstrapProcess = NT.projects.socialTrading.modules.bootstrap.newBootstrap()
         await bootstrapProcess.initialize()
     }
 }

@@ -19,8 +19,8 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
 
     function initialize() {
         socketServer = new SA.nodeModules.ws.Server({ port: global.env.NETWORK_WEB_SOCKETS_INTERFACE_PORT })
-        clientInterface = NT.projects.network.modules.clientInterface.newNetworkModulesClientInterface()
-        peerInterface = NT.projects.network.modules.peerInterface.newNetworkModulesPeerInterface()
+        clientInterface = NT.projects.socialTrading.modules.clientInterface.newSocialTradingModulesClientInterface()
+        peerInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesPeerInterface()
 
         setUpWebSocketServer()
     }
@@ -144,7 +144,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 /*
                 The signature gives us the blockchain account, and the account the user profile.
                 */
-                let userProfile = NT.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOCHAIN_ACCOUNT.set(blockchainAccount)
+                let userProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_BLOCHAIN_ACCOUNT.set(blockchainAccount)
 
                 if (userProfile === undefined) {
                     let response = {

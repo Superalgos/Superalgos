@@ -16,7 +16,7 @@ exports.newNetworkNode = function newNetworkNode() {
         start()
 
         async function start() {
-            let socialGraphService = NT.projects.network.modules.socialGraph.newSocialGraph()
+            let socialGraphService = NT.projects.socialTrading.modules.socialGraph.newSocialGraph()
             await socialGraphService.initialize()
         }
 

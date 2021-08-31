@@ -1,4 +1,4 @@
-exports.newNetworkModulesPeerInterface = function newNetworkModulesPeerInterface() {
+exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesPeerInterface() {
 
     let thisObject = {
         initialize: initialize,

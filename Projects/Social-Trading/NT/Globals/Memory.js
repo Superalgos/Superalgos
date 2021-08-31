@@ -1,4 +1,4 @@
-exports.newNetworkGlobalsMemory = function () {
+exports.newSocialTradingGlobalsMemory = function () {
     /*
     Here is the Data we are going to keep in memory.
     */

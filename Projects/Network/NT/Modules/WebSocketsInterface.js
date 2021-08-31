@@ -18,7 +18,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
     }
 
     function initialize() {
-        socketServer = new SA.nodeModule.ws.Server({ port: global.env.Network_WEB_SOCKETS_INTERFACE_PORT })
+        socketServer = new SA.nodeModules.ws.Server({ port: global.env.NETWORK_WEB_SOCKETS_INTERFACE_PORT })
         clientInterface = NT.projects.network.modules.clientInterface.newNetworkModulesClientInterface()
         peerInterface = NT.projects.network.modules.peerInterface.newNetworkModulesPeerInterface()
 

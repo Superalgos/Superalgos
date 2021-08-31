@@ -1,41 +1,51 @@
-exports.newWebSocketsInterface = function newWebSocketsInterface() {
+exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSocketsInterface() {
 
     let thisObject = {
         initialize: initialize,
-        finalize: finalize,
-        run: run
+        finalize: finalize
     }
 
     let socketServer
-    let port = global.env.Network_WEB_SOCKETS_INTERFACE_PORT
+    let clientInterface
+    let peerInterface
 
     return thisObject
 
     function finalize() {
-
+        socketServer = undefined
+        clientInterface = undefined
+        peerInterface = undefined
     }
 
     function initialize() {
+        socketServer = new SA.nodeModule.ws.Server({ port: global.env.Network_WEB_SOCKETS_INTERFACE_PORT })
+        clientInterface = NT.projects.network.modules.clientInterface.newNetworkModulesClientInterface()
+        peerInterface = NT.projects.network.modules.peerInterface.newNetworkModulesPeerInterface()
 
-    }
-
-    function run() {
         setUpWebSocketServer()
     }
 
     function setUpWebSocketServer() {
         try {
-            socketServer = new SA.nodeModule.ws.Server({ port: port })
             socketServer.on('connection', onConnection)
 
             function onConnection(socket) {
                 let caller = {}
                 socket.on('message', onMenssage)
 
-
-                function onMenssage(message) {
+                async function onMenssage(message) {
                     try {
-                        let messageHeader = JSON.parse(message)
+                        let messageHeader
+                        try {
+                            messageHeader = JSON.parse(message)
+                        } catch (err) {
+                            let response = {
+                                result: 'Error',
+                                message: 'messageHeader Not Coorrect JSON Format.'
+                            }
+                            socket.send(JSON.stringify(response))
+                            return
+                        }
                         /*
                         We will run some validations.
                         */
@@ -50,60 +60,42 @@ exports.newWebSocketsInterface = function newWebSocketsInterface() {
 
                         switch (messageHeader.messageType) {
                             case "Handshake": {
-                                handShakeProducedure(socket, caller, messageHeader)
+                                handshakeProducedure(socket, caller, messageHeader)
                                 break
-
                             }
                             case "Request": {
+
+                                if (caller.userProfile === undefined) {
+                                    let response = {
+                                        result: 'Error',
+                                        message: 'Handshake Not Done Yet.'
+                                    }
+                                    socket.send(JSON.stringify(response))
+                                    return
+                                }
+
+                                switch (caller.role) {
+                                    case 'Network Client': {
+                                        let response = await clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                        socket.send(JSON.stringify(response))
+                                        break
+                                    }
+                                    case 'Network Peer': {
+                                        let response = await peerInterface.messageReceived(messageHeader.payload)
+                                        socket.send(JSON.stringify(response))
+                                        break
+                                    }
+                                }
                                 break
                             }
-
-                        }
-
-
-
-
-
-
-
-
-
-
-                        let origin = messageArray[0]
-                        let nonce = messageArray[1]
-                        let messageToEventServer = messageArray[2]
-
-                        if (origin === 'Web Browser') {
-                            try {
-                                JSON.parse(messageToEventServer)
-                            } catch (err) {
-                                console.log('[ERROR] Network -> Web Sockets Interface -> run -> setUpWebSocketServer -> Message received from the browser is not a valid JSON. message = ' + message.substring(0, 1000))
-                                console.log('[ERROR] Network -> Web Sockets Interface -> run -> setUpWebSocketServer -> Message received from the browser is not a valid JSON. messageToEventServer = ' + messageToEventServer)
-                                return
-                            }
-
-                            let acknowledgeMessage = {
-                                action: 'Acknowledge',
-                                nonce: nonce
-                            }
-
-                            socket.send(JSON.stringify(acknowledgeMessage))
-                        }
-
-
-                        CL.servers.EVENT_SERVER.onMessage(messageToEventServer, onResponse)
-
-                        function onResponse(message) {
-                            socket.send(message)
                         }
                     } catch (err) {
-                        console.log('[ERROR] Network -> Web Sockets Interface -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. err = ' + err.stack)
+                        console.log('[ERROR] Network -> Web Sockets Interface -> run -> setUpWebSocketServer -> err.stack = ' + err.stack)
                     }
                 }
             }
 
-
-            function handShakeProducedure(socket, caller, messageHeader) {
+            function handshakeProducedure(socket, caller, messageHeader) {
                 /*
                 The caller needs to identify itself as either a Network Client or Peer.
                 */
@@ -175,7 +167,7 @@ exports.newWebSocketsInterface = function newWebSocketsInterface() {
             }
 
         } catch (err) {
-            console.log('[ERROR] Network -> Web Sockets Interface -> run -> setUpWebSocketServer -> err.message = ' + err.message.substring(0, 1000))
+            console.log('[ERROR] Network -> Web Sockets Interface -> run -> setUpWebSocketServer -> err.stack = ' + err.stack)
         }
     }
 }

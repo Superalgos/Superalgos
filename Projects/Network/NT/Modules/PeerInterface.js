@@ -1,4 +1,4 @@
-exports.newPeerInterface = function newPeerInterface() {
+exports.newNetworkModulesPeerInterface = function newNetworkModulesPeerInterface() {
 
     let thisObject = {
         initialize: initialize,

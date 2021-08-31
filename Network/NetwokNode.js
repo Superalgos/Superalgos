@@ -45,6 +45,11 @@ SA.nodeModules = {
     web3: require('web3'),
     ws: require('ws')
 }
+/*
+Let's start the Network Interfaces
+*/
+NT.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
+NT.webSocketsInterface.initialize()
 
 start()
 

@@ -1370,6 +1370,24 @@
                     "propertyName": "event",
                     "functionName": "newNetworkModulesEvent",
                     "fileName": "Event.js"
+                },
+                {
+                    "name": "Client Interface",
+                    "propertyName": "clientInterface",
+                    "functionName": "newNetworkModulesClientInterface",
+                    "fileName": "ClientInterface.js"
+                },
+                {
+                    "name": "Peer Interface",
+                    "propertyName": "peerInterface",
+                    "functionName": "newNetworkModulesPeerInterface",
+                    "fileName": "PeerInterface.js"
+                },
+                {
+                    "name": "Web Sockets Interface",
+                    "propertyName": "webSocketsInterface",
+                    "functionName": "newNetworkModulesWebSocketsInterface",
+                    "fileName": "WebSocketsInterface.js"
                 }
             ],
             "utilities": [

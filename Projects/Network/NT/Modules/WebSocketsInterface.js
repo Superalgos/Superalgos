@@ -90,7 +90,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             }
                         }
                     } catch (err) {
-                        console.log('[ERROR] Network -> Web Sockets Interface -> run -> setUpWebSocketServer -> err.stack = ' + err.stack)
+                        console.log('[ERROR] Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
                     }
                 }
             }
@@ -167,7 +167,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
             }
 
         } catch (err) {
-            console.log('[ERROR] Network -> Web Sockets Interface -> run -> setUpWebSocketServer -> err.stack = ' + err.stack)
+            console.log('[ERROR] Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
         }
     }
 }

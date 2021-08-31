@@ -45,7 +45,7 @@ SA.nodeModules = {
     ws: require('ws')
 }
 
-DK.app = require('./Network/DesktopApp.js').newNetworkNode()
+DK.app = require('./Desktop/DesktopApp.js').newDesktopApp()
 DK.app.run()
 
 console.log('Superalgos Desktop is Running.')

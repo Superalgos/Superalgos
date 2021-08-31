@@ -1,0 +1,49 @@
+{
+    "type": "Staking Program",
+    "definition": {
+        "text": "The staking program allows the Superalgos Community to compensate token holders for the sake of holding tokens. Holding tokens may be a valuable contribution that the Community may decide to incentivize at any point.",
+        "updated": 1630399040101
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1630399087739
+        },
+        {
+            "style": "Text",
+            "text": "This is a very simple program, as it doesn't involve smart contracts or transferring funds out of your Governance Address."
+        },
+        {
+            "style": "Text",
+            "text": "You may participate in the Staking Program with the Token Power that you haven’t used for other purposes. All you need to do is spawn the program from within the Financial Programs node and let some Token Power flow into it.",
+            "updated": 1630399445299
+        },
+        {
+            "style": "Text",
+            "text": "You will get tokens from the Staking Rewards Pool defined in the Superalgos Pools hierarchy under the Governance Programs node, proportional to the Staking Power you direct to the program."
+        },
+        {
+            "style": "Text",
+            "text": "The calculation of the Tokens Awarded for this program is similar to how Tokens Bonus is calculated on other programs, as a direct Rule of Three:"
+        },
+        {
+            "style": "Json",
+            "text": "Total Staking Power [*] -> 100% of the pool\n Your Staking Power [**] -> X% of the pool -> Tokens Awarded\n\nTokens Awarded = Your Staking Power * 100% / Total Staking Power\n\n[*] The power driven to the Staking Program by all User Profiles combined.\n[**] The power you drive to the Staking Program.",
+            "updated": 1630399128595
+        },
+        {
+            "style": "Note",
+            "text": "Notice that staking may not be the best way to accumulate more tokens. Some other programs, like the Community Building Programs, may offer a better financial opportunity through their Tokens Bonus! You may want to check how big are the Bonus Pool incentives in other programs and compare those with the Staking Rewards Pool!",
+            "updated": 1630399853495
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

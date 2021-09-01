@@ -1,0 +1,20 @@
+{
+    "topic": "User Profile",
+    "pageNumber": "2.3",
+    "type": "The Github Program",
+    "definition": {
+        "text": "Set yourself up to contribute and help more developers find us on Github!",
+        "updated": 1630494854079
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Node->Github Program->Definition",
+            "updated": 1630494807978
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Github Program->Content"
+        }
+    ]
+}

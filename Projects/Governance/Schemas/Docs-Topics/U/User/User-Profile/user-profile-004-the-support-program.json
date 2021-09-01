@@ -3,8 +3,8 @@
     "pageNumber": "4",
     "type": "The Support Program",
     "definition": {
-        "text": "The Support Program helps new users get better support.",
-        "updated": 1624732840040
+        "text": "Let's reward Community Mods so that they keep up the good work, and so that more people want to join the team!",
+        "updated": 1630495305649
     },
     "paragraphs": [
         {
@@ -27,14 +27,6 @@
         {
             "style": "Include",
             "text": "Governance->Node->User Supporter->Content"
-        },
-        {
-            "style": "Title",
-            "text": "Token Bonus"
-        },
-        {
-            "style": "Text",
-            "text": "The Support program grants you a Token Bonus through the Support Bonus Pool."
         },
         {
             "style": "Title",

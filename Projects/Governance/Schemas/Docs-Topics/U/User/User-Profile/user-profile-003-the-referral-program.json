@@ -3,8 +3,8 @@
     "pageNumber": "3",
     "type": "The Referral Program",
     "definition": {
-        "text": "The Referral Program helps people find Superalgos.",
-        "updated": 1624732524023
+        "text": "Help us spread the word about Superalgos!",
+        "updated": 1630495118436
     },
     "paragraphs": [
         {
@@ -18,7 +18,8 @@
         },
         {
             "style": "Title",
-            "text": "User Referrer"
+            "text": "Your Referrers",
+            "updated": 1630495480122
         },
         {
             "style": "Include",
@@ -27,21 +28,6 @@
         {
             "style": "Include",
             "text": "Governance->Node->User Referrer->Content"
-        },
-        {
-            "style": "Title",
-            "text": "Tokens Bonus",
-            "updated": 1624732636384
-        },
-        {
-            "style": "Include",
-            "text": "Governance->Node->Tokens Bonus->Definition",
-            "updated": 1624732644483
-        },
-        {
-            "style": "Text",
-            "text": "In the case of the Referral Program, you get your Tokens Bonus tokens from the Referral Bonus Pool.",
-            "updated": 1624732742383
         }
     ]
 }

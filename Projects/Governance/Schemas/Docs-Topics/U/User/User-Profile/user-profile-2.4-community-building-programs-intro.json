@@ -1,0 +1,20 @@
+{
+    "topic": "User Profile",
+    "pageNumber": "2.4",
+    "type": "Community Building Programs Intro",
+    "definition": {
+        "text": "Help us build a strong and healthy Community!",
+        "updated": 1630494969779
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Node->Community Building Programs->Definition",
+            "updated": 1630495003728
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Community Building Programs->Content"
+        }
+    ]
+}

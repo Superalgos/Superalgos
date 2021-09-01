@@ -14,7 +14,7 @@
     "ethereumjs-tx": "^2.1.2",
     "ethers": "^5.4.4",
     "lookpath": "^1.2.2",
-    "node-fetch": "2.6.1",
+    "node-fetch": "3.0.0",
     "open": "^6.4.0",
     "rimraf": "^3.0.2",
     "simple-git": "^2.42.0",

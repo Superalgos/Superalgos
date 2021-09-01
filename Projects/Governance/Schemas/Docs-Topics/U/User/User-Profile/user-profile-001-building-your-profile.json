@@ -1,6 +1,6 @@
 {
     "topic": "User Profile",
-    "pageNumber": "1",
+    "pageNumber": 1,
     "type": "Building Your Profile",
     "definition": {
         "text": "Building your User Profile involves linking your Governance Address to your identity in Github.com, using the Profile Constructor. ",

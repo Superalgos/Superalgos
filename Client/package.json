@@ -7,7 +7,7 @@
     "name": "Luis-Fernando-Molina"
   },
   "dependencies": {
-    "@octokit/rest": "^18.9.0",
+    "@octokit/rest": "^18.10.0",
     "ccxt": "^1.51.98",
     "child_process": "^1.0.2",
     "ethereumjs-common": "^1.5.2",

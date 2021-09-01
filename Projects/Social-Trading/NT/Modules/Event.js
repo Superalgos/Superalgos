@@ -1,4 +1,4 @@
-exports.newNetworkModulesEvent = function newNetworkModulesEvent() {
+exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
     /*
     An Event is anything that happens system wide that 
     needs to be delivered to relevant entities via
@@ -104,7 +104,7 @@ exports.newNetworkModulesEvent = function newNetworkModulesEvent() {
         if (emitterUserProfileId === undefined) {
             throw ('Emitter User Profile Id Not Provided.')
         }
-        emitterUserProfile = NT.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(thisObject.emitterUserProfileId)
+        emitterUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(thisObject.emitterUserProfileId)
         if (emitterUserProfile === undefined) {
             throw ('Emitter User Profile Not Found.')
         }
@@ -112,7 +112,7 @@ exports.newNetworkModulesEvent = function newNetworkModulesEvent() {
         Validate Target User Profile.
         */
         if (thisObject.targetUserProfileId !== undefined) {
-            targetUserProfile = NT.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(thisObject.targetUserProfileId)
+            targetUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(thisObject.targetUserProfileId)
             if (targetUserProfile === undefined) {
                 throw ('Target User Profile Not Found.')
             }

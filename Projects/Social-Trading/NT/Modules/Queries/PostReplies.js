@@ -1,14 +1,15 @@
-exports.newNetworkModulesQueriesUserProfileStats = function newNetworkModulesQueriesUserProfileStats() {
+exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingModulesQueriesPostReplies() {
     /*
-    Each User or Bot Profile can have posts. This query
-    is designed for Network Clients to fetch the posts
-    metadata they need from the Social Graph.
+    Each Post regardless if it is authored by a User or Bot Profile,
+    can have replies. This query is designed for Network Clients to 
+    fetch the posts metadata that are replies to a certain post.
 
-    This is the query to be executed to fill a Profile page
-    with all of its posts.
+    This is the query executed at the Network Client to fill the page
+    of a certain post, with all its replies.
     */
     let thisObject = {
         profile: undefined,
+        post: undefined,
         initialIndex: undefined,
         amountRequested: undefined,
         direction: undefined,
@@ -21,32 +22,35 @@ exports.newNetworkModulesQueriesUserProfileStats = function newNetworkModulesQue
 
     function finalize() {
         thisObject.profile = undefined
+        thisObject.post = undefined
     }
 
     function initialize(queryReceived) {
 
         NT.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
+        NT.utilities.queriesValidations.postValidations(queryReceived, thisObject)
         NT.utilities.queriesValidations.arrayValidations(queryReceived, thisObject)
+
     }
 
     function execute() {
 
         let response = []
-        let array = Array.from(thisObject.profile.posts)
+        let array = Array.from(thisObject.post.replies)
 
         switch (thisObject.direction) {
-            case NT.projects.network.globals.queryConstants.DIRECTION_FUTURE: {
+            case NT.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let arrayItem = array[i]
-                    if (arrayItem === undefined) { break }
+                    if (post === undefined) { break }
                     addToResponse(arrayItem)
                 }
                 break
             }
-            case NT.projects.network.globals.queryConstants.DIRECTION_PAST: {
+            case NT.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let arrayItem = array[i]
-                    if (arrayItem === undefined) { break }
+                    if (post === undefined) { break }
                     addToResponse(arrayItem)
                 }
                 break

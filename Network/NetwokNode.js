@@ -1,53 +1,24 @@
-/*
-The Superalgos Network offers 3 types of services:
+exports.newNetworkNode = function newNetworkNode() {
 
-    * Social Graph Service
-    * Search Index Service
-    * Private Message Service
-    
-Users can decide which services to run at their node.
+    let thisObject = {
+        run: run
+    }
 
-This module is the starting point of the Network Node.
+    return thisObject
 
-*/
+    function run() {
+        /*
+        Let's start the Network Interfaces
+        */
+        NT.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
+        NT.webSocketsInterface.initialize()
 
-/* 
-The NT object is accesible everywhere at the Superalgos Network. 
-It provides access to all modules built for this Network.
-*/
-global.NT = {}
-/* 
-The SA object is accesible everywhere at the Superalgos Network. 
-It provides access to all modules built for Superalgos in general.
-*/
-global.SA = {}
-/* Load Environment Variables */
-let ENVIRONMENT = require('../EnvironmentForDebug.js');
-let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
-global.env = ENVIRONMENT_MODULE
-/*
-First thing is to load the project schema file.
-*/
-global.PROJECTS_SCHEMA = require(global.env.PATH_TO_PROJECT_SCHEMA)
-/* 
-Setting up the modules that will be available for the Servers Running inside this Client 
-*/
-let MULTI_PROJECT = require('../MultiProject.js');
-let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
-MULTI_PROJECT_MODULE.initialize(NT, 'NT')
-MULTI_PROJECT_MODULE.initialize(SA, 'SA')
-/*
-Setting up external dependencies.
-*/
-SA.nodeModules = {
-    fs: require('fs'),
-    nodeFetch: require('node-fetch'),
-    web3: require('web3')
-}
+        start()
 
-start()
+        async function start() {
+            let socialGraphService = NT.projects.socialTrading.modules.socialGraph.newSocialGraph()
+            await socialGraphService.initialize()
+        }
 
-async function start() {
-    let socialGraphService = NT.projects.network.modules.socialGraph.newSocialGraph()
-    await socialGraphService.initialize()
+    }
 }

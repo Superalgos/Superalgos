@@ -1,4 +1,4 @@
-exports.newNetworkModulesQueriesBotProfileStats = function newNetworkModulesQueriesBotProfileStats() {
+exports.newSocialTradingModulesQueriesBotProfileStats = function newSocialTradingModulesQueriesBotProfileStats() {
 
     let thisObject = {
         profile: undefined,
@@ -19,9 +19,9 @@ exports.newNetworkModulesQueriesBotProfileStats = function newNetworkModulesQuer
         */
         let userProfile
         if (queryReceived.targetUserProfileId !== undefined) {
-            userProfile = NT.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
+            userProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
         } else {
-            userProfile = NT.projects.network.globals.memory.maps.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
+            userProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
         }
 
         if (userProfile === undefined) {

@@ -92,17 +92,23 @@
             "text": "Pool nodes in the top-level Superalgos Pools hierarchy reference other hierarchies where project definitions continue. Those hierarchies may be other Pools, Positions, Features, or Asset hierarchies."
         },
         {
-            "style": "Text",
-            "text": "When a Pool node in the top-level hierarchy gets Weight Votes, the Token Rewards flowing to the node is immediately passed on to the referenced hierarchy. So, now the referenced hierarchy has Token Rewards of its own!"
+            "style": "Callout",
+            "text": "When a Pool node in the Superalgos Pools hierarchy gets some Weight Power, the Token Rewards flowing to the node are immediately passed on to the referenced hierarchy. So, now the referenced hierarchy has Token Rewards of its own at the head of the hierarchy!",
+            "updated": 1630513045548
         },
         {
             "style": "Text",
-            "text": "How do Token Rewards flow within these secondary hierarchies? In the exact manner! When Weight Votes are casted within the hierarchy, Token Rewards flow into the affected nodes in Weight proportions calculated within the scope of the hierarchy.",
-            "updated": 1624781274277
+            "text": "How do Token Rewards flow within these secondary hierarchies? In the exact manner! When Weight Votes are cast within the hierarchy, Token Rewards flow into the affected nodes in proportion to the Weight calculated within the scope of the hierarchy.",
+            "updated": 1630512699763
+        },
+        {
+            "style": "Important",
+            "text": "The scope of the calculation of Weight proportions is limited to the hierarchy in question."
         },
         {
             "style": "Note",
-            "text": "The cycle goes on and on through all the existing levels of nested hierarchies. The process and flows are the same regardless of the type of hierarchy."
+            "text": "The cycle goes on and on through all the existing levels of nested hierarchies. The processes and flows are the same regardless of the type of hierarchy.",
+            "updated": 1630512917168
         }
     ]
 }

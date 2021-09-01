@@ -1,0 +1,24 @@
+{
+    "topic": "User Profile",
+    "pageNumber": "2.2",
+    "type": "The Airdrop Program",
+    "definition": {
+        "text": "Superalgos does an airdrop on each release of the software! We wish to welcome you and everyone in the Community onboard and grant you your first few tokens so that you may participate in governance.",
+        "updated": 1630487391797
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Node->Airdrop Program->Definition",
+            "updated": 1630487237360
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Airdrop Program->Content"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

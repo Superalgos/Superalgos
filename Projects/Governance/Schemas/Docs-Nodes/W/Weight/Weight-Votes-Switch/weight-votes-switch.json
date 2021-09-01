@@ -33,7 +33,12 @@
         },
         {
             "style": "Callout",
-            "text": "Use a Weight Votes Switch node to establish a reference with a Class type of node — Pool Class, Position Class, Feature Class, or Asset Class — within Project Definition Hierarchies. Then use the Install Missing Votes option on the menu of the Weight Votes Switch to map the entire Class section of the hierarchy! The process creates a Weight Votes Switch for each Class type of node, and matching Weight Votes for each Asset, Feature, Position, or Pool defined within each Class node."
+            "text": "Use a Weight Votes Switch node to establish a reference with a Class type of node — Pool Class, Position Class, Feature Class, or Asset Class — within Project Definition Hierarchies. Then use the Install Missing Votes option on the menu of the Weight Votes Switch to map the entire Class section of the hierarchy! ",
+            "updated": 1630498028825
+        },
+        {
+            "style": "Note",
+            "text": "The process creates a Weight Votes Switch for each Class type of node, and matching Weight Votes for each Asset, Feature, Position, or Pool defined within each Class node."
         },
         {
             "style": "Success",

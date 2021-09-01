@@ -16,9 +16,13 @@
             "updated": 1630329521827
         },
         {
+            "style": "Note",
+            "text": "Your Reputation is added to the Token Power that flows into the Voting Program, effectively increasing your Voting Power. Read more about Reputation!",
+            "updated": 1630424362937
+        },
+        {
             "style": "Text",
-            "text": "The features in the Voting Program allow you to cast three different categories of votes:",
-            "updated": 1630344509716
+            "text": "The features in the Voting Program allow you to cast three different categories of votes:"
         },
         {
             "style": "List",

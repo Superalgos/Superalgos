@@ -1,8 +1,8 @@
 {
     "type": "Tokens Awarded",
     "definition": {
-        "text": "The Tokens Awarded node is present on each of the programs in the hierarchy. It exists to accumulate and display the number of Superalgos SA Tokens awarded to your profile through each program.",
-        "updated": 1630164138055
+        "text": "The Tokens Awarded node represents the number of tokens you get in reward for your contributions. The node is present on many of the Governance Programs.",
+        "updated": 1630436769778
     },
     "paragraphs": [
         {
@@ -43,6 +43,10 @@
         {
             "style": "List",
             "text": "The How Claims are Resolved page explains how tokens are awarded in the Claims Program."
+        },
+        {
+            "style": "List",
+            "text": "In the Staking Program."
         },
         {
             "style": "Text",

@@ -1,8 +1,8 @@
 {
     "type": "Rewards Pool",
     "definition": {
-        "text": "A Rewards Pool allocates the tokens to be distributed as rewards for contributions on several of the existing Governance Programs. Each program that distributes rewards has its Rewards Pool defined under the Governance Programs section of the Superalgos Pools hierarchy. Rewards represent the value of your contributions to each of the programs. Each program calculates rewards in a particular way and displays the result in its Tokens Rewards node.",
-        "updated": 1630169267228
+        "text": "A Rewards Pool allocates tokens to reward contributions to specific Governance Programs. Each program that features a Tokens Awarded node distributes rewards from a Rewards Pool defined under the Governance Programs section of the Superalgos Pools hierarchy. Rewards represent the value of your contributions to each of the programs. Each program calculates rewards in a particular way and displays the result in the Tokens Awarded node.",
+        "updated": 1630399801989
     },
     "paragraphs": [
         {

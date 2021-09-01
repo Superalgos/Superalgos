@@ -1,8 +1,8 @@
 {
     "type": "User Profile Votes Switch",
     "definition": {
-        "text": "Use this switch as an organizational device, and to spawn User Profile Vote nodes. ",
-        "updated": 1630394573673
+        "text": "Use this switch as an organizational device, and to spawn User Profile Vote nodes.",
+        "updated": 1630421929174
     },
     "paragraphs": [
         {

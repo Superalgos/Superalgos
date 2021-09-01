@@ -1,0 +1,108 @@
+{
+    "topic": "Governance Flow",
+    "pageNumber": "2",
+    "type": "Token Rewards and Weight Power Flow",
+    "definition": {
+        "text": "Let’s analyze the flow of Token Rewards through Pools in parallel with the flow of Token Power, and in particular Weight Power, as they are interdependent.",
+        "updated": 1624780824020
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Token Rewards->Content",
+            "updated": 1624780974906
+        },
+        {
+            "style": "Title",
+            "text": "The Master Distribution Pool",
+            "updated": 1630510334093
+        },
+        {
+            "style": "Text",
+            "text": "Each release distributes a number of tokens as specified in the configuration of the top-level Superalgos Pools hierarchy. The head of this hierarchy is the master distribution pool, where it all begins in terms of the flow of Token Rewards.",
+            "updated": 1630510402640
+        },
+        {
+            "style": "Note",
+            "text": "Visualize the flow of Token Rewards as a cascade starting at the head of the Superalgos Pools hierarchy that needs to trickle down to the different Pool nodes in the hierarchy, and then jump to the heads of other Project Definition Hierarchies.",
+            "updated": 1630511702008
+        },
+        {
+            "style": "Text",
+            "text": "Unlike the flow of Token Power within a User Profile, which is determined by configurations entered by the owner of the profile, the flow of Token Rewards is subject to the will of the Community. In other words, it is the community that must decide how rewards flow, and how many tokens must go to incentivize what. ",
+            "updated": 1630511815154
+        },
+        {
+            "style": "Subtitle",
+            "text": "This is Where Weight Votes Come in the Picture",
+            "updated": 1630512058431
+        },
+        {
+            "style": "Callout",
+            "text": "Weight Votes are the instrument the Community uses to expresses how Token Rewards should flow. Token Rewards flow within the hierarchy in response to Weight Votes cast by the Community. That is, the Community decides the Weight of each Pool by casting Weight Votes.",
+            "updated": 1630512042083
+        },
+        {
+            "style": "Text",
+            "text": "This is where Token Rewards intersect with Weight Power, as it is Weight Power that drives the flow of Token Rewards through Weight Votes.",
+            "updated": 1630510680354
+        },
+        {
+            "style": "Note",
+            "text": "Remember that your Token Power flows into the different programs available under your User Profile. The portion of Token Power that flows into your Voting Program turns into Voting Power, which is channeled through different types of switches. You use Weight Votes Switch nodes to turn Voting Power into Weight Power that then flows into Weight Votes.",
+            "updated": 1630512123642
+        },
+        {
+            "style": "Subtitle",
+            "text": "For Example",
+            "updated": 1630512233819
+        },
+        {
+            "style": "Text",
+            "text": "When you reference a Pool node with a Pool Weight Vote node, you are conferring the Weight Power in your Pool Weight Vote to that particular Pool node.",
+            "updated": 1630512248393
+        },
+        {
+            "style": "Text",
+            "text": "Now that this Pool node has some Weight, the Token Rewards available at the top of the hierarchy may flow into this Pool node. How much? It depends on the Weight Power the Pool gets relative to the Weight Power the rest of the Pools in the hierarchy get!",
+            "updated": 1630512360936
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Weight->Content",
+            "updated": 1624781155330
+        },
+        {
+            "style": "Json",
+            "text": "Weight (of a node) = Node's Incoming Weight Power / \n                      Sum of Weight Power in the Hierarchy * 100",
+            "updated": 1630512395411
+        },
+        {
+            "style": "Note",
+            "text": "If a Pool node ends up with no Weight Power, then no Token Rewards flow into the node.",
+            "updated": 1630512412251
+        },
+        {
+            "style": "Title",
+            "text": "Token Rewards Flow Into Other Hierarchies",
+            "updated": 1630510284691
+        },
+        {
+            "style": "Text",
+            "text": "Pool nodes in the top-level Superalgos Pools hierarchy reference other hierarchies where project definitions continue. Those hierarchies may be other Pools, Positions, Features, or Asset hierarchies."
+        },
+        {
+            "style": "Text",
+            "text": "When a Pool node in the top-level hierarchy gets Weight Votes, the Token Rewards flowing to the node is immediately passed on to the referenced hierarchy. So, now the referenced hierarchy has Token Rewards of its own!"
+        },
+        {
+            "style": "Text",
+            "text": "How do Token Rewards flow within these secondary hierarchies? In the exact manner! When Weight Votes are casted within the hierarchy, Token Rewards flow into the affected nodes in Weight proportions calculated within the scope of the hierarchy.",
+            "updated": 1624781274277
+        },
+        {
+            "style": "Note",
+            "text": "The cycle goes on and on through all the existing levels of nested hierarchies. The process and flows are the same regardless of the type of hierarchy."
+        }
+    ]
+}

@@ -6,7 +6,12 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
+            "style": "Block",
+            "text": "Content",
+            "updated": 1630508809125
+        },
+        {
+            "style": "Important",
             "text": "Only the tokens you get for contributing to the project grant you reputation. Reputation is not transferable, so the tokens you acquire by any other means (buying, swapping, borrowing, trading, etc.) do not carry a reputation value."
         },
         {

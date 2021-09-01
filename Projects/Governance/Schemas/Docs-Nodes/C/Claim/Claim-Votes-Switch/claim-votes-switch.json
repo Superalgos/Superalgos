@@ -37,8 +37,12 @@
         },
         {
             "style": "Callout",
-            "text": "Use a Claim Votes Switch node to establish a reference with a Claims Folder type of node — Position Claims Folder, Feature Claims Folder, or Asset Claims Folder — within the Claims Program section of your colleague's User Profile node. Then use the Install Missing Votes option on the menu of the Claim Votes Switch to map the entire Claims Folder! The process creates a Claim Votes Switch for each Claims Folder, and matching Claim Votes for each Asset Contribution Claim, Feature Contribution Claim, or Position Contribution Claim defined within each folder.",
-            "updated": 1630349946670
+            "text": "Use a Claim Votes Switch node to establish a reference with a Claims Folder type of node — Position Claims Folder, Feature Claims Folder, or Asset Claims Folder — within the Claims Program section of your colleague's User Profile node. Then use the Install Missing Votes option on the menu of the Claim Votes Switch to map the entire Claims Folder! ",
+            "updated": 1630497475900
+        },
+        {
+            "style": "Note",
+            "text": "The process creates a Claim Votes Switch for each Claims Folder, and matching Claim Votes for each Asset Contribution Claim, Feature Contribution Claim, or Position Contribution Claim defined within each folder."
         },
         {
             "style": "Success",

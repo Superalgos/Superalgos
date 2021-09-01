@@ -1,6 +1,6 @@
 {
     "topic": "User Profile",
-    "pageNumber": "2",
+    "pageNumber": 2,
     "type": "User Profile Hierarchy",
     "definition": {
         "text": "Your User Profile is where you define how you wish to participate in governance.",

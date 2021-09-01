@@ -1,0 +1,46 @@
+{
+    "topic": "User Profile",
+    "pageNumber": 15,
+    "type": "The Delegation Program",
+    "definition": {
+        "text": "Help your colleagues place their first few claims!",
+        "updated": 1630500145104
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Node->Delegation Program->Definition",
+            "updated": 1630500092742
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Delegation Program->Content"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Delegate Power Switch",
+            "updated": 1630500226629
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Delegate Power Switch->Definition"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Delegate Power Switch->Content"
+        },
+        {
+            "style": "Subtitle",
+            "text": "User Delegate",
+            "updated": 1630500262556
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->User Delegate->Definition"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->User Delegate->Content"
+        }
+    ]
+}

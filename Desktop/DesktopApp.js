@@ -6,21 +6,16 @@ exports.newDesktopApp = function newDesktopApp() {
 
     return thisObject
 
-    function run() {
+    async function run() {
+/*
+        let socialGraphService = NT.projects.network.modules.socialGraph.newSocialGraph()
+        await socialGraphService.initialize()
+*/
         /*
         Let's start the Network Interfaces
         */
         DK.webSocketsClient = SA.projects.network.modules.webSocketsClient.newNetworkModulesWebSocketsClient()
         DK.webSocketsClient.initialize()
-
-
-        return
-        start()
-
-        async function start() {
-            let socialGraphService = NT.projects.network.modules.socialGraph.newSocialGraph()
-            await socialGraphService.initialize()
-        }
 
     }
 }

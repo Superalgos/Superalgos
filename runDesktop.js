@@ -45,8 +45,17 @@ SA.nodeModules = {
     ws: require('ws')
 }
 
-DK.NETWORK_CLIENT_USER_PROFILE_HANDLE = "Julian-Molina" // TODO: remove this.
-DK.NETWORK_CLIENT_USER_PROFILE_PRIVATE_KEY = "dasdasdjhakdhakhdkalshdkashdka" // TODO: remove this.
+/*
+We will use this User Profile for Testing Purposes.
+{
+    "githubUsername": "Test-Network-Client-Profile",
+    "address": "0xA0dCDA81b42C5EBDc45EC2875C72274B67560246",
+    "privateKey": "0x5fed4817a87431c8a328d0936561e63f45b6db289adac6125b9306ded644dfe9"
+}
+*/
+
+DK.TEST_NETWORK_CLIENT_USER_PROFILE_HANDLE = "Test-Network-Client-Profile"  
+DK.TEST_NETWORK_CLIENT_USER_PROFILE_PRIVATE_KEY = "0x5fed4817a87431c8a328d0936561e63f45b6db289adac6125b9306ded644dfe9" 
 
 DK.app = require('./Desktop/DesktopApp.js').newDesktopApp()
 DK.app.run()

@@ -28,11 +28,15 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
     function initialize() {
         /*
         Here we will pick a Network Node from all users profiles available that do have a Network Node running. // TODO
+        In the meantime, we will assume that we have chosen the following Network Node to connect to.
+        {
+            "githubUsername": "Test-Network-Node-Profile",
+            "address": "0xa153469c57A91F5a59Fc6c45A37aD8dbad85e417"
+        }        
         */
         selectedNetworkNode = {
-            userProfileId: "qeqdqxex1qexqexqwxeqweqxeqweqe",
-            userProfileHandle: "Luis-Fernando-Molina",
-            blockchainAccount: "asdasdasdasdasdasdasdaasdasdasdasdasdasdsd",
+            userProfileHandle: "Test-Network-Node-Profile",
+            blockchainAccount: "0xa153469c57A91F5a59Fc6c45A37aD8dbad85e417",
             ranking: 0,
             host: "localhost",
             port: global.env.NETWORK_WEB_SOCKETS_INTERFACE_PORT
@@ -80,11 +84,11 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                         let message = {
                             messageType: 'Handshake',
                             callerRole: 'Network Client',
-                            userProfileHandle: DK.NETWORK_CLIENT_USER_PROFILE_HANDLE,
+                            callerProfileHandle: DK.TEST_NETWORK_CLIENT_USER_PROFILE_HANDLE,
                             callerTimestamp: callerTimestamp,
                             step: 'One'
                         }
-                        socketClient.send(message)
+                        socketClient.send(JSON.stringify(message))
                     }
 
                     function stepOneResponse(socketMessage) {
@@ -127,7 +131,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                         We will check that the profile handle we sent to the Network Node, is returned at the
                         signed message, to avoid man in the middle attackts.
                         */
-                        if (signedMessage.callerProfileHandle !== DK.NETWORK_CLIENT_USER_PROFILE_HANDLE) {
+                        if (signedMessage.callerProfileHandle !== DK.TEST_NETWORK_CLIENT_USER_PROFILE_HANDLE) {
                             console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node callerProfileHandle does not match my own userProfileHandle.')
                             return
                         }
@@ -155,14 +159,14 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                         */
                         socketClient.onmessage = socketMessage => { stepTwoResponse(socketMessage) }
 
-                        let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), DK.NETWORK_CLIENT_USER_PROFILE_PRIVATE_KEY)
+                        let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), DK.TEST_NETWORK_CLIENT_USER_PROFILE_PRIVATE_KEY)
 
                         let message = {
                             messageType: 'Handshake',
                             signature: JSON.stringify(signature),
                             step: 'Two'
                         }
-                        socketClient.send(message)
+                        socketClient.send(JSON.stringify(message))
                     }
 
                     function stepTwoResponse(socketMessage) {
@@ -172,6 +176,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             console.log('[ERROR] Web Sockets Client -> stepOneResponse -> response.message = ' + response.message)
                             return
                         }
+                        console.log('[INFO] Web Sockets Client -> stepTwoResponse -> response.message = ' + response.message)
                         /*
                         This was the end of the Handshake producere. We are connected to the 
                         Network Node and from now on, all response messages will be received

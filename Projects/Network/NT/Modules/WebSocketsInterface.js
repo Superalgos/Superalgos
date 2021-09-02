@@ -234,7 +234,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     }
 
                     let signature = JSON.parse(messageHeader.signature)
-                    let blockchainAccount = web3.eth.accounts.recover(signature)
+                    caller.blockchainAccount = web3.eth.accounts.recover(signature)
 
                     if (caller.blockchainAccount === undefined) {
                         let response = {
@@ -247,7 +247,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     /*
                     The signature gives us the blockchain account, and the account the user profile.
                     */
-                    let witnessUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_BLOCHAIN_ACCOUNT.set(blockchainAccount)
+                    let witnessUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_BLOCHAIN_ACCOUNT.get(caller.blockchainAccount)
 
                     if (witnessUserProfile === undefined) {
                         let response = {

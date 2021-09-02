@@ -1316,6 +1316,12 @@
             ],
             "modules": [
                 {
+                    "name": "User Profiles",
+                    "propertyName": "queriesUserProfiles",
+                    "functionName": "newSocialTradingModulesQueriesUserProfiles",
+                    "fileName": "Queries/UserProfiles.js"
+                },
+                {
                     "name": "Bot Profile Stats",
                     "propertyName": "queriesBotProfileStats",
                     "functionName": "newSocialTradingModulesQueriesBotProfileStats",

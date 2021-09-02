@@ -46,6 +46,9 @@ SA.nodeModules = {
     ws: require('ws')
 }
 
+NT.NETWORK_NODE_USER_PROFILE_HANDLE = "Luis-Fernando-Molina" // TODO: remove this.
+NT.NETWORK_NODE_USER_PROFILE_PRIVATE_KEY = "blablablablablablablablablablablablablablablablabla" // TODO: remove this.
+
 NT.app = require('./Network/NetwokNode.js').newNetworkNode()
 NT.app.run()
 

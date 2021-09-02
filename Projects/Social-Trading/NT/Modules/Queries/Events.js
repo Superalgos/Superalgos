@@ -105,7 +105,6 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                     }
                 }
             }
-
             /*
             Test #2 : The Emitter or Traget profile must be at the Following map of the Context Profile.
             */

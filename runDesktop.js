@@ -45,6 +45,9 @@ SA.nodeModules = {
     ws: require('ws')
 }
 
+DK.NETWORK_CLIENT_USER_PROFILE_HANDLE = "Julian-Molina" // TODO: remove this.
+DK.NETWORK_CLIENT_USER_PROFILE_PRIVATE_KEY = "dasdasdjhakdhakhdkalshdkashdka" // TODO: remove this.
+
 DK.app = require('./Desktop/DesktopApp.js').newDesktopApp()
 DK.app.run()
 

@@ -489,7 +489,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                 node.payload.uiObject.percentageAngleOffset = 180
                 node.payload.uiObject.percentageAtAngle = true
 
-                node.payload.uiObject.setValue(programPowerText)
+                node.payload.uiObject.setValue(programPowerText, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
                 if (percentage !== undefined) {
                     node.payload.uiObject.setPercentage(percentage.toFixed(2),

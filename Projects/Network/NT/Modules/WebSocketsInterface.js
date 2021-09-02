@@ -219,7 +219,8 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'Handshake Step One Not Completed.'
                         }
-                        socket.se
+                        socket.send(JSON.stringify(response))
+                        return
                     }
                     /*
                     We will check the signature at the message. 

@@ -102,7 +102,7 @@ function newGovernanceUtilitiesBonusProgram() {
             ) {
                 node.payload[programPropertyName].isActive = false
                 userProfile.payload.uiObject.setErrorMessage(
-                    "Bonus Program: You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.",
+                    "Waiting for blockchain balance. It takes 6 seconds to load the balance of each profile, bacause you are using a free API provided by BSC Scan.",
                     UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
                     )
                 return

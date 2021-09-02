@@ -3,8 +3,8 @@
     "pageNumber": "3",
     "type": "Other Governance Workspaces",
     "definition": {
-        "text": "All project-specific Governance Workspaces have a similar layout, as different projects usually have the same kinds of Assets, Features, Positions, and Pools.",
-        "updated": 1630580086379
+        "text": "The term refers to project-specific Governance Workspaces, as opposed to the main Token Distribution Superalgos Governance Workspace. Project-specific workspaces have a similar layout, as different projects usually have the same kinds of Assets, Features, Positions, and Pools categories.",
+        "updated": 1630597429410
     },
     "paragraphs": [
         {

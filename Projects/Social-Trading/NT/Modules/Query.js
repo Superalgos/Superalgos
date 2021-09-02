@@ -17,13 +17,14 @@ exports.newSocialTradingModulesQuery = function newSocialTradingModulesQuery() {
 
     const QUERY_TYPES = {
 
-        USER_PROFILE_STATS: 0,
-        BOT_PROFILE_STATS: 1,
-        PROFILE_POSTS: 2,
-        PROFILE_FOLLOWERS: 3,
-        PROFILE_FOLLOWING: 4,
-        POST_REPLIES: 5,
-        EVENTS: 6
+        USER_PROFILES: 0,
+        USER_PROFILE_STATS: 1,
+        BOT_PROFILE_STATS: 2,
+        PROFILE_POSTS: 3,
+        PROFILE_FOLLOWERS: 4,
+        PROFILE_FOLLOWING: 5,
+        POST_REPLIES: 6,
+        EVENTS: 7
 
     }
 
@@ -40,6 +41,13 @@ exports.newSocialTradingModulesQuery = function newSocialTradingModulesQuery() {
 
         switch (thisObject.queryType) {
             
+            case QUERY_TYPES.USER_PROFILES: {
+                thisObject.query = NT.projects.socialTrading.modules.queriesUserProfiles.newSocialTradingModulesQueriesUserProfiles()
+                query.initialize(queryReceived)
+                query.finalize()
+                break
+            }
+
             case QUERY_TYPES.USER_PROFILE_STATS: {
                 thisObject.query = NT.projects.socialTrading.modules.queriesUserProfileStats.newSocialTradingModulesQueriesUserProfileStats()
                 query.initialize(queryReceived)

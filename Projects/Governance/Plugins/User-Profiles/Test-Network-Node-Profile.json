@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "Test-Network-Node-Profile",
-    "config": "{\n    \"signature\": {\n        \"message\": \"Test-Network-Node-Profile\",\n        \"messageHash\": \"0xa05026b7c6c2a2375480d5d24949621749cc48e461e6e80278a9ef1b6dc7c5f1\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x8f28f992b0074e4d50007cdfbf18980ca58b4969e04a54d06e4d4798bb982c9a\",\n        \"s\": \"0x1c11951a92a1beffe8f3ddd06426ebe1b89875b56d5e374426100d5f59245ea3\",\n        \"signature\": \"0x8f28f992b0074e4d50007cdfbf18980ca58b4969e04a54d06e4d4798bb982c9a1c11951a92a1beffe8f3ddd06426ebe1b89875b56d5e374426100d5f59245ea31c\"\n    }\n}",
+    "config": "{\"signature\":{\"message\":\"Test-Network-Node-Profile\",\"messageHash\":\"0xa05026b7c6c2a2375480d5d24949621749cc48e461e6e80278a9ef1b6dc7c5f1\",\"v\":\"0x1c\",\"r\":\"0x8f28f992b0074e4d50007cdfbf18980ca58b4969e04a54d06e4d4798bb982c9a\",\"s\":\"0x1c11951a92a1beffe8f3ddd06426ebe1b89875b56d5e374426100d5f59245ea3\",\"signature\":\"0x8f28f992b0074e4d50007cdfbf18980ca58b4969e04a54d06e4d4798bb982c9a1c11951a92a1beffe8f3ddd06426ebe1b89875b56d5e374426100d5f59245ea31c\"},\"codeName\":\"Test-Network-Node-Profile\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -12,12 +12,12 @@
         "id": "11f69cbe-00c8-4fac-9fcc-701a7600c92c",
         "savedPayload": {
             "position": {
-                "x": 13516,
-                "y": 11661
+                "x": 14327,
+                "y": 11862
             },
             "targetPosition": {
-                "x": 13486,
-                "y": 11579
+                "x": 14027,
+                "y": 11862
             },
             "floatingObject": {
                 "isPinned": false,
@@ -39,12 +39,12 @@
         "id": "501f456f-b4b5-4b7e-9118-0f26215dd20e",
         "savedPayload": {
             "position": {
-                "x": 13470,
-                "y": 11657
+                "x": 13727,
+                "y": 11862
             },
             "targetPosition": {
-                "x": 13486,
-                "y": 11579
+                "x": 14027,
+                "y": 11862
             },
             "floatingObject": {
                 "isPinned": false,
@@ -62,17 +62,17 @@
     "id": "36c2b050-631f-4291-987c-418adc94317d",
     "savedPayload": {
         "position": {
-            "x": 13486,
-            "y": 11579
+            "x": 17647.05882352941,
+            "y": 21251
         },
         "targetPosition": {
-            "x": 13413,
-            "y": 11508
+            "x": 17647.05882352941,
+            "y": 21251
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

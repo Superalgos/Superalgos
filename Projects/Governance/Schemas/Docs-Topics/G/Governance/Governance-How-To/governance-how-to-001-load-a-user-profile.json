@@ -1,0 +1,64 @@
+{
+    "topic": "Governance How To",
+    "pageNumber": "1",
+    "type": "Load a User Profile",
+    "definition": {
+        "text": "Use this guide if you ever wish to load a User Profile on any of the Governance Workspaces.",
+        "updated": 1630597219985
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's say you wish to declare your referrer in the Referral Program, or maybe you wish to support the Contribution Claims of a fellow developer.",
+            "updated": 1630597234417
+        },
+        {
+            "style": "Text",
+            "text": "In either case, you will need to load the User Profile of the person in question so that you may establish the appropriate references."
+        },
+        {
+            "style": "Text",
+            "text": "Or maybe you wish to load your User Profile in one of the Other Governance Workspaces."
+        },
+        {
+            "style": "Title",
+            "text": "Start Here!",
+            "updated": 1630597272606
+        },
+        {
+            "style": "List",
+            "text": "Find out the person's User Profil name. If you know the person's identity on Github.com, then that's all you need to know. If you don't, then you may need to contact the person and ask! If it's your profile, then no need to do much in this regard!"
+        },
+        {
+            "style": "List",
+            "text": "Verify that a file with the same name exists in the following path within the Superalgos folder in your hard drive...",
+            "updated": 1630597624699
+        },
+        {
+            "style": "Json",
+            "text": "/Projects/Governance/Plugins/User-Profiles/"
+        },
+        {
+            "style": "List",
+            "text": "If the file doesn't exist, make sure you have the latest version of the app. If it's still missing after updating, let the person know and wait for the profile to be submitted.",
+            "updated": 1630597643975
+        },
+        {
+            "style": "List",
+            "text": "If the file is there and assuming you already are in the workspace you wish to work with, go to the Plugins hierarchy and find the Dummy Plugin File under Plugin User Profiles > Governance Plugin Project.",
+            "updated": 1630597669225
+        },
+        {
+            "style": "List",
+            "text": "Access the configuration of the Dummy profile and change the fileName property using the appropriate name (Github.com username). Replace the name of the node too, to avoid confusion later on."
+        },
+        {
+            "style": "List",
+            "text": "Save the Current Workspace with Ctrl + Alt + Shift + Key-S and refresh the page."
+        },
+        {
+            "style": "List",
+            "text": "Once the page reloads, you should see the new profile along with the rest! That's it!"
+        }
+    ]
+}

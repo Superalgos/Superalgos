@@ -1080,7 +1080,7 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Dummy",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Dummy\",\n    \"folderName\": \"User-Profiles\",\n    \"nodeType\": \"User Profile\",\n    \"saveWithWorkspace\": true\n}",
+                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Dummy\",\n    \"folderName\": \"User-Profiles\",\n    \"nodeType\": \"User Profile\",\n    \"saveWithWorkspace\": false\n}",
                                 "project": "Foundations",
                                 "id": "6e9df29f-58fc-4e30-9882-5a083c30fdbe",
                                 "savedPayload": {

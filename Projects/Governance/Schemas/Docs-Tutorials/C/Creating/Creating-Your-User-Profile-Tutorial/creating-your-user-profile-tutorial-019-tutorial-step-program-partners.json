@@ -3,8 +3,8 @@
     "pageNumber": 19,
     "type": "Tutorial Step - Program Partners",
     "definition": {
-        "text": "You have successfully created your profile! You are now set up to be able to participate in all the various Governance programs!\n",
-        "updated": 1629924832003,
+        "text": "You have successfully created your profile! You are now set up to participate in all the various Governance Programs!",
+        "updated": 1630606740196,
         "icon": {
             "name": "Programs\\onboarding-programs",
             "project": "Governance"
@@ -13,16 +13,13 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The onboarding programs are your first stop into the world of Superalgos governance. So let’s add them to your profile! ",
-            "updated": 1629925086766
-        },
-        {
-            "style": "Success",
-            "text": "Under your user profile you will find the Token Power Switch node."
+            "text": "The Onboarding Programs are your first stop into the world of Superalgos governance. So let’s add them to your profile!",
+            "updated": 1630600253110
         },
         {
             "style": "Callout",
-            "text": "On the Token Power Switch click Add Onboarding Programs."
+            "text": "Find the Token Power Switch node under the User Profile node and click <i>Add Onboarding Programs</i> on the menu.",
+            "updated": 1630606805313
         }
     ]
 }

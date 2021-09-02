@@ -3,8 +3,8 @@
     "pageNumber": 22,
     "type": "Tutorial Step - Make it Official",
     "definition": {
-        "text": "Now we are ready to push your new profile to the main Superalgos repository! ",
-        "updated": 1629583003718,
+        "text": "Now you're ready to push your new profile to the main Superalgos repository!",
+        "updated": 1630607221921,
         "icon": {
             "name": "Programs\\github-program",
             "project": "Governance"
@@ -12,14 +12,14 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "If you have gone through the welcome tutorials already, you should have set up your GitHub authentication and submitted a review. Submitting your profile will be exactly the same. Easy right!",
-            "updated": 1629583038275
+            "style": "Callout",
+            "text": "Set up you Github API credentials to get ready to contribute your profile!",
+            "updated": 1630603651524
         },
         {
             "style": "Warning",
-            "text": "If this sounds strange to you. Read the docs page open to the right and go through the steps to set up your GitHub authentication. Then come back here and we'll finish up!",
-            "updated": 1629583121545
+            "text": "If you don't know what I'm talking about, you may need a refresher on how to submit a contribution to Superalgos. Read these few steps taken from the Beyond the Basics Tutorial to remind you what the GitHub authentication process is like. Then come back here and we'll finish up!",
+            "updated": 1630604385835
         },
         {
             "style": "Text",

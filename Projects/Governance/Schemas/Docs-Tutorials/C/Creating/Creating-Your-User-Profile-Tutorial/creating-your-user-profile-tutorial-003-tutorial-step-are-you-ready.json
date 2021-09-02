@@ -1,7 +1,7 @@
 {
     "tutorial": "Creating Your User Profile Tutorial",
     "pageNumber": 3,
-    "type": "Tutorial Step - Make sure You’re Comfortable",
+    "type": "Tutorial Step - Are You Ready?",
     "definition": {
         "text": "Before you jump into governance, it’s important you know how Superalgos works!",
         "updated": 1629720525960,
@@ -18,8 +18,8 @@
         },
         {
             "style": "Callout",
-            "text": "If you haven't already, make sure you go through the Getting Started Tutorials before continuing!",
-            "updated": 1629720338031
+            "text": "Make sure you go through the tutorials in the Getting Started Tutorials Plugin Workspace before continuing if you haven't yet!",
+            "updated": 1630598529991
         },
         {
             "style": "Success",

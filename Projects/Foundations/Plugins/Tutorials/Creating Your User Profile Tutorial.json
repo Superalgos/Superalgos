@@ -1,7 +1,7 @@
 {
     "type": "Tutorial",
     "name": "Creating Your User Profile Tutorial",
-    "config": "{\n    \"icon\": {\n        \"name\": \"governance\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Better Together\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
+    "config": "{\"icon\":{\"name\":\"governance\",\"project\":\"Governance\"},\"position\":\"Center\",\"slider\":\"toTop\",\"pressButton\":\"\",\"docs\":{\"project\":\"Governance\",\"category\":\"Tutorial\",\"type\":\"Tutorial Step - Better Together\"},\"controlDocs\":{\"panel\":\"Open\",\"closeTutorialEditor\":true,\"page\":{\"project\":\"Foundations\",\"category\":\"\",\"type\":\"\"}},\"codeName\":\"Creating Your User Profile Tutorial\"}",
     "project": "Education",
     "tutorialSteps": [],
     "tutorialTopics": [
@@ -13,18 +13,18 @@
             "tutorialSteps": [
                 {
                     "type": "Tutorial Step",
-                    "name": "Make sure You’re Comfortable",
-                    "config": "{\n    \"icon\": {\n        \"name\": \"Pool\\\\pools\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Make sure You’re Comfortable\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
+                    "name": "Are You Ready?",
+                    "config": "{\n    \"icon\": {\n        \"name\": \"Pool\\\\pools\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Are You Ready?\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"Close\",\n        \"closeTutorialEditor\": true,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
                     "project": "Education",
                     "id": "7c13abc2-27e4-4fe6-afd8-14cbc0b65c7d",
                     "savedPayload": {
                         "position": {
-                            "x": 20273,
-                            "y": 30933.25
+                            "x": 17327,
+                            "y": 30922.25
                         },
                         "targetPosition": {
-                            "x": 19973,
-                            "y": 30933.25
+                            "x": 17027,
+                            "y": 30922.25
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -97,12 +97,12 @@
                     "id": "33321959-1eb0-494c-8df3-94b1e47efdb3",
                     "savedPayload": {
                         "position": {
-                            "x": 20180.438536534504,
-                            "y": 31099.451694843894
+                            "x": 17239.132034355964,
+                            "y": 31134.382034355964
                         },
                         "targetPosition": {
-                            "x": 19884.132034355964,
-                            "y": 31146.382034355964
+                            "x": 16939.132034355964,
+                            "y": 31134.382034355964
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -133,12 +133,12 @@
                     "id": "a13ac48c-5743-4794-85bd-bf0794d9e1a2",
                     "savedPayload": {
                         "position": {
-                            "x": 20151.433991612474,
-                            "y": 31282.579184277827
+                            "x": 17151.264068711927,
+                            "y": 31346.514068711927
                         },
                         "targetPosition": {
-                            "x": 19884.132034355964,
-                            "y": 31146.382034355964
+                            "x": 16939.132034355964,
+                            "y": 31134.382034355964
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -164,12 +164,12 @@
                     "id": "d9b824fd-a201-40b8-8a60-d0c516d9634b",
                     "savedPayload": {
                         "position": {
-                            "x": 20020.329184277827,
-                            "y": 31413.683991612474
+                            "x": 16939.132034355964,
+                            "y": 31434.382034355964
                         },
                         "targetPosition": {
-                            "x": 19884.132034355964,
-                            "y": 31146.382034355964
+                            "x": 16939.132034355964,
+                            "y": 31134.382034355964
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -208,74 +208,6 @@
                                 "Crypto Exchange",
                                 "Foundations",
                                 "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
-                            ]
-                        ]
-                    }
-                },
-                {
-                    "type": "Tutorial Step",
-                    "name": "A Worthy Contribution",
-                    "config": "{\n    \"icon\": {\n        \"name\": \"Programs\\\\referral-program\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - A Worthy Contribution\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
-                    "project": "Education",
-                    "id": "a0d50140-b862-4b7e-9bc6-ed055b34a0bd",
-                    "savedPayload": {
-                        "position": {
-                            "x": 19837.201694843894,
-                            "y": 31442.688536534504
-                        },
-                        "targetPosition": {
-                            "x": 19884.132034355964,
-                            "y": 31146.382034355964
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": false,
-                            "angleToParent": 2,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        },
-                        "tutorial": {
-                            "status": "Reset"
-                        },
-                        "referenceParent": {
-                            "type": "Market",
-                            "name": "BTC/USDT",
-                            "id": "9a867bf0-a71d-445c-b99a-75b60bbdce09"
-                        },
-                        "referenceParentCombinedNodePath": [
-                            [
-                                "My Crypto Ecosystem",
-                                "Crypto Ecosystem",
-                                "Foundations",
-                                "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
-                            ],
-                            [
-                                "Tested",
-                                "Crypto Exchanges",
-                                "Foundations",
-                                "e3879d63-6f8f-41a3-8ac3-0349c4361722"
-                            ],
-                            [
-                                "Binance",
-                                "Crypto Exchange",
-                                "Foundations",
-                                "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
-                            ],
-                            [
-                                "New Exchange Markets",
-                                "Exchange Markets",
-                                "Foundations",
-                                "2fd80894-900e-44ac-a1a7-56c14124f7a1"
-                            ],
-                            [
-                                "BTC/USDT",
-                                "Market",
-                                "Foundations",
-                                "9a867bf0-a71d-445c-b99a-75b60bbdce09"
                             ]
                         ]
                     }
@@ -869,12 +801,12 @@
                     "id": "18c61fe9-3cc1-4f88-9499-b873fbcb9db0",
                     "savedPayload": {
                         "position": {
-                            "x": 19459.867965644036,
-                            "y": 30422.117965644036
+                            "x": 16514.867965644036,
+                            "y": 30410.117965644036
                         },
                         "targetPosition": {
-                            "x": 19672,
-                            "y": 30634.25
+                            "x": 16727,
+                            "y": 30622.25
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -900,12 +832,12 @@
                     "id": "7c1c466e-a5a4-4e67-94cb-6dc9e040f89b",
                     "savedPayload": {
                         "position": {
-                            "x": 19672,
-                            "y": 30334.25
+                            "x": 16727,
+                            "y": 30322.25
                         },
                         "targetPosition": {
-                            "x": 19672,
-                            "y": 30634.25
+                            "x": 16727,
+                            "y": 30622.25
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -931,12 +863,12 @@
                     "id": "e580ebc9-097b-46d6-bb6d-145621548377",
                     "savedPayload": {
                         "position": {
-                            "x": 19884.132034355964,
-                            "y": 30422.117965644036
+                            "x": 16939.132034355964,
+                            "y": 30410.117965644036
                         },
                         "targetPosition": {
-                            "x": 19672,
-                            "y": 30634.25
+                            "x": 16727,
+                            "y": 30622.25
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -990,14 +922,45 @@
             "tutorialSteps": [
                 {
                     "type": "Tutorial Step",
+                    "name": "Save Your Profile!",
+                    "config": "{\n    \"icon\": {\n        \"name\": \"backup-entity\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Save Your Profile!\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
+                    "project": "Education",
+                    "id": "782adca5-f889-4a72-a1b2-7bd3c07c283f",
+                    "savedPayload": {
+                        "position": {
+                            "x": 16892.201694843894,
+                            "y": 30413.811463465496
+                        },
+                        "targetPosition": {
+                            "x": 16939.132034355964,
+                            "y": 30710.117965644036
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        },
+                        "tutorial": {
+                            "status": "Reset"
+                        }
+                    }
+                },
+                {
+                    "type": "Tutorial Step",
                     "name": "Make it Official",
                     "config": "{\n    \"icon\": {\n        \"name\": \"Programs\\\\github-program\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Make it Official\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"Tutorial\",\n            \"type\": \"Tutorial Step - GitHub.com Authentication\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
                     "project": "Education",
                     "id": "fe74b3ae-9490-465a-a491-db4b0834dbf7",
                     "savedPayload": {
                         "position": {
-                            "x": 16939.132034355964,
-                            "y": 30410.117965644036
+                            "x": 17075.329184277827,
+                            "y": 30442.816008387526
                         },
                         "targetPosition": {
                             "x": 16939.132034355964,
@@ -1024,20 +987,16 @@
                         },
                         "referenceParentCombinedNodePath": [
                             [
-                                "New Foundations Project",
-                                "Foundations Project"
-                            ],
-                            [
-                                "New Other Hierarchies",
-                                "Other Hierarchies"
-                            ],
-                            [
                                 "New APIs",
-                                "APIs"
+                                "APIs",
+                                "Foundations",
+                                "e4e1b5e1-c1f6-45da-af08-32464d5b17f9"
                             ],
                             [
                                 "New Github API",
-                                "Github API"
+                                "Github API",
+                                "Foundations",
+                                "48c9ca95-3cc0-43a8-a522-27e812979800"
                             ]
                         ]
                     }
@@ -1045,13 +1004,13 @@
                 {
                     "type": "Tutorial Step",
                     "name": "Infinity and Beyond",
-                    "config": "{\n    \"icon\": {\n        \"name\": \"User\\\\user-profile\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - To Infinity and Beyond\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": true,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
+                    "config": "{\n    \"icon\": {\n        \"name\": \"User\\\\user-profile\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - To Infinity and Beyond\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"Open\",\n        \"closeTutorialEditor\": true,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
                     "project": "Education",
                     "id": "e4c5a34f-67c4-4fdc-8c11-aef5bde92d72",
                     "savedPayload": {
                         "position": {
-                            "x": 17151.264068711927,
-                            "y": 30497.985931288073
+                            "x": 17206.433991612474,
+                            "y": 30573.920815722173
                         },
                         "targetPosition": {
                             "x": 16939.132034355964,
@@ -1076,13 +1035,13 @@
                 {
                     "type": "Tutorial Step",
                     "name": "Welcome aboard!",
-                    "config": "{\n    \"icon\": {\n        \"name\": \"Announcement\\\\announcement\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Welcome aboard!\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"Close\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
+                    "config": "{\n    \"icon\": {\n        \"name\": \"Announcement\\\\announcement\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Welcome aboard!\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"Close\",\n        \"closeTutorialEditor\": true,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
                     "project": "Education",
                     "id": "340f9107-9b4a-424b-94f2-79d65873c572",
                     "savedPayload": {
                         "position": {
-                            "x": 17239.132034355964,
-                            "y": 30710.117965644036
+                            "x": 17235.438536534504,
+                            "y": 30757.048305156106
                         },
                         "targetPosition": {
                             "x": 16939.132034355964,

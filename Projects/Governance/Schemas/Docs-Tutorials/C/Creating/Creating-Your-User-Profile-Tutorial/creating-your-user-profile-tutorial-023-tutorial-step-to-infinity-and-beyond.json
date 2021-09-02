@@ -3,8 +3,8 @@
     "pageNumber": 23,
     "type": "Tutorial Step - To Infinity and Beyond",
     "definition": {
-        "text": "If you have submitted a review then you are ready to go. We will be using the app.contribute command again to finish submitting your profile.",
-        "updated": 1629583914664,
+        "text": "Let's get rolling! We will be using the app.contribute command to submit your profile.",
+        "updated": 1630604507310,
         "icon": {
             "name": "User\\user-profile",
             "project": "Governance"
@@ -13,17 +13,18 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Go to the docs panel and type the following command into the search bar:",
-            "updated": 1629726858200
+            "text": "Copy the command making sure you replace the placeholder with your Github username, paste it in the search box, and click Enter.",
+            "updated": 1630604654229
         },
         {
             "style": "Json",
-            "text": "app.contribute This is my first submission of User Profile [add your name here]",
-            "updated": 1629726765903
+            "text": "app.contribute First submission of User Profile [add your name here]",
+            "updated": 1630604551655
         },
         {
             "style": "Text",
-            "text": "If everything is set up correctly you should see the message appear that your pull request has been submitted.  This means that your profile has been sent to the main Superalgos repository and will be automatically merged in just a few minutes!"
+            "text": "If everything is set up correctly, you should see a message stating that your pull request has been submitted. This means that your profile has been sent to the main Superalgos repository and will be automatically merged in just a few minutes!",
+            "updated": 1630604694599
         },
         {
             "style": "Text",

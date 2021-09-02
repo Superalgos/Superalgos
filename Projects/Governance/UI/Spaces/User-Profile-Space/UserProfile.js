@@ -16,11 +16,18 @@ function newGovernanceUserProfileSpace() {
 
     let waitingForResponses = 0
     const BSC_SCAN_RATE_LIMIT_DELAY = 6000
+    const DISTRIBUTION_PROCESS_RECALCULATION_DELAY = 5000
+    let intervalId
     let reputationByAddress = new Map()
 
     return thisObject
 
     function initialize() {
+        /*
+        Here we will run the distribution process, that in turn will run all the programs.
+        */
+        intervalId = setInterval(UI.projects.governance.functionLibraries.distributionProcess.calculate, DISTRIBUTION_PROCESS_RECALCULATION_DELAY)
+
         /*
         Here we will get a list of all github usernames who have a star or fork and are watching the
         Superalgos Repository. This will later be used to know which user profiles are participating
@@ -292,6 +299,9 @@ function newGovernanceUserProfileSpace() {
     }
 
     function finalize() {
+        clearInterval(intervalId)
+        intervalId = undefined
+
         thisObject.githubStars = undefined
         thisObject.githubWatchers = undefined
         thisObject.githubForks = undefined
@@ -319,10 +329,6 @@ function newGovernanceUserProfileSpace() {
 
     function physics() {
         if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
-        /*
-        Here we will run the distribution process, that in turn will run all the programs.
-        */
-        UI.projects.governance.functionLibraries.distributionProcess.calculate()
         /*
         Load the user profiles with Token Power.
         */

@@ -16,6 +16,18 @@
             "updated": 1630350813522
         },
         {
+            "style": "Subtitle",
+            "text": "Working on Multiple Workspaces"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Deep in Governance"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Computational Limitations 2"
+        },
+        {
             "style": "Block",
             "text": "Configuration"
         },

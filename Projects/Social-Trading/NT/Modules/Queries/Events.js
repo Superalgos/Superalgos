@@ -78,11 +78,9 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                 /*
                 The context is a User Profile
                 */
-                if (emitterUserProfile !== undefined) {
-                    if (emitterUserProfile.userProfileId === thisObject.profile.userProfileId) {
-                        addToResponse(event)
-                        return
-                    }
+                if (emitterUserProfile.userProfileId === thisObject.profile.userProfileId) {
+                    addToResponse(event)
+                    return
                 }
                 if (targetUserProfile !== undefined) {
                     if (targetUserProfile.userProfileId === thisObject.profile.userProfileId) {
@@ -107,7 +105,6 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                     }
                 }
             }
-
             /*
             Test #2 : The Emitter or Traget profile must be at the Following map of the Context Profile.
             */
@@ -115,11 +112,9 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                 /*
                 The context is a User Profile
                 */
-                if (emitterUserProfile !== undefined) {
-                    if (thisObject.profile.following.get(emitterUserProfile.userProfileId) !== undefined) {
-                        addToResponse(event)
-                        return
-                    }
+                if (thisObject.profile.following.get(emitterUserProfile.userProfileId) !== undefined) {
+                    addToResponse(event)
+                    return
                 }
                 if (targetUserProfile !== undefined) {
                     if (thisObject.profile.following.get(targetUserProfile.userProfileId) !== undefined) {

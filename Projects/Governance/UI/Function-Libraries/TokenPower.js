@@ -96,7 +96,10 @@ function newGovernanceFunctionLibraryTokenPower() {
         Before we start we will do some validations:
         */
         if (userProfile.tokenPowerSwitch === undefined) {
-            userProfile.payload.uiObject.setErrorMessage("You need to have a Token Power Switch child node.")
+            userProfile.payload.uiObject.setErrorMessage(
+                "You need to have a Token Power Switch child node.",
+                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                )
             return
         }
         distributeTokenPower(
@@ -119,7 +122,10 @@ function newGovernanceFunctionLibraryTokenPower() {
         Before we start we will do some validations:
         */
         if (userProfile.tokenPowerSwitch === undefined) {
-            userProfile.payload.uiObject.setErrorMessage("You need to have a Token Power Switch child node.")
+            userProfile.payload.uiObject.setErrorMessage(
+                "You need to have a Token Power Switch child node.",
+                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                )
             return
         }
         distributeTokenPower(
@@ -213,7 +219,10 @@ function newGovernanceFunctionLibraryTokenPower() {
                 }
             }
             if (totalPercentage > 100) {
-                node.payload.uiObject.setErrorMessage('Token Power Switching Error. Total Percentage of children nodes is grater that 100.')
+                node.payload.uiObject.setErrorMessage(
+                    'Token Power Switching Error. Total Percentage of children nodes is grater that 100.',
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                 return
             }
             let defaultPercentage = 0
@@ -287,7 +296,7 @@ function newGovernanceFunctionLibraryTokenPower() {
 
                 node.payload.uiObject.valueAngleOffset = 0
                 node.payload.uiObject.valueAtAngle = false
-                node.payload.uiObject.setStatus(ownPowerText + ' + ' + incomingPowerText)
+                node.payload.uiObject.setStatus(ownPowerText + ' + ' + incomingPowerText, UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
 
                 return
             }
@@ -297,12 +306,14 @@ function newGovernanceFunctionLibraryTokenPower() {
             node.payload.uiObject.valueAngleOffset = 180
             node.payload.uiObject.valueAtAngle = true
 
-            node.payload.uiObject.setValue(tokenPowerText)
+            node.payload.uiObject.setValue(tokenPowerText, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
             if (percentage !== undefined) {
                 node.payload.uiObject.percentageAngleOffset = 180
                 node.payload.uiObject.percentageAtAngle = true
-                node.payload.uiObject.setPercentage(percentage.toFixed(2))
+                node.payload.uiObject.setPercentage(percentage.toFixed(2),
+                UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
+                )
             }
         }
     }

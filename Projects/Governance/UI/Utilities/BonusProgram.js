@@ -101,8 +101,13 @@ function newGovernanceUtilitiesBonusProgram() {
                 userProfile.payload.blockchainTokens === undefined
             ) {
                 node.payload[programPropertyName].isActive = false
-                userProfile.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.")
+                userProfile.payload.uiObject.setErrorMessage(
+                    "Bonus Program: You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                 return
+            } else {
+                userProfile.payload.uiObject.resetErrorMessage()
             }
         }
 
@@ -135,7 +140,10 @@ function newGovernanceUtilitiesBonusProgram() {
             if (totalPowerRewardRatio < 1) { totalPowerRewardRatio = 1 }
 
             if (programNode.tokensBonus === undefined || programNode.tokensBonus.payload === undefined) {
-                programNode.payload.uiObject.setErrorMessage("Tokens Bonus Node is needed in order for this Program to get Tokens from the Bonus Program Pool.")
+                programNode.payload.uiObject.setErrorMessage(
+                    "Tokens Bonus Node is needed in order for this Program to get Tokens from the Bonus Program Pool.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                 return
             }
             programNode.payload[programPropertyName].bonus.tokens = programNode.payload[programPropertyName].bonusPower / totalPowerRewardRatio
@@ -152,7 +160,7 @@ function newGovernanceUtilitiesBonusProgram() {
                 node.tokensBonus.payload.uiObject.valueAngleOffset = 0
                 node.tokensBonus.payload.uiObject.valueAtAngle = true
 
-                node.tokensBonus.payload.uiObject.setValue(tokensBonusText + ' SA Tokens' + tokensAwardedBTC)
+                node.tokensBonus.payload.uiObject.setValue(tokensBonusText + ' SA Tokens' + tokensAwardedBTC, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
             }
         }
     }

@@ -106,10 +106,15 @@ function newGovernanceFunctionLibraryStakingProgram() {
                 userProfile.payload.blockchainTokens === undefined
             ) {
                 node.payload.stakingProgram.isActive = false
-                userProfile.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.")
+                userProfile.payload.uiObject.setErrorMessage(
+                    "Staking Program: You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                )
                 return
+            } else {
+                userProfile.payload.uiObject.resetErrorMessage()
+                node.payload.stakingProgram.isActive = true
             }
-            node.payload.stakingProgram.isActive = true
         }
 
         function distributeProgram(programNode) {
@@ -142,7 +147,10 @@ function newGovernanceFunctionLibraryStakingProgram() {
             if (totalPowerRewardRatio < 1) { totalPowerRewardRatio = 1 }
 
             if (programNode.tokensAwarded === undefined || programNode.tokensAwarded.payload === undefined) {
-                programNode.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.")
+                programNode.payload.uiObject.setErrorMessage(
+                    "Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                )
                 return
             }
             programNode.payload.stakingProgram.awarded.tokens = programNode.payload.stakingProgram.ownPower / totalPowerRewardRatio
@@ -158,7 +166,7 @@ function newGovernanceFunctionLibraryStakingProgram() {
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
 
-                node.payload.uiObject.setStatus(ownPowerText + ' Staking Power')
+                node.payload.uiObject.setStatus(ownPowerText + ' Staking Power', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
             }
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
@@ -168,7 +176,7 @@ function newGovernanceFunctionLibraryStakingProgram() {
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.valueAtAngle = false
 
-                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens' + tokensAwardedBTC)
+                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens' + tokensAwardedBTC, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
             }
         }
     }

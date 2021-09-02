@@ -168,8 +168,13 @@ function newGovernanceUtilitiesDecendentProgram() {
                 userProfile.payload.blockchainTokens === undefined
             ) {
                 node.payload[programPropertyName].isActive = false
-                userProfile.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.")
+                userProfile.payload.uiObject.setErrorMessage(
+                    "Decendent Program: You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                 return
+            } else {
+                userProfile.payload.uiObject.resetErrorMessage()
             }
             /*
             As per the system rules, the Program will not give tokens 
@@ -182,7 +187,10 @@ function newGovernanceUtilitiesDecendentProgram() {
                 (node[usersArrayPropertyName] === undefined || hasUsersDefined(node[usersArrayPropertyName]) === false)
             ) {
                 node.payload[programPropertyName].isActive = false
-                node.payload.uiObject.setErrorMessage("In order to enable this program you need to add " + userNodeType + " nodes and reference a User Profile from each one.")
+                node.payload.uiObject.setErrorMessage(
+                    "In order to enable this program you need to add " + userNodeType + " nodes and reference a User Profile from each one.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
             } else {
                 node.payload[programPropertyName].isActive = true
             }
@@ -282,7 +290,10 @@ function newGovernanceUtilitiesDecendentProgram() {
                                 }
                             }
                             if (totalPercentage > 100) {
-                                node.payload.uiObject.setErrorMessage('Program Power Switching Error. Total Percentage of children nodes is grater that 100.')
+                                node.payload.uiObject.setErrorMessage(
+                                    'Program Power Switching Error. Total Percentage of children nodes is grater that 100.',
+                                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                                    )
                                 return
                             }
                             let defaultPercentage = 0
@@ -371,7 +382,10 @@ function newGovernanceUtilitiesDecendentProgram() {
             if (totalPowerRewardRatio < 1) { totalPowerRewardRatio = 1 }
 
             if (programNode.tokensAwarded === undefined || programNode.tokensAwarded.payload === undefined) {
-                programNode.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.")
+                programNode.payload.uiObject.setErrorMessage(
+                    "Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                 return
             }
             programNode.payload[programPropertyName].awarded.tokens = programNode.payload[programPropertyName].incomingPower / totalPowerRewardRatio
@@ -387,17 +401,19 @@ function newGovernanceUtilitiesDecendentProgram() {
                 node.payload.uiObject.valueAngleOffset = 180
                 node.payload.uiObject.valueAtAngle = true
 
-                node.payload.uiObject.setValue(outgoingPowerText + ' ' + programPowerName)
+                node.payload.uiObject.setValue(outgoingPowerText + ' ' + programPowerName, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
                 node.payload.uiObject.percentageAngleOffset = 180
                 node.payload.uiObject.percentageAtAngle = true
 
-                node.payload.uiObject.setPercentage(percentage)
+                node.payload.uiObject.setPercentage(percentage,
+                    UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
+                    )
 
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = true
 
-                node.payload.uiObject.setStatus(outgoingPowerText + ' ' + ' Outgoing Power')
+                node.payload.uiObject.setStatus(outgoingPowerText + ' ' + ' Outgoing Power', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
             }
         }
 
@@ -410,7 +426,7 @@ function newGovernanceUtilitiesDecendentProgram() {
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
 
-                node.payload.uiObject.setStatus(ownPowerText + ' Own Power' + ' + ' + incomingPowerText + ' Incoming ' + programPowerName)
+                node.payload.uiObject.setStatus(ownPowerText + ' Own Power' + ' + ' + incomingPowerText + ' Incoming ' + programPowerName, UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
             }
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
@@ -422,8 +438,8 @@ function newGovernanceUtilitiesDecendentProgram() {
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.valueAtAngle = true
 
-                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens' + tokensAwardedBTC)
-                node.tokensAwarded.payload.uiObject.setStatus('From ' + node.payload[programPropertyName].count + ' Descendants.')
+                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens' + tokensAwardedBTC, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
+                node.tokensAwarded.payload.uiObject.setStatus('From ' + node.payload[programPropertyName].count + ' Descendants.', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
             }
         }
     }

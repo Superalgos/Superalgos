@@ -173,7 +173,7 @@ function newGovernanceFunctionLibraryTokens() {
             node.payload.uiObject.statusAngleOffset = 0
             node.payload.uiObject.statusAtAngle = true
 
-            node.payload.uiObject.setStatus(status)
+            node.payload.uiObject.setStatus(status, UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
         } else {
             status = 'Reward: '  + tokens.toLocaleString('en')
                 + ' ' + 'SA' + ' ≃ ' +  UI.projects.governance.utilities.conversions.estimateSATokensInBTC(tokens | 0) + '  BTC ' 
@@ -181,7 +181,7 @@ function newGovernanceFunctionLibraryTokens() {
             node.payload.uiObject.statusAngleOffset = 0
             node.payload.uiObject.statusAtAngle = false
 
-            node.payload.uiObject.setStatus(status)
+            node.payload.uiObject.setStatus(status, UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
         }
     }
 }

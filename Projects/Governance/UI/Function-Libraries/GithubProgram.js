@@ -106,8 +106,13 @@ function newGovernanceFunctionLibraryGithubProgram() {
                 userProfile.payload.blockchainTokens === undefined
             ) {
                 node.payload.githubProgram.isActive = false
-                userProfile.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.")
+                userProfile.payload.uiObject.setErrorMessage(
+                    "Github Program: You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                 return
+            } else {
+                userProfile.payload.uiObject.resetErrorMessage()
             }
             /*
             Next thing to do is to validate if the github user profile has a star at the Superalgos repository. 
@@ -117,7 +122,10 @@ function newGovernanceFunctionLibraryGithubProgram() {
                 profileSignature === undefined
             ) {
                 node.payload.githubProgram.isActive = false
-                userProfile.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, and produce a signature of your Github Username.")
+                userProfile.payload.uiObject.setErrorMessage(
+                    "You need to setup this profile with the Profile Constructor, and produce a signature of your Github Username.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                 return
             }
             let githubUsername = profileSignature.message
@@ -168,7 +176,10 @@ function newGovernanceFunctionLibraryGithubProgram() {
             if (totalPowerRewardRatio < 1) { totalPowerRewardRatio = 1 }
 
             if (programNode.tokensAwarded === undefined || programNode.tokensAwarded.payload === undefined) {
-                programNode.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.")
+                programNode.payload.uiObject.setErrorMessage(
+                    "Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                 return
             }
             const MAX_ENGAGEMENT = 3
@@ -185,7 +196,7 @@ function newGovernanceFunctionLibraryGithubProgram() {
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
 
-                node.payload.uiObject.setStatus(ownPowerText + ' Github Power')
+                node.payload.uiObject.setStatus(ownPowerText + ' Github Power', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
             }
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
@@ -195,7 +206,7 @@ function newGovernanceFunctionLibraryGithubProgram() {
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.valueAtAngle = false
 
-                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens' + tokensAwardedBTC)
+                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens' + tokensAwardedBTC, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
                 node.tokensAwarded.payload.uiObject.statusAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.statusAtAngle = false
@@ -211,7 +222,7 @@ function newGovernanceFunctionLibraryGithubProgram() {
                     extraText = extraText + ' + 1 Fork'
                 }
 
-                node.tokensAwarded.payload.uiObject.setStatus('From' + extraText)
+                node.tokensAwarded.payload.uiObject.setStatus('From' + extraText, UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
             }
         }
     }

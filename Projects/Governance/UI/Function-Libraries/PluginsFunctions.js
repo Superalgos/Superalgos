@@ -12,7 +12,10 @@ function newGovernanceFunctionLibraryPluginsFunctions() {
         let projectName = UI.projects.foundations.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
-                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                node.payload.parentNode.payload.uiObject.setErrorMessage(
+                    "Config codeName must have the name of the project.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                 return
             }
         }
@@ -28,7 +31,10 @@ function newGovernanceFunctionLibraryPluginsFunctions() {
         let projectName = UI.projects.foundations.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
-                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                node.payload.parentNode.payload.uiObject.setErrorMessage(
+                    "Config codeName must have the name of the project.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                 return
             }
         }
@@ -44,7 +50,10 @@ function newGovernanceFunctionLibraryPluginsFunctions() {
         let projectName = UI.projects.foundations.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
-                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                node.payload.parentNode.payload.uiObject.setErrorMessage(
+                    "Config codeName must have the name of the project.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                 return
             }
         }
@@ -60,7 +69,10 @@ function newGovernanceFunctionLibraryPluginsFunctions() {
         let projectName = UI.projects.foundations.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
-                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                node.payload.parentNode.payload.uiObject.setErrorMessage(
+                    "Config codeName must have the name of the project.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                 return
             }
         }
@@ -76,7 +88,10 @@ function newGovernanceFunctionLibraryPluginsFunctions() {
         let projectName = UI.projects.foundations.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
-                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                node.payload.parentNode.payload.uiObject.setErrorMessage(
+                    "Config codeName must have the name of the project.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                 return
             }
         }

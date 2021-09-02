@@ -211,7 +211,10 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                         }
                     }
                     if (totalPercentage > 100) {
-                        node.payload.uiObject.setErrorMessage('Delegate Power Switching Error. Total Percentage of children nodes is grater that 100.')
+                        node.payload.uiObject.setErrorMessage(
+                            'Delegate Power Switching Error. Total Percentage of children nodes is grater that 100.',
+                            UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                            )
                         return
                     }
                     let defaultPercentage = 0
@@ -278,7 +281,9 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                     drawProgram(node)
 
                     if (percentage !== undefined) {
-                        node.payload.uiObject.setPercentage(percentage.toFixed(2))
+                        node.payload.uiObject.setPercentage(percentage.toFixed(2),
+                        UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
+                        )
                     }
                     return
                 }
@@ -294,10 +299,12 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                     let powerType = 'Delegate Power'
 
                     const programPowerText = parseFloat(programPower.toFixed(0)).toLocaleString('en') + ' ' + powerType
-                    node.payload.uiObject.setValue(programPowerText)
+                    node.payload.uiObject.setValue(programPowerText, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
                     if (percentage !== undefined) {
-                        node.payload.uiObject.setPercentage(percentage.toFixed(2))
+                        node.payload.uiObject.setPercentage(percentage.toFixed(2),
+                        UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
+                        )
                     }
                 }
             }
@@ -310,18 +317,20 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                     node.payload.uiObject.valueAngleOffset = 180
                     node.payload.uiObject.valueAtAngle = true
 
-                    node.payload.uiObject.setValue(outgoingPowerText + ' Delegate Power')
+                    node.payload.uiObject.setValue(outgoingPowerText + ' Delegate Power', UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
                     node.payload.uiObject.percentageAngleOffset = 180
                     node.payload.uiObject.percentageAtAngle = true
 
-                    node.payload.uiObject.setPercentage(percentage)
+                    node.payload.uiObject.setPercentage(percentage,
+                        UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
+                        )
 
                     if (node.payload.referenceParent !== undefined) {
                         node.payload.uiObject.statusAngleOffset = 0
                         node.payload.uiObject.statusAtAngle = true
 
-                        node.payload.uiObject.setStatus(outgoingPowerText + ' ' + ' Outgoing Power')
+                        node.payload.uiObject.setStatus(outgoingPowerText + ' ' + ' Outgoing Power', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
                     }
                 }
             }
@@ -334,7 +343,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                     node.payload.uiObject.statusAngleOffset = 0
                     node.payload.uiObject.statusAtAngle = false
 
-                    node.payload.uiObject.setStatus(ownPowerText + ' Delegate Power')
+                    node.payload.uiObject.setStatus(ownPowerText + ' Delegate Power', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
                 }
             }
         }

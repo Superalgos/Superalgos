@@ -12,7 +12,10 @@ function newGovernanceUtilitiesValidations () {
         let programs = UI.projects.foundations.utilities.branches.nodeBranchToArray(userProfile, programNodeType)
         if (programs !== undefined) {
             if (programs.length > 1) {
-                userProfile.payload.uiObject.setErrorMessage('Only one ' + programNodeType + ' is allowed.')
+                userProfile.payload.uiObject.setErrorMessage(
+                    'Only one ' + programNodeType + ' is allowed.',
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                 return
             }
             if (programs.length === 1) {

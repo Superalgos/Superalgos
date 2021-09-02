@@ -1,0 +1,90 @@
+{
+    "topic": "User Profile",
+    "pageNumber": 11,
+    "type": "The Claims Program",
+    "definition": {
+        "text": "Tell us what you've done for the project and how we should reward you!",
+        "updated": 1630495910859
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Node->Claims Program->Definition",
+            "updated": 1624734390960
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Claims Program->Content"
+        },
+        {
+            "style": "Title",
+            "text": "Three Types of Claim Folders",
+            "updated": 1630496493305
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Claims Folder->Content",
+            "updated": 1630496432492
+        },
+        {
+            "style": "Subtitle",
+            "text": "Asset Claims Folder",
+            "updated": 1630496355821
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Asset Claims Folder->Definition"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Feature Claims Folder",
+            "updated": 1630496368526
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Feature Claims Folder->Definition"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Position Claims Folder"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Position Claims Folder->Definition"
+        },
+        {
+            "style": "Title",
+            "text": "Three Types of Contribution Claims",
+            "updated": 1630496650088
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Claims Content",
+            "updated": 1630496784756
+        },
+        {
+            "style": "Subtitle",
+            "text": "Asset Contribution Claim"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Asset Contribution Claim->Definition"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Feature Contribution Claim"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Feature Contribution Claim->Definition"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Position Contribution Claim"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Position Contribution Claim->Definition"
+        }
+    ]
+}

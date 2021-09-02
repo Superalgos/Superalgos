@@ -1,6 +1,6 @@
 {
     "topic": "User Profile",
-    "pageNumber": "1",
+    "pageNumber": 1,
     "type": "Building Your Profile",
     "definition": {
         "text": "Building your User Profile involves linking your Governance Address to your identity in Github.com, using the Profile Constructor. ",
@@ -47,7 +47,7 @@
         {
             "style": "Text",
             "text": "You may start with the Token Distribution Superalgos Plugin Workspace so that you may later interact with the top-level Superalgos Project definitions.",
-            "updated": 1630067911494
+            "updated": 1630435453964
         },
         {
             "style": "Subtitle",
@@ -151,7 +151,7 @@
             "updated": 1630083527720
         },
         {
-            "style": "Text",
+            "style": "Note",
             "text": "If you used a mnemonic to authenticate an existing address, you may safely disregard what comes next.",
             "updated": 1630083542691
         },
@@ -195,7 +195,8 @@
         },
         {
             "style": "Text",
-            "text": "This step is not required for interacting with governance, however, we’ll cover it as you most likely will want to do it at some point, and it is recommended anyway, even if not strictly necessary."
+            "text": "This step is not required for interacting with governance, however, we’ll cover it as you will, most likely, want to do it at some point, and it is recommended anyway, even if not strictly necessary.",
+            "updated": 1630435748864
         },
         {
             "style": "Note",

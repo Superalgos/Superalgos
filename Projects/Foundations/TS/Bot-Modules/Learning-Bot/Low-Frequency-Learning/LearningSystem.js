@@ -115,8 +115,8 @@ exports.newFoundationsBotModulesLearningSystem = function (processIndex) {
         We will scan the project schema until we find the machine learning library
         defined by the user at the UI.
         */
-        for (let i = 0; i < TS.projects.foundations.globals.taskConstants.PROJECTS_SCHEMA.length; i++) {
-            let projectSchemaProject = TS.projects.foundations.globals.taskConstants.PROJECTS_SCHEMA[i]
+        for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+            let projectSchemaProject = PROJECTS_SCHEMA[i]
             if (projectSchemaProject.name !== machineLearningLibrary.project) { continue }
 
             for (let j = 0; j < projectSchemaProject.TS.botModules.length; j++) {

@@ -121,6 +121,8 @@ function newCanvas() {
                 let spaceAnimationDrawMap = new Map()
                 let spaceDefinitionDrawMap = new Map()
 
+                if (projectDefinition.UI === undefined) { continue }
+
                 /* Set up Globals of this Project */
                 if (projectDefinition.UI.globals !== undefined) {
                     for (let j = 0; j < projectDefinition.UI.globals.length; j++) {
@@ -742,6 +744,8 @@ function newCanvas() {
                 let projectInstance = UI.projects[projectDefinition.propertyName]
                 if (projectInstance === undefined) { continue }
 
+                if (projectDefinition.UI === undefined) { continue }
+                if (projectDefinition.UI.spaces === undefined) { continue }
                 for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
                     let spaceInstance = projectInstance.events.onMouseDownMap.get(j)
                     if (spaceInstance === undefined) { continue }
@@ -850,6 +854,8 @@ function newCanvas() {
                 let projectInstance = UI.projects[projectDefinition.propertyName]
                 if (projectInstance === undefined) { continue }
 
+                if (projectDefinition.UI === undefined) { continue }
+                if (projectDefinition.UI.spaces === undefined) { continue }
                 for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
                     let spaceInstance = projectInstance.events.onMouseClickMap.get(j)
                     if (spaceInstance === undefined) { continue }
@@ -966,6 +972,8 @@ function newCanvas() {
                 let projectInstance = UI.projects[projectDefinition.propertyName]
                 if (projectInstance === undefined) { continue }
 
+                if (projectDefinition.UI === undefined) { continue }
+                if (projectDefinition.UI.spaces === undefined) { continue }
                 for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
                     let spaceInstance = projectInstance.events.onMouseOverMap.get(j)
                     if (spaceInstance === undefined) { continue }
@@ -1028,6 +1036,8 @@ function newCanvas() {
                 let projectInstance = UI.projects[projectDefinition.propertyName]
                 if (projectInstance === undefined) { continue }
 
+                if (projectDefinition.UI === undefined) { continue }
+                if (projectDefinition.UI.spaces === undefined) { continue }
                 for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
                     let spaceInstance = projectInstance.events.onMouseWheelMap.get(j)
                     if (spaceInstance === undefined) { continue }

@@ -1,0 +1,115 @@
+{
+    "topic": "Governance Flow",
+    "pageNumber": "3",
+    "type": "How Claims are Resolved",
+    "definition": {
+        "text": "These three concepts, Claim Power, Claim Votes, and Token Rewards are intimately related and make up the logic of the token distribution among Contributors.",
+        "updated": 1630518244395
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Dealing With Claim Power",
+            "updated": 1630518680345
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Claim Power->Content"
+        },
+        {
+            "style": "Text",
+            "text": "You control the flow of your Claim Power so that the appropriate value reaches the node with which you wish to present a claim. That is, you present claims for a specific number of tokens, determined by the Claim Power that reaches the corresponding claim node.",
+            "updated": 1630518610936
+        },
+        {
+            "style": "Text",
+            "text": "You already know that the Token Rewards in a definition node — a Position, Feature, or Asset node — determines how many tokens are available to incentivize the production and/or maintenance of the concept represented by the node.",
+            "updated": 1630518717152
+        },
+        {
+            "style": "Callout",
+            "text": "When you place a claim on a definition node, you are declaring that you wish the Community to reward you with the number of tokens in your claim (Claim Power) for the work done on the concept embodied by the corresponding definition node."
+        },
+        {
+            "style": "Text",
+            "text": "Many different scenarios may arise up to this point. "
+        },
+        {
+            "style": "Text",
+            "text": "For example:"
+        },
+        {
+            "style": "List",
+            "text": "Your claim may have Claim Power equal, smaller, or greater than the Token Rewards available in the node.",
+            "updated": 1630518355289
+        },
+        {
+            "style": "List",
+            "text": "Your claim may be the only claim in the node, or there may be other claims too."
+        },
+        {
+            "style": "List",
+            "text": "The total Claim Power in all existing claims may be equal, smaller, or greater than the Token Rewards available in the node."
+        },
+        {
+            "style": "Text",
+            "text": "And that is not all! On top of the above scenarios, we need to account for Claim Votes!"
+        },
+        {
+            "style": "Title",
+            "text": "Adding Claim Votes in the Mix"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Claim Votes->Content",
+            "updated": 1624781853443
+        },
+        {
+            "style": "Text",
+            "text": "The flow of Claim Support Power into Claim Votes follows the same principles as the rest of the power flows in the Voting Program. This means that Claim Votes have a specific Claim Support Power, pretty much like claims have a specific Claim Power.",
+            "updated": 1630518813163
+        },
+        {
+            "style": "Note",
+            "text": "In other words, when you vote on someone’s claim, you don’t necessarily vote for the entirety of the claim. Your vote carries a specific Claim Support Power that may be equal, lesser, or greater than the Claim Power in the claim!",
+            "updated": 1630518516835
+        },
+        {
+            "style": "Text",
+            "text": "In addition, more Contributors may vote for the same claim!",
+            "updated": 1630518549067
+        },
+        {
+            "style": "Title",
+            "text": "The Rules"
+        },
+        {
+            "style": "Text",
+            "text": "As you can see, the variables and possible scenarios are many. Let’s lay out the general rules that guide the calculation of what Token Rewards go to what claims."
+        },
+        {
+            "style": "List",
+            "text": "The Token Rewards available in a node determines the maximum number of tokens that may be distributed through that node. In no case shall the system distribute more tokens than what the Token Rewards value indicates. In other words, the Community decides what is the maximum number of tokens to be distributed through any given node with their Weight Votes."
+        },
+        {
+            "style": "List",
+            "text": "The maximum Token Rewards allocated to a claim is determined by the Token Rewards available in the node, the Claim Power associated with the claim, or the sum of the Claim Support Power of all Claim Votes associated with the claim, whichever is smaller.",
+            "updated": 1630518958930
+        },
+        {
+            "style": "List",
+            "text": "When the sum of Claim Support Power of all Claim Votes associated with a claim is lesser than the Claim Power of the claim, the claim is not paid in full. The Token Rewards is capped by the total Claim Support Power of all Claim Votes. In other words, claims are paid up to the amount the Community decides with their Claim Votes.",
+            "updated": 1630519002556
+        },
+        {
+            "style": "List",
+            "text": "When Token Rewards are enough to pay all claims, then each claim is paid in full, as expected. In more precise, albeit complex terms, when Token Rewards are greater than the sum of Claim Support Power for any given number of claims, or the sum of Claim Power for any given number of claims, whichever is lesser, each claim gets the Token Rewards equal to its Claim Power or equal to the Claim Support Power of associated Claim Votes, whichever is lesser.",
+            "updated": 1630519057866
+        },
+        {
+            "style": "List",
+            "text": "When Token Rewards are NOT enough to pay all claims, an adjustment must be made to pay a fair proportion to each claim, without exceeding the Token Rewards available. In such a case, each claim is reduced in proportion to the amount in which claims exceed the Token Rewards. For example, if the sum of all claims exceeds the Token Rewards by 10%, then each claim is reduced by 10%.",
+            "updated": 1630519090138
+        }
+    ]
+}

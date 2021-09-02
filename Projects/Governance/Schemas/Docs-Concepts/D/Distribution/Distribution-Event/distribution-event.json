@@ -1,8 +1,8 @@
 {
     "type": "Distribution Event",
     "definition": {
-        "text": "The Superalgos Project distributes its native Superalgos SA Tokens after each release to compensate contributions and incentivize desirable behaviors. The Distribution Event represents the moment in time and the act of running the process that distributes tokens from the Treasury Account to the Governance Address associated with each User Profile that participates in governance.",
-        "updated": 1630234849482
+        "text": "The Superalgos Project distributes its native Superalgos SA Tokens after each release to reward contributions and incentivize desirable behaviors. The Distribution Event represents the moment in time and the act of running the process that distributes tokens from the Treasury Account to the Governance Address associated with each User Profile that participates in governance.",
+        "updated": 1630570602251
     },
     "paragraphs": [
         {

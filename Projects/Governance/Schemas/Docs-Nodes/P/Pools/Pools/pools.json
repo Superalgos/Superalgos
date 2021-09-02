@@ -29,7 +29,7 @@
         },
         {
             "style": "Text",
-            "text": "In addition, there is a third resource characteristic to the Pool Hierarchy. Each Pool may reference a separate Pools hierarchy so that the definitions may continue on a separate hierarchy, which may be included as a plugin in the same or in separate Governance Plugin Workspaces.",
+            "text": "In addition, there is a third resource characteristic to the Pool Hierarchy. Each Pool may reference a separate Pools hierarchy so that the definitions may continue on a separate hierarchy, which may be included as a plugin in the same or in separate Governance Workspaces.",
             "updated": 1630426515819
         },
         {

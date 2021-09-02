@@ -1,0 +1,102 @@
+{
+    "topic": "Governance Workspaces",
+    "pageNumber": "3",
+    "type": "Other Governance Workspaces",
+    "definition": {
+        "text": "All project-specific Governance Workspaces have a similar layout, as different projects usually have the same kinds of Assets, Features, Positions, and Pools.",
+        "updated": 1630580086379
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "User Profiles",
+            "updated": 1630580093825
+        },
+        {
+            "style": "List",
+            "text": "Core Team members only, to keep the workspaces light."
+        },
+        {
+            "style": "Title",
+            "text": "Scope of Definitions"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Pools"
+        },
+        {
+            "style": "List",
+            "text": "Superalgos Pools hierarchy (present in all Governance Workspaces for usability reasons)."
+        },
+        {
+            "style": "List",
+            "text": "A project-specific Pools hierarchy (for instance, Foundation-Project or Education-Project) defining pools for the main areas of the software, including pools for assets, features, positions, bug fixes, and improvements.",
+            "updated": 1630580570265
+        },
+        {
+            "style": "List",
+            "text": "A project-specific Pools hierarchy for assets (for instance, Foundations-Project-Assets or Education-Project-Assets), providing a more granular definition of various pools for several categories of assets, such as user interface, task server, app schemas, custom code, education, multi media,, and plugins.",
+            "updated": 1630581068210
+        },
+        {
+            "style": "Subtitle",
+            "text": "Positions"
+        },
+        {
+            "style": "List",
+            "text": "A project-specific Positions hierarchy (for instance Foundation-Project or Education-Project) defining positions such as the project's lead developer or bug hunters."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Features"
+        },
+        {
+            "style": "List",
+            "text": "A project-specific Features hierarchy (for instance, Foundation-Project or Education-Project) usually defining project-specific features."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Assets"
+        },
+        {
+            "style": "Text",
+            "text": "Several project-specific Assets hierarchies defining multiple catetories of assets, such as:"
+        },
+        {
+            "style": "List",
+            "text": "Client,"
+        },
+        {
+            "style": "List",
+            "text": "UI,"
+        },
+        {
+            "style": "List",
+            "text": "TS,"
+        },
+        {
+            "style": "List",
+            "text": "Plugins,",
+            "updated": 1630581417046
+        },
+        {
+            "style": "List",
+            "text": "Images,",
+            "updated": 1630581424128
+        },
+        {
+            "style": "List",
+            "text": "Docs,",
+            "updated": 1630581447409
+        },
+        {
+            "style": "List",
+            "text": "App Schemas,"
+        },
+        {
+            "style": "List",
+            "text": "Custom Code",
+            "updated": 1630581460500
+        }
+    ]
+}

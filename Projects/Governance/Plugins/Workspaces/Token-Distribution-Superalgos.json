@@ -611,36 +611,8 @@
                                 "id": "4f900690-970b-4d38-832c-273b0fd3ce1a",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 36872.48254631386,
-                                        "y": 11097.813810533471
-                                    },
-                                    "targetPosition": {
-                                        "x": 36598.41890902108,
-                                        "y": 10975.79281761073
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Plugin File",
-                                "name": "Governance Program Walk Through Tutorial",
-                                "config": "{\"project\":\"Foundations\",\"fileName\":\"Governance Program Walk Through Tutorial\",\"folderName\":\"Tutorials\",\"nodeType\":\"Tutorial\",\"saveWithWorkspace\":false}",
-                                "project": "Foundations",
-                                "id": "aead03f0-635b-4629-8696-0d0352c349de",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 36629.777448001376,
-                                        "y": 11274.149386221212
+                                        "x": 36774.75448470882,
+                                        "y": 11218.497915923215
                                     },
                                     "targetPosition": {
                                         "x": 36598.41890902108,
@@ -1719,7 +1691,7 @@
             "githubAPI": {
                 "type": "Github API",
                 "name": "New Github API",
-                "config": "{\n    \"username\": \"\",\n    \"token\": \"\"\n}",
+                "config": "{\n    \"username\": \"\",\n    \"token\": \"\"\n}\n",
                 "project": "Foundations",
                 "id": "48c9ca95-3cc0-43a8-a522-27e812979800",
                 "savedPayload": {

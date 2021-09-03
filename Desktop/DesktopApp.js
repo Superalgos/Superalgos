@@ -41,8 +41,36 @@ exports.newDesktopApp = function newDesktopApp() {
             .then(showProfiles)
             .catch(onError)
 
-        function showProfiles(profiles) {
+        async function showProfiles(profiles) {
             console.log(profiles)
+
+            for (let i = 0; i < profiles.length; i++) {
+                let profile = profiles[i]
+
+                /*
+                Test Following Profiles.
+                */
+                let eventMessage = {
+                    eventType: SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE,
+                    emitterUserProfileId: DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID,
+                    targetUserProfileId: profile.userProfileId
+                }
+
+                let event = {
+                    requestType: 'Event',
+                    eventMessage: JSON.stringify(eventMessage)
+                }
+
+                await DK.webSocketsClient.sendMessage(
+                    JSON.stringify(event)
+                )
+                    .then(followAdded)
+                    .catch(onError)
+
+                function followAdded() {
+                    console.log("User Profile " + profile.userProfileHandle + " followed.")
+                }
+            }
         }
         /*
         Test Query User Profile Stats.

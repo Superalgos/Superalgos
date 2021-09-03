@@ -1439,6 +1439,12 @@
                     "propertyName": "queryTypes",
                     "functionName": "newSocialTradingGlobalsQueryTypes",
                     "fileName": "QueryTypes.js"
+                },
+                {
+                    "name": "Event Types",
+                    "propertyName": "eventTypes",
+                    "functionName": "newSocialTradingGlobalsEventTypes",
+                    "fileName": "EventTypes.js"
                 }
             ]
         }

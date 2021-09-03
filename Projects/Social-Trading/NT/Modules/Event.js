@@ -29,46 +29,6 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
         finalize: finalize
     }
 
-    const EVENT_TYPES = {
-        /* Users Posts and Following Events */
-        NEW_USER_POST: 10,
-        REPLY_TO_USER_POST: 11,
-        REPOST_USER_POST: 12,
-        QUOTE_REPOST_USER_POST: 13,
-        REMOVE_USER_POST: 14,
-        FOLLOW_USER_PROFILE: 15,
-        UNFOLLOW_USER_PROFILE: 16,
-        /* Bots Posts and Following Events */
-        NEW_BOT_POST: 20,
-        REPLY_TO_BOT_POST: 21,
-        REPOST_BOT_POST: 22,
-        QUOTE_REPOST_BOT_POST: 23,
-        REMOVE_BOT_POST: 24,
-        FOLLOW_BOT_PROFILE: 25,
-        UNFOLLOW_BOT_PROFILE: 26,
-        /* Bots Management Events */
-        ADD_BOT: 50,
-        REMOVE_BOT: 51,
-        ENABLE_BOT: 52,
-        DISABLE_BOT: 53,
-        /* Add Reaction to Posts Events */
-        ADD_REACTION_LIKE: 100,
-        ADD_REACTION_LOVE: 101,
-        ADD_REACTION_HAHA: 102,
-        ADD_REACTION_WOW: 103,
-        ADD_REACTION_SAD: 104,
-        ADD_REACTION_ANGRY: 105,
-        ADD_REACTION_CARE: 106,
-        /* Remove Reaction to Posts Events */
-        REMOVE_REACTION_LIKE: 200,
-        REMOVE_REACTION_LOVE: 201,
-        REMOVE_REACTION_HAHA: 202,
-        REMOVE_REACTION_WOW: 203,
-        REMOVE_REACTION_SAD: 204,
-        REMOVE_REACTION_ANGRY: 205,
-        REMOVE_REACTION_CARE: 206
-    }
-
     return thisObject
 
     function finalize() {
@@ -101,7 +61,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
         /*
         Validate Emitter User Profile.
         */
-        if (emitterUserProfileId === undefined) {
+        if (thisObject.emitterUserProfileId === undefined) {
             throw ('Emitter User Profile Id Not Provided.')
         }
         emitterUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(thisObject.emitterUserProfileId)
@@ -120,8 +80,8 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
         /*
         Validate Emitter Bot Profile.
         */
-        if (emitterBotProfileId !== undefined) {
-            emitterBotProfile = emitterUserProfile.bots.get(emitterBotProfileId)
+        if (thisObject.emitterBotProfileId !== undefined) {
+            emitterBotProfile = emitterUserProfile.bots.get(thisObject.emitterBotProfileId)
             if (emitterBotProfile === undefined) {
                 throw ('Emitter Bot Profile Not Found.')
             }
@@ -129,8 +89,8 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
         /*
         Validate Target Bot Profile.
         */
-        if (targetBotProfileId !== undefined) {
-            targetBotProfile = emitterUserProfile.bots.get(targetBotProfileId)
+        if (thisObject.targetBotProfileId !== undefined) {
+            targetBotProfile = emitterUserProfile.bots.get(thisObject.targetBotProfileId)
             if (targetBotProfile === undefined) {
                 throw ('Target Bot Profile Not Found.')
             }
@@ -147,23 +107,23 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
             Is is related to Posting?
             */
             if (
-                thisObject.eventType === EVENT_TYPES.NEW_USER_POST ||
-                thisObject.eventType === EVENT_TYPES.REPLY_TO_USER_POST ||
-                thisObject.eventType === EVENT_TYPES.REPOST_USER_POST ||
-                thisObject.eventType === EVENT_TYPES.QUOTE_REPOST_USER_POST ||
-                thisObject.eventType === EVENT_TYPES.NEW_BOT_POST ||
-                thisObject.eventType === EVENT_TYPES.REPLY_TO_BOT_POST ||
-                thisObject.eventType === EVENT_TYPES.REPOST_BOT_POST ||
-                thisObject.eventType === EVENT_TYPES.QUOTE_REPOST_BOT_POST
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_USER_POST ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REPOST_USER_POST ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_USER_POST ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_BOT_POST ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_BOT_POST ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REPOST_BOT_POST ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_BOT_POST
             ) {
                 /*
                 New User Post
                 */
                 if (
-                    thisObject.eventType === EVENT_TYPES.NEW_USER_POST ||
-                    thisObject.eventType === EVENT_TYPES.REPLY_TO_USER_POST ||
-                    thisObject.eventType === EVENT_TYPES.REPOST_USER_POST ||
-                    thisObject.eventType === EVENT_TYPES.QUOTE_REPOST_USER_POST
+                    thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST ||
+                    thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_USER_POST ||
+                    thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REPOST_USER_POST ||
+                    thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_USER_POST
                 ) {
                     emitterUserProfile.addPost(
                         thisObject.emitterUserProfileId,
@@ -181,10 +141,10 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                 New Bot Post
                 */
                 if (
-                    thisObject.eventType === EVENT_TYPES.NEW_BOT_POST ||
-                    thisObject.eventType === EVENT_TYPES.REPLY_TO_BOT_POST ||
-                    thisObject.eventType === EVENT_TYPES.REPOST_BOT_POST ||
-                    thisObject.eventType === EVENT_TYPES.QUOTE_REPOST_BOT_POST
+                    thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_BOT_POST ||
+                    thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_BOT_POST ||
+                    thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REPOST_BOT_POST ||
+                    thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_BOT_POST
                 ) {
                     if (emitterBotProfile === undefined) {
                         throw ('Emitter Bot Profile Id Not Provided.')
@@ -206,7 +166,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                 Remove User Post
                 */
                 if (
-                    thisObject.eventType === EVENT_TYPES.REMOVE_USER_POST
+                    thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_USER_POST
                 ) {
                     emitterUserProfile.removePost(
                         thisObject.emitterPostHash
@@ -217,7 +177,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                 Remove Bot Post
                 */
                 if (
-                    thisObject.eventType === EVENT_TYPES.REMOVE_BOT_POST
+                    thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_BOT_POST
                 ) {
                     if (emitterBotProfile === undefined) {
                         throw ('Emitter Bot Profile Id Not Provided.')
@@ -236,13 +196,13 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
             Is is a following?
             */
             if (
-                thisObject.eventType === EVENT_TYPES.FOLLOW_USER_PROFILE ||
-                thisObject.eventType === EVENT_TYPES.UNFOLLOW_USER_PROFILE ||
-                thisObject.eventType === EVENT_TYPES.FOLLOW_BOT_PROFILE ||
-                thisObject.eventType === EVENT_TYPES.UNFOLLOW_BOT_PROFILE
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.UNFOLLOW_USER_PROFILE ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.FOLLOW_BOT_PROFILE ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.UNFOLLOW_BOT_PROFILE
             ) {
                 switch (thisObject.eventType) {
-                    case EVENT_TYPES.FOLLOW_USER_PROFILE: {
+                    case SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE: {
 
                         if (thisObject.emitterUserProfileId === undefined) {
                             throw ('Emitter User Profile Id Not Provided.')
@@ -253,14 +213,14 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                         }
 
                         emitterUserProfile.addFollowing(
-                            targetUserProfileId
+                            thisObject.targetUserProfileId
                         )
                         targetUserProfile.addFollower(
-                            emitterUserProfileId
+                            thisObject.emitterUserProfileId
                         )
                         break
                     }
-                    case EVENT_TYPES.UNFOLLOW_USER_PROFILE: {
+                    case SA.projects.socialTrading.globals.eventTypes.UNFOLLOW_USER_PROFILE: {
 
                         if (thisObject.emitterUserProfileId === undefined) {
                             throw ('Emitter User Profile Id Not Provided.')
@@ -271,14 +231,14 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                         }
 
                         emitterUserProfile.removeFollowing(
-                            targetUserProfileId
+                            thisObject.targetUserProfileId
                         )
                         targetUserProfile.removeFollower(
-                            emitterUserProfileId
+                            thisObject.emitterUserProfileId
                         )
                         break
                     }
-                    case EVENT_TYPES.FOLLOW_BOT_PROFILE: {
+                    case SA.projects.socialTrading.globals.eventTypes.FOLLOW_BOT_PROFILE: {
 
                         if (thisObject.emitterBotProfileId === undefined) {
                             throw ('Emitter Bot Profile Id Not Provided.')
@@ -289,16 +249,16 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                         }
 
                         emitterBotProfile.addFollowing(
-                            targetUserProfileId,
-                            targetBotProfileId
+                            thisObject.targetUserProfileId,
+                            thisObject.targetBotProfileId
                         )
                         targetBotProfile.addFollower(
-                            emitterUserProfileId,
-                            emitterBotProfileId
+                            thisObject.emitterUserProfileId,
+                            thisObject.emitterBotProfileId
                         )
                         break
                     }
-                    case EVENT_TYPES.UNFOLLOW_BOT_PROFILE: {
+                    case SA.projects.socialTrading.globals.eventTypes.UNFOLLOW_BOT_PROFILE: {
 
                         if (thisObject.emitterBotProfileId === undefined) {
                             throw ('Emitter Bot Profile Id Not Provided.')
@@ -309,10 +269,10 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                         }
 
                         emitterBotProfile.removeFollowing(
-                            targetBotProfileId
+                            thisObject.targetBotProfileId
                         )
                         targetBotProfile.removeFollower(
-                            emitterBotProfileId
+                            thisObject.emitterBotProfileId
                         )
                         break
                     }
@@ -327,37 +287,49 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
             */
             let targetPost
 
-            if (targetBotProfile !== undefined) {
-                targetPost = targetBotProfile.posts.get(thisObject.targetPostHash)
-            } else {
-                targetPost = targetUserProfile.posts.get(thisObject.targetPostHash)
-            }
-
-            if (targetPost === undefined) {
-                throw ('Target Post Not Found')
-            }
-
             if (
-                thisObject.eventType === EVENT_TYPES.ADD_REACTION_LIKE ||
-                thisObject.eventType === EVENT_TYPES.ADD_REACTION_LOVE ||
-                thisObject.eventType === EVENT_TYPES.ADD_REACTION_HAHA ||
-                thisObject.eventType === EVENT_TYPES.ADD_REACTION_WOW ||
-                thisObject.eventType === EVENT_TYPES.ADD_REACTION_SAD ||
-                thisObject.eventType === EVENT_TYPES.ADD_REACTION_ANGRY ||
-                thisObject.eventType === EVENT_TYPES.ADD_REACTION_CARE
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_LIKE ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_LOVE ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_HAHA ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_WOW ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_SAD ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_ANGRY ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_CARE
             ) {
+
+                if (targetBotProfile !== undefined) {
+                    targetPost = targetBotProfile.posts.get(thisObject.targetPostHash)
+                } else {
+                    targetPost = targetUserProfile.posts.get(thisObject.targetPostHash)
+                }
+    
+                if (targetPost === undefined) {
+                    throw ('Target Post Not Found')
+                }
+
                 targetPost.addReaction(thisObject.eventType - 100)
                 return
             }
             if (
-                thisObject.eventType === EVENT_TYPES.REMOVE_REACTION_LIKE ||
-                thisObject.eventType === EVENT_TYPES.REMOVE_REACTION_LOVE ||
-                thisObject.eventType === EVENT_TYPES.REMOVE_REACTION_HAHA ||
-                thisObject.eventType === EVENT_TYPES.REMOVE_REACTION_WOW ||
-                thisObject.eventType === EVENT_TYPES.REMOVE_REACTION_SAD ||
-                thisObject.eventType === EVENT_TYPES.REMOVE_REACTION_ANGRY ||
-                thisObject.eventType === EVENT_TYPES.REMOVE_REACTION_CARE
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_REACTION_LIKE ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_REACTION_LOVE ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_REACTION_HAHA ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_REACTION_WOW ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_REACTION_SAD ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_REACTION_ANGRY ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_REACTION_CARE
             ) {
+
+                if (targetBotProfile !== undefined) {
+                    targetPost = targetBotProfile.posts.get(thisObject.targetPostHash)
+                } else {
+                    targetPost = targetUserProfile.posts.get(thisObject.targetPostHash)
+                }
+    
+                if (targetPost === undefined) {
+                    throw ('Target Post Not Found')
+                }
+                                
                 targetPost.removeReaction(thisObject.eventType - 200)
                 return
             }
@@ -368,13 +340,13 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
             Is is a Bot?
             */
             if (
-                thisObject.eventType === EVENT_TYPES.ADD_BOT ||
-                thisObject.eventType === EVENT_TYPES.REMOVE_BOT ||
-                thisObject.eventType === EVENT_TYPES.ENABLE_BOT ||
-                thisObject.eventType === EVENT_TYPES.DISABLE_BOT
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_BOT ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_BOT ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ENABLE_BOT ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.DISABLE_BOT
             ) {
                 switch (thisObject.eventType) {
-                    case EVENT_TYPES.ADD_BOT: {
+                    case SA.projects.socialTrading.globals.eventTypes.ADD_BOT: {
                         emitterUserProfile.addBot(
                             thisObject.emitterUserProfileId,
                             thisObject.emitterBotProfileId,
@@ -384,19 +356,19 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                         )
                         break
                     }
-                    case EVENT_TYPES.REMOVE_BOT: {
+                    case SA.projects.socialTrading.globals.eventTypes.REMOVE_BOT: {
                         emitterUserProfile.removeBot(
                             thisObject.emitterBotProfileId
                         )
                         break
                     }
-                    case EVENT_TYPES.ENABLE_BOT: {
+                    case SA.projects.socialTrading.globals.eventTypes.ENABLE_BOT: {
                         emitterUserProfile.enableBot(
                             thisObject.emitterBotProfileId
                         )
                         break
                     }
-                    case EVENT_TYPES.DISABLE_BOT: {
+                    case SA.projects.socialTrading.globals.eventTypes.DISABLE_BOT: {
                         emitterUserProfile.disableBot(
                             thisObject.emitterBotProfileId
                         )

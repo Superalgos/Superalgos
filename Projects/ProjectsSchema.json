@@ -1307,12 +1307,6 @@
         "NT": {
             "globals": [
                 {
-                    "name": "Query Constants",
-                    "propertyName": "queryConstants",
-                    "functionName": "newSocialTradingGlobalsQueryConstants",
-                    "fileName": "QueryConstants.js"
-                },
-                {
                     "name": "Memory",
                     "propertyName": "memory",
                     "functionName": "newSocialTradingGlobalsMemory",
@@ -1429,6 +1423,22 @@
                     "propertyName": "queriesValidations",
                     "functionName": "newSocialTradingUtilitiesQueriesValidations",
                     "fileName": "QueriesValidations.js"
+                }
+            ]
+        },
+        "SA": {
+            "globals": [
+                {
+                    "name": "Query Constants",
+                    "propertyName": "queryConstants",
+                    "functionName": "newSocialTradingGlobalsQueryConstants",
+                    "fileName": "QueryConstants.js"
+                },
+                {
+                    "name": "Query Types",
+                    "propertyName": "queryTypes",
+                    "functionName": "newSocialTradingGlobalsQueryTypes",
+                    "fileName": "QueryTypes.js"
                 }
             ]
         }

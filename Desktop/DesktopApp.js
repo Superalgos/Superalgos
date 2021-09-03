@@ -23,7 +23,7 @@ exports.newDesktopApp = function newDesktopApp() {
         Test Query User Profiles.
         */
         queryMessage = {
-            queryType: 0,
+            queryType: SA.projects.socialTrading.globals.queryTypes.USER_PROFILES,
             emitterUserProfileId: DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID,
             initialIndex: 'Last',
             amountRequested: 10,
@@ -48,7 +48,7 @@ exports.newDesktopApp = function newDesktopApp() {
         Test Query User Profile Stats.
         */
         queryMessage = {
-            queryType: 1,
+            queryType: SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_STATS,
             emitterUserProfileId: DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID,
             targetUserProfileId: DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID
         }

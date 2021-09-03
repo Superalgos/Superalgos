@@ -29,7 +29,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
     function execute() {
         let response = []
         switch (thisObject.direction) {
-            case NT.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE: {
+            case SA.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let event = NT.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }
@@ -37,7 +37,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                 }
                 break
             }
-            case NT.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
+            case SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let event = NT.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }

@@ -18,8 +18,12 @@
         },
         {
             "style": "Callout",
-            "text": "Find the Token Power Switch node under the User Profile node and click <i>Add Onboarding Programs</i> on the menu.",
-            "updated": 1630606805313
+            "text": "Find the Token Power Switch node under the User Profile node and click Add Onboarding Programs on the menu.",
+            "updated": 1630658978533
+        },
+        {
+            "style": "Success",
+            "text": "The Onboarding Programs node should pop up as an offspring of the Token Power Switch."
         }
     ]
 }

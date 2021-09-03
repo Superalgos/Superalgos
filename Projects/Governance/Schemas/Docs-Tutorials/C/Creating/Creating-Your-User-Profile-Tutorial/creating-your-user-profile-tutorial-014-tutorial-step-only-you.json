@@ -3,8 +3,8 @@
     "pageNumber": 14,
     "type": "Tutorial Step - Only You",
     "definition": {
-        "text": "The profile constructor also did some work to make sure only you can change your profile.",
-        "updated": 1629553865897,
+        "text": "The Profile Constructor also did some work to make sure only you can change your profile.",
+        "updated": 1630658478769,
         "icon": {
             "name": "User\\user-profile",
             "project": "Governance"
@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "A cryptographic message with your GitHub.com username has been signed with the private key corresponding to your governance address. This message will be stored in your User Profile so that we may authenticate it comes from you once you submit your profile as a plugin to the Governance Project.",
-            "updated": 1629553908808
+            "text": "A cryptographic message with your GitHub.com username has been signed with the private key corresponding to your Governance Address. This message will be stored in your User Profile so that we may authenticate it comes from you once you submit your profile as a plugin to the Governance Project.",
+            "updated": 1630658507981
         },
         {
             "style": "Success",

@@ -3,8 +3,8 @@
     "pageNumber": 9,
     "type": "Tutorial Step - Program Participation",
     "definition": {
-        "text": "How you use your Token Power is defined within a number of different Programs within your profile hierarchy.",
-        "updated": 1629163374967,
+        "text": "How you use your Token Power is defined within a number of Governance Programs within your profile hierarchy.",
+        "updated": 1630657749389,
         "icon": {
             "name": "User\\user-referrer",
             "project": "Governance"
@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "These programs help organize the types of development and community relationships you want to reward. ",
-            "updated": 1629166399952
+            "text": "These programs help organize the types of development and community relationships you want to reward.",
+            "updated": 1630657777891
         },
         {
             "style": "Note",

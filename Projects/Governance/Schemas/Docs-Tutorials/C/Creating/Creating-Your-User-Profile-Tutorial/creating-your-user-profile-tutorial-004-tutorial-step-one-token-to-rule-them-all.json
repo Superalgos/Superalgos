@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The SA token is a BEP20 token on the Binance Smart Chain (BSC). It represents your contributions to the Superalgos Project and Community. It is a way to reward the user base and grow the development pool.",
-            "updated": 1630605572869
+            "text": "The SA Token is a BEP20 token on the Binance Smart Chain (BSC). Your token holdings embody your contributions to the Superalgos Project and Community, as the token is used to reward the user base and grow the development pool.",
+            "updated": 1630657545503
         },
         {
             "style": "Note",
@@ -22,8 +22,8 @@
         },
         {
             "style": "Success",
-            "text": "This means that the more you contribute to the project and help others, the more tokens you will earn!",
-            "updated": 1629164817915
+            "text": "The more you contribute to the project and help others, the more tokens you will earn!",
+            "updated": 1630657555715
         },
         {
             "style": "Text",

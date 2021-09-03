@@ -3,8 +3,8 @@
     "pageNumber": 16,
     "type": "Tutorial Step - Save the Key!",
     "definition": {
-        "text": "Now that you have a new rocking Profile, let’s talk some more about that private key. ",
-        "updated": 1629554694993,
+        "text": "Now that you have a new rocking User Profile, let’s talk some more about that private key.",
+        "updated": 1630658607513,
         "icon": {
             "name": "Key\\key-reference",
             "project": "Foundations"

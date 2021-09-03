@@ -1,0 +1,39 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": "21.8",
+    "type": "Tutorial Step - The Referrral Program",
+    "definition": {
+        "text": "The Referral Program incentivizes the promotion of the project, either by word-of-mouth or “en masse” through articles, social media posts, videos, and other forms of influencer marketing!",
+        "updated": 1630665298091,
+        "icon": {
+            "name": "Programs\\referral-program",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Go to the Community Building Programs node and click <i>Add Referral Program</i>.",
+            "updated": 1630665425190
+        },
+        {
+            "style": "Text",
+            "text": "Now, let's clarify what rules you must fulfill to earn your Tokens Bonus!"
+        },
+        {
+            "style": "List",
+            "text": "You must deploy the program: Done!",
+            "updated": 1630665468816
+        },
+        {
+            "style": "List",
+            "text": "You must declare your referrer: We'll do that next!",
+            "updated": 1630665632799
+        },
+        {
+            "style": "List",
+            "text": "You must drive Token Power to the program: Uuuhh... token power... that sounds neat! It is! You'll see!",
+            "updated": 1630665776592
+        }
+    ]
+}

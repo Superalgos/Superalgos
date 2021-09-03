@@ -13,13 +13,13 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Click the Add Profile Constructor button.",
-            "updated": 1629163599518
+            "text": "Click the <i>Add Profile Constructor</i> button.",
+            "updated": 1630657850442
         },
         {
             "style": "Text",
-            "text": "Now position the resulting Profile Constructor node where it is easy to see.",
-            "updated": 1629163626525
+            "text": "Now position the resulting Profile Constructor node where it is easy to see and work with.",
+            "updated": 1630657866373
         }
     ]
 }

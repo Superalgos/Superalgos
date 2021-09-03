@@ -1,0 +1,35 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": "21.1",
+    "type": "Tutorial Step - How Github Works",
+    "definition": {
+        "text": "Github.com bumps up the search ranking of projects when they have many stars, forks, and people watching the repository!",
+        "updated": 1630659929485,
+        "icon": {
+            "name": "Programs\\github-program",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "That is why we ask you to help in this manner! By completing those three tasks, you are effectively helping more developers find Superalgos, which is a win for everyone, as the more developers, the faster the project advances!",
+            "updated": 1630660356226
+        },
+        {
+            "style": "Text",
+            "text": "Now, this is how it works on the side of Superalgos:",
+            "updated": 1630659982457
+        },
+        {
+            "style": "List",
+            "text": "The system checks the repository and verifies if your Github account has a star, a fork, and/or a watch.",
+            "updated": 1630660104845
+        },
+        {
+            "style": "List",
+            "text": "There is a cap of SA 1,000 for each of these incentives. This means that you may get up to SA 3,000 if you maximize your participation.",
+            "updated": 1630660329237
+        }
+    ]
+}

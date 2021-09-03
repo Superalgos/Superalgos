@@ -3,8 +3,8 @@
     "pageNumber": 8,
     "type": "Tutorial Step - What’s in a Profile?",
     "definition": {
-        "text": "So what are we waiting for? Let’s get started! To participate in Governance you will first need a User Profile.",
-        "updated": 1629163040597,
+        "text": "So what are we waiting for? Let’s get started! To participate in Governance you will need a User Profile.",
+        "updated": 1630657682741,
         "icon": {
             "name": "User\\user-profile",
             "project": "Governance"

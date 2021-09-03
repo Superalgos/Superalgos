@@ -3,12 +3,12 @@
     "pageNumber": 13,
     "type": "Tutorial Step - Oh so Shiny",
     "definition": {
-        "text": "We are almost there. Now click Build Profile and watch the magic happen. That’s right, you just created your profile!",
+        "text": "We are almost there. Now click <i>Build Profile</i> and watch the magic happen. That’s right, you just created your profile!",
         "icon": {
             "name": "User\\user-profile",
             "project": "Governance"
         },
-        "updated": 1629721281167
+        "updated": 1630658421560
     },
     "paragraphs": [
         {

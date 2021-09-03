@@ -96,11 +96,22 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
             }
         }
 
-        postingEvents()
-        followingEvents()
-        reactionEvents()
-        botEvents()
-        eventCounters()
+        if (postingEvents()) { 
+            eventCounters()
+            return 
+        }
+        if (followingEvents()) { 
+            eventCounters()
+            return 
+        }
+        if (reactionEvents()) { 
+            eventCounters()
+            return 
+        }
+        if (botEvents()) { 
+            eventCounters()
+            return 
+        }
 
         function postingEvents() {
             /*
@@ -135,7 +146,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                         thisObject.eventType - 10,
                         thisObject.timestamp
                     )
-                    return
+                    return true
                 }
                 /*
                 New Bot Post
@@ -160,7 +171,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                         thisObject.eventType - 20,
                         thisObject.timestamp
                     )
-                    return
+                    return true
                 }
                 /*
                 Remove User Post
@@ -171,7 +182,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                     emitterUserProfile.removePost(
                         thisObject.emitterPostHash
                     )
-                    return
+                    return true
                 }
                 /*
                 Remove Bot Post
@@ -186,7 +197,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                     emitterBotProfile.removePost(
                         thisObject.emitterPostHash
                     )
-                    return
+                    return true
                 }
             }
         }
@@ -277,7 +288,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                         break
                     }
                 }
-                return
+                return true
             }
         }
 
@@ -302,13 +313,13 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                 } else {
                     targetPost = targetUserProfile.posts.get(thisObject.targetPostHash)
                 }
-    
+
                 if (targetPost === undefined) {
                     throw ('Target Post Not Found')
                 }
 
                 targetPost.addReaction(thisObject.eventType - 100)
-                return
+                return  true
             }
             if (
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_REACTION_LIKE ||
@@ -325,13 +336,13 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                 } else {
                     targetPost = targetUserProfile.posts.get(thisObject.targetPostHash)
                 }
-    
+
                 if (targetPost === undefined) {
                     throw ('Target Post Not Found')
                 }
-                                
+
                 targetPost.removeReaction(thisObject.eventType - 200)
-                return
+                return  true
             }
         }
 
@@ -375,7 +386,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                         break
                     }
                 }
-                return
+                return  true
             }
         }
 

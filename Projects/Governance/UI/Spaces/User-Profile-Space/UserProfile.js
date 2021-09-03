@@ -365,7 +365,10 @@ function newGovernanceUserProfileSpace() {
             function onResponse(err, data) {
                 /* Lets check the result of the call through the http interface */
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    userProfile.payload.uiObject.setErrorMessage('Call via HTTP Interface failed.')
+                    userProfile.payload.uiObject.setErrorMessage(
+                        'Call via HTTP Interface failed.',
+                        UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                        )
                     return
                 }
 
@@ -373,7 +376,10 @@ function newGovernanceUserProfileSpace() {
 
                 /* Lets check the result of the method call */
                 if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    userProfile.payload.uiObject.setErrorMessage('Call to WEB3 Server failed. ' + response.error)
+                    userProfile.payload.uiObject.setErrorMessage(
+                        'Call to WEB3 Server failed. ' + response.error,
+                        UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                        )
                     console.log('Call to WEB3 Server failed. ' + response.error)
                     return
                 }
@@ -403,7 +409,9 @@ function newGovernanceUserProfileSpace() {
                 if (data.result === "Max rate limit reached, please use API Key for higher rate limit") {
                     userProfile.payload.blockchainTokens = undefined // This enables this profile to query the blockchain again.
                 } else {
-                    userProfile.payload.uiObject.setInfoMessage(data)
+                    userProfile.payload.uiObject.setInfoMessage(data,
+                        UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
+                        )
                     userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000
                     userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens)
                 }
@@ -412,7 +420,9 @@ function newGovernanceUserProfileSpace() {
                 const message = err.message + ' - ' + 'Can not access BSC SCAN servers.'
                 console.log(message)
                 if (userProfile.payload !== undefined) {
-                    userProfile.payload.uiObject.setErrorMessage(message, 1000)
+                    userProfile.payload.uiObject.setErrorMessage(message,
+                        UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                        )
                 }
                 waitingForResponses--
             });

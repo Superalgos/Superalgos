@@ -1080,6 +1080,11 @@
         "UI": {
             "globals": [
                 {
+                    "name": "Designer",
+                    "propertyName": "designer",
+                    "functionName": "newGovernanceGlobalsDesigner"
+                },
+                {
                     "name": "Reports",
                     "propertyName": "reports",
                     "functionName": "newGovernanceGlobalsReports"
@@ -1395,7 +1400,7 @@
                 },
                 {
                     "name": "Query",
-                    "propertyName": "Query",
+                    "propertyName": "query",
                     "functionName": "newSocialTradingModulesQuery",
                     "fileName": "Query.js"
                 },

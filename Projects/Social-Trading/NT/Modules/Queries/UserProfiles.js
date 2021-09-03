@@ -1,15 +1,11 @@
-exports.newSocialTradingModulesQueriesUserProfileStats = function newSocialTradingModulesQueriesUserProfileStats() {
+exports.newSocialTradingModulesQueriesUserProfiles = function newSocialTradingModulesQueriesUserProfiles() {
     /*
-    Each User or Bot Profile can have posts. This query
-    is designed for Network Clients to fetch the posts
-    metadata they need from the Social Graph.
-
-    This is the query to be executed to fill a Profile page
-    with all of its posts.
+    This query returns a list of user profiles ordered
+    by Ranking. It is useful to bootstrap new users
+    and provide them with alternative of who to follow.
     */
     let thisObject = {
         array: undefined,
-        profile: undefined,
         initialIndex: undefined,
         amountRequested: undefined,
         direction: undefined,
@@ -22,15 +18,18 @@ exports.newSocialTradingModulesQueriesUserProfileStats = function newSocialTradi
 
     function finalize() {
         thisObject.array = undefined
-        thisObject.profile = undefined
     }
 
     function initialize(queryReceived) {
 
-        thisObject.array = Array.from(thisObject.profile.posts)
+        thisObject.array = Array.from(
+            NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID, 
+            x => x[1]
+            )
+        thisObject.array.sort((a, b) => (a["ranking"] > b["ranking"]) ? 1 : -1)
 
-        NT.projects.socialTrading.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
         NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
+
     }
 
     function execute() {
@@ -57,18 +56,18 @@ exports.newSocialTradingModulesQueriesUserProfileStats = function newSocialTradi
         }
         return response
 
-        function addToResponse(post) {
+        function addToResponse(profile) {
             let postResponse = {
-                emitterUserProfileId: post.emitterUserProfileId,
-                targetUserProfileId: post.targetUserProfileId,
-                emitterBotProfileId: post.emitterBotProfileId,
-                targetBotProfileId: post.targetBotProfileId,
-                emitterPostHash: post.emitterPostHash,
-                targetPostHash: post.targetPostHash,
-                postType: post.postType,
-                timestamp: post.timestamp,
-                repliesCount: post.replies.size,
-                reactions: Array.from(post.reactions)
+                "userProfileId": profile.userProfileId,
+                "userProfileHandle": profile.userProfileHandle,
+                "blockchainAccount": profile.blockchainAccount,
+                "ranking": profile.ranking,
+                "followingCount": profile.following.size,
+                "followersCount": profile.followers.size,
+                "postsCount": profile.posts.size,
+                "botsCount": profile.bots.size,
+                "emitterEventsCount": profile.emitterEventsCount,
+                "targetEventsCount": profile.targetEventsCount
             }
             response.push(postResponse)
         }

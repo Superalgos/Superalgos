@@ -46,6 +46,8 @@ function newGobernanceReportsSpace() {
 
         if (isInitialized === false) { return }
 
+        hidAppDiv()
+
         thisObject.container.finalize()
         thisObject.container = undefined
 
@@ -215,22 +217,38 @@ function newGobernanceReportsSpace() {
         if (isInitialized === false) { return }
 
         docsAppDivPhysics()
+    }
 
-        function docsAppDivPhysics() {
-            let docsSpaceDiv = document.getElementById('governance-reports-space-div')
-            docsAppDivPosition = {
-                x: 0,
-                y: 0
-            }
-            docsAppDivPosition = thisObject.container.frame.frameThisPoint(docsAppDivPosition)
-            docsSpaceDiv.style = '   ' +
-                'overflow-y: scroll;' +
-                'overflow-x: hidden;' +
-                'position:fixed; top:' + docsAppDivPosition.y + 'px; ' +
-                'left:' + docsAppDivPosition.x + 'px; z-index:1; ' +
-                'width: ' + thisObject.container.frame.width + 'px;' +
-                'height: ' + thisObject.container.frame.height + 'px'
+    function docsAppDivPhysics() {
+        let docsSpaceDiv = document.getElementById('governance-reports-space-div')
+        docsAppDivPosition = {
+            x: 0,
+            y: 0
         }
+        docsAppDivPosition = thisObject.container.frame.frameThisPoint(docsAppDivPosition)
+        docsSpaceDiv.style = '   ' +
+            'overflow-y: scroll;' +
+            'overflow-x: hidden;' +
+            'position:fixed; top:' + docsAppDivPosition.y + 'px; ' +
+            'left:' + docsAppDivPosition.x + 'px; z-index:1; ' +
+            'width: ' + thisObject.container.frame.width + 'px;' +
+            'height: ' + thisObject.container.frame.height + 'px'
+    }
+
+    function hidAppDiv() {
+        let docsSpaceDiv = document.getElementById('governance-reports-space-div')
+        docsAppDivPosition = {
+            x: 100000000000,
+            y: 0
+        }
+        docsAppDivPosition = thisObject.container.frame.frameThisPoint(docsAppDivPosition)
+        docsSpaceDiv.style = '   ' +
+            'overflow-y: scroll;' +
+            'overflow-x: hidden;' +
+            'position:fixed; top:' + docsAppDivPosition.y + 'px; ' +
+            'left:' + docsAppDivPosition.x + 'px; z-index:1; ' +
+            'width: ' + thisObject.container.frame.width + 'px;' +
+            'height: ' + thisObject.container.frame.height + 'px'
     }
 
     function getContainer(point, purpose) {

@@ -35,23 +35,23 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             return response
         }
 
-        if (messageHeader.messageType === undefined) {
+        if (messageHeader.requestType === undefined) {
             let response = {
                 result: 'Error',
-                message: 'Client Interface messageType Not Provided.'
+                message: 'Client Interface requestType Not Provided.'
             }
             return response
         }
 
-        if (messageHeader.messageType !== 'Event' && messageHeader.messageType !== 'Query') {
+        if (messageHeader.requestType !== 'Event' && messageHeader.requestType !== 'Query') {
             let response = {
                 result: 'Error',
-                message: 'Client Interface messageType Not Supported.'
+                message: 'Client Interface requestType Not Supported.'
             }
             return response
         }
 
-        switch (messageHeader.messageType) {
+        switch (messageHeader.requestType) {
             case 'Event': {
                 return await eventReceived(messageHeader.eventMessage, userProfile)
             }
@@ -190,9 +190,15 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         Here we will process the query. This does not change the state of the Social Graph.
         */
         try {
-            let query = NT.projects.socialTrading.modules.queriesQuery.newSocialTradingModulesQuery()
+            let query = NT.projects.socialTrading.modules.query.newSocialTradingModulesQuery()
             query.initialize(queryReceived)
-            return query.execute()
+            
+            let response = {
+                result: 'Ok',
+                message: 'Client Interface Query Processed.',
+                data: query.execute()
+            }
+            return response
  
         } catch (err) {
             /*
@@ -200,7 +206,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             */
             let response = {
                 result: 'Error',
-                message: 'Client Interface ' + err.message
+                message: err.message
             }
             return response
         }

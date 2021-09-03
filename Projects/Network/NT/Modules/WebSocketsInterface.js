@@ -94,6 +94,14 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                 }
                                 break
                             }
+                            default: {
+                                let response = {
+                                    result: 'Error',
+                                    message: 'messageType Not Supported.'
+                                }
+                                socket.send(JSON.stringify(response))
+                                break
+                            }
                         }
                     } catch (err) {
                         console.log('[ERROR] Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)

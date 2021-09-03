@@ -174,8 +174,8 @@ function newGovernanceFunctionLibraryTokenMining() {
             userProfile.tokensMined.payload.uiObject.valueAngleOffset = 0
             userProfile.tokensMined.payload.uiObject.valueAtAngle = true
 
-            userProfile.tokensMined.payload.uiObject.setStatus(awarded + ' Awarded + ' + bonus + ' Bonus')
-            userProfile.tokensMined.payload.uiObject.setValue(total + ' SA Tokens' + tokensAwardedBTC)
+            userProfile.tokensMined.payload.uiObject.setStatus(awarded + ' Awarded + ' + bonus + ' Bonus', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
+            userProfile.tokensMined.payload.uiObject.setValue(total + ' SA Tokens' + tokensAwardedBTC, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
         }
     }
 }

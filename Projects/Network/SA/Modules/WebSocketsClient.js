@@ -43,7 +43,6 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
         }
 
         socketClient = new SA.nodeModules.ws('ws://' + selectedNetworkNode.host + ':' + selectedNetworkNode.port)
-        //networkInterface = SA.projects.socialTrading.modules.networkInterface.newSocialTradingModulesNetworkInterface()
 
         setUpWebsocketClient()
     }
@@ -204,7 +203,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                         }
                     }
 
-                    callbackFunction.receiveResponse(message)
+                    callbackFunction.receiveResponse(response.message)
                     callbackFunction = undefined
 
                 } catch (err) {

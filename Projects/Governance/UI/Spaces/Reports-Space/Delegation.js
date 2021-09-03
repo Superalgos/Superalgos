@@ -77,6 +77,7 @@ function newGovernanceReportsDelegation() {
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
             if (program.payload[programPropertyName] === undefined) { continue }
+            if (program.payload[programPropertyName].bonus === undefined) { continue }
 
             let tableRecord = {
                 "name": userProfile.name,

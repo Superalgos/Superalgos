@@ -215,6 +215,12 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         let pluginFolderNode = UI.projects.foundations.utilities.children.findChildByType(pluginProject, pluginForlderNodeType)
         let pluginFile = UI.projects.foundations.utilities.plugins.addMissingPluginFile(pluginFolderNode, node.name, pluginFolderName, node.type, true)
         node.isPlugin = true
+
+        if (pluginFile === undefined) {
+            node.payload.uiObject.setErrorMessage('Plugin Not Saved because it already existed.')
+            return
+        }
+
         UI.projects.foundations.utilities.plugins.savePluginFile(pluginFile)
     }
 }

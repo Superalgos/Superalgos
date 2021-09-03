@@ -1,0 +1,13 @@
+{
+    "type": "Contribution Claims",
+    "definition": {
+        "text": "The term Contribution Claims is a generalization of the concept of claims and may refer to any or all of the existing types, namely Asset Contribution Claim, Feature Contribution Claim, and Position Contribution Claim nodes.",
+        "updated": 1630351499915
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+        }
+    ]
+}

@@ -1,8 +1,8 @@
 {
     "type": "Mentorship Program",
     "definition": {
-        "text": "The mentorship program is designed to incentivize deep collaboration and the recruitment of Contributors. You may earn tokens for each user you mentor, but also for each user they mentor as well, and the chain goes on infinitely!",
-        "updated": 1624727325986
+        "text": "Becoming proficient enough with Superalgos to the point in which you may produce valuable contributions may be a lengthy process. The mentorship program incentivizes deep collaboration, apprenticeship,  and the formation of Contributors.",
+        "updated": 1630232204309
     },
     "paragraphs": [
         {
@@ -11,16 +11,30 @@
             "updated": 1624727362222
         },
         {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Featuring Tokens Bonus",
+            "updated": 1630232231414
+        },
+        {
             "style": "Text",
-            "text": "The principles governing this program are very similar to the Referral Program:"
+            "text": "With this program, you may earn Superalgos SA Tokens for every user you mentor, and also for the users they mentor!"
         },
         {
-            "style": "List",
-            "text": "By default, Mentorship Power flows in equal proportions to the existing User Mentor nodes, but you may use the configuration to alter the default behavior."
+            "style": "Callout",
+            "text": "To participate, you must spawn the Mentorship Program and declare your mentors. To do that, add a User Mentor node and use it to establish a reference to the User Profile of the person that mentored you. If you have more than one mentor, add more User Mentor nodes!",
+            "updated": 1630232305651
         },
         {
-            "style": "List",
-            "text": "Mentees confer their mentors 10% of the Mentorship Power allocated to the User Mentor node."
+            "style": "Text",
+            "text": "Superalgos is meant to grow into a massive global collaboration. To do that, the project needs an ever-growing group of Contributors!"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Community Building Programs"
+        },
+        {
+            "style": "Text",
+            "text": ""
         },
         {
             "style": "Block",

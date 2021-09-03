@@ -186,7 +186,9 @@ function newFoundationsChartingSpace() {
     }
 
     function resize() {
-        thisObject.viewport.resize()
+        if (thisObject.viewport !== undefined) {
+            thisObject.viewport.resize()
+        }
         thisObject.container.frame.width = browserCanvas.width
         thisObject.container.frame.height = COCKPIT_SPACE_POSITION
     }

@@ -4,23 +4,55 @@
     "type": "Tutorial - Defining a Trading Idea",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-strategy"
+            "name": "Trading\\trading-strategy",
+            "project": "Foundations"
         },
-        "text": "Before you may build a Trading Strategy, you first need to come up with a clear and testable trading idea."
+        "text": "Before you may build a Trading Strategy, you first need to come up with a clear and testable trading idea.",
+        "updated": 1630376091762,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Antes de que puedas crear una estrategia comercial, primero debe tener una idea comercial clara y comprobable.",
+                "updated": 1630376694793
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "A trading idea is a precursor to a trading strategy. While a complete strategy entails the rules for taking, managing and exiting a position, a trading idea is concerned with the first of those issues only."
+            "text": "A trading idea is a precursor to a trading strategy. While a complete strategy entails the rules for taking, managing and exiting a position, a trading idea is concerned with the first of those issues only.",
+            "updated": 1630376114821,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Una idea trading es un precursor de una estrategia comercial. Si bien una estrategia completa implica las reglas para tomar, administrar y salir de una posición, una idea trading se ocupa únicamente del primero de esos aspectos.",
+                    "updated": 1630376730606
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Testing a trading idea before committing to building a complete strategy is the logical approach because managing and exiting failed entries is not what you should be aiming for!"
+            "text": "Testing a trading idea before committing to building a complete strategy is the logical approach because managing and exiting failed entries is not what you should be aiming for!",
+            "updated": 1630376167390,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Probar una idea trading antes de comprometerse a construir una estrategia completa es el enfoque lógico porque administrar y salir de las entradas fallidas no es lo que debería apuntar.",
+                    "updated": 1630376759318
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This tutorial explains how to properly formulate a trading idea that may later be tested."
+            "text": "This tutorial explains how to properly formulate a trading idea that may later be tested.",
+            "updated": 1630376190150,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Este tutorial explica cómo formular correctamente una idea trading que luego se puede probar.",
+                    "updated": 1630376776923
+                }
+            ]
         }
     ]
 }

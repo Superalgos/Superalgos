@@ -1,13 +1,4 @@
-exports.newHttpInterface = function newHttpInterface(
-    WEB_SERVER,
-    DATA_FILE_SERVER,
-    PROJECT_FILE_SERVER,
-    UI_FILE_SERVER,
-    PLUGIN_SERVER,
-    CCXT_SERVER,
-    WEB3_SERVER,
-    GITHUB_SERVER
-) {
+exports.newHttpInterface = function newHttpInterface() {
 
     /*
     IMPORTANT: If you are reviewing the code of the project please note 
@@ -111,7 +102,7 @@ exports.newHttpInterface = function newHttpInterface(
                             switch (params.method) {
                                 case 'getNetworkClientStatus': {
 
-                                    let serverResponse = await WEB3_SERVER.getNetworkClientStatus(
+                                    let serverResponse = await CL.servers.WEB3_SERVER.getNetworkClientStatus(
                                         params.host,
                                         params.port,
                                         params.interface
@@ -122,7 +113,7 @@ exports.newHttpInterface = function newHttpInterface(
                                 }
                                 case 'createWalletAccount': {
 
-                                    let serverResponse = await WEB3_SERVER.createWalletAccount(
+                                    let serverResponse = await CL.servers.WEB3_SERVER.createWalletAccount(
                                         params.entropy
                                     )
 
@@ -131,7 +122,7 @@ exports.newHttpInterface = function newHttpInterface(
                                 }
                                 case 'getWalletBalances': {
 
-                                    let serverResponse = await WEB3_SERVER.getWalletBalances(
+                                    let serverResponse = await CL.servers.WEB3_SERVER.getWalletBalances(
                                         params.host,
                                         params.port,
                                         params.interface,
@@ -143,7 +134,7 @@ exports.newHttpInterface = function newHttpInterface(
                                 }
                                 case 'signData': {
 
-                                    let serverResponse = await WEB3_SERVER.signData(
+                                    let serverResponse = await CL.servers.WEB3_SERVER.signData(
                                         params.privateKey,
                                         params.data
                                     )
@@ -153,7 +144,7 @@ exports.newHttpInterface = function newHttpInterface(
                                 }
                                 case 'recoverAddress': {
 
-                                    let serverResponse = await WEB3_SERVER.recoverAddress(
+                                    let serverResponse = await CL.servers.WEB3_SERVER.recoverAddress(
                                         params.signature
                                     )
 
@@ -162,7 +153,7 @@ exports.newHttpInterface = function newHttpInterface(
                                 }
                                 case 'mnemonicToPrivateKey': {
 
-                                    let serverResponse = await WEB3_SERVER.mnemonicToPrivateKey(
+                                    let serverResponse = await CL.servers.WEB3_SERVER.mnemonicToPrivateKey(
                                         params.mnemonic
                                     )
 
@@ -747,6 +738,13 @@ exports.newHttpInterface = function newHttpInterface(
                                     console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
                                     console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
                                     console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
+                                    console.log('')
+                                    console.log('Torubleshooting Tips:')
+                                    console.log('')
+                                    console.log('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
+                                    console.log('2. Make sure you are running the latest version of Git available for your OS.')
+                                    console.log('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
+                                    console.log('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
                                     error = err
                                 }
                             }
@@ -1057,7 +1055,7 @@ exports.newHttpInterface = function newHttpInterface(
                         switch (params.method) {
                             case 'getGithubStars': {
 
-                                let serverResponse = await GITHUB_SERVER.getGithubStars(
+                                let serverResponse = await CL.servers.GITHUB_SERVER.getGithubStars(
                                     params.repository,
                                     params.username,
                                     params.token
@@ -1068,7 +1066,7 @@ exports.newHttpInterface = function newHttpInterface(
                             }
                             case 'getGithubWatchers': {
 
-                                let serverResponse = await GITHUB_SERVER.getGithubWatchers(
+                                let serverResponse = await CL.servers.GITHUB_SERVER.getGithubWatchers(
                                     params.repository,
                                     params.username,
                                     params.token
@@ -1079,7 +1077,7 @@ exports.newHttpInterface = function newHttpInterface(
                             }
                             case 'getGithubForks': {
 
-                                let serverResponse = await GITHUB_SERVER.getGithubForks(
+                                let serverResponse = await CL.servers.GITHUB_SERVER.getGithubForks(
                                     params.repository,
                                     params.username,
                                     params.token
@@ -1090,7 +1088,7 @@ exports.newHttpInterface = function newHttpInterface(
                             }
                             case 'mergePullRequests': {
 
-                                let serverResponse = await GITHUB_SERVER.mergePullRequests(
+                                let serverResponse = await CL.servers.GITHUB_SERVER.mergePullRequests(
                                     params.commitMessage,
                                     params.username,
                                     params.token
@@ -1101,8 +1099,11 @@ exports.newHttpInterface = function newHttpInterface(
                             }
                             case 'payContributors': {
 
-                                let serverResponse = await WEB3_SERVER.payContributors(
-                                    params.signature
+                                let serverResponse = await CL.servers.WEB3_SERVER.payContributors(
+                                    params.contractAddress,
+                                    params.contractAbi,
+                                    params.paymentsArray,
+                                    params.mnemonic
                                 )
 
                                 respondWithContent(JSON.stringify(serverResponse), httpResponse)
@@ -1349,7 +1350,7 @@ exports.newHttpInterface = function newHttpInterface(
                             let project = unescape(requestParameters[2])
                             let folder = unescape(requestParameters[3])
 
-                            let response = await CL.projects.foundations.utilities.plugins.getPluginFileNames(
+                            let response = await SA.projects.foundations.utilities.plugins.getPluginFileNames(
                                 project,
                                 folder
                             )
@@ -1383,11 +1384,18 @@ exports.newHttpInterface = function newHttpInterface(
                             let folder = unescape(requestParameters[3])
                             let fileName = unescape(requestParameters[4])
 
-                            let response = await CL.projects.foundations.utilities.plugins.getPluginFileContent(
+                            let response = await SA.projects.foundations.utilities.plugins.getPluginFileContent(
                                 project,
                                 folder,
                                 fileName
-                            )
+                            ).catch(err => {
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err
+                                }
+                                respondWithContent(JSON.stringify(error), httpResponse)
+                                return
+                            })
 
                             respondWithContent(response, httpResponse)
 

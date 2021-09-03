@@ -1,13 +1,27 @@
 {
     "type": "Pool Weight Vote",
     "definition": {
-        "text": "A Weight Vote that may reference a Pool node in the Pools hierarchy.",
-        "updated": 1624729823524
+        "text": "Use this node to establish a reference with a Pool node in a Pools hierarchy. With this vote, you are passing on Weight Power to the referenced node. That way, the node gets more of the Token Rewards available in the hierarchy. This is how you influence how different areas of the project are incentivized.",
+        "updated": 1630356667487
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "style": "Block",
+            "text": "Content",
+            "updated": 1630356719004
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Weight Votes->Content",
+            "updated": 1630356837090
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
         }
     ]
 }

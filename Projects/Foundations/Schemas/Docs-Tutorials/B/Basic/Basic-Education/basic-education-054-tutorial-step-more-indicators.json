@@ -6,7 +6,7 @@
         "text": "Indicators are built by the Community! Usually, a developer will build a few indicators he or she needs, and contribute them to the project in a new Data Mine!",
         "updated": 1616235133472,
         "icon": {
-            "name": "data-mine",
+            "name": "Data\\data-mine",
             "project": "Foundations"
         },
         "translations": [
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "¡Los indicadores los construye la comunidad! Un desarrollador construirá indicadores que necesita y los aportará al proyecto en una nueva mina de datos.",
-                "updated": 1628024771860
+                "updated": 1628024771860,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "El Community Data Mines Book es donde puedes encontrar todas los Data Mines y sus indicadores. Cada capítulo del libro corresponde a un Data Mine...",
-                    "updated": 1628024715026
+                    "updated": 1628024715026,
+                    "style": "Text"
                 }
             ]
         },
@@ -55,7 +57,8 @@
                 {
                     "language": "ES",
                     "text": "¡Escanea el contenido de cada capítulo para saber de lo que está disponible en este momento!",
-                    "updated": 1628023653141
+                    "updated": 1628023653141,
+                    "style": "Callout"
                 }
             ]
         },
@@ -73,7 +76,8 @@
                 {
                     "language": "ES",
                     "text": "Para usar un Data Mine, debes incluirlo en el espacio de trabajo o como complemento e instalar el mercado. ¡Todas las tareas de datos se crearán automáticamente!",
-                    "updated": 1628024742935
+                    "updated": 1628024742935,
+                    "style": "Success"
                 }
             ]
         }

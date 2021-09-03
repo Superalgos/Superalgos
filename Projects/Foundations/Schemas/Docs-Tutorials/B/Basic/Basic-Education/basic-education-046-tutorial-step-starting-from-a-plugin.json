@@ -3,12 +3,12 @@
     "pageNumber": 46,
     "type": "Tutorial Step - Starting From a Plugin",
     "definition": {
-        "text": "A typical case is when you wish to introduce changes to a strategy shipping with the system to start with a proven setup!",
+        "text": "Let's look into the first scenario: a typical case is when you wish to introduce changes to a strategy shipping with the system to start with a proven setup!",
         "icon": {
             "name": "Trading\\trading-system",
             "project": "Foundations"
         },
-        "updated": 1615995229226,
+        "updated": 1629908121952,
         "translations": [
             {
                 "language": "IT",
@@ -27,8 +27,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Let's say you are just starting with Superalgos, did a few tutorials, and are ready to start playing with a strategy. You want to start with an existing strategy and introduce minor modifications to better understand how things work. The strategy in question is included as a plugin in a specific workspace. Simply enable saving and you are good to go!",
-            "updated": 1628349943318,
+            "text": "Let's say you are ready to start playing with a strategy. You want to start with an existing one and introduce modifications to understand how things work. You don't intend to contribute the changes. You just wish to play with it and tune it to your liking! Then, do the following:",
+            "updated": 1629908540100,
             "translations": [
                 {
                     "language": "IT",
@@ -46,8 +46,8 @@
         },
         {
             "style": "Success",
-            "text": "In such cases, you must delete the Plugin File node corresponding to the Trading System and restore the original file in the \\Plugins\\Trading-Systems folder as if it was a backup: drag the file and drop it on the Design Space!",
-            "updated": 1615995483240,
+            "text": "Delete the Plugin File node corresponding to the Trading System and restore the original plugin file (in the \\Plugins\\Trading-Systems folder) as if it was a backup: drag the file and drop it on the Design Space! The strategy now lives in the workspace and you may modify and save it!",
+            "updated": 1629908649650,
             "translations": [
                 {
                     "language": "IT",

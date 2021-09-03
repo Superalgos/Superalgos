@@ -1,68 +1,111 @@
 {
     "type": "Claims Program",
     "definition": {
-        "text": "The Claims Program allows Contributors to place claims for the work they contribute. In combination with the Voting Program, the Claims Program enables the project to distribute the management of contributions, getting the Community involved in the validation of claims, thus effectively decentralizing the distribution of the Superalgos SA Token.",
-        "updated": 1624728270053
+        "text": "When you contribute to Superalgos, you must produce a claim for your contribution, and you must harness the support of people working close to you, who will vouch or vote for your claims.",
+        "updated": 1630256293740
     },
     "paragraphs": [
         {
             "style": "Block",
             "text": "Content",
-            "updated": 1624728332498
+            "updated": 1630256308831
+        },
+        {
+            "style": "Important",
+            "text": "Governance is decentralized. There is no central authority controlling who contributes what or what rewards contributors get. Instead, the project delegates in the Community the capacity to establish the value of contributions and to determine who contributed what.",
+            "updated": 1630256982050
         },
         {
             "style": "Text",
-            "text": "Because the Project is defined in three different types of data structure, Positions, Features, and Assets, Contributors may place claims of three kinds: "
+            "text": "As such, governance is a social system. When you get involved with Superalgos, you interact with the Community and find ways to contribute. While doing so, you relate to or associate with community members that have similar interests or are focused on the same areas of the project you may be working in. It is these people that will vouch for your claims!"
         },
         {
-            "style": "List",
-            "text": "Position Contribution Claim;"
-        },
-        {
-            "style": "List",
-            "text": "Feature Contribution Claim;"
+            "style": "Text",
+            "text": "There are three different types of claims you may place: "
         },
         {
             "style": "List",
             "text": "Asset Contribution Claim"
         },
         {
-            "style": "Text",
-            "text": "These claims may be organized in folders, following the same criteria:"
+            "style": "List",
+            "text": "Feature Contribution Claim"
         },
         {
             "style": "List",
-            "text": "Position Claims Folder;",
-            "updated": 1624734509914
+            "text": "Position Contribution Claim",
+            "updated": 1630256348337
+        },
+        {
+            "style": "Text",
+            "text": "There are also three different folder types of nodes that act as organizational devices from which you may spawn the above claim nodes:"
         },
         {
             "style": "List",
-            "text": "Feature Claims Folder;",
-            "updated": 1624734514419
+            "text": "Asset Claims Folder"
         },
         {
             "style": "List",
-            "text": "Asset Claims Folder",
-            "updated": 1624734518245
+            "text": "Feature Claims Folder",
+            "updated": 1630256365206
+        },
+        {
+            "style": "List",
+            "text": "Position Claims Folder",
+            "updated": 1630256373604
         },
         {
             "style": "Text",
-            "text": "Each of these types of nodes may reference a “class” type of node in the Positions, Features, and Assets hierarchies. "
+            "text": "These three types of claims match the three types of definition hierarchies used to describe the project:"
+        },
+        {
+            "style": "List",
+            "text": "Assets"
+        },
+        {
+            "style": "List",
+            "text": "Features"
+        },
+        {
+            "style": "List",
+            "text": "Positions"
+        },
+        {
+            "style": "Callout",
+            "text": "To place a claim, use the appropriate type of contribution claim node to reference the matching type of definition. For example, use an Asset Contribution Claim node to reference an Asset node within an Assets hierarchy. When you do that, you are effectively placing a claim on that asset.",
+            "updated": 1630323960334
+        },
+        {
+            "style": "Note",
+            "text": "This claim means that you declare that you have worked on that asset, either creating or improving it, and that you expect to be rewarded accordingly."
         },
         {
             "style": "Text",
-            "text": "For instance, an Asset Claims Folder node within the Claims Program may reference an Asset Class node in one of the Assets hierarchy.",
-            "updated": 1624734525561
+            "text": "How a claim is resolved depends on three interelated concepts:",
+            "updated": 1630256564789
         },
         {
-            "style": "Text",
-            "text": "When a valid reference exists, the Install Missing Claims option on the menu of the claims folder may be used. This option maps the data structure of the referenced folder, creating claims folders and claims for each of the folders and assets, features, or positions defined in the referenced structure of nodes.",
-            "updated": 1624734460960
+            "style": "List",
+            "text": "The Claim Power you drive into the node that places the claim.",
+            "updated": 1630256658386
+        },
+        {
+            "style": "List",
+            "text": "The Claim Votes your claim gets from other users, and the Voting Power they drive into those votes."
+        },
+        {
+            "style": "List",
+            "text": "The Token Rewards available within the definition node you are claiming.",
+            "updated": 1630256728009
         },
         {
             "style": "Success",
-            "text": "The Token Rewards, Claims Power and Claim Votes page in the Governance Flow topic covers important details of how Contribution Claims work. Make sure you read the whole topic!",
-            "updated": 1624734622362
+            "text": "To learn all the details about claims resolution, read the How Claims are Resolved page in the Governance Flow topic of The Governance Project book.",
+            "updated": 1630257166423
+        },
+        {
+            "style": "Text",
+            "text": ""
         },
         {
             "style": "Block",

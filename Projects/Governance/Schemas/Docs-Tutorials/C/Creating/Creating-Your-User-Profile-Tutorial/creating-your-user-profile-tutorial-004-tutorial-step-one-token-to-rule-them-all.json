@@ -1,0 +1,33 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 4,
+    "type": "Tutorial Step - One Token to Rule Them All",
+    "definition": {
+        "text": "Unlike some crypto tokens the Superalgos SA Token actually means something!",
+        "updated": 1630599078911,
+        "icon": {
+            "name": "Programs\\staking-program",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The SA Token is a BEP20 token on the Binance Smart Chain (BSC). Your token holdings embody your contributions to the Superalgos Project and Community, as the token is used to reward the user base and grow the development pool.",
+            "updated": 1630657545503
+        },
+        {
+            "style": "Note",
+            "text": "The project distributes tokens exclusively among contributors!"
+        },
+        {
+            "style": "Success",
+            "text": "The more you contribute to the project and help others, the more tokens you will earn!",
+            "updated": 1630657555715
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

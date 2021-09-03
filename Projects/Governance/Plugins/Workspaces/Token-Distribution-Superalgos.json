@@ -76,7 +76,7 @@
                 "floatingObject": {
                     "isPinned": true,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -192,7 +192,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -382,7 +382,7 @@
                 "floatingObject": {
                     "isPinned": true,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -602,7 +602,36 @@
                         "type": "Plugin Tutorials",
                         "name": "New Plugin Tutorials",
                         "project": "Foundations",
-                        "pluginFiles": [],
+                        "pluginFiles": [
+                            {
+                                "type": "Plugin File",
+                                "name": "Creating Your User Profile Tutorial",
+                                "config": "{\n    \"project\": \"Foundations\",\n    \"fileName\": \"Creating Your User Profile Tutorial\",\n    \"folderName\": \"Tutorials\",\n    \"nodeType\": \"Tutorial\",\n    \"saveWithWorkspace\": false\n}",
+                                "project": "Foundations",
+                                "id": "4f900690-970b-4d38-832c-273b0fd3ce1a",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 36774.75448470882,
+                                        "y": 11218.497915923215
+                                    },
+                                    "targetPosition": {
+                                        "x": 36598.41890902108,
+                                        "y": 10975.79281761073
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
                         "id": "84a541df-559d-4a0e-ac76-71d4a40e0639",
                         "savedPayload": {
                             "position": {
@@ -616,7 +645,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -751,8 +780,313 @@
                                 "id": "cccfce2d-3497-419b-8c32-4cd62fb1b33f",
                                 "savedPayload": {
                                     "position": {
+                                        "x": 35636.67313670836,
+                                        "y": 10977.129705143725
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "harrellbm",
+                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"harrellbm\",\n    \"folderName\": \"User-Profiles\",\n    \"nodeType\": \"User Profile\",\n    \"saveWithWorkspace\": false\n}",
+                                "project": "Foundations",
+                                "pluginFilePosition": {
+                                    "type": "Plugin File Position",
+                                    "name": "harrellbm",
+                                    "project": "Foundations",
+                                    "id": "22b1f183-dcf7-4e56-abda-805045672c69",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 19219.64344635258,
+                                            "y": 23116.933333158213
+                                        },
+                                        "targetPosition": {
+                                            "x": 35428.97902204032,
+                                            "y": 10921.478234845728
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": true,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                "id": "49a18a94-de50-4285-bf38-fe43c700b93f",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35542.94109048274,
+                                        "y": 10972.217416753385
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": true,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Julian-Molina",
+                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Julian-Molina\",\n    \"folderName\": \"User-Profiles\",\n    \"nodeType\": \"User Profile\",\n    \"saveWithWorkspace\": false\n}",
+                                "project": "Foundations",
+                                "id": "7096909f-b221-4fb7-a5ec-5a76d147dc2f",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35455.314597728066,
+                                        "y": 10938.580757668575
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Raplh2502",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Raplh2502\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Foundations",
+                                "id": "00a46dc7-6fbd-45d1-870a-fab7924ee5c0",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35382.371150084844,
+                                        "y": 10879.512318440902
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "PLuv",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"PLuv\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Foundations",
+                                "pluginFilePosition": {
+                                    "type": "Plugin File Position",
+                                    "name": "PLuv",
+                                    "project": "Foundations",
+                                    "id": "75a82519-49b5-4241-8ccc-b966f1b979ef",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 19201.17093294025,
+                                            "y": 17090.823750516436
+                                        },
+                                        "targetPosition": {
+                                            "x": 35332.24276533416,
+                                            "y": 10554.54844352484
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": true,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                "id": "aeed0c96-3e89-426c-bf61-12b6e23c6916",
+                                "savedPayload": {
+                                    "position": {
                                         "x": 35331.25096043528,
                                         "y": 10800.794129455984
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": true,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Smidy13",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Smidy13\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Foundations",
+                                "pluginFilePosition": {
+                                    "type": "Plugin File Position",
+                                    "name": "Smidy13",
+                                    "project": "Foundations",
+                                    "id": "5f3e2337-7339-403b-8c88-61310a7f9843",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 24950.49870511971,
+                                            "y": 16984.34250420056
+                                        },
+                                        "targetPosition": {
+                                            "x": 35369.90665142389,
+                                            "y": 10492.807820366901
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": true,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                "id": "5d42dd71-edb0-409a-8caa-20a74e7ca269",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35306.95802911758,
+                                        "y": 10710.13167551354
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": true,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "cozed-gh",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"cozed-gh\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Foundations",
+                                "id": "21126c69-67ed-4839-8611-8feac8578cf6",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35311.87031750792,
+                                        "y": 10616.399629287916
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "ssplatt",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"ssplatt\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Foundations",
+                                "id": "ded04ad6-6b18-4166-bb97-35a9521b9104",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35345.50697659273,
+                                        "y": 10528.773136533244
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Dummy",
+                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Dummy\",\n    \"folderName\": \"User-Profiles\",\n    \"nodeType\": \"User Profile\",\n    \"saveWithWorkspace\": false\n}",
+                                "project": "Foundations",
+                                "id": "6e9df29f-58fc-4e30-9882-5a083c30fdbe",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35404.57541582041,
+                                        "y": 10455.829688890026
                                     },
                                     "targetPosition": {
                                         "x": 35605.314597728066,
@@ -785,7 +1119,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": true,
+                                "isCollapsed": false,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -1156,7 +1490,7 @@
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": false,
+                                        "isCollapsed": true,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -1288,7 +1622,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 1,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -1340,7 +1674,7 @@
                 "floatingObject": {
                     "isPinned": true,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -1351,1503 +1685,57 @@
             }
         },
         {
-            "type": "Tutorial",
-            "name": "Creating Your User Profile Tutorial",
-            "config": "{\n    \"icon\": {\n        \"name\": \"governance\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Better Together\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
-            "project": "Education",
-            "tutorialSteps": [],
-            "tutorialTopics": [
-                {
-                    "type": "Tutorial Topic",
-                    "name": "Getting Started",
-                    "config": "{\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"Next\"\n}",
-                    "project": "Education",
-                    "tutorialSteps": [],
-                    "tutorialTopics": [
-                        {
-                            "type": "Tutorial Topic",
-                            "name": "Before Starting",
-                            "config": "{\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"Next\"\n}",
-                            "project": "Education",
-                            "tutorialSteps": [
-                                {
-                                    "type": "Tutorial Step",
-                                    "name": "Make sure You’re Comfortable",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"Pool\\\\pools\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Make sure You’re Comfortable\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
-                                    "project": "Education",
-                                    "id": "7c13abc2-27e4-4fe6-afd8-14cbc0b65c7d",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24309.264068711927,
-                                            "y": 24505.735931288073
-                                        },
-                                        "targetPosition": {
-                                            "x": 24097.132034355964,
-                                            "y": 24717.867965644036
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        },
-                                        "tutorial": {
-                                            "status": "Done"
-                                        },
-                                        "referenceParent": {
-                                            "type": "Charting Space",
-                                            "name": "New Charting Space",
-                                            "id": "21d2ec55-9e56-4652-8e96-c7e451262c36"
-                                        },
-                                        "referenceParentCombinedNodePath": [
-                                            [
-                                                "New Charting Space",
-                                                "Charting Space",
-                                                "Foundations",
-                                                "21d2ec55-9e56-4652-8e96-c7e451262c36"
-                                            ]
-                                        ]
-                                    }
-                                }
-                            ],
-                            "tutorialTopics": [],
-                            "id": "fb31f94d-8c05-4c1a-89b7-92d48946ad9e",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 24097.132034355964,
-                                    "y": 24717.867965644036
-                                },
-                                "targetPosition": {
-                                    "x": 23885,
-                                    "y": 24930
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": true,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
-                                "tutorial": {
-                                    "status": "Done"
-                                }
-                            }
-                        },
-                        {
-                            "type": "Tutorial Topic",
-                            "name": "Governance Overview",
-                            "config": "{\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"Next\"\n}",
-                            "project": "Education",
-                            "tutorialSteps": [
-                                {
-                                    "type": "Tutorial Step",
-                                    "name": "One Token to Rule Them All",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"Programs\\\\staking-program\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - One Token to Rule Them All\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
-                                    "project": "Education",
-                                    "id": "33321959-1eb0-494c-8df3-94b1e47efdb3",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24361.335575687743,
-                                            "y": 24687.294901687517
-                                        },
-                                        "targetPosition": {
-                                            "x": 24185,
-                                            "y": 24930
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        },
-                                        "tutorial": {
-                                            "status": "Done"
-                                        },
-                                        "referenceParent": {
-                                            "type": "Workspace",
-                                            "name": "Custom Charts Tutorials",
-                                            "id": "7f5b5bd1-ed0d-4fc9-a4e9-42e69e57f351"
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Tutorial Step",
-                                    "name": "With Tokens Comes Responsibility",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"governance\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - With Tokens Comes Responsibility\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
-                                    "project": "Education",
-                                    "id": "a13ac48c-5743-4794-85bd-bf0794d9e1a2",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24470.316954888545,
-                                            "y": 24837.294901687517
-                                        },
-                                        "targetPosition": {
-                                            "x": 24185,
-                                            "y": 24930
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        },
-                                        "tutorial": {
-                                            "status": "Done"
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Tutorial Step",
-                                    "name": "A Mighty Meritocracy",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"Position\\\\positions\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"toggleMapView\": {\n        \"view\": \"Off\"\n    },\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - A Mighty Meritocracy\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
-                                    "project": "Education",
-                                    "id": "d9b824fd-a201-40b8-8a60-d0c516d9634b",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24470.316954888545,
-                                            "y": 25022.705098312483
-                                        },
-                                        "targetPosition": {
-                                            "x": 24185,
-                                            "y": 24930
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        },
-                                        "tutorial": {
-                                            "status": "Done"
-                                        },
-                                        "referenceParent": {
-                                            "type": "Crypto Exchange",
-                                            "name": "Binance",
-                                            "id": "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
-                                        },
-                                        "referenceParentCombinedNodePath": [
-                                            [
-                                                "My Crypto Ecosystem",
-                                                "Crypto Ecosystem",
-                                                "Foundations",
-                                                "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
-                                            ],
-                                            [
-                                                "Tested",
-                                                "Crypto Exchanges",
-                                                "Foundations",
-                                                "e3879d63-6f8f-41a3-8ac3-0349c4361722"
-                                            ],
-                                            [
-                                                "Binance",
-                                                "Crypto Exchange",
-                                                "Foundations",
-                                                "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
-                                            ]
-                                        ]
-                                    }
-                                },
-                                {
-                                    "type": "Tutorial Step",
-                                    "name": "A Worthy Contribution",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"Programs\\\\referral-program\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - A Worthy Contribution\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
-                                    "project": "Education",
-                                    "id": "a0d50140-b862-4b7e-9bc6-ed055b34a0bd",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24361.335575687743,
-                                            "y": 25172.705098312483
-                                        },
-                                        "targetPosition": {
-                                            "x": 24185,
-                                            "y": 24930
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        },
-                                        "tutorial": {
-                                            "status": "Done"
-                                        },
-                                        "referenceParent": {
-                                            "type": "Market",
-                                            "name": "BTC/USDT",
-                                            "id": "9a867bf0-a71d-445c-b99a-75b60bbdce09"
-                                        },
-                                        "referenceParentCombinedNodePath": [
-                                            [
-                                                "My Crypto Ecosystem",
-                                                "Crypto Ecosystem",
-                                                "Foundations",
-                                                "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
-                                            ],
-                                            [
-                                                "Tested",
-                                                "Crypto Exchanges",
-                                                "Foundations",
-                                                "e3879d63-6f8f-41a3-8ac3-0349c4361722"
-                                            ],
-                                            [
-                                                "Binance",
-                                                "Crypto Exchange",
-                                                "Foundations",
-                                                "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
-                                            ],
-                                            [
-                                                "New Exchange Markets",
-                                                "Exchange Markets",
-                                                "Foundations",
-                                                "2fd80894-900e-44ac-a1a7-56c14124f7a1"
-                                            ],
-                                            [
-                                                "BTC/USDT",
-                                                "Market",
-                                                "Foundations",
-                                                "9a867bf0-a71d-445c-b99a-75b60bbdce09"
-                                            ]
-                                        ]
-                                    }
-                                }
-                            ],
-                            "tutorialTopics": [],
-                            "id": "eca95394-e23c-4464-a0a2-955e45fd9ca5",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 24185,
-                                    "y": 24930
-                                },
-                                "targetPosition": {
-                                    "x": 23885,
-                                    "y": 24930
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": true,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
-                                "tutorial": {
-                                    "status": "Done"
-                                }
-                            }
-                        },
-                        {
-                            "type": "Tutorial Topic",
-                            "name": "User Profile",
-                            "config": "{\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"Next\"\n}",
-                            "project": "Education",
-                            "tutorialSteps": [
-                                {
-                                    "type": "Tutorial Step",
-                                    "name": "What’s in a Profile?",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"User\\\\user-profile\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - What’s in a Profile?\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
-                                    "project": "Education",
-                                    "id": "df575afd-af40-4725-a9a0-d0e3bdd64572",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24386.909782242685,
-                                            "y": 25219.77774788672
-                                        },
-                                        "targetPosition": {
-                                            "x": 24097.132034355964,
-                                            "y": 25142.132034355964
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        },
-                                        "tutorial": {},
-                                        "referenceParent": {
-                                            "type": "Charting Space",
-                                            "name": "New Charting Space",
-                                            "id": "21d2ec55-9e56-4652-8e96-c7e451262c36"
-                                        },
-                                        "referenceParentCombinedNodePath": [
-                                            [
-                                                "New Charting Space",
-                                                "Charting Space",
-                                                "Foundations",
-                                                "21d2ec55-9e56-4652-8e96-c7e451262c36"
-                                            ]
-                                        ]
-                                    }
-                                },
-                                {
-                                    "type": "Tutorial Step",
-                                    "name": "Program Participation",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"User\\\\user-referrer\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Program Participation\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
-                                    "project": "Education",
-                                    "id": "1a414df9-32fa-4055-b0db-7a932e4b59e1",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24174.77774788672,
-                                            "y": 25431.909782242685
-                                        },
-                                        "targetPosition": {
-                                            "x": 24097.132034355964,
-                                            "y": 25142.132034355964
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        },
-                                        "tutorial": {
-                                            "status": "Done"
-                                        }
-                                    }
-                                }
-                            ],
-                            "tutorialTopics": [],
-                            "id": "47f47947-70a9-48a6-88d0-bd3dae2be578",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 24097.132034355964,
-                                    "y": 25142.132034355964
-                                },
-                                "targetPosition": {
-                                    "x": 23885,
-                                    "y": 24930
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": true,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
-                                "tutorial": {
-                                    "status": "Done"
-                                }
-                            }
-                        }
-                    ],
-                    "id": "24298d4b-70ad-4eef-a728-9759c452c1ee",
-                    "savedPayload": {
-                        "position": {
-                            "x": 23885,
-                            "y": 24930
-                        },
-                        "targetPosition": {
-                            "x": 23585,
-                            "y": 24930
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": true,
-                            "angleToParent": 1,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        },
-                        "tutorial": {
-                            "status": "Done"
-                        }
-                    }
-                },
-                {
-                    "type": "Tutorial Topic",
-                    "name": "Setting Up the Constructor",
-                    "config": "{\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"Next\"\n}",
-                    "project": "Education",
-                    "tutorialSteps": [
-                        {
-                            "type": "Tutorial Step",
-                            "name": "Where is all Begins",
-                            "config": "{\n    \"icon\": {\n        \"name\": \"governance\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Where is all Begins\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
-                            "project": "Education",
-                            "id": "9aec749c-46c8-45d0-99f4-f99ecd50ec44",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 23963.022053201028,
-                                    "y": 25308.022053201028
-                                },
-                                "targetPosition": {
-                                    "x": 23677.705098312483,
-                                    "y": 25215.316954888545
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
-                                "tutorial": {
-                                    "status": "Done"
-                                },
-                                "referenceParent": {
-                                    "type": "Governance Project",
-                                    "name": "New Governance Project",
-                                    "id": "db380c52-cf90-475b-87df-c005dd51cdf6"
-                                },
-                                "referenceParentCombinedNodePath": [
-                                    [
-                                        "New Governance Project",
-                                        "Governance Project"
-                                    ]
-                                ]
-                            }
-                        },
-                        {
-                            "type": "Tutorial Step",
-                            "name": "Profile in a Heartbeat",
-                            "config": "{\n    \"icon\": {\n        \"name\": \"profile-constructor\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Profile in a Heartbeat\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"Close\",\n        \"closeTutorialEditor\": true,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
-                            "project": "Education",
-                            "id": "cdfada38-c5e0-4c0c-aaf5-4fa24b416131",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 23854.040674000225,
-                                    "y": 25458.022053201028
-                                },
-                                "targetPosition": {
-                                    "x": 23677.705098312483,
-                                    "y": 25215.316954888545
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
-                                "tutorial": {
-                                    "status": "Done"
-                                }
-                            }
-                        },
-                        {
-                            "type": "Tutorial Step",
-                            "name": "Pump that Heartbeat!",
-                            "config": "{\n    \"icon\": {\n        \"name\": \"configuration\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Pump that Heartbeat!\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"Close\",\n        \"closeTutorialEditor\": true\n    },\n    \"positionAtReferenceParent\": true\n}",
-                            "project": "Education",
-                            "id": "651e15ce-bdda-4cca-9c2d-e16a2d900e45",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 23677.705098312483,
-                                    "y": 25515.316954888545
-                                },
-                                "targetPosition": {
-                                    "x": 23677.705098312483,
-                                    "y": 25215.316954888545
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
-                                "tutorial": {
-                                    "status": "Done"
-                                },
-                                "referenceParent": {
-                                    "type": "Time Machine",
-                                    "name": "Lightning Strike Backtesting Session My Computer Binanceus BTC/USDT",
-                                    "id": "72a1f250-0d0e-4354-8fdf-741866b9c16c"
-                                },
-                                "referenceParentCombinedNodePath": [
-                                    [
-                                        "New Charting Space",
-                                        "Charting Space",
-                                        "Foundations",
-                                        "21d2ec55-9e56-4652-8e96-c7e451262c36"
-                                    ],
-                                    [
-                                        "Foundations",
-                                        "Project Dashboards",
-                                        "Foundations",
-                                        "2f92dce8-f804-40b6-9f4d-e605f4b4a55e"
-                                    ],
-                                    [
-                                        "Testing Trading Tasks My Computer",
-                                        "Dashboard",
-                                        "Foundations",
-                                        "b10709c9-2150-4055-a06e-1b9b8db2af55"
-                                    ],
-                                    [
-                                        "Lightning Strike Backtesting Session My Computer Binanceus BTC/USDT",
-                                        "Time Machine",
-                                        "Foundations",
-                                        "72a1f250-0d0e-4354-8fdf-741866b9c16c"
-                                    ]
-                                ]
-                            }
-                        },
-                        {
-                            "type": "Tutorial Step",
-                            "name": "New Tutorial Step",
-                            "config": "{\n    \"icon\": {\n        \"name\": \"\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
-                            "project": "Education",
-                            "id": "a7929f0d-8dee-488c-b517-7ac95d2cb071",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 23501.36952262474,
-                                    "y": 25458.022053201028
-                                },
-                                "targetPosition": {
-                                    "x": 23677.705098312483,
-                                    "y": 25215.316954888545
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        }
-                    ],
-                    "tutorialTopics": [],
-                    "id": "1b7b5af2-bb52-4090-965e-cd457b2e229c",
-                    "savedPayload": {
-                        "position": {
-                            "x": 23677.705098312483,
-                            "y": 25215.316954888545
-                        },
-                        "targetPosition": {
-                            "x": 23585,
-                            "y": 24930
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": false,
-                            "angleToParent": 1,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        },
-                        "tutorial": {
-                            "status": "Done"
-                        }
-                    }
-                },
-                {
-                    "type": "Tutorial Topic",
-                    "name": "Link to Data Mine Products",
-                    "config": "{\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"Next\"\n}",
-                    "project": "Education",
-                    "tutorialSteps": [
-                        {
-                            "type": "Tutorial Step",
-                            "name": "Link Chart to Data Products",
-                            "config": "{\n    \"icon\": {\n        \"name\": \"Data/data-mine-products\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Link Chart to Data Products\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
-                            "project": "Education",
-                            "id": "7b7a165b-cd6a-467f-95a3-36eb3c4e379e",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 24280,
-                                    "y": 25281.807621135333
-                                },
-                                "targetPosition": {
-                                    "x": 24430,
-                                    "y": 25022
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
-                                "referenceParent": {
-                                    "type": "Time Machine",
-                                    "name": "Lighting Strike Backtesting Session",
-                                    "id": "499eac86-6c40-4362-a36a-5f2002081866"
-                                }
-                            }
-                        },
-                        {
-                            "type": "Tutorial Step",
-                            "name": "Make the Connection",
-                            "config": "{\n    \"icon\": {\n        \"name\": \"delink-node\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Make the Connection\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
-                            "project": "Education",
-                            "id": "c794e2fd-ebda-4f63-99bc-88a9afc64233",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 24170.192378864667,
-                                    "y": 25172
-                                },
-                                "targetPosition": {
-                                    "x": 24430,
-                                    "y": 25022
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        },
-                        {
-                            "type": "Tutorial Step",
-                            "name": "Add the Layers",
-                            "config": "{\n    \"icon\": {\n        \"name\": \"Layer/layer\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Add the Layers\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
-                            "project": "Education",
-                            "id": "05060d29-390d-4176-9e12-28fcf139a7f4",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 24130,
-                                    "y": 25022
-                                },
-                                "targetPosition": {
-                                    "x": 24430,
-                                    "y": 25022
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
-                                "referenceParent": {
-                                    "type": "Tutorial",
-                                    "name": "Creating Your User Profile Tutorial",
-                                    "id": "57e388d1-f479-4a16-af85-aee12be285a0"
-                                },
-                                "referenceParentCombinedNodePath": [
-                                    [
-                                        "Creating Your User Profile Tutorial",
-                                        "Tutorial",
-                                        "Education",
-                                        "57e388d1-f479-4a16-af85-aee12be285a0"
-                                    ]
-                                ]
-                            }
-                        },
-                        {
-                            "type": "Tutorial Step",
-                            "name": "Verify the Layers",
-                            "config": "{\n    \"icon\": {\n        \"name\": \"Layer/layer\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Verify the Layers\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
-                            "project": "Education",
-                            "id": "5f80c66d-49cd-44b3-9970-1aeffe0d5de5",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 24170.192378864667,
-                                    "y": 24872
-                                },
-                                "targetPosition": {
-                                    "x": 24430,
-                                    "y": 25022
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
-                                "referenceParent": {
-                                    "type": "Tutorial",
-                                    "name": "Creating Your User Profile Tutorial",
-                                    "id": "57e388d1-f479-4a16-af85-aee12be285a0"
-                                },
-                                "referenceParentCombinedNodePath": [
-                                    [
-                                        "Creating Your User Profile Tutorial",
-                                        "Tutorial",
-                                        "Education",
-                                        "57e388d1-f479-4a16-af85-aee12be285a0"
-                                    ]
-                                ]
-                            }
-                        },
-                        {
-                            "type": "Tutorial Step",
-                            "name": "It's Alive!",
-                            "config": "{\n    \"icon\": {\n        \"name\": \"Trading/trading-system\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toBottom\",\n    \"repositionAtTimeMachineNoZoomReferenceParent\": true,\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - It’s Alive!\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
-                            "project": "Education",
-                            "id": "06dd6909-cf9c-47a2-aa47-649cecffa070",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 24280,
-                                    "y": 24762.192378864667
-                                },
-                                "targetPosition": {
-                                    "x": 24430,
-                                    "y": 25022
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
-                                "referenceParent": {
-                                    "type": "Time Machine",
-                                    "name": "Lighting Strike Backtesting Session",
-                                    "id": "499eac86-6c40-4362-a36a-5f2002081866"
-                                }
-                            }
-                        }
-                    ],
-                    "tutorialTopics": [],
-                    "id": "9c4ab2ae-dc3c-420b-9ac3-11422e25b623",
-                    "savedPayload": {
-                        "position": {
-                            "x": 23342.294901687517,
-                            "y": 25106.335575687743
-                        },
-                        "targetPosition": {
-                            "x": 23585,
-                            "y": 24930
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": true,
-                            "angleToParent": 1,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                {
-                    "type": "Tutorial Topic",
-                    "name": "Link to Trading Mine Products",
-                    "config": "{\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"Next\"\n}",
-                    "project": "Education",
-                    "tutorialSteps": [],
-                    "tutorialTopics": [
-                        {
-                            "type": "Tutorial Topic",
-                            "name": "Connection One",
-                            "config": "{\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"Next\"\n}",
-                            "project": "Education",
-                            "tutorialSteps": [
-                                {
-                                    "type": "Tutorial Step",
-                                    "name": "Link Chart to a Trading System",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"Charting-Space/chart-points\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Link Chart to Trading System\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
-                                    "project": "Education",
-                                    "id": "c54fc87c-73ff-4979-9f57-c77e58c65124",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24000.444504226558,
-                                            "y": 24762.192378864667
-                                        },
-                                        "targetPosition": {
-                                            "x": 24290.22225211328,
-                                            "y": 24684.54666533391
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        },
-                                        "referenceParent": {
-                                            "type": "Tutorial",
-                                            "name": "Creating Your User Profile Tutorial",
-                                            "id": "57e388d1-f479-4a16-af85-aee12be285a0"
-                                        },
-                                        "referenceParentCombinedNodePath": [
-                                            [
-                                                "Creating Your User Profile Tutorial",
-                                                "Tutorial",
-                                                "Education",
-                                                "57e388d1-f479-4a16-af85-aee12be285a0"
-                                            ]
-                                        ]
-                                    }
-                                },
-                                {
-                                    "type": "Tutorial Step",
-                                    "name": "Connection One",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"delink-node\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Connection One\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
-                                    "project": "Education",
-                                    "id": "474fb22c-d20f-45d6-9a82-f772049c4d61",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24078.090217757315,
-                                            "y": 24472.414630977946
-                                        },
-                                        "targetPosition": {
-                                            "x": 24290.22225211328,
-                                            "y": 24684.54666533391
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        },
-                                        "referenceParent": {
-                                            "type": "Backtesting Session",
-                                            "name": "Lightning Strike",
-                                            "id": "a401c496-1afc-4ca9-ae2c-af41a520bfb6"
-                                        },
-                                        "referenceParentCombinedNodePath": [
-                                            [
-                                                "My Network",
-                                                "Network",
-                                                "Foundations",
-                                                "3c165071-7558-4708-9999-8ffe71d346b1"
-                                            ],
-                                            [
-                                                "My Computer",
-                                                "Network Node",
-                                                "Foundations",
-                                                "e452cf65-2b2b-44f2-9e67-bdd9d3c008e4"
-                                            ],
-                                            [
-                                                "New Testing Trading Tasks",
-                                                "Testing Trading Tasks",
-                                                "Foundations",
-                                                "8117db0a-e418-4f56-8fe4-fda2ddac1cbb"
-                                            ],
-                                            [
-                                                "Foundations",
-                                                "Project Trading Tasks",
-                                                "Foundations",
-                                                "37a5ebef-7da4-470c-96bf-e328d0a90f15"
-                                            ],
-                                            [
-                                                "Binance",
-                                                "Exchange Trading Tasks",
-                                                "Foundations",
-                                                "f19b5916-d287-45ef-a121-816775f05e56"
-                                            ],
-                                            [
-                                                " BTC/USDT",
-                                                "Market Trading Tasks",
-                                                "Foundations",
-                                                "5e1e64a3-b6de-4f8c-96f2-b46a395999c4"
-                                            ],
-                                            [
-                                                "Masters",
-                                                "Trading Mine Tasks",
-                                                "Foundations",
-                                                "10a877fc-cfb1-4e6e-893b-c68c965497b2"
-                                            ],
-                                            [
-                                                "Masters",
-                                                "Task Manager",
-                                                "Foundations",
-                                                "ce4c6293-6465-4c31-b7c0-ab5ab7549b13"
-                                            ],
-                                            [
-                                                "Lightning Strike",
-                                                "Task",
-                                                "Foundations",
-                                                "8b6a1391-1852-49d9-ad07-1083dbf2571b"
-                                            ],
-                                            [
-                                                "Low Frequency",
-                                                "Trading Bot Instance",
-                                                "Foundations",
-                                                "0a3dc505-087d-4e4f-b3b6-4b6a16548a98"
-                                            ],
-                                            [
-                                                "Low Frequency Trading",
-                                                "Trading Process Instance",
-                                                "Foundations",
-                                                "9141d86d-1136-4060-b583-abe07808104b"
-                                            ],
-                                            [
-                                                "Lightning Strike",
-                                                "Backtesting Session",
-                                                "Foundations",
-                                                "a401c496-1afc-4ca9-ae2c-af41a520bfb6"
-                                            ]
-                                        ]
-                                    }
-                                }
-                            ],
-                            "tutorialTopics": [],
-                            "id": "ad746f03-a874-484a-b475-6948665203e2",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 24290.22225211328,
-                                    "y": 24684.54666533391
-                                },
-                                "targetPosition": {
-                                    "x": 24580,
-                                    "y": 24762.192378864667
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": true,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        },
-                        {
-                            "type": "Tutorial Topic",
-                            "name": "Connection Two",
-                            "config": "{\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"Next\"\n}",
-                            "project": "Education",
-                            "tutorialSteps": [
-                                {
-                                    "type": "Tutorial Step",
-                                    "name": "Back to Data Storage",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"Trading/trading-mines-data\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Back to Data Storage\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
-                                    "project": "Education",
-                                    "id": "a18b732e-a1d7-4f80-b131-47d7343769de",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24131.64343138952,
-                                            "y": 24471.026218749037
-                                        },
-                                        "targetPosition": {
-                                            "x": 24430,
-                                            "y": 24502.384757729335
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        },
-                                        "referenceParent": {
-                                            "type": "Trading Mines Data",
-                                            "name": "New Trading Mines Data",
-                                            "id": "e4e268f3-a677-4f90-90a1-d87244e647e5"
-                                        },
-                                        "referenceParentCombinedNodePath": [
-                                            [
-                                                "My Network",
-                                                "Network",
-                                                "Foundations",
-                                                "3c165071-7558-4708-9999-8ffe71d346b1"
-                                            ],
-                                            [
-                                                "My Computer",
-                                                "Network Node",
-                                                "Foundations",
-                                                "e452cf65-2b2b-44f2-9e67-bdd9d3c008e4"
-                                            ],
-                                            [
-                                                "New Data Storage",
-                                                "Data Storage",
-                                                "Foundations",
-                                                "e2697759-6038-4943-b90c-5a68651ff9a8"
-                                            ],
-                                            [
-                                                "New Trading Mines Data",
-                                                "Trading Mines Data",
-                                                "Foundations",
-                                                "e4e268f3-a677-4f90-90a1-d87244e647e5"
-                                            ]
-                                        ]
-                                    }
-                                },
-                                {
-                                    "type": "Tutorial Step",
-                                    "name": "Another Timeline Chart",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"Time/timeline-chart\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Another Timeline Chart\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
-                                    "project": "Education",
-                                    "id": "57d9e78e-2f13-4b29-9fcb-97b8e15b94f4",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24207.056552356782,
-                                            "y": 24301.645575821676
-                                        },
-                                        "targetPosition": {
-                                            "x": 24430,
-                                            "y": 24502.384757729335
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Tutorial Step",
-                                    "name": "Connection Two",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"delink-node\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Connection Two\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
-                                    "project": "Education",
-                                    "id": "677ca42a-4874-4bc4-930c-250fd0ca3fda",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24367.626492754673,
-                                            "y": 24208.94047750919
-                                        },
-                                        "targetPosition": {
-                                            "x": 24430,
-                                            "y": 24502.384757729335
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        },
-                                        "referenceParent": {
-                                            "type": "Trading Session Reference",
-                                            "name": "Lightning Strike Backtesting Session",
-                                            "id": "16b13a2d-3f4c-4c22-b03e-218beeef4bf3"
-                                        },
-                                        "referenceParentCombinedNodePath": [
-                                            [
-                                                "My Network",
-                                                "Network",
-                                                "Foundations",
-                                                "3c165071-7558-4708-9999-8ffe71d346b1"
-                                            ],
-                                            [
-                                                "My Computer",
-                                                "Network Node",
-                                                "Foundations",
-                                                "e452cf65-2b2b-44f2-9e67-bdd9d3c008e4"
-                                            ],
-                                            [
-                                                "New Data Storage",
-                                                "Data Storage",
-                                                "Foundations",
-                                                "e2697759-6038-4943-b90c-5a68651ff9a8"
-                                            ],
-                                            [
-                                                "New Trading Mines Data",
-                                                "Trading Mines Data",
-                                                "Foundations",
-                                                "e4e268f3-a677-4f90-90a1-d87244e647e5"
-                                            ],
-                                            [
-                                                "Foundations",
-                                                "Project Trading Products",
-                                                "Foundations",
-                                                "61700ea3-1a25-4abe-98eb-3fd5ca57b82c"
-                                            ],
-                                            [
-                                                "Binance",
-                                                "Exchange Trading Products",
-                                                "Foundations",
-                                                "f3e5e7d3-fa8d-451a-b86f-87ab5c852263"
-                                            ],
-                                            [
-                                                " BTC/USDT",
-                                                "Market Trading Products",
-                                                "Foundations",
-                                                "459723e4-ac62-4275-87d5-70761c2e9a6a"
-                                            ],
-                                            [
-                                                "Lightning Strike Backtesting Session",
-                                                "Trading Session Reference",
-                                                "Foundations",
-                                                "16b13a2d-3f4c-4c22-b03e-218beeef4bf3"
-                                            ]
-                                        ]
-                                    }
-                                },
-                                {
-                                    "type": "Tutorial Step",
-                                    "name": "Don't Forget the Layers!",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"Layer/layer\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Don’t Forget the Layers!\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
-                                    "project": "Education",
-                                    "id": "70c4b4fa-c12c-48a9-80e3-b8b99cfd4e25",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24552.020992922742,
-                                            "y": 24228.32112043655
-                                        },
-                                        "targetPosition": {
-                                            "x": 24430,
-                                            "y": 24502.384757729335
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                }
-                            ],
-                            "tutorialTopics": [],
-                            "id": "bef2e874-7eca-4d87-b409-2482c8f33fb5",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 24430,
-                                    "y": 24502.384757729335
-                                },
-                                "targetPosition": {
-                                    "x": 24580,
-                                    "y": 24762.192378864667
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": true,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        },
-                        {
-                            "type": "Tutorial Topic",
-                            "name": "Check the Chart",
-                            "config": "{\n    \"position\": \"Right\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"Next\"\n}",
-                            "project": "Education",
-                            "tutorialSteps": [
-                                {
-                                    "type": "Tutorial Step",
-                                    "name": "Check the Chart",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"Charting-Space/chart-points\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toBottom\",\n    \"repositionAtTimeMachineNoZoomReferenceParent\": true,\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Check the Chart\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
-                                    "project": "Education",
-                                    "id": "bab09c4d-bf15-412e-8cfa-13a6ef1596d8",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24580,
-                                            "y": 24182.636883091225
-                                        },
-                                        "targetPosition": {
-                                            "x": 24657.645713530757,
-                                            "y": 24472.414630977946
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        },
-                                        "referenceParent": {
-                                            "type": "Time Machine",
-                                            "name": "Lighting Strike Backtesting Session",
-                                            "id": "499eac86-6c40-4362-a36a-5f2002081866"
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Tutorial Step",
-                                    "name": "Not Seeing Anything?",
-                                    "config": "{\n    \"icon\": {\n        \"name\": \"bot-data-dependencies\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Right\",\n    \"slider\": \"toBottom\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Not Seeing Anything?\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
-                                    "project": "Education",
-                                    "id": "5d481e14-4320-423a-b3aa-6ebf3577cc69",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24869.77774788672,
-                                            "y": 24260.282596621983
-                                        },
-                                        "targetPosition": {
-                                            "x": 24657.645713530757,
-                                            "y": 24472.414630977946
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                }
-                            ],
-                            "tutorialTopics": [],
-                            "id": "ce8f024f-333a-41fd-8133-0520cb0643de",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 24657.645713530757,
-                                    "y": 24472.414630977946
-                                },
-                                "targetPosition": {
-                                    "x": 24580,
-                                    "y": 24762.192378864667
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": true,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        }
-                    ],
-                    "id": "7a3b03c7-8061-4b25-906a-8e22916aa9a7",
-                    "savedPayload": {
-                        "position": {
-                            "x": 23342.294901687517,
-                            "y": 24753.664424312257
-                        },
-                        "targetPosition": {
-                            "x": 23585,
-                            "y": 24930
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": true,
-                            "angleToParent": 1,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                {
-                    "type": "Tutorial Topic",
-                    "name": "Before I Go",
-                    "config": "{\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"Next\"\n}",
-                    "project": "Education",
-                    "tutorialSteps": [
-                        {
-                            "type": "Tutorial Step",
-                            "name": "Easy as 1,2,3",
-                            "config": "{\n    \"icon\": {\n        \"name\": \"Charting-Space/charting-space\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Easy as 1, 2, 3\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
-                            "project": "Education",
-                            "id": "3df32c0e-ba29-4d8b-bbfe-5a6cba21a72a",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 24880,
-                                    "y": 24462.192378864667
-                                },
-                                "targetPosition": {
-                                    "x": 24880,
-                                    "y": 24762.192378864667
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        },
-                        {
-                            "type": "Tutorial Step",
-                            "name": "Before I Go",
-                            "config": "{\n    \"icon\": {\n        \"name\": \"Charting-Space/charting-space\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Before I Go\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
-                            "project": "Education",
-                            "id": "13562ed4-66d1-4c87-8a8f-eeef9ee998f3",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 25139.807621135333,
-                                    "y": 24612.192378864667
-                                },
-                                "targetPosition": {
-                                    "x": 24880,
-                                    "y": 24762.192378864667
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        }
-                    ],
-                    "tutorialTopics": [],
-                    "id": "c1c298ee-7e66-4277-9a55-5869d9f5e23a",
-                    "savedPayload": {
-                        "position": {
-                            "x": 23677.705098312483,
-                            "y": 24644.683045111455
-                        },
-                        "targetPosition": {
-                            "x": 23585,
-                            "y": 24930
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": true,
-                            "angleToParent": 1,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+            "type": "APIs",
+            "name": "New APIs",
+            "project": "Foundations",
+            "githubAPI": {
+                "type": "Github API",
+                "name": "New Github API",
+                "config": "{\n    \"username\": \"\",\n    \"token\": \"\"\n}\n",
+                "project": "Foundations",
+                "id": "48c9ca95-3cc0-43a8-a522-27e812979800",
+                "savedPayload": {
+                    "position": {
+                        "x": 30519.083333333336,
+                        "y": 10718.951150794494
+                    },
+                    "targetPosition": {
+                        "x": 30219.083333333336,
+                        "y": 10718.951150794494
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
                     }
                 }
-            ],
-            "id": "57e388d1-f479-4a16-af85-aee12be285a0",
+            },
+            "id": "e4e1b5e1-c1f6-45da-af08-32464d5b17f9",
             "savedPayload": {
                 "position": {
-                    "x": 23585,
-                    "y": 24930
+                    "x": 30219.083333333336,
+                    "y": 10718.951150794494
                 },
                 "targetPosition": {
-                    "x": 23585,
-                    "y": 24930
+                    "x": 30219.083333333336,
+                    "y": 10718.951150794494
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
-                    "arrangementStyle": 1
+                    "arrangementStyle": 0
                 },
                 "uiObject": {
-                    "isPlaying": false,
                     "isRunning": false
-                },
-                "tutorial": {
-                    "status": "Done"
                 }
             }
         }

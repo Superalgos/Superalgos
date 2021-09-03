@@ -45,6 +45,16 @@
             "label": "Add Reinforcement Learning",
             "relatedUiObject": "Reinforcement Learning",
             "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
         }
     ],
     "addLeftIcons": true,

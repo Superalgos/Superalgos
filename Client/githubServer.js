@@ -211,6 +211,7 @@ exports.newGithubServer = function newGithubServer() {
                     })
                     await getPrList()
                     await mergePrs()
+                    await closePrsToMaster()
 
                     async function getPrList() {
 
@@ -302,6 +303,7 @@ exports.newGithubServer = function newGithubServer() {
                             if (await validateMessageSignedIsGithubUsername() === false) { continue }
                             if (await validateUserProfileNodeNameEqualsGithubUsername() === false) { continue }
                             if (await validateUserProfileIdDoesNotBelongtoAnotherUserProfile() === false) { continue }
+                            if (await validateUserProfileBlockchainAccountDoesNotBelongtoAnotherUserProfile() === false) { continue }
 
                             if (await mergePullRequest() === false) {
                                 console.log('[WARN] Github Server -> mergeGithubPullRequests -> Merge Failed -> Pull Request "' + pullRequest.title + '" not merged because Github could not merge it. -> mergeResponse.message = ' + mergeResponse.data.message)
@@ -470,14 +472,14 @@ exports.newGithubServer = function newGithubServer() {
                                 unless the existing one belongs to the same Github username.
                                 */
                                 let userProfileIdMap = new Map()
-                                let pluginFileNames = await CL.projects.foundations.utilities.plugins.getPluginFileNames(
+                                let pluginFileNames = await SA.projects.foundations.utilities.plugins.getPluginFileNames(
                                     'Governance',
                                     'User-Profiles'
                                 )
                                 for (let i = 0; i < pluginFileNames.length; i++) {
                                     let pluginFileName = pluginFileNames[i]
 
-                                    let pluginFileContent = await CL.projects.foundations.utilities.plugins.getPluginFileContent(
+                                    let pluginFileContent = await SA.projects.foundations.utilities.plugins.getPluginFileContent(
                                         'Governance',
                                         'User-Profiles',
                                         pluginFileName
@@ -512,6 +514,70 @@ exports.newGithubServer = function newGithubServer() {
                                 }
                             }
 
+                            async function validateUserProfileBlockchainAccountDoesNotBelongtoAnotherUserProfile() {
+                                try {
+                                    /*
+                                    Validation #7 The blockchain account of the User Profile can not be the 
+                                    blockchain account of an already existing User Profile
+                                    unless the existing one belongs to the same Github username.
+                                    */
+                                    let userProfileIdMap = new Map()
+                                    let pluginFileNames = await SA.projects.foundations.utilities.plugins.getPluginFileNames(
+                                        'Governance',
+                                        'User-Profiles'
+                                    )
+                                    for (let i = 0; i < pluginFileNames.length; i++) {
+                                        let pluginFileName = pluginFileNames[i]
+                                        let pluginFileContent = await SA.projects.foundations.utilities.plugins.getPluginFileContent(
+                                            'Governance',
+                                            'User-Profiles',
+                                            pluginFileName
+                                        )
+
+                                        let otherUserProfile = JSON.parse(pluginFileContent)
+
+                                        let config = JSON.parse(otherUserProfile.config)
+                                        let messageSigned = JSON.stringify(config.signature)
+                                        let serverResponse = await CL.servers.WEB3_SERVER.recoverAddress(
+                                            messageSigned
+                                        )
+                                        userProfileIdMap.set(serverResponse.address, otherUserProfile.name)
+                                    }
+
+                                    let config = JSON.parse(userProfile.config)
+                                    let messageSigned = JSON.stringify(config.signature)
+                                    let serverResponse = await CL.servers.WEB3_SERVER.recoverAddress(
+                                        messageSigned
+                                    )
+
+                                    let testUserProfile = userProfileIdMap.get(serverResponse.address)
+                                    if (testUserProfile === undefined) { return true }
+                                    if (testUserProfile !== userProfile.name) {
+
+                                        console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #7 Failed -> Pull Request "' + pullRequest.title + '" not merged because the User Profile Blockchain Account already exists and belongs to another User Profile on record. -> Profile Blockchain Account = ' + serverResponse.address + '-> User Profile with the same Blockchain Account = ' + testUserProfile)
+
+                                        await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                        await octokit.rest.issues.createComment({
+                                            owner: owner,
+                                            repo: repo,
+                                            issue_number: pullRequest.number,
+                                            body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because the User Profile Blockchain Account already exists and belongs to another User Profile on record. \n\nUser Profile Blockchain Account = "' + serverResponse.address + '" \n\n User Profile with the same Blockchain Account = "' + testUserProfile + '"'
+                                        });
+
+                                        await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                        await octokit.rest.pulls.update({
+                                            owner: owner,
+                                            repo: repo,
+                                            pull_number: pullRequest.number,
+                                            state: 'closed'
+                                        });
+                                        return false
+                                    }
+                                } catch (err) {
+                                    console.log(err.stack)
+                                }
+                            }
+
                             async function mergePullRequest() {
                                 /*
                                 All validations passed, we will proceed an merge this Pull Request.
@@ -527,6 +593,80 @@ exports.newGithubServer = function newGithubServer() {
                             }
                         }
                     }
+
+                    async function closePrsToMaster() {
+
+                        let githubPrListMaster = []
+                        const per_page = 100 // Max
+                        let page = 0
+
+                        try {
+                            page++
+
+                            await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+
+                            let listResponse = await octokit.rest.pulls.list({
+                                owner: owner,
+                                repo: repo,
+                                state: 'open',
+                                head: undefined,
+                                base: 'master',
+                                sort: undefined,
+                                direction: undefined,
+                                per_page: per_page,
+                                page: page
+                            });
+
+                            if (listResponse.data.length < 100) {
+                                lastPage = true
+                            }
+                            console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster -> Receiving Page = ' + page)
+                            for (let i = 0; i < listResponse.data.length; i++) {
+                                let pullRequest = listResponse.data[i]
+                                console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster -> Pull Request "' + pullRequest.title + '" found and added to the list to validate. ')
+                                githubPrListMaster.push(pullRequest)
+                            }
+                            console.log('[INFO] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster -> Received = ' + listResponse.data.length)
+
+                            for (let i = 0; i < githubPrListMaster.length; i++) {
+                                let pullRequest = githubPrListMaster[i]
+
+                                await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                await octokit.rest.issues.createComment({
+                                    owner: owner,
+                                    repo: repo,
+                                    issue_number: pullRequest.number,
+                                    body: 'Hi, this is the Superalgos Governance System taking notice that you have submitted a pull request directly to the master branch.\n\nThanks for submitting a PR to the Superalgos Project. We value every contribution and everyone is welcome to send PRs. Unfortunatelly we are not merging pull requests directly into the master branch. Consider resubmitting to the develop branch intstead. For your convinienve, you can swithch branches from within the app, at the footer of the Docs tab. \n\n I will close this pull request now and look forward for your next contribution either to the develop branch or any other branch available for this purpose.'
+                                });
+
+                                await CL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                await octokit.rest.pulls.update({
+                                    owner: owner,
+                                    repo: repo,
+                                    pull_number: pullRequest.number,
+                                    state: 'closed'
+                                });
+                            }
+
+                        } catch (err) {
+                            console.log(err)
+
+                            if (err.stack.indexOf('last page') >= 0) {
+                                return
+                            } else {
+                                console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->Method call produced an error.')
+                                console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->err.stack = ' + err.stack)
+                                console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->repository = ' + repository)
+                                console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->username = ' + username)
+                                console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->token starts with = ' + token.substring(0, 10) + '...')
+                                console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->token ends with = ' + '...' + token.substring(token.length - 10))
+                                error = err
+                                return
+                            }
+                        }
+
+                    }
+
                 } catch (err) {
                     console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> err.stack = ' + err.stack)
                 }

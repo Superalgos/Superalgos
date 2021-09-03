@@ -1,0 +1,124 @@
+{
+    "topic": "Introduction to Governance",
+    "pageNumber": "3",
+    "type": "Governance Programs",
+    "definition": {
+        "text": "The Community may participate in multiple Governance Programs, each designed to fulfill a specific goal. Programs are grouped in the following domains: Onboarding Programs, Community Building Programs, Votes and Claims Programs, and Financial Programs.",
+        "updated": 1630425525513
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Onboarding Programs",
+            "updated": 1630425562962
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Onboarding Programs->Definition",
+            "updated": 1630425699135
+        },
+        {
+            "style": "Subtitle",
+            "text": "Airdrop Program",
+            "updated": 1630425792121
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Airdrop Program->Definition",
+            "updated": 1630425814203
+        },
+        {
+            "style": "Subtitle",
+            "text": "Github Program"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Github Program->Definition",
+            "updated": 1630425836224
+        },
+        {
+            "style": "Title",
+            "text": "Community Building Programs"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Community Building Programs->Definition",
+            "updated": 1630425759750
+        },
+        {
+            "style": "Subtitle",
+            "text": "Referral Program"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Referral Program->Definition"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Support Program"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Support Program->Definition"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Mentorship Program"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Mentorship Program->Definition"
+        },
+        {
+            "style": "Title",
+            "text": "Votes And Claims Programs",
+            "updated": 1630425627375
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Votes And Claims Programs->Definition",
+            "updated": 1630425763995
+        },
+        {
+            "style": "Subtitle",
+            "text": "Claims Program"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Claims Program->Definition"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Voting Program"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Voting Program->Definition"
+        },
+        {
+            "style": "Title",
+            "text": "Financial Programs"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Financial Programs->Definition",
+            "updated": 1630425768655
+        },
+        {
+            "style": "Subtitle",
+            "text": "Staking Program"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Staking Program->Definition"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Delegation Program"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Delegation Program->Definition"
+        }
+    ]
+}

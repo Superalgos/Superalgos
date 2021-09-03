@@ -59,7 +59,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
 
-            distributeProgram(program)
+            distributeProgram(program, userProfile)
         }
 
         /* Bonus Calculation is here */
@@ -181,24 +181,25 @@ function newGovernanceFunctionLibraryVotingProgram() {
             }
         }
 
-        function distributeProgram(programNode) {
+        function distributeProgram(programNode, userProfile) {
             if (programNode.payload === undefined) { return }
             /*
             Transform Token Power into Votes
             */
-            let votes = programNode.payload.tokenPower
+            let votes = programNode.payload.tokenPower + userProfile.payload.reputation
             /*
             Set this initial votes as own power
             */
             programNode.payload.votingProgram.ownPower = votes
-            distributeProgramPower(programNode, programNode, votes, undefined, 0)
+            distributeProgramPower(programNode, programNode, votes, undefined, 0, userProfile)
 
             function distributeProgramPower(
                 currentProgramNode,
                 node,
                 votes,
                 percentage,
-                generation
+                generation,
+                userProfile
             ) {
                 if (generation >= MAX_GENERATIONS) {
                     return
@@ -212,7 +213,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                 if (node.type === 'Voting Program') {
                     node.payload.votingProgram.incomingPower = node.payload.votingProgram.votes - node.payload.votingProgram.ownPower
                 }
-                drawVotes(node, node.payload.votingProgram.votes, percentage)
+                drawVotes(node, node.payload.votingProgram.votes, percentage, userProfile)
                 /*
                 When we reach certain node types, we will halt the distribution, because these are targets for 
                 voting power.
@@ -240,7 +241,8 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                 node.payload.referenceParent,
                                 votes / 10,
                                 undefined,
-                                generation + 1
+                                generation + 1,
+                                userProfile
                             )
                         }
                         return
@@ -254,7 +256,8 @@ function newGovernanceFunctionLibraryVotingProgram() {
                             program,
                             votes,
                             undefined,
-                            generation
+                            generation,
+                            userProfile
                         )
                         return
                     }
@@ -275,7 +278,8 @@ function newGovernanceFunctionLibraryVotingProgram() {
                         node.payload.referenceParent,
                         votes,
                         undefined,
-                        generation
+                        generation,
+                        userProfile
                     )
                     return
                 }
@@ -330,7 +334,10 @@ function newGovernanceFunctionLibraryVotingProgram() {
                         }
                     }
                     if (totalPercentage > 100) {
-                        node.payload.uiObject.setErrorMessage('Voting Power Switching Error. Total Percentage of children nodes is grater that 100.')
+                        node.payload.uiObject.setErrorMessage(
+                            'Voting Power Switching Error. Total Percentage of children nodes is grater that 100.',
+                            UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                            )
                         return
                     }
                     let defaultPercentage = 0
@@ -357,7 +364,8 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                     childNode,
                                     votes * percentage / 100,
                                     percentage,
-                                    generation
+                                    generation,
+                                    userProfile
                                 )
                             }
                                 break
@@ -377,7 +385,8 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                             childNode,
                                             votes * percentage / 100,
                                             percentage,
-                                            generation
+                                            generation,
+                                            userProfile
                                         )
                                     }
                                 }
@@ -389,7 +398,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
             }
         }
 
-        function drawVotes(node, votes, percentage) {
+        function drawVotes(node, votes, percentage, userProfile) {
 
             if (node.payload !== undefined) {
 
@@ -397,10 +406,12 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     return
                 }
                 if (node.type === 'Voting Program') {
-                    drawProgram(node)
+                    drawProgram(node, userProfile)
 
                     if (percentage !== undefined) {
-                        node.payload.uiObject.setPercentage(percentage.toFixed(2))
+                        node.payload.uiObject.setPercentage(percentage.toFixed(2),
+                        UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
+                        )
                     }
                     return
                 }
@@ -447,14 +458,16 @@ function newGovernanceFunctionLibraryVotingProgram() {
                 }
 
                 const votesText = parseFloat(votes.toFixed(0)).toLocaleString('en') + ' ' + voteType
-                
+
                 node.payload.uiObject.valueAngleOffset = 0
                 node.payload.uiObject.valueAtAngle = true
 
-                node.payload.uiObject.setValue(votesText)
+                node.payload.uiObject.setValue(votesText, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
                 if (percentage !== undefined) {
-                    node.payload.uiObject.setPercentage(percentage.toFixed(2))
+                    node.payload.uiObject.setPercentage(percentage.toFixed(2),
+                    UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
+                    )
                 }
             }
 
@@ -466,36 +479,39 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     node.payload.uiObject.valueAngleOffset = 180
                     node.payload.uiObject.valueAtAngle = true
 
-                    node.payload.uiObject.setValue(outgoingPowerText + ' Voting Power')
+                    node.payload.uiObject.setValue(outgoingPowerText + ' Voting Power', UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
                     node.payload.uiObject.percentageAngleOffset = 180
                     node.payload.uiObject.percentageAtAngle = true
 
-                    node.payload.uiObject.setPercentage(percentage)
+                    node.payload.uiObject.setPercentage(percentage,
+                        UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
+                        )
 
                     if (node.payload.referenceParent !== undefined) {
                         node.payload.uiObject.statusAngleOffset = 0
                         node.payload.uiObject.statusAtAngle = true
 
-                        node.payload.uiObject.setStatus(outgoingPowerText + ' ' + ' Outgoing Power')
+                        node.payload.uiObject.setStatus(outgoingPowerText + ' ' + ' Outgoing Power', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
                     }
                 }
             }
 
-            function drawProgram(node) {
+            function drawProgram(node, userProfile) {
                 if (node.payload === undefined) { return }
                 if (node.payload.votingProgram === undefined) { return }
                 if (node.payload.votingProgram.ownPower === undefined) { return }
                 if (node.payload.votingProgram.incomingPower === undefined) { return }
+                if (userProfile.payload.reputation === undefined) { return }
 
-                const ownPowerText = parseFloat(node.payload.votingProgram.ownPower.toFixed(0)).toLocaleString('en')
+                const ownPowerText = parseFloat((node.payload.votingProgram.ownPower - userProfile.payload.reputation).toFixed(0)).toLocaleString('en')
                 const incomingPowerText = parseFloat(node.payload.votingProgram.incomingPower.toFixed(0)).toLocaleString('en')
+                const reputationPowerText = parseFloat(userProfile.payload.reputation.toFixed(0)).toLocaleString('en')
 
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
 
-                node.payload.uiObject.setStatus(ownPowerText + ' Own Power' + ' + ' + incomingPowerText + ' Incoming Voting Power')
-
+                node.payload.uiObject.setStatus(ownPowerText + ' Own Power' + ' + ' + incomingPowerText + ' Incoming Voting Power' + ' + ' + reputationPowerText + ' Reputation Power', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
             }
         }
     }
@@ -503,7 +519,10 @@ function newGovernanceFunctionLibraryVotingProgram() {
     function installMissingVotes(node, rootNodes) {
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) {
-            node.payload.uiObject.setErrorMessage('To install votes you need a Reference Parent')
+            node.payload.uiObject.setErrorMessage(
+                'To install votes you need a Reference Parent',
+                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                )
             return
         }
         scanNodeBranch(node, node.payload.referenceParent)
@@ -517,7 +536,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
             ) {
                 originNode.name = destinationNode.name + ' ' + destinationNode.type + ' ' + ' Vote'
             } else {
-                originNode.name = destinationNode.name 
+                originNode.name = destinationNode.name
             }
 
             let schemaDocument = getSchemaDocument(destinationNode)

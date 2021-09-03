@@ -1,0 +1,52 @@
+{
+    "type": "Dataset Args",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "batchesPerGradientUpdate",
+            "label": "Add Batch Size Per Gradient Update",
+            "relatedUiObject": "Batches Per Gradient Update",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "shuffle",
+            "label": "Add Shuffle",
+            "relatedUiObject": "Shuffle",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Fit Dataset->"
+    },
+    "propertyNameAtParent": "datasetArgs",
+    "childrenNodesProperties": [
+      {
+        "name": "batchesPerGradientUpdate",
+        "type": "node",
+        "childType": "Batches Per Gradient Update"
+      },
+      {
+        "name": "shuffle",
+        "type": "node",
+        "childType": "Shuffle"
+      }
+    ],
+    "icon": "tensorflow"
+}

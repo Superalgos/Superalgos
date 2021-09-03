@@ -18,7 +18,7 @@ process.on('uncaughtException', function (err) {
 process.on('unhandledRejection', (reason, p) => {
     // Signal user that a necissary node module is missing
     if (reason.code == 'MODULE_NOT_FOUND') {
-        console.log("[ERROR] Node Modules not found. Running the node setup command and then restart")
+        console.log("[ERROR] Dependency library not found. Please try running the 'node setup' command and then restart the Client.")
         console.log('[ERROR] Client -> client-> reason = ' + JSON.stringify(reason))
         process.exit(1)
     }
@@ -67,96 +67,105 @@ let WEB3_SERVER = require('./web3Server.js')
 let GITHUB_SERVER = require('./githubServer.js')
 
 /* Network Interfaces */
-let WEB_SOCKETS_INTERFACE = require('./webSocketsServer.js')
+let WEB_SOCKETS_INTERFACE = require('./webSocketsInterface.js')
 let HTTP_INTERFACE = require('./httpInterface.js')
 
 try {
     /* 
+    The CL object is accesible everywhere at the Superalgos Client. 
+    It provides access to all modules built for this Client.
+    */
+    global.CL = {}
+    /* 
+    The SA object is accesible everywhere at the Superalgos Client. 
+    It provides access to all modules built for Superalgos in general.
+    */
+    global.SA = {}
+    /*
+    First thing is to load the project schema file.
+    */
+    global.PROJECTS_SCHEMA = require(global.env.PATH_TO_PROJECT_SCHEMA)
+    /* 
     Setting up the modules that will be available for the Servers Running inside this Client 
     */
-    let MULTI_PROJECT = require('./MultiProject.js');
+    let MULTI_PROJECT = require('../MultiProject.js');
     let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
-    MULTI_PROJECT_MODULE.initialize()
+    MULTI_PROJECT_MODULE.initialize(CL, 'CL')
+    MULTI_PROJECT_MODULE.initialize(SA, 'SA')
     /*
     Setting up external dependencies.
     */
-    CL.nodeModules = {
-        fs:  require('fs'),
+    SA.nodeModules = {
+        fs: require('fs'),
         nodeFetch: require('node-fetch')
     }
-
+    /*
+    Setting up servers running inside this Client.
+    */
+    CL.servers = {}
     console.log('CLIENT SERVERS:')
     console.log('')
 
-    WEB_SERVER = WEB_SERVER.newWebServer()
-    WEB_SERVER.initialize()
-    WEB_SERVER.run()
+    CL.servers.WEB_SERVER = WEB_SERVER.newWebServer()
+    CL.servers.WEB_SERVER.initialize()
+    CL.servers.WEB_SERVER.run()
     console.log('Web Server .................................................. Started')
 
-    UI_FILE_SERVER = UI_FILE_SERVER.newUIFileServer()
-    UI_FILE_SERVER.initialize()
-    UI_FILE_SERVER.run()
+    CL.servers.UI_FILE_SERVER = UI_FILE_SERVER.newUIFileServer()
+    CL.servers.UI_FILE_SERVER.initialize()
+    CL.servers.UI_FILE_SERVER.run()
     console.log('UI File Server .............................................. Started')
 
-    PROJECT_FILE_SERVER = PROJECT_FILE_SERVER.newProjectFileServer()
-    PROJECT_FILE_SERVER.initialize()
-    PROJECT_FILE_SERVER.run()
+    CL.servers.PROJECT_FILE_SERVER = PROJECT_FILE_SERVER.newProjectFileServer()
+    CL.servers.PROJECT_FILE_SERVER.initialize()
+    CL.servers.PROJECT_FILE_SERVER.run()
     console.log('Project File Server ......................................... Started')
 
-    PLUGIN_SERVER = PLUGIN_SERVER.newPluginServer()
-    PLUGIN_SERVER.initialize()
-    PLUGIN_SERVER.run()
+    CL.servers.PLUGIN_SERVER = PLUGIN_SERVER.newPluginServer()
+    CL.servers.PLUGIN_SERVER.initialize()
+    CL.servers.PLUGIN_SERVER.run()
     console.log('Plugin Server ............................................... Started')
 
-    DATA_FILE_SERVER = DATA_FILE_SERVER.newDataFileServer()
-    DATA_FILE_SERVER.initialize()
-    DATA_FILE_SERVER.run()
+    CL.servers.DATA_FILE_SERVER = DATA_FILE_SERVER.newDataFileServer()
+    CL.servers.DATA_FILE_SERVER.initialize()
+    CL.servers.DATA_FILE_SERVER.run()
     console.log('Data File Server ............................................ Started')
 
-    EVENT_SERVER = EVENT_SERVER.newEventServer()
-    EVENT_SERVER.initialize()
-    EVENT_SERVER.run()
+    CL.servers.EVENT_SERVER = EVENT_SERVER.newEventServer()
+    CL.servers.EVENT_SERVER.initialize()
+    CL.servers.EVENT_SERVER.run()
     console.log('Events Server ............................................... Started')
 
-    TASK_MANAGER_SERVER = TASK_MANAGER_SERVER.newTaskManagerServer(WEB_SOCKETS_INTERFACE, EVENT_SERVER)
+    TASK_MANAGER_SERVER = TASK_MANAGER_SERVER.newTaskManagerServer()
     TASK_MANAGER_SERVER.initialize()
     TASK_MANAGER_SERVER.run()
     console.log('Task Manager Server ......................................... Started')
 
-    CCXT_SERVER = CCXT_SERVER.newCCXTServer()
-    CCXT_SERVER.initialize()
-    CCXT_SERVER.run()
+    CL.servers.CCXT_SERVER = CCXT_SERVER.newCCXTServer()
+    CL.servers.CCXT_SERVER.initialize()
+    CL.servers.CCXT_SERVER.run()
     console.log('CCXT Server ................................................. Started')
 
-    WEB3_SERVER = WEB3_SERVER.newWeb3Server()
-    WEB3_SERVER.initialize()
-    WEB3_SERVER.run()
+    CL.servers.WEB3_SERVER = WEB3_SERVER.newWeb3Server()
+    CL.servers.WEB3_SERVER.initialize()
+    CL.servers.WEB3_SERVER.run()
     console.log('WEB3 Server ................................................. Started')
 
-    GITHUB_SERVER = GITHUB_SERVER.newGithubServer()
-    GITHUB_SERVER.initialize()
-    GITHUB_SERVER.run()
+    CL.servers.GITHUB_SERVER = GITHUB_SERVER.newGithubServer()
+    CL.servers.GITHUB_SERVER.initialize()
+    CL.servers.GITHUB_SERVER.run()
     console.log('Github Server ............................................... Started')
 
     console.log('')
     console.log('CLIENT INTERFACES:')
     console.log('')
 
-    WEB_SOCKETS_INTERFACE = WEB_SOCKETS_INTERFACE.newWebSocketsInterface(EVENT_SERVER)
+    WEB_SOCKETS_INTERFACE = WEB_SOCKETS_INTERFACE.newWebSocketsInterface()
     WEB_SOCKETS_INTERFACE.initialize()
     WEB_SOCKETS_INTERFACE.run()
-    console.log('Web Sockets Interface ....................................... Listening at port ' + global.env.WEB_SOCKETS_INTERFACE_PORT)
+    console.log('Web Sockets Interface ....................................... Listening at port ' + global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT)
 
-    HTTP_INTERFACE = HTTP_INTERFACE.newHttpInterface(
-        WEB_SERVER,
-        DATA_FILE_SERVER,
-        PROJECT_FILE_SERVER,
-        UI_FILE_SERVER,
-        PLUGIN_SERVER,
-        CCXT_SERVER,
-        WEB3_SERVER,
-        GITHUB_SERVER
-    )
+    HTTP_INTERFACE = HTTP_INTERFACE.newHttpInterface()
     HTTP_INTERFACE.initialize()
     HTTP_INTERFACE.run()
     console.log('Http Interface .............................................. Listening at port ' + global.env.HTTP_INTERFACE_PORT)

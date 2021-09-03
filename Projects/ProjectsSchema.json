@@ -322,7 +322,7 @@
                     "onMouseOverIndex": 2,
                     "onMouseClickIndex": 7,
                     "onMouseDownIndex": 0
-                },            
+                },
                 {
                     "name": "Chat Space",
                     "folderName": "Chat-Space",
@@ -884,7 +884,11 @@
                     "propertyName": "webAccess",
                     "functionName": "newFoundationsUtilitiesWebAccess",
                     "fileName": "WebAccess.js"
-                },
+                }
+            ]
+        },
+        "SA": {
+            "utilities": [
                 {
                     "name": "Plugins",
                     "propertyName": "plugins",
@@ -982,6 +986,20 @@
                     "functionName": "newTensorFlowBotModulesTensorFlowLibrary",
                     "fileName": "TensorFlowLibrary.js",
                     "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "TensorFlow Models Manager",
+                    "propertyName": "tensorFlowModelsManager",
+                    "functionName": "newTensorFlowModelsManager",
+                    "fileName": "TensorFlowModelsManager.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "ML Data Manager",
+                    "propertyName": "mlData",
+                    "functionName": "newMLDataObj",
+                    "fileName": "MLDataManager.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
                 }
             ]
         }
@@ -1062,9 +1080,19 @@
         "UI": {
             "globals": [
                 {
+                    "name": "Designer",
+                    "propertyName": "designer",
+                    "functionName": "newGovernanceGlobalsDesigner"
+                },
+                {
                     "name": "Reports",
                     "propertyName": "reports",
                     "functionName": "newGovernanceGlobalsReports"
+                },
+                {
+                    "name": "SA Token",
+                    "propertyName": "saToken",
+                    "functionName": "newGovernanceGlobalsSaToken"
                 }
             ],
             "functionLibraries": [
@@ -1244,5 +1272,175 @@
             "Features",
             "Positions"
         ]
+    },
+    {
+        "name": "Network",
+        "propertyName": "network",
+        "NT": {
+            "globals": [],
+            "modules": [
+                {
+                    "name": "Web Sockets Interface",
+                    "propertyName": "webSocketsInterface",
+                    "functionName": "newNetworkModulesWebSocketsInterface",
+                    "fileName": "WebSocketsInterface.js"
+                }
+            ],
+            "utilities": []
+        },
+        "SA": {
+            "globals": [],
+            "modules": [
+                {
+                    "name": "Web Sockets Client",
+                    "propertyName": "webSocketsClient",
+                    "functionName": "newNetworkModulesWebSocketsClient",
+                    "fileName": "WebSocketsClient.js"
+                }
+            ],
+            "utilities": []
+        }
+    },
+    {
+        "name": "Social-Trading",
+        "propertyName": "socialTrading",
+        "NT": {
+            "globals": [
+                {
+                    "name": "Memory",
+                    "propertyName": "memory",
+                    "functionName": "newSocialTradingGlobalsMemory",
+                    "fileName": "Memory.js"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "User Profiles",
+                    "propertyName": "queriesUserProfiles",
+                    "functionName": "newSocialTradingModulesQueriesUserProfiles",
+                    "fileName": "Queries/UserProfiles.js"
+                },
+                {
+                    "name": "Bot Profile Stats",
+                    "propertyName": "queriesBotProfileStats",
+                    "functionName": "newSocialTradingModulesQueriesBotProfileStats",
+                    "fileName": "Queries/BotProfileStats.js"
+                },
+                {
+                    "name": "User Profile Stats",
+                    "propertyName": "queriesUserProfileStats",
+                    "functionName": "newSocialTradingModulesQueriesUserProfileStats",
+                    "fileName": "Queries/UserProfileStats.js"
+                },
+                {
+                    "name": "Profile Posts",
+                    "propertyName": "queriesProfilePosts",
+                    "functionName": "newSocialTradingModulesQueriesProfilePosts",
+                    "fileName": "Queries/ProfilePosts.js"
+                },
+                {
+                    "name": "Profile Followers",
+                    "propertyName": "queriesProfileFollowers",
+                    "functionName": "newSocialTradingModulesQueriesProfileFollowers",
+                    "fileName": "Queries/ProfileFollowers.js"
+                },
+                {
+                    "name": "Profile Following",
+                    "propertyName": "queriesProfileFollowing",
+                    "functionName": "newSocialTradingModulesQueriesProfileFollowing",
+                    "fileName": "Queries/ProfileFollowing.js"
+                },
+                {
+                    "name": "Post Replies",
+                    "propertyName": "queriesPostReplies",
+                    "functionName": "newSocialTradingModulesQueriesPostReplies",
+                    "fileName": "Queries/PostReplies.js"
+                },
+                {
+                    "name": "Events",
+                    "propertyName": "queriesEvents",
+                    "functionName": "newSocialTradingModulesQueriesEvents",
+                    "fileName": "Queries/Events.js"
+                },
+                {
+                    "name": "User Profile",
+                    "propertyName": "socialGraphUserProfile",
+                    "functionName": "newSocialTradingModulesSocialGraphUserProfile",
+                    "fileName": "Social-Graph/UserProfile.js"
+                },
+                {
+                    "name": "Bot Profile",
+                    "propertyName": "socialGraphBotProfile",
+                    "functionName": "newSocialTradingModulesSocialGraphBotProfile",
+                    "fileName": "Social-Graph/BotProfile.js"
+                },
+                {
+                    "name": "Post",
+                    "propertyName": "socialGraphPost",
+                    "functionName": "newSocialTradingModulesSocialGraphPost",
+                    "fileName": "Social-Graph/Post.js"
+                },
+                {
+                    "name": "Social Graph",
+                    "propertyName": "socialGraph",
+                    "functionName": "newSocialTradingModulesSocialGraph",
+                    "fileName": "SocialGraph.js"
+                },
+                {
+                    "name": "Bootstrap",
+                    "propertyName": "bootstrap",
+                    "functionName": "newSocialTradingModulesBootstrap",
+                    "fileName": "Bootstrap.js"
+                },
+                {
+                    "name": "Query",
+                    "propertyName": "query",
+                    "functionName": "newSocialTradingModulesQuery",
+                    "fileName": "Query.js"
+                },
+                {
+                    "name": "Event",
+                    "propertyName": "event",
+                    "functionName": "newSocialTradingModulesEvent",
+                    "fileName": "Event.js"
+                },
+                {
+                    "name": "Client Interface",
+                    "propertyName": "clientInterface",
+                    "functionName": "newSocialTradingModulesClientInterface",
+                    "fileName": "ClientInterface.js"
+                },
+                {
+                    "name": "Peer Interface",
+                    "propertyName": "peerInterface",
+                    "functionName": "newSocialTradingModulesPeerInterface",
+                    "fileName": "PeerInterface.js"
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Queries Validations",
+                    "propertyName": "queriesValidations",
+                    "functionName": "newSocialTradingUtilitiesQueriesValidations",
+                    "fileName": "QueriesValidations.js"
+                }
+            ]
+        },
+        "SA": {
+            "globals": [
+                {
+                    "name": "Query Constants",
+                    "propertyName": "queryConstants",
+                    "functionName": "newSocialTradingGlobalsQueryConstants",
+                    "fileName": "QueryConstants.js"
+                },
+                {
+                    "name": "Query Types",
+                    "propertyName": "queryTypes",
+                    "functionName": "newSocialTradingGlobalsQueryTypes",
+                    "fileName": "QueryTypes.js"
+                }
+            ]
+        }
     }
 ]

@@ -1,0 +1,69 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 48,
+    "type": "Tutorial Step - Let's Talk Exchanges",
+    "definition": {
+        "text": "We all have our preferred exchanges... let's talk a bit about how Superalgos deals with them and which ones you may use...",
+        "icon": {
+            "name": "crypto-exchange",
+            "project": "Foundations"
+        },
+        "updated": 1615999626738,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Visto che ho parlato di testare exchanges, vediamo un attimo come Superalgos li gestisce e quali puoi usare...",
+                "updated": 1619590965438,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que mencioné probar exchanges, hablemos un poco sobre cómo Superalgos los maneja y cuáles puede usar...",
+                "updated": 1628014366400
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos uses CCXT, an open-source library proposing a standard for exchange API comms. The system works with exchanges complying with the standard:",
+            "updated": 1616000957350,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Superalgos usa CCXT, una libreria open-source che propone uno standard per chiamate agli API degli exchange. Il sistema è compatibile con exchange che seguono questo standard:",
+                    "updated": 1619591042345,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Superalgos usa CCXT, una biblioteca de código abierto que propone un estándar para las comunicaciones de API del mercado. El sistema funciona con intercambios que cumplen con el estándar:",
+                    "updated": 1628014486689
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "List of Exchanges Pledging Compliance With CCXT->github.com/ccxt/ccxt/wiki/Exchange-Markets?r=Superalgos",
+            "updated": 1616001030925
+        },
+        {
+            "style": "Note",
+            "text": "However, appearing in the list is not enough! Many exchanges don't really comply! As a result, there is an ongoing community effort to test exchanges and document which may be used with Superalgos and how! This is the topic in the Docs covering the effort. Look at the TOC to find which exchanges have been tested and to which extent.",
+            "updated": 1616010477500,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Purtroppo non è abbastanza apparire in quella lista. Molti exchange non sono in effetti compatibili! Per questo motivo, la community testa attivamente varo exchanges, documentando quali possono essere usati in Superalgos e come. Questo è il topic dei Docs che tratta l'argomento. Leggi il TOC per vedere quali exchange sono stati testati.",
+                    "updated": 1619591237097,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Aparecer en la lista no es suficiente! ¡Muchos exchanges no cumplen! Como resultado, hay un esfuerzo comunitario continuo para probar los exchanges y documentar qué se puede usar con Superalgos y cómo.  Mira el TOC para encontrar qué intercambios se han probado y en qué medida.",
+                    "updated": 1628014928782
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 21,
+    "type": "Tutorial Step - GitHub Glory",
+    "definition": {
+        "text": "Now, the Github Program rewards you with more tokens for helping developers find Superalgos on Github.com search!",
+        "updated": 1630601440266,
+        "icon": {
+            "name": "Programs\\github-program",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Add the Github Program from the menu of the Onboarding Programs node.",
+            "updated": 1630601229528
+        },
+        {
+            "style": "Text",
+            "text": "There are three things you can help with! Doing all three may land you up to SA 3,000 more!"
+        },
+        {
+            "style": "List",
+            "text": "Give a star to the Superalgos repository."
+        },
+        {
+            "style": "List",
+            "text": "Fork the Superalgos repository to your Github account — you probably have already!",
+            "updated": 1630600687531
+        },
+        {
+            "style": "List",
+            "text": "Click the Watch button too!",
+            "updated": 1630601314552
+        },
+        {
+            "style": "Link",
+            "text": "Go to the Superalgos repo to click the Star and Watch buttons. Make sure you have a fork too!->github.com/Superalgos/Superalgos",
+            "updated": 1630601392808
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

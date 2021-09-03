@@ -43,7 +43,7 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
         }
     }
 
-    function arrayValidations(queryReceived, thisObject) {
+    function arrayValidations(queryReceived, thisObject, array) {
         /* 
         Validate Initial Index 
         */
@@ -51,11 +51,11 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
             throw ('Initial Index Undefined.')
         }
 
-        if (queryReceived.initialIndex === NT.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST) {
-            queryReceived.initialIndex = thisObject.profile.posts.length - 1
+        if (queryReceived.initialIndex === SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST) {
+            queryReceived.initialIndex = array.length - 1
         }
 
-        if (queryReceived.initialIndex === NT.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_FIRST) {
+        if (queryReceived.initialIndex === SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_FIRST) {
             queryReceived.initialIndex = 0
         }
 
@@ -75,13 +75,15 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
             throw ('Amount Requested Is Not a Number.')
         }
 
-        if (queryReceived.amountRequested < NT.projects.socialTrading.globals.queryConstants.MIN_AMOUNT_REQUESTED) {
+        if (queryReceived.amountRequested < SA.projects.socialTrading.globals.queryConstants.MIN_AMOUNT_REQUESTED) {
             throw ('Amount Requested Below Min.')
         }
 
-        if (queryReceived.amountRequested > NT.projects.socialTrading.globals.queryConstants.MAX_AMOUNT_REQUESTED) {
+        if (queryReceived.amountRequested > SA.projects.socialTrading.globals.queryConstants.MAX_AMOUNT_REQUESTED) {
             throw ('Amount Requested Above Max.')
         }
+
+        thisObject.amountRequested = queryReceived.amountRequested
         /* 
         Validate Direction
         */
@@ -89,7 +91,7 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
             throw ('Direction Undefined.')
         }
 
-        if (queryReceived.direction !== NT.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE && queryReceived.direction !== NT.projects.socialTrading.globals.queryConstants.DIRECTION_PAST) {
+        if (queryReceived.direction !== SA.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE && queryReceived.direction !== SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST) {
             throw ('Direction Not Supported.')
         }
 

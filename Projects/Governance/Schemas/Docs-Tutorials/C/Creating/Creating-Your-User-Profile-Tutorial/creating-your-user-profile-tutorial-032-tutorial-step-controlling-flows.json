@@ -1,0 +1,30 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 32,
+    "type": "Tutorial Step - Controlling Flows",
+    "definition": {
+        "text": "The configuration of each node where Token Power may go in acts as a floodgate! That's how you control Token Power Flows!",
+        "icon": {
+            "name": "Switches\\votes-switch",
+            "project": "Governance"
+        },
+        "updated": 1630687488694
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Go back to the Onboarding Programs node. Guess what? Those programs do not need Token Power, so we will close the floodgate!",
+            "updated": 1630687366643
+        },
+        {
+            "style": "Callout",
+            "text": "Copy the below configuration and paste it into the Onboarding Programs node configuration!",
+            "updated": 1630687477137
+        },
+        {
+            "style": "Json",
+            "text": "{\n   \"percentage\": 0\n }",
+            "updated": 1630687598132
+        }
+    ]
+}

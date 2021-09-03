@@ -1,0 +1,34 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 37,
+    "type": "Tutorial Step - To Infinity and Beyond",
+    "definition": {
+        "text": "Let's get rolling! We will be using the app.contribute command to submit your profile.",
+        "updated": 1630604507310,
+        "icon": {
+            "name": "User\\user-profile",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Copy the command making sure you replace the placeholder with your Github username, paste it in the search box, and click Enter.",
+            "updated": 1630604654229
+        },
+        {
+            "style": "Json",
+            "text": "app.contribute First submission of User Profile [add your name here]",
+            "updated": 1630604551655
+        },
+        {
+            "style": "Text",
+            "text": "If everything is set up correctly, you should see a message stating that your pull request has been submitted. This means that your profile has been sent to the main Superalgos repository and will be automatically merged in just a few minutes!",
+            "updated": 1630604694599
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

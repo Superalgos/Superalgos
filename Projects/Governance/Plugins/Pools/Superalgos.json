@@ -1,7 +1,7 @@
 {
     "type": "Pools",
     "name": "Superalgos",
-    "config": "{\n    \"tokens\": \"66000000\",\n    \"codeName\": \"Superalgos\"\n}",
+    "config": "{\"tokens\":\"66000000\",\"codeName\":\"Superalgos\"}",
     "project": "Governance",
     "poolClasses": [
         {
@@ -792,7 +792,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": false,
+                            "isCollapsed": true,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -817,7 +817,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -1740,14 +1740,12 @@
                                 "referenceParent": {
                                     "type": "Features",
                                     "name": "Superalgos",
-                                    "id": "1d2c1985-c762-4ece-b350-15bd893bd1f4"
+                                    "id": "7c27de79-0ac7-4d48-81f0-5d7b6a4d93c6"
                                 },
                                 "referenceParentCombinedNodePath": [
                                     [
                                         "Superalgos",
-                                        "Features",
-                                        "Governance",
-                                        "1d2c1985-c762-4ece-b350-15bd893bd1f4"
+                                        "Features"
                                     ]
                                 ]
                             }
@@ -1816,7 +1814,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

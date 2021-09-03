@@ -21,15 +21,15 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
 
     function initialize(queryReceived) {
 
-        NT.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
-        NT.utilities.queriesValidations.arrayValidations(queryReceived, thisObject)
+        NT.projects.socialTrading.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
+        NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, NT.memory.arrays.EVENTS)
 
     }
 
     function execute() {
         let response = []
         switch (thisObject.direction) {
-            case NT.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE: {
+            case SA.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let event = NT.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }
@@ -37,7 +37,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                 }
                 break
             }
-            case NT.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
+            case SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let event = NT.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }
@@ -78,11 +78,9 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                 /*
                 The context is a User Profile
                 */
-                if (emitterUserProfile !== undefined) {
-                    if (emitterUserProfile.userProfileId === thisObject.profile.userProfileId) {
-                        addToResponse(event)
-                        return
-                    }
+                if (emitterUserProfile.userProfileId === thisObject.profile.userProfileId) {
+                    addToResponse(event)
+                    return
                 }
                 if (targetUserProfile !== undefined) {
                     if (targetUserProfile.userProfileId === thisObject.profile.userProfileId) {
@@ -107,7 +105,6 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                     }
                 }
             }
-
             /*
             Test #2 : The Emitter or Traget profile must be at the Following map of the Context Profile.
             */
@@ -115,11 +112,9 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                 /*
                 The context is a User Profile
                 */
-                if (emitterUserProfile !== undefined) {
-                    if (thisObject.profile.following.get(emitterUserProfile.userProfileId) !== undefined) {
-                        addToResponse(event)
-                        return
-                    }
+                if (thisObject.profile.following.get(emitterUserProfile.userProfileId) !== undefined) {
+                    addToResponse(event)
+                    return
                 }
                 if (targetUserProfile !== undefined) {
                     if (thisObject.profile.following.get(targetUserProfile.userProfileId) !== undefined) {

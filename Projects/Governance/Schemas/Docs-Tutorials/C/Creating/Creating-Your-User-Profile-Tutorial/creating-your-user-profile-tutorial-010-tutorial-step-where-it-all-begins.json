@@ -3,8 +3,8 @@
     "pageNumber": 10,
     "type": "Tutorial Step - Where it all Begins",
     "definition": {
-        "text": "Here we are at the head of the governance project. Let’s get that profile created!",
-        "updated": 1629163572836,
+        "text": "Here we are at the head of the Governance Project hierarchy. Let’s get that profile created!",
+        "updated": 1630599538627,
         "icon": {
             "name": "governance",
             "project": "Governance"
@@ -13,13 +13,13 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Click the Add Profile Constructor button.",
-            "updated": 1629163599518
+            "text": "Click the <i>Add Profile Constructor</i> button.",
+            "updated": 1630657850442
         },
         {
             "style": "Text",
-            "text": "Now position the resulting Profile Constructor node where it is easy to see.",
-            "updated": 1629163626525
+            "text": "Now position the resulting Profile Constructor node where it is easy to see and work with.",
+            "updated": 1630657866373
         }
     ]
 }

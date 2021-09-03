@@ -24,7 +24,7 @@
         host = 'localhost'
     }
     if (port === undefined) {
-        port = global.env.WEB_SOCKETS_INTERFACE_PORT  
+        port = global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT  
     }
      
     let messageCounter = 0

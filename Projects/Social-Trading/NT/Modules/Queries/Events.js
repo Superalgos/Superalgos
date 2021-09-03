@@ -21,8 +21,8 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
 
     function initialize(queryReceived) {
 
-        NT.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
-        NT.utilities.queriesValidations.arrayValidations(queryReceived, thisObject)
+        NT.projects.socialTrading.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
+        NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, NT.memory.arrays.EVENTS)
 
     }
 

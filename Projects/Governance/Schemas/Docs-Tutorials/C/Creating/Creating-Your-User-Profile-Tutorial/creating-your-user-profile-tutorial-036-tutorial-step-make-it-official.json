@@ -1,6 +1,6 @@
 {
     "tutorial": "Creating Your User Profile Tutorial",
-    "pageNumber": 22,
+    "pageNumber": 36,
     "type": "Tutorial Step - Make it Official",
     "definition": {
         "text": "Now you're ready to push your new profile to the main Superalgos repository!",
@@ -13,13 +13,13 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Set up you Github API credentials to get ready to contribute your profile!",
-            "updated": 1630603651524
+            "text": "Hit Ctrl + Shift + Alt + Key-S to save your profile if you haven't yet. <br/><br/>Now, set up you Github API credentials to get ready to contribute your profile!",
+            "updated": 1630691166021
         },
         {
             "style": "Warning",
-            "text": "If you don't know what I'm talking about, you may need a refresher on how to submit a contribution to Superalgos. Read these few steps taken from the Beyond the Basics Tutorial to remind you what the GitHub authentication process is like. Then come back here and we'll finish up!",
-            "updated": 1630604385835
+            "text": "If you don't know what I'm talking about, you may need a refresher on how to submit a contribution to Superalgos. Read these few steps taken from the Beyond the Basics Tutorial to remind you what the GitHub authentication process is like. ",
+            "updated": 1630691155123
         },
         {
             "style": "Text",

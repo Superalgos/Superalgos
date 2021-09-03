@@ -1,7 +1,7 @@
 {
     "tutorial": "Creating Your User Profile Tutorial",
-    "pageNumber": "21.8",
-    "type": "Tutorial Step - The Referrral Program",
+    "pageNumber": 26,
+    "type": "Tutorial Step - The Referral Program",
     "definition": {
         "text": "The Referral Program incentivizes the promotion of the project, either by word-of-mouth or “en masse” through articles, social media posts, videos, and other forms of influencer marketing!",
         "updated": 1630665298091,
@@ -18,7 +18,8 @@
         },
         {
             "style": "Text",
-            "text": "Now, let's clarify what rules you must fulfill to earn your Tokens Bonus!"
+            "text": "First, let's clarify what rules you must fulfill to earn your Tokens Bonus!",
+            "updated": 1630668604341
         },
         {
             "style": "List",
@@ -32,8 +33,8 @@
         },
         {
             "style": "List",
-            "text": "You must drive Token Power to the program: Uuuhh... token power... that sounds neat! It is! You'll see!",
-            "updated": 1630665776592
+            "text": "You must drive Token Power to the program: Wooh... token power... sounds neat? You bet!",
+            "updated": 1630666285261
         }
     ]
 }

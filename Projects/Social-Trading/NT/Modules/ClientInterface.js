@@ -145,7 +145,6 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         We expect here a JSON string with some or all of the following properties:
 
         {
-            "equeryId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "queryType": 10, 
             "emitterUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",

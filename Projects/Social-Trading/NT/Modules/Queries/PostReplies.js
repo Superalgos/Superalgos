@@ -8,6 +8,7 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
     of a certain post, with all its replies.
     */
     let thisObject = {
+        array: undefined,
         profile: undefined,
         post: undefined,
         initialIndex: undefined,
@@ -21,27 +22,30 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
     return thisObject
 
     function finalize() {
+        thisObject.array = undefined
         thisObject.profile = undefined
         thisObject.post = undefined
     }
 
     function initialize(queryReceived) {
 
-        NT.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
-        NT.utilities.queriesValidations.postValidations(queryReceived, thisObject)
-        NT.utilities.queriesValidations.arrayValidations(queryReceived, thisObject)
+        thisObject.array = Array.from(thisObject.post.replies)
+
+        NT.projects.socialTrading.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
+        NT.projects.socialTrading.utilities.queriesValidations.postValidations(queryReceived, thisObject)
+        NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
 
     }
 
     function execute() {
 
         let response = []
-        let array = Array.from(thisObject.post.replies)
+
 
         switch (thisObject.direction) {
             case NT.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
-                    let arrayItem = array[i]
+                    let arrayItem = thisObject.array[i]
                     if (post === undefined) { break }
                     addToResponse(arrayItem)
                 }
@@ -49,7 +53,7 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
             }
             case NT.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
-                    let arrayItem = array[i]
+                    let arrayItem = thisObject.array[i]
                     if (post === undefined) { break }
                     addToResponse(arrayItem)
                 }

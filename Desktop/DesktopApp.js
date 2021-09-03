@@ -15,9 +15,9 @@ exports.newDesktopApp = function newDesktopApp() {
         Let's start the Network Interfaces
         */
         DK.webSocketsClient = SA.projects.network.modules.webSocketsClient.newNetworkModulesWebSocketsClient()
-        DK.webSocketsClient.initialize()
+        await DK.webSocketsClient.initialize()
 
-        let request = {
+        let queryMessage  = {
             equeryId: "123",
             queryType: 0,
             emitterUserProfileId: DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID,
@@ -25,14 +25,24 @@ exports.newDesktopApp = function newDesktopApp() {
             amountRequested: 10,
             direction: 'Past'
         }
-        DK.webSocketsClient.sendMessage(
-            JSON.stringify(request),
-            onResponse
-        )
 
-        function onResponse(message) {
-            let profiles = JSON.parse(message)
+        let query = {
+            requestType: 'Query',
+            queryMessage : JSON.stringify(queryMessage )
+        }
+
+        await DK.webSocketsClient.sendMessage(
+            JSON.stringify(query)
+        )
+        .then(showProfiles)
+        .catch(onError)
+        
+        function showProfiles(profiles){
             console.log(profiles)
+        }
+
+        function onError(errorMessage) {
+            console.log('[ERROR] Query not executed. ' + errorMessage)
         }
     }
 }

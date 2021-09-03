@@ -1400,7 +1400,7 @@
                 },
                 {
                     "name": "Query",
-                    "propertyName": "Query",
+                    "propertyName": "query",
                     "functionName": "newSocialTradingModulesQuery",
                     "fileName": "Query.js"
                 },

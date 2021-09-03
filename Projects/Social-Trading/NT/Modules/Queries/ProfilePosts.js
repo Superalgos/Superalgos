@@ -8,6 +8,7 @@ exports.newSocialTradingModulesQueriesUserProfileStats = function newSocialTradi
     with all of its posts.
     */
     let thisObject = {
+        array: undefined,
         profile: undefined,
         initialIndex: undefined,
         amountRequested: undefined,
@@ -20,24 +21,26 @@ exports.newSocialTradingModulesQueriesUserProfileStats = function newSocialTradi
     return thisObject
 
     function finalize() {
+        thisObject.array = undefined
         thisObject.profile = undefined
     }
 
     function initialize(queryReceived) {
 
-        NT.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
-        NT.utilities.queriesValidations.arrayValidations(queryReceived, thisObject)
+        thisObject.array = Array.from(thisObject.profile.posts)
+
+        NT.projects.socialTrading.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
+        NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
     }
 
     function execute() {
 
         let response = []
-        let array = Array.from(thisObject.profile.posts)
 
         switch (thisObject.direction) {
             case NT.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
-                    let arrayItem = array[i]
+                    let arrayItem = thisObject.array[i]
                     if (arrayItem === undefined) { break }
                     addToResponse(arrayItem)
                 }
@@ -45,7 +48,7 @@ exports.newSocialTradingModulesQueriesUserProfileStats = function newSocialTradi
             }
             case NT.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
-                    let arrayItem = array[i]
+                    let arrayItem = thisObject.array[i]
                     if (arrayItem === undefined) { break }
                     addToResponse(arrayItem)
                 }

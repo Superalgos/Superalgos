@@ -43,7 +43,7 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
         }
     }
 
-    function arrayValidations(queryReceived, thisObject) {
+    function arrayValidations(queryReceived, thisObject, array) {
         /* 
         Validate Initial Index 
         */
@@ -52,7 +52,7 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
         }
 
         if (queryReceived.initialIndex === NT.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST) {
-            queryReceived.initialIndex = thisObject.profile.posts.length - 1
+            queryReceived.initialIndex = array.length - 1
         }
 
         if (queryReceived.initialIndex === NT.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_FIRST) {
@@ -82,6 +82,8 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
         if (queryReceived.amountRequested > NT.projects.socialTrading.globals.queryConstants.MAX_AMOUNT_REQUESTED) {
             throw ('Amount Requested Above Max.')
         }
+
+        thisObject.amountRequested = queryReceived.amountRequested
         /* 
         Validate Direction
         */

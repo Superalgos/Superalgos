@@ -1,10 +1,11 @@
-exports.newSocialTradingModulesQueriesUserProfileStats = function newSocialTradingModulesQueriesUserProfileStats() {
+exports.newSocialTradingModulesQueriesUserProfiles = function newSocialTradingModulesQueriesUserProfiles() {
     /*
     This query returns a list of user profiles ordered
     by Ranking. It is useful to bootstrap new users
     and provide them with alternative of who to follow.
     */
     let thisObject = {
+        array: undefined,
         initialIndex: undefined,
         amountRequested: undefined,
         direction: undefined,
@@ -16,24 +17,29 @@ exports.newSocialTradingModulesQueriesUserProfileStats = function newSocialTradi
     return thisObject
 
     function finalize() {
+        thisObject.array = undefined
     }
 
     function initialize(queryReceived) {
 
-        NT.utilities.queriesValidations.arrayValidations(queryReceived, thisObject)
+        thisObject.array = Array.from(
+            NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID, 
+            x => x[1]
+            )
+        thisObject.array.sort((a, b) => (a["ranking"] > b["ranking"]) ? 1 : -1)
+
+        NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
 
     }
 
     function execute() {
 
         let response = []
-        let array = Array.from(NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID)
-        array.sort((a, b) => (a["ranking"].toLowerCase() > b["ranking"].toLowerCase()) ? 1 : -1)
 
         switch (thisObject.direction) {
             case NT.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
-                    let arrayItem = array[i]
+                    let arrayItem = thisObject.array[i]
                     if (arrayItem === undefined) { break }
                     addToResponse(arrayItem)
                 }
@@ -41,7 +47,7 @@ exports.newSocialTradingModulesQueriesUserProfileStats = function newSocialTradi
             }
             case NT.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
-                    let arrayItem = array[i]
+                    let arrayItem = thisObject.array[i]
                     if (arrayItem === undefined) { break }
                     addToResponse(arrayItem)
                 }

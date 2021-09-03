@@ -99,6 +99,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             if (response.result !== 'Ok') {
                                 console.log('[ERROR] Web Sockets Client -> stepOneResponse -> response.message = ' + response.message)
                                 reject()
+                                return
                             }
 
                             let signature = JSON.parse(response.signature)
@@ -109,6 +110,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             if (called.blockchainAccount === undefined) {
                                 console.log('[ERROR] Web Sockets Client -> stepOneResponse -> Signature does not produce a valid Blockchain Account.')
                                 reject()
+                                return
                             }
                             /*
                             We will check that the blockchain account taken from the signature matches
@@ -117,6 +119,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             if (called.blockchainAccount !== selectedNetworkNode.blockchainAccount) {
                                 console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node called does not have the expected Profile Handle.')
                                 reject()
+                                return
                             }
 
                             let signedMessage = JSON.parse(signature.message)
@@ -128,6 +131,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             if (signedMessage.calledProfileHandle !== selectedNetworkNode.userProfileHandle) {
                                 console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node called does not have the expected Profile Handle.')
                                 reject()
+                                return
                             }
                             /*
                             We will check that the profile handle we sent to the Network Node, is returned at the
@@ -136,6 +140,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             if (signedMessage.callerProfileHandle !== DK.TEST_NETWORK_CLIENT_USER_PROFILE_HANDLE) {
                                 console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node callerProfileHandle does not match my own userProfileHandle.')
                                 reject()
+                                return
                             }
                             /*
                             We will also check that the callerTimestamp we sent to the Network Node, is returned at the
@@ -144,6 +149,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             if (signedMessage.callerTimestamp !== callerTimestamp) {
                                 console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node callerTimestamp does not match my own callerTimestamp.')
                                 reject()
+                                return
                             }
 
                             /*
@@ -177,6 +183,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             if (response.result !== 'Ok') {
                                 console.log('[ERROR] Web Sockets Client -> stepOneResponse -> response.message = ' + response.message)
                                 reject()
+                                return
                             }
                             console.log('[INFO] Web Sockets Client -> stepTwoResponse -> response.message = ' + response.message)
                             /*

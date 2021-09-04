@@ -51,7 +51,7 @@ exports.newDesktopApp = function newDesktopApp() {
                 Test Following Profiles.
                 */
                 let eventMessage = {
-                    eventId: i,
+                    eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                     eventType: SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE,
                     emitterUserProfileId: DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID,
                     targetUserProfileId: profile.userProfileId

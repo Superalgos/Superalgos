@@ -894,6 +894,12 @@
                     "propertyName": "plugins",
                     "functionName": "newFoundationsUtilitiesPlugins",
                     "fileName": "Plugins.js"
+                },
+                {
+                    "name": "Miscellaneous Functions",
+                    "propertyName": "miscellaneousFunctions",
+                    "functionName": "newFoundationsUtilitiesMiscellaneousFunctions",
+                    "fileName": "MiscellaneousFunctions.js"
                 }
             ]
         },

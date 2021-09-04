@@ -4,8 +4,7 @@
 
     let thisObject = {
         initialize: initialize,
-        finalize: finalize,
-        run: run
+        finalize: finalize
     }
 
     const WEB_SOCKET = require('ws')
@@ -15,15 +14,11 @@
     return thisObject
 
     function finalize() {
-
+        socketServer = undefined
     }
 
     function initialize() {
-
-    }
-
-    function run() {
-       setUpWebSocketServer()
+        setUpWebSocketServer()
     }
 
     function setUpWebSocketServer() {

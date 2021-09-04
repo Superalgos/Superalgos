@@ -9,8 +9,7 @@ exports.newHttpInterface = function newHttpInterface() {
     */
     let thisObject = {
         initialize: initialize,
-        finalize: finalize,
-        run: run
+        finalize: finalize
     }
 
     let webhook = new Map()
@@ -18,32 +17,29 @@ exports.newHttpInterface = function newHttpInterface() {
     return thisObject
 
     function finalize() {
-
+        webhook = undefined
     }
 
     function initialize() {
-
-    }
-
-    function run() {
         /*
         We will create an HTTP Server and leave it running forever.
         */
-        SA.nodeModules.http.createServer(onHttpRequest).listen(global.env.CLIENT_HTTP_INTERFACE_PORT)
-        /* Starting the browser now is optional */
-        if (process.argv.includes("noBrowser")) {
-            //Running Client only with no UI.
-        } else {
-            SA.nodeModules.open('http://localhost:' + global.env.CLIENT_HTTP_INTERFACE_PORT)
-        }
+       SA.nodeModules.http.createServer(onHttpRequest).listen(global.env.CLIENT_HTTP_INTERFACE_PORT)
+       /* Starting the browser now is optional */
+       if (process.argv.includes("noBrowser")) {
+           //Running Client only with no UI.
+       } else {
+           SA.nodeModules.open('http://localhost:' + global.env.CLIENT_HTTP_INTERFACE_PORT)
+       }
     }
 
     function onHttpRequest(httpRequest, httpResponse) {
         try {
             let requestPathAndParameters = httpRequest.url.split('?') // Remove version information
             let requestPath = requestPathAndParameters[0].split('/')
+            let endpointOrFile = requestPath[1]
 
-            switch (requestPath[1]) {
+            switch (endpointOrFile) {
 
                 case 'WEB3':
                     {
@@ -1194,7 +1190,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'ChartLayers':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_UI + '/' + requestPath[1] + '/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_UI + '/' + endpointOrFile + '/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Files':
@@ -1700,50 +1696,9 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 default:
                     {
-                        noEndpointReceived()
+                        SA.projects.foundations.utilities.httpResponses.respondWithWebFile(httpResponse, endpointOrFile,  global.env.PATH_TO_CLIENT)
                     }
             }
-
-            function noEndpointReceived() {
-
-                if (requestPath[1] === '') {
-                    /*
-                    When there is no endpoint specidied we will respond with this app's Home Page.
-                    */
-                    let fs = SA.nodeModules.fs
-
-                    let fileName = global.env.PATH_TO_CLIENT + 'WebServer/index.html'
-                    fs.readFile(fileName, onFileRead)
-
-                    function onFileRead(err, file) {
-
-                        let fileContent = file.toString()
-
-                        SA.projects.foundations.utilities.httpResponses.respondWithContent(fileContent, httpResponse)
-                    }
-                } else {
-                    /*
-                    When there is a parameter but it does not match any of the available endpoints, we 
-                    will serve the file with the same name at at a location that depends on it's file extention. 
-                    */
-                    let completeFileName = requestPath[1]
-                    let fileExtension = completeFileName.split('.')[1]
-                    let path
-
-                    switch (fileExtension) {
-                        case 'js': {
-                            path = global.env.PATH_TO_UI + '/' + completeFileName
-                            SA.projects.foundations.utilities.httpResponses.respondWithFile(path, httpResponse)
-                            break
-                        }
-                        case 'css': {
-                            SA.projects.foundations.utilities.httpResponses.respondWithStyleSheet(httpResponse, global.env.PATH_TO_CLIENT, completeFileName)
-                            break
-                        }
-                    }
-                }
-            }
-
         } catch (err) {
             console.log(err.stack)
         }

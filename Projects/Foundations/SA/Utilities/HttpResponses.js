@@ -7,7 +7,8 @@ exports.newFoundationsUtilitiesHttpResponses = function () {
         respondWithFont: respondWithFont,
         respondWithEmptyArray: respondWithEmptyArray,
         respondWithStyleSheet: respondWithStyleSheet,
-        respondWithProjectFolderFileList: respondWithProjectFolderFileList
+        respondWithProjectFolderFileList: respondWithProjectFolderFileList,
+        respondWithWebFile: respondWithWebFile
     }
 
     return thisObject
@@ -167,6 +168,45 @@ exports.newFoundationsUtilitiesHttpResponses = function () {
 
                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                     return
+                }
+            }
+        }
+    }
+
+    function respondWithWebFile(httpResponse, fileNameReceived, path) {
+
+        if (fileNameReceived === '') {
+            /*
+            When there is no endpoint specidied we will respond with this app's Home Page.
+            */
+            let fs = SA.nodeModules.fs
+
+            let fileName = path + 'WebServer/index.html'
+            fs.readFile(fileName, onFileRead)
+
+            function onFileRead(err, file) {
+
+                let fileContent = file.toString()
+
+                SA.projects.foundations.utilities.httpResponses.respondWithContent(fileContent, httpResponse)
+            }
+        } else {
+            /*
+            When there is a parameter but it does not match any of the available endpoints, we 
+            will serve the file with the same name at at a location that depends on it's file extention. 
+            */
+            let completeFileName = fileNameReceived
+            let fileExtension = completeFileName.split('.')[1]
+
+            switch (fileExtension) {
+                case 'js': {
+                    let path = global.env.PATH_TO_UI + '/' + completeFileName
+                    SA.projects.foundations.utilities.httpResponses.respondWithFile(path, httpResponse)
+                    break
+                }
+                case 'css': {
+                    SA.projects.foundations.utilities.httpResponses.respondWithStyleSheet(httpResponse, path, completeFileName)
+                    break
                 }
             }
         }

@@ -912,6 +912,12 @@
                     "propertyName": "httpResponses",
                     "functionName": "newFoundationsUtilitiesHttpResponses",
                     "fileName": "HttpResponses.js"
+                },
+                {
+                    "name": "Http Requests",
+                    "propertyName": "httpRequests",
+                    "functionName": "newFoundationsUtilitiesHttpRequests",
+                    "fileName": "HttpRequests.js"
                 }
             ]
         },

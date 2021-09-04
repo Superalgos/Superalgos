@@ -1,3 +1,0 @@
-It is a good idea to perodically run the "node setup noShortcuts" command to keep the underlying dependencies for your Superalgos installation up to date, for a headless/desktopless linux server:
-
-node setup noShortcuts

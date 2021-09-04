@@ -65,7 +65,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             params.interface
                                         )
 
-                                        respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                         return
                                     }
                                     case 'createWalletAccount': {
@@ -74,7 +74,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             params.entropy
                                         )
 
-                                        respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                         return
                                     }
                                     case 'getWalletBalances': {
@@ -86,7 +86,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             params.walletDefinition
                                         )
 
-                                        respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                         return
                                     }
                                     case 'signData': {
@@ -96,7 +96,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             params.data
                                         )
 
-                                        respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                         return
                                     }
                                     case 'recoverAddress': {
@@ -105,7 +105,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             params.signature
                                         )
 
-                                        respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                         return
                                     }
                                     case 'mnemonicToPrivateKey': {
@@ -114,11 +114,11 @@ exports.newHttpInterface = function newHttpInterface() {
                                             params.mnemonic
                                         )
 
-                                        respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                         return
                                     }
                                     default: {
-                                        respondWithContent(JSON.stringify({ error: 'Method ' + params.method + ' is invalid.' }), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify({ error: 'Method ' + params.method + ' is invalid.' }), httpResponse)
                                     }
                                 }
                             } catch (err) {
@@ -131,7 +131,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     message: err.message,
                                     stack: err.stack
                                 }
-                                respondWithContent(JSON.stringify(error), httpResponse)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                             }
                         }
                     }
@@ -162,7 +162,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         if (ccxtExchange.has.fetchMarkets === true) {
                                             ccxtMarkets = await ccxtExchange.fetchMarkets()
                                         }
-                                        respondWithContent(JSON.stringify(ccxtMarkets), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(ccxtMarkets), httpResponse)
                                         return
                                     }
                                     case 'listExchanges': {
@@ -194,7 +194,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 }
                                             }
                                         }
-                                        respondWithContent(JSON.stringify(exchanges), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(exchanges), httpResponse)
                                         return
                                     }
                                 }
@@ -208,7 +208,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     result: 'Fail Because',
                                     message: err.message
                                 }
-                                respondWithContent(JSON.stringify(error), httpResponse)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                             }
                         }
                     }
@@ -223,12 +223,12 @@ exports.newHttpInterface = function newHttpInterface() {
                                 /* Some validations */
                                 if (exchange === undefined) {
                                     console.log('[WARN] httpInterface -> Webhook -> Fetch-Messages -> Message with no Exchange received -> messageReceived = ' + messageReceived)
-                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                     return
                                 }
                                 if (market === undefined) {
                                     console.log('[WARN] httpInterface -> Webhook -> Fetch-Messages -> Message with no market received -> messageReceived = ' + messageReceived)
-                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                     return
                                 }
 
@@ -242,7 +242,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 console.log('[INFO] httpInterface -> Webhook -> Fetch-Messages -> Exchange-Market = ' + exchange + '-' + market)
                                 console.log('[INFO] httpInterface -> Webhook -> Fetch-Messages -> Messeges Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
 
-                                respondWithContent(JSON.stringify(webhookMessages), httpResponse)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(webhookMessages), httpResponse)
                                 webhookMessages = []
 
                                 webhook.set(key, webhookMessages)
@@ -260,17 +260,17 @@ exports.newHttpInterface = function newHttpInterface() {
                                     /* Some validations */
                                     if (source === undefined) {
                                         console.log('[WARN] httpInterface -> Webhook -> New-Message -> Message with no Source received -> messageReceived = ' + messageReceived)
-                                        respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         return
                                     }
                                     if (exchange === undefined) {
                                         console.log('[WARN] httpInterface -> Webhook -> New-Message -> Message with no Exchange received -> messageReceived = ' + messageReceived)
-                                        respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         return
                                     }
                                     if (market === undefined) {
                                         console.log('[WARN] httpInterface -> Webhook -> New-Message -> Message with no market received -> messageReceived = ' + messageReceived)
-                                        respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         return
                                     }
 
@@ -287,7 +287,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     console.log('[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = ' + exchange + '-' + market)
                                     console.log('[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = ' + messageReceived)
                                     console.log('[INFO] httpInterface -> Webhook -> New-Message -> Messeges waiting to be Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
-                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                 }
                                 break
                             }
@@ -307,9 +307,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Nodes'
 
                                         if (checkAllSchmemaDocuments('Node', docsSchema, filePath) === true) {
-                                            respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                         } else {
-                                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         }
 
                                     } catch (err) {
@@ -322,7 +322,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             message: err.message,
                                             stack: err.stack
                                         }
-                                        respondWithContent(JSON.stringify(error), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                                     }
                                 }
                                 break
@@ -338,9 +338,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Concepts'
 
                                         if (checkAllSchmemaDocuments('Concept', docsSchema, filePath) === true) {
-                                            respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                         } else {
-                                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         }
 
                                     } catch (err) {
@@ -353,7 +353,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             message: err.message,
                                             stack: err.stack
                                         }
-                                        respondWithContent(JSON.stringify(error), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                                     }
                                 }
                                 break
@@ -369,9 +369,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Topics'
 
                                         if (checkAllSchmemaDocuments('Topic', docsSchema, filePath) === true) {
-                                            respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                         } else {
-                                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         }
 
                                     } catch (err) {
@@ -384,7 +384,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             message: err.message,
                                             stack: err.stack
                                         }
-                                        respondWithContent(JSON.stringify(error), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                                     }
                                 }
                                 break
@@ -400,9 +400,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Tutorials'
 
                                         if (checkAllSchmemaDocuments('Tutorial', docsSchema, filePath) === true) {
-                                            respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                         } else {
-                                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         }
 
                                     } catch (err) {
@@ -415,7 +415,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             message: err.message,
                                             stack: err.stack
                                         }
-                                        respondWithContent(JSON.stringify(error), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                                     }
                                 }
                                 break
@@ -431,9 +431,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Reviews'
 
                                         if (checkAllSchmemaDocuments('Review', docsSchema, filePath) === true) {
-                                            respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                         } else {
-                                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         }
 
                                     } catch (err) {
@@ -446,7 +446,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             message: err.message,
                                             stack: err.stack
                                         }
-                                        respondWithContent(JSON.stringify(error), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                                     }
                                 }
                                 break
@@ -462,9 +462,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Books'
 
                                         if (checkAllSchmemaDocuments('Book', docsSchema, filePath) === true) {
-                                            respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                         } else {
-                                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         }
 
                                     } catch (err) {
@@ -477,7 +477,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             message: err.message,
                                             stack: err.stack
                                         }
-                                        respondWithContent(JSON.stringify(error), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                                     }
                                 }
                                 break
@@ -485,7 +485,7 @@ exports.newHttpInterface = function newHttpInterface() {
                         }
 
                         function checkAllSchmemaDocuments(category, docsSchema, filePath) {
-                            const fs = require('fs')
+                            const fs = SA.nodeModules.fs
                             let noErrorsDuringSaving = true
 
                             for (let i = 0; i < docsSchema.length; i++) {
@@ -667,7 +667,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 respondWithDocsObject(docs, error)
                                                 return
                                             }
-                                            respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                         }
                                     }
 
@@ -756,7 +756,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         message: err.message,
                                         stack: err.stack
                                     }
-                                    respondWithContent(JSON.stringify(error), httpResponse)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                                 }
                                 break
                             }
@@ -779,7 +779,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                     result: global.CUSTOM_OK_RESPONSE.result,
                                                     message: result.message
                                                 }
-                                                respondWithContent(JSON.stringify(customResponse), httpResponse)
+                                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
                                             } else {
 
                                                 let docs = {
@@ -825,7 +825,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         message: err.message,
                                         stack: err.stack
                                     }
-                                    respondWithContent(JSON.stringify(error), httpResponse)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                                 }
                                 break
                             }
@@ -846,7 +846,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             await doGit()
 
                                             if (error === undefined) {
-                                                respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                             } else {
                                                 let docs = {
                                                     project: 'Foundations',
@@ -887,7 +887,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         message: err.message,
                                         stack: err.stack
                                     }
-                                    respondWithContent(JSON.stringify(error), httpResponse)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                                 }
                                 break
                             }
@@ -909,7 +909,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                     result: global.CUSTOM_OK_RESPONSE.result,
                                                     message: result
                                                 }
-                                                respondWithContent(JSON.stringify(customResponse), httpResponse)
+                                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
                                             } else {
                                                 let docs = {
                                                     project: 'Foundations',
@@ -949,7 +949,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         message: err.message,
                                         stack: err.stack
                                     }
-                                    respondWithContent(JSON.stringify(error), httpResponse)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                                 }
                                 break
                             }
@@ -986,7 +986,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 docs: docs
                             }
 
-                            respondWithContent(JSON.stringify(customResponse), httpResponse)
+                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
 
                         }
                     }
@@ -1013,7 +1013,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             params.token
                                         )
 
-                                        respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                         return
                                     }
                                     case 'getGithubWatchers': {
@@ -1024,7 +1024,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             params.token
                                         )
 
-                                        respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                         return
                                     }
                                     case 'getGithubForks': {
@@ -1035,7 +1035,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             params.token
                                         )
 
-                                        respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                         return
                                     }
                                     case 'mergePullRequests': {
@@ -1046,7 +1046,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             params.token
                                         )
 
-                                        respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                         return
                                     }
                                     case 'payContributors': {
@@ -1058,11 +1058,11 @@ exports.newHttpInterface = function newHttpInterface() {
                                             params.mnemonic
                                         )
 
-                                        respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                         return
                                     }
                                     default: {
-                                        respondWithContent(JSON.stringify({ error: 'Method ' + params.method + ' is invalid.' }), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify({ error: 'Method ' + params.method + ' is invalid.' }), httpResponse)
                                     }
                                 }
                             } catch (err) {
@@ -1075,19 +1075,19 @@ exports.newHttpInterface = function newHttpInterface() {
                                     message: err.message,
                                     stack: err.stack
                                 }
-                                respondWithContent(JSON.stringify(error), httpResponse)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                             }
                         }
                     }
                     break
                 case 'LegacyPlotter.js':
                     {
-                        respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/LegacyPlotter.js', httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/LegacyPlotter.js', httpResponse)
                     }
                     break
                 case 'PlotterPanel.js':
                     {
-                        respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/PlotterPanel.js', httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/PlotterPanel.js', httpResponse)
                     }
                     break
                 case 'Images': // This means the Images folder.
@@ -1108,7 +1108,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         path = unescape(path)
 
-                        respondWithImage(path, httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithImage(path, httpResponse)
                     }
                     break
                 case 'Icons': // This means the Icons folder under Projects.
@@ -1129,7 +1129,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         path = unescape(path)
 
-                        respondWithImage(path, httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithImage(path, httpResponse)
                     }
                     break
                 case 'GIFs': // This means the GIFs folder under Projects.
@@ -1149,7 +1149,7 @@ exports.newHttpInterface = function newHttpInterface() {
                         }
 
                         path = unescape(path)
-                        respondWithImage(path, httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithImage(path, httpResponse)
                     }
                     break
                 case 'PNGs': // This means the PNGs folder under Projects.
@@ -1169,22 +1169,22 @@ exports.newHttpInterface = function newHttpInterface() {
                         }
 
                         path = unescape(path)
-                        respondWithImage(path, httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithImage(path, httpResponse)
                     }
                     break
                 case 'favicon.ico': // This means the Scripts folder.
                     {
-                        respondWithImage(global.env.PATH_TO_CLIENT + 'WebServer/Images/' + 'favicon.ico', httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithImage(global.env.PATH_TO_CLIENT + 'WebServer/Images/' + 'favicon.ico', httpResponse)
                     }
                     break
                 case 'WebServer': // This means the WebServer folder.
                     {
-                        respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'externalScripts': // This means the WebServer folder.
                     {
-                        respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/externalScripts/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/externalScripts/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Plotters': // This means the plotter folder, not to be confused with the Plotters script!
@@ -1194,22 +1194,22 @@ exports.newHttpInterface = function newHttpInterface() {
                         let codeName = requestPath[4]
                         let moduleName = requestPath[5]
                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/' + 'Bots-Plotters-Code' + '/' + dataMine + '/plotters/' + codeName + '/' + moduleName
-                        respondWithFile(filePath, httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(filePath, httpResponse)
                     }
                     break
                 case 'ChartLayers':
                     {
-                        respondWithFile(global.env.PATH_TO_UI + '/' + requestPath[1] + '/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_UI + '/' + requestPath[1] + '/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Files':
                     {
-                        respondWithFile(global.env.PATH_TO_DATA_FILES + '/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_DATA_FILES + '/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Fonts':
                     {
-                        respondWithFont(global.env.PATH_TO_FONTS + '/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFont(global.env.PATH_TO_FONTS + '/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Schema':
@@ -1241,7 +1241,7 @@ exports.newHttpInterface = function newHttpInterface() {
                         SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(folder, onFilesReady)
 
                         function onFilesReady(files) {
-                            respondWithContent(JSON.stringify(files), httpResponse)
+                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(files), httpResponse)
                         }
                     }
                     break
@@ -1270,7 +1270,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 projectCounter++
                                 if (projectCounter === totalProjects) {
-                                    respondWithContent(JSON.stringify(icons), httpResponse)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(icons), httpResponse)
                                 }
                             }
                         }
@@ -1290,7 +1290,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     folder
                                 )
 
-                                respondWithContent(JSON.stringify(response), httpResponse)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
 
                             } catch (err) {
                                 console.log('[ERROR] httpInterface -> PluginFileNames -> Method call produced an error.')
@@ -1302,7 +1302,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     message: err.message,
                                     stack: err.stack
                                 }
-                                respondWithContent(JSON.stringify(error), httpResponse)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                             }
                         }
                     }
@@ -1326,11 +1326,11 @@ exports.newHttpInterface = function newHttpInterface() {
                                         result: 'Fail Because',
                                         message: err
                                     }
-                                    respondWithContent(JSON.stringify(error), httpResponse)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                                     return
                                 })
 
-                                respondWithContent(response, httpResponse)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(response, httpResponse)
 
                             } catch (err) {
                                 console.log('[ERROR] httpInterface -> LoadPlugin -> Method call produced an error.')
@@ -1342,7 +1342,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     message: err.message,
                                     stack: err.stack
                                 }
-                                respondWithContent(JSON.stringify(error), httpResponse)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                             }
                         }
                     }
@@ -1359,9 +1359,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                 let fileName = requestPath[4]
                                 let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + folder
                                 let fileContent = JSON.stringify(plugin, undefined, 4)
-                                const fs = require('fs')
+                                const fs = SA.nodeModules.fs
                                 fs.writeFileSync(filePath + '/' + fileName + '.json', fileContent)
-                                respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                             } catch (err) {
                                 console.log('[ERROR] httpInterface -> SavePlugin -> Method call produced an error.')
                                 console.log('[ERROR] httpInterface -> SavePlugin -> err.stack = ' + err.stack)
@@ -1372,14 +1372,14 @@ exports.newHttpInterface = function newHttpInterface() {
                                     message: err.message,
                                     stack: err.stack
                                 }
-                                respondWithContent(JSON.stringify(error), httpResponse)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                             }
                         }
                     }
                     break
                 case 'Workspace.js':
                     {
-                        let fs = require('fs')
+                        let fs = SA.nodeModules.fs
 
                         try {
                             let filePath = global.env.PATH_TO_DEFAULT_WORKSPACE + '/Getting-Started-Tutorials.json'
@@ -1390,10 +1390,10 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         function onFileRead(err, workspace) {
                             if (err) {
-                                respondWithContent(undefined, httpResponse)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(undefined, httpResponse)
                             } else {
                                 let responseContent = 'function getWorkspace(){ return ' + workspace + '}'
-                                respondWithContent(responseContent, httpResponse)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(responseContent, httpResponse)
                             }
                         }
                     }
@@ -1410,7 +1410,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             function readPluginWorkspaces() {
                                 let dirPath = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/Workspaces'
                                 try {
-                                    let fs = require('fs')
+                                    let fs = SA.nodeModules.fs
                                     fs.readdir(dirPath, onDirRead)
 
                                     function onDirRead(err, fileList) {
@@ -1437,7 +1437,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 } catch (err) {
                                     console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath)
                                     console.log('[ERROR] err.stack = ' + err.stack)
-                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                     return
                                 }
                             }
@@ -1446,13 +1446,13 @@ exports.newHttpInterface = function newHttpInterface() {
                         function readMyWorkspaces() {
                             let dirPath = global.env.PATH_TO_MY_WORKSPACES
                             try {
-                                let fs = require('fs')
+                                let fs = SA.nodeModules.fs
                                 fs.readdir(dirPath, onDirRead)
 
                                 function onDirRead(err, fileList) {
                                     if (err) {
                                         // This happens the first time you run the software.
-                                        respondWithContent(JSON.stringify(allWorkspaces), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(allWorkspaces), httpResponse)
                                         return
                                     } else {
                                         let updatedFileList = []
@@ -1461,14 +1461,14 @@ exports.newHttpInterface = function newHttpInterface() {
                                             updatedFileList.push(['', name])
                                         }
                                         allWorkspaces = allWorkspaces.concat(updatedFileList)
-                                        respondWithContent(JSON.stringify(allWorkspaces), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(allWorkspaces), httpResponse)
                                         return
                                     }
                                 }
                             } catch (err) {
                                 console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath)
                                 console.log('[ERROR] err.stack = ' + err.stack)
-                                respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                 return
                             }
                         }
@@ -1478,7 +1478,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     {
                         let fileName = unescape(requestPath[2])
                         let filePath = global.env.PATH_TO_MY_WORKSPACES + '/' + fileName + '.json'
-                        respondWithFile(filePath, httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(filePath, httpResponse)
                     }
                     break
                 case 'SaveWorkspace':
@@ -1492,7 +1492,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             let filePath = global.env.PATH_TO_MY_WORKSPACES + '/' + fileName + '.json'
 
                             try {
-                                let fs = require('fs')
+                                let fs = SA.nodeModules.fs
                                 let dir = global.env.PATH_TO_MY_WORKSPACES;
 
                                 /* Create Dir if it does not exist */
@@ -1511,9 +1511,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                             message: err.message,
                                             stack: err.stack
                                         }
-                                        respondWithContent(JSON.stringify(error), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                                     } else {
-                                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                     }
                                 }
 
@@ -1525,7 +1525,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     message: err.message,
                                     stack: err.stack
                                 }
-                                respondWithContent(JSON.stringify(error), httpResponse)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                             }
                         }
                     }
@@ -1538,12 +1538,12 @@ exports.newHttpInterface = function newHttpInterface() {
                 case 'ProjectsSchema':
                     {
                         let path = global.env.PATH_TO_PROJECTS + '/' + 'ProjectsSchema.json'
-                        respondWithFile(path, httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(path, httpResponse)
                     }
                     break
                 case 'ListSpaceFiles':
                     {
-                        let fs = require('fs')
+                        let fs = SA.nodeModules.fs
                         let allFiles = []
                         let projects = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS)
                         let dirCount = 0
@@ -1574,7 +1574,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     function onDirRead(err, fileList) {
                                         if (err) {
-                                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         } else {
                                             let updatedFileList = []
                                             for (let k = 0; k < fileList.length; k++) {
@@ -1585,14 +1585,14 @@ exports.newHttpInterface = function newHttpInterface() {
                                             allFiles = allFiles.concat(updatedFileList)
                                             dirCount++
                                             if (dirCount === totalDirs) {
-                                                respondWithContent(JSON.stringify(allFiles), httpResponse)
+                                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(allFiles), httpResponse)
                                             }
                                         }
                                     }
                                 } catch (err) {
                                     console.log('[ERROR] Error reading a directory content. filePath = ' + path)
                                     console.log('[ERROR] err.stack = ' + err.stack)
-                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                     return
                                 }
                             }
@@ -1620,7 +1620,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         }
                         let filePath = global.env.PATH_TO_PROJECTS + path
-                        respondWithFile(filePath, httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(filePath, httpResponse)
                     }
                     break
                 case 'Storage':
@@ -1630,7 +1630,7 @@ exports.newHttpInterface = function newHttpInterface() {
                         for (let i = 0; i < 10; i++) {
                             pathToFile = pathToFile.replace('_HASHTAG_', '#')
                         }
-                        respondWithFile(global.env.PATH_TO_DATA_STORAGE + '/' + pathToFile, httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_DATA_STORAGE + '/' + pathToFile, httpResponse)
                     }
                     break
                 case 'main.css':
@@ -1709,11 +1709,11 @@ exports.newHttpInterface = function newHttpInterface() {
 
                     httpRequest.on('error', function (err) {
                         console.log('[ERROR] httpInterface -> err.stack = ' + err.stack)
-                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                     })
                 } catch (err) {
                     console.log('[ERROR] httpInterface -> err.stack = ' + err.stack)
-                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                 }
             }
 
@@ -1728,7 +1728,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         let dirPath = global.env.PATH_TO_PROJECTS + '/' + project + '/' + 'UI' + '/' + projectFolderName
                         try {
-                            let fs = require('fs')
+                            let fs = SA.nodeModules.fs
                             fs.readdir(dirPath, onDirRead)
 
                             function onDirRead(err, fileList) {
@@ -1748,14 +1748,14 @@ exports.newHttpInterface = function newHttpInterface() {
                                 allLibraries = allLibraries.concat(updatedFileList)
                                 projectsCount++
                                 if (projectsCount === projects.length) {
-                                    respondWithContent(JSON.stringify(allLibraries), httpResponse)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(allLibraries), httpResponse)
                                 }
                             }
                         } catch (err) {
                             console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath)
                             console.log('[ERROR] err.stack = ' + err.stack)
 
-                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                             return
                         }
                     }
@@ -1778,7 +1778,7 @@ exports.newHttpInterface = function newHttpInterface() {
             }
 
             function sendSchema(filePath, schemaType) {
-                let fs = require('fs')
+                let fs = SA.nodeModules.fs
                 try {
                     let folder = ''
                     switch (schemaType) {
@@ -1830,26 +1830,26 @@ exports.newHttpInterface = function newHttpInterface() {
                                 schemaDocument = JSON.parse(fileContent)
                             } catch (err) {
                                 console.log('[ERROR] httpInterface -> sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
-                                respondWithContent("[]", httpResponse)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent("[]", httpResponse)
                                 return
                             }
                             schemaArray.push(schemaDocument)
                         }
                         let schema = JSON.stringify(schemaArray)
-                        respondWithContent(schema, httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithContent(schema, httpResponse)
                     }
                 } catch (err) {
                     if (err.message.indexOf('no such file or directory') < 0) {
                         console.log('Could not send Schema:', filePath, schemaType)
                         console.log(err.stack)
                     }
-                    respondWithContent("[]", httpResponse)
+                    SA.projects.foundations.utilities.httpResponses.respondWithContent("[]", httpResponse)
                 }
 
             }
 
             function sendStyleSheet(fileName) {
-                let fs = require('fs')
+                let fs = SA.nodeModules.fs
                 try {
                     let filePath = global.env.PATH_TO_CLIENT + 'WebServer/css/' + fileName
                     fs.readFile(filePath, onFileRead)
@@ -1861,7 +1861,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             fileContent = fileContent.replace('CLIENT_HTTP_INTERFACE_PORT', global.env.CLIENT_HTTP_INTERFACE_PORT)
                             fileContent = fileContent.replace('CLIENT_HTTP_INTERFACE_PORT', global.env.CLIENT_HTTP_INTERFACE_PORT)
                             fileContent = fileContent.replace('CLIENT_HTTP_INTERFACE_PORT', global.env.CLIENT_HTTP_INTERFACE_PORT)
-                            respondWithContent(fileContent, httpResponse, 'text/css')
+                            SA.projects.foundations.utilities.httpResponses.respondWithContent(fileContent, httpResponse, 'text/css')
                         } catch (err) {
                             console.log('[ERROR] httpInterface -> mainCSS -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
                         }
@@ -1877,7 +1877,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     /*
                     When there is no endpoint specidied we will respond with this app's Home Page.
                     */
-                    let fs = require('fs')
+                    let fs = SA.nodeModules.fs
 
                     let fileName = global.env.PATH_TO_CLIENT + 'WebServer/index.html'
                     fs.readFile(fileName, onFileRead)
@@ -1887,7 +1887,7 @@ exports.newHttpInterface = function newHttpInterface() {
                         let fileContent = file.toString()
 
                         fileContent = fileContent.replace('CLIENT_HTTP_INTERFACE_PORT', global.env.CLIENT_HTTP_INTERFACE_PORT)
-                        respondWithContent(fileContent, httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithContent(fileContent, httpResponse)
                     }
 
                 } else {
@@ -1895,131 +1895,12 @@ exports.newHttpInterface = function newHttpInterface() {
                     When there is a parameter but it does not match any of the available endpoints, we 
                     will serve the file with the same name at the UI folder. These are in general js files.
                     */
-                    respondWithFile(global.env.PATH_TO_UI + '/' + requestPath[1], httpResponse)
+                    SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_UI + '/' + requestPath[1], httpResponse)
                 }
             }
 
         } catch (err) {
             console.log(err.stack)
-        }
-    }
-
-    function respondWithFile(fileName, httpResponse) {
-        let fs = require('fs')
-        if (fileName.indexOf('undefined') > 0) {
-            console.log('[WRN] httpInterface -> respondWithFile -> Received httpRequest for undefined file. ')
-            respondWithContent(undefined, httpResponse)
-        } else {
-            try {
-                fs.readFile(fileName, onFileRead)
-
-                function onFileRead(err, file) {
-                    if (!err) {
-                        respondWithContent(file.toString(), httpResponse)
-                    } else {
-                        //console.log('File requested not found: ' + fileName)
-                        respondWithContent(undefined, httpResponse)
-                    }
-                }
-            } catch (err) {
-                returnEmptyArray()
-            }
-        }
-    }
-
-    function respondWithContent(content, httpResponse, contentType) {
-        try {
-            httpResponse.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate') // HTTP 1.1.
-            httpResponse.setHeader('Pragma', 'no-cache') // HTTP 1.0.
-            httpResponse.setHeader('Expires', '0') // Proxies.
-            httpResponse.setHeader('Access-Control-Allow-Origin', '*') // Allows to access data from other domains.
-
-            if (content !== undefined) {
-                if (contentType !== undefined) {
-                    httpResponse.writeHead(200, { 'Content-Type': contentType })
-                } else {
-                    httpResponse.writeHead(200, { 'Content-Type': 'text/html' })
-                }
-                httpResponse.write(content)
-            } else {
-                httpResponse.writeHead(404, { 'Content-Type': 'text/html' })
-                httpResponse.write('The specified key does not exist.')
-            }
-            httpResponse.end('\n')
-        } catch (err) {
-            returnEmptyArray(httpResponse)
-        }
-    }
-
-    function respondWithImage(fileName, httpResponse) {
-        let fs = require('fs')
-        try {
-            fs.readFile(fileName, onFileRead)
-
-            function onFileRead(err, file) {
-                if (err) {
-                    console.log('[ERROR] httpInterface -> respondWithImage -> onFileRead -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
-                    return
-                }
-                try {
-                    httpResponse.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate') // HTTP 1.1.
-                    httpResponse.setHeader('Pragma', 'no-cache') // HTTP 1.0.
-                    httpResponse.setHeader('Expires', '0') // Proxies.
-                    httpResponse.setHeader('Access-Control-Allow-Origin', '*') // Allows to access data from other domains.
-
-                    httpResponse.writeHead(200, { 'Content-Type': 'image/png' })
-                    httpResponse.end(file, 'binary')
-                } catch (err) {
-                    console.log('[ERROR] httpInterface -> respondWithImage -> onFileRead -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
-                }
-            }
-        } catch (err) {
-            console.log('[ERROR] httpInterface -> respondWithImage -> err = ' + err.stack)
-        }
-    }
-
-    function respondWithFont(fileName, httpResponse) {
-        let fs = require('fs')
-        try {
-            fs.readFile(fileName, onFileRead)
-
-            function onFileRead(err, file) {
-                try {
-                    if (err) {
-                        console.log('[ERROR] httpInterface -> respondWithBinary -> onFileRead -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
-                        return
-                    }
-                    httpResponse.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate') // HTTP 1.1.
-                    httpResponse.setHeader('Pragma', 'no-cache') // HTTP 1.0.
-                    httpResponse.setHeader('Expires', '0') // Proxies.
-                    httpResponse.setHeader('Access-Control-Allow-Origin', '*') // Allows to access data from other domains.
-
-                    if (fileName.indexOf('2') < 0) {
-                        httpResponse.writeHead(200, { 'Content-Type': 'font/woff' })
-                    } else {
-                        httpResponse.writeHead(200, { 'Content-Type': 'font/woff2' })
-                    }
-                    httpResponse.end(file, 'binary')
-                } catch (err) {
-                    console.log('[ERROR] httpInterface -> respondWithBinary -> onFileRead -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
-                }
-            }
-        } catch (err) {
-            console.log('[ERROR] httpInterface -> respondWithBinary -> err = ' + err.stack)
-        }
-    }
-
-    function returnEmptyArray(httpResponse) {
-        try {
-            httpResponse.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate') // HTTP 1.1.
-            httpResponse.setHeader('Pragma', 'no-cache') // HTTP 1.0.
-            httpResponse.setHeader('Expires', '0') // Proxies.
-
-            httpResponse.writeHead(200, { 'Content-Type': 'text/html' })
-            httpResponse.write('[]')
-            httpResponse.end('\n')
-        } catch (err) {
-            console.log('[ERROR] httpInterface -> returnEmptyArray -> err.stack ' + err.stack)
         }
     }
 }

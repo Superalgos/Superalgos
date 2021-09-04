@@ -906,6 +906,12 @@
                     "propertyName": "filesAndDirectories",
                     "functionName": "newFoundationsUtilitiesFilesAndDirectories",
                     "fileName": "FilesAndDirectories.js"
+                },
+                {
+                    "name": "Http Responses",
+                    "propertyName": "httpResponses",
+                    "functionName": "newFoundationsUtilitiesHttpResponses",
+                    "fileName": "HttpResponses.js"
                 }
             ]
         },

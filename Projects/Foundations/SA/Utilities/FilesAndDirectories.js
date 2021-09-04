@@ -9,7 +9,7 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
 
     function getDirectories(path) {
         try {
-            const fs = require('fs')
+            const fs = SA.nodeModules.fs
             return fs.readdirSync(path).filter(function (file) {
                 return fs.statSync(path + '/' + file).isDirectory();
             });
@@ -21,7 +21,7 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
     function getAllFilesInDirectoryAndSubdirectories(dir, callback) {
         const { promisify } = require('util');
         const { resolve } = require('path');
-        const fs = require('fs');
+        const fs = SA.nodeModules.fs;
         const readdir = promisify(fs.readdir);
         const stat = promisify(fs.stat);
 

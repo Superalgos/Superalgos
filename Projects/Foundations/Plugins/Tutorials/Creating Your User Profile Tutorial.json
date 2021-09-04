@@ -1,7 +1,7 @@
 {
     "type": "Tutorial",
     "name": "Creating Your User Profile Tutorial",
-    "config": "{\"icon\":{\"name\":\"governance\",\"project\":\"Governance\"},\"position\":\"Center\",\"slider\":\"toTop\",\"pressButton\":\"\",\"docs\":{\"project\":\"Governance\",\"category\":\"Tutorial\",\"type\":\"Tutorial Step - Better Together\"},\"controlDocs\":{\"panel\":\"Open\",\"searchPage\":true,\"page\":{\"project\":\"Foundations\",\"category\":\"\",\"type\":\"\"}},\"codeName\":\"Creating Your User Profile Tutorial\"}",
+    "config": "{\n    \"icon\": {\n        \"name\": \"governance\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Center\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Better Together\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"Open\",\n        \"searchPage\": true,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"codeName\": \"Creating Your User Profile Tutorial\"\n}",
     "project": "Education",
     "tutorialSteps": [],
     "tutorialTopics": [
@@ -1421,14 +1421,45 @@
             "tutorialSteps": [
                 {
                     "type": "Tutorial Step",
+                    "name": "Save Your Profile!",
+                    "config": "{\n    \"icon\": {\n        \"name\": \"backup-entity\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Save It Once More!\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"Close\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
+                    "project": "Education",
+                    "id": "eeea3c8c-a86b-4205-b835-4e386ecbebec",
+                    "savedPayload": {
+                        "position": {
+                            "x": 16904.718879635613,
+                            "y": 30433.971391190375
+                        },
+                        "targetPosition": {
+                            "x": 16956.813332935693,
+                            "y": 30729.413717094038
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        },
+                        "tutorial": {
+                            "status": "Reset"
+                        }
+                    }
+                },
+                {
+                    "type": "Tutorial Step",
                     "name": "Make it Official",
                     "config": "{\n    \"icon\": {\n        \"name\": \"Programs\\\\github-program\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Make it Official\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"Tutorial\",\n            \"type\": \"Tutorial Step - GitHub.com Authentication\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
                     "project": "Education",
                     "id": "fe74b3ae-9490-465a-a491-db4b0834dbf7",
                     "savedPayload": {
                         "position": {
-                            "x": 16982.96005575999,
-                            "y": 30430.555307666513
+                            "x": 17059.419375933394,
+                            "y": 30447.505930858264
                         },
                         "targetPosition": {
                             "x": 16956.813332935693,
@@ -1503,13 +1534,57 @@
                 {
                     "type": "Tutorial Step",
                     "name": "Welcome aboard!",
-                    "config": "{\n    \"icon\": {\n        \"name\": \"Announcement\\\\announcement\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Welcome aboard!\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"Close\",\n        \"closeTutorialEditor\": true,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
+                    "config": "{\n    \"icon\": {\n        \"name\": \"Announcement\\\\announcement\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Welcome aboard!\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"Open\",\n        \"closeTutorialEditor\": true,\n        \"page\": {\n            \"project\": \"Governance\",\n            \"category\": \"Topic\",\n            \"type\": \"Building Your Profile\",\n            \"anchor\": \"Import Private Key in a Wallet\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
                     "project": "Education",
                     "id": "340f9107-9b4a-424b-94f2-79d65873c572",
                     "savedPayload": {
                         "position": {
-                            "x": 17255.671742363218,
-                            "y": 30755.560439918336
+                            "x": 17252.255658839356,
+                            "y": 30677.319263793957
+                        },
+                        "targetPosition": {
+                            "x": 16956.813332935693,
+                            "y": 30729.413717094038
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        },
+                        "tutorial": {
+                            "status": "Reset"
+                        },
+                        "referenceParent": {
+                            "type": "Tutorial",
+                            "name": "Governance Program Walk Through Tutorial",
+                            "id": "eb85fbbd-080f-41c6-91a8-c6b68195a74b"
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Governance Program Walk Through Tutorial",
+                                "Tutorial",
+                                "Education",
+                                "eb85fbbd-080f-41c6-91a8-c6b68195a74b"
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "type": "Tutorial Step",
+                    "name": "Deep Governance",
+                    "config": "{\n    \"icon\": {\n        \"name\": \"governance\",\n        \"project\": \"Governance\"\n    },\n    \"position\": \"Left\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Governance\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Deep Governance\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"Open\",\n        \"closeTutorialEditor\": true,\n        \"page\": {\n            \"project\": \"Governance\",\n            \"category\": \"Book\",\n            \"type\": \"The Governance Project\"\n        }\n    },\n    \"positionAtReferenceParent\": true\n}",
+                    "project": "Education",
+                    "id": "0450c241-07a8-44b7-9d5e-9be77861a624",
+                    "savedPayload": {
+                        "position": {
+                            "x": 17238.721119171467,
+                            "y": 30832.019760091738
                         },
                         "targetPosition": {
                             "x": 16956.813332935693,

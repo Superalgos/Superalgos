@@ -1,6 +1,6 @@
 {
     "tutorial": "Creating Your User Profile Tutorial",
-    "pageNumber": 35,
+    "pageNumber": 36,
     "type": "Tutorial Step - Thank Your Mentors",
     "definition": {
         "text": "Mentors are crucial to developing Contributors. They are the people that go the extra mile to help you progress and master Superalgos!",
@@ -22,9 +22,9 @@
             "updated": 1630690640463
         },
         {
-            "style": "Text",
-            "text": "Hit Ctrl + Shift + Alt + Key-S when you're done to save your profile! With this you've completed the setup of the main Governance Programs oriented to newcomers! Now it's time to contribute your User Profile to the Superalgos repository!",
-            "updated": 1630690916860
+            "style": "Success",
+            "text": "With this you've completed the setup of the main Governance Programs oriented to newcomers! Now it's time to contribute your User Profile to the Superalgos repository!",
+            "updated": 1630754628606
         }
     ]
 }

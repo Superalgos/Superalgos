@@ -1,6 +1,6 @@
 {
     "tutorial": "Creating Your User Profile Tutorial",
-    "pageNumber": 37,
+    "pageNumber": 38,
     "type": "Tutorial Step - To Infinity and Beyond",
     "definition": {
         "text": "Let's get rolling! We will be using the app.contribute command to submit your profile.",
@@ -18,8 +18,8 @@
         },
         {
             "style": "Json",
-            "text": "app.contribute First submission of User Profile [add your name here]",
-            "updated": 1630604551655
+            "text": "app.contribute User Profile [add your name]",
+            "updated": 1630751329550
         },
         {
             "style": "Text",

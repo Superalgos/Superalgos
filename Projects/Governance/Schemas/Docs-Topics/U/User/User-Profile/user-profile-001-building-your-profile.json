@@ -189,9 +189,13 @@
             "updated": 1630083271674
         },
         {
-            "style": "Title",
+            "style": "Anchor",
             "text": "Import Private Key in a Wallet",
             "updated": 1630083092448
+        },
+        {
+            "style": "Title",
+            "text": "Import Private Key in a Wallet"
         },
         {
             "style": "Text",

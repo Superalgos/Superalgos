@@ -894,6 +894,12 @@
                     "propertyName": "plugins",
                     "functionName": "newFoundationsUtilitiesPlugins",
                     "fileName": "Plugins.js"
+                },
+                {
+                    "name": "Miscellaneous Functions",
+                    "propertyName": "miscellaneousFunctions",
+                    "functionName": "newFoundationsUtilitiesMiscellaneousFunctions",
+                    "fileName": "MiscellaneousFunctions.js"
                 }
             ]
         },
@@ -1439,6 +1445,12 @@
                     "propertyName": "queryTypes",
                     "functionName": "newSocialTradingGlobalsQueryTypes",
                     "fileName": "QueryTypes.js"
+                },
+                {
+                    "name": "Event Types",
+                    "propertyName": "eventTypes",
+                    "functionName": "newSocialTradingGlobalsEventTypes",
+                    "fileName": "EventTypes.js"
                 }
             ]
         }

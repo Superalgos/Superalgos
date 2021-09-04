@@ -12,3 +12,4 @@ Projects/Foundations/Icons/Thumbs.db
 *.exe
 node_modules
 launch.json
+.idea

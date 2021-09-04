@@ -123,7 +123,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
 
             let response = {
                 result: 'Ok',
-                message: 'Client Interface Event Processed.' 
+                message: 'Client Interface Event Processed.'
             }
             return response
 
@@ -132,9 +132,11 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             Any exception that happens while trying to change the state of the Social Graph,
             will be returned to the caller without doing anything else here.
             */
+            let errorMessage = err.message
+            if (errorMessage === undefined) { errorMessage = err }
             let response = {
                 result: 'Error',
-                message: 'Client Interface ' + err.message
+                message: 'Client Interface ' + errorMessage
             }
             return response
         }
@@ -191,21 +193,23 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         try {
             let query = NT.projects.socialTrading.modules.query.newSocialTradingModulesQuery()
             query.initialize(queryReceived)
-            
+
             let response = {
                 result: 'Ok',
                 message: 'Client Interface Query Processed.',
                 data: query.execute()
             }
             return response
- 
+
         } catch (err) {
             /*
             Any exception that happens while trying to execute the query.
             */
+            let errorMessage = err.message
+            if (errorMessage === undefined) { errorMessage = err }
             let response = {
                 result: 'Error',
-                message: err.message
+                message: 'Client Interface ' + errorMessage
             }
             return response
         }

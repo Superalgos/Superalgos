@@ -900,6 +900,12 @@
                     "propertyName": "miscellaneousFunctions",
                     "functionName": "newFoundationsUtilitiesMiscellaneousFunctions",
                     "fileName": "MiscellaneousFunctions.js"
+                },
+                {
+                    "name": "Files And Directories",
+                    "propertyName": "filesAndDirectories",
+                    "functionName": "newFoundationsUtilitiesFilesAndDirectories",
+                    "fileName": "FilesAndDirectories.js"
                 }
             ]
         },

@@ -43,9 +43,10 @@ exports.newHttpInterface = function newHttpInterface() {
 
     function onHttpRequest(httpRequest, httpResponse) {
         try {
-            let requestParameters = httpRequest.url.split('/')
+            let requestPathAndParameters = httpRequest.url.split('?') // Remove version information
+            let requestPath = requestPathAndParameters[0].split('/')
 
-            switch (requestParameters[1]) {
+            switch (requestPath[1]) {
 
                 case 'WEB3':
                     {
@@ -214,10 +215,10 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'Webhook':
                     {
-                        switch (requestParameters[2]) { // switch by command
+                        switch (requestPath[2]) { // switch by command
                             case 'Fetch-Messages': {
-                                let exchange = requestParameters[3]
-                                let market = requestParameters[4]
+                                let exchange = requestPath[3]
+                                let market = requestPath[4]
 
                                 /* Some validations */
                                 if (exchange === undefined) {
@@ -252,9 +253,9 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 function processRequest(messageReceived) {
                                     let timestamp = (new Date()).valueOf()
-                                    let source = requestParameters[3]
-                                    let exchange = requestParameters[4]
-                                    let market = requestParameters[5]
+                                    let source = requestPath[3]
+                                    let exchange = requestPath[4]
+                                    let market = requestPath[5]
 
                                     /* Some validations */
                                     if (source === undefined) {
@@ -295,14 +296,14 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'Docs':
                     {
-                        switch (requestParameters[2]) { // switch by command
+                        switch (requestPath[2]) { // switch by command
                             case 'Save-Node-Schema': {
                                 getBody(processRequest)
 
                                 async function processRequest(body) {
                                     try {
                                         let docsSchema = JSON.parse(body)
-                                        let project = requestParameters[3]
+                                        let project = requestPath[3]
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Nodes'
 
                                         if (checkAllSchmemaDocuments('Node', docsSchema, filePath) === true) {
@@ -333,7 +334,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 async function processRequest(body) {
                                     try {
                                         let docsSchema = JSON.parse(body)
-                                        let project = requestParameters[3]
+                                        let project = requestPath[3]
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Concepts'
 
                                         if (checkAllSchmemaDocuments('Concept', docsSchema, filePath) === true) {
@@ -364,7 +365,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 async function processRequest(body) {
                                     try {
                                         let docsSchema = JSON.parse(body)
-                                        let project = requestParameters[3]
+                                        let project = requestPath[3]
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Topics'
 
                                         if (checkAllSchmemaDocuments('Topic', docsSchema, filePath) === true) {
@@ -395,7 +396,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 async function processRequest(body) {
                                     try {
                                         let docsSchema = JSON.parse(body)
-                                        let project = requestParameters[3]
+                                        let project = requestPath[3]
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Tutorials'
 
                                         if (checkAllSchmemaDocuments('Tutorial', docsSchema, filePath) === true) {
@@ -426,7 +427,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 async function processRequest(body) {
                                     try {
                                         let docsSchema = JSON.parse(body)
-                                        let project = requestParameters[3]
+                                        let project = requestPath[3]
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Reviews'
 
                                         if (checkAllSchmemaDocuments('Review', docsSchema, filePath) === true) {
@@ -457,7 +458,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 async function processRequest(body) {
                                     try {
                                         let docsSchema = JSON.parse(body)
-                                        let project = requestParameters[3]
+                                        let project = requestPath[3]
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Books'
 
                                         if (checkAllSchmemaDocuments('Book', docsSchema, filePath) === true) {
@@ -612,14 +613,14 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'App':
                     {
-                        switch (requestParameters[2]) { // switch by command
+                        switch (requestPath[2]) { // switch by command
                             case 'Contribute': {
                                 try {
-                                    let commitMessage = unescape(requestParameters[3])
-                                    const username = unescape(requestParameters[4])
-                                    const token = unescape(requestParameters[5])
-                                    const currentBranch = unescape(requestParameters[6])
-                                    const contributionsBranch = unescape(requestParameters[7])
+                                    let commitMessage = unescape(requestPath[3])
+                                    const username = unescape(requestPath[4])
+                                    const token = unescape(requestPath[5])
+                                    const currentBranch = unescape(requestPath[6])
+                                    const contributionsBranch = unescape(requestPath[7])
                                     let error
 
                                     /* Unsavping # */
@@ -762,7 +763,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                             case 'Update': {
                                 try {
-                                    const currentBranch = unescape(requestParameters[3])
+                                    const currentBranch = unescape(requestPath[3])
                                     update()
 
                                     async function update() {
@@ -831,7 +832,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                             case 'Checkout': {
                                 try {
-                                    const currentBranch = unescape(requestParameters[3])
+                                    const currentBranch = unescape(requestPath[3])
                                     let error
 
                                     checkout()
@@ -1091,18 +1092,18 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'Images': // This means the Images folder.
                     {
-                        let path = global.env.PATH_TO_CLIENT + 'WebServer/Images/' + requestParameters[2]
+                        let path = global.env.PATH_TO_CLIENT + 'WebServer/Images/' + requestPath[2]
 
-                        if (requestParameters[3] !== undefined) {
-                            path = path + '/' + requestParameters[3]
+                        if (requestPath[3] !== undefined) {
+                            path = path + '/' + requestPath[3]
                         }
 
-                        if (requestParameters[4] !== undefined) {
-                            path = path + '/' + requestParameters[4]
+                        if (requestPath[4] !== undefined) {
+                            path = path + '/' + requestPath[4]
                         }
 
-                        if (requestParameters[5] !== undefined) {
-                            path = path + '/' + requestParameters[5]
+                        if (requestPath[5] !== undefined) {
+                            path = path + '/' + requestPath[5]
                         }
 
                         path = unescape(path)
@@ -1112,18 +1113,18 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'Icons': // This means the Icons folder under Projects.
                     {
-                        let path = global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/Icons'
+                        let path = global.env.PATH_TO_PROJECTS + '/' + requestPath[2] + '/Icons'
 
-                        if (requestParameters[3] !== undefined) {
-                            path = path + '/' + requestParameters[3]
+                        if (requestPath[3] !== undefined) {
+                            path = path + '/' + requestPath[3]
                         }
 
-                        if (requestParameters[4] !== undefined) {
-                            path = path + '/' + requestParameters[4]
+                        if (requestPath[4] !== undefined) {
+                            path = path + '/' + requestPath[4]
                         }
 
-                        if (requestParameters[5] !== undefined) {
-                            path = path + '/' + requestParameters[5]
+                        if (requestPath[5] !== undefined) {
+                            path = path + '/' + requestPath[5]
                         }
 
                         path = unescape(path)
@@ -1133,18 +1134,18 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'GIFs': // This means the GIFs folder under Projects.
                     {
-                        let path = global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/GIFs'
+                        let path = global.env.PATH_TO_PROJECTS + '/' + requestPath[2] + '/GIFs'
 
-                        if (requestParameters[3] !== undefined) {
-                            path = path + '/' + requestParameters[3]
+                        if (requestPath[3] !== undefined) {
+                            path = path + '/' + requestPath[3]
                         }
 
-                        if (requestParameters[4] !== undefined) {
-                            path = path + '/' + requestParameters[4]
+                        if (requestPath[4] !== undefined) {
+                            path = path + '/' + requestPath[4]
                         }
 
-                        if (requestParameters[5] !== undefined) {
-                            path = path + '/' + requestParameters[5]
+                        if (requestPath[5] !== undefined) {
+                            path = path + '/' + requestPath[5]
                         }
 
                         path = unescape(path)
@@ -1153,18 +1154,18 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'PNGs': // This means the PNGs folder under Projects.
                     {
-                        let path = global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/PNGs'
+                        let path = global.env.PATH_TO_PROJECTS + '/' + requestPath[2] + '/PNGs'
 
-                        if (requestParameters[3] !== undefined) {
-                            path = path + '/' + requestParameters[3]
+                        if (requestPath[3] !== undefined) {
+                            path = path + '/' + requestPath[3]
                         }
 
-                        if (requestParameters[4] !== undefined) {
-                            path = path + '/' + requestParameters[4]
+                        if (requestPath[4] !== undefined) {
+                            path = path + '/' + requestPath[4]
                         }
 
-                        if (requestParameters[5] !== undefined) {
-                            path = path + '/' + requestParameters[5]
+                        if (requestPath[5] !== undefined) {
+                            path = path + '/' + requestPath[5]
                         }
 
                         path = unescape(path)
@@ -1178,66 +1179,66 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'WebServer': // This means the WebServer folder.
                     {
-                        respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/' + requestParameters[2], httpResponse)
+                        respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'externalScripts': // This means the WebServer folder.
                     {
-                        respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/externalScripts/' + requestParameters[2], httpResponse)
+                        respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/externalScripts/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Plotters': // This means the plotter folder, not to be confused with the Plotters script!
                     {
-                        let project = requestParameters[2]
-                        let dataMine = requestParameters[3]
-                        let codeName = requestParameters[4]
-                        let moduleName = requestParameters[5]
+                        let project = requestPath[2]
+                        let dataMine = requestPath[3]
+                        let codeName = requestPath[4]
+                        let moduleName = requestPath[5]
                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/' + 'Bots-Plotters-Code' + '/' + dataMine + '/plotters/' + codeName + '/' + moduleName
                         respondWithFile(filePath, httpResponse)
                     }
                     break
                 case 'ChartLayers':
                     {
-                        respondWithFile(global.env.PATH_TO_UI + '/' + requestParameters[1] + '/' + requestParameters[2], httpResponse)
+                        respondWithFile(global.env.PATH_TO_UI + '/' + requestPath[1] + '/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Files':
                     {
-                        respondWithFile(global.env.PATH_TO_DATA_FILES + '/' + requestParameters[2], httpResponse)
+                        respondWithFile(global.env.PATH_TO_DATA_FILES + '/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Fonts':
                     {
-                        respondWithFont(global.env.PATH_TO_FONTS + '/' + requestParameters[2], httpResponse)
+                        respondWithFont(global.env.PATH_TO_FONTS + '/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Schema':
                     {
-                        sendSchema(global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/Schemas/', requestParameters[3])
+                        sendSchema(global.env.PATH_TO_PROJECTS + '/' + requestPath[2] + '/Schemas/', requestPath[3])
                     }
                     break
                 case 'DirContent':
                     {
-                        let folderPath = unescape(requestParameters[2])
-                        if (requestParameters[3] !== undefined) {
-                            folderPath = folderPath + '/' + requestParameters[3]
+                        let folderPath = unescape(requestPath[2])
+                        if (requestPath[3] !== undefined) {
+                            folderPath = folderPath + '/' + requestPath[3]
                         }
 
-                        if (requestParameters[4] !== undefined) {
-                            folderPath = folderPath + '/' + requestParameters[4]
+                        if (requestPath[4] !== undefined) {
+                            folderPath = folderPath + '/' + requestPath[4]
                         }
 
-                        if (requestParameters[5] !== undefined) {
-                            folderPath = folderPath + '/' + requestParameters[5]
+                        if (requestPath[5] !== undefined) {
+                            folderPath = folderPath + '/' + requestPath[5]
                         }
                         let folder
-                        if (requestParameters[2] === 'Root') {
+                        if (requestPath[2] === 'Root') {
                             folder = folderPath.replace('Root', '../Superalgos/')
                         } else {
                             folder = global.env.PATH_TO_PROJECTS + '/' + folderPath
                         }
 
-                        getAllFilesInDirectoryAndSubdirectories(folder, onFilesReady)
+                        SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(folder, onFilesReady)
 
                         function onFilesReady(files) {
                             respondWithContent(JSON.stringify(files), httpResponse)
@@ -1246,7 +1247,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'IconNames':
                     {
-                        let projects = getDirectories(global.env.PATH_TO_PROJECTS)
+                        let projects = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS)
                         let icons = []
                         let totalProjects = projects.length
                         let projectCounter = 0
@@ -1256,7 +1257,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                             const folder = global.env.PATH_TO_PROJECTS + '/' + project + '/Icons/'
 
-                            getAllFilesInDirectoryAndSubdirectories(folder, onFilesReady)
+                            SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(folder, onFilesReady)
 
                             function onFilesReady(files) {
                                 for (let j = 0; j < files.length; j++) {
@@ -1281,8 +1282,8 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         async function processRequest(body) {
                             try {
-                                let project = unescape(requestParameters[2])
-                                let folder = unescape(requestParameters[3])
+                                let project = unescape(requestPath[2])
+                                let folder = unescape(requestPath[3])
 
                                 let response = await SA.projects.foundations.utilities.plugins.getPluginFileNames(
                                     project,
@@ -1312,9 +1313,9 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         async function processRequest(body) {
                             try {
-                                let project = unescape(requestParameters[2])
-                                let folder = unescape(requestParameters[3])
-                                let fileName = unescape(requestParameters[4])
+                                let project = unescape(requestPath[2])
+                                let folder = unescape(requestPath[3])
+                                let fileName = unescape(requestPath[4])
 
                                 let response = await SA.projects.foundations.utilities.plugins.getPluginFileContent(
                                     project,
@@ -1353,9 +1354,9 @@ exports.newHttpInterface = function newHttpInterface() {
                         async function processRequest(body) {
                             try {
                                 let plugin = JSON.parse(body)
-                                let project = requestParameters[2]
-                                let folder = requestParameters[3]
-                                let fileName = requestParameters[4]
+                                let project = requestPath[2]
+                                let folder = requestPath[3]
+                                let fileName = requestPath[4]
                                 let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + folder
                                 let fileContent = JSON.stringify(plugin, undefined, 4)
                                 const fs = require('fs')
@@ -1400,7 +1401,7 @@ exports.newHttpInterface = function newHttpInterface() {
                 case 'ListWorkspaces':
                     {
                         let allWorkspaces = []
-                        let projects = getDirectories(global.env.PATH_TO_PROJECTS)
+                        let projects = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS)
                         let projectsCount = 0
 
                         for (let i = 0; i < projects.length; i++) {
@@ -1475,7 +1476,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'LoadMyWorkspace':
                     {
-                        let fileName = unescape(requestParameters[2])
+                        let fileName = unescape(requestPath[2])
                         let filePath = global.env.PATH_TO_MY_WORKSPACES + '/' + fileName + '.json'
                         respondWithFile(filePath, httpResponse)
                     }
@@ -1487,7 +1488,7 @@ exports.newHttpInterface = function newHttpInterface() {
                         async function processRequest(body) {
 
                             let fileContent = body
-                            let fileName = unescape(requestParameters[2])
+                            let fileName = unescape(requestPath[2])
                             let filePath = global.env.PATH_TO_MY_WORKSPACES + '/' + fileName + '.json'
 
                             try {
@@ -1544,7 +1545,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     {
                         let fs = require('fs')
                         let allFiles = []
-                        let projects = getDirectories(global.env.PATH_TO_PROJECTS)
+                        let projects = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS)
                         let dirCount = 0
                         let totalDirs = 0
 
@@ -1552,7 +1553,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             let project = projects[i]
 
                             let dirPath = project + '/UI/Spaces'
-                            let spaces = getDirectories(global.env.PATH_TO_PROJECTS + '/' + dirPath)
+                            let spaces = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS + '/' + dirPath)
 
                             for (let j = 0; j < spaces.length; j++) {
                                 let space = spaces[j]
@@ -1565,7 +1566,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     totalDirs++
                                     fs.readdir(global.env.PATH_TO_PROJECTS + '/' + path, onDirRead)
 
-                                    let otherDirs = getDirectories(global.env.PATH_TO_PROJECTS + '/' + path)
+                                    let otherDirs = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS + '/' + path)
                                     for (let m = 0; m < otherDirs.length; m++) {
                                         let otherDir = otherDirs[m]
                                         readDirectory(path + '/' + otherDir)
@@ -1612,8 +1613,8 @@ exports.newHttpInterface = function newHttpInterface() {
                     {
                         let path = ''
                         for (let i = 2; i < 10; i++) {
-                            if (requestParameters[i] !== undefined) {
-                                let parameter = unescape(requestParameters[i])
+                            if (requestPath[i] !== undefined) {
+                                let parameter = unescape(requestPath[i])
                                 path = path + '/' + parameter
                             }
 
@@ -1679,7 +1680,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'ExecuteTerminalCommand':
                     {
-                        let command = unescape(requestParameters[2])
+                        let command = unescape(requestPath[2])
                         executeTerminalCommand(command)
                     }
                     break
@@ -1719,7 +1720,7 @@ exports.newHttpInterface = function newHttpInterface() {
             function returnProjectFolderFileList(projectFolderName) {
                 {
                     let allLibraries = []
-                    let projects = getDirectories(global.env.PATH_TO_PROJECTS)
+                    let projects = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS)
                     let projectsCount = 0
 
                     for (let i = 0; i < projects.length; i++) {
@@ -1810,7 +1811,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             break
                         }
                     }
-                    getAllFilesInDirectoryAndSubdirectories(filePath + folder, onFilesReady)
+                    SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(filePath + folder, onFilesReady)
                     function onFilesReady(files) {
 
                         let schemaArray = []
@@ -1872,7 +1873,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
             function defaultEndpoint() {
 
-                if (requestParameters[1] === '') {
+                if (requestPath[1] === '') {
                     /*
                     When there is no endpoint specidied we will respond with this app's Home Page.
                     */
@@ -1894,10 +1895,10 @@ exports.newHttpInterface = function newHttpInterface() {
                     When there is a parameter but it does not match any of the available endpoints, we 
                     will serve the file with the same name at the UI folder. These are in general js files.
                     */
-                    respondWithFile(global.env.PATH_TO_UI + '/' + requestParameters[1], httpResponse)
+                    respondWithFile(global.env.PATH_TO_UI + '/' + requestPath[1], httpResponse)
                 }
             }
-            
+
         } catch (err) {
             console.log(err.stack)
         }
@@ -2019,51 +2020,6 @@ exports.newHttpInterface = function newHttpInterface() {
             httpResponse.end('\n')
         } catch (err) {
             console.log('[ERROR] httpInterface -> returnEmptyArray -> err.stack ' + err.stack)
-        }
-    }
-
-    function getDirectories(path) {
-        try {
-            const fs = require('fs')
-            return fs.readdirSync(path).filter(function (file) {
-                return fs.statSync(path + '/' + file).isDirectory();
-            });
-        } catch (err) {
-            return []
-        }
-    }
-
-    function getAllFilesInDirectoryAndSubdirectories(dir, callback) {
-        const { promisify } = require('util');
-        const { resolve } = require('path');
-        const fs = require('fs');
-        const readdir = promisify(fs.readdir);
-        const stat = promisify(fs.stat);
-
-        getFiles(dir)
-            .then(files => {
-                let splittedDir = dir.split('/')
-                let lastFolder = splittedDir[splittedDir.length - 2]
-                let pathAndNames = []
-                for (let i = 0; i < files.length; i++) {
-                    let file = files[i]
-                    let pathName = file.substring(file.indexOf(lastFolder) + lastFolder.length, file.length)
-                    pathName = pathName.substring(1, pathName.length)
-                    pathAndNames.push(pathName)
-                }
-                callback(pathAndNames)
-            })
-            .catch(e => {
-                callback([])
-            });
-
-        async function getFiles(dir) {
-            const subdirs = await readdir(dir);
-            const files = await Promise.all(subdirs.map(async (subdir) => {
-                const res = resolve(dir, subdir);
-                return (await stat(res)).isDirectory() ? getFiles(res) : res;
-            }));
-            return files.reduce((a, f) => a.concat(f), []);
         }
     }
 }

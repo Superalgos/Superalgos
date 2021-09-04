@@ -5,7 +5,8 @@ exports.newFoundationsUtilitiesHttpResponses = function () {
         respondWithContent: respondWithContent,
         respondWithImage: respondWithImage,
         respondWithFont: respondWithFont,
-        respondWithEmptyArray: respondWithEmptyArray
+        respondWithEmptyArray: respondWithEmptyArray,
+        respondWithStyleSheet: respondWithStyleSheet
     }
 
     return thisObject
@@ -108,5 +109,21 @@ exports.newFoundationsUtilitiesHttpResponses = function () {
         httpResponse.writeHead(200, { 'Content-Type': 'text/html' })
         httpResponse.write('[]')
         httpResponse.end('\n')
+    }
+
+    function respondWithStyleSheet(httpResponse, path, fileName) {
+        let fs = SA.nodeModules.fs
+        let filePath = path + 'WebServer/css/' + fileName
+        fs.readFile(filePath, onFileRead)
+
+        function onFileRead(err, file) {
+            try {
+                let fileContent = file.toString()
+
+                SA.projects.foundations.utilities.httpResponses.respondWithContent(fileContent, httpResponse, 'text/css')
+            } catch (err) {
+                console.log('[ERROR] respondWithStyleSheet -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
+            }
+        }
     }
 }

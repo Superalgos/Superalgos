@@ -1215,6 +1215,76 @@ exports.newHttpInterface = function newHttpInterface() {
                 case 'Schema':
                     {
                         sendSchema(global.env.PATH_TO_PROJECTS + '/' + requestPath[2] + '/Schemas/', requestPath[3])
+
+                        function sendSchema(filePath, schemaType) {
+                            let fs = SA.nodeModules.fs
+                            try {
+                                let folder = ''
+                                switch (schemaType) {
+                                    case 'AppSchema': {
+                                        folder = 'App-Schema'
+                                        break
+                                    }
+                                    case 'DocsNodeSchema': {
+                                        folder = 'Docs-Nodes'
+                                        break
+                                    }
+                                    case 'DocsConceptSchema': {
+                                        folder = 'Docs-Concepts'
+                                        break
+                                    }
+                                    case 'DocsTopicSchema': {
+                                        folder = 'Docs-Topics'
+                                        break
+                                    }
+                                    case 'DocsTutorialSchema': {
+                                        folder = 'Docs-Tutorials'
+                                        break
+                                    }
+                                    case 'DocsReviewSchema': {
+                                        folder = 'Docs-Reviews'
+                                        break
+                                    }
+                                    case 'DocsBookSchema': {
+                                        folder = 'Docs-Books'
+                                        break
+                                    }
+                                }
+                                SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(filePath + folder, onFilesReady)
+                                function onFilesReady(files) {
+
+                                    let schemaArray = []
+                                    for (let k = 0; k < files.length; k++) {
+                                        let name = files[k]
+                                        let nameSplitted = name.split(folder)
+                                        let fileName = nameSplitted[1]
+                                        for (let i = 0; i < 10; i++) {
+                                            fileName = fileName.replace('\\', '/')
+                                        }
+                                        let fileToRead = filePath + folder + fileName
+
+                                        let fileContent = fs.readFileSync(fileToRead)
+                                        let schemaDocument
+                                        try {
+                                            schemaDocument = JSON.parse(fileContent)
+                                        } catch (err) {
+                                            console.log('[ERROR] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent("[]", httpResponse)
+                                            return
+                                        }
+                                        schemaArray.push(schemaDocument)
+                                    }
+                                    let schema = JSON.stringify(schemaArray)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(schema, httpResponse)
+                                }
+                            } catch (err) {
+                                if (err.message.indexOf('no such file or directory') < 0) {
+                                    console.log('Could not send Schema:', filePath, schemaType)
+                                    console.log(err.stack)
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent("[]", httpResponse)
+                            }
+                        }
                     }
                     break
                 case 'DirContent':
@@ -1633,51 +1703,6 @@ exports.newHttpInterface = function newHttpInterface() {
                         SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_DATA_STORAGE + '/' + pathToFile, httpResponse)
                     }
                     break
-                case 'main.css':
-                    {
-                        sendStyleSheet('main.css')
-                    }
-                    break
-                case 'tutorial.css':
-                    {
-                        sendStyleSheet('tutorial.css')
-                    }
-                    break
-                case 'docs.css':
-                    {
-                        sendStyleSheet('docs.css')
-                    }
-                    break
-                case 'governance.css':
-                    {
-                        sendStyleSheet('governance.css')
-                    }
-                    break
-                case 'context-menu.css':
-                    {
-                        sendStyleSheet('context-menu.css')
-                    }
-                    break
-                case 'credits.css':
-                    {
-                        sendStyleSheet('credits.css')
-                    }
-                    break
-                case 'docs.css':
-                    {
-                        sendStyleSheet('docs.css')
-                    }
-                    break
-                case 'font-awasome.css':
-                    {
-                        sendStyleSheet('font-awasome.css')
-                    }
-                    break
-                case 'prism.css':
-                    {
-                        sendStyleSheet('prism.css')
-                    }
-                    break
                 case 'ExecuteTerminalCommand':
                     {
                         let command = unescape(requestPath[2])
@@ -1750,100 +1775,6 @@ exports.newHttpInterface = function newHttpInterface() {
                 lsWithGrep();
             }
 
-            function sendSchema(filePath, schemaType) {
-                let fs = SA.nodeModules.fs
-                try {
-                    let folder = ''
-                    switch (schemaType) {
-                        case 'AppSchema': {
-                            folder = 'App-Schema'
-                            break
-                        }
-                        case 'DocsNodeSchema': {
-                            folder = 'Docs-Nodes'
-                            break
-                        }
-                        case 'DocsConceptSchema': {
-                            folder = 'Docs-Concepts'
-                            break
-                        }
-                        case 'DocsTopicSchema': {
-                            folder = 'Docs-Topics'
-                            break
-                        }
-                        case 'DocsTutorialSchema': {
-                            folder = 'Docs-Tutorials'
-                            break
-                        }
-                        case 'DocsReviewSchema': {
-                            folder = 'Docs-Reviews'
-                            break
-                        }
-                        case 'DocsBookSchema': {
-                            folder = 'Docs-Books'
-                            break
-                        }
-                    }
-                    SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(filePath + folder, onFilesReady)
-                    function onFilesReady(files) {
-
-                        let schemaArray = []
-                        for (let k = 0; k < files.length; k++) {
-                            let name = files[k]
-                            let nameSplitted = name.split(folder)
-                            let fileName = nameSplitted[1]
-                            for (let i = 0; i < 10; i++) {
-                                fileName = fileName.replace('\\', '/')
-                            }
-                            let fileToRead = filePath + folder + fileName
-
-                            let fileContent = fs.readFileSync(fileToRead)
-                            let schemaDocument
-                            try {
-                                schemaDocument = JSON.parse(fileContent)
-                            } catch (err) {
-                                console.log('[ERROR] httpInterface -> sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
-                                SA.projects.foundations.utilities.httpResponses.respondWithContent("[]", httpResponse)
-                                return
-                            }
-                            schemaArray.push(schemaDocument)
-                        }
-                        let schema = JSON.stringify(schemaArray)
-                        SA.projects.foundations.utilities.httpResponses.respondWithContent(schema, httpResponse)
-                    }
-                } catch (err) {
-                    if (err.message.indexOf('no such file or directory') < 0) {
-                        console.log('Could not send Schema:', filePath, schemaType)
-                        console.log(err.stack)
-                    }
-                    SA.projects.foundations.utilities.httpResponses.respondWithContent("[]", httpResponse)
-                }
-
-            }
-
-            function sendStyleSheet(fileName) {
-                let fs = SA.nodeModules.fs
-                try {
-                    let filePath = global.env.PATH_TO_CLIENT + 'WebServer/css/' + fileName
-                    fs.readFile(filePath, onFileRead)
-
-                    function onFileRead(err, file) {
-                        try {
-                            let fileContent = file.toString()
-
-                            fileContent = fileContent.replace('CLIENT_HTTP_INTERFACE_PORT', global.env.CLIENT_HTTP_INTERFACE_PORT)
-                            fileContent = fileContent.replace('CLIENT_HTTP_INTERFACE_PORT', global.env.CLIENT_HTTP_INTERFACE_PORT)
-                            fileContent = fileContent.replace('CLIENT_HTTP_INTERFACE_PORT', global.env.CLIENT_HTTP_INTERFACE_PORT)
-                            SA.projects.foundations.utilities.httpResponses.respondWithContent(fileContent, httpResponse, 'text/css')
-                        } catch (err) {
-                            console.log('[ERROR] httpInterface -> mainCSS -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
-                        }
-                    }
-                } catch (err) {
-                    console.log(err)
-                }
-            }
-
             function defaultEndpoint() {
 
                 if (requestPath[1] === '') {
@@ -1859,16 +1790,28 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         let fileContent = file.toString()
 
-                        fileContent = fileContent.replace('CLIENT_HTTP_INTERFACE_PORT', global.env.CLIENT_HTTP_INTERFACE_PORT)
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(fileContent, httpResponse)
                     }
-
                 } else {
                     /*
                     When there is a parameter but it does not match any of the available endpoints, we 
-                    will serve the file with the same name at the UI folder. These are in general js files.
+                    will serve the file with the same name at at a location that depends on it's file extention. 
                     */
-                    SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_UI + '/' + requestPath[1], httpResponse)
+                    let completeFileName = requestPath[1] 
+                    let fileExtension = completeFileName.split('.')[1]
+                    let path 
+
+                    switch (fileExtension) {
+                        case 'js': {
+                            path = global.env.PATH_TO_UI + '/' + completeFileName
+                            SA.projects.foundations.utilities.httpResponses.respondWithFile(path, httpResponse)
+                            break
+                        }
+                        case 'css': {
+                            SA.projects.foundations.utilities.httpResponses.respondWithStyleSheet(httpResponse, global.env.PATH_TO_CLIENT, completeFileName)
+                            break
+                        }
+                    }
                 }
             }
 

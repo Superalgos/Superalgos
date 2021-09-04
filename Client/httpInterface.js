@@ -193,6 +193,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                 let content = {
                                     err: global.DEFAULT_FAIL_RESPONSE // method not supported
                                 }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(content), httpResponse)
+
                             } catch (err) {
                                 console.log('[INFO] httpInterface -> CCXT FetchMarkets -> Could not fetch markets.')
                                 let error = {

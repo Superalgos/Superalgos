@@ -31,7 +31,7 @@ exports.newFoundationsUtilitiesHttpResponses = function () {
                     }
                 }
             } catch (err) {
-                respondWithEmptyArray()
+                respondWithEmptyArray(httpResponse)
             }
         }
     }

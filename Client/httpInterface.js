@@ -1600,11 +1600,6 @@ exports.newHttpInterface = function newHttpInterface() {
                         }
                     }
                     break
-                case 'ListFunctionLibraries':
-                    {
-                        returnProjectFolderFileList('Function-Libraries')
-                    }
-                    break
                 case 'ProjectsSchema':
                     {
                         let path = global.env.PATH_TO_PROJECTS + '/' + 'ProjectsSchema.json'
@@ -1669,14 +1664,19 @@ exports.newHttpInterface = function newHttpInterface() {
                         }
                     }
                     break
+                case 'ListFunctionLibraries':
+                    {
+                        SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Function-Libraries', 'UI')
+                    }
+                    break
                 case 'ListUtilitiesFiles':
                     {
-                        returnProjectFolderFileList('Utilities')
+                        SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Utilities', 'UI')
                     }
                     break
                 case 'ListGlobalFiles':
                     {
-                        returnProjectFolderFileList('Globals')
+                        SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Globals', 'UI')
                     }
                     break
                 case 'Projects':
@@ -1703,79 +1703,13 @@ exports.newHttpInterface = function newHttpInterface() {
                         SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_DATA_STORAGE + '/' + pathToFile, httpResponse)
                     }
                     break
-                case 'ExecuteTerminalCommand':
-                    {
-                        let command = unescape(requestPath[2])
-                        executeTerminalCommand(command)
-                    }
-                    break
                 default:
                     {
-                        defaultEndpoint()
+                        noEndpointReceived()
                     }
             }
 
-            function returnProjectFolderFileList(projectFolderName) {
-                {
-                    let allLibraries = []
-                    let projects = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS)
-                    let projectsCount = 0
-
-                    for (let i = 0; i < projects.length; i++) {
-                        let project = projects[i]
-
-                        let dirPath = global.env.PATH_TO_PROJECTS + '/' + project + '/' + 'UI' + '/' + projectFolderName
-                        try {
-                            let fs = SA.nodeModules.fs
-                            fs.readdir(dirPath, onDirRead)
-
-                            function onDirRead(err, fileList) {
-                                let updatedFileList = []
-                                if (err) {
-                                    /*
-                                    If we have a problem reading this folder we will assume that it is
-                                    because this project does not need this folder and that's it.
-                                    */
-                                    // console.log('[WARN] Error reading a directory content. filePath = ' + dirPath)
-                                } else {
-                                    for (let i = 0; i < fileList.length; i++) {
-                                        let name = fileList[i]
-                                        updatedFileList.push([project, name])
-                                    }
-                                }
-                                allLibraries = allLibraries.concat(updatedFileList)
-                                projectsCount++
-                                if (projectsCount === projects.length) {
-                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(allLibraries), httpResponse)
-                                }
-                            }
-                        } catch (err) {
-                            console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath)
-                            console.log('[ERROR] err.stack = ' + err.stack)
-
-                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
-                            return
-                        }
-                    }
-                }
-            }
-
-            function executeTerminalCommand(command) {
-                const util = require('util');
-                const exec = util.promisify(require('child_process').exec);
-                async function lsWithGrep() {
-                    try {
-                        const { stdout, stderr } = await exec(command);
-                        console.log('stdout:', stdout);
-                        console.log('stderr:', stderr);
-                    } catch (err) {
-                        console.error(err.stack);
-                    };
-                };
-                lsWithGrep();
-            }
-
-            function defaultEndpoint() {
+            function noEndpointReceived() {
 
                 if (requestPath[1] === '') {
                     /*
@@ -1797,9 +1731,9 @@ exports.newHttpInterface = function newHttpInterface() {
                     When there is a parameter but it does not match any of the available endpoints, we 
                     will serve the file with the same name at at a location that depends on it's file extention. 
                     */
-                    let completeFileName = requestPath[1] 
+                    let completeFileName = requestPath[1]
                     let fileExtension = completeFileName.split('.')[1]
-                    let path 
+                    let path
 
                     switch (fileExtension) {
                         case 'js': {

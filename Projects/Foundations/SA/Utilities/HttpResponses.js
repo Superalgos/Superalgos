@@ -6,7 +6,8 @@ exports.newFoundationsUtilitiesHttpResponses = function () {
         respondWithImage: respondWithImage,
         respondWithFont: respondWithFont,
         respondWithEmptyArray: respondWithEmptyArray,
-        respondWithStyleSheet: respondWithStyleSheet
+        respondWithStyleSheet: respondWithStyleSheet,
+        respondWithProjectFolderFileList: respondWithProjectFolderFileList
     }
 
     return thisObject
@@ -123,6 +124,50 @@ exports.newFoundationsUtilitiesHttpResponses = function () {
                 SA.projects.foundations.utilities.httpResponses.respondWithContent(fileContent, httpResponse, 'text/css')
             } catch (err) {
                 console.log('[ERROR] respondWithStyleSheet -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
+            }
+        }
+    }
+
+    function respondWithProjectFolderFileList(httpResponse, projectFolderName, rootObjectName) {
+        {
+            let allLibraries = []
+            let projects = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS)
+            let projectsCount = 0
+
+            for (let i = 0; i < projects.length; i++) {
+                let project = projects[i]
+
+                let dirPath = global.env.PATH_TO_PROJECTS + '/' + project + '/' + rootObjectName + '/' + projectFolderName
+                try {
+                    let fs = SA.nodeModules.fs
+                    fs.readdir(dirPath, onDirRead)
+
+                    function onDirRead(err, fileList) {
+                        let updatedFileList = []
+                        if (err) {
+                            /*
+                            If we have a problem reading this folder we will assume that it is
+                            because this project does not need this folder and that's it.
+                            */
+                        } else {
+                            for (let i = 0; i < fileList.length; i++) {
+                                let name = fileList[i]
+                                updatedFileList.push([project, name])
+                            }
+                        }
+                        allLibraries = allLibraries.concat(updatedFileList)
+                        projectsCount++
+                        if (projectsCount === projects.length) {
+                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(allLibraries), httpResponse)
+                        }
+                    }
+                } catch (err) {
+                    console.log('[ERROR] returnProjectFolderFileList -> Error reading a directory content. filePath = ' + dirPath)
+                    console.log('[ERROR] returnProjectFolderFileList -> err.stack = ' + err.stack)
+
+                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                    return
+                }
             }
         }
     }

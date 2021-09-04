@@ -3,7 +3,7 @@ exports.newEnvironment = function () {
     let thisObject = {
         WEB_SERVER_URL: 'localhost',
         CLIENT_WEB_SOCKETS_INTERFACE_PORT: 18041,
-        HTTP_INTERFACE_PORT: 34248,
+        CLIENT_HTTP_INTERFACE_PORT: 34248,
         PATH_TO_TASK_SERVER: './TaskServer',
         PATH_TO_DATA_STORAGE: './Data-Storage',
         PATH_TO_PROJECTS: './Projects',

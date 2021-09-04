@@ -1,11 +1,9 @@
 exports.newHttpInterface = function newHttpInterface() {
 
     /*
-    IMPORTANT: If you are reviewing the code of the project please note 
-    that this file is the single file in the whole system that accumulated
-    more technical debt by far. I did not have the time yet to pay the 
-    technical debt, and therefore there is a lot to reorganize in here. 
-    I will remove this note once this job is done.
+    This module represent the HTTP API of the 
+    Desktop App. All HTTP request are processed
+    by this module.
     */
     let thisObject = {
         initialize: initialize,
@@ -13,8 +11,12 @@ exports.newHttpInterface = function newHttpInterface() {
         run: run
     }
 
-    const OPEN_NODE_MODULE = require('open')
-    const HTTP_NODE_MODULE = require('http')
+    const open = require('open')
+
+    let port = global.env.DESKTOP_HTTP_INTERFACE_PORT
+
+    let http = require('http')
+    let isHttpServerStarted = false
 
     let webhook = new Map()
 
@@ -29,19 +31,29 @@ exports.newHttpInterface = function newHttpInterface() {
     }
 
     function run() {
-        /*
-        We will create an HTTP Server and leave it running forever.
-        */
-        HTTP_NODE_MODULE.createServer(onHttpRequest).listen(global.env.CLIENT_HTTP_INTERFACE_PORT)
-        /* Starting the browser now is optional */
-        if (process.argv.includes("noBrowser")) {
-            //Running Client only with no UI.
-        } else {
-            OPEN_NODE_MODULE('http://localhost:' + global.env.CLIENT_HTTP_INTERFACE_PORT)
+        startHtttpServer()
+    }
+
+    function startHtttpServer() {
+
+        try {
+            if (isHttpServerStarted === false) {
+                gWebServer = http.createServer(onBrowserRequest).listen(port)
+                isHttpServerStarted = true
+                /* Starting the browser now is optional */
+                if (process.argv.includes("noBrowser")) {
+                    //Running Client only with no UI.
+                } else {
+                    open('http://localhost:' + port)
+                }
+
+            }
+        } catch (err) {
+            console.log('[ERROR] httpInterface -> startHtttpServer -> Error = ' + err.stack)
         }
     }
 
-    function onHttpRequest(httpRequest, httpResponse) {
+    function onBrowserRequest(httpRequest, httpResponse) {
 
         function getBody(callback) { // Gets the de body from a POST httpRequest to the web server
             try {
@@ -61,16 +73,17 @@ exports.newHttpInterface = function newHttpInterface() {
                 })
 
                 httpRequest.on('error', function (err) {
-                    console.log('[ERROR] httpInterface -> err.stack = ' + err.stack)
+                    console.log('[INFO] httpInterface -> onBrowserRequest -> getBody -> err = ' + err.stack)
                     respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                 })
             } catch (err) {
-                console.log('[ERROR] httpInterface -> err.stack = ' + err.stack)
+                console.log('[INFO] httpInterface -> onBrowserRequest -> getBody -> err = ' + err.stack)
                 respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
             }
         }
 
-        let requestParameters
+        let requestParameters = httpRequest.url.split('/')
+
         requestParameters = httpRequest.url.split('?') // Remove version information
         requestParameters = requestParameters[0].split('/')
 
@@ -162,8 +175,9 @@ exports.newHttpInterface = function newHttpInterface() {
                             respondWithContent(JSON.stringify(error), httpResponse)
                         }
                     }
+                    break
                 }
-                break
+
             case 'CCXT':
                 {
                     getBody(processRequest)
@@ -239,8 +253,10 @@ exports.newHttpInterface = function newHttpInterface() {
                             respondWithContent(JSON.stringify(error), httpResponse)
                         }
                     }
+                    break
                 }
                 break
+
             case 'Webhook':
                 {
                     switch (requestParameters[2]) { // switch by command
@@ -320,8 +336,10 @@ exports.newHttpInterface = function newHttpInterface() {
                             break
                         }
                     }
+                    break
                 }
                 break
+
             case 'Docs':
                 {
                     switch (requestParameters[2]) { // switch by command
@@ -639,464 +657,145 @@ exports.newHttpInterface = function newHttpInterface() {
                     }
                 }
                 break
-            case 'App':
-                {
-                    switch (requestParameters[2]) { // switch by command
-                        case 'Contribute': {
-                            try {
-                                let commitMessage = unescape(requestParameters[3])
-                                const username = unescape(requestParameters[4])
-                                const token = unescape(requestParameters[5])
-                                const currentBranch = unescape(requestParameters[6])
-                                const contributionsBranch = unescape(requestParameters[7])
-                                let error
 
-                                /* Unsavping # */
-                                for (let i = 0; i < 10; i++) {
-                                    commitMessage = commitMessage.replace('_SLASH_', '/')
-                                    commitMessage = commitMessage.replace('_HASHTAG_', '#')
-                                }
-
-                                contribute()
-
-                                async function contribute() {
-                                    const { lookpath } = require('lookpath');
-                                    const gitpath = await lookpath('git');
-                                    if (gitpath === undefined) {
-                                        console.log('[ERROR] `git` not installed.')
-                                    } else {
-                                        await doGit()
-                                        if (error !== undefined) {
-
-                                            let docs = {
-                                                project: 'Foundations',
-                                                category: 'Topic',
-                                                type: 'App Error - Contribution Not Sent',
-                                                anchor: undefined,
-                                                placeholder: {}
-                                            }
-
-                                            respondWithDocsObject(docs, error)
-                                            return
-                                        }
-
-                                        await doGithub()
-                                        if (error !== undefined) {
-
-                                            let docs = {
-                                                project: 'Foundations',
-                                                category: 'Topic',
-                                                type: 'App Error - Contribution Not Sent',
-                                                anchor: undefined,
-                                                placeholder: {}
-                                            }
-                                            console.log('respond with docs ')
-
-                                            respondWithDocsObject(docs, error)
-                                            return
-                                        }
-                                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
-                                    }
-                                }
-
-                                async function doGit() {
-                                    const simpleGit = require('simple-git');
-                                    const options = {
-                                        baseDir: process.cwd(),
-                                        binary: 'git',
-                                        maxConcurrentProcesses: 6,
-                                    }
-                                    const git = simpleGit(options)
-
-                                    try {
-                                        await git.add('./*')
-                                        await git.commit(commitMessage)
-                                        await git.push('origin', currentBranch)
-                                    } catch (err) {
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
-                                        console.log('')
-                                        console.log('Torubleshooting Tips:')
-                                        console.log('')
-                                        console.log('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
-                                        console.log('2. Make sure you are running the latest version of Git available for your OS.')
-                                        console.log('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
-                                        console.log('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
-                                        error = err
-                                    }
-                                }
-
-                                async function doGithub() {
-
-                                    const { Octokit } = require("@octokit/rest")
-
-                                    const octokit = new Octokit({
-                                        auth: token,
-                                        userAgent: 'Superalgos Beta 11'
-                                    })
-
-                                    const repo = 'Superalgos'
-                                    const owner = 'Superalgos'
-                                    const head = username + ':' + contributionsBranch
-                                    const base = currentBranch
-                                    const title = 'Contribution: ' + commitMessage
-
-                                    try {
-                                        await octokit.pulls.create({
-                                            owner,
-                                            repo,
-                                            title,
-                                            head,
-                                            base,
-                                        });
-                                    } catch (err) {
-                                        if (err.stack.indexOf('A pull request already exists') >= 0) {
-                                            return
-                                        } else {
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
-                                            error = err
-                                        }
-                                    }
-                                }
-
-                            } catch (err) {
-                                console.log('[ERROR] httpInterface -> App -> Contribute -> Method call produced an error.')
-                                console.log('[ERROR] httpInterface -> App -> Contribute -> err.stack = ' + err.stack)
-                                console.log('[ERROR] httpInterface -> App -> Contribute -> commitMessage = ' + commitMessage)
-                                console.log('[ERROR] httpInterface -> App -> Contribute -> username = ' + username)
-                                console.log('[ERROR] httpInterface -> App -> Contribute -> token starts with = ' + token.substring(0, 10) + '...')
-                                console.log('[ERROR] httpInterface -> App -> Contribute -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                console.log('[ERROR] httpInterface -> App -> Contribute -> currentBranch = ' + currentBranch)
-                                console.log('[ERROR] httpInterface -> App -> Contribute -> contributionsBranch = ' + contributionsBranch)
-
-                                let error = {
-                                    result: 'Fail Because',
-                                    message: err.message,
-                                    stack: err.stack
-                                }
-                                respondWithContent(JSON.stringify(error), httpResponse)
-                            }
-                            break
-                        }
-
-                        case 'Update': {
-                            try {
-                                const currentBranch = unescape(requestParameters[3])
-                                update()
-
-                                async function update() {
-                                    const { lookpath } = require('lookpath');
-                                    const gitpath = await lookpath('git');
-                                    if (gitpath === undefined) {
-                                        console.log('[ERROR] `git` not installed.')
-                                    } else {
-                                        let result = await doGit()
-
-                                        if (result.error === undefined) {
-                                            let customResponse = {
-                                                result: global.CUSTOM_OK_RESPONSE.result,
-                                                message: result.message
-                                            }
-                                            respondWithContent(JSON.stringify(customResponse), httpResponse)
-                                        } else {
-
-                                            let docs = {
-                                                project: 'Foundations',
-                                                category: 'Topic',
-                                                type: 'App Error - Update Failed',
-                                                anchor: undefined,
-                                                placeholder: {}
-                                            }
-
-                                            respondWithDocsObject(docs, result.error)
-
-                                        }
-                                    }
-                                }
-
-                                async function doGit() {
-                                    const simpleGit = require('simple-git');
-                                    const options = {
-                                        baseDir: process.cwd(),
-                                        binary: 'git',
-                                        maxConcurrentProcesses: 6,
-                                    }
-                                    const git = simpleGit(options)
-
-                                    let message
-                                    try {
-                                        message = await git.pull('https://github.com/Superalgos/Superalgos', currentBranch)
-                                        return { message: message }
-                                    } catch (err) {
-                                        console.log('[ERROR] Error updating ' + currentBranch)
-                                        console.log(err.stack)
-                                        return { error: err }
-                                    }
-                                }
-
-                            } catch (err) {
-                                console.log('[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
-                                console.log('[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
-
-                                let error = {
-                                    result: 'Fail Because',
-                                    message: err.message,
-                                    stack: err.stack
-                                }
-                                respondWithContent(JSON.stringify(error), httpResponse)
-                            }
-                            break
-                        }
-
-                        case 'Checkout': {
-                            try {
-                                const currentBranch = unescape(requestParameters[3])
-                                let error
-
-                                checkout()
-
-                                async function checkout() {
-                                    const { lookpath } = require('lookpath');
-                                    const gitpath = await lookpath('git');
-                                    if (gitpath === undefined) {
-                                        console.log('[ERROR] `git` not installed.')
-                                    } else {
-                                        await doGit()
-
-                                        if (error === undefined) {
-                                            respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
-                                        } else {
-                                            let docs = {
-                                                project: 'Foundations',
-                                                category: 'Topic',
-                                                type: 'Switching Branches - Current Branch Not Changed',
-                                                anchor: undefined,
-                                                placeholder: {}
-                                            }
-
-                                            respondWithDocsObject(docs, error)
-                                        }
-                                    }
-                                }
-
-                                async function doGit() {
-                                    const simpleGit = require('simple-git');
-                                    const options = {
-                                        baseDir: process.cwd(),
-                                        binary: 'git',
-                                        maxConcurrentProcesses: 6,
-                                    }
-                                    const git = simpleGit(options)
-                                    try {
-                                        await git.checkout(currentBranch)
-                                    } catch (err) {
-                                        console.log('[ERROR] Error changing current branch to ' + currentBranch)
-                                        console.log(err.stack)
-                                        error = err
-                                    }
-                                }
-
-                            } catch (err) {
-                                console.log('[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
-                                console.log('[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
-
-                                let error = {
-                                    result: 'Fail Because',
-                                    message: err.message,
-                                    stack: err.stack
-                                }
-                                respondWithContent(JSON.stringify(error), httpResponse)
-                            }
-                            break
-                        }
-
-                        case 'Branch': {
-                            try {
-                                branch()
-
-                                async function branch() {
-                                    const { lookpath } = require('lookpath');
-                                    const gitpath = await lookpath('git');
-                                    if (gitpath === undefined) {
-                                        console.log('[ERROR] `git` not installed.')
-                                    } else {
-                                        let result = await doGit()
-
-                                        if (result.error === undefined) {
-                                            let customResponse = {
-                                                result: global.CUSTOM_OK_RESPONSE.result,
-                                                message: result
-                                            }
-                                            respondWithContent(JSON.stringify(customResponse), httpResponse)
-                                        } else {
-                                            let docs = {
-                                                project: 'Foundations',
-                                                category: 'Topic',
-                                                type: 'App Error - Could Not Get Current Branch',
-                                                anchor: undefined,
-                                                placeholder: {}
-                                            }
-
-                                            respondWithDocsObject(docs, error)
-                                        }
-                                    }
-                                }
-
-                                async function doGit() {
-                                    const simpleGit = require('simple-git');
-                                    const options = {
-                                        baseDir: process.cwd(),
-                                        binary: 'git',
-                                        maxConcurrentProcesses: 6,
-                                    }
-                                    const git = simpleGit(options)
-                                    try {
-                                        return await git.branch()
-                                    } catch (err) {
-                                        console.log('[ERROR] Error reading current branch.')
-                                        console.log(err.stack)
-                                    }
-                                }
-
-                            } catch (err) {
-                                console.log('[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
-                                console.log('[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
-
-                                let error = {
-                                    result: 'Fail Because',
-                                    message: err.message,
-                                    stack: err.stack
-                                }
-                                respondWithContent(JSON.stringify(error), httpResponse)
-                            }
-                            break
-                        }
-                    }
-
-                    function respondWithDocsObject(docs, error) {
-
-                        if (error.message !== undefined) {
-                            docs.placeholder.errorMessage = {
-                                style: 'Error',
-                                text: error.message
-                            }
-                        }
-                        if (error.stack !== undefined) {
-                            docs.placeholder.errorStack = {
-                                style: 'Javascript',
-                                text: error.stack
-                            }
-                        }
-                        if (error.code !== undefined) {
-                            docs.placeholder.errorCode = {
-                                style: 'Json',
-                                text: error.code
-                            }
-                        }
-
-                        docs.placeholder.errorDetails = {
-                            style: 'Json',
-                            text: JSON.stringify(error, undefined, 4)
-                        }
-
-                        let customResponse = {
-                            result: global.CUSTOM_FAIL_RESPONSE.result,
-                            docs: docs
-                        }
-
-                        respondWithContent(JSON.stringify(customResponse), httpResponse)
-
-                    }
-                }
-                break
-            case 'GOV':
-                {
-                    /*
-                    This is the Governance endpoint at the Http Interface. All methods
-                    related to the Governance System are implemented here and routed
-                    to the backend Servers that can process them. 
-                    */
-                    getBody(processRequest)
-
-                    async function processRequest(body) {
+            case 'App': {
+                switch (requestParameters[2]) { // switch by command
+                    case 'Contribute': {
                         try {
-                            let params = JSON.parse(body)
+                            let commitMessage = unescape(requestParameters[3])
+                            const username = unescape(requestParameters[4])
+                            const token = unescape(requestParameters[5])
+                            const currentBranch = unescape(requestParameters[6])
+                            const contributionsBranch = unescape(requestParameters[7])
+                            let error
 
-                            switch (params.method) {
-                                case 'getGithubStars': {
+                            /* Unsavping # */
+                            for (let i = 0; i < 10; i++) {
+                                commitMessage = commitMessage.replace('_SLASH_', '/')
+                                commitMessage = commitMessage.replace('_HASHTAG_', '#')
+                            }
 
-                                    let serverResponse = await CL.servers.GITHUB_SERVER.getGithubStars(
-                                        params.repository,
-                                        params.username,
-                                        params.token
-                                    )
+                            contribute()
 
-                                    respondWithContent(JSON.stringify(serverResponse), httpResponse)
-                                    return
-                                }
-                                case 'getGithubWatchers': {
+                            async function contribute() {
+                                const { lookpath } = require('lookpath');
+                                const gitpath = await lookpath('git');
+                                if (gitpath === undefined) {
+                                    console.log('[ERROR] `git` not installed.')
+                                } else {
+                                    await doGit()
+                                    if (error !== undefined) {
 
-                                    let serverResponse = await CL.servers.GITHUB_SERVER.getGithubWatchers(
-                                        params.repository,
-                                        params.username,
-                                        params.token
-                                    )
+                                        let docs = {
+                                            project: 'Foundations',
+                                            category: 'Topic',
+                                            type: 'App Error - Contribution Not Sent',
+                                            anchor: undefined,
+                                            placeholder: {}
+                                        }
 
-                                    respondWithContent(JSON.stringify(serverResponse), httpResponse)
-                                    return
-                                }
-                                case 'getGithubForks': {
+                                        respondWithDocsObject(docs, error)
+                                        return
+                                    }
 
-                                    let serverResponse = await CL.servers.GITHUB_SERVER.getGithubForks(
-                                        params.repository,
-                                        params.username,
-                                        params.token
-                                    )
+                                    await doGithub()
+                                    if (error !== undefined) {
 
-                                    respondWithContent(JSON.stringify(serverResponse), httpResponse)
-                                    return
-                                }
-                                case 'mergePullRequests': {
+                                        let docs = {
+                                            project: 'Foundations',
+                                            category: 'Topic',
+                                            type: 'App Error - Contribution Not Sent',
+                                            anchor: undefined,
+                                            placeholder: {}
+                                        }
+                                        console.log('respond with docs ')
 
-                                    let serverResponse = await CL.servers.GITHUB_SERVER.mergePullRequests(
-                                        params.commitMessage,
-                                        params.username,
-                                        params.token
-                                    )
-
-                                    respondWithContent(JSON.stringify(serverResponse), httpResponse)
-                                    return
-                                }
-                                case 'payContributors': {
-
-                                    let serverResponse = await CL.servers.WEB3_SERVER.payContributors(
-                                        params.contractAddress,
-                                        params.contractAbi,
-                                        params.paymentsArray,
-                                        params.mnemonic
-                                    )
-
-                                    respondWithContent(JSON.stringify(serverResponse), httpResponse)
-                                    return
-                                }
-                                default: {
-                                    respondWithContent(JSON.stringify({ error: 'Method ' + params.method + ' is invalid.' }), httpResponse)
+                                        respondWithDocsObject(docs, error)
+                                        return
+                                    }
+                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                 }
                             }
+
+                            async function doGit() {
+                                const simpleGit = require('simple-git');
+                                const options = {
+                                    baseDir: process.cwd(),
+                                    binary: 'git',
+                                    maxConcurrentProcesses: 6,
+                                }
+                                const git = simpleGit(options)
+
+                                try {
+                                    await git.add('./*')
+                                    await git.commit(commitMessage)
+                                    await git.push('origin', currentBranch)
+                                } catch (err) {
+                                    console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
+                                    console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
+                                    console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
+                                    console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
+                                    console.log('')
+                                    console.log('Torubleshooting Tips:')
+                                    console.log('')
+                                    console.log('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
+                                    console.log('2. Make sure you are running the latest version of Git available for your OS.')
+                                    console.log('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
+                                    console.log('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
+                                    error = err
+                                }
+                            }
+
+                            async function doGithub() {
+
+                                const { Octokit } = require("@octokit/rest")
+
+                                const octokit = new Octokit({
+                                    auth: token,
+                                    userAgent: 'Superalgos Beta 11'
+                                })
+
+                                const repo = 'Superalgos'
+                                const owner = 'Superalgos'
+                                const head = username + ':' + contributionsBranch
+                                const base = currentBranch
+                                const title = 'Contribution: ' + commitMessage
+
+                                try {
+                                    await octokit.pulls.create({
+                                        owner,
+                                        repo,
+                                        title,
+                                        head,
+                                        base,
+                                    });
+                                } catch (err) {
+                                    if (err.stack.indexOf('A pull request already exists') >= 0) {
+                                        return
+                                    } else {
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                        error = err
+                                    }
+                                }
+                            }
+
                         } catch (err) {
-                            console.log('[ERROR] httpInterface -> GOV -> Method call produced an error.')
-                            console.log('[ERROR] httpInterface -> GOV -> err.stack = ' + err.stack)
-                            console.log('[ERROR] httpInterface -> GOV -> Params Received = ' + body)
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> Method call produced an error.')
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> err.stack = ' + err.stack)
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> commitMessage = ' + commitMessage)
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> username = ' + username)
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> token starts with = ' + token.substring(0, 10) + '...')
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> token ends with = ' + '...' + token.substring(token.length - 10))
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> currentBranch = ' + currentBranch)
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> contributionsBranch = ' + contributionsBranch)
 
                             let error = {
                                 result: 'Fail Because',
@@ -1105,19 +804,341 @@ exports.newHttpInterface = function newHttpInterface() {
                             }
                             respondWithContent(JSON.stringify(error), httpResponse)
                         }
+                        break
+                    }
+
+                    case 'Update': {
+                        try {
+                            const currentBranch = unescape(requestParameters[3])
+                            update()
+
+                            async function update() {
+                                const { lookpath } = require('lookpath');
+                                const gitpath = await lookpath('git');
+                                if (gitpath === undefined) {
+                                    console.log('[ERROR] `git` not installed.')
+                                } else {
+                                    let result = await doGit()
+
+                                    if (result.error === undefined) {
+                                        let customResponse = {
+                                            result: global.CUSTOM_OK_RESPONSE.result,
+                                            message: result.message
+                                        }
+                                        respondWithContent(JSON.stringify(customResponse), httpResponse)
+                                    } else {
+
+                                        let docs = {
+                                            project: 'Foundations',
+                                            category: 'Topic',
+                                            type: 'App Error - Update Failed',
+                                            anchor: undefined,
+                                            placeholder: {}
+                                        }
+
+                                        respondWithDocsObject(docs, result.error)
+
+                                    }
+                                }
+                            }
+
+                            async function doGit() {
+                                const simpleGit = require('simple-git');
+                                const options = {
+                                    baseDir: process.cwd(),
+                                    binary: 'git',
+                                    maxConcurrentProcesses: 6,
+                                }
+                                const git = simpleGit(options)
+
+                                let message
+                                try {
+                                    message = await git.pull('https://github.com/Superalgos/Superalgos', currentBranch)
+                                    return { message: message }
+                                } catch (err) {
+                                    console.log('[ERROR] Error updating ' + currentBranch)
+                                    console.log(err.stack)
+                                    return { error: err }
+                                }
+                            }
+
+                        } catch (err) {
+                            console.log('[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
+                            console.log('[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+
+                            let error = {
+                                result: 'Fail Because',
+                                message: err.message,
+                                stack: err.stack
+                            }
+                            respondWithContent(JSON.stringify(error), httpResponse)
+                        }
+                        break
+                    }
+
+                    case 'Checkout': {
+                        try {
+                            const currentBranch = unescape(requestParameters[3])
+                            let error
+
+                            checkout()
+
+                            async function checkout() {
+                                const { lookpath } = require('lookpath');
+                                const gitpath = await lookpath('git');
+                                if (gitpath === undefined) {
+                                    console.log('[ERROR] `git` not installed.')
+                                } else {
+                                    await doGit()
+
+                                    if (error === undefined) {
+                                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                    } else {
+                                        let docs = {
+                                            project: 'Foundations',
+                                            category: 'Topic',
+                                            type: 'Switching Branches - Current Branch Not Changed',
+                                            anchor: undefined,
+                                            placeholder: {}
+                                        }
+
+                                        respondWithDocsObject(docs, error)
+                                    }
+                                }
+                            }
+
+                            async function doGit() {
+                                const simpleGit = require('simple-git');
+                                const options = {
+                                    baseDir: process.cwd(),
+                                    binary: 'git',
+                                    maxConcurrentProcesses: 6,
+                                }
+                                const git = simpleGit(options)
+                                try {
+                                    await git.checkout(currentBranch)
+                                } catch (err) {
+                                    console.log('[ERROR] Error changing current branch to ' + currentBranch)
+                                    console.log(err.stack)
+                                    error = err
+                                }
+                            }
+
+                        } catch (err) {
+                            console.log('[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
+                            console.log('[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+
+                            let error = {
+                                result: 'Fail Because',
+                                message: err.message,
+                                stack: err.stack
+                            }
+                            respondWithContent(JSON.stringify(error), httpResponse)
+                        }
+                        break
+                    }
+
+                    case 'Branch': {
+                        try {
+                            branch()
+
+                            async function branch() {
+                                const { lookpath } = require('lookpath');
+                                const gitpath = await lookpath('git');
+                                if (gitpath === undefined) {
+                                    console.log('[ERROR] `git` not installed.')
+                                } else {
+                                    let result = await doGit()
+
+                                    if (result.error === undefined) {
+                                        let customResponse = {
+                                            result: global.CUSTOM_OK_RESPONSE.result,
+                                            message: result
+                                        }
+                                        respondWithContent(JSON.stringify(customResponse), httpResponse)
+                                    } else {
+                                        let docs = {
+                                            project: 'Foundations',
+                                            category: 'Topic',
+                                            type: 'App Error - Could Not Get Current Branch',
+                                            anchor: undefined,
+                                            placeholder: {}
+                                        }
+
+                                        respondWithDocsObject(docs, error)
+                                    }
+                                }
+                            }
+
+                            async function doGit() {
+                                const simpleGit = require('simple-git');
+                                const options = {
+                                    baseDir: process.cwd(),
+                                    binary: 'git',
+                                    maxConcurrentProcesses: 6,
+                                }
+                                const git = simpleGit(options)
+                                try {
+                                    return await git.branch()
+                                } catch (err) {
+                                    console.log('[ERROR] Error reading current branch.')
+                                    console.log(err.stack)
+                                }
+                            }
+
+                        } catch (err) {
+                            console.log('[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
+                            console.log('[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+
+                            let error = {
+                                result: 'Fail Because',
+                                message: err.message,
+                                stack: err.stack
+                            }
+                            respondWithContent(JSON.stringify(error), httpResponse)
+                        }
+                        break
+                    }
+                }
+
+                function respondWithDocsObject(docs, error) {
+
+                    if (error.message !== undefined) {
+                        docs.placeholder.errorMessage = {
+                            style: 'Error',
+                            text: error.message
+                        }
+                    }
+                    if (error.stack !== undefined) {
+                        docs.placeholder.errorStack = {
+                            style: 'Javascript',
+                            text: error.stack
+                        }
+                    }
+                    if (error.code !== undefined) {
+                        docs.placeholder.errorCode = {
+                            style: 'Json',
+                            text: error.code
+                        }
+                    }
+
+                    docs.placeholder.errorDetails = {
+                        style: 'Json',
+                        text: JSON.stringify(error, undefined, 4)
+                    }
+
+                    let customResponse = {
+                        result: global.CUSTOM_FAIL_RESPONSE.result,
+                        docs: docs
+                    }
+
+                    respondWithContent(JSON.stringify(customResponse), httpResponse)
+
+                }
+            }
+                break
+
+            case 'GOV': {
+                /*
+                This is the Governance endpoint at the Http Interface. All methods
+                related to the Governance System are implemented here and routed
+                to the backend Servers that can process them. 
+                */
+                getBody(processRequest)
+
+                async function processRequest(body) {
+                    try {
+                        let params = JSON.parse(body)
+
+                        switch (params.method) {
+                            case 'getGithubStars': {
+
+                                let serverResponse = await CL.servers.GITHUB_SERVER.getGithubStars(
+                                    params.repository,
+                                    params.username,
+                                    params.token
+                                )
+
+                                respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                return
+                            }
+                            case 'getGithubWatchers': {
+
+                                let serverResponse = await CL.servers.GITHUB_SERVER.getGithubWatchers(
+                                    params.repository,
+                                    params.username,
+                                    params.token
+                                )
+
+                                respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                return
+                            }
+                            case 'getGithubForks': {
+
+                                let serverResponse = await CL.servers.GITHUB_SERVER.getGithubForks(
+                                    params.repository,
+                                    params.username,
+                                    params.token
+                                )
+
+                                respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                return
+                            }
+                            case 'mergePullRequests': {
+
+                                let serverResponse = await CL.servers.GITHUB_SERVER.mergePullRequests(
+                                    params.commitMessage,
+                                    params.username,
+                                    params.token
+                                )
+
+                                respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                return
+                            }
+                            case 'payContributors': {
+
+                                let serverResponse = await CL.servers.WEB3_SERVER.payContributors(
+                                    params.contractAddress,
+                                    params.contractAbi,
+                                    params.paymentsArray,
+                                    params.mnemonic
+                                )
+
+                                respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                return
+                            }
+                            default: {
+                                respondWithContent(JSON.stringify({ error: 'Method ' + params.method + ' is invalid.' }), httpResponse)
+                            }
+                        }
+                    } catch (err) {
+                        console.log('[ERROR] httpInterface -> GOV -> Method call produced an error.')
+                        console.log('[ERROR] httpInterface -> GOV -> err.stack = ' + err.stack)
+                        console.log('[ERROR] httpInterface -> GOV -> Params Received = ' + body)
+
+                        let error = {
+                            result: 'Fail Because',
+                            message: err.message,
+                            stack: err.stack
+                        }
+                        respondWithContent(JSON.stringify(error), httpResponse)
                     }
                 }
                 break
+            }
+
             case 'LegacyPlotter.js':
                 {
                     respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/LegacyPlotter.js', httpResponse)
                 }
                 break
+
             case 'PlotterPanel.js':
                 {
                     respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/PlotterPanel.js', httpResponse)
                 }
                 break
+
             case 'Images': // This means the Images folder.
                 {
                     let path = global.env.PATH_TO_CLIENT + 'WebServer/Images/' + requestParameters[2]
@@ -1139,6 +1160,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     respondWithImage(path, httpResponse)
                 }
                 break
+
             case 'Icons': // This means the Icons folder under Projects.
                 {
                     let path = global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/Icons'
@@ -1160,6 +1182,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     respondWithImage(path, httpResponse)
                 }
                 break
+
             case 'GIFs': // This means the GIFs folder under Projects.
                 {
                     let path = global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/GIFs'
@@ -1180,6 +1203,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     respondWithImage(path, httpResponse)
                 }
                 break
+
             case 'PNGs': // This means the PNGs folder under Projects.
                 {
                     let path = global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/PNGs'
@@ -1200,21 +1224,25 @@ exports.newHttpInterface = function newHttpInterface() {
                     respondWithImage(path, httpResponse)
                 }
                 break
+
             case 'favicon.ico': // This means the Scripts folder.
                 {
                     respondWithImage(global.env.PATH_TO_CLIENT + 'WebServer/Images/' + 'favicon.ico', httpResponse)
                 }
                 break
+
             case 'WebServer': // This means the WebServer folder.
                 {
                     respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/' + requestParameters[2], httpResponse)
                 }
                 break
+
             case 'externalScripts': // This means the WebServer folder.
                 {
                     respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/externalScripts/' + requestParameters[2], httpResponse)
                 }
                 break
+
             case 'Plotters': // This means the plotter folder, not to be confused with the Plotters script!
                 {
                     let project = requestParameters[2]
@@ -1225,26 +1253,31 @@ exports.newHttpInterface = function newHttpInterface() {
                     respondWithFile(filePath, httpResponse)
                 }
                 break
+
             case 'ChartLayers':
                 {
                     respondWithFile(global.env.PATH_TO_UI + '/' + requestParameters[1] + '/' + requestParameters[2], httpResponse)
                 }
                 break
+
             case 'Files':
                 {
                     respondWithFile(global.env.PATH_TO_DATA_FILES + '/' + requestParameters[2], httpResponse)
                 }
                 break
+
             case 'Fonts':
                 {
                     respondWithFont(global.env.PATH_TO_FONTS + '/' + requestParameters[2], httpResponse)
                 }
                 break
+
             case 'Schema':
                 {
                     sendSchema(global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/Schemas/', requestParameters[3])
                 }
                 break
+
             case 'DirContent':
                 {
                     let folderPath = unescape(requestParameters[2])
@@ -1273,6 +1306,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     }
                 }
                 break
+
             case 'IconNames':
                 {
                     let projects = getDirectories(global.env.PATH_TO_PROJECTS)
@@ -1304,6 +1338,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     }
                 }
                 break
+
             case 'PluginFileNames':
                 {
                     processRequest()
@@ -1333,9 +1368,11 @@ exports.newHttpInterface = function newHttpInterface() {
                             respondWithContent(JSON.stringify(error), httpResponse)
                         }
                     }
+                    break
                 }
-                break
+
             case 'LoadPlugin':
+
                 {
                     processRequest()
 
@@ -1373,38 +1410,38 @@ exports.newHttpInterface = function newHttpInterface() {
                             respondWithContent(JSON.stringify(error), httpResponse)
                         }
                     }
+                    break
                 }
-                break
+
             case 'SavePlugin':
-                {
-                    getBody(processRequest)
+                getBody(processRequest)
 
-                    async function processRequest(body) {
-                        try {
-                            let plugin = JSON.parse(body)
-                            let project = requestParameters[2]
-                            let folder = requestParameters[3]
-                            let fileName = requestParameters[4]
-                            let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + folder
-                            let fileContent = JSON.stringify(plugin, undefined, 4)
-                            const fs = require('fs')
-                            fs.writeFileSync(filePath + '/' + fileName + '.json', fileContent)
-                            respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
-                        } catch (err) {
-                            console.log('[ERROR] httpInterface -> SavePlugin -> Method call produced an error.')
-                            console.log('[ERROR] httpInterface -> SavePlugin -> err.stack = ' + err.stack)
-                            console.log('[ERROR] httpInterface -> SavePlugin -> Params Received = ' + body)
+                async function processRequest(body) {
+                    try {
+                        let plugin = JSON.parse(body)
+                        let project = requestParameters[2]
+                        let folder = requestParameters[3]
+                        let fileName = requestParameters[4]
+                        let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + folder
+                        let fileContent = JSON.stringify(plugin, undefined, 4)
+                        const fs = require('fs')
+                        fs.writeFileSync(filePath + '/' + fileName + '.json', fileContent)
+                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                    } catch (err) {
+                        console.log('[ERROR] httpInterface -> SavePlugin -> Method call produced an error.')
+                        console.log('[ERROR] httpInterface -> SavePlugin -> err.stack = ' + err.stack)
+                        console.log('[ERROR] httpInterface -> SavePlugin -> Params Received = ' + body)
 
-                            let error = {
-                                result: 'Fail Because',
-                                message: err.message,
-                                stack: err.stack
-                            }
-                            respondWithContent(JSON.stringify(error), httpResponse)
+                        let error = {
+                            result: 'Fail Because',
+                            message: err.message,
+                            stack: err.stack
                         }
+                        respondWithContent(JSON.stringify(error), httpResponse)
                     }
                 }
                 break
+
             case 'Workspace.js':
                 {
                     let fs = require('fs')
@@ -1426,6 +1463,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     }
                 }
                 break
+
             case 'ListWorkspaces':
                 {
                     let allWorkspaces = []
@@ -1502,6 +1540,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     }
                 }
                 break
+
             case 'LoadMyWorkspace':
                 {
                     let fileName = unescape(requestParameters[2])
@@ -1509,6 +1548,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     respondWithFile(filePath, httpResponse)
                 }
                 break
+
             case 'SaveWorkspace':
                 {
                     getBody(processRequest)
@@ -1558,17 +1598,20 @@ exports.newHttpInterface = function newHttpInterface() {
                     }
                 }
                 break
+
             case 'ListFunctionLibraries':
                 {
                     returnProjectFolderFileList('Function-Libraries')
                 }
                 break
+
             case 'ProjectsSchema':
                 {
                     let path = global.env.PATH_TO_PROJECTS + '/' + 'ProjectsSchema.json'
                     respondWithFile(path, httpResponse)
                 }
                 break
+
             case 'ListSpaceFiles':
                 {
                     let fs = require('fs')
@@ -1627,16 +1670,19 @@ exports.newHttpInterface = function newHttpInterface() {
                     }
                 }
                 break
+
             case 'ListUtilitiesFiles':
                 {
                     returnProjectFolderFileList('Utilities')
                 }
                 break
+
             case 'ListGlobalFiles':
                 {
                     returnProjectFolderFileList('Globals')
                 }
                 break
+
             case 'Projects':
                 {
                     let path = ''
@@ -1651,6 +1697,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     respondWithFile(filePath, httpResponse)
                 }
                 break
+
             case 'Storage':
                 {
                     let pathToFile = httpRequest.url.substring(9)
@@ -1661,51 +1708,61 @@ exports.newHttpInterface = function newHttpInterface() {
                     respondWithFile(global.env.PATH_TO_DATA_STORAGE + '/' + pathToFile, httpResponse)
                 }
                 break
+
             case 'main.css':
                 {
                     sendStyleSheet('main.css')
                 }
                 break
+
             case 'tutorial.css':
                 {
                     sendStyleSheet('tutorial.css')
                 }
                 break
+
             case 'docs.css':
                 {
                     sendStyleSheet('docs.css')
                 }
                 break
+
             case 'governance.css':
                 {
                     sendStyleSheet('governance.css')
                 }
                 break
+
             case 'context-menu.css':
                 {
                     sendStyleSheet('context-menu.css')
                 }
                 break
+
             case 'credits.css':
                 {
                     sendStyleSheet('credits.css')
                 }
                 break
+
             case 'docs.css':
                 {
                     sendStyleSheet('docs.css')
                 }
                 break
+
             case 'font-awasome.css':
                 {
                     sendStyleSheet('font-awasome.css')
                 }
                 break
+
             case 'prism.css':
                 {
                     sendStyleSheet('prism.css')
                 }
                 break
+
             case 'ExecuteTerminalCommand':
                 {
                     let command = unescape(requestParameters[2])
@@ -1859,9 +1916,9 @@ exports.newHttpInterface = function newHttpInterface() {
                     try {
                         let fileContent = file.toString()
 
-                        fileContent = fileContent.replace('CLIENT_HTTP_INTERFACE_PORT', global.env.CLIENT_HTTP_INTERFACE_PORT)
-                        fileContent = fileContent.replace('CLIENT_HTTP_INTERFACE_PORT', global.env.CLIENT_HTTP_INTERFACE_PORT)
-                        fileContent = fileContent.replace('CLIENT_HTTP_INTERFACE_PORT', global.env.CLIENT_HTTP_INTERFACE_PORT)
+                        fileContent = fileContent.replace('DESKTOP_HTTP_INTERFACE_PORT', global.env.DESKTOP_HTTP_INTERFACE_PORT)
+                        fileContent = fileContent.replace('DESKTOP_HTTP_INTERFACE_PORT', global.env.DESKTOP_HTTP_INTERFACE_PORT)
+                        fileContent = fileContent.replace('DESKTOP_HTTP_INTERFACE_PORT', global.env.DESKTOP_HTTP_INTERFACE_PORT)
                         respondWithContent(fileContent, httpResponse, 'text/css')
                     } catch (err) {
                         console.log('[ERROR] httpInterface -> mainCSS -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
@@ -1883,7 +1940,7 @@ exports.newHttpInterface = function newHttpInterface() {
                         try {
                             let fileContent = file.toString()
 
-                            fileContent = fileContent.replace('CLIENT_HTTP_INTERFACE_PORT', global.env.CLIENT_HTTP_INTERFACE_PORT)
+                            fileContent = fileContent.replace('DESKTOP_HTTP_INTERFACE_PORT', global.env.DESKTOP_HTTP_INTERFACE_PORT)
                             respondWithContent(fileContent, httpResponse)
                         } catch (err) {
                             console.log('[ERROR] httpInterface -> homePage -> File Not Found: ' + fileName + ' or Error = ' + err.stack)

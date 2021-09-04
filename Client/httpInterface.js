@@ -13,9 +13,6 @@ exports.newHttpInterface = function newHttpInterface() {
         run: run
     }
 
-    const OPEN_NODE_MODULE = require('open')
-    const HTTP_NODE_MODULE = require('http')
-
     let webhook = new Map()
 
     return thisObject
@@ -32,12 +29,12 @@ exports.newHttpInterface = function newHttpInterface() {
         /*
         We will create an HTTP Server and leave it running forever.
         */
-        HTTP_NODE_MODULE.createServer(onHttpRequest).listen(global.env.CLIENT_HTTP_INTERFACE_PORT)
+        SA.nodeModules.http.createServer(onHttpRequest).listen(global.env.CLIENT_HTTP_INTERFACE_PORT)
         /* Starting the browser now is optional */
         if (process.argv.includes("noBrowser")) {
             //Running Client only with no UI.
         } else {
-            OPEN_NODE_MODULE('http://localhost:' + global.env.CLIENT_HTTP_INTERFACE_PORT)
+            SA.nodeModules.open('http://localhost:' + global.env.CLIENT_HTTP_INTERFACE_PORT)
         }
     }
 
@@ -144,12 +141,10 @@ exports.newHttpInterface = function newHttpInterface() {
                             try {
                                 let params = JSON.parse(body)
 
-                                const ccxt = require('ccxt')
-
                                 switch (params.method) {
                                     case 'fetchMarkets': {
 
-                                        const exchangeClass = ccxt[params.exchangeId]
+                                        const exchangeClass = SA.nodeModules.ccxt[params.exchangeId]
                                         const exchangeConstructorParams = {
                                             'timeout': 30000,
                                             'enableRateLimit': true,
@@ -167,10 +162,10 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     case 'listExchanges': {
                                         let exchanges = []
-                                        for (let i = 0; i < ccxt.exchanges.length; i++) {
-                                            let exchangeId = ccxt.exchanges[i]
+                                        for (let i = 0; i < SA.nodeModules.ccxt.exchanges.length; i++) {
+                                            let exchangeId = SA.nodeModules.ccxt.exchanges[i]
 
-                                            const exchangeClass = ccxt[exchangeId]
+                                            const exchangeClass = SA.nodeModules.ccxt[exchangeId]
                                             const exchangeConstructorParams = {
                                                 'timeout': 30000,
                                                 'enableRateLimit': true,

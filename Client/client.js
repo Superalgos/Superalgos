@@ -97,7 +97,10 @@ try {
     */
     SA.nodeModules = {
         fs: require('fs'),
-        nodeFetch: require('node-fetch')
+        nodeFetch: require('node-fetch'),
+        open: require('open'),
+        http: require('http'),
+        ccxt: require('ccxt')
     }
     /*
     Setting up servers running inside this Client.

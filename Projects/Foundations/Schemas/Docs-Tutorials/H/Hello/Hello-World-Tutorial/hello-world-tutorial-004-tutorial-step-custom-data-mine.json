@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "No solo Workspaces se pueden modificar",
-                "updated": 1629346887546
+                "updated": 1629346887546,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Les Workspace ne sont pas les seuls à pouvoir être modifiés",
+                "updated": 1630739701652
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "SA es muy modular y se puede organizar de la manera que prefiramos para nuestras necesidades.",
-                    "updated": 1629347317411
+                    "updated": 1629347317411,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "SA est très modulaire et peut être arrangé comme nous le préférons pour nos besoins.",
+                    "updated": 1630739721599
                 }
             ]
         },
@@ -55,7 +67,13 @@
                 {
                     "language": "ES",
                     "text": "Te preparé un muy básico Workspace con un nuevo Data Mine y organize los nodos eliminando todo lo que no necesito para este tutorial.",
-                    "updated": 1629347385771
+                    "updated": 1629347385771,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "J'ai préparé pour vous un Workspace très basique avec une nouvelle Data Mine et j'ai arrangé les nodes en supprimant tout ce dont je n'ai pas besoin pour ce tutoriel.",
+                    "updated": 1630739779491
                 }
             ]
         },
@@ -72,7 +90,13 @@
                 {
                     "language": "ES",
                     "text": "En SA, las minas de datos se pueden agregar y eliminar, pero los datos guardados en su disco duro no se eliminarán si eliminas un indicador.",
-                    "updated": 1629347666344
+                    "updated": 1629347666344,
+                    "style": "Success"
+                },
+                {
+                    "language": "FR",
+                    "text": "Dans SA, des Data Mines peuvent être ajoutées et supprimées, mais les données enregistrées sur votre disque dur ne seront pas supprimées si vous supprimez un indicateur !",
+                    "updated": 1630739810951
                 }
             ]
         },

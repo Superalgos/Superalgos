@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "¡Asegurarte que los Parameters están en su lugar!",
-                "updated": 1629577782178
+                "updated": 1629577782178,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Assurez-vous que les paramètres sont en place!",
+                "updated": 1630754535845
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Antes de ejecutar el backtest, asegúrese de que el Trading Parameters nodo tiene datos consistentes. Ya preparé todo para ti, pero tómate un tiempo y fíjate que:",
-                    "updated": 1629577823477
+                    "updated": 1629577823477,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Avant d'exécuter le backtest, assurez-vous que le nœud des paramètres de trading (Trading Parameters) dispose de données cohérentes. J'ai déjà tout préparé pour vous, mais prenez le temps de le remarquer:",
+                    "updated": 1630754573732
                 }
             ]
         },
@@ -55,7 +67,13 @@
                 {
                     "language": "ES",
                     "text": "Session Base Asset está establecido en 0",
-                    "updated": 1629577840744
+                    "updated": 1629577840744,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Session Base Asset est positionné à 0",
+                    "updated": 1630754586230
                 }
             ]
         },
@@ -73,7 +91,13 @@
                 {
                     "language": "ES",
                     "text": "Session Quoted Assetestá establecido en 1000 (es decir, 1000 $ USDT en este caso)",
-                    "updated": 1629577866359
+                    "updated": 1629577866359,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Session Quoted Asset est positionné à 1000 (C'est bien 1000$ USDT dans ce cas)",
+                    "updated": 1630754612367
                 }
             ]
         },
@@ -91,7 +115,13 @@
                 {
                     "language": "ES",
                     "text": "Slippage se establece en 0 porque estoy probando pequeñas cantidades y puedo asumir que los pedidos se llenan sin slippage",
-                    "updated": 1629577911905
+                    "updated": 1629577911905,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Le Slippage (glissement) est positionné à 0 parce que je fais des backtests sur de petites quantités et je peux supposer que les ordres sont exécutés sans slippage.",
+                    "updated": 1630754722769
                 }
             ]
         },
@@ -109,7 +139,13 @@
                 {
                     "language": "ES",
                     "text": "¿Estás listo? ¡Ejecuta el backtest!",
-                    "updated": 1629578196637
+                    "updated": 1629578196637,
+                    "style": "Important"
+                },
+                {
+                    "language": "FR",
+                    "text": "Êtes-vous prêt? Démarrez le backtest!",
+                    "updated": 1630754767720
                 }
             ]
         }

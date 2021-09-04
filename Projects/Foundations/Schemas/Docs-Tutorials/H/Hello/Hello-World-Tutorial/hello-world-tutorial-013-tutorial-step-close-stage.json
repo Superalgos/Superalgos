@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "El Close Stage se encarga de cerrar el trade",
-                "updated": 1629576232311
+                "updated": 1629576232311,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Le Close Stage est en charge de la clôture de la position",
+                "updated": 1630753794035
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "En la etapa anterior (el Manage Stage) bot está comprobando si el precio actual ha alcanzado el SL o el TP. Una vez que uno de estos dos eventos ha sido alcanzado, entonces el Close Stage se encarga de cerrar el trade. La forma en que funciona es muy similar al Open Stage. El bot necesita saber qué vela debe verse",
-                    "updated": 1629576335495
+                    "updated": 1629576335495,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Dans l'étape précédente (Manage Stage), le bot vérifie si le prix actuel a atteint le SL ou le TP. Une fois que l'un de ces deux événements a été atteint, la Close Stage (phase de clôture) se charge de fermer la transaction. Son fonctionnement est très similaire à celui de la Open Stage (phase d'ouverture). Le bot doit savoir à quelle candle (bougie) il doit regarder.",
+                    "updated": 1630753892662
                 }
             ]
         },
@@ -59,7 +71,8 @@
                 {
                     "language": "ES",
                     "text": "Y obviamente a diferencia del Open Stage, aquí nosotros Sell el asset así que necesitamos un Market Sell Order Y lo que vende bot es el Quoted asset",
-                    "updated": 1629576513796
+                    "updated": 1629576513796,
+                    "style": "Text"
                 }
             ]
         },

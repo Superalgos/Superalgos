@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Si no necesitas una condición, configúrela en False o True!",
-                "updated": 1629352241171
+                "updated": 1629352241171,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Si vous n'avez pas besoin de condition, mettez simplement la valeur false ou true!",
+                "updated": 1630752172304
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Para mi backtest no necesito un Trigger Off condición, así que solo escribo false en codigo Javascript",
-                    "updated": 1629354481694
+                    "updated": 1629354481694,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Pour mon backtest, je n'ai pas besoin de Trigger Off (condition de déclenchement), donc j'écris simplement false dans le code Javascript.",
+                    "updated": 1630752219647
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "Recuerda que Conditions puede ser solo True o False. Cuando escribo código Javascript dentro de este tipo de nodos, deben evaluar True o False porque esencialmente lo que estoy escribiendo es una prueba.",
-                    "updated": 1629354487276
+                    "updated": 1629354487276,
+                    "style": "Success"
+                },
+                {
+                    "language": "FR",
+                    "text": "Rappelez-vous que les conditions ne peuvent être que true ou false. Lorsque j'écris du code Javascript à l'intérieur de ce type de nœuds, ils doivent évaluer Vrai ou Faux car ce que j'écris est essentiellement un test.",
+                    "updated": 1630752263509
                 }
             ]
         }

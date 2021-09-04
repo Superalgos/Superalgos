@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Trigger Stagees es nuestro talento scout",
-                "updated": 1629348587860
+                "updated": 1629348587860,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Le Trigger Stage (l'étape de déclenchement) est notre découvreur de talents.",
+                "updated": 1630751773762
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Nuestra estrategia se basa en el cruce de SMA y es en este nodo donde podemos instruir al bot para que busque las condiciones que deben cumplirse para realizar una operación.",
-                    "updated": 1629348884906
+                    "updated": 1629348884906,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Notre stratégie est basée sur le croisement des SMA et c'est dans ce nœud que nous pouvons demander au robot de rechercher les conditions qui doivent être remplies afin de prendre une position.",
+                    "updated": 1630751814323
                 }
             ]
         },
@@ -55,7 +67,13 @@
                 {
                     "language": "ES",
                     "text": "¡Esta etapa se trata de verificar el mercado y decidir si algunas condiciones valen la pena o no!",
-                    "updated": 1629348903247
+                    "updated": 1629348903247,
+                    "style": "Important"
+                },
+                {
+                    "language": "FR",
+                    "text": "Cette étape consiste à examiner le marché et à décider si certaines conditions valent la peine de prendre une position ou non!",
+                    "updated": 1630751880468
                 }
             ]
         },
@@ -73,7 +91,13 @@
                 {
                     "language": "ES",
                     "text": "¡Echemos un vistazo a sus 3 descendientes y te muestro algunos pequeños trucos para implementar la estrategia de la manera más rápida posible!",
-                    "updated": 1629348921004
+                    "updated": 1629348921004,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Jetons un coup d'œil à ses 3 fils et je vous montre quelques petites astuces pour mettre en œuvre la stratégie de la manière la plus rapide possible !",
+                    "updated": 1630751935380
                 }
             ]
         }

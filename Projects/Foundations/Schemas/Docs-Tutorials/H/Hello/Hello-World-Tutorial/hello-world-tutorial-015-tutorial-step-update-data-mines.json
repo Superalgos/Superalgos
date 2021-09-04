@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "¡Lo más probable es que ya tengas algunos datos extraídos!",
-                "updated": 1629576816892
+                "updated": 1629576816892,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Il y a de fortes chances que vous ayez déjà des Data mined (des données à exploiter) !",
+                "updated": 1630754216399
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Si has hecho la intro Tutorial entonces probablemente ya hayas extraído algunos datos. Pero agregué un nuevo indicador que no está presente en la configuración inicial. Así que por favor Run los data Mines Y espera hasta que estén 100% listos.",
-                    "updated": 1629576956473
+                    "updated": 1629576956473,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Si vous avez suivi le tutoriel d'introduction, vous avez probablement déjà extrait quelques données. Mais j'ai ajouté un nouvel indicateur qui n'est pas présent dans la configuration initiale. Donc, s'il vous plaît exécutez les Data Mines et attendez jusqu'à ce qu'elles soient à 100%.",
+                    "updated": 1630754359140
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "Asegúrate de que debajo Sparta Data Mine Tasks el indicador recién agregado Simple Moving Average está 100% actualizado.",
-                    "updated": 1629577044677
+                    "updated": 1629577044677,
+                    "style": "Important"
+                },
+                {
+                    "language": "FR",
+                    "text": "Assurez-vous que sous Sparta Data Mine Tasks, l'indicateur nouvellement ajouté Simple Moving Average (Moyenne mobile simple) soit à 100%.",
+                    "updated": 1630754454779
                 }
             ]
         },
@@ -74,7 +92,13 @@
                 {
                     "language": "ES",
                     "text": "Ya al 100%, puedes detener los Data Mines y ahorrar recursos para el backtest.",
-                    "updated": 1629577393595
+                    "updated": 1629577393595,
+                    "style": "Success"
+                },
+                {
+                    "language": "FR",
+                    "text": "Une fois que tous les indicateurs sont à 100%, vous pouvez arrêter les Data Mine tasks et économiser des ressources pour le backtest.",
+                    "updated": 1630754497832
                 }
             ]
         }

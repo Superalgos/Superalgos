@@ -21,6 +21,11 @@
                 "text": "El Manage Stagees donde el bot comprueba si tiene que hacer Take Profit o un Stop Loss",
                 "updated": 1629356619813,
                 "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "La Manage Stage est l'étape où le robot vérifie s'il doit Take profit ou Stop loss.",
+                "updated": 1630753670563
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "En esta etapa, el bot comprueba si el precio ha llegado a Take Profit (TP) o Stop Loss (SL). Las condiciones iniciales para mi estrategia fueron establecer un SL al 20% desde la entrada y un TP al 100% o cuando MA50 cruza por debajo de MA200.",
                     "updated": 1629356685676,
                     "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "À ce stade, le robot vérifie si le prix a atteint le Take Profit (TP) ou le Stop Loss (SL). Les conditions initiales de ma stratégie étaient de fixer un SL à 20% de l'entrée et un TP à 100% ou lorsque MA50 croise sous MA200.",
+                    "updated": 1630753709715
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "text": "Stop Loss Formel:",
                     "updated": 1622979677028,
                     "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Voici la formule du Stop Loss:",
+                    "updated": 1630753722681
                 }
             ]
         },
@@ -76,7 +91,13 @@
                 {
                     "language": "ES",
                     "text": "La fórmula Take Profit es un poco más elaborada:",
-                    "updated": 1629423638424
+                    "updated": 1629423638424,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Et la formule du Take Profit qui est un peu plus compliquée",
+                    "updated": 1630753742732
                 }
             ]
         },

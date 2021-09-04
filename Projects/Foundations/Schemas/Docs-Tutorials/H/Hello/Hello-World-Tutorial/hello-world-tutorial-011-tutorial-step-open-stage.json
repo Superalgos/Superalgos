@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "El Open Stage es donde el bot toma posición!",
-                "updated": 1629356240122
+                "updated": 1629356240122,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "L'Open Stage, c'est là où le bot prend position!",
+                "updated": 1630753496446
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "La estrategia que quiero hacer backtesting se basa en 4h TF y la estrategia es Long. Esto significa que el bot Buy el asset para después Sell (¡a un mejor precio esperamos!). Para simplificar las cosas, todo lo que tengo que hacer es indicar el TF en el nodo Target Rate usando todo mi saldo en el Target Size en Quoted Asset.",
-                    "updated": 1629356415752
+                    "updated": 1629356415752,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "La stratégie que je veux backtester est basée sur TF(période) de 4h et la stratégie est Longue. Cela signifie que le robot va acheter l'actif pour le vendre plus tard (à un meilleur prix, nous l'espérons !). Pour garder les choses simples, tout ce que j'ai à faire est d'indiquer la TF dans le nœud Target Rate en utilisant mon solde complet dans le Target Size de Quoted Asset.",
+                    "updated": 1630753561277
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "Si nuestro mercado es BTC/USDT entonces la Quoted Asset is USDT y Base Asset es BTC",
-                    "updated": 1629356454601
+                    "updated": 1629356454601,
+                    "style": "Success"
+                },
+                {
+                    "language": "FR",
+                    "text": "Si notre marché est BTC/USDT, l'actif coté est USDT et l'actif de base est BTC.",
+                    "updated": 1630753587601
                 }
             ]
         }

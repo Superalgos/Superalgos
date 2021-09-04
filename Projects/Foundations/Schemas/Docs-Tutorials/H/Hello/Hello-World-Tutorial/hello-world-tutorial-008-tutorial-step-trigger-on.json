@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "¡Reserva algunos fondos!",
-                "updated": 1629349159115
+                "updated": 1629349159115,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Réservez des fonds!",
+                "updated": 1630751954986
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "El evento Trigger On consiste en reservar (bloquear) sus fondos y ponerlos a disposición del bot.",
-                    "updated": 1629349408557
+                    "updated": 1629349408557,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "L'événement Trigger On permet de réserver (verrouiller) vos fonds et de les mettre à la disposition du robot.",
+                    "updated": 1630751986588
                 }
             ]
         },
@@ -59,7 +71,13 @@
                 {
                     "language": "ES",
                     "text": "Lo que necesito hacer es:",
-                    "updated": 1629349429401
+                    "updated": 1629349429401,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "De quoi a-t-on beoin dans ce but:",
+                    "updated": 1630752048966
                 }
             ]
         },
@@ -76,7 +94,13 @@
                 {
                     "language": "ES",
                     "text": "Definir el TF",
-                    "updated": 1629349443558
+                    "updated": 1629349443558,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Définir la TF (période de temps)",
+                    "updated": 1630752084260
                 }
             ]
         },
@@ -93,7 +117,13 @@
                 {
                     "language": "ES",
                     "text": "Definir el SMA50/200 cross",
-                    "updated": 1629349524087
+                    "updated": 1629349524087,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Définir le croisement des SMA50/200",
+                    "updated": 1630752100343
                 }
             ]
         },
@@ -110,7 +140,13 @@
                 {
                     "language": "ES",
                     "text": "Para definir una cruz utilizo 2 condiciones:",
-                    "updated": 1629351309083
+                    "updated": 1629351309083,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Afin de définir un croisement j'utilise deux conditions:",
+                    "updated": 1630752125811
                 }
             ]
         },

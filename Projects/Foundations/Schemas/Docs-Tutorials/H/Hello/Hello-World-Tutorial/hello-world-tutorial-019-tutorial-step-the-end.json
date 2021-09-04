@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Este es el paso final de este tutorial, ¡pero un primer gran paso para ti!",
-                "updated": 1629578693755
+                "updated": 1629578693755,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "C'est la dernière étape de ce tutoriel mais un premier grand pas pour vous!",
+                "updated": 1630754938026
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Ahora que ha visto lo rápido y fácil que es implementar estrategias simples en SA, le dejo algunos consejos que puede explorar.",
-                    "updated": 1629578879458
+                    "updated": 1629578879458,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Maintenant que vous avez vu à quel point il est rapide et facile de déployer des stratégies de trading simples dans SA, je vous laisse avec quelques conseils que vous pouvez explorer.",
+                    "updated": 1630754967194
                 }
             ]
         },
@@ -55,7 +67,13 @@
                 {
                     "language": "ES",
                     "text": "Tal vez puedas agregar un nuevo indicador y usar sus propiedades como un filtro adicional para el Trigger Stage.",
-                    "updated": 1629578981875
+                    "updated": 1629578981875,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous pouvez peut-être ajouter un nouvel indicateur et utiliser ses propriétés comme un filtre supplémentaire pour l'étape de déclenchement (Trigger Stage).",
+                    "updated": 1630754996014
                 }
             ],
             "updated": 1622980962381
@@ -73,7 +91,13 @@
                 {
                     "language": "ES",
                     "text": "O puedes modificar el SL para tener uno final en lugar de ser fijo.",
-                    "updated": 1629579019376
+                    "updated": 1629579019376,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Ou vous pouvez modifier le SL un trailing SL au lieu d'être fixe.",
+                    "updated": 1630755053397
                 }
             ]
         },
@@ -91,7 +115,13 @@
                 {
                     "language": "ES",
                     "text": "Gracias por tu tiempo. Puede leer un artículo más detallado aquí: http://bit.ly/9808usHelloWorld",
-                    "updated": 1629579335349
+                    "updated": 1629579335349,
+                    "style": "Note"
+                },
+                {
+                    "language": "FR",
+                    "text": "Merci pour votre temps. Vous pouvez lire un article plus approfondi ici: http://bit.ly/9808usHelloWorld",
+                    "updated": 1630755075297
                 }
             ]
         }

@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "¡Es hora de mirar el gráfico!",
-                "updated": 1629578259488
+                "updated": 1629578259488,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Il est temps regarder notre graphique!",
+                "updated": 1630754786921
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Cuando finaliza el backtest, detengo toda la jerarquía del nodo Testing Trading Tasks. Expande el nodo y has clic en Stop All.",
-                    "updated": 1629578317859
+                    "updated": 1629578317859,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Lorsque le backtest est terminé, j'arrête toute la hiérarchie à partir du nœud Testing Trading Tasks. Développez le nœud et cliquez sur Stop All.",
+                    "updated": 1630754805072
                 }
             ]
         },
@@ -55,7 +67,13 @@
                 {
                     "language": "ES",
                     "text": "Recuerda que es una buena práctica mantener las jerarquías colapsadas y detener las tareas inútiles para ahorrar recursos.",
-                    "updated": 1629578351656
+                    "updated": 1629578351656,
+                    "style": "Success"
+                },
+                {
+                    "language": "FR",
+                    "text": "N'oubliez pas qu'il est bon de réduire les hiérarchies et d'arrêter les tâches inutiles pour économiser les ressources!",
+                    "updated": 1630754827106
                 }
             ]
         },

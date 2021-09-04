@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Trading System ya está configurado. ¡Echemos un vistazo!",
-                "updated": 1629348173186
+                "updated": 1629348173186,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Le  Trading System est déjà configuré. Jetons un coup d'œil!",
+                "updated": 1630748516505
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "La estrategia ya está desplegada. ¡Así que echemos un vistazo para entenderlo!",
-                    "updated": 1629348191210
+                    "updated": 1629348191210,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "La stratégie est déjà déployée. Jetons donc un coup d'œil afin de la comprendre !",
+                    "updated": 1630748550637
                 }
             ]
         },
@@ -55,7 +67,13 @@
                 {
                     "language": "ES",
                     "text": "Como puedes ver, un Trading System tiene 2 descendientes principales:",
-                    "updated": 1629348227357
+                    "updated": 1629348227357,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Comme vous pouvez le constater, un Trading System a deux principales origines:",
+                    "updated": 1630748589832
                 }
             ]
         },
@@ -73,7 +91,13 @@
                 {
                     "language": "ES",
                     "text": "Dynamic Indicators: Esto te permite crear indicadores sobre la marcha",
-                    "updated": 1629348275874
+                    "updated": 1629348275874,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Les Dynamic Indicators: Cela vous permet de construire des indicateurs à la volée",
+                    "updated": 1630748635917
                 }
             ]
         },
@@ -91,7 +115,13 @@
                 {
                     "language": "ES",
                     "text": "Trading Strategy: Es donde definimos parámetros, condiciones y fórmulas para nuestra estrategia.",
-                    "updated": 1629348244296
+                    "updated": 1629348244296,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "La Trading Strategy: C'est là que nous définissons les paramètres, les conditions et les formules de notre stratégie.",
+                    "updated": 1630748668728
                 }
             ]
         },
@@ -108,7 +138,13 @@
                 {
                     "language": "ES",
                     "text": "Este tutorial no cubre definiciones o conceptos usados ​​en SA. ¡Este tutorial solo trata sobre cómo implementar una estrategia!",
-                    "updated": 1629348296182
+                    "updated": 1629348296182,
+                    "style": "Success"
+                },
+                {
+                    "language": "FR",
+                    "text": "Ce tutoriel ne couvre pas les définitions ou les concepts utilisés dans SA. Ce tutoriel porte uniquement sur la manière de déployer une stratégie !",
+                    "updated": 1630751697235
                 }
             ]
         }

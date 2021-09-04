@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Tiempo para tomar Position!",
-                "updated": 1629355595189
+                "updated": 1629355595189,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Il est temps de prendre position!",
+                "updated": 1630752288897
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "En este nodo utilizo el mismo truco utilizado para el Trigger Off Event pero en este caso obligándolo a True.Ya lo definí en el Trigger On Event cuales son mis condiciones. Entonces en este nodo puedo simplemente copiar las dos condiciones o configurarlo en True.",
-                    "updated": 1629355939657
+                    "updated": 1629355939657,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Dans ce nœud, j'utilise la même astuce que pour l'événement Trigger Off, mais dans ce cas, je le force à true. J'ai déjà défini mes conditions dans l'événement Trigger On. Donc, dans ce noeud, je peux simplement copier les deux conditions ou les mettre à true.",
+                    "updated": 1630752330558
                 }
             ]
         },
@@ -55,7 +67,13 @@
                 {
                     "language": "ES",
                     "text": "¡Por supuesto, si necesito más condiciones, puedo agregarlas o modificarlas según mis necesidades!",
-                    "updated": 1629355966149
+                    "updated": 1629355966149,
+                    "style": "Success"
+                },
+                {
+                    "language": "FR",
+                    "text": "Bien sûr, si j'ai besoin de plus de conditions, je peux les ajouter ou les modifier en fonction de mes besoins!",
+                    "updated": 1630752348359
                 }
             ]
         },
@@ -72,7 +90,8 @@
                 {
                     "language": "ES",
                     "text": "Súper. Mis definiciones iniciales están establecidas. ¡Es hora de pasar al Open Stage!",
-                    "updated": 1629356060233
+                    "updated": 1629356060233,
+                    "style": "Note"
                 }
             ]
         }

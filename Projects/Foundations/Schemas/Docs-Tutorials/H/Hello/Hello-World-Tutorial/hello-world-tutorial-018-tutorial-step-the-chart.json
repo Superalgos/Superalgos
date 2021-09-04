@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "¡Disfruta tu backtest!",
-                "updated": 1629578516025
+                "updated": 1629578516025,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Savourez votre backtest!",
+                "updated": 1630754849011
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Ahora es el momento de pasar al Charting Spacey (si aún no se está ejecutando) enciende:",
-                    "updated": 1629578564301
+                    "updated": 1629578564301,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Il est maintenant temps de passer au Charting Space (l'espace graphique) et (si ce n'est pas déjà fait) de lancer:",
+                    "updated": 1630754899511
                 }
             ]
         },
@@ -80,7 +92,13 @@
                 {
                     "language": "ES",
                     "text": "Tómese su tiempo y explore los resultados visuales. Aplique el indicador SMA al gráfico y asegúrese de que el bot haya tomado posición cuando se esperaba",
-                    "updated": 1629578671372
+                    "updated": 1629578671372,
+                    "style": "Success"
+                },
+                {
+                    "language": "FR",
+                    "text": "Prenez votre temps et explorez les résultats visuels. Appliquez l'indicateur SMA au graphique et vérifiez que le robot a pris position au moment prévu.",
+                    "updated": 1630754922110
                 }
             ]
         }

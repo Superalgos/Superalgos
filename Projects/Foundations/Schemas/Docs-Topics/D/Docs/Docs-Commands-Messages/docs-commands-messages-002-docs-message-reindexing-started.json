@@ -17,6 +17,11 @@
                 "text": "docs.reindex command akan menyusun ulang Docs Search Engine Index.",
                 "updated": 1616764015935,
                 "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "La commande docs.reindex lance la reconstruction de l'index du moteur de recherche Docs.",
+                "updated": 1630748344734
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "text": "Reindexing merupakan proses intensif sumber daya. Saat proses berjalan, kamu tidak akan dapat menggunakan antarmuka karena semua sumber daya CPU didedikasikan untuk membuat ulang indeks secepat mungkin.",
                     "updated": 1616764125582,
                     "style": "Success"
+                },
+                {
+                    "language": "FR",
+                    "text": "La réindexation est un processus gourmand en ressources. Pendant que le processus est en cours, vous ne pourrez pas utiliser l'interface car toutes les ressources du processeur sont consacrées à la recréation de l'index le plus rapidement possible.",
+                    "updated": 1630748396792
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "text": "Beratnya workspace berdampak pada waktu yang digunakan untuk reindex konten karena tiap node di workspace harus discan. Semua code dan konfigurasi juga diindex.",
                     "updated": 1616764251832,
                     "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "La taille de votre Workspace a un impact sur le temps nécessaire à la réindexation du contenu puisque chaque nœud du workspace doit être analysé. Tous les codes et configurations sont indexés.",
+                    "updated": 1630748453678
                 }
             ]
         },
@@ -73,6 +88,11 @@
                     "text": "Tunggu sebentar untuk beberapa detik sampai proses selesai. Kamu akan mendapatkan pesan baru setelah selesai.",
                     "updated": 1616764371829,
                     "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Patientez quelques secondes jusqu'à la fin du processus. Vous recevrez un nouveau message lorsque celui-ci sera terminé.",
+                    "updated": 1630748481744
                 }
             ]
         }

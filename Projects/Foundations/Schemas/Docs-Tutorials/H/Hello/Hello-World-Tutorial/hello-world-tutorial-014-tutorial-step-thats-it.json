@@ -21,6 +21,11 @@
                 "text": "¡ Strategy está definida!",
                 "updated": 1629357095005,
                 "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "La stratégie est définit!",
+                "updated": 1630753958406
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Es cuestión de unas pocas líneas de código.",
                     "updated": 1629576702851,
                     "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Comme vous l'avez vu, la mise en œuvre d'une stratégie simple est une question de quelques lignes de code!",
+                    "updated": 1630753981574
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "Ten esto en cuenta para tratar correctamente Base and Quoted Asset. Base está en la cima, Quoted está en el fondo! Entonces en nuestro caso BTC / USD tenemos BTC es el Base Asset mientras que USDT es el Quoted Asset",
                     "updated": 1629357672381,
                     "style": "Success"
+                },
+                {
+                    "language": "FR",
+                    "text": "Gardez ceci à l'esprit pour traiter correctement les actifs de base et cotés (Base et Quoted assets). La base est en haut, la cotation est en bas ! Ainsi, dans notre cas BTC/USD, BTC est l'actif de base et USDT est l'actif coté.",
+                    "updated": 1630754048626
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "text": "No cambia si te vas Short. Si la estrategia es Short luego en el Open Stage Bot venderá el Base Asset y luego volver a comprarlo usando Quoted Asset!",
                     "updated": 1629357633755,
                     "style": "Warning"
+                },
+                {
+                    "language": "FR",
+                    "text": "Cela ne change pas si vous optez pour une stratégie courte. Si la stratégie est courte, le robot vendra l'actif de base lors de la phase d'ouverture et le rachètera plus tard en utilisant l'actif coté !",
+                    "updated": 1630754146896
                 }
             ]
         }

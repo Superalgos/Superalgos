@@ -900,6 +900,24 @@
                     "propertyName": "miscellaneousFunctions",
                     "functionName": "newFoundationsUtilitiesMiscellaneousFunctions",
                     "fileName": "MiscellaneousFunctions.js"
+                },
+                {
+                    "name": "Files And Directories",
+                    "propertyName": "filesAndDirectories",
+                    "functionName": "newFoundationsUtilitiesFilesAndDirectories",
+                    "fileName": "FilesAndDirectories.js"
+                },
+                {
+                    "name": "Http Responses",
+                    "propertyName": "httpResponses",
+                    "functionName": "newFoundationsUtilitiesHttpResponses",
+                    "fileName": "HttpResponses.js"
+                },
+                {
+                    "name": "Http Requests",
+                    "propertyName": "httpRequests",
+                    "functionName": "newFoundationsUtilitiesHttpRequests",
+                    "fileName": "HttpRequests.js"
                 }
             ]
         },

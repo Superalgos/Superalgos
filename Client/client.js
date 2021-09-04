@@ -6,7 +6,7 @@ global.env = ENVIRONMENT_MODULE
 
 process.on('uncaughtException', function (err) {
     if (err.message && err.message.indexOf("EADDRINUSE") > 0) {
-        console.log("A Superalgos Client cannot be started. Reason: the port configured migth be being used by another application.")
+        console.log("A Superalgos Client cannot be started. Reason: the port configured migth be being used by another application, or Superalgos might be already running.")
         return
     }
     console.log('[ERROR] Client -> client-> uncaughtException -> err.message = ' + err.message)
@@ -97,7 +97,10 @@ try {
     */
     SA.nodeModules = {
         fs: require('fs'),
-        nodeFetch: require('node-fetch')
+        nodeFetch: require('node-fetch'),
+        open: require('open'),
+        http: require('http'),
+        ccxt: require('ccxt')
     }
     /*
     Setting up servers running inside this Client.
@@ -162,13 +165,11 @@ try {
 
     WEB_SOCKETS_INTERFACE = WEB_SOCKETS_INTERFACE.newWebSocketsInterface()
     WEB_SOCKETS_INTERFACE.initialize()
-    WEB_SOCKETS_INTERFACE.run()
     console.log('Web Sockets Interface ....................................... Listening at port ' + global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT)
 
     HTTP_INTERFACE = HTTP_INTERFACE.newHttpInterface()
     HTTP_INTERFACE.initialize()
-    HTTP_INTERFACE.run()
-    console.log('Http Interface .............................................. Listening at port ' + global.env.HTTP_INTERFACE_PORT)
+    console.log('Http Interface .............................................. Listening at port ' + global.env.CLIENT_HTTP_INTERFACE_PORT)
 
     console.log('')
     console.log("You are running Superalgos Beta 11")

@@ -33,9 +33,22 @@ let nodeModulesDirs = [
     path.join( process.cwd(), "Projects", "Foundations", "TS", "Bot-Modules", "API-Data-Fetcher-Bot"),
     path.join( process.cwd(), "Projects", "Foundations", "TS", "Bot-Modules", "Trading-Bot", "Announcements"),
     path.join( process.cwd(), "Projects", "Foundations", "TS", "Bot-Modules", "Trading-Bot", "Low-Frequency-Trading", "APIs"),
-    path.join( process.cwd(), "Projects", "Foundations", "TS", "Task-Modules"),
-    path.join( process.cwd(), "Projects", "TensorFlow", "TS", "Bot-Modules", "Learning-Bot", "Low-Frequency-Learning")
+    path.join( process.cwd(), "Projects", "Foundations", "TS", "Task-Modules")
 ];
+
+if (
+    process.argv.includes("TensorFlow") ||
+    process.argv.includes("tensorflow") ||
+    process.argv.includes("--TensorFlow") ||
+    process.argv.includes("-TensorFlow") ||
+    process.argv.includes("--tensorflow") ||
+    process.argv.includes("--tensorflow") 
+    ) {
+
+    nodeModulesDirs = [
+        path.join( process.cwd(), "Projects", "TensorFlow", "TS", "Bot-Modules", "Learning-Bot", "Low-Frequency-Learning")
+    ]
+}
 
 // Check if WinOS because extra dependencies may be required for tfjs:
 var tfjsWinInstallFlag = false;

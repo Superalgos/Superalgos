@@ -37,7 +37,7 @@ exports.newHttpInterface = function newHttpInterface() {
             switch (endpointOrFile) {
                 case 'Images': // This means the Images folder.
                     {
-                        let path = global.env.PATH_TO_CLIENT + 'WebServer/Images/' + requestPath[2]
+                        let path = global.env.PATH_TO_CLIENT + '/WebServer/Images/' + requestPath[2]
 
                         if (requestPath[3] !== undefined) {
                             path = path + '/' + requestPath[3]

@@ -1075,17 +1075,17 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'LegacyPlotter.js':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/LegacyPlotter.js', httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/WebServer/LegacyPlotter.js', httpResponse)
                     }
                     break
                 case 'PlotterPanel.js':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/PlotterPanel.js', httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/WebServer/PlotterPanel.js', httpResponse)
                     }
                     break
                 case 'Images': // This means the Images folder.
                     {
-                        let path = global.env.PATH_TO_CLIENT + 'WebServer/Images/' + requestPath[2]
+                        let path = global.env.PATH_TO_CLIENT + '/WebServer/Images/' + requestPath[2]
 
                         if (requestPath[3] !== undefined) {
                             path = path + '/' + requestPath[3]
@@ -1167,12 +1167,12 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'WebServer': // This means the WebServer folder.
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/WebServer/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'externalScripts': // This means the WebServer folder.
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/externalScripts/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/WebServer/externalScripts/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Plotters': // This means the plotter folder, not to be confused with the Plotters script!
@@ -1187,12 +1187,12 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'ChartLayers':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_UI + '/' + endpointOrFile + '/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/UI/' + endpointOrFile + '/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Files':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_DATA_FILES + '/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/UI/Data-Files/src/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Fonts':

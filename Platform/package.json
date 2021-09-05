@@ -1,8 +1,8 @@
 {
-  "name": "client",
-  "version": "0.0.6",
-  "description": "BackendServer",
-  "main": "client.js",
+  "name": "Superalgos-Plarform",
+  "version": "0.0.11",
+  "description": "Superalgos Plarform",
+  "main": "PlatformApp.js",
   "author": {
     "name": "Luis-Fernando-Molina"
   },
@@ -13,7 +13,6 @@
     "ethereumjs-common": "^1.5.2",
     "ethereumjs-tx": "^2.1.2",
     "ethers": "^5.4.4",
-    "http": "0.0.1-security",
     "lookpath": "^1.2.2",
     "node-fetch": "^2.6.1",
     "open": "^8.2.1",

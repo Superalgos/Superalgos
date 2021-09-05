@@ -97,7 +97,7 @@ try {
     */
     SA.nodeModules = {
         fs: require('fs'),
-        nodeFetch: import('node-fetch'),
+        nodeFetch: require('node-fetch'),
         open: require('open'),
         http: require('http'),
         ccxt: require('ccxt')

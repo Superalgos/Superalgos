@@ -182,6 +182,7 @@ exports.newFoundationsUtilitiesHttpResponses = function () {
             let fs = SA.nodeModules.fs
 
             let fileName = pathToApp + '/WebServer/index.html'
+            console.log(fileName)
             fs.readFile(fileName, onFileRead)
 
             function onFileRead(err, file) {

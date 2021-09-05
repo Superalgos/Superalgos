@@ -10,10 +10,10 @@ exports.newEnvironment = function () {
         PATH_TO_LOG_FILES: './Log-Files',
         PATH_TO_PROJECTS_REQUIRED: './Projects',
         PATH_TO_PROJECT_SCHEMA: '../Projects/ProjectsSchema.json',
-        PATH_TO_CLIENT: './Client',
+        PATH_TO_CLIENT: './Platform',
         PATH_TO_DEFAULT_WORKSPACE: './Projects/Foundations/Plugins/Workspaces',
         PATH_TO_MY_WORKSPACES: './My-Workspaces',
-        PATH_TO_FONTS: './Client/WebServer/Fonts'
+        PATH_TO_FONTS: './Platform/WebServer/Fonts'
     }
 
     return thisObject

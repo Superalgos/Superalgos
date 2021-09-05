@@ -11,25 +11,23 @@ if (
 
     console.log('Superalgos')
     console.log('')
-    console.log('VERSION:          Beta 11')
+    console.log('VERSION:               Beta 11')
     console.log('')
-    console.log('WEB:              https://www.superalgos.org')
+    console.log('WEB:                   https://www.superalgos.org')
     console.log('')
-    console.log('GITHUB:           https://www.github.com/Superalgos')
+    console.log('GITHUB:                https://www.github.com/Superalgos')
     console.log('')
-    console.log('DOCUMENTATION:    https://docs.superalgos.org/')
+    console.log('TELEGRAM COMMUNITY:    https://t.me/superalgoscommunity')
     console.log('')
-    console.log('TELEGRAM SUPPORT: https://t.me/superalgoscommunity')
-    console.log('')
-    console.log('USAGE:            node run [help] [noBrowser] [minMemo]')
+    console.log('USAGE:                 node runPlatform [help] [noBrowser] [minMemo]')
     console.log('')
     console.log('OPTIONS:')
     console.log('')
-    console.log('                  help:        Optional. Use it to see this helping information.')
-    console.log('                  noBrowser:   Optional. Use it to launch Superalgos Client only. The UI will not be loaded.')
-    console.log('                  minMemo:     Optional. Use it when your hardware has less than 8 Gb or memory.')
+    console.log('                       help:        Optional. Use it to see this helping information.')
+    console.log('                       noBrowser:   Optional. Use it to launch Superalgos Platform Client only. The Superalgos Platform UI will not be loaded.')
+    console.log('                       minMemo:     Optional. Use it when your hardware has less than 8 Gb or memory.')
     console.log('')
-    console.log('If you are having an error while trying to run this Client, consider this:')
+    console.log('If you are having an error while trying to run the Superalgos Platform Client, consider this:')
 
     fatalErrorHelp()
     return
@@ -81,15 +79,15 @@ console.log('')
 console.log('')
 
 const fs = require('fs')
-const path = './Client/node_modules'
+const path = './Platform/node_modules'
 if ( fs.existsSync(path) ) {
 
     try {
         const { fork } = require('child_process')
-        fork('./Client/client.js', process.argv, options)
+        fork('./Platform/PlatformApp.js', process.argv, options)
     } catch (err) {
         console.log('')
-        console.log('Fail to create Client Process.')
+        console.log('Fail to create Superalgos Platform Client Process.')
         console.log('')
 
         fatalErrorHelp()
@@ -106,7 +104,7 @@ function fatalErrorHelp() {
     console.log('* If your device does not have MORE than 8GB of RAM then please use the minMemo option.')
     console.log('* If your OS does not have a user interface, please use the noBrowser option.')
     console.log('')
-    console.log('If you continue having trouble to start the Client try:')
+    console.log('If you continue having trouble to start the Superalgos Platform Client try:')
     console.log('')
-    console.log('node run minMemo noBrowser')
+    console.log('node runPlatform minMemo noBrowser')
 }

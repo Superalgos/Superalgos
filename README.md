@@ -135,7 +135,11 @@ After the Superalgos directory has been installed, the final step of installatio
 cd Superalgos
 ```
 
-That should take you inside the Superalgos folder created by the `git clone` command earlier. Now, run the following command:
+That should take you inside the Superalgos folder created by the `git clone` command earlier. 
+
+Now, you need to install dependencies, and there are two options:
+
+**A.** To install all basic dependencies run:
 
 ```
 node setup
@@ -144,6 +148,19 @@ node setup
 Then wait until you are able to type within the terminal again.
 
 This command will install and configure all additional dependencies needed by Superalgos. It will also install desktop and start menu shortcuts.
+
+**B.** If you intend to use the experimental implementation of the TensorFlow Project within Superalgos, then run:
+
+```
+node setup tensorflow
+```
+
+This command will install all dependencies plus TensorFlow dependencies.
+
+**NOTE FOR WINDOWS USERS INSTALLING TENSORFLOW DEPENDENCIES:** You may get an error at the end of the set up process. If you do, please follow the instructions following the error message.
+
+
+
 
 **NOTE FOR USERS INSTALLING MULTIPLE INSTANCES OF SUPERALGOS ON THE SAME MACHINE:** In order to avoid name conflicts between shortcuts, make sure to rename each Superalgos directory before running `node setup`.
 

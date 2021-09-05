@@ -15,7 +15,7 @@
     "ethers": "^5.4.4",
     "http": "0.0.1-security",
     "lookpath": "^1.2.2",
-    "node-fetch": "^3.0.0",
+    "node-fetch": "^2.6.1",
     "open": "^8.2.1",
     "rimraf": "^3.0.2",
     "simple-git": "^2.42.0",

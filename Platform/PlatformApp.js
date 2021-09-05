@@ -26,51 +26,51 @@ process.on('unhandledRejection', (reason, p) => {
     console.log('[ERROR] Platform App -> unhandledRejection -> p = ' + JSON.stringify(p))
     process.exit(1)
 })
-
-/* Callbacks default responses. */
-
-global.DEFAULT_OK_RESPONSE = {
-    result: "Ok",
-    message: "Operation Succeeded"
-};
-
-global.DEFAULT_FAIL_RESPONSE = {
-    result: "Fail",
-    message: "Operation Failed"
-};
-
-global.DEFAULT_RETRY_RESPONSE = {
-    result: 'Retry',
-    message: 'Retry Later'
-}
-
-global.CUSTOM_OK_RESPONSE = {
-    result: 'Ok, but check Message',
-    message: 'Custom Message'
-}
-
-global.CUSTOM_FAIL_RESPONSE = {
-    result: 'Fail Because',
-    message: 'Custom Message'
-}
-
-/* Servers */
-let WEB_SERVER = require('./Client/webServer.js')
-let DATA_FILE_SERVER = require('./Client/dataFileServer.js')
-let PROJECT_FILE_SERVER = require('./Client/projectFileServer.js')
-let UI_FILE_SERVER = require('./Client/uiFileServer.js')
-let PLUGIN_SERVER = require('./Client/pluginServer.js')
-let EVENT_SERVER = require('./Client/eventServer.js')
-let TASK_MANAGER_SERVER = require('./Client/taskManagerServer.js')
-let CCXT_SERVER = require('./Client/ccxtServer.js')
-let WEB3_SERVER = require('./Client/web3Server.js')
-let GITHUB_SERVER = require('./Client/githubServer.js')
-
-/* Network Interfaces */
-let WEB_SOCKETS_INTERFACE = require('./Client/webSocketsInterface.js')
-let HTTP_INTERFACE = require('./Client/httpInterface.js')
-
 try {
+    /* Callbacks default responses. */
+
+    global.DEFAULT_OK_RESPONSE = {
+        result: "Ok",
+        message: "Operation Succeeded"
+    };
+
+    global.DEFAULT_FAIL_RESPONSE = {
+        result: "Fail",
+        message: "Operation Failed"
+    };
+
+    global.DEFAULT_RETRY_RESPONSE = {
+        result: 'Retry',
+        message: 'Retry Later'
+    }
+
+    global.CUSTOM_OK_RESPONSE = {
+        result: 'Ok, but check Message',
+        message: 'Custom Message'
+    }
+
+    global.CUSTOM_FAIL_RESPONSE = {
+        result: 'Fail Because',
+        message: 'Custom Message'
+    }
+
+    /* Servers */
+    let WEB_SERVER = require('./Client/webServer.js')
+    let DATA_FILE_SERVER = require('./Client/dataFileServer.js')
+    let PROJECT_FILE_SERVER = require('./Client/projectFileServer.js')
+    let UI_FILE_SERVER = require('./Client/uiFileServer.js')
+    let PLUGIN_SERVER = require('./Client/pluginServer.js')
+    let EVENT_SERVER = require('./Client/eventServer.js')
+    let TASK_MANAGER_SERVER = require('./Client/taskManagerServer.js')
+    let CCXT_SERVER = require('./Client/ccxtServer.js')
+    let WEB3_SERVER = require('./Client/web3Server.js')
+    let GITHUB_SERVER = require('./Client/githubServer.js')
+
+    /* Network Interfaces */
+    let WEB_SOCKETS_INTERFACE = require('./Client/webSocketsInterface.js')
+    let HTTP_INTERFACE = require('./Client/httpInterface.js')
+
+
     /* 
     The CL object is accesible everywhere at the Superalgos Client. 
     It provides access to all modules built for this Client.
@@ -106,7 +106,7 @@ try {
     Setting up servers running inside this Client.
     */
     CL.servers = {}
-    console.log('CLIENT SERVERS:')
+    console.log('SUPERALGOS PLATFORM CLIENT SERVERS:')
     console.log('')
 
     CL.servers.WEB_SERVER = WEB_SERVER.newWebServer()
@@ -160,7 +160,7 @@ try {
     console.log('Github Server ............................................... Started')
 
     console.log('')
-    console.log('CLIENT INTERFACES:')
+    console.log('SUPERALGOS PLATFORM CLIENT INTERFACES:')
     console.log('')
 
     WEB_SOCKETS_INTERFACE = WEB_SOCKETS_INTERFACE.newWebSocketsInterface()
@@ -189,6 +189,6 @@ try {
     console.log('')
 
 } catch (err) {
-    console.log('[ERROR] Client -> Error = ' + err.stack)
+    console.log('[ERROR] Platform App -> Error = ' + err.stack)
 }
 

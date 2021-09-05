@@ -3,8 +3,8 @@
     "pageNumber": 15,
     "type": "Tutorial Step - Under the Hood",
     "definition": {
-        "text": "Let's take a little closer look at the cryptographic signature in your new profile.",
-        "updated": 1629554334739,
+        "text": "Let's take a closer look at the cryptographic signature in your new profile.",
+        "updated": 1630658552742,
         "icon": {
             "name": "User\\user-profile",
             "project": "Governance"
@@ -17,7 +17,7 @@
             "updated": 1629554250933
         },
         {
-            "style": "Text",
+            "style": "Note",
             "text": "Wow that’s a lot of numbers! Again, this is how the governance system will know that this User Profile belongs to the private key that signed the message, which in turn belongs to the address that will hold the tokens that confer your profile with Token Power.",
             "updated": 1629554289159
         }

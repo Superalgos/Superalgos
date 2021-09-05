@@ -361,7 +361,7 @@ exports.newFoundationsBotModulesTradingOrders = function (processIndex) {
 
         /* Create Order Procedure */
         tradingEngineOrder.status.value = 'Open'
-        tradingEngineOrder.identifier.value = TS.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
+        tradingEngineOrder.identifier.value = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
         tradingEngineOrder.begin.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.begin.value
         tradingEngineOrder.end.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.end.value
         tradingEngineOrder.serialNumber.value = tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.orders.value

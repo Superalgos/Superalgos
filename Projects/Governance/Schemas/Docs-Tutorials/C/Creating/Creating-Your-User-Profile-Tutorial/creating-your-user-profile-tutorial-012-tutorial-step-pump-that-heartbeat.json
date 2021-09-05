@@ -3,8 +3,8 @@
     "pageNumber": 12,
     "type": "Tutorial Step - Pump that Heartbeat!",
     "definition": {
-        "text": "Now let’s configure that Profile Constructor!",
-        "updated": 1629167519082,
+        "text": "Now let’s configure the Profile Constructor so that we may later build the profile!",
+        "updated": 1630658339365,
         "icon": {
             "name": "configuration",
             "project": "Governance"

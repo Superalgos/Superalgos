@@ -16,6 +16,15 @@
             "style": "Include",
             "text": "Governance->Concept->Token Power->Content",
             "updated": 1624780741084
+        },
+        {
+            "style": "Text",
+            "text": "There is a second concept that is crucial to how Superalgos values contributions: Reputation.",
+            "updated": 1630508777182
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reputation->Content"
         }
     ]
 }

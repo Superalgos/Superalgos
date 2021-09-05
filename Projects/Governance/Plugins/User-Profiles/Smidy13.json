@@ -332,8 +332,8 @@
                         "id": "09be5479-b174-4657-83ff-a6733bfaad19",
                         "savedPayload": {
                             "position": {
-                                "x": 25506.07036040197,
-                                "y": 16070.88237339432
+                                "x": 25493.203803432192,
+                                "y": 16079.891633575364
                             },
                             "targetPosition": {
                                 "x": 25757.707166963806,
@@ -373,8 +373,8 @@
                         "id": "93e677af-a294-4b5b-b6ce-9702c49e7336",
                         "savedPayload": {
                             "position": {
-                                "x": 25648.842313943955,
-                                "y": 16007.316204219891
+                                "x": 25618.64951949508,
+                                "y": 16015.97384871127
                             },
                             "targetPosition": {
                                 "x": 25757.707166963806,
@@ -408,14 +408,14 @@
                     },
                     {
                         "type": "User Supporter",
-                        "name": "",
+                        "name": "PLuv",
                         "config": "{}",
                         "project": "Governance",
                         "id": "db5ddf80-ca21-47c7-bd78-0cb2a23fd85d",
                         "savedPayload": {
                             "position": {
-                                "x": 25804.74497543425,
-                                "y": 15996.414428128366
+                                "x": 25757.707166963806,
+                                "y": 15993.94928104409
                             },
                             "targetPosition": {
                                 "x": 25757.707166963806,
@@ -449,14 +449,14 @@
                     },
                     {
                         "type": "User Supporter",
-                        "name": "",
+                        "name": "cozed-gh",
                         "config": "{}",
                         "project": "Governance",
                         "id": "725c04ba-9bf7-4dfb-9362-f57a461489c3",
                         "savedPayload": {
                             "position": {
-                                "x": 25954.97418301889,
-                                "y": 16039.491960209465
+                                "x": 25896.764814432532,
+                                "y": 16015.97384871127
                             },
                             "targetPosition": {
                                 "x": 25757.707166963806,
@@ -490,14 +490,14 @@
                     },
                     {
                         "type": "User Supporter",
-                        "name": "",
+                        "name": "harrellbm",
                         "config": "{}",
                         "project": "Governance",
                         "id": "f565331c-acb6-4975-90c6-d5adbbc519f2",
                         "savedPayload": {
                             "position": {
-                                "x": 26081.410077116197,
-                                "y": 16131.353014337541
+                                "x": 26022.21053049542,
+                                "y": 16079.891633575364
                             },
                             "targetPosition": {
                                 "x": 25757.707166963806,
@@ -531,14 +531,14 @@
                     },
                     {
                         "type": "User Supporter",
-                        "name": "",
+                        "name": "ssplatt",
                         "config": "{}",
                         "project": "Governance",
                         "id": "8128018a-3e92-45cf-9009-628e33bb7ea9",
                         "savedPayload": {
                             "position": {
-                                "x": 26168.80262290298,
-                                "y": 16260.91779165998
+                                "x": 26121.764814432532,
+                                "y": 16179.445917512478
                             },
                             "targetPosition": {
                                 "x": 25757.707166963806,
@@ -569,6 +569,45 @@
                                 ]
                             ]
                         }
+                    },
+                    {
+                        "type": "User Supporter",
+                        "name": "Raplh2502",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "e35f5841-7f50-413c-b93e-8853f726a8d6",
+                        "savedPayload": {
+                            "position": {
+                                "x": 26185.682599296626,
+                                "y": 16304.891633575364
+                            },
+                            "targetPosition": {
+                                "x": 25757.707166963806,
+                                "y": 16443.94928104409
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "Raplh2502",
+                                "id": "59a87d1a-0457-4a49-a11b-216716e5c889"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "Raplh2502",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
                     }
                 ],
                 "tokensAwarded": {
@@ -578,8 +617,8 @@
                     "id": "d1c9f943-78da-4c8f-af8f-1869890176ef",
                     "savedPayload": {
                         "position": {
-                            "x": 26206.610989580728,
-                            "y": 16412.558867859232
+                            "x": 26207.707166963806,
+                            "y": 16443.94928104409
                         },
                         "targetPosition": {
                             "x": 25757.707166963806,
@@ -605,8 +644,8 @@
                     "id": "3077ee81-0387-40e0-a4de-80075da14355",
                     "savedPayload": {
                         "position": {
-                            "x": 26190.27493013605,
-                            "y": 16567.98609116174
+                            "x": 26185.682599296626,
+                            "y": 16583.006928512816
                         },
                         "targetPosition": {
                             "x": 25757.707166963806,
@@ -910,7 +949,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -973,7 +1012,7 @@
                                                                 "featureClaimVotes": [
                                                                     {
                                                                         "type": "Feature Claim Vote",
-                                                                        "name": "Luis-Fernando-Molina ",
+                                                                        "name": "Luis-Fernando-Molina Governance System New Features",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "5470585c-e41a-4f96-991a-3e931fb4471a",
@@ -999,7 +1038,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Feature Contribution Claim",
-                                                                                "name": "",
+                                                                                "name": "Governance System New Features",
                                                                                 "id": "92f0f22e-f631-482d-88b1-c16596bf951d"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -1046,7 +1085,7 @@
                                                                                     "c4815ebe-d3a8-47fd-b204-936242bd8f40"
                                                                                 ],
                                                                                 [
-                                                                                    "",
+                                                                                    "Governance System New Features",
                                                                                     "Feature Contribution Claim",
                                                                                     "Governance",
                                                                                     "92f0f22e-f631-482d-88b1-c16596bf951d"
@@ -1056,7 +1095,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Feature Claim Vote",
-                                                                        "name": "Luis-Fernando-Molina ",
+                                                                        "name": "Luis-Fernando-Molina API Maps New Features",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "0fcfac9f-7889-47e3-8023-feaab4e9fadc",
@@ -1082,7 +1121,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Feature Contribution Claim",
-                                                                                "name": "",
+                                                                                "name": "API Maps New Features",
                                                                                 "id": "81c477e0-c9bf-4b25-a875-d265011a6136"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -1129,7 +1168,7 @@
                                                                                     "c4815ebe-d3a8-47fd-b204-936242bd8f40"
                                                                                 ],
                                                                                 [
-                                                                                    "",
+                                                                                    "API Maps New Features",
                                                                                     "Feature Contribution Claim",
                                                                                     "Governance",
                                                                                     "81c477e0-c9bf-4b25-a875-d265011a6136"
@@ -1351,12 +1390,12 @@
                                         "id": "2c25ace8-b80b-4a76-b636-612d6e289604",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 26099.798986281297,
-                                                "y": 16563.131868076354
+                                                "x": 26331.83456213587,
+                                                "y": 16648.097435530453
                                             },
                                             "targetPosition": {
-                                                "x": 26241.959585023196,
-                                                "y": 16827.310527633377
+                                                "x": 26339.687646628234,
+                                                "y": 16947.99463302312
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -1734,7 +1773,7 @@
                                                                 "assetClaimVotes": [
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-001-data-mining-introduction.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "6b9ec56c-441a-43d4-9947-de7b0737d677",
@@ -1760,7 +1799,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-001-data-mining-introduction.json",
+                                                                                "name": "",
                                                                                 "id": "7374f808-a7fb-4025-aef9-a7f263a56d4b"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -1807,7 +1846,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-001-data-mining-introduction.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "7374f808-a7fb-4025-aef9-a7f263a56d4b"
@@ -1817,7 +1856,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-002-data-mining-workflows.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "041e4bc0-59e1-4e08-87a4-d252613a2fb1",
@@ -1843,7 +1882,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-002-data-mining-workflows.json",
+                                                                                "name": "",
                                                                                 "id": "c50ab92b-383d-4ba4-bacd-769542c676c1"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -1890,7 +1929,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-002-data-mining-workflows.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "c50ab92b-383d-4ba4-bacd-769542c676c1"
@@ -1900,7 +1939,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-003-data-mining-dataset-types.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "ea797037-4d84-496b-a171-a81ceab5f2fc",
@@ -1926,7 +1965,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-003-data-mining-dataset-types.json",
+                                                                                "name": "",
                                                                                 "id": "872621cd-d92e-4173-8d76-d0bb94432c0f"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -1973,7 +2012,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-003-data-mining-dataset-types.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "872621cd-d92e-4173-8d76-d0bb94432c0f"
@@ -1983,7 +2022,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-004-data-mining-datasets-type-conversions.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "26741720-6d08-4ced-b91f-f89d1dc521b6",
@@ -2009,7 +2048,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-004-data-mining-datasets-type-conversions.json",
+                                                                                "name": "",
                                                                                 "id": "1ef85d88-ab0a-4fb9-b193-77e0f88d091b"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -2056,7 +2095,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-004-data-mining-datasets-type-conversions.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "1ef85d88-ab0a-4fb9-b193-77e0f88d091b"
@@ -2066,7 +2105,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-005-data-mining-indicator-frameworks.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "cd59bcca-45e5-488c-b1f8-e68f6712592b",
@@ -2092,7 +2131,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-005-data-mining-indicator-frameworks.json",
+                                                                                "name": "",
                                                                                 "id": "c5a82a80-d288-4534-8862-8f4c0b31a7a9"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -2139,7 +2178,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-005-data-mining-indicator-frameworks.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "c5a82a80-d288-4534-8862-8f4c0b31a7a9"
@@ -2149,7 +2188,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-006-data-mining-data-mine-hierarchy.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "116902c3-4fed-4ddf-8ae4-bdd3c3f15899",
@@ -2175,7 +2214,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-006-data-mining-data-mine-hierarchy.json",
+                                                                                "name": "",
                                                                                 "id": "8089412c-2b1e-4173-950d-457ea2a4d53f"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -2222,7 +2261,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-006-data-mining-data-mine-hierarchy.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "8089412c-2b1e-4173-950d-457ea2a4d53f"
@@ -2232,7 +2271,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-007-data-mining-managing-execution.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "474170b5-1ed4-4d51-b76d-d5dc2aa02be7",
@@ -2258,7 +2297,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-007-data-mining-managing-execution.json",
+                                                                                "name": "",
                                                                                 "id": "797f9fcc-ebd6-444f-99eb-e1d00dc7ed8d"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -2305,7 +2344,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-007-data-mining-managing-execution.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "797f9fcc-ebd6-444f-99eb-e1d00dc7ed8d"
@@ -2315,7 +2354,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-008-data-mining-data-dependencies.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "027b943b-c44f-4287-914b-f475edcf18cf",
@@ -2341,7 +2380,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-008-data-mining-data-dependencies.json",
+                                                                                "name": "",
                                                                                 "id": "040cb5e5-985a-4a85-89b2-d8843845168a"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -2388,7 +2427,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-008-data-mining-data-dependencies.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "040cb5e5-985a-4a85-89b2-d8843845168a"
@@ -2398,7 +2437,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-009-data-mining-status-reports.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "580e4bdc-a50c-49b9-91de-20a273d009a9",
@@ -2424,7 +2463,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-009-data-mining-status-reports.json",
+                                                                                "name": "",
                                                                                 "id": "43baad58-8f7f-45e1-bf55-0bb21cbc33e5"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -2471,7 +2510,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-009-data-mining-status-reports.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "43baad58-8f7f-45e1-bf55-0bb21cbc33e5"
@@ -2481,7 +2520,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-010-data-mining-status-dependencies.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "368c1b49-846b-436f-9773-43b4fa73ecee",
@@ -2507,7 +2546,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-010-data-mining-status-dependencies.json",
+                                                                                "name": "",
                                                                                 "id": "7bfd9ed1-1305-4e60-8411-deaa5ef5d48e"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -2554,7 +2593,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-010-data-mining-status-dependencies.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "7bfd9ed1-1305-4e60-8411-deaa5ef5d48e"
@@ -2564,7 +2603,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-011-data-mining-deployments.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "4d7374c1-f526-4504-a55e-3c30492e9684",
@@ -2590,7 +2629,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-011-data-mining-deployments.json",
+                                                                                "name": "",
                                                                                 "id": "25a02023-7635-408c-b6db-28e9c53017d5"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -2637,7 +2676,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-011-data-mining-deployments.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "25a02023-7635-408c-b6db-28e9c53017d5"
@@ -2647,7 +2686,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-012-data-mining-products.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "a5cf1c4b-5afc-4fec-9720-18344584e6e8",
@@ -2673,7 +2712,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-012-data-mining-products.json",
+                                                                                "name": "",
                                                                                 "id": "0e4fecd0-117d-46f0-9f54-67c7d7bd7f1a"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -2720,7 +2759,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-012-data-mining-products.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "0e4fecd0-117d-46f0-9f54-67c7d7bd7f1a"
@@ -2730,7 +2769,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-013-data-mining-plotting.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "061dcc9a-994e-46e9-9564-57582103aa00",
@@ -2756,7 +2795,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-013-data-mining-plotting.json",
+                                                                                "name": "",
                                                                                 "id": "18543f20-fc0e-4a9d-b893-00647cdbd0e3"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -2803,7 +2842,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-013-data-mining-plotting.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "18543f20-fc0e-4a9d-b893-00647cdbd0e3"
@@ -2813,7 +2852,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-014-data-mining-fetching-data-from-apis.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "62505b43-6945-4860-9fcf-bd9b82327eed",
@@ -2839,7 +2878,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-014-data-mining-fetching-data-from-apis.json",
+                                                                                "name": "",
                                                                                 "id": "94bfa541-6b42-4932-84c9-09b4b6128088"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -2886,7 +2925,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-014-data-mining-fetching-data-from-apis.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "94bfa541-6b42-4932-84c9-09b4b6128088"
@@ -2896,7 +2935,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-015-data-mining-consuming-data-from-strategies.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "a9762887-50c7-496c-a69d-8fbf2a17981c",
@@ -2922,7 +2961,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-015-data-mining-consuming-data-from-strategies.json",
+                                                                                "name": "",
                                                                                 "id": "1e539e74-e1f5-4d9f-9669-904b4b6936ef"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -2969,7 +3008,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-015-data-mining-consuming-data-from-strategies.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "1e539e74-e1f5-4d9f-9669-904b4b6936ef"
@@ -2979,7 +3018,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-016-data-mining-indicator-bots.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "4421b81c-b2f8-4711-a440-6ea28ff499b9",
@@ -3005,7 +3044,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-016-data-mining-indicator-bots.json",
+                                                                                "name": "",
                                                                                 "id": "6fa9cd03-2703-4298-8d0d-49642dddba24"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -3052,7 +3091,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-016-data-mining-indicator-bots.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "6fa9cd03-2703-4298-8d0d-49642dddba24"
@@ -3062,7 +3101,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-017-data-mining-indicator-bots-process-definition.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "39151ff0-7ea4-414f-8a72-a9db2cd0f2d0",
@@ -3088,7 +3127,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-017-data-mining-indicator-bots-process-definition.json",
+                                                                                "name": "",
                                                                                 "id": "a09c682d-dd6a-474e-9811-1b4d3bc55a4d"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -3135,7 +3174,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-017-data-mining-indicator-bots-process-definition.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "a09c682d-dd6a-474e-9811-1b4d3bc55a4d"
@@ -3145,7 +3184,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-018-data-mining-indicator-bots-product-definition.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "cebe3e37-dd1b-4ac6-aafc-ebed4885b4db",
@@ -3171,7 +3210,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-018-data-mining-indicator-bots-product-definition.json",
+                                                                                "name": "",
                                                                                 "id": "d56fc2b2-4d19-4483-833c-253dd2b8f2d8"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -3218,7 +3257,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-018-data-mining-indicator-bots-product-definition.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "d56fc2b2-4d19-4483-833c-253dd2b8f2d8"
@@ -3228,7 +3267,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-019-data-mining-indicator-bots-data-mining-workflow.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "6bedca45-4dab-4e73-8804-9701f06240e8",
@@ -3254,7 +3293,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-019-data-mining-indicator-bots-data-mining-workflow.json",
+                                                                                "name": "",
                                                                                 "id": "dd6fbf37-f460-47f6-a958-5a595b7de2a7"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -3301,7 +3340,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-019-data-mining-indicator-bots-data-mining-workflow.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "dd6fbf37-f460-47f6-a958-5a595b7de2a7"
@@ -3311,7 +3350,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-020-data-mining-indicator-bots-coding-the-indicators-logic.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "1c080b8a-5332-492d-99ce-427afb93a1a3",
@@ -3337,7 +3376,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-020-data-mining-indicator-bots-coding-the-indicators-logic.json",
+                                                                                "name": "",
                                                                                 "id": "554c413c-cd47-4e79-9b14-c9a1f2e88f5b"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -3384,7 +3423,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-020-data-mining-indicator-bots-coding-the-indicators-logic.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "554c413c-cd47-4e79-9b14-c9a1f2e88f5b"
@@ -3394,7 +3433,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-021-data-mining-plotters.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "5fb662fd-cbd6-4e6b-ae01-aced70f8d0c9",
@@ -3420,7 +3459,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-021-data-mining-plotters.json",
+                                                                                "name": "",
                                                                                 "id": "719a919d-02b7-4335-b93d-d1062485393e"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -3467,7 +3506,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-021-data-mining-plotters.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "719a919d-02b7-4335-b93d-d1062485393e"
@@ -3477,7 +3516,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-022-data-mining-plotters-shapes.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "3962307d-49b3-4fce-9ddc-ae9af05461b5",
@@ -3503,7 +3542,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-022-data-mining-plotters-shapes.json",
+                                                                                "name": "",
                                                                                 "id": "4ec17db7-bd10-4277-b25a-97d66a2a8465"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -3550,7 +3589,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-022-data-mining-plotters-shapes.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "4ec17db7-bd10-4277-b25a-97d66a2a8465"
@@ -3560,7 +3599,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "Julian-Molina Data Data-Mining data-mining-023-data-mining-how-to-build-an-indicator-video-series.json",
+                                                                        "name": "Julian-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "e651b334-ef96-4b2f-8836-83a44aa985fa",
@@ -3586,7 +3625,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Asset Contribution Claim",
-                                                                                "name": "Data Data-Mining data-mining-023-data-mining-how-to-build-an-indicator-video-series.json",
+                                                                                "name": "",
                                                                                 "id": "dd17448e-2219-4f9f-8af8-bd88e0ecc8a9"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -3633,7 +3672,7 @@
                                                                                     "c718cbbb-6f32-4d77-acc5-601f7cb44189"
                                                                                 ],
                                                                                 [
-                                                                                    "Data Data-Mining data-mining-023-data-mining-how-to-build-an-indicator-video-series.json",
+                                                                                    "",
                                                                                     "Asset Contribution Claim",
                                                                                     "Governance",
                                                                                     "dd17448e-2219-4f9f-8af8-bd88e0ecc8a9"
@@ -3870,7 +3909,7 @@
                                                                 "positionClaimVotes": [
                                                                     {
                                                                         "type": "Position Claim Vote",
-                                                                        "name": "Julian-Molina ",
+                                                                        "name": "Julian-Molina Marketing Lead Rewarded Positions",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "bccefe00-20df-4c21-86c0-ea47c293e152",
@@ -3896,7 +3935,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Position Contribution Claim",
-                                                                                "name": "",
+                                                                                "name": "Marketing Lead Rewarded Positions",
                                                                                 "id": "924ae88a-510a-4d4b-8d8d-906be074e3c8"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -3943,7 +3982,7 @@
                                                                                     "5330adbb-3e69-403d-947f-20ec99c48561"
                                                                                 ],
                                                                                 [
-                                                                                    "",
+                                                                                    "Marketing Lead Rewarded Positions",
                                                                                     "Position Contribution Claim",
                                                                                     "Governance",
                                                                                     "924ae88a-510a-4d4b-8d8d-906be074e3c8"
@@ -3953,7 +3992,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Position Claim Vote",
-                                                                        "name": "Julian-Molina ",
+                                                                        "name": "Julian-Molina Webmaster Superalgos.org Rewarded Positions",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "a383a990-9e6f-40ab-a99b-1750802e6040",
@@ -3979,7 +4018,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Position Contribution Claim",
-                                                                                "name": "",
+                                                                                "name": "Webmaster Superalgos.org Rewarded Positions",
                                                                                 "id": "e65b1b4d-d9dc-476c-90fa-a7bf4b2ba3b0"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -4026,7 +4065,7 @@
                                                                                     "5330adbb-3e69-403d-947f-20ec99c48561"
                                                                                 ],
                                                                                 [
-                                                                                    "",
+                                                                                    "Webmaster Superalgos.org Rewarded Positions",
                                                                                     "Position Contribution Claim",
                                                                                     "Governance",
                                                                                     "e65b1b4d-d9dc-476c-90fa-a7bf4b2ba3b0"
@@ -4036,7 +4075,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Position Claim Vote",
-                                                                        "name": "Julian-Molina ",
+                                                                        "name": "Julian-Molina Social Media Accounts Manager Rewarded Positions",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "71717532-ab8f-488b-bf8c-3edd47d4876f",
@@ -4062,7 +4101,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Position Contribution Claim",
-                                                                                "name": "",
+                                                                                "name": "Social Media Accounts Manager Rewarded Positions",
                                                                                 "id": "00c47bb5-1fb4-470d-a86c-29b46836ba8c"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -4109,7 +4148,7 @@
                                                                                     "5330adbb-3e69-403d-947f-20ec99c48561"
                                                                                 ],
                                                                                 [
-                                                                                    "",
+                                                                                    "Social Media Accounts Manager Rewarded Positions",
                                                                                     "Position Contribution Claim",
                                                                                     "Governance",
                                                                                     "00c47bb5-1fb4-470d-a86c-29b46836ba8c"
@@ -4283,7 +4322,7 @@
                                                                         "positionClaimVotes": [
                                                                             {
                                                                                 "type": "Position Claim Vote",
-                                                                                "name": "Julian-Molina ",
+                                                                                "name": "Julian-Molina Telgram Groups / Discord Server Manager Community Management",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "450b1fd5-b24d-4d69-8e03-79912cf4a2c7",
@@ -4309,7 +4348,7 @@
                                                                                     },
                                                                                     "referenceParent": {
                                                                                         "type": "Position Contribution Claim",
-                                                                                        "name": "",
+                                                                                        "name": "Telgram Groups / Discord Server Manager Community Management",
                                                                                         "id": "e2e294a7-bfab-43c3-821f-f8f93f4adcd7"
                                                                                     },
                                                                                     "referenceParentCombinedNodePath": [
@@ -4362,7 +4401,7 @@
                                                                                             "d208f55d-98d9-49b9-addd-e1153d86f655"
                                                                                         ],
                                                                                         [
-                                                                                            "",
+                                                                                            "Telgram Groups / Discord Server Manager Community Management",
                                                                                             "Position Contribution Claim",
                                                                                             "Governance",
                                                                                             "e2e294a7-bfab-43c3-821f-f8f93f4adcd7"
@@ -4460,7 +4499,7 @@
                                                                         "positionClaimVotes": [
                                                                             {
                                                                                 "type": "Position Claim Vote",
-                                                                                "name": "Julian-Molina ",
+                                                                                "name": "Julian-Molina Business Lead Business",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "94232766-3101-408a-ae08-fae411230745",
@@ -4486,7 +4525,7 @@
                                                                                     },
                                                                                     "referenceParent": {
                                                                                         "type": "Position Contribution Claim",
-                                                                                        "name": "",
+                                                                                        "name": "Business Lead Business",
                                                                                         "id": "f6bc13cb-c70b-4a42-9491-6796aa862d54"
                                                                                     },
                                                                                     "referenceParentCombinedNodePath": [
@@ -4539,7 +4578,7 @@
                                                                                             "9aa27341-8bb6-4f69-958a-53671709c2ec"
                                                                                         ],
                                                                                         [
-                                                                                            "",
+                                                                                            "Business Lead Business",
                                                                                             "Position Contribution Claim",
                                                                                             "Governance",
                                                                                             "f6bc13cb-c70b-4a42-9491-6796aa862d54"
@@ -4637,7 +4676,7 @@
                                                                         "positionClaimVotes": [
                                                                             {
                                                                                 "type": "Position Claim Vote",
-                                                                                "name": "Julian-Molina ",
+                                                                                "name": "Julian-Molina Member Core Team",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "93afe140-cd06-4de7-865e-1aeb425b6c3a",
@@ -4663,7 +4702,7 @@
                                                                                     },
                                                                                     "referenceParent": {
                                                                                         "type": "Position Contribution Claim",
-                                                                                        "name": "",
+                                                                                        "name": "Member Core Team",
                                                                                         "id": "74b80085-5336-4046-959d-2d7367d4e0a0"
                                                                                     },
                                                                                     "referenceParentCombinedNodePath": [
@@ -4716,7 +4755,7 @@
                                                                                             "c63ca77a-3d16-42bc-a50d-048ad2052430"
                                                                                         ],
                                                                                         [
-                                                                                            "",
+                                                                                            "Member Core Team",
                                                                                             "Position Contribution Claim",
                                                                                             "Governance",
                                                                                             "74b80085-5336-4046-959d-2d7367d4e0a0"
@@ -5022,12 +5061,12 @@
                                         "id": "524eda3d-3bb3-47c7-95fd-be4d2066e8f7",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 26228.500135918042,
-                                                "y": 16527.612607670984
+                                                "x": 26447.198031491826,
+                                                "y": 16667.920505073962
                                             },
                                             "targetPosition": {
-                                                "x": 26241.959585023196,
-                                                "y": 16827.310527633377
+                                                "x": 26339.687646628234,
+                                                "y": 16947.99463302312
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -5058,7 +5097,7 @@
                                                 "assetClaimVotes": [
                                                     {
                                                         "type": "Asset Claim Vote",
-                                                        "name": "",
+                                                        "name": "PLuv ",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "d583f02c-565f-4fdd-a744-5ef99fb3cdd1",
@@ -5113,7 +5152,7 @@
                                                                     "647eddb0-6989-49ca-9288-8aaade078bec"
                                                                 ],
                                                                 [
-                                                                    "New Asset Claims Folder",
+                                                                    "Pluvtech Data Mine",
                                                                     "Asset Claims Folder",
                                                                     "Governance",
                                                                     "dc382aa3-fb73-4770-817d-2d69da57fd26"
@@ -5152,7 +5191,7 @@
                                                     },
                                                     "referenceParent": {
                                                         "type": "Asset Claims Folder",
-                                                        "name": "New Asset Claims Folder",
+                                                        "name": "Pluvtech Data Mine",
                                                         "id": "dc382aa3-fb73-4770-817d-2d69da57fd26"
                                                     },
                                                     "referenceParentCombinedNodePath": [
@@ -5181,7 +5220,7 @@
                                                             "647eddb0-6989-49ca-9288-8aaade078bec"
                                                         ],
                                                         [
-                                                            "New Asset Claims Folder",
+                                                            "Pluvtech Data Mine",
                                                             "Asset Claims Folder",
                                                             "Governance",
                                                             "dc382aa3-fb73-4770-817d-2d69da57fd26"
@@ -5200,7 +5239,7 @@
                                                 "featureClaimVotes": [
                                                     {
                                                         "type": "Feature Claim Vote",
-                                                        "name": "",
+                                                        "name": "PLuv Tensor Flow Integration New Features",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "929567d0-0336-46c6-9210-6a1c81f5ae49",
@@ -5271,7 +5310,7 @@
                                                     },
                                                     {
                                                         "type": "Feature Claim Vote",
-                                                        "name": "",
+                                                        "name": "PLuv User Defined Variables and Code New Features",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "15b23c60-caae-443e-b466-0c69493c927f",
@@ -5410,7 +5449,7 @@
                                                 "positionClaimVotes": [
                                                     {
                                                         "type": "Position Claim Vote",
-                                                        "name": "",
+                                                        "name": "PLuv Moderator Community Management",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "6550bc96-76b3-4fb1-ba33-0e0e189db948",
@@ -5620,12 +5659,12 @@
                                         "id": "d0a10f6a-c53d-42a1-959a-bba931370579",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 26359.867094519373,
-                                                "y": 16551.452195867943
+                                                "x": 26546.19401933636,
+                                                "y": 16730.382321719437
                                             },
                                             "targetPosition": {
-                                                "x": 26241.959585023196,
-                                                "y": 16827.310527633377
+                                                "x": 26339.687646628234,
+                                                "y": 16947.99463302312
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -5668,7 +5707,7 @@
                                                                 "assetClaimVotes": [
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "",
+                                                                        "name": "harrellbm ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "18d58a85-fdc8-42fd-bd0a-d46fd5b4af35",
@@ -5903,7 +5942,7 @@
                                                         "assetClaimVotes": [
                                                             {
                                                                 "type": "Asset Claim Vote",
-                                                                "name": "",
+                                                                "name": "harrellbm ",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "3a0b7124-ed53-413e-8681-da5be058296b",
@@ -6062,7 +6101,7 @@
                                                                 "assetClaimVotes": [
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "",
+                                                                        "name": "harrellbm ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "015d7af0-9f3a-44e4-a0e4-c98a858c5719",
@@ -6227,7 +6266,7 @@
                                                                 "assetClaimVotes": [
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "",
+                                                                        "name": "harrellbm ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "5f301af6-056c-446b-8c9a-5acc94e5540e",
@@ -6468,7 +6507,7 @@
                                                                 "assetClaimVotes": [
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "",
+                                                                        "name": "harrellbm ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "91bc64ec-da2d-4a34-a611-c383e47feac7",
@@ -6633,7 +6672,7 @@
                                                                 "assetClaimVotes": [
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "",
+                                                                        "name": "harrellbm ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "e9eee481-5454-4f21-ab66-51674fd42aa0",
@@ -6874,7 +6913,7 @@
                                                                 "assetClaimVotes": [
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "",
+                                                                        "name": "harrellbm ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "9c5e5318-a360-47b2-a484-61fedc153005",
@@ -7039,7 +7078,7 @@
                                                                 "assetClaimVotes": [
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "",
+                                                                        "name": "harrellbm ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "42a79506-a7ea-4ece-aa32-9a6115d6c730",
@@ -7204,7 +7243,7 @@
                                                                 "assetClaimVotes": [
                                                                     {
                                                                         "type": "Asset Claim Vote",
-                                                                        "name": "",
+                                                                        "name": "harrellbm Superalgos Root README.md",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "411828ab-fa58-4bb6-b8ed-834318095ce0",
@@ -7510,7 +7549,7 @@
                                                         "featureClaimVotes": [
                                                             {
                                                                 "type": "Feature Claim Vote",
-                                                                "name": "",
+                                                                "name": "harrellbm Visual Designer Existing Features",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "1d48ed77-80ec-4b83-b033-5172dfc77057",
@@ -7663,7 +7702,7 @@
                                                         "featureClaimVotes": [
                                                             {
                                                                 "type": "Feature Claim Vote",
-                                                                "name": "",
+                                                                "name": "harrellbm Governance System New Features",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "fc2983e5-1b88-4e7c-8fb8-7fadded2f4e7",
@@ -7740,7 +7779,7 @@
                                                             },
                                                             {
                                                                 "type": "Feature Claim Vote",
-                                                                "name": "",
+                                                                "name": "harrellbm API Maps New Features",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "922ce401-2891-468c-a49e-7a5c3f947f01",
@@ -7817,7 +7856,7 @@
                                                             },
                                                             {
                                                                 "type": "Feature Claim Vote",
-                                                                "name": "",
+                                                                "name": "harrellbm Node Setup Script New Features",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "e2ce092e-8034-41e4-a2ab-c5a307996b84",
@@ -7894,7 +7933,7 @@
                                                             },
                                                             {
                                                                 "type": "Feature Claim Vote",
-                                                                "name": "",
+                                                                "name": "harrellbm Shortcuts New Features",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "68cf261a-cc19-4c3d-8666-2fc823607f8b",
@@ -7971,7 +8010,7 @@
                                                             },
                                                             {
                                                                 "type": "Feature Claim Vote",
-                                                                "name": "",
+                                                                "name": "harrellbm Reference Auto Fix New Features",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "ece51854-0551-4be4-bd8a-e3fc4ff4002c",
@@ -8048,7 +8087,7 @@
                                                             },
                                                             {
                                                                 "type": "Feature Claim Vote",
-                                                                "name": "",
+                                                                "name": "harrellbm Find Missing References Utility New Features",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "6d74c307-fec1-4f4d-b8b9-0dc4768982ff",
@@ -8125,7 +8164,7 @@
                                                             },
                                                             {
                                                                 "type": "Feature Claim Vote",
-                                                                "name": "",
+                                                                "name": "harrellbm Uninstall Script New Features",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "8a2a5809-7539-41ea-bfc9-609c618948e8",
@@ -8202,7 +8241,7 @@
                                                             },
                                                             {
                                                                 "type": "Feature Claim Vote",
-                                                                "name": "",
+                                                                "name": "harrellbm Tutorial Smooth Transition and Maptoggle Option New Features",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "3e0ed050-e9a1-4b96-9584-5e7783beb451",
@@ -8423,7 +8462,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "",
+                                                                "name": "harrellbm Moderator Community Management",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "9ada3c9e-c4dd-480f-ac42-31d082da6d06",
@@ -8576,7 +8615,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "",
+                                                                "name": "harrellbm Member Core Team",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "1c64efee-2875-434f-ac73-13587a0a6c65",
@@ -8791,12 +8830,12 @@
                                         "id": "6bc6f8a2-2053-48b9-a903-ea504b3c5da5",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 26467.88102482428,
-                                                "y": 16629.928909851464
+                                                "x": 26613.751283921014,
+                                                "y": 16825.973640100383
                                             },
                                             "targetPosition": {
-                                                "x": 26241.959585023196,
-                                                "y": 16827.310527633377
+                                                "x": 26339.687646628234,
+                                                "y": 16947.99463302312
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -8827,7 +8866,7 @@
                                                 "assetClaimVotes": [
                                                     {
                                                         "type": "Asset Claim Vote",
-                                                        "name": "",
+                                                        "name": "ssplatt Superalgos Docker docker-compose.yml",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "4148a07f-e1ed-4672-8480-16127ab8dbf6",
@@ -8898,7 +8937,7 @@
                                                     },
                                                     {
                                                         "type": "Asset Claim Vote",
-                                                        "name": "",
+                                                        "name": "ssplatt Superalgos Docker Dockerfile",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "062a97e3-af61-44d0-a05d-b19472906843",
@@ -9038,7 +9077,7 @@
                                                 "positionClaimVotes": [
                                                     {
                                                         "type": "Position Claim Vote",
-                                                        "name": "",
+                                                        "name": "ssplatt Moderator Community Management",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "7201bbed-35ea-4791-9e9b-18a616443d4e",
@@ -9177,12 +9216,12 @@
                                         "id": "d806e08a-57dd-45e9-9a27-17480eeecd28",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 26531.148443231952,
-                                                "y": 16747.499473963373
+                                                "x": 26639.584844120902,
+                                                "y": 16940.14154853076
                                             },
                                             "targetPosition": {
-                                                "x": 26241.959585023196,
-                                                "y": 16827.310527633377
+                                                "x": 26339.687646628234,
+                                                "y": 16947.99463302312
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -9214,18 +9253,18 @@
                                                 "featureClaimVotes": [
                                                     {
                                                         "type": "Feature Claim Vote",
-                                                        "name": "",
+                                                        "name": "cozed-gh Data Mining Existing Features",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "e399eaac-f0c6-430d-b263-a5176ac1757e",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 27101.970341599328,
-                                                                "y": 16678.479603643267
+                                                                "x": 27212.374778934474,
+                                                                "y": 16961.644338862574
                                                             },
                                                             "targetPosition": {
-                                                                "x": 26819.554401601057,
-                                                                "y": 16779.678599858118
+                                                                "x": 26916.068276755934,
+                                                                "y": 17008.574678374644
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -9287,12 +9326,12 @@
                                                 "id": "26ee1286-c9e6-4aba-b3e7-2c34e2e229d5",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 26819.554401601057,
-                                                        "y": 16779.678599858118
+                                                        "x": 26916.068276755934,
+                                                        "y": 17008.574678374644
                                                     },
                                                     "targetPosition": {
-                                                        "x": 26537.138461602786,
-                                                        "y": 16880.87759607297
+                                                        "x": 26619.761774577393,
+                                                        "y": 17055.505017886713
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -9353,18 +9392,18 @@
                                                 "positionClaimVotes": [
                                                     {
                                                         "type": "Position Claim Vote",
-                                                        "name": "",
+                                                        "name": "cozed-gh Moderator Community Management",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "784d44d3-a2b2-423e-9282-8bcbf8a24e09",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 26994.836204720144,
-                                                                "y": 17268.837356802447
+                                                                "x": 26997.354009207298,
+                                                                "y": 17521.792594760893
                                                             },
                                                             "targetPosition": {
-                                                                "x": 26765.987333161465,
-                                                                "y": 17074.857476437708
+                                                                "x": 26808.557891892346,
+                                                                "y": 17288.648806323803
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -9428,12 +9467,12 @@
                                                 "id": "0aa5c534-65c3-4d67-b795-ba7fb00455cc",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 26765.987333161465,
-                                                        "y": 17074.857476437708
+                                                        "x": 26808.557891892346,
+                                                        "y": 17288.648806323803
                                                     },
                                                     "targetPosition": {
-                                                        "x": 26537.138461602786,
-                                                        "y": 16880.87759607297
+                                                        "x": 26619.761774577393,
+                                                        "y": 17055.505017886713
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -9492,12 +9531,342 @@
                                         "id": "6e6ee132-fe57-4efa-9c50-da6500ec53b6",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 26537.138461602786,
-                                                "y": 16880.87759607297
+                                                "x": 26619.761774577393,
+                                                "y": 17055.505017886713
                                             },
                                             "targetPosition": {
-                                                "x": 26241.959585023196,
-                                                "y": 16827.310527633377
+                                                "x": 26339.687646628234,
+                                                "y": 16947.99463302312
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": true,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "Claim Votes Switch",
+                                        "name": "Raplh2502",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "claimVotesSwitch": [
+                                            {
+                                                "type": "Claim Votes Switch",
+                                                "name": "New Feature Claims Folder",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "claimVotesSwitch": [],
+                                                "positionClaimVotes": [],
+                                                "assetClaimVotes": [],
+                                                "featureClaimVotes": [
+                                                    {
+                                                        "type": "Feature Claim Vote",
+                                                        "name": "Raplh2502 Data Mining Existing Features",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "id": "9520273e-6ed0-4513-a9b7-e3af5e0fb2de",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 27136.65685451168,
+                                                                "y": 17139.330011476843
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 26849.01093405122,
+                                                                "y": 17224.53461488802
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Feature Contribution Claim",
+                                                                "name": "Data Mining Existing Features",
+                                                                "id": "2dd37827-1cc1-40aa-b89a-917ccfe24d9b"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Raplh2502",
+                                                                    "User Profile"
+                                                                ],
+                                                                [
+                                                                    "New Token Power Switch",
+                                                                    "Token Power Switch"
+                                                                ],
+                                                                [
+                                                                    "New Votes And Claims Programs",
+                                                                    "Votes And Claims Programs"
+                                                                ],
+                                                                [
+                                                                    "New Claims Program",
+                                                                    "Claims Program"
+                                                                ],
+                                                                [
+                                                                    "New Feature Claims Folder",
+                                                                    "Feature Claims Folder"
+                                                                ],
+                                                                [
+                                                                    "Data Mining Existing Features",
+                                                                    "Feature Contribution Claim"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "Feature Claim Vote",
+                                                        "name": "Raplh2502 User Defined Variables and Code New Features",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "id": "4f700818-ec7b-4cec-9c9b-50d949b74cbe",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 27066.623245354906,
+                                                                "y": 17431.040987596145
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 26849.01093405122,
+                                                                "y": 17224.53461488802
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Feature Contribution Claim",
+                                                                "name": "User Defined Variables and Code New Features",
+                                                                "id": "67e36fdc-9a1d-42c7-a62a-e99c605c5d33"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Raplh2502",
+                                                                    "User Profile"
+                                                                ],
+                                                                [
+                                                                    "New Token Power Switch",
+                                                                    "Token Power Switch"
+                                                                ],
+                                                                [
+                                                                    "New Votes And Claims Programs",
+                                                                    "Votes And Claims Programs"
+                                                                ],
+                                                                [
+                                                                    "New Claims Program",
+                                                                    "Claims Program"
+                                                                ],
+                                                                [
+                                                                    "New Feature Claims Folder",
+                                                                    "Feature Claims Folder"
+                                                                ],
+                                                                [
+                                                                    "User Defined Variables and Code New Features",
+                                                                    "Feature Contribution Claim"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "id": "cb3667a0-06c2-4046-b8f2-395f13efb714",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 26849.01093405122,
+                                                        "y": 17224.53461488802
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 26557.29995793192,
+                                                        "y": 17154.501005731247
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": true,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Feature Claims Folder",
+                                                        "name": "New Feature Claims Folder",
+                                                        "id": "a0af8811-9dc2-4a9a-a28f-358738a6994f"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Raplh2502",
+                                                            "User Profile"
+                                                        ],
+                                                        [
+                                                            "New Token Power Switch",
+                                                            "Token Power Switch"
+                                                        ],
+                                                        [
+                                                            "New Votes And Claims Programs",
+                                                            "Votes And Claims Programs"
+                                                        ],
+                                                        [
+                                                            "New Claims Program",
+                                                            "Claims Program"
+                                                        ],
+                                                        [
+                                                            "New Feature Claims Folder",
+                                                            "Feature Claims Folder"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Claim Votes Switch",
+                                                "name": "New Position Claims Folder",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "claimVotesSwitch": [],
+                                                "positionClaimVotes": [
+                                                    {
+                                                        "type": "Position Claim Vote",
+                                                        "name": "Raplh2502 Moderator Community Management",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "id": "7545f4f1-411f-4fd3-acae-d20cbac74b56",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 26727.709164754273,
+                                                                "y": 17729.792846652163
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 26642.504561343096,
+                                                                "y": 17442.146926191705
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Position Contribution Claim",
+                                                                "name": "Moderator Community Management",
+                                                                "id": "74cbbf75-2a2c-4081-9415-ba423848f2db"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Raplh2502",
+                                                                    "User Profile"
+                                                                ],
+                                                                [
+                                                                    "New Token Power Switch",
+                                                                    "Token Power Switch"
+                                                                ],
+                                                                [
+                                                                    "New Votes And Claims Programs",
+                                                                    "Votes And Claims Programs"
+                                                                ],
+                                                                [
+                                                                    "New Claims Program",
+                                                                    "Claims Program"
+                                                                ],
+                                                                [
+                                                                    "New Position Claims Folder",
+                                                                    "Position Claims Folder"
+                                                                ],
+                                                                [
+                                                                    "Moderator Community Management",
+                                                                    "Position Contribution Claim"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "assetClaimVotes": [],
+                                                "featureClaimVotes": [],
+                                                "id": "5302df90-a6c8-4e71-91d6-4f1b599a6718",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 26642.504561343096,
+                                                        "y": 17442.146926191705
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 26557.29995793192,
+                                                        "y": 17154.501005731247
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Claims Folder",
+                                                        "name": "New Position Claims Folder",
+                                                        "id": "e880f8a6-8e53-43dd-8b11-4210ca18c9ab"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Raplh2502",
+                                                            "User Profile"
+                                                        ],
+                                                        [
+                                                            "New Token Power Switch",
+                                                            "Token Power Switch"
+                                                        ],
+                                                        [
+                                                            "New Votes And Claims Programs",
+                                                            "Votes And Claims Programs"
+                                                        ],
+                                                        [
+                                                            "New Claims Program",
+                                                            "Claims Program"
+                                                        ],
+                                                        [
+                                                            "New Position Claims Folder",
+                                                            "Position Claims Folder"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "positionClaimVotes": [],
+                                        "assetClaimVotes": [],
+                                        "featureClaimVotes": [],
+                                        "id": "1cc82e36-a782-4f0f-a583-bf0be1bd57bc",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 26557.29995793192,
+                                                "y": 17154.501005731247
+                                            },
+                                            "targetPosition": {
+                                                "x": 26339.687646628234,
+                                                "y": 16947.99463302312
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -9519,43 +9888,8 @@
                                 "id": "6553c4ee-d20a-45aa-8f3b-72fd306013da",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 26241.959585023196,
-                                        "y": 16827.310527633377
-                                    },
-                                    "targetPosition": {
-                                        "x": 26065.624009335454,
-                                        "y": 17070.01562594586
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": true,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            }
-                        ],
-                        "weightVotesSwitch": [
-                            {
-                                "type": "Weight Votes Switch",
-                                "name": "New Weight Votes Switch",
-                                "config": "{}",
-                                "project": "Governance",
-                                "weightVotesSwitch": [],
-                                "poolWeightVotes": [],
-                                "assetWeightVotes": [],
-                                "featureWeightVotes": [],
-                                "positionWeightVotes": [],
-                                "id": "cf1094d9-7193-49e0-b945-a79afcef3e2e",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 26363.980577945935,
-                                        "y": 17101.374164926157
+                                        "x": 26339.687646628234,
+                                        "y": 16947.99463302312
                                     },
                                     "targetPosition": {
                                         "x": 26065.624009335454,
@@ -9575,6 +9909,7 @@
                                 }
                             }
                         ],
+                        "weightVotesSwitch": [],
                         "userProfileVotesSwitch": [],
                         "id": "457c39ab-b12c-4a24-8a42-a996b97736e2",
                         "savedPayload": {
@@ -9640,7 +9975,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -9677,7 +10012,7 @@
                                         "assetContributionClaims": [
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Foundations-Project-App-Schemas App Schemas other-hierarchies.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "f1add2dd-8cbc-40c0-a189-922b3d729e06",
@@ -9730,7 +10065,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Spaces Floating-Space CircularMenuItem.js",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "2f1021db-f803-44a2-a40b-6593f590589d",
@@ -9795,7 +10130,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Spaces Floating-Space CircularMenu.js",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "7470b207-2682-4544-b5b9-75ce28e8b461",
@@ -9860,7 +10195,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Foundations-Project-App-Schemas App Schemas plugin-tutorials.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "31d50265-b59a-47b8-9adf-e6ebd47a68d2",
@@ -9913,7 +10248,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Foundations-Project-App-Schemas App Schemas bot-data-dependencies.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "bfb6e762-b953-4384-b443-ff8008a70eda",
@@ -9966,7 +10301,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Foundations-Project-App-Schemas App Schemas crypto-exchange.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "d5eb095e-94bd-4bfc-bd83-690246fdc77c",
@@ -10019,7 +10354,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Spaces Floating-Space UiObject.js",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "b03189ec-658a-4cb9-99dd-81ead35d2fcb",
@@ -10084,7 +10419,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "User Interface Function-Libraries UiObjectsFromNodes.js",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "22c43f89-a68a-46f1-8b7e-d10f9be451cf",
@@ -10143,7 +10478,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Plugins Workspaces Getting-Started-Tutorials.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "6d32fbcb-ad83-44c4-889b-d2ef64127af9",
@@ -10225,7 +10560,7 @@
                                         "assetContributionClaims": [
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Plugins Workspaces Blank-Template.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "c87a42c0-653a-470a-841d-f1941c119e1e",
@@ -10315,7 +10650,7 @@
                                         "assetContributionClaims": [
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "",
+                                                "name": "Superalgos Client package.json",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "87f052aa-302c-4c18-9bad-50c4e6c0e829",
@@ -10347,30 +10682,40 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos-CL",
-                                                            "Assets"
+                                                            "Assets",
+                                                            "Governance",
+                                                            "4a693d1b-c9cc-4ab6-aa56-e1e1e1e18854"
                                                         ],
                                                         [
                                                             "New Asset Class",
-                                                            "Asset Class"
+                                                            "Asset Class",
+                                                            "Governance",
+                                                            "696be8e2-3a26-4ac6-a307-b3f68f5f41fc"
                                                         ],
                                                         [
                                                             "Superalgos",
-                                                            "Asset Class"
+                                                            "Asset Class",
+                                                            "Governance",
+                                                            "161070db-bdce-4d45-83ba-0a34a7646f33"
                                                         ],
                                                         [
                                                             "Client",
-                                                            "Asset Class"
+                                                            "Asset Class",
+                                                            "Governance",
+                                                            "3a149378-35d5-44e8-99c2-33a3b4d8e718"
                                                         ],
                                                         [
                                                             "package.json",
-                                                            "Asset"
+                                                            "Asset",
+                                                            "Governance",
+                                                            "487ff670-8faa-4efa-8466-0851b102b418"
                                                         ]
                                                     ]
                                                 }
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Sensor-Bot Exchange-Raw-Data package.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "ba7c21c0-0f65-4516-b1e1-8bd6165c1403",
@@ -10441,7 +10786,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Low-Frequency-Trading APIs package.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "edd72994-4df1-4dff-bc0e-5953a3be811e",
@@ -10518,7 +10863,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Task Server Task-Modules package.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "23cce6d5-0d9a-40c2-a884-089be0d3b1d4",
@@ -10674,7 +11019,7 @@
                                                 "assetContributionClaims": [
                                                     {
                                                         "type": "Asset Contribution Claim",
-                                                        "name": "Debugging Debugging-Your-Indicator debugging-your-indicator-001-debugging-first-step.json",
+                                                        "name": "",
                                                         "config": "{\n  \"description\": \"\"\n}",
                                                         "project": "Governance",
                                                         "id": "b0564f9b-2e2d-4d49-b180-b97be200ea32",
@@ -10751,7 +11096,7 @@
                                                     },
                                                     {
                                                         "type": "Asset Contribution Claim",
-                                                        "name": "Debugging Debugging-Your-Indicator debugging-your-indicator-002-debugging-setting-up-your-ide.json",
+                                                        "name": "",
                                                         "config": "{\n  \"description\": \"\"\n}",
                                                         "project": "Governance",
                                                         "id": "4c5f3c8b-d23c-4d1c-b12c-59150dabfd4d",
@@ -10828,7 +11173,7 @@
                                                     },
                                                     {
                                                         "type": "Asset Contribution Claim",
-                                                        "name": "Debugging Debugging-Your-Indicator debugging-your-indicator-003-debugging-start-your-processes.json",
+                                                        "name": "",
                                                         "config": "{\n  \"description\": \"\"\n}",
                                                         "project": "Governance",
                                                         "id": "30f8e9d9-1dee-436d-8bb5-21e0cc2bbbde",
@@ -10905,7 +11250,7 @@
                                                     },
                                                     {
                                                         "type": "Asset Contribution Claim",
-                                                        "name": "Debugging Debugging-Your-Indicator debugging-your-indicator-004-debugging-let-the-hunt-begin.json",
+                                                        "name": "",
                                                         "config": "{\n  \"description\": \"\"\n}",
                                                         "project": "Governance",
                                                         "id": "7061b8f7-ae4c-496a-a621-be27903fe355",
@@ -10982,7 +11327,7 @@
                                                     },
                                                     {
                                                         "type": "Asset Contribution Claim",
-                                                        "name": "Debugging Debugging-Your-Indicator debugging-your-indicator-005-debugging-found-something.json",
+                                                        "name": "",
                                                         "config": "{\n  \"description\": \"\"\n}",
                                                         "project": "Governance",
                                                         "id": "11bbd834-7359-40d5-bb5e-3fb9bfd2502e",
@@ -11524,7 +11869,7 @@
                                 "positionContributionClaims": [
                                     {
                                         "type": "Position Contribution Claim",
-                                        "name": "Bugs Hunter Lead Developer",
+                                        "name": "",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "b777d150-0991-46b2-b6d8-382ad92305f8",
@@ -11608,7 +11953,7 @@
                                 "positionContributionClaims": [
                                     {
                                         "type": "Position Contribution Claim",
-                                        "name": "",
+                                        "name": "Moderator Community Management",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "5500f230-15f8-42cb-ac83-194e55f92f11",
@@ -12074,7 +12419,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

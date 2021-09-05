@@ -1,0 +1,29 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 23,
+    "type": "Tutorial Step - Save Your Profile!",
+    "definition": {
+        "text": "Cool! We've covered the basics! Now you have a working User Profile and are already participating in the first two Governance Programs!",
+        "updated": 1630601962359,
+        "icon": {
+            "name": "backup-entity",
+            "project": "Foundations"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "It's time to save your User Profile! ",
+            "updated": 1630603392015
+        },
+        {
+            "style": "Callout",
+            "text": "Click Ctrl + Shift + Alt + Key-S to save the Current Workspace."
+        },
+        {
+            "style": "Success",
+            "text": "We set your profile to save as a Plugin every time you save the workspace! So that should save your User Profile too! ",
+            "updated": 1630603485216
+        }
+    ]
+}

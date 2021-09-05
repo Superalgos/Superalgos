@@ -22,73 +22,18 @@
         },
         {
             "style": "Title",
-            "text": "Token Power Flow"
+            "text": "Token Power Flows",
+            "updated": 1630216274356
         },
         {
-            "style": "Text",
-            "text": "How Token Power flows depends on the following:"
+            "style": "Include",
+            "text": "Governance->Concept->Token Power Flows->Definition",
+            "updated": 1630216248820
         },
         {
-            "style": "List",
-            "text": "By default, Token Power flows in equal proportion to each direct offspring node.",
-            "updated": 1630093090611
-        },
-        {
-            "style": "List",
-            "text": "You may override the defaults by explicitly defining the percentage of the Token Power you wish to allocate to each offspring. If you define less than a total of 100%, then the remaining Token Power is distributed evenly across the offspring for which there is no definition.",
-            "updated": 1630093129825
-        },
-        {
-            "style": "Text",
-            "text": "This is the format of the configuration you may use on each of the programs:"
-        },
-        {
-            "style": "Json",
-            "text": "{\n    \"percentage\": 50\n}",
-            "updated": 1624726090541
-        },
-        {
-            "style": "Text",
-            "text": "For example, let's say you have 1,000 Token Power flowing into your Token Power Switch node. Let's say you spawn the Onboarding Programs, Community Building Programs, Votes and Claims Programs, and Financial Programs nodes.",
-            "updated": 1630094336717
-        },
-        {
-            "style": "Callout",
-            "text": "As soon as you deploy these four offspring of the Token Power Switch node, you will see that each of these nodes gets 25% of the Token Power by default.",
-            "updated": 1630094063741
-        },
-        {
-            "style": "Text",
-            "text": "But you wish to limit the Token Power flowing into the Onboarding Programs to zero, as those programs do not require Token Power. To do that, you set up the following in the Onboarding Programs node configuration:",
-            "updated": 1630093868178
-        },
-        {
-            "style": "Json",
-            "text": "{\n    \"percentage\": 0\n}",
-            "updated": 1630093495369
-        },
-        {
-            "style": "Callout",
-            "text": "Once the configuration is in place, you will notice that the Onboarding Programs node shows 0% and 0 Token Power flowing into the node. You will also notice that the rest of the nodes are getting 33.33% of the Token Power each.",
-            "updated": 1630093693182
-        },
-        {
-            "style": "Text",
-            "text": "Now let's say you wish to use only 10% of your Token Power in the Onboarding Programs. So you set up the following config:"
-        },
-        {
-            "style": "Json",
-            "text": "{\n    \"percentage\": 10\n}",
-            "updated": 1630093961107
-        },
-        {
-            "style": "Callout",
-            "text": "As a result, 10% of the Token Power flows into the Onboarding Programs, while the remaining nodes get 45% of the Token Power each.",
-            "updated": 1630094141031
-        },
-        {
-            "style": "Success",
-            "text": "The same logic applies to the flow of Token Power throughout the hierarchy!"
+            "style": "Include",
+            "text": "Governance->Concept->Token Power Flows->Content",
+            "updated": 1630216256004
         },
         {
             "style": "Block",

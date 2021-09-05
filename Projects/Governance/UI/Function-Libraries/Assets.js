@@ -12,10 +12,16 @@ function newGovernanceFunctionLibraryAssets() {
         let folderPath = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'folderPath')
 
         if (folderPath === undefined || folderPath === "") {
-            node.payload.uiObject.setErrorMessage("folderPath Config Property undefined.")
+            node.payload.uiObject.setErrorMessage(
+                "folderPath Config Property undefined.",
+                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                )
             return
         }
-        node.payload.uiObject.setInfoMessage("Hold on while we install all the assets inside the this path: " + folderPath + ". This might take a minute or two.")
+        node.payload.uiObject.setInfoMessage(
+            "Hold on while we install all the assets inside the this path: " + folderPath + ". This might take a minute or two.",
+            UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
+            )
         httpRequest(undefined, 'DirContent' + '/' + folderPath, onResponse)
 
         function onResponse(err, data) {
@@ -32,7 +38,10 @@ function newGovernanceFunctionLibraryAssets() {
                 totalAssets++
                 createNodesFromPath(node, foldersArray)
             }
-            node.payload.uiObject.setInfoMessage("A total of : " + totalAssets + " assets have been installed.")
+            node.payload.uiObject.setInfoMessage(
+                "A total of : " + totalAssets + " assets have been installed.",
+                UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
+                )
         }
 
         function removeFirstFromArray(array) {

@@ -58,7 +58,7 @@ exports.newFoundationsBotModulesLearningEpisode = function (processIndex) {
         /* Recording the opening at the Learning Engine Data Structure */
         learningEngine.learningCurrent.learningEpisode.status.value = 'Open'
         learningEngine.learningCurrent.learningEpisode.serialNumber.value = 1
-        learningEngine.learningCurrent.learningEpisode.identifier.value = TS.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
+        learningEngine.learningCurrent.learningEpisode.identifier.value = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
         learningEngine.learningCurrent.learningEpisode.beginRate.value = learningEngine.learningCurrent.learningEpisode.candle.close.value
     }
 

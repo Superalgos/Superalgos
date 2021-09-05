@@ -894,6 +894,30 @@
                     "propertyName": "plugins",
                     "functionName": "newFoundationsUtilitiesPlugins",
                     "fileName": "Plugins.js"
+                },
+                {
+                    "name": "Miscellaneous Functions",
+                    "propertyName": "miscellaneousFunctions",
+                    "functionName": "newFoundationsUtilitiesMiscellaneousFunctions",
+                    "fileName": "MiscellaneousFunctions.js"
+                },
+                {
+                    "name": "Files And Directories",
+                    "propertyName": "filesAndDirectories",
+                    "functionName": "newFoundationsUtilitiesFilesAndDirectories",
+                    "fileName": "FilesAndDirectories.js"
+                },
+                {
+                    "name": "Http Responses",
+                    "propertyName": "httpResponses",
+                    "functionName": "newFoundationsUtilitiesHttpResponses",
+                    "fileName": "HttpResponses.js"
+                },
+                {
+                    "name": "Http Requests",
+                    "propertyName": "httpRequests",
+                    "functionName": "newFoundationsUtilitiesHttpRequests",
+                    "fileName": "HttpRequests.js"
                 }
             ]
         },
@@ -1307,12 +1331,6 @@
         "NT": {
             "globals": [
                 {
-                    "name": "Query Constants",
-                    "propertyName": "queryConstants",
-                    "functionName": "newSocialTradingGlobalsQueryConstants",
-                    "fileName": "QueryConstants.js"
-                },
-                {
                     "name": "Memory",
                     "propertyName": "memory",
                     "functionName": "newSocialTradingGlobalsMemory",
@@ -1429,6 +1447,28 @@
                     "propertyName": "queriesValidations",
                     "functionName": "newSocialTradingUtilitiesQueriesValidations",
                     "fileName": "QueriesValidations.js"
+                }
+            ]
+        },
+        "SA": {
+            "globals": [
+                {
+                    "name": "Query Constants",
+                    "propertyName": "queryConstants",
+                    "functionName": "newSocialTradingGlobalsQueryConstants",
+                    "fileName": "QueryConstants.js"
+                },
+                {
+                    "name": "Query Types",
+                    "propertyName": "queryTypes",
+                    "functionName": "newSocialTradingGlobalsQueryTypes",
+                    "fileName": "QueryTypes.js"
+                },
+                {
+                    "name": "Event Types",
+                    "propertyName": "eventTypes",
+                    "functionName": "newSocialTradingGlobalsEventTypes",
+                    "fileName": "EventTypes.js"
                 }
             ]
         }

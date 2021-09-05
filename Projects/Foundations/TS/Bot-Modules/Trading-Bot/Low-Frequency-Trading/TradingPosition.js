@@ -58,7 +58,7 @@ exports.newFoundationsBotModulesTradingPosition = function (processIndex) {
         /* Recording the opening at the Trading Engine Data Structure */
         tradingEngine.tradingCurrent.position.status.value = 'Open'
         tradingEngine.tradingCurrent.position.serialNumber.value = tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value + 1
-        tradingEngine.tradingCurrent.position.identifier.value = TS.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
+        tradingEngine.tradingCurrent.position.identifier.value = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
         tradingEngine.tradingCurrent.position.beginRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
         tradingEngine.tradingCurrent.position.positionBaseAsset.beginBalance.value = tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value
         tradingEngine.tradingCurrent.position.positionQuotedAsset.beginBalance.value = tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value

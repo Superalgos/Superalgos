@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Superalgos</title>
+    <title>Superalgos Platform</title>
     <meta name="description" content="Free and Open Source Crypto Trading Tools">
     <link rel="stylesheet" href="main.css" type="text/css" charset="utf-8" />
     <link rel="stylesheet" href="credits.css" type="text/css" charset="utf-8" />
@@ -18,11 +18,8 @@
     <script src="externalScripts/CCapture.all.min.js"></script>
     <script src="externalScripts/prism.js"></script>
 
-    <!-- Documentation Style Sheets -->
-    <!-- -->
-
     <script type="text/javascript">
-        function loadCanvas() {
+        function loadApp() {
             // Prevent click-jacking
             try {
                 if (window == window.top || window.chrome && chrome.app && chrome.app.window) {
@@ -109,7 +106,7 @@
     </script>
 </head>
 
-<body id="body" onload="loadCanvas()"
+<body id="body" onload="loadApp()"
     style="overflow:hidden; background: url(Images/superalgos-platform.jpg); background-size: cover;"
     onresize="onResize()">
     <div id="splash-text" class="credits">

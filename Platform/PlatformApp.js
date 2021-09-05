@@ -6,24 +6,24 @@ global.env = ENVIRONMENT_MODULE
 
 process.on('uncaughtException', function (err) {
     if (err.message && err.message.indexOf("EADDRINUSE") > 0) {
-        console.log("A Superalgos Client cannot be started. Reason: the port configured migth be being used by another application.")
+        console.log("The Superalgos Platform Client cannot be started. Reason: the port configured migth be being used by another application, or Superalgos Platform Client might be already running.")
         return
     }
-    console.log('[ERROR] Client -> client-> uncaughtException -> err.message = ' + err.message)
-    console.log('[ERROR] Client -> client-> uncaughtException -> err.stack = ' + err.stack)
-    console.log('[ERROR] Client -> client-> uncaughtException -> err = ' + err)
+    console.log('[ERROR] Platform App -> uncaughtException -> err.message = ' + err.message)
+    console.log('[ERROR] Platform App -> uncaughtException -> err.stack = ' + err.stack)
+    console.log('[ERROR] Platform App -> uncaughtException -> err = ' + err)
     process.exit(1)
 })
 
 process.on('unhandledRejection', (reason, p) => {
     // Signal user that a necissary node module is missing
     if (reason.code == 'MODULE_NOT_FOUND') {
-        console.log("[ERROR] Dependency library not found. Please try running the 'node setup' command and then restart the Client.")
-        console.log('[ERROR] Client -> client-> reason = ' + JSON.stringify(reason))
+        console.log("[ERROR] Dependency library not found. Please try running the 'node setup' command and then restart the Superalgos Platform Client.")
+        console.log('[ERROR] Platform App -> reason = ' + JSON.stringify(reason))
         process.exit(1)
     }
-    console.log('[ERROR] Client -> client-> unhandledRejection -> reason = ' + JSON.stringify(reason))
-    console.log('[ERROR] Client -> client-> unhandledRejection -> p = ' + JSON.stringify(p))
+    console.log('[ERROR] Platform App -> unhandledRejection -> reason = ' + JSON.stringify(reason))
+    console.log('[ERROR] Platform App -> unhandledRejection -> p = ' + JSON.stringify(p))
     process.exit(1)
 })
 
@@ -55,20 +55,20 @@ global.CUSTOM_FAIL_RESPONSE = {
 }
 
 /* Servers */
-let WEB_SERVER = require('./webServer.js')
-let DATA_FILE_SERVER = require('./dataFileServer.js')
-let PROJECT_FILE_SERVER = require('./projectFileServer.js')
-let UI_FILE_SERVER = require('./uiFileServer.js')
-let PLUGIN_SERVER = require('./pluginServer.js')
-let EVENT_SERVER = require('./eventServer.js')
-let TASK_MANAGER_SERVER = require('./taskManagerServer.js')
-let CCXT_SERVER = require('./ccxtServer.js')
-let WEB3_SERVER = require('./web3Server.js')
-let GITHUB_SERVER = require('./githubServer.js')
+let WEB_SERVER = require('./Client/webServer.js')
+let DATA_FILE_SERVER = require('./Client/dataFileServer.js')
+let PROJECT_FILE_SERVER = require('./Client/projectFileServer.js')
+let UI_FILE_SERVER = require('./Client/uiFileServer.js')
+let PLUGIN_SERVER = require('./Client/pluginServer.js')
+let EVENT_SERVER = require('./Client/eventServer.js')
+let TASK_MANAGER_SERVER = require('./Client/taskManagerServer.js')
+let CCXT_SERVER = require('./Client/ccxtServer.js')
+let WEB3_SERVER = require('./Client/web3Server.js')
+let GITHUB_SERVER = require('./Client/githubServer.js')
 
 /* Network Interfaces */
-let WEB_SOCKETS_INTERFACE = require('./webSocketsInterface.js')
-let HTTP_INTERFACE = require('./httpInterface.js')
+let WEB_SOCKETS_INTERFACE = require('./Client/webSocketsInterface.js')
+let HTTP_INTERFACE = require('./Client/httpInterface.js')
 
 try {
     /* 
@@ -97,7 +97,10 @@ try {
     */
     SA.nodeModules = {
         fs: require('fs'),
-        nodeFetch: require('node-fetch')
+        nodeFetch: import('node-fetch'),
+        open: require('open'),
+        http: require('http'),
+        ccxt: require('ccxt')
     }
     /*
     Setting up servers running inside this Client.
@@ -162,13 +165,11 @@ try {
 
     WEB_SOCKETS_INTERFACE = WEB_SOCKETS_INTERFACE.newWebSocketsInterface()
     WEB_SOCKETS_INTERFACE.initialize()
-    WEB_SOCKETS_INTERFACE.run()
     console.log('Web Sockets Interface ....................................... Listening at port ' + global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT)
 
     HTTP_INTERFACE = HTTP_INTERFACE.newHttpInterface()
     HTTP_INTERFACE.initialize()
-    HTTP_INTERFACE.run()
-    console.log('Http Interface .............................................. Listening at port ' + global.env.HTTP_INTERFACE_PORT)
+    console.log('Http Interface .............................................. Listening at port ' + global.env.CLIENT_HTTP_INTERFACE_PORT)
 
     console.log('')
     console.log("You are running Superalgos Beta 11")

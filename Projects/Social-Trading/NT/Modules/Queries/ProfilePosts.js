@@ -38,7 +38,7 @@ exports.newSocialTradingModulesQueriesUserProfileStats = function newSocialTradi
         let response = []
 
         switch (thisObject.direction) {
-            case NT.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE: {
+            case SA.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let arrayItem = thisObject.array[i]
                     if (arrayItem === undefined) { break }
@@ -46,7 +46,7 @@ exports.newSocialTradingModulesQueriesUserProfileStats = function newSocialTradi
                 }
                 break
             }
-            case NT.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
+            case SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let arrayItem = thisObject.array[i]
                     if (arrayItem === undefined) { break }

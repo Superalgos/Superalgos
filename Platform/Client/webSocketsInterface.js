@@ -4,8 +4,7 @@
 
     let thisObject = {
         initialize: initialize,
-        finalize: finalize,
-        run: run
+        finalize: finalize
     }
 
     const WEB_SOCKET = require('ws')
@@ -15,15 +14,11 @@
     return thisObject
 
     function finalize() {
-
+        socketServer = undefined
     }
 
     function initialize() {
-
-    }
-
-    function run() {
-       setUpWebSocketServer()
+        setUpWebSocketServer()
     }
 
     function setUpWebSocketServer() {
@@ -47,8 +42,8 @@
                         if (LOG_INFO === true) {
                             console.log('Message Received: ' + message.substring(0, 1000))
                         }
-
-                        let messageArray = message.split('|*|')
+        
+                        let messageArray = message.toString().split('|*|')
 
                         let origin = messageArray[0]
                         let nonce = messageArray[1]

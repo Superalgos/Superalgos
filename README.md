@@ -196,7 +196,7 @@ If you are having difficulty running the node setup command here are a few commo
 **A.** To run Superalgos, go to the Superalgos directory/folder and run this command:
 
 ```
-node run
+node platform
 ```
 
 The Client will run on your terminal and the GUI will launch on your default browser. If Chrome/Safari is not your default browser, copy the URL, close the browser, open Chrome/Safari, and paste the URL. Be patient... it takes a few seconds to fully load the GUI.

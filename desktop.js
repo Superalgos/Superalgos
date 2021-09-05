@@ -42,7 +42,9 @@ Setting up external dependencies.
 SA.nodeModules = {
     fs: require('fs'),
     web3: require('web3'),
-    ws: require('ws')
+    ws: require('ws'),
+    open: require('open'),
+    http: require('http')
 }
 
 /*

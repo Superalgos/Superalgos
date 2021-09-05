@@ -113,9 +113,9 @@ exports.newFoundationsUtilitiesHttpResponses = function () {
         httpResponse.end('\n')
     }
 
-    function respondWithStyleSheet(httpResponse, path, fileName) {
+    function respondWithStyleSheet(httpResponse, pathToApp, fileName) {
         let fs = SA.nodeModules.fs
-        let filePath = path + 'WebServer/css/' + fileName
+        let filePath = pathToApp + '/WebServer/css/' + fileName
         fs.readFile(filePath, onFileRead)
 
         function onFileRead(err, file) {
@@ -173,7 +173,7 @@ exports.newFoundationsUtilitiesHttpResponses = function () {
         }
     }
 
-    function respondWithWebFile(httpResponse, fileNameReceived, path) {
+    function respondWithWebFile(httpResponse, fileNameReceived, pathToApp) {
 
         if (fileNameReceived === '') {
             /*
@@ -181,7 +181,8 @@ exports.newFoundationsUtilitiesHttpResponses = function () {
             */
             let fs = SA.nodeModules.fs
 
-            let fileName = path + 'WebServer/index.html'
+            let fileName = pathToApp + '/WebServer/index.html'
+           
             fs.readFile(fileName, onFileRead)
 
             function onFileRead(err, file) {
@@ -200,12 +201,12 @@ exports.newFoundationsUtilitiesHttpResponses = function () {
 
             switch (fileExtension) {
                 case 'js': {
-                    let path = global.env.PATH_TO_UI + '/' + completeFileName
+                    let path = pathToApp + '/UI/' + completeFileName
                     SA.projects.foundations.utilities.httpResponses.respondWithFile(path, httpResponse)
                     break
                 }
                 case 'css': {
-                    SA.projects.foundations.utilities.httpResponses.respondWithStyleSheet(httpResponse, path, completeFileName)
+                    SA.projects.foundations.utilities.httpResponses.respondWithStyleSheet(httpResponse, pathToApp, completeFileName)
                     break
                 }
             }

@@ -1,0 +1,52 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Superalgos Desktop</title>
+    <meta name="description" content="Free and Open Source Crypto Social Trading">
+    <link rel="stylesheet" href="main.css" type="text/css" charset="utf-8" />
+    <link rel="shortcut icon" type="image/png/ico" href="Images/favicon.ico" />
+    <script type="text/javascript" src="WebServer/require.js"></script>
+    <script type="text/javascript" src="AppPreLoader.js"></script>
+
+    <script type="text/javascript">
+        function loadApp() {
+            // Prevent click-jacking
+            try {
+                if (window == window.top || window.chrome && chrome.app && chrome.app.window) {
+                    document.documentElement.style.display = 'block'
+                } else {
+                    top.location = self.location
+                }
+            } catch (e) { console.error('CJ protection', e) }
+
+            try {
+                loadSuperalgos()
+            } catch (err) {
+                console.log("[ERROR] UI can not be started. Please check that WebServer is running.", err);
+            }
+        }
+
+        function onResize() {
+            try {
+                if (page === undefined) { return }
+                if (page.eventHandler === undefined) { return }
+                if (DISABLE_BROWSER_RESIZE_EVENT === true) { return }
+                page.eventHandler.raiseEvent('Browser Resized')
+            } catch (err) {
+                console.log('Error Resizing. ' + err.stack)
+            }
+        }
+     </script>
+</head>
+
+<body id="body" onload="loadApp()"
+    onresize="onResize()">
+    Hello World!
+    <div id="masterApp"></div>
+    <div id="canvasApp"></div>
+   
+
+</body>
+
+</html>

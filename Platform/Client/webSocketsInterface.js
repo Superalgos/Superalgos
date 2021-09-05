@@ -42,8 +42,8 @@
                         if (LOG_INFO === true) {
                             console.log('Message Received: ' + message.substring(0, 1000))
                         }
-
-                        let messageArray = message.split('|*|')
+        
+                        let messageArray = message.toString().split('|*|')
 
                         let origin = messageArray[0]
                         let nonce = messageArray[1]

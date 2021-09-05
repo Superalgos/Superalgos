@@ -28,7 +28,7 @@ if (process.argv.includes("noShortcuts")) {
 
 // Create Operating System compatable paths to each node_modules directory.
 let nodeModulesDirs = [
-    path.join( process.cwd(), "Client"),
+    path.join( process.cwd(), "Platform"),
     path.join( process.cwd(), "Projects", "Foundations", "TS", "Bot-Modules", "Sensor-Bot", "Exchange-Raw-Data"),
     path.join( process.cwd(), "Projects", "Foundations", "TS", "Bot-Modules", "API-Data-Fetcher-Bot"),
     path.join( process.cwd(), "Projects", "Foundations", "TS", "Bot-Modules", "Trading-Bot", "Announcements"),

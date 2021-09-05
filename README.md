@@ -9,7 +9,7 @@ Superalgos is not just another open-source project. We are an open and welcoming
 
 You will notice the difference as soon as you join the [Telegram Community Group](https://t.me/superalgoscommunity) or the new [Discord Server](https://discord.gg/CGeKC6WQQb)!
 
-> Can't wait to contribute? Sstart by giving a star to this repository in the top-right corner of this page!
+> Can't wait to contribute? Start by giving a star to this repository in the top-right corner of this page!
 
 ![superalgos-readme](https://user-images.githubusercontent.com/13994516/106380124-844d8980-63b0-11eb-9bd9-4f977b6c183b.gif)
 

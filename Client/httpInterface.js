@@ -1165,11 +1165,6 @@ exports.newHttpInterface = function newHttpInterface() {
                         SA.projects.foundations.utilities.httpResponses.respondWithImage(path, httpResponse)
                     }
                     break
-                case 'favicon.ico': // This means the Scripts folder.
-                    {
-                        SA.projects.foundations.utilities.httpResponses.respondWithImage(global.env.PATH_TO_CLIENT + 'WebServer/Images/' + 'favicon.ico', httpResponse)
-                    }
-                    break
                 case 'WebServer': // This means the WebServer folder.
                     {
                         SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/' + requestPath[2], httpResponse)

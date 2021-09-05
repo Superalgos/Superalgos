@@ -11,11 +11,29 @@ exports.newDesktopApp = function newDesktopApp() {
                 let socialGraphService = NT.projects.network.modules.socialGraph.newSocialGraph()
                 await socialGraphService.initialize()
         */
+
         /*
-        Let's start the Network Interfaces
+        This is the Web Sockets client that interacts with the Superalgos Network.
         */
-        DK.webSocketsClient = SA.projects.network.modules.webSocketsClient.newNetworkModulesWebSocketsClient()
-        await DK.webSocketsClient.initialize()
+        //DK.webSocketsClient = SA.projects.network.modules.webSocketsClient.newNetworkModulesWebSocketsClient()
+        //await DK.webSocketsClient.initialize()
+
+        /* These are the Network Interfaces by which the UI interacts with the Desktop App.*/
+        //let WEB_SOCKETS_INTERFACE = require('./webSocketsInterface.js')
+        let HTTP_INTERFACE = require('./httpInterface.js')
+
+        /*
+        WEB_SOCKETS_INTERFACE = WEB_SOCKETS_INTERFACE.newWebSocketsInterface()
+        WEB_SOCKETS_INTERFACE.initialize()
+        console.log('Web Sockets Interface ....................................... Listening at port ' + global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT)
+        */
+
+        HTTP_INTERFACE = HTTP_INTERFACE.newHttpInterface()
+        HTTP_INTERFACE.initialize()
+        console.log('Http Interface .............................................. Listening at port ' + global.env.DESKTOP_HTTP_INTERFACE_PORT)
+
+        return
+
 
         let queryMessage
         let query

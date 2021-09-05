@@ -15,6 +15,7 @@ exports.newEnvironment = function () {
         PATH_TO_UI: './UI',
         PATH_TO_DATA_FILES: './UI/Data-Files/src',
         PATH_TO_CLIENT: './Client/',
+        PATH_TO_DESKTOP: './Desktop/',
         PATH_TO_DEFAULT_WORKSPACE: './Projects/Foundations/Plugins/Workspaces',
         PATH_TO_MY_WORKSPACES: './My-Workspaces',
         PATH_TO_FONTS: './Client/WebServer/Fonts'

@@ -5,7 +5,13 @@
     "definition": {
         "text": "The Docs pages of Superalgos and other projects integrated are originally written in English. The system allows users to search and browse pages in other languages as well, as long as users have previously contributed the corresponding translations.",
         "updated": 1613820592771,
-        "translations": []
+        "translations": [
+            {
+                "language": "FR",
+                "text": "La documentation de Superalgos et des projets intégrés est à l'origine écrite en Anglais. The system allows users to search and browse pages in other languages as well, as long as users have previously contributed the corresponding translations.",
+                "updated": 1630680264127
+            }
+        ]
     },
     "paragraphs": [
         {

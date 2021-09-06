@@ -1,1 +1,9 @@
-{}
+{
+  "dependencies": {
+    "http": "0.0.1-security",
+    "node-fetch": "^2.6.1",
+    "open": "^8.2.1",
+    "web3": "^1.5.2",
+    "ws": "^8.2.1"
+  }
+}

@@ -2,7 +2,7 @@
     "type": "Superalgos Pools",
     "definition": {
         "text": "Superalgos Pools is the top-level hierarchy kickstarting the definition of the whole Superalgos Project. It features the definition of several Pool nodes describing the main areas of project development that the Community wishes to incentivize.",
-        "updated": 1630170275507
+        "updated": 1630426704558
     },
     "paragraphs": [
         {
@@ -12,7 +12,8 @@
         },
         {
             "style": "Text",
-            "text": "Because this is the highest level definition of how tokens will be distributed, the Superalgos Pools hierarchy is present in all governance Plugin Workspaces."
+            "text": "Because this is the highest level definition of how tokens will be distributed, the Superalgos Pools hierarchy is present in all Governance Workspaces.",
+            "updated": 1630426648511
         },
         {
             "style": "Success",
@@ -21,7 +22,8 @@
         },
         {
             "style": "Note",
-            "text": "The configuration of the top-level node in the hierarchy determines how many tokens will be distributed in the release."
+            "text": "The configuration of the top-level node in the hierarchy determines how many tokens are distributed in the Distribution Event.",
+            "updated": 1630426722866
         }
     ]
 }

@@ -17,6 +17,11 @@
                 "text": "L'istruzione docs.save é stata eseguita con successo e tutte le modifiche sono state salvate sul Client.",
                 "updated": 1614711069063,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "El comando docs.save fue exitoso y todos los cambios se guardaron en el Superalgos Client.",
+                "updated": 1630888477712
             }
         ]
     },

@@ -1,0 +1,20 @@
+{
+    "topic": "User Profile",
+    "pageNumber": 13,
+    "type": "Financial Programs Intro",
+    "definition": {
+        "text": "This is what you may do with the Token Power you're not using for other purposes!",
+        "updated": 1630499936092
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Node->Financial Programs->Definition",
+            "updated": 1630499946613
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Financial Programs->Content"
+        }
+    ]
+}

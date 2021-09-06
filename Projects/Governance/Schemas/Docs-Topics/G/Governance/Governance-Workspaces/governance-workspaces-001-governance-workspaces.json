@@ -1,0 +1,85 @@
+{
+    "topic": "Governance Workspaces",
+    "pageNumber": "1",
+    "type": "Governance Workspaces",
+    "definition": {
+        "text": "The Governance Project features multiple Project Definition Hierarchies spread across multiple Plugin Workspaces — one Workspace per Project — to facilitate the granular management of definitions by independent teams of maintainers. These are the Governance Workspaces.",
+        "updated": 1630567756861
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Main Governance Workspace",
+            "updated": 1630568120363
+        },
+        {
+            "style": "Text",
+            "text": "The Token Distribution Superalgos Governance Workspace is the main workspace. Load this workspace to start your interaction with governance. This is where you would usually build and set up your User Profile.",
+            "updated": 1630568963531
+        },
+        {
+            "style": "Title",
+            "text": "Naming Convention"
+        },
+        {
+            "style": "Text",
+            "text": "All Governance Workspaces follow a similar naming structure, to make them easy to spot in the Workspaces Tab:"
+        },
+        {
+            "style": "Json",
+            "text": "Token Distribution XXX Project",
+            "updated": 1630568716919
+        },
+        {
+            "style": "Note",
+            "text": "XXX is replaced with the actual name of the Project.",
+            "updated": 1630568059149
+        },
+        {
+            "style": "Title",
+            "text": "Finding Your Way Arround Governance Workspaces",
+            "updated": 1630568467050
+        },
+        {
+            "style": "Text",
+            "text": "Each of the Governance Workspaces features several Project Definition Hierarchies describing the Pools, Assets, Features, and Positions of the corresponding Project.",
+            "updated": 1630568821141
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Deep in Governance"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Superalgos Pools Hierarchy",
+            "updated": 1630568627153
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Superalgos Pools->Definition",
+            "updated": 1630568552530
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Superalgos Pools->Content"
+        },
+        {
+            "style": "Title",
+            "text": "Scope of Calculations",
+            "updated": 1630569279039
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Computational Limitations",
+            "updated": 1630569313627
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Computational Limitations 2"
+        }
+    ]
+}

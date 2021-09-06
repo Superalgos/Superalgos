@@ -1,8 +1,8 @@
 {
     "type": "Tokens Awarded",
     "definition": {
-        "text": "The Tokens Awarded node is present on each of the programs in the hierarchy. It exists to accumulate and display the number of Superalgos SA Tokens awarded to your profile through each program.",
-        "updated": 1630164138055
+        "text": "The Tokens Awarded node represents the number of tokens you get in reward for your contributions. The node is present on many of the Governance Programs.",
+        "updated": 1630436769778
     },
     "paragraphs": [
         {
@@ -17,13 +17,36 @@
         },
         {
             "style": "Subtitle",
-            "text": "Community Building Programs Calculations",
-            "updated": 1630165409867
+            "text": "Calculations",
+            "updated": 1630324592451
         },
         {
-            "style": "Text",
-            "text": "The Community Building Programs node page explains how Tokens Rewards are calculated for these particular program.",
-            "updated": 1630171164026
+            "style": "Note",
+            "text": "Each program calculates Tokens Awarded in a particular way. Follow the links below to learn the details about each program.",
+            "updated": 1630324671871
+        },
+        {
+            "style": "List",
+            "text": "In the Airdrop Program.",
+            "updated": 1630324552707
+        },
+        {
+            "style": "List",
+            "text": "In the Github Program.",
+            "updated": 1630324714648
+        },
+        {
+            "style": "List",
+            "text": "The Community Building Programs node page explains how Tokens Awarded is calculated for the referral, support, and mentorship programs.",
+            "updated": 1630324749961
+        },
+        {
+            "style": "List",
+            "text": "The How Claims are Resolved page explains how tokens are awarded in the Claims Program."
+        },
+        {
+            "style": "List",
+            "text": "In the Staking Program."
         },
         {
             "style": "Text",

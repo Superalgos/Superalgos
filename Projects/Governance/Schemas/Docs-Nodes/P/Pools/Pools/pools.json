@@ -1,8 +1,8 @@
 {
     "type": "Pools",
     "definition": {
-        "text": "This hierarchy breaks up the definition of a Project in specific areas. Each area is a Pool that may be incentivized by the Community. Users collectively decide how many tokens will be allocated to each Pool using Weight Votes. The sum of Weight Votes in each Pool determines the proportion of tokens each pool gets from the total of tokens allocated to the release.",
-        "updated": 1624706823509
+        "text": "The Superalgos Pools is the top-level hierarchy kickstarting the definition of the whole Superalgos Project. It features the definition of several Pool nodes describing the main areas of project development that the Community wishes to incentivize.",
+        "updated": 1630426598623
     },
     "paragraphs": [
         {
@@ -28,12 +28,14 @@
             "text": "On the other hand, each Pool may accept Weight Votes from User Profiles. This is how the Community determines how many tokens will go to each distribution pool."
         },
         {
-            "style": "Callout",
-            "text": "At the same time, a Pool may reference other types of hierarchies, namely Positions, Assets, and Features. These hierarchies take the granularity of the definition to a whole new level! But we’ll go into those later on!"
+            "style": "Text",
+            "text": "In addition, there is a third resource characteristic to the Pool Hierarchy. Each Pool may reference a separate Pools hierarchy so that the definitions may continue on a separate hierarchy, which may be included as a plugin in the same or in separate Governance Workspaces.",
+            "updated": 1630426515819
         },
         {
-            "style": "Text",
-            "text": "In addition, there is a third resource characteristic to the Pool Hierarchy. Each Pool may reference a separate Pools hierarchy so that the definitions may continue on a separate hierarchy, which may be included as a plugin in the same or in a separate Plugin Workspace."
+            "style": "Callout",
+            "text": "A Pool may also reference other types of hierarchies, namely Positions, Assets, and Features. These hierarchies take the granularity of the definition to a whole new level! But we’ll go into those later on!",
+            "updated": 1630426529656
         },
         {
             "style": "Text",

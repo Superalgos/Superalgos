@@ -9,7 +9,7 @@ exports.newFoundationsUtilitiesWebAccess = function () {
     async function fetchAPIDataFile(url) {
         let promise = new Promise((resolve, reject) => {
 
-            const fetch = CL.nodeModules.nodeFetch
+            const fetch = SA.nodeModules.nodeFetch
             /*
             This is how we call the API.
             */

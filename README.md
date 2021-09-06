@@ -9,7 +9,7 @@ Superalgos is not just another open-source project. We are an open and welcoming
 
 You will notice the difference as soon as you join the [Telegram Community Group](https://t.me/superalgoscommunity) or the new [Discord Server](https://discord.gg/CGeKC6WQQb)!
 
-> Can't wait to contribute? Sstart by giving a star to this repository in the top-right corner of this page!
+> Can't wait to contribute? Start by giving a star to this repository in the top-right corner of this page!
 
 ![superalgos-readme](https://user-images.githubusercontent.com/13994516/106380124-844d8980-63b0-11eb-9bd9-4f977b6c183b.gif)
 
@@ -135,7 +135,11 @@ After the Superalgos directory has been installed, the final step of installatio
 cd Superalgos
 ```
 
-That should take you inside the Superalgos folder created by the `git clone` command earlier. Now, run the following command:
+That should take you inside the Superalgos folder created by the `git clone` command earlier. 
+
+Now, you need to install dependencies, and there are two options:
+
+**A.** To install all basic dependencies run:
 
 ```
 node setup
@@ -144,6 +148,19 @@ node setup
 Then wait until you are able to type within the terminal again.
 
 This command will install and configure all additional dependencies needed by Superalgos. It will also install desktop and start menu shortcuts.
+
+**B.** If you intend to use the experimental implementation of the TensorFlow Project within Superalgos, then run:
+
+```
+node setup tensorflow
+```
+
+This command will install all dependencies plus TensorFlow dependencies.
+
+**NOTE FOR WINDOWS USERS INSTALLING TENSORFLOW DEPENDENCIES:** You may get an error at the end of the set up process. If you do, please follow the instructions following the error message.
+
+
+
 
 **NOTE FOR USERS INSTALLING MULTIPLE INSTANCES OF SUPERALGOS ON THE SAME MACHINE:** In order to avoid name conflicts between shortcuts, make sure to rename each Superalgos directory before running `node setup`.
 
@@ -196,7 +213,7 @@ If you are having difficulty running the node setup command here are a few commo
 **A.** To run Superalgos, go to the Superalgos directory/folder and run this command:
 
 ```
-node run
+node platform
 ```
 
 The Client will run on your terminal and the GUI will launch on your default browser. If Chrome/Safari is not your default browser, copy the URL, close the browser, open Chrome/Safari, and paste the URL. Be patient... it takes a few seconds to fully load the GUI.
@@ -554,11 +571,6 @@ Or follow [Superalgos on Facebook](https://www.facebook.com/superalgos).
 # Contributing
 
 Superalgos is a Community Project built by users for users. Learn [how you may contribute](https://superalgos.org/community-contribute.shtml).
-
-
-## Top Contributors
-
-Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Ira Miller, matbenitez, bearcanrun, nikolabjelo, 9808us, pmmax, suttridge, Basalt09, Mhnramin, 0xperez, infin1t3, benitezme, whtv, cozed-gh, Eduardo678-dotcom, Smidy13, teehanming, 64bittuning, joenij, apronotti, Noeljarillo, ssplatt, rico4dev, DougJCook, mane, Cordo-van-Saviour, CarnivalBen, Sil3ntLight, pisukesoramame, Edodi, harrellbm, CaptainJeff, Jeff Braun, Francisco J. Santillán, Norman, Viktoria B., Guillermo V., Daniel J., Javier A., Gustavo J., Romina GS, Pedro P., Thais M., Andrey M., Loui M., Natalia M., Bashar A., Carlos V., Diego M., Sebastian E., Bogdan P., Marko V., Igor S., Niksa K., Rodrigo M., Nicanor M., Mateo H., Lan T., Leon A., Uroš R., Filip M., Vladimir J. and Pavle B., brycey12, GENS-Tools, rjkilpatrick, superharoun, frysee, RalfWeiss
 
 # License
 

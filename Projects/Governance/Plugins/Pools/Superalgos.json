@@ -1,7 +1,7 @@
 {
     "type": "Pools",
     "name": "Superalgos",
-    "config": "{\n    \"tokens\": \"66000000\",\n    \"codeName\": \"Superalgos\"\n}",
+    "config": "{\"tokens\":\"66000000\",\"codeName\":\"Superalgos\"}",
     "project": "Governance",
     "poolClasses": [
         {
@@ -792,7 +792,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": false,
+                            "isCollapsed": true,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -817,7 +817,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -866,7 +866,15 @@
                             "type": "Pools",
                             "name": "Foundations-Project",
                             "id": "c078377e-55af-48ae-921d-bffda8ba41f4"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Foundations-Project",
+                                "Pools",
+                                "Governance",
+                                "c078377e-55af-48ae-921d-bffda8ba41f4"
+                            ]
+                        ]
                     }
                 },
                 {
@@ -1188,7 +1196,15 @@
                             "type": "Assets",
                             "name": "Foundations-Project-Docs",
                             "id": "43831bbf-5672-4899-a3d8-b2609018512d"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Foundations-Project-Docs",
+                                "Assets",
+                                "Governance",
+                                "43831bbf-5672-4899-a3d8-b2609018512d"
+                            ]
+                        ]
                     }
                 },
                 {
@@ -1591,12 +1607,12 @@
                                 },
                                 "referenceParent": {
                                     "type": "Positions",
-                                    "name": "Superalgos",
+                                    "name": "Foundations-Project",
                                     "id": "50c68665-5da2-48a8-b229-7a1563ae82d2"
                                 },
                                 "referenceParentCombinedNodePath": [
                                     [
-                                        "Superalgos",
+                                        "Foundations-Project",
                                         "Positions",
                                         "Governance",
                                         "50c68665-5da2-48a8-b229-7a1563ae82d2"
@@ -1740,14 +1756,12 @@
                                 "referenceParent": {
                                     "type": "Features",
                                     "name": "Superalgos",
-                                    "id": "1d2c1985-c762-4ece-b350-15bd893bd1f4"
+                                    "id": "7c27de79-0ac7-4d48-81f0-5d7b6a4d93c6"
                                 },
                                 "referenceParentCombinedNodePath": [
                                     [
                                         "Superalgos",
-                                        "Features",
-                                        "Governance",
-                                        "1d2c1985-c762-4ece-b350-15bd893bd1f4"
+                                        "Features"
                                     ]
                                 ]
                             }
@@ -1816,7 +1830,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

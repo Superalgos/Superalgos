@@ -1,0 +1,27 @@
+{
+    "type": "Distribution Event",
+    "definition": {
+        "text": "The Superalgos Project distributes its native Superalgos SA Tokens after each release to reward contributions and incentivize desirable behaviors. The Distribution Event represents the moment in time and the act of running the process that distributes tokens from the Treasury Account to the Governance Address associated with each User Profile that participates in governance.",
+        "updated": 1630570602251
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1630233421503
+        },
+        {
+            "style": "Text",
+            "text": "The Superalgos Project announces each release through all official channels, including the Telegram Announcements channel and the Superalgos Medium Blog.",
+            "updated": 1630235099973
+        },
+        {
+            "style": "Text",
+            "text": "At the moment of the announcement, a time window opens for the Community to participate in governance. At this point, the window is of an indeterminate span. Users may set up their User Profiles until the window closes. "
+        },
+        {
+            "style": "Text",
+            "text": "Once the window closes, no further modifications are accepted on governance hierarchies until the Distribution Event takes place."
+        }
+    ]
+}

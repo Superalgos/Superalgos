@@ -51,7 +51,8 @@
         },
         {
             "style": "Text",
-            "text": "After you repaginate a Topic or Tutorial, the best way to proceed it to manually delete from disk all the files associated with that Topic / Tutorial. After you delete them, you execute the repaginate command and then the docs.save command. "
+            "text": "After you repaginate a Topic or Tutorial, the best way to proceed is to manually delete from disk all the files associated with that Topic / Tutorial. After you delete them, you execute the repaginate command and then the docs.save command.",
+            "updated": 1630500489007
         },
         {
             "style": "Text",

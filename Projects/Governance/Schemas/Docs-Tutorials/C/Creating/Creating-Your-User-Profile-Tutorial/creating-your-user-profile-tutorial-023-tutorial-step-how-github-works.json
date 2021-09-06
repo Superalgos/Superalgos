@@ -1,0 +1,75 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 23,
+    "type": "Tutorial Step - How Github Works",
+    "definition": {
+        "text": "Github.com bumps up the search ranking of projects when they have many stars, forks, and people watching the repository!",
+        "updated": 1630659929485,
+        "icon": {
+            "name": "Programs\\github-program",
+            "project": "Governance"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¡Github.com aumenta la clasificación de búsqueda de proyectos cuando tienen muchas estrellas, bifurcaciones y personas observando el repositorio!",
+                "updated": 1630892401029,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "That is why we ask you to help in this manner! By completing those three tasks, you are effectively helping more developers find Superalgos, which is a win for everyone, as the more developers, the faster the project advances!",
+            "updated": 1630660356226,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Por eso te pedimos que ayudes de esta manera! Al completar esas tres tareas, está ayudando de manera efectiva a más desarrolladores a encontrar Superalgos, lo cual es una ganancia para todos, ya que mientras más desarrolladores, más rápido avanza el proyecto.",
+                    "updated": 1630892425121,
+                    "style": "Note"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Now, this is how it works on the side of Superalgos:",
+            "updated": 1630659982457,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Ahora, así es como funciona del lado de Superalgos:",
+                    "updated": 1630892460301,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "The system checks the repository and verifies if your Github account has a star, a fork, and/or a watch.",
+            "updated": 1630660104845,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Se verifica el repositorio y si tu cuenta de Github tiene una estrella, una bifurcación y/o un reloj.",
+                    "updated": 1630892612043,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "There is a cap of SA 1,000 for each of these incentives. This means that you may get up to SA 3,000 if you maximize your participation.",
+            "updated": 1630660329237,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Hay un límite de 1.000 SA para cada uno de estos incentivos. Puedes obtener hasta SA 3.000.",
+                    "updated": 1630892707618,
+                    "style": "List"
+                }
+            ]
+        }
+    ]
+}

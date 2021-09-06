@@ -8,13 +8,27 @@
             "name": "Programs\\support-program",
             "project": "Governance"
         },
-        "updated": 1630012220466
+        "updated": 1630012220466,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El soporte de Superalgos lo brindan otros usuarios de Superalgos como tú. ¡Este programa te permite darles las gracias!",
+                "updated": 1630854882297
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Read the following Docs page to get an idea of how this program works.",
-            "updated": 1630011987218
+            "updated": 1630011987218,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Lee la siguiente página de Documentos para tener una idea de cómo funciona este programa.",
+                    "updated": 1630854902685
+                }
+            ]
         }
     ]
 }

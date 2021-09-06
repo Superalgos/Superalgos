@@ -8,27 +8,62 @@
         "icon": {
             "name": "Exchange\\exchange-account-asset",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Recuerda el tercer requisito para ganar tu Tokens Bonus, \"Debes llevar Token Power al programa \". ¿De qué se trata todo eso?",
+                "updated": 1630897032249
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "We're probably getting in the weeds here, but I'll try to keep it simple!",
-            "updated": 1630683871001
+            "updated": 1630683871001,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Probablemente nos estemos metiendo en la maleza aquí, ¡pero intentaré que sea simple!",
+                    "updated": 1630897050223
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "When your Governance Address has some tokens in its balance, then you get the same amount of Token Power in your User Profile."
+            "text": "When your Governance Address has some tokens in its balance, then you get the same amount of Token Power in your User Profile.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando tu Governance Address tiene algunos tokens en su saldo, entonces obtienes la misma cantidad de Token Power en tu User Profile.",
+                    "updated": 1630897088486
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Token Power flows down the hierarchy like a river! The amount of Token Power you let into each Governance Program determines how strongly you wish to participate in the program and impacts the Token Rewards you may get from it.",
-            "updated": 1630684153086
+            "updated": 1630684153086,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Token Power fluye por la jerarquía como un río. La cantidad de Token Power que ingresa en cada Programa de Gobernanza determina la intensidad con la que desea participar en el programa y afecta las Token Rewards que puedes obtener de él.",
+                    "updated": 1630897159932
+                }
+            ]
         },
         {
             "style": "List",
             "text": "By default, Token Power flows in equal amounts to all offspring nodes! You may change this tough!",
-            "updated": 1630684072593
+            "updated": 1630684072593,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Por defecto, Token Power fluye en cantidades iguales a todos los nodos descendientes! ¡Puedes cambiar esto difícil!",
+                    "updated": 1630897224172
+                }
+            ]
         }
     ]
 }

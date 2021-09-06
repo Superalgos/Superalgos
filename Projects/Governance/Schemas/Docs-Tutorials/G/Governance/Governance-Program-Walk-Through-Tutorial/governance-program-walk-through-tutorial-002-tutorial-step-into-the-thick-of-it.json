@@ -8,23 +8,51 @@
         "icon": {
             "name": "Programs\\financial-programs",
             "project": "Governance"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Ahora que tienes un perfil, ¡es hora de sumergirte en el verdadero gobierno de Superalgos!",
+                "updated": 1630854122295
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "I will walk you through all the main programs and help you get aquainted with the way they work. ",
-            "updated": 1630010162848
+            "updated": 1630010162848,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Te guiaré a través de todos los programas principales y te ayudaré a familiarizarte con la forma en que funcionan.",
+                    "updated": 1630854213923
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "The Governance system is a living part of our collaboration so there will always be something new to check out! ",
-            "updated": 1630010228910
+            "updated": 1630010228910,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El sistema de gobernanza es una parte viva de nuestra colaboración, por lo que siempre habrá algo nuevo que agregar.",
+                    "updated": 1630854286081
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Each program aims to foster valuable types of user interaction and contribution from mentoring new users to contributing code. So let's dive in!",
-            "updated": 1630010267953
+            "updated": 1630010267953,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cada programa tiene como objetivo fomentar tipos valiosos de interacción del usuario y la contribución desde la tutoría de nuevos usuarios hasta la contribución del código. ¡Así que vamos a sumergirnos!",
+                    "updated": 1630854675164
+                }
+            ]
         }
     ]
 }

@@ -8,18 +8,39 @@
         "icon": {
             "name": "Exchange\\exchange-account-asset",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Tus Superalgos SA Token irán a la dirección que acabas de generar, debes almacenar de forma segura la clave privada que utilizará para acceder a la dirección.",
+                "updated": 1630891338657
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Important",
             "text": "Superalgos doesn’t offer a built-in solution to securely back up your private keys. The system generates a BSC address / private key pair and delivers it in the configuration of the Profile Constructor. It is up to you to decide how you are going to handle this sensitive information.",
-            "updated": 1630658807597
+            "updated": 1630658807597,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "No ofrecemos una solución integrada para realizar copias de seguridad de tus claves privadas de forma segura. El sistema genera un par de dirección BSC / clave privada y lo entrega en la configuración del Profile Constructor. Depende de ti decidir cómo manejar esta información confidencial.",
+                    "updated": 1630890942338
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Access the configuration of the Profile Constructor. Find the address and private key, and back up the information in whatever way you see fit.",
-            "updated": 1630600071978
+            "updated": 1630600071978,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Accede a la configuración del Profile Constructor. Busca la dirección y la clave privada, y has una copia de seguridad de la información de la forma que consideres conveniente.",
+                    "updated": 1630890851074
+                }
+            ]
         },
         {
             "style": "Text",

@@ -8,22 +8,50 @@
         "icon": {
             "name": "backup-entity",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": " ¡Hemos cubierto los conceptos básicos! ¡Ahora tiene un perfil de usuario en funcionamiento y ya está participando en los dos primeros programas de gobernanza!",
+                "updated": 1630892778890
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "It's time to save your User Profile! ",
-            "updated": 1630603392015
+            "updated": 1630603392015,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Es hora de salvar tu User Profile!",
+                    "updated": 1630892799650
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Click Ctrl + Shift + Alt + Key-S to save the Current Workspace."
+            "text": "Click Ctrl + Shift + Alt + Key-S to save the Current Workspace.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Clic Ctrl + Shift + Alt + Key-S para salvar el Current Workspace.",
+                    "updated": 1630892824874
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "We set your profile to save as a Plugin every time you save the workspace! So that should save your User Profile too! ",
-            "updated": 1630603485216
+            "updated": 1630603485216,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Configuramos tu perfil para que se guarde como un complemento cada vez que guardes el espacio de trabajo! Entonces eso debería salvar tu User Profile también!",
+                    "updated": 1630892880261
+                }
+            ]
         }
     ]
 }

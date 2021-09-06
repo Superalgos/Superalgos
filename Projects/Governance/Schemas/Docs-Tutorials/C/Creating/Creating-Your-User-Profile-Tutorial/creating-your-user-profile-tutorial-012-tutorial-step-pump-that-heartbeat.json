@@ -13,7 +13,8 @@
             {
                 "language": "ES",
                 "text": "Ahora configuremos el Profile Constructor para que luego podamos construir el perfil.",
-                "updated": 1630887647502
+                "updated": 1630887647502,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "ES",
                     "text": "Has clic en la opción de configuración e ingrese su nombre de usuario de GitHub así:",
-                    "updated": 1630888170425
+                    "updated": 1630888170425,
+                    "style": "Callout"
                 }
             ]
         },
@@ -43,7 +45,8 @@
                 {
                     "language": "ES",
                     "text": "Para vincular una dirección que ya posees, escribe el mnemónico de doce palabras asociado con tu dirección en la propiedad mnemónico. De lo contrario, deja la propiedad en blanco y el sistema creará una nueva.",
-                    "updated": 1630888231106
+                    "updated": 1630888231106,
+                    "style": "Text"
                 }
             ]
         },

@@ -572,11 +572,6 @@ Or follow [Superalgos on Facebook](https://www.facebook.com/superalgos).
 
 Superalgos is a Community Project built by users for users. Learn [how you may contribute](https://superalgos.org/community-contribute.shtml).
 
-
-## Top Contributors
-
-Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Ira Miller, matbenitez, bearcanrun, nikolabjelo, PLuv, 9808us, pmmax, suttridge, Basalt09, Mhnramin, 0xperez, infin1t3, benitezme, whtv, cozed-gh, Eduardo678-dotcom, Smidy13, teehanming, 64bittuning, joenij, apronotti, Noeljarillo, ssplatt, rico4dev, DougJCook, mane, Cordo-van-Saviour, CarnivalBen, Sil3ntLight, pisukesoramame, Edodi, harrellbm, CaptainJeff, Jeff Braun, Francisco J. Santillán, Norman, Viktoria B., Guillermo V., Daniel J., Javier A., Gustavo J., Romina GS, Pedro P., Thais M., Andrey M., Loui M., Natalia M., Bashar A., Carlos V., Diego M., Sebastian E., Bogdan P., Marko V., Igor S., Niksa K., Rodrigo M., Nicanor M., Mateo H., Lan T., Leon A., Uroš R., Filip M., Vladimir J. and Pavle B., brycey12, GENS-Tools, rjkilpatrick, superharoun, frysee, RalfWeiss
-
 # License
 
 Superalgos is open-source software released under [Apache License 2.0](LICENSE).

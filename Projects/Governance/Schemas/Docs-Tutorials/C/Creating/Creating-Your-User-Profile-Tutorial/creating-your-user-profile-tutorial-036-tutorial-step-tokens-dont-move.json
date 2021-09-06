@@ -1,0 +1,25 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 36,
+    "type": "Tutorial Step - Tokens Don't Move",
+    "definition": {
+        "text": "When we talk Token Power Flows, it's important to clarify that tokens don't go anywhere! It's Token Power that flows!",
+        "updated": 1630929455261,
+        "icon": {
+            "name": "stop",
+            "project": "Foundations"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Important",
+            "text": "Tokens in your Governance Address never leave your address! There is zero cost for participating in governance! The balance in your address confers Token Power to your User Profile, and it is this abstraction that flows down the hierarchy, not actual tokens.",
+            "updated": 1630929379130
+        },
+        {
+            "style": "Callout",
+            "text": "Remind me to show you how to play with Token Power Flows before we wrap up the tutorial! But let's get back to Community Building Programs before we lose our way!",
+            "updated": 1630933419243
+        }
+    ]
+}

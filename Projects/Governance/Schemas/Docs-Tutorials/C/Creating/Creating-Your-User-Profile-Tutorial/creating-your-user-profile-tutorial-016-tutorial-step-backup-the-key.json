@@ -1,0 +1,66 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 16,
+    "type": "Tutorial Step - Backup the Key!",
+    "definition": {
+        "text": "You need to back up the private key of your Governance Address so that you can later import the address into a crypto wallet.",
+        "updated": 1630924784550,
+        "icon": {
+            "name": "Key\\key-reference",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Ahora que tienes un nuevo User Profile, hablemos un poco más sobre esa clave privada.",
+                "updated": 1630889083782,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos generates the private key locally on your computer, so there is no one else in the world that has access or knowledge of your key, as long as your machine is secure.",
+            "updated": 1630925172425,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Necesitas la clave privada para agregar tu dirección de gobierno a una billetera criptográfica. Superalgos lo genera localmente en tu computadora. Esto significa que no hay nadie más que tenga acceso o conocimiento de su clave, siempre que su máquina sea segura.",
+                    "updated": 1630889987656,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "You must back up your private key in whatever way you see fit! Some people choose to print multiple copies on paper. Remember that one of the most common occurrences of lost crypto is not hacks, but people losing their keys!",
+            "updated": 1630925261139,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": " ¡Debes hacer una copia de seguridad de tu clave privada!",
+                    "updated": 1630890021587,
+                    "style": "Warning"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "If you linked a previously owned address you don't need to back up the private key.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Al vincular una dirección anterior, no necesitarás guardar la clave privada, pero debes hacer una copia de seguridad del contenido del constructor por seguridad.",
+                    "updated": 1630890278006,
+                    "style": "Note"
+                }
+            ],
+            "updated": 1630925274111
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

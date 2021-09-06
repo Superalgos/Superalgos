@@ -13,7 +13,8 @@
             {
                 "language": "ES",
                 "text": "¡Superalgos no recompensa el aprovechamiento gratuito! Las contribuciones reales al proyecto y a la comunidad son las que se recompensan con tokens y Token Power.",
-                "updated": 1630873417226
+                "updated": 1630873417226,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "ES",
                     "text": "La palabra elegante para este tipo de gobernanza de proyectos es meritocracia. En otras palabras, cuanto más contribuyas a la mejora de Superalgos y al apoyo de nuestra Community, cuanto mas Token Power y Reputation ganas para influir en el futuro del proyecto.",
-                    "updated": 1630873470291
+                    "updated": 1630873470291,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "ES",
                     "text": "¡Esta es una colaboración! Solo juntos podemos continuar haciendo de Superalgos el cambio de juego que es hoy, sin importar lo que depare el futuro.",
-                    "updated": 1630873528737
+                    "updated": 1630873528737,
+                    "style": "Note"
                 }
             ]
         }

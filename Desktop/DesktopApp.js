@@ -19,8 +19,8 @@ exports.newDesktopApp = function newDesktopApp() {
         //await DK.webSocketsClient.initialize()
 
         /* These are the Network Interfaces by which the UI interacts with the Desktop App.*/
-        //let WEB_SOCKETS_INTERFACE = require('./webSocketsInterface.js')
-        let HTTP_INTERFACE = require('./httpInterface.js')
+        //let WEB_SOCKETS_INTERFACE = require('./Client/webSocketsInterface.js')
+        let HTTP_INTERFACE = require('./Client/httpInterface.js')
 
         /*
         WEB_SOCKETS_INTERFACE = WEB_SOCKETS_INTERFACE.newWebSocketsInterface()

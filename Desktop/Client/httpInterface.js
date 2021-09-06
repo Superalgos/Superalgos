@@ -19,13 +19,13 @@ exports.newHttpInterface = function newHttpInterface() {
         /*
         We will create an HTTP Server and leave it running forever.
         */
-       SA.nodeModules.http.createServer(onHttpRequest).listen(global.env.DESKTOP_HTTP_INTERFACE_PORT)
-       /* Starting the browser now is optional */
-       if (process.argv.includes("noBrowser")) {
-           //Running Client only with no UI.
-       } else {
-           SA.nodeModules.open('http://localhost:' + global.env.DESKTOP_HTTP_INTERFACE_PORT)
-       }
+        SA.nodeModules.http.createServer(onHttpRequest).listen(global.env.DESKTOP_HTTP_INTERFACE_PORT)
+        /* Starting the browser now is optional */
+        if (process.argv.includes("noBrowser")) {
+            //Running Client only with no UI.
+        } else {
+            SA.nodeModules.open('http://localhost:' + global.env.DESKTOP_HTTP_INTERFACE_PORT)
+        }
     }
 
     function onHttpRequest(httpRequest, httpResponse) {
@@ -35,6 +35,41 @@ exports.newHttpInterface = function newHttpInterface() {
             let endpointOrFile = requestPath[1]
 
             switch (endpointOrFile) {
+                case 'ProjectsSchema':
+                    {
+                        let path = global.env.PATH_TO_PROJECTS + '/' + 'ProjectsSchema.json'
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(path, httpResponse)
+                    }
+                    break
+                case 'ListFunctionLibraries':
+                    {
+                        SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Function-Libraries', 'UI')
+                    }
+                    break
+                case 'ListUtilitiesFiles':
+                    {
+                        SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Utilities', 'UI')
+                    }
+                    break
+                case 'ListGlobalFiles':
+                    {
+                        SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Globals', 'UI')
+                    }
+                    break
+                case 'Projects':
+                    {
+                        let path = ''
+                        for (let i = 2; i < 10; i++) {
+                            if (requestPath[i] !== undefined) {
+                                let parameter = unescape(requestPath[i])
+                                path = path + '/' + parameter
+                            }
+
+                        }
+                        let filePath = global.env.PATH_TO_PROJECTS + path
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(filePath, httpResponse)
+                    }
+                    break
                 case 'Images': // This means the Images folder.
                     {
                         let path = global.env.PATH_TO_DESKTOP + '/WebServer/Images/' + requestPath[2]
@@ -58,7 +93,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 default:
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithWebFile(httpResponse, endpointOrFile,  global.env.PATH_TO_DESKTOP)
+                        SA.projects.foundations.utilities.httpResponses.respondWithWebFile(httpResponse, endpointOrFile, global.env.PATH_TO_DESKTOP)
                     }
             }
         } catch (err) {

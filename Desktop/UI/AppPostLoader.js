@@ -9,8 +9,18 @@ function newAppPostLoader() {
 
     function start() {
         try {
-            webApp = newWebApp()
-            webApp.initialize()
+
+            setupProjectsSchema()
+
+            function setupProjectsSchema() {
+                httpRequest(undefined, 'ProjectsSchema', onResponse)
+
+                function onResponse(err, file) {
+                    PROJECTS_SCHEMA = JSON.parse(file)
+                    webApp = newWebApp()
+                    webApp.initialize()
+                }
+            }
         } catch (err) {
             console.log('[ERROR] err.stack = ' + err.stack)
         }

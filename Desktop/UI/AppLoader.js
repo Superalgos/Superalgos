@@ -10,12 +10,12 @@ function newAppLoader() {
 
     async function loadModules() {
         try {
-            let modulesArray = []
-
-            modulesArray = modulesArray.concat([
+            let modulesArray = [
+                'WebDebugLog.js',
+                'AppPostLoader.js',
                 'Globals.js',
                 'WebApp.js'
-            ])
+            ]
 
             functionLibraries()
 
@@ -72,23 +72,6 @@ function newAppLoader() {
                         project = item[0]
                         fileName = item[1]
                         urlArray.push('Projects' + '/' + project + '/' + 'UI' + '/' + 'Globals' + '/' + fileName)
-                    }
-
-                    modulesArray = modulesArray.concat(urlArray)
-                    spaces()
-                }
-            }
-
-            function spaces() {
-                let url = 'ListSpaceFiles'
-                httpRequest(undefined, url, onResponse)
-
-                function onResponse(err, fileList) {
-                    let urlArray = []
-                    let fileArray = JSON.parse(fileList)
-                    for (let i = 0; i < fileArray.length; i++) {
-                        let path = fileArray[i]
-                        urlArray.push('Projects' + '/' + path)
                     }
 
                     modulesArray = modulesArray.concat(urlArray)

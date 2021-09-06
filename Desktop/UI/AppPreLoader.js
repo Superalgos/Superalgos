@@ -43,7 +43,7 @@ function httpRequest(pContentToSend, pPath, callBackFunction) {
     xmlHttpRequest.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             try {
-                callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, xmlHttpRequest.responseText)
+                callBackFunction(undefined, xmlHttpRequest.responseText)
             } catch(err) {
                 console.log('[ERROR] httpRequest -> httpRequest -> err.stack = '+ err.stack)
                 console.log('[ERROR] httpRequest -> httpRequest -> pContentToSend = '+ pContentToSend)

@@ -13,7 +13,8 @@
             {
                 "language": "ES",
                 "text": "Cómo usas tu Token Power se define dentro de una serie de Governance Programs dentro de la jerarquía de su perfil.",
-                "updated": 1630875913309
+                "updated": 1630875913309,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "ES",
                     "text": "Estos programas ayudan a organizar los tipos de desarrollo y relaciones comunitarias que deseas recompensar.",
-                    "updated": 1630877556436
+                    "updated": 1630877556436,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "ES",
                     "text": "Por ejemplo, el Claims Program le permite presentar reclamaciones por el trabajo que ha realizado. Mientras que la Support Program te permite agradecer a otros usuarios de Superalgos que te han ayudado con el soporte técnico.",
-                    "updated": 1630878873256
+                    "updated": 1630878873256,
+                    "style": "Note"
                 }
             ]
         },
@@ -49,7 +52,8 @@
                 {
                     "language": "ES",
                     "text": "¡Cubriremos todos estos y otros programas en detalle una vez que tengas un perfil funcional!",
-                    "updated": 1630878930911
+                    "updated": 1630878930911,
+                    "style": "Text"
                 }
             ]
         }

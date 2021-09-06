@@ -13,7 +13,8 @@
             {
                 "language": "ES",
                 "text": "Antes de pasar a la gobernanza, es importante que sepas cómo funciona Superalgos.",
-                "updated": 1630871065288
+                "updated": 1630871065288,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "ES",
                     "text": "Tenemos muchas cosas interesantes de las que hablar, pero quiero asegurarme de que pueda seguirlas fácilmente.",
-                    "updated": 1630871195572
+                    "updated": 1630871195572,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "ES",
                     "text": "Asegúrate de leer los tutoriales en el Getting Started Tutorials Plugin Workspace antes de continuar si aún no lo has hecho!",
-                    "updated": 1630872016952
+                    "updated": 1630872016952,
+                    "style": "Callout"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "ES",
                     "text": "No es necesario ser un experto, pero necesitará algunos conocimientos generales del sistema para comprender de qué se trata.",
-                    "updated": 1630872031627
+                    "updated": 1630872031627,
+                    "style": "Success"
                 }
             ]
         }

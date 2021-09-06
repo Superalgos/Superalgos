@@ -33,8 +33,8 @@
     "paragraphs": [
         {
             "style": "List",
-            "text": "Adjust the aspect ratio: Point your mouse to the Backtesting Session chart (the one on top) and hit Ctrl + Shift + Key-A",
-            "updated": 1622198971565,
+            "text": "Adjust the aspect ratio: Point your mouse to the Backtesting Session chart (the one on top) and hit Ctrl + Shift + Alt + Key-A",
+            "updated": 1630942566854,
             "translations": [
                 {
                     "language": "ID",

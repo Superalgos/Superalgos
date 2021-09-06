@@ -720,7 +720,7 @@ function newEducationTutorialSpace() {
         }
 
         function makeVsible() {
-            const HEIGHT = 650
+            const HEIGHT = 675
             const WIDTH = 400
             const MARGIN = 100
             const FORM_HEIGHT = 40

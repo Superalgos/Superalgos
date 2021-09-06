@@ -118,7 +118,7 @@ function newFoundationsFunctionLibraryTradingSessionFunctions() {
             'Trading Current->Trading Last->Previous->' +
             'Trading Episode->' +
             'Episode Base Asset->Episode Quoted Asset->Trading Episode Counters->Trading Episode Statistics->' +
-            'Strategies->Positions->Orders->Hits->Fails->' +
+            'Strategies->Positions->Orders->Hits->Fails->User Defined Counter->' +
             'Profit Loss->Hit Ratio->Hit Fail->Days->ROI->Annualized Rate Of Return->User Defined Statistic->' +
             'Candle->Cycle->' +
             'Begin->End->Last Begin->Last End->Open->Close->Min->Max->Index->' +

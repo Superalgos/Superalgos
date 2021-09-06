@@ -8,17 +8,38 @@
         "icon": {
             "name": "Docs\\docs-action-delete-paragraph",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Una vez que te hayas asegurado de hacer una copia de seguridad del contenido del Profile Constructor es hora de limpiar el taller.",
+                "updated": 1630891469094
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Once you are satisfied with your backup of the private key, delete the Profile Constructor node! ",
-            "updated": 1629582405899
+            "updated": 1629582405899,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Una vez que estés satisfecho con tu copia de seguridad de la clave privada, elimina el nodo Profile Constructor.",
+                    "updated": 1630891508439
+                }
+            ]
         },
         {
             "style": "Warning",
-            "text": "It is not safe to store your private key at the Workspace, as you may accidentally submit it to GitHub.com with one of your contributions. Also, remember that workspaces are saved on disk as unencrypted JSON files, with no security whatsoever."
+            "text": "It is not safe to store your private key at the Workspace, as you may accidentally submit it to GitHub.com with one of your contributions. Also, remember that workspaces are saved on disk as unencrypted JSON files, with no security whatsoever.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "No es seguro almacenar tu clave privada en el espacio de trabajo, ya que puedes enviarla accidentalmente a GitHub.com con una de tus contribuciones. Además, recuerda que los espacios de trabajo se guardan en el disco como archivos JSON sin cifrar, sin ningún tipo de seguridad.",
+                    "updated": 1630891565910
+                }
+            ]
         },
         {
             "style": "Text",

@@ -8,23 +8,51 @@
         "icon": {
             "name": "Programs\\mentorship-program",
             "project": "Governance"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Los mentores son cruciales para desarrollar colaboradores. ¡Son las personas que hacen un esfuerzo adicional para ayudarte a progresar y dominar Superalgos!",
+                "updated": 1630898636401
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The Mentorship Program is very similar the Support Program, only that your mentors don't need to be moderators. It may be your friend learning Superalgos with you, or any other Community member!",
-            "updated": 1630690674482
+            "updated": 1630690674482,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El Mentorship Programes muy similar al Support Program, solo que sus mentores no necesitan ser moderadores. ¡Puede ser tu amigo aprendiendo Superalgos contigo, o otro miembro de la comunidad!",
+                    "updated": 1630898711625
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Deploy the program, and declare your mentors!",
-            "updated": 1630690640463
+            "updated": 1630690640463,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Declara a tus mentores!",
+                    "updated": 1630898761046
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "With this you've completed the setup of the main Governance Programs oriented to newcomers! Now it's time to contribute your User Profile to the Superalgos repository!",
-            "updated": 1630754628606
+            "updated": 1630754628606,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Con esto, has completado la configuración de la Governance Programs orientado a los recién llegados! ¡Ahora es el momento de contribuir con tu User Profile al repositorio de Superalgos!",
+                    "updated": 1630898857914
+                }
+            ]
         }
     ]
 }

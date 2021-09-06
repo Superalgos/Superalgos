@@ -8,28 +8,63 @@
             "name": "tokens-awarded",
             "project": "Governance"
         },
-        "updated": 1630681292714
+        "updated": 1630681292714,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¡Superalgos es un proyecto administrado por la comunidad, no una startup financiada por VC! ¡Contamos con tu ayuda con el marketing de boca en boca!",
+                "updated": 1630896521389
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Important",
             "text": "The incentives to bring your friends, colleagues, or your following are significant! Find the short explanation below, and dive into the details on the right if so you wish!",
-            "updated": 1630681312671
+            "updated": 1630681312671,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Los incentivos para traer a sus amigos, colegas o sus seguidores son significativos! Encuentre la breve explicación a continuación y sumérjase en los detalles a la derecha si lo desea.",
+                    "updated": 1630896616974
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "This is the short version of how these programs work:",
-            "updated": 1630680801100
+            "updated": 1630680801100,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Esta es la versión corta de cómo funcionan:",
+                    "updated": 1630896948284
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The more people declare you as their referrers, the more tokens you earn on each and every release of the software, indefinitely!",
-            "updated": 1630680974311
+            "updated": 1630680974311,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuantas más personas te declaren como tus referentes, más tokens ganarás en todas y cada una de las versiones del software, ¡indefinidamente!",
+                    "updated": 1630896831390
+                }
+            ]
         },
         {
             "style": "List",
             "text": "If the people you bring to Superalgos bring people too, you earn for those as well, and for those the latter bring, you earn too!",
-            "updated": 1630681200103
+            "updated": 1630681200103,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si la gente que traes a Superalgos también trae gente, tú también ganas por ellos, y por los que traen estos últimos, ¡tú también ganas!",
+                    "updated": 1630896914087
+                }
+            ]
         },
         {
             "style": "Text",

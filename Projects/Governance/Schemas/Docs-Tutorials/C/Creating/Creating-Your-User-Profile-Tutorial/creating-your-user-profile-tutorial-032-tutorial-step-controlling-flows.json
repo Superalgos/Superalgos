@@ -8,18 +8,39 @@
             "name": "Switches\\votes-switch",
             "project": "Governance"
         },
-        "updated": 1630687488694
+        "updated": 1630687488694,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¡La configuración de cada nodo donde pueda entrar Token Power actúa como una compuerta! Así es como controlas Token Power Flows!",
+                "updated": 1630897279661
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Go back to the Onboarding Programs node. Guess what? Those programs do not need Token Power, so we will close the floodgate!",
-            "updated": 1630687366643
+            "updated": 1630687366643,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Vuelve al nodo Onboarding Programs. ¿Adivina qué? Esos programas no necesitan Token Power, ¡así que cerraremos la compuerta!",
+                    "updated": 1630897321614
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Copy the below configuration and paste it into the Onboarding Programs node configuration!",
-            "updated": 1630687477137
+            "updated": 1630687477137,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Copie la siguiente configuración y péguela en la configuración del nodo Onboarding Programs.",
+                    "updated": 1630897367644
+                }
+            ]
         },
         {
             "style": "Json",

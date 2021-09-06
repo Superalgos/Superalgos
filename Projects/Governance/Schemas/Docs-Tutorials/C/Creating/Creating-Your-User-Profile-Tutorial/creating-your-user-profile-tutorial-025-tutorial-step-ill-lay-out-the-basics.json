@@ -8,27 +8,62 @@
             "name": "Programs\\community-building-programs",
             "project": "Governance"
         },
-        "updated": 1630664341967
+        "updated": 1630664341967,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Community Building Programs tienen dos tipos de incentivos incorporados: un Tokens Bonus, y Tokens Awarded por el programa.",
+                "updated": 1630893270729
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "In general terms, this is how it works:",
-            "updated": 1630664598834
+            "updated": 1630664598834,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En términos generales, así es como funciona:",
+                    "updated": 1630893389941
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Tokens Bonus: It's an incentive to participate in the program. You earn these tokens simply by fulfilling the participation rules."
+            "text": "Tokens Bonus: It's an incentive to participate in the program. You earn these tokens simply by fulfilling the participation rules.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Tokens Bonus: Es un incentivo para participar en el programa. Ganas estos tokens simplemente cumpliendo con las reglas de participación.",
+                    "updated": 1630893419741
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Tokens Awarded: These programs incentivize desirable behaviors. If you constructively participate in the Community, then you will earn more tokens!",
-            "updated": 1630664896700
+            "updated": 1630664896700,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Tokens Awarded: Estos programas incentivan los comportamientos deseables. Si participas de manera constructiva en la comunidad, ¡ganarás más tokens!",
+                    "updated": 1630893448980
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "The interesting bit about these programs is that they reward chains of collaborations! Let's explore this concept within the Referral Program!",
-            "updated": 1630664769086
+            "updated": 1630664769086,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Lo interesante de estos programas es que recompensan cadenas de colaboraciones! Exploremos este concepto dentro del Referral Program!",
+                    "updated": 1630893469226
+                }
+            ]
         }
     ]
 }

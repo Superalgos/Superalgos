@@ -1,0 +1,62 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 43,
+    "type": "Tutorial Step - Deep Governance",
+    "definition": {
+        "text": "Are you ready to go deeper into the Governance rabbit hole?<br/> If you're just starting with Superalgos, you don't <i>need</i> to go any further at this point!",
+        "icon": {
+            "name": "governance",
+            "project": "Governance"
+        },
+        "updated": 1630753677065,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¿Estás listo para adentrarte más en la madriguera de la gobernanza? Si recién está comenzando con Superalgos, ¡no necesita ir más lejos ahora!",
+                "updated": 1630899585481,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "However, if you're invested in the project and wish to place some Contribution Claims or cast some votes, then you have some reading to do!",
+            "updated": 1630753559879,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Sin embargo, si has invertido en el proyecto y deseas realizar algunas reclamaciones de contribución o emitir algunos votos, ¡tienes que leer un poco!",
+                    "updated": 1630899572852,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "The Governance Project book on the right takes you deep into all Governance Programs, including those we haven't covered yet!",
+            "updated": 1630753327041,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "The Governance Project el libro de la derecha te lleva a lo más profundo de todo Governance Programs, ¡incluidos los que aún no hemos cubierto!",
+                    "updated": 1630899611785,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "You're on your own from here on! If you have any questions about governance or the token, please join the Token Group in Telegram!",
+            "updated": 1630753481035,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si tiene alguna pregunta sobre la gobernanza o el token, ¡únte al Token Group en Telegram!",
+                    "updated": 1630899662771,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

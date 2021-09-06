@@ -8,23 +8,55 @@
         "icon": {
             "name": "Pool\\pools",
             "project": "Governance"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Antes de pasar a la gobernanza, es importante que sepas cómo funciona Superalgos.",
+                "updated": 1630871065288,
+                "style": "Definition"
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "We've got a lot of exciting things to talk about, but I want to make sure you can follow along easily.",
-            "updated": 1630657385662
+            "updated": 1630657385662,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Tenemos muchas cosas interesantes de las que hablar, pero quiero asegurarme de que pueda seguirlas fácilmente.",
+                    "updated": 1630871195572,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Make sure you go through the tutorials in the Getting Started Tutorials Plugin Workspace before continuing if you haven't yet!",
-            "updated": 1630598529991
+            "updated": 1630598529991,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Asegúrate de leer los tutoriales en el Getting Started Tutorials Plugin Workspace antes de continuar si aún no lo has hecho!",
+                    "updated": 1630872016952,
+                    "style": "Callout"
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "No need to be an expert, but you will need some general knowledge of the system to understand what this is all about!",
-            "updated": 1629720316727
+            "updated": 1629720316727,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "No es necesario ser un experto, pero necesitará algunos conocimientos generales del sistema para comprender de qué se trata.",
+                    "updated": 1630872031627,
+                    "style": "Success"
+                }
+            ]
         }
     ]
 }

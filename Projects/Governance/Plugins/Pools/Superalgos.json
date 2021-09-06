@@ -866,7 +866,15 @@
                             "type": "Pools",
                             "name": "Foundations-Project",
                             "id": "c078377e-55af-48ae-921d-bffda8ba41f4"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Foundations-Project",
+                                "Pools",
+                                "Governance",
+                                "c078377e-55af-48ae-921d-bffda8ba41f4"
+                            ]
+                        ]
                     }
                 },
                 {
@@ -1188,7 +1196,15 @@
                             "type": "Assets",
                             "name": "Foundations-Project-Docs",
                             "id": "43831bbf-5672-4899-a3d8-b2609018512d"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Foundations-Project-Docs",
+                                "Assets",
+                                "Governance",
+                                "43831bbf-5672-4899-a3d8-b2609018512d"
+                            ]
+                        ]
                     }
                 },
                 {
@@ -1591,12 +1607,12 @@
                                 },
                                 "referenceParent": {
                                     "type": "Positions",
-                                    "name": "Superalgos",
+                                    "name": "Foundations-Project",
                                     "id": "50c68665-5da2-48a8-b229-7a1563ae82d2"
                                 },
                                 "referenceParentCombinedNodePath": [
                                     [
-                                        "Superalgos",
+                                        "Foundations-Project",
                                         "Positions",
                                         "Governance",
                                         "50c68665-5da2-48a8-b229-7a1563ae82d2"

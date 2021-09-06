@@ -255,7 +255,15 @@
                             "type": "Assets",
                             "name": "Foundations-Project-Plugins",
                             "id": "821486a9-5ad1-44a7-bf61-6fc3ef1b72c6"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Foundations-Project-Plugins",
+                                "Assets",
+                                "Governance",
+                                "821486a9-5ad1-44a7-bf61-6fc3ef1b72c6"
+                            ]
+                        ]
                     }
                 }
             ],
@@ -297,7 +305,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

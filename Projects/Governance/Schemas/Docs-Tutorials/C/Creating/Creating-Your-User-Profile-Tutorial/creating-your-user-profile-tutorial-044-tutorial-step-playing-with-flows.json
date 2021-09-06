@@ -1,0 +1,38 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 44,
+    "type": "Tutorial Step - Playing With Flows",
+    "definition": {
+        "text": "Almost forgot! Before you go, I'm gonna give you a crash course so that you may play a bit with some real Token Power!",
+        "updated": 1630930285066,
+        "icon": {
+            "name": "Programs//delegation-program",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We're sneaking into the lead developer's User Profile, particularly in his Delegation Program! Your mission: delegate yourself some Token Power so that you can play with the flows within your own profile!",
+            "updated": 1630931293437
+        },
+        {
+            "style": "Callout",
+            "text": "Use the User Delegate node on the right to reference your own User Profile!"
+        },
+        {
+            "style": "List",
+            "text": "You can freely play with other User Profiles.",
+            "updated": 1630931454654
+        },
+        {
+            "style": "List",
+            "text": "Those profiles don't save with the workspace.",
+            "updated": 1630931469032
+        },
+        {
+            "style": "List",
+            "text": "Even if you submitted them to the repo, they would be rejected by our bot controlling that profiles are uploaded by their owners only."
+        }
+    ]
+}

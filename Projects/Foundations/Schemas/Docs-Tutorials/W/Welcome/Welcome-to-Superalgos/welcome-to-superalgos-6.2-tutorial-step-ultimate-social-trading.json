@@ -1,0 +1,34 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": "106.2",
+    "type": "Tutorial Step - Ultimate Social Trading",
+    "definition": {
+        "text": "The Superalgos Platform is designed to serve algo-traders. But the project is expanding its scope to cater to all crypto users!",
+        "updated": 1630855795499,
+        "icon": {
+            "name": "User\\user-influencer",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Incentivized by the protocol, algo-traders will compete to produce and disseminate trading signals.",
+            "updated": 1630856058462
+        },
+        {
+            "style": "List",
+            "text": "Influencers will curate signal providers and broadcast select signals to their following."
+        },
+        {
+            "style": "List",
+            "text": "Crypto users will follow influencers and get their signals on a mobile, desktop, or server app, free of charge! These apps will enable easy auto-trading, with free intelligence produced by experts!",
+            "updated": 1630856106399
+        },
+        {
+            "style": "Callout",
+            "text": "Both algo-traders and influencers get paid by the protocol, while crypto users get all products and services free of charge. Quite disruptive, right?",
+            "updated": 1630856187731
+        }
+    ]
+}

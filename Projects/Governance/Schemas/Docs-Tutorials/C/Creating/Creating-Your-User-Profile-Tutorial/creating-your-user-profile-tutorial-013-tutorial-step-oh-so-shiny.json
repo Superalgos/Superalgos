@@ -8,18 +8,42 @@
             "name": "User\\user-profile",
             "project": "Governance"
         },
-        "updated": 1630658421560
+        "updated": 1630658421560,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Estamos casi alli. Ahora has clic enBuild Profile y ve cómo sucede la magia. Así es, ¡acabas de crear tu perfil!",
+                "updated": 1630888309658,
+                "style": "Definition"
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "While we didn’t have to break a sweat making your profile, some pretty amazing things happened behind the scenes. ",
-            "updated": 1629553522636
+            "updated": 1629553522636,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si bien no tuvimos que sudar mucho para crear tu perfil, sucedieron algunas cosas asombrosas detrás de escena.",
+                    "updated": 1630888348614,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The constructor just generated your user profile, and either linked your address or created a unique SA Token Governance Address.",
-            "updated": 1630599816232
+            "updated": 1630599816232,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "TEl constructor acaba de generar su perfil de usuario y vinculó su dirección o creó un SA Token Governance Address.",
+                    "updated": 1630888438347,
+                    "style": "Note"
+                }
+            ]
         }
     ]
 }

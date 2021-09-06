@@ -159,9 +159,6 @@ This command will install all dependencies plus TensorFlow dependencies.
 
 **NOTE FOR WINDOWS USERS INSTALLING TENSORFLOW DEPENDENCIES:** You may get an error at the end of the set up process. If you do, please follow the instructions following the error message.
 
-
-
-
 **NOTE FOR USERS INSTALLING MULTIPLE INSTANCES OF SUPERALGOS ON THE SAME MACHINE:** In order to avoid name conflicts between shortcuts, make sure to rename each Superalgos directory before running `node setup`.
 
 Congratulations your installation is complete!
@@ -176,6 +173,12 @@ As noted above, running `node setup` installs GUI shortcuts by default. To suppr
 
 ```
 node setup noShortcuts
+```
+
+or, if you wish to try the TensorFlow implementation,...
+
+```
+node setup tensorflow noShortcuts
 ```
 
 <hr>
@@ -228,7 +231,7 @@ cd Superalgos
 ```
 then
 ```
-node run minMemo noBrowser
+node platform  minMemo noBrowser
 ```
 
 In addition, you may use any of the automatically installed desktop and start menu shortcuts to launch Superalgos.
@@ -261,7 +264,7 @@ Now both launcher and desktop shortcuts will launch Superalgos like any other pr
 
 We are testing the UI on Google Chrome and Safari on macOS only. It may work on other browsers as well &mdash; or not. If you are running on a different browser and ever need support, make sure you mention that fact upfront, or even better, try on Chrome/Safari first.
 
- **TIP:** If your computer has 8 GB of RAM or less, use ```node run minMemo``` to run the system with minimal RAM requirements.
+ **TIP:** If your computer has 8 GB of RAM or less, use ```node platform minMemo``` to run the system with minimal RAM requirements.
 
 # Running Superalgos on a Headless Linux Server as a Daemon
 
@@ -278,7 +281,7 @@ Description=Superalgos client
 Type=simple
 User=<user>
 WorkingDirectory=/path/to/Superalgos
-ExecStart=/usr/bin/node run minMemo noBrowser
+ExecStart=/usr/bin/node platform minMemo noBrowser
 
 [Install]
 WantedBy=multi-user.target

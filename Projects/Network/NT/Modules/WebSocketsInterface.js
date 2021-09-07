@@ -1,6 +1,9 @@
 exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSocketsInterface() {
 
     let thisObject = {
+        networkClients: undefined,
+        networkPeers: undefined,
+        callersMap: undefined,
         initialize: initialize,
         finalize: finalize
     }
@@ -14,6 +17,10 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
     return thisObject
 
     function finalize() {
+        thisObject.networkClients = undefined
+        thisObject.networkPeers = undefined
+        callersMap = undefined
+
         socketServer = undefined
         clientInterface = undefined
         peerInterface = undefined
@@ -26,18 +33,35 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
         clientInterface = NT.projects.socialTrading.modules.clientInterface.newSocialTradingModulesClientInterface()
         peerInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesPeerInterface()
 
+        thisObject.networkClients = []
+        thisObject.networkPeers = []
+        thisObject.callersMap = new Map()
+
         setUpWebSocketServer()
     }
 
     function setUpWebSocketServer() {
         try {
-            socketServer.on('connection', onConnection)
+            socketServer.on('connection', onConnectionOpened)
 
-            function onConnection(socket) {
-                let caller = {}
+            function onConnectionOpened(socket)
+
+            /*
+            This function is executed every time a new Websockets connection
+            is stablished.  
+            */ {
+                let caller = {
+                    socket: socket,
+                    userProfile: undefined,
+                    role: undefined
+                }
+
+                caller.socket.id = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
+                caller.socket.on('close', onConnectionClosed)
+
                 let calledTimestamp = (new Date()).valueOf()
 
-                socket.on('message', onMenssage)
+                caller.socket.on('message', onMenssage)
 
                 async function onMenssage(message) {
                     try {
@@ -49,7 +73,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                 result: 'Error',
                                 message: 'messageHeader Not Coorrect JSON Format.'
                             }
-                            socket.send(JSON.stringify(response))
+                            caller.socket.send(JSON.stringify(response))
                             return
                         }
                         /*
@@ -60,13 +84,13 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                 result: 'Error',
                                 message: 'messageType Not Provided.'
                             }
-                            socket.send(JSON.stringify(response))
+                            caller.socket.send(JSON.stringify(response))
                             return
                         }
 
                         switch (messageHeader.messageType) {
                             case "Handshake": {
-                                handshakeProducedure(socket, caller, calledTimestamp, messageHeader)
+                                handshakeProducedure(caller, calledTimestamp, messageHeader)
                                 break
                             }
                             case "Request": {
@@ -76,19 +100,19 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                         result: 'Error',
                                         message: 'Handshake Not Done Yet.'
                                     }
-                                    socket.send(JSON.stringify(response))
+                                    caller.socket.send(JSON.stringify(response))
                                     return
                                 }
 
                                 switch (caller.role) {
                                     case 'Network Client': {
                                         let response = await clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
-                                        socket.send(JSON.stringify(response))
+                                        caller.socket.send(JSON.stringify(response))
                                         break
                                     }
                                     case 'Network Peer': {
                                         let response = await peerInterface.messageReceived(messageHeader.payload)
-                                        socket.send(JSON.stringify(response))
+                                        caller.socket.send(JSON.stringify(response))
                                         break
                                     }
                                 }
@@ -99,7 +123,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                     result: 'Error',
                                     message: 'messageType Not Supported.'
                                 }
-                                socket.send(JSON.stringify(response))
+                                caller.socket.send(JSON.stringify(response))
                                 break
                             }
                         }
@@ -109,7 +133,13 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 }
             }
 
-            function handshakeProducedure(socket, caller, calledTimestamp, messageHeader) {
+            function onConnectionClosed() {
+                let socketId = this.id
+                let caller = thisObject.callersMap.get(socketId)
+                removeCaller(caller)
+            }
+
+            function handshakeProducedure(caller, calledTimestamp, messageHeader) {
                 /*
                 The handshage producedure have 2 steps, we need to know 
                 now which one we are at. 
@@ -119,7 +149,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         result: 'Error',
                         message: 'step Not Provided.'
                     }
-                    socket.send(JSON.stringify(response))
+                    caller.socket.send(JSON.stringify(response))
                     return
                 }
                 if (messageHeader.step !== 'One' && messageHeader.step !== 'Two') {
@@ -127,7 +157,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         result: 'Error',
                         message: 'step Not Supported.'
                     }
-                    socket.send(JSON.stringify(response))
+                    caller.socket.send(JSON.stringify(response))
                     return
                 }
                 switch (messageHeader.step) {
@@ -149,7 +179,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'callerRole Not Provided.'
                         }
-                        socket.send(JSON.stringify(response))
+                        caller.socket.send(JSON.stringify(response))
                         return
                     }
 
@@ -158,7 +188,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'callerRole Not Supported.'
                         }
-                        socket.send(JSON.stringify(response))
+                        caller.socket.send(JSON.stringify(response))
                         return
                     }
 
@@ -171,7 +201,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'callerProfileHandle Not Provided.'
                         }
-                        socket.send(JSON.stringify(response))
+                        caller.socket.send(JSON.stringify(response))
                         return
                     }
 
@@ -184,7 +214,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'callerTimestamp Not Provided.'
                         }
-                        socket.send(JSON.stringify(response))
+                        caller.socket.send(JSON.stringify(response))
                         return
                     }
                     /*
@@ -195,7 +225,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'callerTimestamp Too Old.'
                         }
-                        socket.send(JSON.stringify(response))
+                        caller.socket.send(JSON.stringify(response))
                         return
                     }
                     /*
@@ -215,7 +245,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         message: 'Handshake Step One Complete',
                         signature: JSON.stringify(signature)
                     }
-                    socket.send(JSON.stringify(response))
+                    caller.socket.send(JSON.stringify(response))
                 }
 
                 function handshakeStepTwo() {
@@ -227,7 +257,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'Handshake Step One Not Completed.'
                         }
-                        socket.send(JSON.stringify(response))
+                        caller.socket.send(JSON.stringify(response))
                         return
                     }
                     /*
@@ -238,7 +268,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'signature Not Provided.'
                         }
-                        socket.send(JSON.stringify(response))
+                        caller.socket.send(JSON.stringify(response))
                         return
                     }
 
@@ -250,7 +280,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'Bad Signature.'
                         }
-                        socket.send(JSON.stringify(response))
+                        caller.socket.send(JSON.stringify(response))
                         return
                     }
                     /*
@@ -263,7 +293,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'userProfile Not Found.'
                         }
-                        socket.send(JSON.stringify(response))
+                        caller.socket.send(JSON.stringify(response))
                         return
                     }
                     /*
@@ -277,7 +307,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'callerProfileHandle Does Not Match witnessUserProfile.'
                         }
-                        socket.send(JSON.stringify(response))
+                        caller.socket.send(JSON.stringify(response))
                         return
                     }
                     /*
@@ -289,7 +319,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'calledProfileHandle Does Not Match This Network Node Handle.'
                         }
-                        socket.send(JSON.stringify(response))
+                        caller.socket.send(JSON.stringify(response))
                         return
                     }
                     /*
@@ -300,7 +330,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'calledTimestamp Does Not Match calledTimestamp On Record.'
                         }
-                        socket.send(JSON.stringify(response))
+                        caller.socket.send(JSON.stringify(response))
                         return
                     }
                     /*
@@ -310,15 +340,74 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     We will remember the user profile behind this caller.
                     */
                     caller.userProfile = witnessUserProfile
+                    /*
+                    We will remember the caller itself.
+                    */
+                    addCaller(caller)
 
                     let response = {
                         result: 'Ok',
                         message: 'Handshake Successful.'
                     }
-                    socket.send(JSON.stringify(response))
+                    caller.socket.send(JSON.stringify(response))
                 }
             }
 
+            function addCaller(caller) {
+
+                thisObject.callersMap.set(caller.socket.id, caller)
+
+                switch (caller.role) {
+                    case 'Network Client': {
+                        addToArray(thisObject.networkClients, caller)
+                        break
+                    }
+                    case 'Network Peer': {
+                        addToArray(thisObject.networkPeers, caller)
+                        break
+                    }
+                }
+
+                function addToArray(callersArray, caller) {
+                    /*
+                    We will add the caller to the existing array, first the ones with highest ranking.
+                    */
+                    for (let i = 0; i < callersArray.length; i++) {
+                        let callerInArray = callersArray[i]
+                        if (caller.userProfile.ranking > callerInArray.userProfile.ranking) {
+                            callersArray.splice(i, 0, caller)
+                            return
+                        }
+                    }
+                    callersArray.push(caller)
+                }
+            }
+
+            function removeCaller(caller) {
+
+                thisObject.callersMap.delete(caller.socket.id)
+
+                switch (caller.role) {
+                    case 'Network Client': {
+                        removeFromArray(thisObject.networkClients, caller)
+                        break
+                    }
+                    case 'Network Peer': {
+                        removeFromArray(thisObject.networkPeers, caller)
+                        break
+                    }
+                }
+
+                function removeFromArray(callersArray, caller) {
+                    for (let i = 0; i < callersArray.length; i++) {
+                        let callerInArray = callersArray[i]
+                        if (caller.socket.id === callerInArray.socket.id) {
+                            callersArray.splice(i, 1)
+                            return
+                        }
+                    }
+                }
+            }
         } catch (err) {
             console.log('[ERROR] Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
         }

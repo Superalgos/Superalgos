@@ -104,17 +104,22 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                     return
                                 }
 
+                                let response
                                 switch (caller.role) {
                                     case 'Network Client': {
-                                        let response = await clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                        response = await clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
                                         caller.socket.send(JSON.stringify(response))
                                         break
                                     }
                                     case 'Network Peer': {
-                                        let response = await peerInterface.messageReceived(messageHeader.payload)
+                                        response = await peerInterface.messageReceived(messageHeader.payload)
                                         caller.socket.send(JSON.stringify(response))
                                         break
                                     }
+                                }
+                                if (response.result === 'Ok' && messageHeader.payload.requestType === 'Event') {
+                                    broadcastToPeers(messageHeader, caller)
+                                    broadcastToClients(messageHeader, caller)
                                 }
                                 break
                             }
@@ -408,6 +413,31 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     }
                 }
             }
+
+            function broadcastToPeers(messageHeader, caller) {
+                let callerIdToAVoid
+                if (caller.role === 'Network Peer') {
+                    callerIdToAVoid = caller.socket.id
+                }
+                for (let i = 0; i < thisObject.networkPeers.length; i++) {
+                    let networkPeer = thisObject.networkPeers[i]
+                    if (networkPeer.socket.id === callerIdToAVoid) { continue }
+                    networkPeer.socket.send(messageHeader)
+                }
+            }
+
+            function broadcastToClients(messageHeader, caller) {
+                let callerIdToAVoid
+                if (caller.role === 'Network Client') {
+                    callerIdToAVoid = caller.socket.id
+                }
+                for (let i = 0; i < thisObject.networkClients.length; i++) {
+                    let networkClient = thisObject.networkClients[i]
+                    if (networkClient.socket.id === callerIdToAVoid) { continue }
+                    networkClient.socket.send(messageHeader)
+                }
+            }
+
         } catch (err) {
             console.log('[ERROR] Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
         }

@@ -22,4 +22,4 @@ RUN node setup noShortcuts
 EXPOSE 34248
 EXPOSE 18041
 VOLUME ["/app/Data-Storage", "/app/Log-Files", "/app/My-Workspaces"]
-ENTRYPOINT ["node", "run", "noBrowser"]
+ENTRYPOINT ["node", "platform", "noBrowser"]

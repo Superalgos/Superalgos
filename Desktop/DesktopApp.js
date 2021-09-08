@@ -15,10 +15,11 @@ exports.newDesktopApp = function newDesktopApp() {
         /*
         This is the Web Sockets client that interacts with the Superalgos Network.
         */
-        DK.webSocketsClient = SA.projects.network.modules.webSocketsClient.newNetworkModulesWebSocketsClient()
-        await DK.webSocketsClient.initialize()
-        return
-        
+        /*
+         DK.webSocketsClient = SA.projects.network.modules.webSocketsClient.newNetworkModulesWebSocketsClient()
+         await DK.webSocketsClient.initialize()
+        */
+
         /* These are the Network Interfaces by which the UI interacts with the Desktop App.*/
         //let WEB_SOCKETS_INTERFACE = require('./Client/webSocketsInterface.js')
         let HTTP_INTERFACE = require('./Client/httpInterface.js')
@@ -34,7 +35,6 @@ exports.newDesktopApp = function newDesktopApp() {
         console.log('Http Interface .............................................. Listening at port ' + global.env.DESKTOP_HTTP_INTERFACE_PORT)
 
         return
-
 
         let queryMessage
         let query

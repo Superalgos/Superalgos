@@ -22,13 +22,134 @@
     font-style: normal;
   }
   
-  kbd {
-    padding: 2px 8px;
-    font-size: 125%;
-    font-weight: 500;
+  .page-table {
+    position:fixed; 
+    top:0px; 
+    left:18%;
+    width: 64%;
+    height: 100%;
     color: #000;
-    background-color: #bcd643;
-    border-radius: 5px;
-    border-style: outset;
+    background-color: #ffffff;
+    border-width: 1px;
+  }
+
+  .left-column {
+    position:relative; 
+    top:0px; 
+    width: 20%;
+    height: 100%;
+    color: #000;
+    border-width: 1px;
+  }
+
+  .middle-column {
+    position:relative; 
+    top:0px; 
+    width: 50%;
+    height: 100%;
+    color: #000;
+    border-width: 1px;
+  }
+
+  .right-column {
+    position:relative; 
+    top:0px; 
+    left:0px;
+    width: 30%;
+    height: 100%;
+    color: #000;
+    border-width: 1px;
+  }
+
+  .left-table {
+    position:relative; 
+    width: 100%;
+    height: 100%;
+    color: #000;
+    border-width: 1px;
+  }
+
+  .logo-cell {
+    vertical-align: top;
+    width: 100%;
+    height: 70px;
+    color: #000;
+    border-width: 1px;
+  }
+
+  .menu-cell {
+    vertical-align: top;
+    width: 100%;
+    color: #000;
+    border-width: 1px;
+  }
+
+  .profile-cell {
+    vertical-align: bottom;
+    width: 100%;
+    height: 50px;
+    color: #000;
+    border-width: 1px;
+  }
+
+  .middle-table {
+    position:relative; 
+    width: 100%;
+    height: 100%;
+    color: #000;
+    border-width: 1px;
+  }
+
+  .content-title-cell {
+    vertical-align: top;
+    width: 100%;
+    height: 50px;
+    color: #000;
+    border-width: 1px;
+  }
+
+  .content-cell {
+    vertical-align: top;
+    width: 100%;
+    color: #000;
+    border-width: 1px;
+  }
+
+  .right-table {
+    position:relative; 
+    width: 100%;
+    height: 100%;
+    color: #000;
+    border-width: 1px;
+  }
+
+  .search-cell {
+    vertical-align: top;
+    width: 100%;
+    height: 50px;
+    color: #000;
+    border-width: 1px;
+  }
+
+  .context-cell {
+    vertical-align: top;
+    width: 100%;
+    color: #000;
+    border-width: 1px;
+  }
+
+  .menu-table {
+    position:relative; 
+    width: 100%;
+    height: 65%;
+    color: #000;
+    border-width: 1px;
+  }
+
+  .menu-item-cell {
+    vertical-align: top;
+    width: 100%;
+    height: 50px;
+    color: #000;
     border-width: 1px;
   }

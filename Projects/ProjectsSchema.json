@@ -1495,6 +1495,16 @@
                 }
             ],
             "utilities": []
+        },
+        "UI":{
+            "modules":[
+                {
+                    "name": "Web Sockets Client",
+                    "propertyName": "webSocketsClient",
+                    "functionName": "newSocialTradingModulesWebSocketsClient",
+                    "fileName": "WebSocketsClient.js"
+                }
+            ]
         }
     }
 ]

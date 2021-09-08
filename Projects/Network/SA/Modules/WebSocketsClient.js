@@ -217,6 +217,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
             if (socketClient.readyState !== 1) { // 1 means connected and ready.
                 console.log('[ERROR] Web Sockets Client -> sendMessage -> Cannot send message while connection is closed.')
                 reject('Websockets Connection Not Ready.')
+                return
             }
 
             let socketMessage = {

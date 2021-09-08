@@ -19,16 +19,13 @@ exports.newDesktopApp = function newDesktopApp() {
         await DK.webSocketsClient.initialize()
 
         /* These are the Network Interfaces by which the UI interacts with the Desktop App.*/
-        //let WEB_SOCKETS_INTERFACE = require('./Client/webSocketsInterface.js')
-        let HTTP_INTERFACE = require('./Client/httpInterface.js')
-
-        /*
-        WEB_SOCKETS_INTERFACE = WEB_SOCKETS_INTERFACE.newWebSocketsInterface()
+       
+        WEB_SOCKETS_INTERFACE = DK.projects.socialTrading.modules.webSocketsInterface.newDesktopModulesWebSocketsInterface()
         WEB_SOCKETS_INTERFACE.initialize()
         console.log('Web Sockets Interface ....................................... Listening at port ' + global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT)
-        */
+  
 
-        HTTP_INTERFACE = HTTP_INTERFACE.newHttpInterface()
+        HTTP_INTERFACE = DK.projects.socialTrading.modules.httpInterface.newDesktopModulesHttpInterface()
         HTTP_INTERFACE.initialize()
         console.log('Http Interface .............................................. Listening at port ' + global.env.DESKTOP_HTTP_INTERFACE_PORT)
 

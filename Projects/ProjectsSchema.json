@@ -1471,6 +1471,30 @@
                     "fileName": "EventTypes.js"
                 }
             ]
+        },
+        "DK": {
+            "globals": [],
+            "modules": [
+                {
+                    "name": "Http Interface",
+                    "propertyName": "httpInterface",
+                    "functionName": "newDesktopModulesHttpInterface",
+                    "fileName": "httpInterface.js"
+                },
+                {
+                    "name": "Web Sockets Interface",
+                    "propertyName": "webSocketsInterface",
+                    "functionName": "newDesktopModulesWebSocketsInterface",
+                    "fileName": "WebSocketsInterface.js"
+                },
+                {
+                    "name": "Web App Interface",
+                    "propertyName": "webAppInterface",
+                    "functionName": "newSocialTradingModulesWebAppInterface",
+                    "fileName": "WebAppInterface.js"
+                }
+            ],
+            "utilities": []
         }
     }
 ]

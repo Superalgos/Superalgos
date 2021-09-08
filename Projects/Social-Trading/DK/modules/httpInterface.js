@@ -1,4 +1,4 @@
-exports.newHttpInterface = function newHttpInterface() {
+exports.newDesktopModulesHttpInterface = function newDesktopModulesHttpInterface() {
 
     /*
     This module represent the HTTP API of the 

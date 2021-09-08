@@ -41,9 +41,26 @@
 </head>
 
 <body id="body" onload="loadApp()" onresize="onResize()">
-    Hello World!
-
-    <table class="page-table">
+    <div class="scroll-div">
+        <div class="content-div">
+            <div class="post-div">
+                POST 1
+            </div>
+            <div class="post-div">
+                POST 2
+            </div>
+            <div class="post-div">
+                POST 3
+            </div>
+            <div class="post-div">
+                POST 4
+            </div>
+            <div class="post-div">
+                POST 5
+            </div>
+        </div>
+    </div>
+    <table id="page-table" class="page-table">
         <tr>
             <td class="left-column">
                 <table class="left-table">
@@ -94,7 +111,8 @@
                         <td class="content-title-cell">CONTENT TITLE</td>
                     </tr>
                     <tr>
-                        <td class="content-cell">CONTENT</td>
+                        <td class="content-cell">
+                        </td>
                     </tr>
                 </table>
             </td>
@@ -104,7 +122,19 @@
                         <td class="search-cell">SEARCH</td>
                     </tr>
                     <tr>
-                        <td class="context-cell">CONTEXT</td>
+                        <td class="context-cell">
+                            <table class="who-to-follow-table">
+                                <tr>
+                                    <td class="menu-item-cell">User Profile 1</td>
+                                </tr>
+                                <tr>
+                                    <td class="menu-item-cell">User Profile 2</td>
+                                </tr>
+                                <tr>
+                                    <td class="menu-item-cell">User Profile 3</td>
+                                </tr>
+                            </table>
+                        </td>
                     </tr>
                 </table>
             </td>

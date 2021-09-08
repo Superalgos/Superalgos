@@ -15,10 +15,8 @@ exports.newDesktopApp = function newDesktopApp() {
         /*
         This is the Web Sockets client that interacts with the Superalgos Network.
         */
-        /*
-         DK.webSocketsClient = SA.projects.network.modules.webSocketsClient.newNetworkModulesWebSocketsClient()
-         await DK.webSocketsClient.initialize()
-        */
+        DK.webSocketsClient = SA.projects.network.modules.webSocketsClient.newNetworkModulesWebSocketsClient()
+        await DK.webSocketsClient.initialize()
 
         /* These are the Network Interfaces by which the UI interacts with the Desktop App.*/
         //let WEB_SOCKETS_INTERFACE = require('./Client/webSocketsInterface.js')

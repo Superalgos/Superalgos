@@ -28,11 +28,11 @@ function loadSuperalgos() {
     }
 
     function loadModules() {
-        let path = "AppLoader.js"
+        let path = "WebAppLoader.js"
         REQUIREJS([path], onRequired)
 
         function onRequired(pModule) {
-            let APP_LOADER_MODULE = newAppLoader()
+            let APP_LOADER_MODULE = newWebAppLoader()
             APP_LOADER_MODULE.loadModules()
         }
     }

@@ -1,6 +1,6 @@
 
 
-function newAppPostLoader() {
+function newWebAppPostLoader() {
 
     let thisObject = {
         start: start

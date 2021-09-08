@@ -1,5 +1,5 @@
 
-function newAppLoader() {
+function newWebAppLoader() {
 
     let thisObject = {
         loadModules: loadModules
@@ -12,7 +12,7 @@ function newAppLoader() {
         try {
             let modulesArray = [
                 'WebDebugLog.js',
-                'AppPostLoader.js',
+                'WebAppPostLoader.js',
                 'Globals.js',
                 'WebApp.js'
             ]
@@ -95,7 +95,7 @@ function newAppLoader() {
 
                             if (downloadedCounter === modulesArray.length) {
                                 setTimeout(() => {
-                                    postLoader = newAppPostLoader()
+                                    postLoader = newWebAppPostLoader()
                                     postLoader.start()
                                 }, 500)
 

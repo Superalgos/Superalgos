@@ -34,7 +34,7 @@ function newWebApp() {
             projectInstance.utilities = {}
             projectInstance.globals = {}
             projectInstance.functionLibraries = {}
-
+            projectInstance.modules = {}
 
             if (projectDefinition.UI === undefined) { continue }
 
@@ -62,6 +62,15 @@ function newWebApp() {
                     let functionLibraryDefinition = projectDefinition.UI.functionLibraries[j]
 
                     projectInstance.functionLibraries[functionLibraryDefinition.propertyName] = eval(functionLibraryDefinition.functionName + '()')
+                }
+            }
+
+            /* Set up Modules of this Project */
+            if (projectDefinition.UI.modules !== undefined) {
+                for (let j = 0; j < projectDefinition.UI.modules.length; j++) {
+                    let functionLibraryDefinition = projectDefinition.UI.modules[j]
+
+                    projectInstance.modules[functionLibraryDefinition.propertyName] = eval(functionLibraryDefinition.functionName + '()')
                 }
             }
         }
@@ -101,7 +110,7 @@ function newWebApp() {
                 console.log(profile)
             }
         }
-    
+
         /*
         Error Handling
         */

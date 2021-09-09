@@ -185,7 +185,6 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                                 reject()
                                 return
                             }
-                            console.log('[INFO] Web Sockets Client -> stepTwoResponse -> response.message = ' + response.message)
                             /*
                             This was the end of the Handshake producere. We are connected to the 
                             Network Node and from now on, all response messages will be received

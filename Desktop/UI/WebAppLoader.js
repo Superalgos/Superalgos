@@ -75,6 +75,26 @@ function newWebAppLoader() {
                     }
 
                     modulesArray = modulesArray.concat(urlArray)
+                    modules()
+                }
+            }
+
+            function modules() {
+                let url = 'ListModulesFiles'
+                httpRequest(undefined, url, onResponse)
+
+                function onResponse(err, fileList) {
+                    let urlArray = []
+                    let fileArray = JSON.parse(fileList)
+                    for (let i = 0; i < fileArray.length; i++) {
+                        let item = fileArray[i]
+
+                        project = item[0]
+                        fileName = item[1]
+                        urlArray.push('Projects' + '/' + project + '/' + 'UI' + '/' + 'Modules' + '/' + fileName)
+                    }
+
+                    modulesArray = modulesArray.concat(urlArray)
                     downloadIncludedFiles()
                 }
             }

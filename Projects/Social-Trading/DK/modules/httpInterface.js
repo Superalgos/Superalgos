@@ -61,6 +61,11 @@ exports.newDesktopModulesHttpInterface = function newDesktopModulesHttpInterface
                         SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Globals', 'UI')
                     }
                     break
+                case 'ListModulesFiles':
+                    {
+                        SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Modules', 'UI')
+                    }
+                    break
                 case 'Projects':
                     {
                         let path = ''

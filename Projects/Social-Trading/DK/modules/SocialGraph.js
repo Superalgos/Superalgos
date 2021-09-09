@@ -8,7 +8,6 @@ exports.newSocialTradingModulesSocialGraph = function newSocialTradingModulesSoc
     as in the Network Node.
     */
     let thisObject = {
-        messageReceived: messageReceived,
         initialize: initialize,
         finalize: finalize
     }

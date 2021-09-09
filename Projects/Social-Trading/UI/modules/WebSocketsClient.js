@@ -1,4 +1,4 @@
-exports.newSocialTradingModulesWebSocketsClient = function newSocialTradingModulesWebSocketsClient() {
+function newSocialTradingModulesWebSocketsClient() {
 
     let thisObject = {
         sendMessage: sendMessage,

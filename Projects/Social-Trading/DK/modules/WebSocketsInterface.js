@@ -33,15 +33,15 @@ exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSock
             socketServer.on('connection', onConnectionOpened)
 
             function onConnectionOpened(socket)
-
-            if (webApp !== undefined) {
-                console.log('[ERROR] Only one websockets client allowed.')
-                return
-            }
             /*
             This function is executed every time a new Websockets connection
             is stablished.  
             */ {
+                if (webApp !== undefined) {
+                    console.log('[ERROR] Only one websockets client allowed.')
+                    return
+                }
+
                 webApp = {
                     socket: socket
                 }
@@ -79,9 +79,9 @@ exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSock
         } catch (err) {
             console.log('[ERROR] Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
         }
+    }
 
-        function sendToWebApp(message) {
-            webApp.socket.send(JSON.stringify(message))
-        }
+    function sendToWebApp(message) {
+        webApp.socket.send(JSON.stringify(message))
     }
 }

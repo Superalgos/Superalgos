@@ -11,11 +11,11 @@ function newWebApp() {
 
     }
 
-    function initialize() {
+    async function initialize() {
         try {
             setupRootObject(UI, 'UI')
             setupRootObject(SA, 'SA')
-            UI.projects.socialTrading.modules.webSocketsClient.initialize()
+            await UI.projects.socialTrading.modules.webSocketsClient.initialize()
             setupHomePage()
         } catch (err) {
             console.log('[ERROR] initialize -> err.stack = ' + err.stack)
@@ -101,7 +101,7 @@ function newWebApp() {
         */
         queryMessage = {
             queryType: SA.projects.socialTrading.globals.queryTypes.USER_PROFILES,
-            emitterUserProfileId: undefined, //DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID,
+            emitterUserProfileId: undefined, 
             initialIndex: 'Last',
             amountRequested: 10,
             direction: 'Past'

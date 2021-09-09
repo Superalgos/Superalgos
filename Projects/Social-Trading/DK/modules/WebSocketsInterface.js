@@ -45,6 +45,7 @@ exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSock
                 webApp = {
                     socket: socket
                 }
+                console.log('Desktop Web App Connected to Web Sockets Interface ......................... Connected to port ' + global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT)
 
                 webApp.socket.on('close', onConnectionClosed)
                 webApp.socket.on('message', onMenssage)
@@ -74,6 +75,7 @@ exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSock
 
             function onConnectionClosed() {
                 webApp = undefined
+                console.log('Desktop Web App Discoonnected from Web Sockets Interface ................... Disonnected from port ' + global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT)
             }
 
         } catch (err) {

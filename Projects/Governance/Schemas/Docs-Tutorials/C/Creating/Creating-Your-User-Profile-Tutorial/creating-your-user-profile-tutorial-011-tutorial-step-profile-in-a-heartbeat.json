@@ -13,7 +13,8 @@
             {
                 "language": "ES",
                 "text": "El Profile Constructor es el dispositivo que utilizarás para configurar tu perfil.",
-                "updated": 1630882802325
+                "updated": 1630882802325,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "ES",
                     "text": "Crearás una billetera Binance Smart Chain única que está conectada con tu perfil: tu Governance Address.",
-                    "updated": 1630886603829
+                    "updated": 1630886603829,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "ES",
                     "text": "Sin embargo, si ya posees una billetera BSC, tendrás la opción de vincular esa dirección en lugar de crear una nueva.",
-                    "updated": 1630886627305
+                    "updated": 1630886627305,
+                    "style": "Note"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "ES",
                     "text": "Tu Governance Address te permitirá recibir los tokens SA que ganes. Superalgos leerá el saldo de esta dirección para conocer la cantidad de Tokens SA que tiene y le asignará a tu perfil una cantidad equivalente de Token Power.",
-                    "updated": 1630886677089
+                    "updated": 1630886677089,
+                    "style": "Text"
                 }
             ]
         }

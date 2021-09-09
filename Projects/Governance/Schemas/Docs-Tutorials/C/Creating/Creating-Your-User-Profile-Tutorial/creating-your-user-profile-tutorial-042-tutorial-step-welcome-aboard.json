@@ -1,0 +1,62 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 42,
+    "type": "Tutorial Step - Welcome aboard!",
+    "definition": {
+        "text": "You did it! You are now officially taking part in the governance of Superalgos! So, what's next?",
+        "updated": 1630751721473,
+        "icon": {
+            "name": "Announcement\\announcement",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¡Lo hiciste! ¡Ahora estás participando oficialmente en el gobierno de Superalgos! ¿Qué es lo siguiente?",
+                "updated": 1630899371726,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If you generated a new Governance Address using the Profile Constructor, you may want to connect it to a software wallet so that you have control of your tokens.",
+            "updated": 1630751845529,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si generaste un nuevo Governance Address utilizando el Profile Constructor, es posible que desees conectarlo a una billetera de software para que tengas el control de tus tokens.",
+                    "updated": 1630899427730,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "See the \"Import Private Key in a Wallet\" section of this Docs page on the right. It explains how to do that using Trust Wallet. Check it out!",
+            "updated": 1630756159921,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Ve el \"Import Private Key in a Wallet\" sección de esta página de Documentos a la derecha. Explica cómo hacerlo con Trust Wallet. ¡Echale un vistazo!",
+                    "updated": 1630899460693,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Feel free to use any other wallet that supports BEP20 tokens in the Binance Smart Chain.",
+            "updated": 1630752335924,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Siéntate libre de usar cualquier otra billetera que admita tokens BEP20 en el Binance Smart Chain.",
+                    "updated": 1630899484668,
+                    "style": "Note"
+                }
+            ]
+        }
+    ]
+}

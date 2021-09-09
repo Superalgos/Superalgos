@@ -1,0 +1,47 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 29,
+    "type": "Tutorial Step - User Profile = Referral Code",
+    "definition": {
+        "text": "This is important for when you go out there to promote Superalgos! Make sure you let people know how to find you!",
+        "icon": {
+            "name": "copy-type",
+            "project": "Foundations"
+        },
+        "updated": 1630927021542
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "Let me say it again! Let people know your User Profile name so that they may easily find you!",
+            "updated": 1630927535381
+        },
+        {
+            "style": "Text",
+            "text": "What if no specific person referred you to Superalgos? Well... you found us somehow, right? These are a few common scenarios and the profile that referred you:",
+            "updated": 1630927760340
+        },
+        {
+            "style": "List",
+            "text": "The Superalgos.org Website: Julian-Molina",
+            "updated": 1630927577105
+        },
+        {
+            "style": "List",
+            "text": "The Github.com Repo: Luis-Fernando-Molina"
+        },
+        {
+            "style": "List",
+            "text": "Most YouTube Videos: Julian-Molina"
+        },
+        {
+            "style": "List",
+            "text": "Blog Articles: Some by Julian-Molina, Luis-Fernando-Molina,... please check the author!",
+            "updated": 1630927812445
+        },
+        {
+            "style": "List",
+            "text": "Official Social Media Posts: Julian-Molina"
+        }
+    ]
+}

@@ -13,7 +13,8 @@
             {
                 "language": "ES",
                 "text": "Echemos un vistazo más de cerca a la firma criptográfica en tu nuevo perfil.",
-                "updated": 1630888742337
+                "updated": 1630888742337,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "ES",
                     "text": "Haz clic en la opción de configuración en tu nodo User Profile y echa un vistazo a lo que hay dentro.",
-                    "updated": 1630888787848
+                    "updated": 1630888787848,
+                    "style": "Callout"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "ES",
                     "text": "¡Vaya, son muchos números! Nuevamente, así es como el sistema de gobernanza sabrá que este User Profile pertenece a la clave privada que firmó el mensaje, que a su vez pertenece a la dirección que albergará los tokens que confieren tu perfil con Token Power.",
-                    "updated": 1630888835905
+                    "updated": 1630888835905,
+                    "style": "Note"
                 }
             ]
         }

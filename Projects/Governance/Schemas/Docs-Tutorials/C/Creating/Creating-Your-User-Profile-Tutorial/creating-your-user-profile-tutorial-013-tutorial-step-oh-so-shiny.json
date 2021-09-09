@@ -13,7 +13,8 @@
             {
                 "language": "ES",
                 "text": "Estamos casi alli. Ahora has clic enBuild Profile y ve cómo sucede la magia. Así es, ¡acabas de crear tu perfil!",
-                "updated": 1630888309658
+                "updated": 1630888309658,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "ES",
                     "text": "Si bien no tuvimos que sudar mucho para crear tu perfil, sucedieron algunas cosas asombrosas detrás de escena.",
-                    "updated": 1630888348614
+                    "updated": 1630888348614,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "ES",
                     "text": "TEl constructor acaba de generar su perfil de usuario y vinculó su dirección o creó un SA Token Governance Address.",
-                    "updated": 1630888438347
+                    "updated": 1630888438347,
+                    "style": "Note"
                 }
             ]
         }

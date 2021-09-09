@@ -13,7 +13,8 @@
             {
                 "language": "ES",
                 "text": "Entonces que estamos esperando. ¡Empecemos! Para participar en la gobernanza, necesitarás un User Profile.",
-                "updated": 1630874855704
+                "updated": 1630874855704,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "ES",
                     "text": "Tu perfil está configurado como el resto del sistema Superalgos. Es una jerarquía de nodos. Solo esta jerarquía define cómo pretende utilizar el Token Power que has ganado o que otros usuarios te delegan.",
-                    "updated": 1630875440411
+                    "updated": 1630875440411,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "ES",
                     "text": "Al canalizar tu poder simbólico, ayudas a decidir qué partes del sistema se incentivarán para un mayor desarrollo y quiénes serán recompensados ​​por los roles comunitarios que han desempeñado.",
-                    "updated": 1630875625415
+                    "updated": 1630875625415,
+                    "style": "Note"
                 }
             ]
         }

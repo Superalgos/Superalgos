@@ -13,7 +13,8 @@
             {
                 "language": "ES",
                 "text": "Aquí estamos a la cabeza de la jerarquía Governance Project. ¡Vamos a crear ese perfil!",
-                "updated": 1630879023647
+                "updated": 1630879023647,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "ES",
                     "text": "Haz clic en el botón Add Profile Constructor.",
-                    "updated": 1630879075072
+                    "updated": 1630879075072,
+                    "style": "Callout"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "ES",
                     "text": "Ahora coloque el resultante nodo Profile Constructor donde es fácil de ver y trabajar.",
-                    "updated": 1630879137256
+                    "updated": 1630879137256,
+                    "style": "Text"
                 }
             ]
         }

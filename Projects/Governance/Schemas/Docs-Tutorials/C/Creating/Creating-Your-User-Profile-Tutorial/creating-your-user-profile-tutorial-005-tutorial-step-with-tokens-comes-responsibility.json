@@ -13,7 +13,8 @@
             {
                 "language": "ES",
                 "text": "Tener tokens hace más que mostrar compromiso. Los tokens SA también confieren Token Power!",
-                "updated": 1630873231890
+                "updated": 1630873231890,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "ES",
                     "text": "Cuantas más fichas tengas, más influencia podrás tener sobre la dirección del proyecto. Esto significa que, al poseer SA Tokens, tienes el poder de usar esos tokens para ejercer influencia sobre qué partes del sistema se desarrollarán y cómo evolucionará la comunidad.",
-                    "updated": 1630873381109
+                    "updated": 1630873381109,
+                    "style": "Text"
                 }
             ]
         },
@@ -37,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "Esto funciona en un ciclo. Cuanto más contribuyas, más fichas ganarás, ¡más dirá que tienes!",
-                    "updated": 1630873348182
+                    "updated": 1630873348182,
+                    "style": "Note"
                 }
             ]
         }

@@ -159,9 +159,6 @@ This command will install all dependencies plus TensorFlow dependencies.
 
 **NOTE FOR WINDOWS USERS INSTALLING TENSORFLOW DEPENDENCIES:** You may get an error at the end of the set up process. If you do, please follow the instructions following the error message.
 
-
-
-
 **NOTE FOR USERS INSTALLING MULTIPLE INSTANCES OF SUPERALGOS ON THE SAME MACHINE:** In order to avoid name conflicts between shortcuts, make sure to rename each Superalgos directory before running `node setup`.
 
 Congratulations your installation is complete!
@@ -176,6 +173,12 @@ As noted above, running `node setup` installs GUI shortcuts by default. To suppr
 
 ```
 node setup noShortcuts
+```
+
+or, if you wish to try the TensorFlow implementation,...
+
+```
+node setup tensorflow noShortcuts
 ```
 
 <hr>
@@ -210,7 +213,7 @@ If you are having difficulty running the node setup command here are a few commo
 
 ## 1. Run the Client and GUI
 
-**A.** To run Superalgos, go to the Superalgos directory/folder and run this command:
+To run Superalgos, go to the Superalgos directory/folder and run this command:
 
 ```
 node platform
@@ -222,20 +225,28 @@ A Welcome Tutorial pops-up automatically. You must do this Tutorial to finish th
 
 ![run-the-system-01](https://user-images.githubusercontent.com/13994516/107037804-e5fc6200-67bb-11eb-82f2-d0f40247fa14.gif)
 
+Alternatively, you may use any of the automatically installed desktop and start menu shortcuts to launch Superalgos.
+
+**NOTE:** Shortcuts are not currently supported on Mac. Collaborators are needed to finish this feature.
+
+
+<hr>
+
+**RUNNING THE CLIENT FOR HEADLESS RASPBERRY PI USERS**
+
 If you are running a headless Raspberry Pi (one without a screen) you may need to change directories first and run Superalgos with the `minMemo` and `noBrowser` options.
+
 ```
 cd Superalgos
 ```
 then
 ```
-node run minMemo noBrowser
+node platform  minMemo noBrowser
 ```
 
-In addition, you may use any of the automatically installed desktop and start menu shortcuts to launch Superalgos.
+<hr>
 
-**NOTE:** Shortcuts are not currently supported on Mac. Collaborators are needed to finish this feature.
-
-**B.** Enable Desktop Shortcut on Ubuntu
+**NOTE FOR UBUNTU USERS**: Enable Desktop Shortcut
 
 The majority of shortcuts that are automatically installed will work out of the box. Desktop shortcuts on Ubuntu, however, require a few additional steps to set up.
 
@@ -261,7 +272,7 @@ Now both launcher and desktop shortcuts will launch Superalgos like any other pr
 
 We are testing the UI on Google Chrome and Safari on macOS only. It may work on other browsers as well &mdash; or not. If you are running on a different browser and ever need support, make sure you mention that fact upfront, or even better, try on Chrome/Safari first.
 
- **TIP:** If your computer has 8 GB of RAM or less, use ```node run minMemo``` to run the system with minimal RAM requirements.
+ **TIP:** If your computer has 8 GB of RAM or less, use ```node platform minMemo``` to run the system with minimal RAM requirements.
 
 # Running Superalgos on a Headless Linux Server as a Daemon
 
@@ -278,7 +289,7 @@ Description=Superalgos client
 Type=simple
 User=<user>
 WorkingDirectory=/path/to/Superalgos
-ExecStart=/usr/bin/node run minMemo noBrowser
+ExecStart=/usr/bin/node platform minMemo noBrowser
 
 [Install]
 WantedBy=multi-user.target
@@ -571,11 +582,6 @@ Or follow [Superalgos on Facebook](https://www.facebook.com/superalgos).
 # Contributing
 
 Superalgos is a Community Project built by users for users. Learn [how you may contribute](https://superalgos.org/community-contribute.shtml).
-
-
-## Top Contributors
-
-Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Ira Miller, matbenitez, bearcanrun, nikolabjelo, PLuv, 9808us, pmmax, suttridge, Basalt09, Mhnramin, 0xperez, infin1t3, benitezme, whtv, cozed-gh, Eduardo678-dotcom, Smidy13, teehanming, 64bittuning, joenij, apronotti, Noeljarillo, ssplatt, rico4dev, DougJCook, mane, Cordo-van-Saviour, CarnivalBen, Sil3ntLight, pisukesoramame, Edodi, harrellbm, CaptainJeff, Jeff Braun, Francisco J. Santillán, Norman, Viktoria B., Guillermo V., Daniel J., Javier A., Gustavo J., Romina GS, Pedro P., Thais M., Andrey M., Loui M., Natalia M., Bashar A., Carlos V., Diego M., Sebastian E., Bogdan P., Marko V., Igor S., Niksa K., Rodrigo M., Nicanor M., Mateo H., Lan T., Leon A., Uroš R., Filip M., Vladimir J. and Pavle B., brycey12, GENS-Tools, rjkilpatrick, superharoun, frysee, RalfWeiss
 
 # License
 

@@ -14,7 +14,8 @@ function newWebApp() {
     function initialize() {
         try {
             setupRootObject()
-            //setupHomePage()
+            UI.projects.socialTrading.modules.webSocketsClient.initialize()
+            setupHomePage()
         } catch (err) {
             console.log('[ERROR] initialize -> err.stack = ' + err.stack)
         }
@@ -85,7 +86,7 @@ function newWebApp() {
             queryMessage: JSON.stringify(queryMessage)
         }
 
-        await DK.webSocketsClient.sendMessage(
+        await UI.projects.socialTrading.modules.webSocketsClient.sendMessage(
             JSON.stringify(query)
         )
             .then(showProfiles)
@@ -97,56 +98,10 @@ function newWebApp() {
             for (let i = 0; i < profiles.length; i++) {
                 let profile = profiles[i]
 
-                /*
-                Test Following Profiles.
-                */
-                let eventMessage = {
-                    eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                    eventType: SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE,
-                    emitterUserProfileId: DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID,
-                    targetUserProfileId: profile.userProfileId
-                }
-
-                let event = {
-                    requestType: 'Event',
-                    eventMessage: JSON.stringify(eventMessage)
-                }
-
-                await DK.webSocketsClient.sendMessage(
-                    JSON.stringify(event)
-                )
-                    .then(followAdded)
-                    .catch(onError)
-
-                function followAdded() {
-                    console.log("User Profile " + profile.userProfileHandle + " followed.")
-                }
+                console.log(profile)
             }
         }
-        /*
-        Test Query User Profile Stats.
-        */
-        queryMessage = {
-            queryType: SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_STATS,
-            emitterUserProfileId: DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID,
-            targetUserProfileId: DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID
-        }
-
-        query = {
-            requestType: 'Query',
-            queryMessage: JSON.stringify(queryMessage)
-        }
-
-        await DK.webSocketsClient.sendMessage(
-            JSON.stringify(query)
-        )
-            .then(showProfilesStats)
-            .catch(onError)
-
-        function showProfilesStats(profile) {
-            console.log(profile)
-        }
-
+    
         /*
         Error Handling
         */

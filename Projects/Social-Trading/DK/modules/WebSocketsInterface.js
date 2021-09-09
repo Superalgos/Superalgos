@@ -1,6 +1,10 @@
 exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSocketsInterface() {
-
+    /*
+    This module handles the websockets communication between the 
+    Desktop App's Client and the Destop App's Web App.
+    */
     let thisObject = {
+        sendToWebApp: sendToWebApp,
         initialize: initialize,
         finalize: finalize
     }
@@ -27,7 +31,6 @@ exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSock
     function setUpWebSocketServer() {
         try {
             socketServer.on('connection', onConnectionOpened)
-            webAppInterface.sendToWebApp = sendToWebApp
 
             function onConnectionOpened(socket)
 
@@ -73,12 +76,12 @@ exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSock
                 webApp = undefined
             }
 
-            function sendToWebApp(message) {
-                webApp.socket.send(JSON.stringify(message))
-            }
-
         } catch (err) {
             console.log('[ERROR] Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
+        }
+
+        function sendToWebApp(message) {
+            webApp.socket.send(JSON.stringify(message))
         }
     }
 }

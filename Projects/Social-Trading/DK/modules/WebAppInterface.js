@@ -1,7 +1,10 @@
 exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModulesWebAppInterface() {
-
+    /*
+    This module handles the incomming messages from the Web App.
+    At it's current iteration, it will jusr forward those messages
+    to the Network Node it is connected to.
+    */
     let thisObject = {
-        sendToWebApp: undefined,
         messageReceived: messageReceived,
         initialize: initialize,
         finalize: finalize
@@ -17,11 +20,8 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
 
     }
 
-    function messageReceived(messageHeader) {
-        let response = {
-            result: 'Ok',
-            message: 'Hello !'
-        }
-        return  
+    async function messageReceived(messageHeader) {
+        let response = await DK.running.webSocketsClient.sendMessage(messageHeader)
+        return response
     }
 }

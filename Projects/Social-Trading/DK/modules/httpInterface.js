@@ -35,6 +35,11 @@ exports.newDesktopModulesHttpInterface = function newDesktopModulesHttpInterface
             let endpointOrFile = requestPath[1]
 
             switch (endpointOrFile) {
+                case 'Environment':
+                    {
+                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.env), httpResponse)
+                    }
+                    break
                 case 'ProjectsSchema':
                     {
                         let path = global.env.PATH_TO_PROJECTS + '/' + 'ProjectsSchema.json'

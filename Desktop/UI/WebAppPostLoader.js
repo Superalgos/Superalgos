@@ -10,7 +10,16 @@ function newWebAppPostLoader() {
     function start() {
         try {
 
-            setupProjectsSchema()
+            setupEnvironment()
+
+            function setupEnvironment() {
+                httpRequest(undefined, 'Environment', onResponse)
+
+                function onResponse(err, file) {
+                    ENVIRONMENT = JSON.parse(file)
+                    setupProjectsSchema()
+                }
+            }
 
             function setupProjectsSchema() {
                 httpRequest(undefined, 'ProjectsSchema', onResponse)

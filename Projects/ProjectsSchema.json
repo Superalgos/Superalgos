@@ -1492,6 +1492,12 @@
                     "propertyName": "webAppInterface",
                     "functionName": "newSocialTradingModulesWebAppInterface",
                     "fileName": "WebAppInterface.js"
+                },
+                {
+                    "name": "Social Graph",
+                    "propertyName": "socialGraph",
+                    "functionName": "newSocialTradingModulesSocialGraph",
+                    "fileName": "SocialGraph.js"
                 }
             ],
             "utilities": []

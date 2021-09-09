@@ -8,25 +8,31 @@ exports.newDesktopApp = function newDesktopApp() {
 
     async function run() {
         /*
-                let socialGraphService = NT.projects.network.modules.socialGraph.newSocialGraph()
-                await socialGraphService.initialize()
+        Heree we will store our running objects:
         */
+        DK.running = {}
 
         /*
         This is the Web Sockets client that interacts with the Superalgos Network.
         */
-        DK.webSocketsClient = SA.projects.network.modules.webSocketsClient.newNetworkModulesWebSocketsClient()
-        await DK.webSocketsClient.initialize()
+        DK.running.socialGraph = DK.projects.socialTrading.modules.socialTrading.newSocialTradingModulesSocialGraph()
+        await DK.running.socialGraph.initialize()
+
+        /*
+        This is the Web Sockets client that interacts with the Superalgos Network.
+        */
+        DK.running.webSocketsClient = SA.projects.network.modules.webSocketsClient.newNetworkModulesWebSocketsClient()
+        await DK.running.webSocketsClient.initialize()
 
         /* These are the Network Interfaces by which the UI interacts with the Desktop App.*/
-       
-        WEB_SOCKETS_INTERFACE = DK.projects.socialTrading.modules.webSocketsInterface.newDesktopModulesWebSocketsInterface()
-        WEB_SOCKETS_INTERFACE.initialize()
-        console.log('Web Sockets Interface ....................................... Listening at port ' + global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT)
-  
 
-        HTTP_INTERFACE = DK.projects.socialTrading.modules.httpInterface.newDesktopModulesHttpInterface()
-        HTTP_INTERFACE.initialize()
+        DK.running.webSocketsInterface = DK.projects.socialTrading.modules.webSocketsInterface.newDesktopModulesWebSocketsInterface()
+        DK.running.webSocketsInterface.initialize()
+        console.log('Web Sockets Interface ....................................... Listening at port ' + global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT)
+
+
+        DK.running.httpInterface = DK.projects.socialTrading.modules.httpInterface.newDesktopModulesHttpInterface()
+        DK.running.httpInterface.initialize()
         console.log('Http Interface .............................................. Listening at port ' + global.env.DESKTOP_HTTP_INTERFACE_PORT)
 
         return

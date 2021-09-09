@@ -8,7 +8,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
 
     let socketClient
 
-    let web3 = new SA.nodeModules.web3()
+    let web3 
     let called = {}
     let selectedNetworkNode // This is a Network Node we pick to try to connect to.
 
@@ -33,6 +33,8 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
             "address": "0xa153469c57A91F5a59Fc6c45A37aD8dbad85e417"
         }        
         */
+        web3 = new SA.nodeModules.web3()
+
         selectedNetworkNode = {
             userProfileHandle: "Test-Network-Node-Profile",
             blockchainAccount: "0xa153469c57A91F5a59Fc6c45A37aD8dbad85e417",
@@ -185,7 +187,6 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                                 reject()
                                 return
                             }
-                            console.log('[INFO] Web Sockets Client -> stepTwoResponse -> response.message = ' + response.message)
                             /*
                             This was the end of the Handshake producere. We are connected to the 
                             Network Node and from now on, all response messages will be received
@@ -217,6 +218,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
             if (socketClient.readyState !== 1) { // 1 means connected and ready.
                 console.log('[ERROR] Web Sockets Client -> sendMessage -> Cannot send message while connection is closed.')
                 reject('Websockets Connection Not Ready.')
+                return
             }
 
             let socketMessage = {
@@ -226,7 +228,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
             socketClient.onmessage = socketMessage => { onMenssage(socketMessage) }
             socketClient.send(
                 JSON.stringify(socketMessage)
-                )
+            )
 
             function onMenssage(socketMessage) {
                 try {

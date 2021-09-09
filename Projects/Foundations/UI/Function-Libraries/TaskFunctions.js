@@ -609,7 +609,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                 if (rootNode.type === project + ' Project') {
                     let projectDefinition = rootNode.projectDefinition
                     if (projectDefinition !== undefined) {
-                        if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, projectDefinition, true) === true) {
+                        if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, projectDefinition, true) === true) {
                             let projectTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType, undefined, project)
                             UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
                         }
@@ -640,7 +640,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                     let cryptoExchanges = cryptoEcosystem.cryptoExchanges[j]
                     for (let k = 0; k < cryptoExchanges.exchanges.length; k++) {
                         let cryptoExchange = cryptoExchanges.exchanges[k]
-                        if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, cryptoExchange, true) === true) {
+                        if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, cryptoExchange, true) === true) {
                             let exchangeTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
                             UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(exchangeTasks, cryptoExchange)
                         }
@@ -672,7 +672,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         for (let i = 0; i < markets.length; i++) {
             let market = markets[i]
 
-            if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, market, true) === true) {
+            if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, market, true) === true) {
                 let marketDataTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
                 UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(marketDataTasks, market)
             }
@@ -697,7 +697,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             if (rootNode.type === rootNodeType) {
                 let mine = rootNode
 
-                if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, mine, true) === true) {
+                if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, mine, true) === true) {
                     let dataMineTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
                     UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(dataMineTasks, mine)
                 }

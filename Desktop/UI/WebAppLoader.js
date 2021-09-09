@@ -14,87 +14,42 @@ function newWebAppLoader() {
                 'WebApp.js'
             ]
 
-            functionLibraries()
+            for (let i = 0; i < UI.schemas.projectSchema.length; i++) {
+                let project = UI.schemas.projectSchema[i]
 
-            function functionLibraries() {
-                let url = 'ListFunctionLibraries'
-                httpRequest(undefined, url, onResponse)
-
-                function onResponse(err, fileList) {
-                    let urlArray = []
-                    let fileArray = JSON.parse(fileList)
-                    for (let i = 0; i < fileArray.length; i++) {
-                        let item = fileArray[i]
-
-                        project = item[0]
-                        fileName = item[1]
-                        urlArray.push('Projects' + '/' + project + '/' + 'UI' + '/' + 'Function-Libraries' + '/' + fileName)
+                if (project.UI !== undefined) {
+                    if (project.UI.functionLibraries !== undefined) {
+                        for (let j = 0; j < project.UI.functionLibraries.length; j++) {
+                            let fileName = project.UI.functionLibraries[j].fileName   
+                            if (fileName === undefined) {fileName = project.UI.functionLibraries[j].name.replaceAll(' ', '') + '.js'}                     
+                            modulesArray.push('Projects' + '/' + project.name + '/' + 'UI' + '/' + 'Function-Libraries' + '/' + fileName)
+                        }
                     }
-
-                    modulesArray = modulesArray.concat(urlArray)
-                    utilities()
+                    if (project.UI.utilities !== undefined) {
+                        for (let j = 0; j < project.UI.utilities.length; j++) {
+                            let fileName = project.UI.utilities[j].fileName        
+                            if (fileName === undefined) {fileName = project.UI.utilities[j].name.replaceAll(' ', '') + '.js'}                                     
+                            modulesArray.push('Projects' + '/' + project.name + '/' + 'UI' + '/' + 'Utilities' + '/' + fileName)
+                        }
+                    }
+                    if (project.UI.globals !== undefined) {
+                        for (let j = 0; j < project.UI.globals.length; j++) {
+                            let fileName = project.UI.globals[j].fileName  
+                            if (fileName === undefined) {fileName = project.UI.globals[j].name.replaceAll(' ', '') + '.js'}                                                           
+                            modulesArray.push('Projects' + '/' + project.name + '/' + 'UI' + '/' + 'Globals' + '/' + fileName)
+                        }  
+                    }
+                    if (project.UI.modules !== undefined) {
+                        for (let j = 0; j < project.UI.modules.length; j++) {
+                            let fileName = project.UI.modules[j].fileName   
+                            if (fileName === undefined) {fileName = project.UI.modules[j].name.replaceAll(' ', '') + '.js'}                                                                                
+                            modulesArray.push('Projects' + '/' + project.name + '/' + 'UI' + '/' + 'Modules' + '/' + fileName)
+                        }
+                    }
                 }
             }
 
-            function utilities() {
-                let url = 'ListUtilitiesFiles'
-                httpRequest(undefined, url, onResponse)
-
-                function onResponse(err, fileList) {
-                    let urlArray = []
-                    let fileArray = JSON.parse(fileList)
-                    for (let i = 0; i < fileArray.length; i++) {
-                        let item = fileArray[i]
-
-                        project = item[0]
-                        fileName = item[1]
-                        urlArray.push('Projects' + '/' + project + '/' + 'UI' + '/' + 'Utilities' + '/' + fileName)
-                    }
-
-                    modulesArray = modulesArray.concat(urlArray)
-                    globals()
-                }
-            }
-
-            function globals() {
-                let url = 'ListGlobalFiles'
-                httpRequest(undefined, url, onResponse)
-
-                function onResponse(err, fileList) {
-                    let urlArray = []
-                    let fileArray = JSON.parse(fileList)
-                    for (let i = 0; i < fileArray.length; i++) {
-                        let item = fileArray[i]
-
-                        project = item[0]
-                        fileName = item[1]
-                        urlArray.push('Projects' + '/' + project + '/' + 'UI' + '/' + 'Globals' + '/' + fileName)
-                    }
-
-                    modulesArray = modulesArray.concat(urlArray)
-                    modules()
-                }
-            }
-
-            function modules() {
-                let url = 'ListModulesFiles'
-                httpRequest(undefined, url, onResponse)
-
-                function onResponse(err, fileList) {
-                    let urlArray = []
-                    let fileArray = JSON.parse(fileList)
-                    for (let i = 0; i < fileArray.length; i++) {
-                        let item = fileArray[i]
-
-                        project = item[0]
-                        fileName = item[1]
-                        urlArray.push('Projects' + '/' + project + '/' + 'UI' + '/' + 'Modules' + '/' + fileName)
-                    }
-
-                    modulesArray = modulesArray.concat(urlArray)
-                    downloadIncludedFiles()
-                }
-            }
+            downloadIncludedFiles()
 
             function downloadIncludedFiles() {
 

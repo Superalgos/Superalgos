@@ -12,9 +12,9 @@
             ],
             "functionLibraries": [
                 {
-                    "name": "Attach Detach",
+                    "name": "Reference Attach Detach",
                     "propertyName": "attachDetach",
-                    "functionName": "newFoundationsFunctionLibraryAttachDetach"
+                    "functionName": "newFoundationsFunctionLibraryReferenceAttachDetach"
                 },
                 {
                     "name": "Chain Attach Detach",
@@ -50,11 +50,6 @@
                     "name": "On Focus",
                     "propertyName": "onFocus",
                     "functionName": "newFoundationsFunctionLibraryOnFocus"
-                },
-                {
-                    "name": "Super Scripts Functions",
-                    "propertyName": "superScriptsFunctions",
-                    "functionName": "newFoundationsFunctionLibrarySuperScriptsFunctions"
                 },
                 {
                     "name": "Webhook Functions",
@@ -184,7 +179,7 @@
                     "functionName": "newFoundationsUtilitiesMeshes"
                 },
                 {
-                    "name": "Children",
+                    "name": "Node Children",
                     "propertyName": "children",
                     "functionName": "newFoundationsUtilitiesNodeChildren"
                 },

@@ -26,8 +26,8 @@ function newWebApp() {
         Here we will setup the UI object, with all the
         projects and spaces.
         */
-        for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
-            let projectDefinition = PROJECTS_SCHEMA[i]
+        for (let i = 0; i < UI.schemas.projectSchema.length; i++) {
+            let projectDefinition = UI.schemas.projectSchema[i]
             UI.projects[projectDefinition.propertyName] = {}
             let projectInstance = UI.projects[projectDefinition.propertyName]
 

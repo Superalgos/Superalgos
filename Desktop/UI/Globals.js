@@ -1,10 +1,8 @@
-/* Global Constatns */
 
-let webApp
-let PROJECTS_SCHEMA
-let ENVIRONMENT
-
-/* New Root object*/
+/* Root object*/
 let UI = {
-    projects: {}
+    projects: {},
+    schemas: { projectSchema: undefined },
+    environment: undefined,
+    running: {}
 }

@@ -65,5 +65,5 @@ run()
 async function run() {
     DK.app = require('./Desktop/DesktopApp.js').newDesktopApp()
     await DK.app.run()
-    console.log('Superalgos Desktop App is Running.')
+    console.log('Superalgos Desktop App is Running!')
 } 

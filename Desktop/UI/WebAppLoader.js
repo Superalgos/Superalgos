@@ -5,15 +5,12 @@ function newWebAppLoader() {
         loadModules: loadModules
     }
 
-    let postLoader
     return thisObject
 
     async function loadModules() {
         try {
             let modulesArray = [
                 'WebDebugLog.js',
-                'WebAppPostLoader.js',
-                'Globals.js',
                 'WebApp.js'
             ]
 
@@ -115,8 +112,8 @@ function newWebAppLoader() {
 
                             if (downloadedCounter === modulesArray.length) {
                                 setTimeout(() => {
-                                    postLoader = newWebAppPostLoader()
-                                    postLoader.start()
+                                    UI.running.webApp = newWebApp()
+                                    UI.running.webApp.initialize()
                                 }, 500)
 
                             }

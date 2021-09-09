@@ -76,7 +76,7 @@ function httpRequest(pContentToSend, pPath, callBackFunction) {
             xmlHttpRequest.open("POST", pPath, true)
             xmlHttpRequest.send(blob)
         } catch (err) {
-            if (ERROR_LOG === true) { console.log("[ERROR] callServer -> err.message = " & err.message) }
+            if (ERROR_LOG === true) { console.log("[ERROR] callServer -> err.message = " + err.message) }
             callBackFunction({ result: "Fail", message: err.message })
         }
     }

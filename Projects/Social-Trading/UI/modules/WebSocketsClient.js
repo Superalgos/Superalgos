@@ -22,7 +22,7 @@ function newSocialTradingModulesWebSocketsClient() {
 
     async function initialize() {
 
-        socketClient = new WebSocket('ws://' + HOST + ':' + PORT)
+        socketClient = new WebSocket('ws://' + UI.environment.DESKTOP_WEB_SOCKETS_INTERFACE_HOST + ':' + UI.environment.DESKTOP_WEB_SOCKETS_INTERFACE_PORT)
 
         await setUpWebsocketClient()
     }

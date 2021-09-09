@@ -46,26 +46,6 @@ exports.newDesktopModulesHttpInterface = function newDesktopModulesHttpInterface
                         SA.projects.foundations.utilities.httpResponses.respondWithFile(path, httpResponse)
                     }
                     break
-                case 'ListFunctionLibraries':
-                    {
-                        SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Function-Libraries', 'UI')
-                    }
-                    break
-                case 'ListUtilitiesFiles':
-                    {
-                        SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Utilities', 'UI')
-                    }
-                    break
-                case 'ListGlobalFiles':
-                    {
-                        SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Globals', 'UI')
-                    }
-                    break
-                case 'ListModulesFiles':
-                    {
-                        SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Modules', 'UI')
-                    }
-                    break
                 case 'Projects':
                     {
                         let path = ''

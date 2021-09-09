@@ -1233,7 +1233,7 @@
                     "functionName": "newGovernanceUtilitiesTables"
                 },
                 {
-                    "name": "Decendent Tables",
+                    "name": "Descendent Tables",
                     "propertyName": "decendentTables",
                     "functionName": "newGovernanceUtilitiesDecendentTables"
                 },

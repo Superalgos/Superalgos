@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "Ferrox85",
-    "config": "{\n    \"signature\": {\n        \"message\": \"Ferrox85\",\n        \"messageHash\": \"0x6b9dff8767b58b146a3c641d6042eefccd0d9c307177db4f47fefff2653e12bf\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x837324e0bf3c675f6d280bbf60da40d1bee39688a4af7aac63c63d6cbf36b8e1\",\n        \"s\": \"0x5d2bd1a5a9e74eff00cab80ae424f8c2babe2bded104787598d4ec8bd883cfb7\",\n        \"signature\": \"0x837324e0bf3c675f6d280bbf60da40d1bee39688a4af7aac63c63d6cbf36b8e15d2bd1a5a9e74eff00cab80ae424f8c2babe2bded104787598d4ec8bd883cfb71c\"\n    },\n    \"codeName\": \"Ferrox85\"\n}",
+    "config": "{\"signature\":{\"message\":\"Ferrox85\",\"messageHash\":\"0x6b9dff8767b58b146a3c641d6042eefccd0d9c307177db4f47fefff2653e12bf\",\"v\":\"0x1c\",\"r\":\"0x837324e0bf3c675f6d280bbf60da40d1bee39688a4af7aac63c63d6cbf36b8e1\",\"s\":\"0x5d2bd1a5a9e74eff00cab80ae424f8c2babe2bded104787598d4ec8bd883cfb7\",\"signature\":\"0x837324e0bf3c675f6d280bbf60da40d1bee39688a4af7aac63c63d6cbf36b8e15d2bd1a5a9e74eff00cab80ae424f8c2babe2bded104787598d4ec8bd883cfb71c\"},\"codeName\":\"Ferrox85\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -488,7 +488,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

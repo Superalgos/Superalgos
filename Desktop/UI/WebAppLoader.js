@@ -47,6 +47,37 @@ function newWebAppLoader() {
                         }
                     }
                 }
+
+                if (project.SA !== undefined) {
+                    if (project.SA.functionLibraries !== undefined) {
+                        for (let j = 0; j < project.SA.functionLibraries.length; j++) {
+                            let fileName = project.SA.functionLibraries[j].fileName   
+                            if (fileName === undefined) {fileName = project.SA.functionLibraries[j].name.replaceAll(' ', '') + '.js'}                     
+                            modulesArray.push('Projects' + '/' + project.name + '/' + 'SA' + '/' + 'Function-Libraries' + '/' + fileName)
+                        }
+                    }
+                    if (project.SA.utilities !== undefined) {
+                        for (let j = 0; j < project.SA.utilities.length; j++) {
+                            let fileName = project.SA.utilities[j].fileName        
+                            if (fileName === undefined) {fileName = project.SA.utilities[j].name.replaceAll(' ', '') + '.js'}                                     
+                            modulesArray.push('Projects' + '/' + project.name + '/' + 'SA' + '/' + 'Utilities' + '/' + fileName)
+                        }
+                    }
+                    if (project.SA.globals !== undefined) {
+                        for (let j = 0; j < project.SA.globals.length; j++) {
+                            let fileName = project.SA.globals[j].fileName  
+                            if (fileName === undefined) {fileName = project.SA.globals[j].name.replaceAll(' ', '') + '.js'}                                                           
+                            modulesArray.push('Projects' + '/' + project.name + '/' + 'SA' + '/' + 'Globals' + '/' + fileName)
+                        }  
+                    }
+                    if (project.SA.modules !== undefined) {
+                        for (let j = 0; j < project.SA.modules.length; j++) {
+                            let fileName = project.SA.modules[j].fileName   
+                            if (fileName === undefined) {fileName = project.SA.modules[j].name.replaceAll(' ', '') + '.js'}                                                                                
+                            modulesArray.push('Projects' + '/' + project.name + '/' + 'SA' + '/' + 'Modules' + '/' + fileName)
+                        }
+                    }
+                }
             }
 
             downloadIncludedFiles()

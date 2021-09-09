@@ -13,7 +13,8 @@ function newWebApp() {
 
     function initialize() {
         try {
-            setupRootObject()
+            setupRootObject(UI, 'UI')
+            setupRootObject(SA, 'SA')
             UI.projects.socialTrading.modules.webSocketsClient.initialize()
             setupHomePage()
         } catch (err) {
@@ -21,56 +22,72 @@ function newWebApp() {
         }
     }
 
-    function setupRootObject() {
+    function setupRootObject(rootObject, rootObjectName) {
         /*
         Here we will setup the UI object, with all the
         projects and spaces.
         */
         for (let i = 0; i < UI.schemas.projectSchema.length; i++) {
             let projectDefinition = UI.schemas.projectSchema[i]
-            UI.projects[projectDefinition.propertyName] = {}
-            let projectInstance = UI.projects[projectDefinition.propertyName]
+            rootObject.projects[projectDefinition.propertyName] = {}
+            let projectInstance = rootObject.projects[projectDefinition.propertyName]
 
             projectInstance.utilities = {}
             projectInstance.globals = {}
             projectInstance.functionLibraries = {}
             projectInstance.modules = {}
 
-            if (projectDefinition.UI === undefined) { continue }
+            if (projectDefinition[rootObjectName] === undefined) { continue }
 
             /* Set up Globals of this Project */
-            if (projectDefinition.UI.globals !== undefined) {
-                for (let j = 0; j < projectDefinition.UI.globals.length; j++) {
-                    let globalDefinition = projectDefinition.UI.globals[j]
+            if (projectDefinition[rootObjectName].globals !== undefined) {
+                for (let j = 0; j < projectDefinition[rootObjectName].globals.length; j++) {
+                    let globalDefinition = projectDefinition[rootObjectName].globals[j]
 
-                    projectInstance.globals[globalDefinition.propertyName] = eval(globalDefinition.functionName + '()')
+                    if (exports[globalDefinition.functionName] === undefined) {
+                        projectInstance.globals[globalDefinition.propertyName] = eval(globalDefinition.functionName + '()')
+                    } else {
+                        projectInstance.globals[globalDefinition.propertyName] = eval('exports.' + globalDefinition.functionName + '()')
+                    }
                 }
             }
 
             /* Set up Utilities of this Project */
-            if (projectDefinition.UI.utilities !== undefined) {
-                for (let j = 0; j < projectDefinition.UI.utilities.length; j++) {
-                    let utilityDefinition = projectDefinition.UI.utilities[j]
+            if (projectDefinition[rootObjectName].utilities !== undefined) {
+                for (let j = 0; j < projectDefinition[rootObjectName].utilities.length; j++) {
+                    let utilityDefinition = projectDefinition[rootObjectName].utilities[j]
 
-                    projectInstance.utilities[utilityDefinition.propertyName] = eval(utilityDefinition.functionName + '()')
+                    if (exports[utilityDefinition.functionName] === undefined) {
+                        projectInstance.utilities[utilityDefinition.propertyName] = eval(utilityDefinition.functionName + '()')
+                    } else {
+                        projectInstance.utilities[utilityDefinition.propertyName] = eval('exports.' + utilityDefinition.functionName + '()')
+                    }
                 }
             }
 
             /* Set up Function Libraries of this Project */
-            if (projectDefinition.UI.functionLibraries !== undefined) {
-                for (let j = 0; j < projectDefinition.UI.functionLibraries.length; j++) {
-                    let functionLibraryDefinition = projectDefinition.UI.functionLibraries[j]
+            if (projectDefinition[rootObjectName].functionLibraries !== undefined) {
+                for (let j = 0; j < projectDefinition[rootObjectName].functionLibraries.length; j++) {
+                    let functionLibraryDefinition = projectDefinition[rootObjectName].functionLibraries[j]
 
-                    projectInstance.functionLibraries[functionLibraryDefinition.propertyName] = eval(functionLibraryDefinition.functionName + '()')
+                    if (exports[functionLibraryDefinition.functionName] === undefined) {
+                        projectInstance.functionLibraries[functionLibraryDefinition.propertyName] = eval(functionLibraryDefinition.functionName + '()')
+                    } else {
+                        projectInstance.functionLibraries[functionLibraryDefinition.propertyName] = eval('exports.' + functionLibraryDefinition.functionName + '()')
+                    }
                 }
             }
 
             /* Set up Modules of this Project */
-            if (projectDefinition.UI.modules !== undefined) {
-                for (let j = 0; j < projectDefinition.UI.modules.length; j++) {
-                    let functionLibraryDefinition = projectDefinition.UI.modules[j]
+            if (projectDefinition[rootObjectName].modules !== undefined) {
+                for (let j = 0; j < projectDefinition[rootObjectName].modules.length; j++) {
+                    let functionLibraryDefinition = projectDefinition[rootObjectName].modules[j]
 
-                    projectInstance.modules[functionLibraryDefinition.propertyName] = eval(functionLibraryDefinition.functionName + '()')
+                    if (exports[functionLibraryDefinition.functionName] === undefined) {
+                        projectInstance.modules[functionLibraryDefinition.propertyName] = eval(functionLibraryDefinition.functionName + '()')
+                    } else {
+                        projectInstance.modules[functionLibraryDefinition.propertyName] = eval('exports.' + functionLibraryDefinition.functionName + '()')
+                    }
                 }
             }
         }
@@ -84,7 +101,7 @@ function newWebApp() {
         */
         queryMessage = {
             queryType: SA.projects.socialTrading.globals.queryTypes.USER_PROFILES,
-            emitterUserProfileId: DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID,
+            emitterUserProfileId: undefined, //DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID,
             initialIndex: 'Last',
             amountRequested: 10,
             direction: 'Past'

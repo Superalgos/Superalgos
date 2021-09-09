@@ -88,7 +88,8 @@ exports.newFoundationsBotModulesTradingSimulation = function (processIndex) {
                     This will happen when the sessionParameters.timeRange.config.initialDatetime is beyond the last candle available, 
                     meaning that the dataSet needs to be updated with more up-to-date data. 
                     */
-                    TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Data is not up-to-date enough. Please start the Masters Data Mining Operation.')
+                    console.log('DEBUGGING ..................', initialCandle, candles.length)
+                    TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Data is not up-to-date enough. Please start the Data Mining Operation.')
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         '[IMPORTANT] runSimulation -> Data is not up-to-date enough. Stopping the Session now. ')
                     return

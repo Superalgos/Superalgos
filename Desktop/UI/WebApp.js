@@ -101,7 +101,7 @@ function newWebApp() {
         */
         queryMessage = {
             queryType: SA.projects.socialTrading.globals.queryTypes.USER_PROFILES,
-            emitterUserProfileId: undefined, 
+            emitterUserProfileId: undefined,
             initialIndex: 'Last',
             amountRequested: 10,
             direction: 'Past'
@@ -120,12 +120,9 @@ function newWebApp() {
 
         async function showProfiles(profiles) {
             console.log(profiles)
+            document.getElementById('context-cell')
 
-            for (let i = 0; i < profiles.length; i++) {
-                let profile = profiles[i]
-
-                console.log(profile)
-            }
+            fillWhoToFollowTable(profiles)
         }
 
         /*
@@ -134,5 +131,28 @@ function newWebApp() {
         function onError(errorMessage) {
             console.log('[ERROR] Query not executed. ' + errorMessage)
         }
+    }
+
+    function fillWhoToFollowTable(profiles) {
+
+        let contextCell = document.getElementById('context-cell')
+        let table = document.createElement("table")
+        let tblBody = document.createElement("tbody")
+
+        for (let i = 0; i < profiles.length; i++) {
+            let profile = profiles[i]
+            let row = document.createElement("tr")
+
+            let cell = document.createElement("td")
+            let cellText = document.createTextNode(profile.userProfileHandle)
+            cell.appendChild(cellText)
+            row.appendChild(cell)
+
+            tblBody.appendChild(row)
+        }
+
+        table.appendChild(tblBody)
+        contextCell.appendChild(table)
+        table.setAttribute("class", "who-to-follow-table")
     }
 }

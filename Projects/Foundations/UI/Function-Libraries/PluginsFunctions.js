@@ -22,7 +22,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
             let projectDefinition = PROJECTS_SCHEMA[k]
             let project = projectDefinition.name
-            if (UI.projects.foundations.utilities.children.isMissingChildrenByName(node, project) === true) {
+            if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenByName(node, project) === true) {
                 let child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin Project')
                 child.name = project
                 let config = JSON.parse(child.config)
@@ -42,7 +42,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
             for (let i = 0; i < projectDefinition.plugins.length; i++) {
                 let pluginType = "Plugin" + " " + projectDefinition.plugins[i]
 
-                if (UI.projects.foundations.utilities.children.isMissingChildrenByType(node, pluginType) === true) {
+                if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenByType(node, pluginType) === true) {
                     UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, pluginType, undefined, project)
                 }
             }
@@ -209,10 +209,10 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
 
     function installAsPlugin(node, rootNodes) {
         let plugins = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Plugins')
-        let pluginProject = UI.projects.foundations.utilities.children.findChildByCodeName(plugins, node.project)
+        let pluginProject = UI.projects.foundations.utilities.nodeChildren.findChildByCodeName(plugins, node.project)
         let pluginFolderName = UI.projects.foundations.utilities.plugins.getPluginFolderNamesByNodeType(node.type)
         let pluginForlderNodeType = 'Plugin ' + pluginFolderName.replaceAll('-', ' ')
-        let pluginFolderNode = UI.projects.foundations.utilities.children.findChildByType(pluginProject, pluginForlderNodeType)
+        let pluginFolderNode = UI.projects.foundations.utilities.nodeChildren.findChildByType(pluginProject, pluginForlderNodeType)
         let pluginFile = UI.projects.foundations.utilities.plugins.addMissingPluginFile(pluginFolderNode, node.name, pluginFolderName, node.type, true)
         node.isPlugin = true
 

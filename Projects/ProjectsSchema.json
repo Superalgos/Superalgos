@@ -180,7 +180,7 @@
                 },
                 {
                     "name": "Node Children",
-                    "propertyName": "children",
+                    "propertyName": "nodeChildren",
                     "functionName": "newFoundationsUtilitiesNodeChildren"
                 },
                 {

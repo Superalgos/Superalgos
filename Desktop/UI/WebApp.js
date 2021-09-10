@@ -103,7 +103,7 @@ function newWebApp() {
             queryType: SA.projects.socialTrading.globals.queryTypes.USER_PROFILES,
             emitterUserProfileId: undefined,
             initialIndex: 'Last',
-            amountRequested: 10,
+            amountRequested: 3,
             direction: 'Past'
         }
 
@@ -122,7 +122,7 @@ function newWebApp() {
             console.log(profiles)
             document.getElementById('context-cell')
 
-            fillWhoToFollowTable(profiles)
+            addWhoToFollowTable(profiles)
         }
 
         /*
@@ -133,9 +133,9 @@ function newWebApp() {
         }
     }
 
-    function fillWhoToFollowTable(profiles) {
+    function addWhoToFollowTable(profiles) {
 
-        let contextCell = document.getElementById('context-cell')
+        let contextCell = document.getElementById('who-to-follow-cell')
         let table = document.createElement("table")
         let tblBody = document.createElement("tbody")
 
@@ -144,8 +144,7 @@ function newWebApp() {
             let row = document.createElement("tr")
 
             let cell = document.createElement("td")
-            let cellText = document.createTextNode(profile.userProfileHandle)
-            cell.appendChild(cellText)
+            addProfileToFollowTable(cell, profile)
             row.appendChild(cell)
 
             tblBody.appendChild(row)
@@ -154,5 +153,40 @@ function newWebApp() {
         table.appendChild(tblBody)
         contextCell.appendChild(table)
         table.setAttribute("class", "who-to-follow-table")
+    }
+
+    function addProfileToFollowTable(htmlElement, profile) {
+        let table = document.createElement("table")
+        let tblBody = document.createElement("tbody")
+
+
+
+        let row = document.createElement("tr")
+
+        {
+            let cell = document.createElement("td")
+            let cellText = document.createTextNode('Profile Picture')
+            cell.appendChild(cellText)
+            row.appendChild(cell)
+        }
+        {
+            let cell = document.createElement("td")
+            let cellText = document.createTextNode(profile.userProfileHandle)
+            cell.appendChild(cellText)
+            row.appendChild(cell)
+        }
+        {
+            let cell = document.createElement("td")
+            let cellText = document.createTextNode('Follow Button')
+            cell.appendChild(cellText)
+            row.appendChild(cell)
+        }
+
+        tblBody.appendChild(row)
+
+
+        table.appendChild(tblBody)
+        htmlElement.appendChild(table)
+        table.setAttribute("class", "profile-to-follow-table")
     }
 }

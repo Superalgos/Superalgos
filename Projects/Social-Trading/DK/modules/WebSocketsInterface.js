@@ -64,11 +64,25 @@ exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSock
                             return
                         }
 
-                        let response = await webAppInterface.messageReceived(messageHeader.payload)
-                        webApp.socket.send(JSON.stringify(response))
+                        await webAppInterface.messageReceived(messageHeader.payload)
+                            .then(sendResponseToWebApp)
+                            .catch(onError)
+
+                        function sendResponseToWebApp(response) {
+                            webApp.socket.send(JSON.stringify(response))
+                        }
+
+                        function onError(errorMessage) {
+                            console.log('[ERROR] Web Sockets Interface -> onMenssage -> errorMessage = ' + errorMessage)
+                            let response = {
+                                result: 'Error',
+                                message: errorMessage
+                            }
+                            webApp.socket.send(JSON.stringify(response))
+                        }
 
                     } catch (err) {
-                        console.log('[ERROR] Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
+                        console.log('[ERROR] Web Sockets Interface -> onMenssage -> err.stack = ' + err.stack)
                     }
                 }
             }

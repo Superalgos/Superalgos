@@ -131,38 +131,57 @@ function newWebApp() {
         */
         function onError(errorMessage) {
             console.log('[ERROR] Query not executed. ' + errorMessage)
+            console.log('[ERROR] query = ' + JSON.stringify(query))
         }
     }
 
     function setupEventHandlers() {
         /*
-        Add events to process button clicks.
+        Add events to process button clicks , and mouseWheel.
         */
         document.addEventListener("click", onClick)
-
         document.addEventListener('mousewheel', onMouseWheel, false)
 
-        function onClick(event) {
+        async function onClick(event) {
 
             if (event.target && event.target.nodeName === "BUTTON") {
                 switch (event.target.action) {
                     case 'Follow Profile': {
-                        let span = document.getElementById('profile-to-follow-span-' + event.target.userProfileId)
-                        let button = document.getElementById('profile-to-follow-button-' + event.target.userProfileId)
-                        span.setAttribute("class", "profile-to-unfollow-span")
-                        button.setAttribute("class", "profile-to-unfollow-button")
-                        button.action = 'Unfollow Profile'
+                        await followUserProfile(event.target.userProfileId)
+                            .then(updateButton)
+                            .catch(onError)
+
+                        function updateButton() {
+                            let span = document.getElementById('profile-to-follow-span-' + event.target.userProfileId)
+                            let button = document.getElementById('profile-to-follow-button-' + event.target.userProfileId)
+                            span.setAttribute("class", "profile-to-unfollow-span")
+                            button.setAttribute("class", "profile-to-unfollow-button")
+                            button.action = 'Unfollow Profile'
+                        }
                         break
                     }
                     case 'Unfollow Profile': {
-                        let span = document.getElementById('profile-to-follow-span-' + event.target.userProfileId)
-                        let button = document.getElementById('profile-to-follow-button-' + event.target.userProfileId)
-                        span.setAttribute("class", "profile-to-follow-span")
-                        button.setAttribute("class", "profile-to-follow-button")
-                        button.action = 'Follow Profile'
+                        await unfollowUserProfile(event.target.userProfileId).catch(onError)
+                            .then(updateButton)
+                            .catch(onError)
+
+                        function updateButton() {
+                            let span = document.getElementById('profile-to-follow-span-' + event.target.userProfileId)
+                            let button = document.getElementById('profile-to-follow-button-' + event.target.userProfileId)
+                            span.setAttribute("class", "profile-to-follow-span")
+                            button.setAttribute("class", "profile-to-follow-button")
+                            button.action = 'Follow Profile'
+                        }
                         break
                     }
                 }
+            }
+
+            /*
+            Error Handling
+            */
+            function onError(errorMessage) {
+                console.log('[ERROR] Click event failed. ' + errorMessage)
             }
         }
 
@@ -234,9 +253,50 @@ function newWebApp() {
 
         tblBody.appendChild(row)
 
-
         table.appendChild(tblBody)
         htmlElement.appendChild(table)
         table.setAttribute("class", "profile-to-follow-table")
+    }
+
+
+    async function followUserProfile(userProfileId) {
+
+        return new Promise((resolve, reject) => { asyncCall(resolve, reject) })
+
+        async function asyncCall(resolve, reject) {
+            let eventMessage
+            let event
+            /*
+            Test Query User Profiles.
+            */
+            eventMessage = {
+                eventType: SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE,
+                eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                targetUserProfileId: userProfileId
+            }
+
+            event = {
+                requestType: 'Event',
+                eventMessage: JSON.stringify(eventMessage)
+            }
+
+            await UI.projects.socialTrading.modules.webSocketsClient.sendMessage(
+                JSON.stringify(event)
+            )
+                .then(onResponse)
+                .catch(onError)
+
+            async function onResponse(reponse) {
+                resolve()
+            }
+            /*
+            Error Handling
+            */
+            function onError(errorMessage) {
+                console.log('[ERROR] Event not executed. ' + errorMessage)
+                console.log('[ERROR] event = ' + JSON.stringify(event))
+                reject(errorMessage)
+            }
+        }
     }
 }

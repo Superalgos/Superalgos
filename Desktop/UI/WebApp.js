@@ -138,11 +138,11 @@ function newWebApp() {
         /*
         Add events to process button clicks.
         */
-        document.addEventListener("click", function (e) {
-            userClicked(e)
-        })
+        document.addEventListener("click", onClick)
 
-        function userClicked(event) {
+        document.addEventListener('mousewheel', onMouseWheel, false)
+
+        function onClick(event) {
 
             if (event.target && event.target.nodeName === "BUTTON") {
                 switch (event.target.action) {
@@ -164,6 +164,11 @@ function newWebApp() {
                     }
                 }
             }
+        }
+
+        function onMouseWheel(event) {
+            let scrollDiv = document.getElementById("scroll-div")
+            scrollDiv.scrollTop = scrollDiv.scrollTop + event.deltaY
         }
     }
 

@@ -22,6 +22,11 @@
     font-style: normal;
   }
   
+  .body{
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
   .scroll-div {
     position:absolute; 
     overflow-y: scroll;

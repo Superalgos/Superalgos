@@ -147,7 +147,10 @@ function newWebApp() {
             if (event.target && event.target.nodeName === "BUTTON") {
                 switch (event.target.action) {
                     case 'Follow Profile': {
-                        await followUserProfile(event.target.userProfileId)
+                        await sendUserProfileEvent(
+                            event.target.userProfileId,
+                            SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE
+                            )
                             .then(updateButton)
                             .catch(onError)
 
@@ -161,7 +164,10 @@ function newWebApp() {
                         break
                     }
                     case 'Unfollow Profile': {
-                        await unfollowUserProfile(event.target.userProfileId).catch(onError)
+                        await sendUserProfileEvent(
+                            event.target.userProfileId,
+                            SA.projects.socialTrading.globals.eventTypes.UNFOLLOW_USER_PROFILE
+                            )
                             .then(updateButton)
                             .catch(onError)
 
@@ -258,8 +264,10 @@ function newWebApp() {
         table.setAttribute("class", "profile-to-follow-table")
     }
 
-
-    async function followUserProfile(userProfileId) {
+    async function sendUserProfileEvent(
+        userProfileId,
+        eventType 
+        ) {
 
         return new Promise((resolve, reject) => { asyncCall(resolve, reject) })
 
@@ -270,7 +278,7 @@ function newWebApp() {
             Test Query User Profiles.
             */
             eventMessage = {
-                eventType: SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE,
+                eventType: eventType,
                 eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 targetUserProfileId: userProfileId
             }
@@ -283,15 +291,9 @@ function newWebApp() {
             await UI.projects.socialTrading.modules.webSocketsClient.sendMessage(
                 JSON.stringify(event)
             )
-                .then(onResponse)
+                .then(resolve)
                 .catch(onError)
 
-            async function onResponse(reponse) {
-                resolve()
-            }
-            /*
-            Error Handling
-            */
             function onError(errorMessage) {
                 console.log('[ERROR] Event not executed. ' + errorMessage)
                 console.log('[ERROR] event = ' + JSON.stringify(event))

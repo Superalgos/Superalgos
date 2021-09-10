@@ -17,6 +17,7 @@ function newWebApp() {
             setupRootObject(SA, 'SA')
             await UI.projects.socialTrading.modules.webSocketsClient.initialize()
             setupHomePage()
+            setupEventHandlers()
         } catch (err) {
             console.log('[ERROR] initialize -> err.stack = ' + err.stack)
         }
@@ -133,6 +134,39 @@ function newWebApp() {
         }
     }
 
+    function setupEventHandlers() {
+        /*
+        Add events to process button clicks.
+        */
+        document.addEventListener("click", function (e) {
+            userClicked(e)
+        })
+
+        function userClicked(event) {
+
+            if (event.target && event.target.nodeName === "BUTTON") {
+                switch (event.target.action) {
+                    case 'Follow Profile': {
+                        let span = document.getElementById('profile-to-follow-span-' + event.target.userProfileId)
+                        let button = document.getElementById('profile-to-follow-button-' + event.target.userProfileId)
+                        span.setAttribute("class", "profile-to-unfollow-span")
+                        button.setAttribute("class", "profile-to-unfollow-button")
+                        button.action = 'Unfollow Profile'
+                        break
+                    }
+                    case 'Unfollow Profile': {
+                        let span = document.getElementById('profile-to-follow-span-' + event.target.userProfileId)
+                        let button = document.getElementById('profile-to-follow-button-' + event.target.userProfileId)
+                        span.setAttribute("class", "profile-to-follow-span")
+                        button.setAttribute("class", "profile-to-follow-button")
+                        button.action = 'Follow Profile'
+                        break
+                    }
+                }
+            }
+        }
+    }
+
     function addWhoToFollowTable(profiles) {
 
         let contextCell = document.getElementById('who-to-follow-cell')
@@ -159,8 +193,6 @@ function newWebApp() {
         let table = document.createElement("table")
         let tblBody = document.createElement("tbody")
 
-
-
         let row = document.createElement("tr")
 
         {
@@ -177,8 +209,21 @@ function newWebApp() {
         }
         {
             let cell = document.createElement("td")
-            let cellText = document.createTextNode('Follow Button')
-            cell.appendChild(cellText)
+            let span = document.createElement("span")
+            let button = document.createElement("button")
+            let text = document.createTextNode('Follow')
+
+            span.setAttribute("id", "profile-to-follow-span-" + profile.userProfileId)
+            button.setAttribute("id", "profile-to-follow-button-" + profile.userProfileId)
+            button.action = 'Follow Profile'
+            button.userProfileId = profile.userProfileId
+
+            span.setAttribute("class", "profile-to-follow-span")
+            button.setAttribute("class", "profile-to-follow-button")
+
+            button.appendChild(text)
+            span.appendChild(button)
+            cell.appendChild(span)
             row.appendChild(cell)
         }
 

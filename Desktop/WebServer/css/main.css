@@ -60,7 +60,7 @@
   }
 
   .page-table {
-    pointer-events: none;
+    pointer-events: visible;
     position:fixed; 
     position: absolute; 
     top:0px; 
@@ -252,4 +252,22 @@
     color: #000;
     border-width: 0px;
     border-collapse: collapse;
+  }
+
+  .profile-to-follow-span {
+    float: right;
+  }
+
+  .profile-to-follow-button {
+    float: right;
+    background-color: green;
+  }
+
+  .profile-to-unfollow-span {
+    float: right;
+  }
+
+  .profile-to-unfollow-button {
+    float: right;
+    background-color: red;
   }

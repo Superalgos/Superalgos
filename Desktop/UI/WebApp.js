@@ -101,11 +101,11 @@ function newWebApp() {
         Test Query User Profiles.
         */
         queryMessage = {
-            queryType: SA.projects.socialTrading.globals.queryTypes.USER_PROFILES,
+            queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_USER_PROFILES,
             emitterUserProfileId: undefined,
-            initialIndex: 'Last',
+            initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_FIRST,
             amountRequested: 3,
-            direction: 'Past'
+            direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_UP
         }
 
         query = {
@@ -147,7 +147,7 @@ function newWebApp() {
             if (event.target && event.target.nodeName === "BUTTON") {
                 switch (event.target.action) {
                     case 'Follow Profile': {
-                        await sendUserProfileEvent(
+                        await sendUserTargetProfileEvent(
                             event.target.userProfileId,
                             SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE
                             )
@@ -164,7 +164,7 @@ function newWebApp() {
                         break
                     }
                     case 'Unfollow Profile': {
-                        await sendUserProfileEvent(
+                        await sendUserTargetProfileEvent(
                             event.target.userProfileId,
                             SA.projects.socialTrading.globals.eventTypes.UNFOLLOW_USER_PROFILE
                             )
@@ -264,7 +264,7 @@ function newWebApp() {
         table.setAttribute("class", "profile-to-follow-table")
     }
 
-    async function sendUserProfileEvent(
+    async function sendUserTargetProfileEvent(
         userProfileId,
         eventType 
         ) {

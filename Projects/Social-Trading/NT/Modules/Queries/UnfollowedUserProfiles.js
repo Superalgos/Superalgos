@@ -1,10 +1,11 @@
-exports.newSocialTradingModulesQueriesUserProfiles = function newSocialTradingModulesQueriesUserProfiles() {
+exports.newSocialTradingModulesQueriesUnfollowedUserProfiles = function newSocialTradingModulesQueriesUnfollowedUserProfiles() {
     /*
     This query returns a list of user profiles ordered
-    by Ranking. It is useful to bootstrap new users
-    and provide them with alternative of who to follow.
+    by Ranking. It filters out all the profiles that 
+    are already followed by the Emitter User Profile.
     */
     let thisObject = {
+        emitterUserProfile: undefined,
         profiles: undefined,
         initialIndex: undefined,
         amountRequested: undefined,
@@ -18,14 +19,20 @@ exports.newSocialTradingModulesQueriesUserProfiles = function newSocialTradingMo
 
     function finalize() {
         thisObject.profiles = undefined
+        thisObject.emitterUserProfile = undefined
     }
 
     function initialize(queryReceived) {
 
+        thisObject.emitterUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.emitterUserProfileId)
+        if (thisObject.emitterUserProfile === undefined) {
+            throw ('Emitter User Profile Not Found.')
+        }
+
         thisObject.profiles = Array.from(
-            NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID, 
+            NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID,
             x => x[1]
-            )
+        )
         thisObject.profiles.sort((a, b) => (a["ranking"] > b["ranking"]) ? 1 : -1)
 
         NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.profiles)
@@ -38,19 +45,41 @@ exports.newSocialTradingModulesQueriesUserProfiles = function newSocialTradingMo
 
         switch (thisObject.direction) {
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_UP: {
-                for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
+                let i = thisObject.initialIndex
+                let foundCount = 0
+                while (
+                    foundCount < thisObject.amountRequested &&
+                    i < thisObject.profiles.length
+                ) {
                     let profile = thisObject.profiles[i]
-                    if (profile === undefined) { break }
-                    addToResponse(profile)
+                    if (
+                        thisObject.emitterUserProfile.following.get(profile.userProfileId) === undefined &&
+                        thisObject.emitterUserProfile.userProfileId !== profile.userProfileId
+                        ) {
+                        addToResponse(profile)
+                        foundCount++
+                    }
+                    i++
                 }
                 break
             }
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_DOWN: {
-                for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
+                let i = thisObject.initialIndex
+                let foundCount = 0
+                while (
+                    foundCount < thisObject.amountRequested &&
+                    i >= 0
+                ) {
                     let profile = thisObject.profiles[i]
-                    if (profile === undefined) { break }
-                    addToResponse(profile)
-                }
+                    if (
+                        thisObject.emitterUserProfile.following.get(profile.userProfileId) === undefined &&
+                        thisObject.emitterUserProfile.userProfileId !== profile.userProfileId
+                        ) {
+                        addToResponse(profile)
+                        foundCount++
+                    }
+                    i--
+                }                
                 break
             }
         }

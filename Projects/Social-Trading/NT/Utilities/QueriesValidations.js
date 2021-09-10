@@ -91,7 +91,12 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
             throw ('Direction Undefined.')
         }
 
-        if (queryReceived.direction !== SA.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE && queryReceived.direction !== SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST) {
+        if (
+            queryReceived.direction !== SA.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE && 
+            queryReceived.direction !== SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST &&
+            queryReceived.direction !== SA.projects.socialTrading.globals.queryConstants.DIRECTION_UP && 
+            queryReceived.direction !== SA.projects.socialTrading.globals.queryConstants.DIRECTION_DOWN
+            ) {
             throw ('Direction Not Supported.')
         }
 

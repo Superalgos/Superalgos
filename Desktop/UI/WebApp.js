@@ -145,7 +145,7 @@ function newWebApp() {
         async function onClick(event) {
 
             if (event.target && event.target.nodeName === "BUTTON") {
-                switch (event.target.action) {
+                switch (event.target.name) {
                     case 'Follow Profile': {
                         await sendUserTargetProfileEvent(
                             event.target.userProfileId,
@@ -159,7 +159,7 @@ function newWebApp() {
                             let button = document.getElementById('profile-to-follow-button-' + event.target.userProfileId)
                             span.setAttribute("class", "profile-to-unfollow-span")
                             button.setAttribute("class", "profile-to-unfollow-button")
-                            button.action = 'Unfollow Profile'
+                            button.name = 'Unfollow Profile'
                         }
                         break
                     }
@@ -176,7 +176,7 @@ function newWebApp() {
                             let button = document.getElementById('profile-to-follow-button-' + event.target.userProfileId)
                             span.setAttribute("class", "profile-to-follow-span")
                             button.setAttribute("class", "profile-to-follow-button")
-                            button.action = 'Follow Profile'
+                            button.name = 'Follow Profile'
                         }
                         break
                     }
@@ -245,7 +245,7 @@ function newWebApp() {
 
             span.setAttribute("id", "profile-to-follow-span-" + profile.userProfileId)
             button.setAttribute("id", "profile-to-follow-button-" + profile.userProfileId)
-            button.action = 'Follow Profile'
+            button.name = 'Follow Profile'
             button.userProfileId = profile.userProfileId
 
             span.setAttribute("class", "profile-to-follow-span")

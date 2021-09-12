@@ -494,6 +494,10 @@
 
                             while (foundDate !== true) {
 
+                                if (new Date(since).valueOf() >= (new Date).setSeconds(0,0)) {
+                                    return OHLCVs
+                                }
+
                                 await new Promise(resolve => setTimeout(resolve, rateLimit)) // rate limit
                                 const nextValidOHLCVs = useFetchTradesForFetchOHLCVs ?
                                     await fetchTradesForOHLCV(symbol, '1m', since, limit, params) :

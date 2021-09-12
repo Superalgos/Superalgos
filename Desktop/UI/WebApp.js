@@ -146,8 +146,21 @@ function newWebApp() {
 
             if (event.target && event.target.nodeName === "BUTTON") {
                 switch (event.target.name) {
+                    case 'New Post': {
+                        let textArea = document.getElementById("new-post-text-area")
+                        await sendNewPostEvent(
+                            textArea.value
+                            )
+                            .then(updateTextArea)
+                            .catch(onError)
+
+                        function updateTextArea() {
+                            textArea.value = ""
+                        }
+                        break
+                    }
                     case 'Follow Profile': {
-                        await sendUserTargetProfileEvent(
+                        await sendTargetUserProfileEvent(
                             event.target.userProfileId,
                             SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE
                             )
@@ -164,7 +177,7 @@ function newWebApp() {
                         break
                     }
                     case 'Unfollow Profile': {
-                        await sendUserTargetProfileEvent(
+                        await sendTargetUserProfileEvent(
                             event.target.userProfileId,
                             SA.projects.socialTrading.globals.eventTypes.UNFOLLOW_USER_PROFILE
                             )
@@ -264,7 +277,7 @@ function newWebApp() {
         table.setAttribute("class", "profile-to-follow-table")
     }
 
-    async function sendUserTargetProfileEvent(
+    async function sendTargetUserProfileEvent(
         userProfileId,
         eventType 
         ) {
@@ -274,13 +287,46 @@ function newWebApp() {
         async function asyncCall(resolve, reject) {
             let eventMessage
             let event
-            /*
-            Test Query User Profiles.
-            */
+ 
             eventMessage = {
                 eventType: eventType,
                 eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 targetUserProfileId: userProfileId
+            }
+
+            event = {
+                requestType: 'Event',
+                eventMessage: JSON.stringify(eventMessage)
+            }
+
+            await UI.projects.socialTrading.modules.webSocketsClient.sendMessage(
+                JSON.stringify(event)
+            )
+                .then(resolve)
+                .catch(onError)
+
+            function onError(errorMessage) {
+                console.log('[ERROR] Event not executed. ' + errorMessage)
+                console.log('[ERROR] event = ' + JSON.stringify(event))
+                reject(errorMessage)
+            }
+        }
+    }
+
+    async function sendNewPostEvent(
+        postText 
+        ) {
+
+        return new Promise((resolve, reject) => { asyncCall(resolve, reject) })
+
+        async function asyncCall(resolve, reject) {
+            let eventMessage
+            let event
+ 
+            eventMessage = {
+                eventType: SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST,
+                eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                text: postText
             }
 
             event = {

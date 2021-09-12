@@ -139,8 +139,6 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                     emitterUserProfile.addPost(
                         thisObject.emitterUserProfileId,
                         thisObject.targetUserProfileId,
-                        thisObject.emitterBotProfileId,
-                        thisObject.targetBotProfileId,
                         thisObject.emitterPostHash,
                         thisObject.targetPostHash,
                         thisObject.eventType - 10,

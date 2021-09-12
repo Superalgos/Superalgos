@@ -301,6 +301,7 @@ function newCircularMenuItem() {
 
     function onMouseOver(point) {
         if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {
+            thisObject.payload.uiObject.setInfoMessage(thisObject.action)
             isMouseOver = true
         } else {
             isMouseOver = false

@@ -131,9 +131,9 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         const fileHash = hash.update(fileContent).digest('hex')
         const fileName = fileHash + ".json"
 
-        let filePath = './My-Social-Trading-Data/User-Posts/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDate(timestamp)
+        let filePath = './My-Social-Trading-Data/User-Posts/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDate(timestamp) 
 
-        TS.projects.foundations.utilities.miscellaneousFunctions.mkDirByPathSync(filePath)
+        SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
         SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
 
         const options = {

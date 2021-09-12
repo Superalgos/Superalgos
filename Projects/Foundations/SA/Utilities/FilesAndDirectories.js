@@ -60,8 +60,8 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
         file.month = file.date.getUTCMonth() + 1
         file.day = file.date.getUTCDate()
         return file.year + '/' +
-            TS.projects.foundations.utilities.miscellaneousFunctions.pad(file.month, 2) + '/' +
-            TS.projects.foundations.utilities.miscellaneousFunctions.pad(file.day, 2)
+            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.month, 2) + '/' +
+            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.day, 2)
     }
 
     /* Function to create folders of missing folders at any path. */

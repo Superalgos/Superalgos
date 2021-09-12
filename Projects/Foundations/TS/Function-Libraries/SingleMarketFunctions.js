@@ -563,7 +563,7 @@
             let dateForPath = ''
 
             if (processingDailyFiles === true) {
-                dateForPath = "/" + currentDay.getUTCFullYear() + '/' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(currentDay.getUTCMonth() + 1, 2) + '/' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(currentDay.getUTCDate(), 2);
+                dateForPath = "/" + currentDay.getUTCFullYear() + '/' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(currentDay.getUTCMonth() + 1, 2) + '/' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(currentDay.getUTCDate(), 2);
             }
 
             let filePathRoot = 'Project/' + contextSummary.project + "/" + contextSummary.mineType + "/" + contextSummary.dataMine + "/" + contextSummary.bot + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName

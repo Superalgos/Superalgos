@@ -329,8 +329,8 @@ exports.newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = fun
             /*  Telling the world we are alive and doing well */
             let currentDateString =
                 contextVariables.datetimeLastProducedFile.getUTCFullYear() + '-' +
-                TS.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '-' +
-                TS.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2)
+                SA.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '-' +
+                SA.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2)
             let currentDate = new Date(contextVariables.datetimeLastProducedFile)
             let percentage = TS.projects.foundations.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
             TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, currentDateString, percentage)
@@ -360,8 +360,8 @@ exports.newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = fun
         const ONE_MIN_DATASET_TYPE = "One-Min"
 
         let dateForPath = contextVariables.datetimeLastProducedFile.getUTCFullYear() + '/' +
-            TS.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '/' +
-            TS.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2)
+            SA.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '/' +
+            SA.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2)
 
         let fileName = "Data.json"
 

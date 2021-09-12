@@ -8,18 +8,42 @@
         "icon": {
             "name": "User\\user-profile",
             "project": "Governance"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Entonces que estamos esperando. ¡Empecemos! Para participar en la gobernanza, necesitarás un User Profile.",
+                "updated": 1630874855704,
+                "style": "Definition"
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Your profile is set up just like the rest of the Superalgos system. It is a hierarchy of nodes. Only this hierarchy defines how you intend to use the Token Power you have earned or is delegated to you by other users. ",
-            "updated": 1629165991225
+            "updated": 1629165991225,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Tu perfil está configurado como el resto del sistema Superalgos. Es una jerarquía de nodos. Solo esta jerarquía define cómo pretende utilizar el Token Power que has ganado o que otros usuarios te delegan.",
+                    "updated": 1630875440411,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "By channelling your token power you help decide what parts of the system will be incentivised for further development and who will be rewarded for the community roles they have played.",
-            "updated": 1629166027369
+            "updated": 1629166027369,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Al canalizar tu poder simbólico, ayudas a decidir qué partes del sistema se incentivarán para un mayor desarrollo y quiénes serán recompensados ​​por los roles comunitarios que han desempeñado.",
+                    "updated": 1630875625415,
+                    "style": "Note"
+                }
+            ]
         }
     ]
 }

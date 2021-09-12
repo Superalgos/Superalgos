@@ -22,8 +22,6 @@ exports.newMLDataObj = function(featureLen, labelLen) {
     /* Variables Section: */
     var _features = {};     // Features Object
     var _labels = {};       // Labels Object
-    var feats = []
-    var labs = []
     //var _rank = [];       // Future expansion placeholder variable. [Feature Tensor Rank, Label Tensor Rank]
 
     /* stats{} : Statistics producer object:

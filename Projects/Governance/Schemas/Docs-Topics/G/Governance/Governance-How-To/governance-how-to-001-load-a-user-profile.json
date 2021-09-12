@@ -4,7 +4,14 @@
     "type": "Load a User Profile",
     "definition": {
         "text": "Use this guide if you ever wish to load a User Profile into any of the Governance Workspaces.",
-        "updated": 1630681599427
+        "updated": 1630681599427,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Utilice esta guía si alguna vez desea cargar un User Profile en cualquiera de los Governance Workspaces.",
+                "updated": 1630895973316
+            }
+        ]
     },
     "paragraphs": [
         {

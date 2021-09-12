@@ -7,7 +7,8 @@
             {
                 "language": "ES",
                 "text": "La jerarquía del tutorial presenta una disposición libre de los nodos Tutorial Topic y Tutorial Step que componen un tutorial. Cada nodo de la jerarquía, incluido el nodo del tutorial principal, representa una página HTML que puede superponerse en la parte superior de ambos Design Space y el Charting Space.",
-                "updated": 1627245866146
+                "updated": 1627245866146,
+                "style": "Definition"
             }
         ]
     },
@@ -285,8 +286,8 @@
         },
         {
             "style": "Text",
-            "text": "The page property is where you define which Docs Page must be loaded. You must specify the Project, the Docs Page Category, and the \"type\" which is the complete name of the page. The optional property anchor allows you to points the user to a specific paragraph in the page with the Docs Anchor Style.",
-            "updated": 1617649332425
+            "text": "The page property is where you define which Docs Page must be loaded. You must specify the Project, the Docs Page Category, and the \"type\" which is the complete name of the page. The optional property anchor allows you to point the user to a specific paragraph in the page with the Docs Anchor Style.",
+            "updated": 1630752089891
         },
         {
             "style": "Json",

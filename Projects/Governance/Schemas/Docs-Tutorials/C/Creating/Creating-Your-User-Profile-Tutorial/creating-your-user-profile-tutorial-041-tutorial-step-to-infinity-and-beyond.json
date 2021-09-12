@@ -1,0 +1,58 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 41,
+    "type": "Tutorial Step - To Infinity and Beyond",
+    "definition": {
+        "text": "Let's get rolling! We will be using the app.contribute command to submit your profile.",
+        "updated": 1630604507310,
+        "icon": {
+            "name": "User\\user-profile",
+            "project": "Governance"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¡Pongamos manos a la obra! Usaremos el comando app.contribute para enviar tu perfil.",
+                "updated": 1630899120379,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Copy the command making sure you replace the placeholder with your Github username, paste it in the search box, and click Enter.",
+            "updated": 1630604654229,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Copia el comando reemplazando el marcador de posición con tu nombre de usuario de Github, pégualo en el cuadro de búsqueda y clic en Enter.",
+                    "updated": 1630899305591,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "app.contribute User Profile [add your name]",
+            "updated": 1630751329550
+        },
+        {
+            "style": "Text",
+            "text": "If everything is set up correctly, you should see a message stating that your pull request has been submitted. This means that your profile has been sent to the main Superalgos repository and will be automatically merged within a few hours!",
+            "updated": 1630925481560,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si todo está configurado correctamente, deberías ver un mensaje que indica que se ha enviado tu solicitud de extracción. ¡Esto significa que su perfil ha sido enviado al repositorio principal de Superalgos y se fusionará automáticamente en solo unos minutos!",
+                    "updated": 1630899224657,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

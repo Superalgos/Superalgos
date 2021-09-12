@@ -2,7 +2,14 @@
     "type": "Community Building Programs",
     "definition": {
         "text": "Superalgos thrives through contributions and collaboration. We designed the Community Building Programs to foster a community in which members are always ready to help and give back! The node may spawn the Referral Program, Support Program, and Mentorship Program nodes.",
-        "updated": 1630167175719
+        "updated": 1630167175719,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Superalgos prospera a través de contribuciones y colaboración. Diseñamos el Community Building Programs para fomentar una comunidad en la que los miembros siempre estén dispuestos a ayudar y retribuir. El nodo puede generar los nodos Referral Program, Support Program, y Mentorship Program.",
+                "updated": 1630896389287
+            }
+        ]
     },
     "paragraphs": [
         {

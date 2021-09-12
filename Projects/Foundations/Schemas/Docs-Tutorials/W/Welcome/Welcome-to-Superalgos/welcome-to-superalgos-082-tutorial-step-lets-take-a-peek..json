@@ -62,18 +62,9 @@
             ]
         },
         {
-            "style": "Text",
-            "text": "tradingEngine.tradingCurrent.",
-            "updated": 1616429707529
-        },
-        {
-            "style": "Text",
-            "text": "position.exitTargetRate.value"
-        },
-        {
-            "style": "Text",
-            "text": "&nbsp;",
-            "updated": 1610642114068
+            "style": "Json",
+            "text": "tradingEngine.tradingCurrent.position.exitTargetRate.value",
+            "updated": 1630943899973
         },
         {
             "style": "Text",

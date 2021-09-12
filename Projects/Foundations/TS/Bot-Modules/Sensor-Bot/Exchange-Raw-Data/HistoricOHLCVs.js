@@ -494,8 +494,7 @@
 
                             while (foundDate !== true) {
 
-                                /* If we are in the future then return the current (blank) array */
-                                if (new Date(since) <= new Date) {
+                                if (new Date(since).valueOf() >= (new Date).setSeconds(0,0)) {
                                     return OHLCVs
                                 }
 

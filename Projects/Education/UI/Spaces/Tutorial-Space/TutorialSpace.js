@@ -287,18 +287,28 @@ function newEducationTutorialSpace() {
 
         function checkImage() {
             let tutorialImageDiv = document.getElementById('tutorialImageDiv')
-            if (tutorialImageDiv !== null && tutorialImageDiv !== undefined) {
+            if (tutorialImageDiv !== null && tutorialImageDiv !== undefined) { 
                 tutorialImageDiv.appendChild(htmlImage)
             }
 
             if (newImageName === undefined) { return }
             if (currentImageName === newImageName) { return }
             currentImageName = newImageName
-            let webParam = 'Icons/' + newImageProject + '/' + newImageName + '.png'
-
-            htmlImage.src = webParam
-            htmlImage.width = "100"
-            htmlImage.height = "100"
+            
+            // If gathering Icon by Project and Name get it now 
+            let icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(newImageProject, newImageName)
+            if (icon !== undefined) {
+                    htmlImage.src = icon.src
+                    htmlImage.width = "100"
+                    htmlImage.height = "100"
+            } else if (icon === undefined) {
+            // Legacy Code to handle icons being fetched by literal path
+            // Note: This if statment should be removed once all tutoials have been refactored
+                let webParam = 'Icons/' + newImageProject + '/' + newImageName + '.png'
+                htmlImage.src = webParam
+                htmlImage.width = "100"
+                htmlImage.height = "100"
+            }
         }
 
         function checkDocumentation() {

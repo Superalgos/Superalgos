@@ -26,12 +26,12 @@
                     "id": "90e5d1ca-8e7f-4c2b-9d63-592c55115782",
                     "savedPayload": {
                         "position": {
-                            "x": 18331.81818181818,
-                            "y": 20470.577136594
+                            "x": 22877.272727272724,
+                            "y": 23470.577136594
                         },
                         "targetPosition": {
-                            "x": 18481.81818181818,
-                            "y": 20730.384757729335
+                            "x": 23027.272727272724,
+                            "y": 23730.384757729335
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -49,12 +49,12 @@
                 "id": "b463f377-cc54-4bcd-8b5d-4c3c9c4686c1",
                 "savedPayload": {
                     "position": {
-                        "x": 18481.81818181818,
-                        "y": 20730.384757729335
+                        "x": 23027.272727272724,
+                        "y": 23730.384757729335
                     },
                     "targetPosition": {
-                        "x": 18631.81818181818,
-                        "y": 20990.192378864667
+                        "x": 23177.272727272724,
+                        "y": 23990.192378864667
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -81,12 +81,12 @@
                     "id": "eeb00048-018d-4512-a3cf-067ca647b500",
                     "savedPayload": {
                         "position": {
-                            "x": 19231.81818181818,
-                            "y": 20990.192378864667
+                            "x": 23777.272727272724,
+                            "y": 23990.192378864667
                         },
                         "targetPosition": {
-                            "x": 18931.81818181818,
-                            "y": 20990.192378864667
+                            "x": 23477.272727272724,
+                            "y": 23990.192378864667
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -104,12 +104,12 @@
                 "id": "53fb2ec1-41cc-4c55-aae7-a8277a724c27",
                 "savedPayload": {
                     "position": {
-                        "x": 18931.81818181818,
-                        "y": 20990.192378864667
+                        "x": 23477.272727272724,
+                        "y": 23990.192378864667
                     },
                     "targetPosition": {
-                        "x": 18631.81818181818,
-                        "y": 20990.192378864667
+                        "x": 23177.272727272724,
+                        "y": 23990.192378864667
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -127,12 +127,12 @@
             "id": "e2689c81-1efa-4326-8889-9e4c60994322",
             "savedPayload": {
                 "position": {
-                    "x": 18631.81818181818,
-                    "y": 20990.192378864667
+                    "x": 23177.272727272724,
+                    "y": 23990.192378864667
                 },
                 "targetPosition": {
-                    "x": 18481.81818181818,
-                    "y": 21250
+                    "x": 23027.272727272724,
+                    "y": 24250
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -166,12 +166,12 @@
                         "id": "e766efaf-df09-40d0-9d45-47ad25ea453f",
                         "savedPayload": {
                             "position": {
-                                "x": 18931.81818181818,
-                                "y": 21209.807621135333
+                                "x": 23477.272727272724,
+                                "y": 24209.807621135333
                             },
                             "targetPosition": {
-                                "x": 18931.81818181818,
-                                "y": 21509.807621135333
+                                "x": 23477.272727272724,
+                                "y": 24509.807621135333
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -207,12 +207,12 @@
                     "id": "9e220b16-a589-4b5b-b9b8-babb15e95bce",
                     "savedPayload": {
                         "position": {
-                            "x": 19231.81818181818,
-                            "y": 21509.807621135333
+                            "x": 23777.272727272724,
+                            "y": 24509.807621135333
                         },
                         "targetPosition": {
-                            "x": 18931.81818181818,
-                            "y": 21509.807621135333
+                            "x": 23477.272727272724,
+                            "y": 24509.807621135333
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -234,12 +234,12 @@
                     "id": "bc91ee16-f7aa-4ab0-aa72-aa6ff5459f63",
                     "savedPayload": {
                         "position": {
-                            "x": 18931.81818181818,
-                            "y": 21809.807621135333
+                            "x": 23477.272727272724,
+                            "y": 24809.807621135333
                         },
                         "targetPosition": {
-                            "x": 18931.81818181818,
-                            "y": 21509.807621135333
+                            "x": 23477.272727272724,
+                            "y": 24509.807621135333
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -257,12 +257,12 @@
                 "id": "7bd4b18d-cd7f-40e1-a928-9d1a89ff7337",
                 "savedPayload": {
                     "position": {
-                        "x": 18931.81818181818,
-                        "y": 21509.807621135333
+                        "x": 23477.272727272724,
+                        "y": 24509.807621135333
                     },
                     "targetPosition": {
-                        "x": 18631.81818181818,
-                        "y": 21509.807621135333
+                        "x": 23177.272727272724,
+                        "y": 24509.807621135333
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -291,12 +291,12 @@
                         "id": "83907129-6c04-47b1-ab06-2b2ad451fa29",
                         "savedPayload": {
                             "position": {
-                                "x": 18741.625802953513,
-                                "y": 21919.615242270665
+                                "x": 23320.717007492865,
+                                "y": 24831.988749515993
                             },
                             "targetPosition": {
-                                "x": 18481.81818181818,
-                                "y": 21769.615242270665
+                                "x": 23027.272727272724,
+                                "y": 24769.615242270665
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -323,6 +323,45 @@
                                 ]
                             ]
                         }
+                    },
+                    {
+                        "type": "User Supporter",
+                        "name": "Luis-Fernando-Molina",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "e9a04400-84d6-4652-b0d8-afa7b85c78e3",
+                        "savedPayload": {
+                            "position": {
+                                "x": 23058.63126625302,
+                                "y": 25067.971810881147
+                            },
+                            "targetPosition": {
+                                "x": 23027.272727272724,
+                                "y": 24769.615242270665
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "Luis-Fernando-Molina",
+                                "id": "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "Luis-Fernando-Molina",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
                     }
                 ],
                 "tokensAwarded": {
@@ -332,12 +371,12 @@
                     "id": "393c8a9d-24a6-4ea2-a1ab-8e85cc9d9c10",
                     "savedPayload": {
                         "position": {
-                            "x": 18331.81818181818,
-                            "y": 22029.422863406
+                            "x": 22753.209089979944,
+                            "y": 24891.636235193404
                         },
                         "targetPosition": {
-                            "x": 18481.81818181818,
-                            "y": 21769.615242270665
+                            "x": 23027.272727272724,
+                            "y": 24769.615242270665
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -359,12 +398,12 @@
                     "id": "7331beda-d2d5-423d-bd2f-c7d22bdc1945",
                     "savedPayload": {
                         "position": {
-                            "x": 18222.010560682847,
-                            "y": 21619.615242270665
+                            "x": 22826.533545365066,
+                            "y": 24546.671794627448
                         },
                         "targetPosition": {
-                            "x": 18481.81818181818,
-                            "y": 21769.615242270665
+                            "x": 23027.272727272724,
+                            "y": 24769.615242270665
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -382,12 +421,12 @@
                 "id": "f0c3aed4-c21b-4c23-96cd-5b95dc35c2ea",
                 "savedPayload": {
                     "position": {
-                        "x": 18481.81818181818,
-                        "y": 21769.615242270665
+                        "x": 23027.272727272724,
+                        "y": 24769.615242270665
                     },
                     "targetPosition": {
-                        "x": 18631.81818181818,
-                        "y": 21509.807621135333
+                        "x": 23177.272727272724,
+                        "y": 24509.807621135333
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -405,12 +444,12 @@
             "id": "a2137ff3-6504-47ed-9e2e-3875de641d52",
             "savedPayload": {
                 "position": {
-                    "x": 18631.81818181818,
-                    "y": 21509.807621135333
+                    "x": 23177.272727272724,
+                    "y": 24509.807621135333
                 },
                 "targetPosition": {
-                    "x": 18481.81818181818,
-                    "y": 21250
+                    "x": 23027.272727272724,
+                    "y": 24250
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -428,12 +467,12 @@
         "id": "e0af057e-af90-4f4f-9261-75e860eeb00e",
         "savedPayload": {
             "position": {
-                "x": 18481.81818181818,
-                "y": 21250
+                "x": 23027.272727272724,
+                "y": 24250
             },
             "targetPosition": {
-                "x": 18181.81818181818,
-                "y": 21250
+                "x": 22727.272727272724,
+                "y": 24250
             },
             "floatingObject": {
                 "isPinned": false,
@@ -455,12 +494,12 @@
         "id": "a2d062af-5fd1-4e95-971b-132727a5b02f",
         "savedPayload": {
             "position": {
-                "x": 17881.81818181818,
-                "y": 21250
+                "x": 22427.272727272724,
+                "y": 24250
             },
             "targetPosition": {
-                "x": 18181.81818181818,
-                "y": 21250
+                "x": 22727.272727272724,
+                "y": 24250
             },
             "floatingObject": {
                 "isPinned": false,
@@ -488,7 +527,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

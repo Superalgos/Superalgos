@@ -922,8 +922,8 @@ exports.newFoundationsBotModulesFetchingProcess = function (processIndex) {
                                 file.month = file.date.getUTCMonth() + 1
                                 file.day = file.date.getUTCDate()
                                 let dateForPath = file.year + '/' +
-                                    TS.projects.foundations.utilities.miscellaneousFunctions.pad(file.month, 2) + '/' +
-                                    TS.projects.foundations.utilities.miscellaneousFunctions.pad(file.day, 2)
+                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.month, 2) + '/' +
+                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.day, 2)
 
                                 /* We will need to save this at the Status Report */
                                 contextVariables.lastFile = file.date

@@ -258,8 +258,8 @@
                             let fileName = "Data.json"
                             let datetime = new Date(lastFile.valueOf())
                             let dateForPath = datetime.getUTCFullYear() + '/' +
-                                TS.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
-                                TS.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
+                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
+                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
                             let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + OHLCVS_FOLDER_NAME + '/' + dateForPath;
                             let fullFileName = filePath + '/' + fileName
                             fileStorage.getTextFile(fullFileName, onFileReceived)
@@ -368,7 +368,7 @@
                         /* Reporting we are doing well */
                         function heartBeat(noNewInternalLoop) {
                             let processingDate = new Date(since)
-                            processingDate = processingDate.getUTCFullYear() + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
+                            processingDate = processingDate.getUTCFullYear() + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ " + processingDate + "-> exchange = " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit)
                             let heartBeatText = "Fetching " + rawDataArray.length.toFixed(0) + " OHLCVs from " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate
@@ -476,7 +476,7 @@
                                 }
 
                                 let processingDate = new Date(earliestMarketSince)
-                                processingDate = processingDate.getUTCFullYear() + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
+                                processingDate = processingDate.getUTCFullYear() + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
                                 TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, "Invalid or No Start Date. Finding Market Start @ " + processingDate, 0)
                             }
                         }
@@ -509,7 +509,7 @@
                                 }
 
                                 let processingDate = new Date(since)
-                                processingDate = processingDate.getUTCFullYear() + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
+                                processingDate = processingDate.getUTCFullYear() + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
                                 TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, "No Data Found. Fast-Forwarding to Next Data @ " + processingDate, 0)
                             }
                         }
@@ -945,8 +945,8 @@
                                 let processingDate = new Date(candle.begin)
                                 processingDate =
                                     processingDate.getUTCFullYear() + '-' +
-                                    TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' +
-                                    TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
+                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' +
+                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
 
                                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                     "[INFO] start -> saveOHLCVs -> Before Fetch -> Saving OHLCVs  @ " + processingDate + " -> ohlcvArrayIndex = " + ohlcvArrayIndex + " -> total = " + rawDataArray.length)
@@ -1048,8 +1048,8 @@
                         function getFilePath(timestamp, folderName) {
                             let datetime = new Date(timestamp)
                             let dateForPath = datetime.getUTCFullYear() + '/' +
-                                TS.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
-                                TS.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
+                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
+                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
                             let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + folderName + '/' + dateForPath;
                             return filePath
                         }

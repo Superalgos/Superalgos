@@ -412,8 +412,8 @@
                         /*  Telling the world we are alive and doing well */
                         let currentDateString =
                             contextVariables.datetimeLastProducedFile.getUTCFullYear() + '-' +
-                            TS.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '-' +
-                            TS.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2);
+                            SA.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '-' +
+                            SA.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2);
                         let currentDate = new Date(contextVariables.datetimeLastProducedFile)
                         let percentage = TS.projects.foundations.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
                         TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, currentDateString, percentage)
@@ -509,7 +509,7 @@
                             nextCandleFile();
 
                             function nextCandleFile() {
-                                let dateForPath = contextVariables.datetimeLastProducedFile.getUTCFullYear() + '/' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '/' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2);
+                                let dateForPath = contextVariables.datetimeLastProducedFile.getUTCFullYear() + '/' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '/' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2);
                                 let fileName = "Data.json"
 
                                 let filePathRoot =
@@ -635,8 +635,8 @@
 
                                     let dateForPath =
                                         contextVariables.datetimeLastProducedFile.getUTCFullYear() + '/' +
-                                        TS.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '/' +
-                                        TS.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2);
+                                        SA.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '/' +
+                                        SA.projects.foundations.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2);
                                     let fileName = "Data.json"
 
                                     let filePathRoot =

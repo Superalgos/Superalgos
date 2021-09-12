@@ -22,6 +22,11 @@
     font-style: normal;
   }
   
+  .body{
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
   .scroll-div {
     position:absolute; 
     overflow-y: scroll;
@@ -33,8 +38,22 @@
     width: 100%;
     color: #000;
     border-color: blue;
-    background-color: #ffffff;    
+    background-color: transparent;    
     border-width: 0px;
+  }
+
+  .static-div {
+    position: fixed;
+    top:0px; 
+    left:18%;
+    width: 100%;
+    height: 100%;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    background:transparent;
+    border-width: 0px;
+    border-collapse: collapse;
   }
 
   .content-div {
@@ -43,6 +62,16 @@
     height: 100%;
     width: 30%;
     left: 31.2%;
+    color: #000;
+    border-color: blue;
+    background-color:transparent;
+    border-width: 1px;
+  }
+
+  .post-placeholder {
+    vertical-align: top;
+    height: 50px;
+    width: 100%;
     color: #000;
     border-color: blue;
     background-color: transparent;
@@ -59,10 +88,17 @@
     border-width: 0px;
   }
 
+  .new-post-div {
+    vertical-align: top;
+    height: 300px;
+    width: 100%;
+    color: #000;
+    border-color: blue;
+    background-color: transparent;
+    border-width: 0px;
+  }
+
   .page-table {
-    pointer-events: none;
-    position:fixed; 
-    position: absolute; 
     top:0px; 
     left:18%;
     width: 64%;
@@ -241,4 +277,33 @@
     color: #000;
     border-width: 0px;
     border-collapse: collapse;
+  }
+
+  .profile-to-follow-table {
+    position:relative; 
+    width: 100%;
+    height: 30%;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    border-width: 0px;
+    border-collapse: collapse;
+  }
+
+  .profile-to-follow-span {
+    float: right;
+  }
+
+  .profile-to-follow-button {
+    float: right;
+    background-color: green;
+  }
+
+  .profile-to-unfollow-span {
+    float: right;
+  }
+
+  .profile-to-unfollow-button {
+    float: right;
+    background-color: red;
   }

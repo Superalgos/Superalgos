@@ -308,7 +308,7 @@ exports.newFoundationsBotModulesTradingSimulation = function (processIndex) {
                         let fromDate = new Date(sessionParameters.timeRange.config.initialDatetime)
                         let lastDate = new Date(sessionParameters.timeRange.config.finalDatetime)
 
-                        let currentDateString = heartBeatDate.getUTCFullYear() + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCDate(), 2)
+                        let currentDateString = heartBeatDate.getUTCFullYear() + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCDate(), 2)
                         let currentDate = new Date(heartBeatDate)
                         let percentage = TS.projects.foundations.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
                         /*
@@ -318,7 +318,7 @@ exports.newFoundationsBotModulesTradingSimulation = function (processIndex) {
                         if (heartBeatDate.valueOf() !== previousHeartBeatDate) {
                             previousHeartBeatDate = heartBeatDate.valueOf()
 
-                            let processingDate = heartBeatDate.getUTCFullYear() + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCDate(), 2)
+                            let processingDate = heartBeatDate.getUTCFullYear() + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCDate(), 2)
 
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 '[INFO] runSimulation -> loop -> Simulation ' + TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY + ' Loop # ' + tradingEngine.tradingCurrent.tradingEpisode.candle.index.value + ' @ ' + processingDate)

@@ -494,6 +494,11 @@
 
                             while (foundDate !== true) {
 
+                                /* If we are in the future then return the current (blank) array */
+                                if (new Date(since) <= new Date) {
+                                    return OHLCVs
+                                }
+
                                 await new Promise(resolve => setTimeout(resolve, rateLimit)) // rate limit
                                 const nextValidOHLCVs = useFetchTradesForFetchOHLCVs ?
                                     await fetchTradesForOHLCV(symbol, '1m', since, limit, params) :

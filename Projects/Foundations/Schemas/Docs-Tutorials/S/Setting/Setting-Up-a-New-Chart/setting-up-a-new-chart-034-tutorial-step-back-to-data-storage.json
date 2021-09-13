@@ -1,0 +1,58 @@
+{
+    "tutorial": "Setting Up a New Chart",
+    "pageNumber": 34,
+    "type": "Tutorial Step - Back to Data Storage",
+    "definition": {
+        "text": "Let's find some more Data Products. You are gonna be a pro at finding things in the Data Storage hierarchy.",
+        "updated": 1619024563334,
+        "icon": {
+            "name": "Trading/trading-mines-data",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Encontremos un poco más de Data Products. Serás un profesional en encontrar cosas en la jerarquía Data Storage.",
+                "updated": 1628729502686
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You should notice there are three branches. One for each type of data we can access in our charts. Since we are now interested in the data from our Trading System, we need the data products held under the Trading Mines Data hierarchy. ",
+            "updated": 1617884873448,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Deberías notar que hay tres ramas. Uno para cada tipo de datos a los que podemos acceder en nuestros gráficos. Dado que ahora estamos interesados ​​en los datos de nuestro Trading System, necesitamos los productos de datos que se encuentran bajo la jerarquía de datos Trading Mines.",
+                    "updated": 1628731297656
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Just like before, follow the hierarchy until you find the Trading Mine Products nodes.",
+            "updated": 1617884949563,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Al igual que antes, siga la jerarquía hasta encontrar el nodo Trading Mine Products.",
+                    "updated": 1628731321924
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Make sure to look under the Trading Session Reference nodes!",
+            "updated": 1617884973014,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Asegúrate de mirar debajo de los nodos Trading Session Reference.",
+                    "updated": 1628731373973
+                }
+            ]
+        }
+    ]
+}

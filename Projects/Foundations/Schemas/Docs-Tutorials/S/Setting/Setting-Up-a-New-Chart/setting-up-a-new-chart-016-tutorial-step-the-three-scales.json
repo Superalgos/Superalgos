@@ -1,0 +1,49 @@
+{
+    "tutorial": "Setting Up a New Chart",
+    "pageNumber": 16,
+    "type": "Tutorial Step - The Three Scales",
+    "definition": {
+        "text": "Did you notice the three nodes automatically added to your Time Machine?",
+        "updated": 1620262899688,
+        "icon": {
+            "name": "Time/time-scale",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¿Notaste que los tres nodos se agregaron automáticamente a su Time Machine?",
+                "updated": 1628646024325
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "These are the scales! Anytime you add a time machine, it will come equipped with three scales (Rate Scale, Time Scale, and Time Frame Scale). These are the same scales you have used to interact with charts in the Charting Space.",
+            "updated": 1620554514514,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Estas son las escalas! Siempre que agregues un time machine, vendrá equipado con tres escalas (Rate Scale, Time Scale, and Time Frame Scale). Estas son las mismas escalas que ha utilizado para interactuar con gráficos en el Charting Space.",
+                    "updated": 1628646097018
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "In another tutorial we will cover customizing these scales to achieve more complex charting setups.  But for right now it is important for you to know that your time machine needs all three to work correctly.  ",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En otro tutorial, cubriremos la personalización de estas escalas para lograr configuraciones de gráficos más complejas. Pero por ahora es importante que sepas que su máquina del tiempo necesita los tres para funcionar correctamente.",
+                    "updated": 1628646139121
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

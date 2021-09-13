@@ -1,0 +1,19 @@
+{
+    "type": "Governance Address",
+    "definition": {
+        "text": "Your Governance Address is a Superalgos SA Token address generated from within Superalgos, using the Profile Constructor. The tokens you hold in this address confer you Token Power which you may use from within your User Profile to participate in governance.",
+        "updated": 1630083503097
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624722254571
+        },
+        {
+            "style": "Callout",
+            "text": "Your Governance Address is a Superalgos SA Token address generated from within Superalgos, using the Profile Constructor. The tokens you hold in this address confer you Token Power which you may use from within your User Profile to participate in governance.",
+            "updated": 1630083498247
+        }
+    ]
+}

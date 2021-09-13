@@ -1,0 +1,21 @@
+{
+    "topic": "Repository Branches",
+    "pageNumber": "3",
+    "type": "Develop",
+    "definition": {
+        "text": "The Develop branch is the branch developers use to contribute to the codebase. Changes at this branch are merged into the Master branch upon each release or service pack. The purpose of the Develop branch is to accumulate changes at the codebase until the release date when changes are ready for merging.",
+        "updated": 1630657066558
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Contributors working at this branch Hang out in the Telegram Develop Group.",
+            "updated": 1630657099841
+        },
+        {
+            "style": "Link",
+            "text": "Telegram Developers Group->t.me/superalgosdevelop",
+            "updated": 1622468567484
+        }
+    ]
+}

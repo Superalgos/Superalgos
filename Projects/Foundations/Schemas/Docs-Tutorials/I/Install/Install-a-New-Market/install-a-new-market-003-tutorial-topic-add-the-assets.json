@@ -1,0 +1,44 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 3,
+    "type": "Tutorial Topic - Add the Assets",
+    "definition": {
+        "icon": {
+            "name": "Market/asset",
+            "project": "Foundations"
+        },
+        "text": "If the assets you wish to work with are not listed under Exchange Assets, you must add and configure them first.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Si los activos con los que desea trabajar no se enumeran en Activos de Exchange, primero debe agregarlos y configurarlos.",
+                "updated": 1629162948016
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "In this section of the tutorial, you will learn to define which assets you wish to work with.",
+            "updated": 1617210801606,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En esta sección del tutorial, aprenderás a definir con qué assets deseas trabajar.",
+                    "updated": 1629162994984
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Each exchange may list hundreds of assets, however, you will likely be interested in just a few. Some automated operations may feed on your definitions, so keeping them free of junk is always a good idea.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cada exchange puede enumerar cientos de assets, sin embargo, es probable que solo te interesen unos pocos. Algunas operaciones automatizadas pueden alimentarse de tus definiciones, por lo que mantenerlas libres de basura es siempre una buena idea.",
+                    "updated": 1629163406741
+                }
+            ]
+        }
+    ]
+}

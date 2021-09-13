@@ -1,0 +1,57 @@
+{
+    "tutorial": "Setting Up a New Chart",
+    "pageNumber": 28,
+    "type": "Tutorial Step - Make the Connection",
+    "definition": {
+        "text": "You got this. Creating references is a piece of cake. Let's make the connection!",
+        "icon": {
+            "name": "delink-node",
+            "project": "Foundations"
+        },
+        "updated": 1619024303385,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Crear referencias es pan comido. ¡Hagamos la conexión!",
+                "updated": 1628724876371
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Out of the three Data Mine Products nodes available, we are going to link our chart to the Candles Data Mine.",
+            "updated": 1620047769383,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "De los tres nodo Data Mine Products disponible, vamos a vincular nuestro gráfico a el Candles Data Mine.",
+                    "updated": 1628724969263
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Find the Layer Manager under the Timeline Chart you added earlier. Then establish a reference from it to the Candles Data Mine Products node.",
+            "updated": 1620556116868,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Encuentra el Layer Manager bajo el Timeline Chart que agregaste anteriormente. A continuación, establece una referencia a los nodos Candles Data Mine Products.",
+                    "updated": 1628725030976
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "If things are connected correctly, the name of the data mine should appear over the layer manager.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si las cosas están conectadas correctamente, el nombre de la mina de datos debería aparecer sobre el layer manager.",
+                    "updated": 1628725407610
+                }
+            ]
+        }
+    ]
+}

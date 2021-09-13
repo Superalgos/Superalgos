@@ -1,0 +1,74 @@
+{
+    "type": "Time Frame Scale",
+    "definition": {
+        "text": "The time frame scale controls the time frame setting, that is, the period represented by each candle, either of the time machine or of the timeline chart, depending on where the node is located.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El time frame scale controla la configuración del marco de tiempo, es decir, el período representado por cada vela, ya sea de la máquina del tiempo o del gráfico de la línea de tiempo, dependiendo de dónde se encuentre el nodo.",
+                "updated": 1628898828318
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "When the time frame scale is set at the level of the time machine, the scale setting affects all charts within the time machine. When set at the level of the timeline chart, the setting overrides the time frame scale at the time machine level.",
+            "updated": 1610136694170
+        },
+        {
+            "style": "Success",
+            "text": "This allows comparing charts in different time frames, but still synchronized at the datetime level."
+        },
+        {
+            "style": "Block",
+            "text": "Charts"
+        },
+        {
+            "style": "Title",
+            "text": "Time Frame Scale at the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "To set a time frame value, place the mouse pointer over the corresponding time machine or timeline chart time frame box and scroll the mouse wheel.",
+            "updated": 1609783625339
+        },
+        {
+            "style": "Text",
+            "text": "Alternatively, you may place the mouse pointer and use the up and down arrows ↑ ↓ to toggle through the available time frames."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609783710191
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Time Frame Scale Configuration",
+            "updated": 1609783714701
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609783740323
+        },
+        {
+            "style": "Javascript",
+            "text": "01-hs\n02-hs\n03-hs\n04-hs\n06-hs\n08-hs\n12-hs\n24-hs",
+            "updated": 1609783795852
+        },
+        {
+            "style": "Note",
+            "text": "The values entered via the design space and the charts are synchronized and stored in the node.",
+            "updated": 1609783812074
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 6,
+    "type": "Tutorial Step - Let's Mine Some Data.....!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "run"
+        },
+        "text": "Now that you understand the implications of running this data mining operation, let's get on with it!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Jetzt, da du die Auswirkungen der Ausführung dieser Data-Mining-Operation verstanden hast, lass uns loslegen!",
+                "updated": 1623012038673,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Select \"Run All Project Data Tasks\" on the Data Tasks node menu!",
+            "updated": 1622540506392,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wähle \"Run All Project Data Tasks\" im \"Data Tasks\" Knotenmenü!",
+                    "updated": 1623012059116,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "If you are doing this tutorial after doing the Getting Started tutorials, chances are you may already have part of the data required, which may make things faster!",
+            "updated": 1622540530483,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn du dieses Tutorial nach dem Tutorial \"Erste Schritte\" durchführst, besteht die Möglichkeit, dass du bereits einen Teil der benötigten Daten hast, was die Sache beschleunigen kann!",
+                    "updated": 1623012091678,
+                    "style": "Note"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 14,
+    "type": "Tutorial Step - Only You",
+    "definition": {
+        "text": "The Profile Constructor also did some work to make sure only you can change your profile.",
+        "updated": 1630658478769,
+        "icon": {
+            "name": "User\\user-profile",
+            "project": "Governance"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El Profile Constructor también hizo un trabajo para asegurarse de que solo usted pueda cambiar su perfil.",
+                "updated": 1630888591827,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "A cryptographic message with your GitHub.com username has been signed with the private key corresponding to your Governance Address. This message will be stored in your User Profile so that we may authenticate it comes from you once you submit your profile as a plugin to the Governance Project.",
+            "updated": 1630658507981,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Se ha firmado un mensaje criptográfico con tu usuario de GitHub.com con la clave privada correspondiente a tu Governance Address. Este mensaje se almacenará en tu User Profile para que podamos autenticar que proviene de ti una vez que envíes tu perfil como un complemento al Governance Project.",
+                    "updated": 1630888665385,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "What this means is that your profile and its associated token address can only be accessed and changed by you!",
+            "updated": 1630606585784,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Lo que esto significa es que solo tu puedes acceder y modificar su perfil y tu dirección de token asociada.",
+                    "updated": 1630888698997,
+                    "style": "Success"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "tutorial": "Setting Up a New Chart",
+    "pageNumber": 37,
+    "type": "Tutorial Step - Don’t Forget the Layers!",
+    "definition": {
+        "text": "You’ve done this before!  Make sure you add those layers.  Blank charts are no fun.",
+        "updated": 1619024652106,
+        "icon": {
+            "name": "Layer/layer",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¡Has hecho esto antes! Asegúrate de agregar esas capas. Los gráficos en blanco no son divertidos.",
+                "updated": 1628732128941
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Hover over the Layer Manager and click Add All Mine Layers. ",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Coloca el cursor sobre el Layer Manager y clic Add All Mine Layers.",
+                    "updated": 1628732152359
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "This is an easy step to forget but very important! If there are't any layers under the layer manager, nothing will show up no matter how hard you try.",
+            "updated": 1617888419678,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Este es un paso fácil de olvidar pero muy importante. Si no hay capas debajo del administrador de capas, no aparecerá nada por mucho que lo intentes.",
+                    "updated": 1628732171501
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "When layers start to stack up things can get a bit out of hand. It is a good idea to take some time and arrange and collapse the layer nodes and folders to help keep things looking clean.",
+            "updated": 1621523558968,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando las capas comienzan a apilarse, las cosas pueden salirse un poco de control. Es una buena idea tomarse un tiempo y organizar y contraer los nodos de capa y las carpetas para ayudar a que las cosas se vean limpias.",
+                    "updated": 1628732203453
+                }
+            ]
+        }
+    ]
+}

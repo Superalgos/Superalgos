@@ -1,0 +1,26 @@
+{
+    "type": "Votes Switch",
+    "definition": {
+        "text": "The Votes Switch node channels Voting Power downwards in the hierarchy. It is a top-level switch used as an organizational device to spawn and arrange other types of switches.",
+        "updated": 1624729506328
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624729535872
+        },
+        {
+            "style": "Important",
+            "text": "This node can not reference “class” or “folder” types of nodes on other hierarchies. It is merely an organizational device."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

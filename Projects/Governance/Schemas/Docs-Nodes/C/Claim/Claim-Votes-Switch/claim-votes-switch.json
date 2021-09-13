@@ -1,0 +1,61 @@
+{
+    "type": "Claim Votes Switch",
+    "definition": {
+        "text": "Use this switch to spawn different types of Claim Votes, and to reference Claims Folder types of nodes within the Claims Program section of the User Profile hierarchy to map large structures of claims.",
+        "updated": 1630349853006
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624729599989
+        },
+        {
+            "style": "Text",
+            "text": "You may use this switch for three different purposes:",
+            "updated": 1630345326820
+        },
+        {
+            "style": "List",
+            "text": "As an organizational device: You may create arbitrary arrangements of votes, spawning more switches and votes.",
+            "updated": 1630345425238
+        },
+        {
+            "style": "List",
+            "text": "As a switch: You may control the flow of Claim Support Power, pretty much like with the Token Power Switch, but within the Voting Program. If you need a reminder, read about how Token Power Flows.",
+            "updated": 1630355954531
+        },
+        {
+            "style": "List",
+            "text": "As a data-structure mapper: Use the node to reference Claims Folder types of nodes to map entire structures of claims on other User Profile hierarchies.",
+            "updated": 1630345729468
+        },
+        {
+            "style": "Text",
+            "text": "The first two use cases are self-explanatory. Let's explore the third one in more detail.",
+            "updated": 1630349876232
+        },
+        {
+            "style": "Callout",
+            "text": "Use a Claim Votes Switch node to establish a reference with a Claims Folder type of node — Position Claims Folder, Feature Claims Folder, or Asset Claims Folder — within the Claims Program section of your colleague's User Profile node. Then use the Install Missing Votes option on the menu of the Claim Votes Switch to map the entire Claims Folder! ",
+            "updated": 1630497475900
+        },
+        {
+            "style": "Note",
+            "text": "The process creates a Claim Votes Switch for each Claims Folder, and matching Claim Votes for each Asset Contribution Claim, Feature Contribution Claim, or Position Contribution Claim defined within each folder."
+        },
+        {
+            "style": "Success",
+            "text": "If something changes on the side of the definitions, you may always go back a run the Install Missing Votes process again. The process will remap the structure with the appropriate votes and switches.",
+            "updated": 1630348162382
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

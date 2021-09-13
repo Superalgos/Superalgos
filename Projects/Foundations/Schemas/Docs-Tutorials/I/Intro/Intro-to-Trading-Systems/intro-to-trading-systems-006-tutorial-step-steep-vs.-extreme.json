@@ -1,0 +1,43 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 6,
+    "type": "Tutorial Step - Steep Vs. Extreme",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "condition"
+        },
+        "text": "Did you find the difference? Don't worry if you didn't! There are lots of conditions! I'll give you another hint!",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¿Encontraste la diferencia? ¡No te preocupe si no lo hiciste! ¡Hay muchas condiciones! ¡Te daré otra pista!",
+                "updated": 1629589533343
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Look again and notice that the first seven conditions of the Trigger On Event are the same on both strategies! The remaining conditions are different, though!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Mira de nuevo y observa que las primeras siete condiciones del Trigger On Event son iguales en ambas estrategias! ¡Sin embargo, las condiciones restantes son diferentes!",
+                    "updated": 1629589848429
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "You may drag the Trigger On Event of a strategy and pin it closer to the event of the other strategy for easier comparison!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Puedes arrastrar el  Trigger On Event de una estrategia y fíjela más cerca del evento de la otra estrategia para facilitar la comparación.",
+                    "updated": 1629589881277
+                }
+            ]
+        }
+    ]
+}

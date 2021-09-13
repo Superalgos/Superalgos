@@ -1,0 +1,43 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 2,
+    "type": "Tutorial - Intro to Trading Systems",
+    "definition": {
+        "icon": {
+            "name": "Trading\\trading-system",
+            "project": "Foundations"
+        },
+        "text": "Trading systems are the heart and soul of systematic trading, as they concentrate the biggest chunk of trading intelligence.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Los sistemas de trading son el corazón y el alma del trading sistemático, ya que concentran la mayor parte de la inteligencia trading.",
+                "updated": 1629587307428
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The rest of the infrastructure built into Superalgos&mdash;data mining and visualization, the trading bot and trading engine, the visual strategy designer and debugger&mdash;all have significant equity in the intelligence pie, but it's fair to argue that was developed to support the design, testing, and deployment of trading systems!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El resto de la infraestructura integrada en Superalgos: minería y visualización de datos, el trading bot y trading engine, el diseñador de estrategia visual y el depurador, todos tienen una participación significativa en el pastel de inteligencia, pero es justo argumentar que fue desarrollado para respaldar el diseño, las pruebas y la implementación de sistemas de trading.",
+                    "updated": 1629587395422
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "This first tutorial explains how Superalgos views and handles a Trading System. The rest of the tutorials in the series teach you how to build them!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Este primer tutorial explica cómo Superalgos ve y maneja un Trading System. ¡El resto de los tutoriales de la serie te enseñan cómo construirlos!",
+                    "updated": 1629587450801
+                }
+            ]
+        }
+    ]
+}

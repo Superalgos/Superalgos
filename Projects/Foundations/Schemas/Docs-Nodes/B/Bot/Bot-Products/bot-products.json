@@ -1,0 +1,27 @@
+{
+    "type": "Bot Products",
+    "definition": {
+        "text": "A bot products node is an organizational device used to arrange data products corresponding to a specific bot.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un nodo bot products es un dispositivo organizativo que se utiliza para organizar los productos de datos correspondientes a un bot específico.",
+                "updated": 1628902888224
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The device exists as an offspring of a data or trading mine products node, and does not require a reference to a bot in the given data or trading mine."
+        },
+        {
+            "style": "Text",
+            "text": "The use of the bot products node is optional, as data products may also exist outside of bot products."
+        }
+    ]
+}

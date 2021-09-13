@@ -3,6 +3,16 @@
     "menuItems": [
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "datasetArgs",
+            "label": "Add Dataset Args",
+            "relatedUiObject": "Dataset Args",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "verbose",
             "label": "Add Verbose",
@@ -11,6 +21,7 @@
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "epochs",
             "label": "Add Epochs",
@@ -19,6 +30,7 @@
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "callbacks",
             "label": "Add Callbacks",
@@ -27,6 +39,7 @@
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Foundations",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -42,6 +55,11 @@
     },
     "propertyNameAtParent": "fitDataset",
     "childrenNodesProperties": [
+        {
+          "name": "datasetArgs",
+          "type": "node",
+          "childType": "Dataset Args"
+        },
         {
             "name": "verbose",
             "type": "node",

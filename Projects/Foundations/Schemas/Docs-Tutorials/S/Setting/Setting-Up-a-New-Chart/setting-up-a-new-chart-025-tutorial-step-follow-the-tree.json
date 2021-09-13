@@ -1,0 +1,62 @@
+{
+    "tutorial": "Setting Up a New Chart",
+    "pageNumber": 25,
+    "type": "Tutorial Step - Follow the Tree!",
+    "definition": {
+        "text": "Follow the Data Mines Data hierarchy and find the Data Mine Products.",
+        "icon": {
+            "name": "Data/data-mines-data",
+            "project": "Foundations"
+        },
+        "updated": 1617849486659,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Sigue la jerarquía Data Mines Data y encontrar el Data Mine Products.",
+                "updated": 1628722952923
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Keep following the hierarchy. See if you can find the Data Mine Products nodes on your own.",
+            "updated": 1617849736915,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Sigue la jerarquía. Ve si puedes encontrar el nodos Data Mine Products por tu cuenta.",
+                    "updated": 1628723096593
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Did you find it? Keep going farther down the hierarchy until you see them! You should see three data mine products nodes. One for each Data Mine installed within this Workspace.",
+            "updated": 1621522552567,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¿Lo encontraste? ¡Sigue descendiendo en la jerarquía hasta que los veas! Deberías ver tres nodo data mine products. Uno para cada uno Data Mine instalado dentro de este Workspace.",
+                    "updated": 1628723233701
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Note",
+            "text": "These data structures were automatically installed during the market install process.",
+            "updated": 1621522497281,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Estas estructuras de datos se instalaron automáticamente durante el proceso de instalación del mercado.",
+                    "updated": 1628723262128
+                }
+            ]
+        }
+    ]
+}

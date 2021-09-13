@@ -1,0 +1,87 @@
+{
+    "tutorial": "Beyond the Basics",
+    "pageNumber": 23,
+    "type": "Tutorial Step - GitHub.com Authentication",
+    "definition": {
+        "text": "For the app.contribute command to work, you need to authenticate at two different levels. We'll deal with GiHub.com first!",
+        "icon": {
+            "name": "github-api",
+            "project": "Foundations"
+        },
+        "updated": 1610799914806,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Perchè il comando app.contribute funzioni, dovrai autenticarti a due livelli differenti. Concentriamoci prima su GitHub.com!",
+                "updated": 1619641609528,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Para el app.contribute comando para que funcione, debe autenticarse en dos niveles diferentes. ¡Primero trataremos con GiHub.com!",
+                "updated": 1628194149826
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You need to authenticate at GitHub.com for the Client to create the Pull Request on your behalf. To do that, you will create a Personal Access Token on GitHub.com:",
+            "updated": 1610827192524,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Devi autenticarti su GitHub.com perchè il Client possa creare la Pull Request a tuo nome. Per fare ciò, devi creare un Personal Access Token su GitHub.com:",
+                    "updated": 1619641662760,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Necesitas autenticarte en GitHub.com para el Client para crear el Pull Request en tu nombre. Para hacer eso, crearás un Personal Access Token en GitHub.com:",
+                    "updated": 1628194254004
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Create a GitHub.com Personal Access Token->github.com/settings/tokens/new",
+            "updated": 1610959147665
+        },
+        {
+            "style": "Callout",
+            "text": "Click the link and follow the instructions! Make sure you give the token the repo and workflow scopes. Check the clip on the next step for clarity...",
+            "updated": 1622028428181,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Clicca il link e segui le istruzioni sotto! Guarda il video al prossimo step per più dettagli...",
+                    "updated": 1619641789005,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz clic en el enlace y sigue las instrucciones. Asegúrate de darle al token el repositorio y los alcances del flujo de trabajo. Mira el clip en el siguiente paso para mayor claridad…",
+                    "updated": 1628194375782
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "I suggest you name the token after Superalgos so that you may recognize it later on, and make sure you check the repo checkbox to define the scope of the token.",
+            "updated": 1610812554380,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ti consiglio di chiamare il tuo token come Superalgos per poterlo riconoscere in seguito. Assicurati di mettere il flag sulla repo checkbox per definire lo scope del token.",
+                    "updated": 1619641853159,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Sugiero que lo nombres  \"Superalgos\" para referencia futura, asegúrate de marcar la casilla de verificación del repositorio para definir el alcance del token.",
+                    "updated": 1628195225900
+                }
+            ]
+        }
+    ]
+}

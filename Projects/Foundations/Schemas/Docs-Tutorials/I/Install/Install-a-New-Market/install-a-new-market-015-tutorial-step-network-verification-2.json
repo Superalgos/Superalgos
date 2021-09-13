@@ -1,0 +1,65 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 15,
+    "type": "Tutorial Step - Network Verification 2",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "testing-trading-tasks"
+        },
+        "text": "Verify that the Testing Trading Tasks tasks for the corresponding Market were created successfully.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Verifica que las tareas del Testing Trading Tasks del correspondiente Market fueron creados con éxito.",
+                "updated": 1629248966784
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Look for the following data structures:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Busca las siguientes estructuras de datos:",
+                    "updated": 1629249005363
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "A Market Trading Tasks node for the new market.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un nodo Market Trading Tasks para el nuevo mercado.",
+                    "updated": 1629249052629
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "One Trading Mine Tasks node for each trading mine included in the Workspace.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un Trading Mine Tasks nodo para cada mina comercial incluida en el Workspace.",
+                    "updated": 1629249077978
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "One Task Manager per trading mine and one Task with a Backtesting Session for each Trading System in the workspace.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un Task Manager por mina comercial y un Task con un Backtesting Session para cada  Trading System en el espacio de trabajo.",
+                    "updated": 1629249127594
+                }
+            ]
+        }
+    ]
+}

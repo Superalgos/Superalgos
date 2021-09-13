@@ -1,0 +1,44 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 7,
+    "type": "Tutorial Topic - Set Up the Market",
+    "definition": {
+        "icon": {
+            "name": "Market/market",
+            "project": "Foundations"
+        },
+        "text": "If there is no Market set up with the pair you wish to work with under Exchange Markets, you must set up the market definition before installing it.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Si no hay un Market configurado con el par con el que deseas trabajar en Exchange Markets, debes configurar la definición de mercado antes de instalarlo.",
+                "updated": 1629164083032
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "The next few steps teach you how to set up the market so that you may later install it.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los siguientes pasos te enseñarán cómo configurar el mercado para que puedas instalarlo más tarde.",
+                    "updated": 1629164109911
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "Make sure that the combination of Market Base Asset and Market Quoted Asset that you wish to define as a Market in Superalgos exists as a market listed at the exchange.",
+            "updated": 1617211041220,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Asegúrese de que la combinación de Market Base Asset y Market Quoted Asset que desea definir como Market en Superalgos existe como un mercado que cotiza en el exchange.",
+                    "updated": 1629164457557
+                }
+            ]
+        }
+    ]
+}

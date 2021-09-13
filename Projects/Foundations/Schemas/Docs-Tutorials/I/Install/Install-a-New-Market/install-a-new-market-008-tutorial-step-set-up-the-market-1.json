@@ -1,0 +1,44 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 8,
+    "type": "Tutorial Step - Set Up the Market 1",
+    "definition": {
+        "icon": {
+            "name": "Market/market",
+            "project": "Foundations"
+        },
+        "text": "Add a new Market node using the Add Market option on the menu.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Añade un nuevo nodo Market usando el Add Market opción en el menú.",
+                "updated": 1629164947647
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "A Market node should be added featuring two offspring: a Market Base Asset and a Market Quoted Asset.",
+            "updated": 1617211390857,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Se debe agregar un nodo de Market con dos descendientes: a Market Base Asset y a Market Quoted Asset.",
+                    "updated": 1629165004233
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "Before continuing, make sure which is the base and which the quoted asset in the exchange's listing. Usually, the base asset is the first in the name of the pair, but this is not enforced on every exchange, so be vigilant.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Antes de continuar, asegúrate de cuál es la base y cuál es el asset cotizado en la cotización de el exchange. Por lo general, el asset base es el primero en el nombre del par, pero esto no se aplica en todos los exchanges, así que esté atento.",
+                    "updated": 1629165598676
+                }
+            ]
+        }
+    ]
+}

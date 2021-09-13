@@ -53,5 +53,19 @@ if (os.platform() == "win32") {
    
 // Mac Shortcuts
 } else if (os.platform() == "darwin") {
-    // Uninstall Mac shortcuts here once they have been added.
+    // Remove .desktop files
+    let command = `rm ~/Desktop/${name}.command`
+    exec( command,
+        function ( error, stdout ){
+            if (error) {
+                console.log('');
+                console.log("There was an error uninstalling shortcuts: ");
+                console.log('');
+                console.log( error );
+                return;
+            } else {
+                console.log('');
+                console.log("Shortcuts have been uninstalled successfully.");
+            }
+    });
 }

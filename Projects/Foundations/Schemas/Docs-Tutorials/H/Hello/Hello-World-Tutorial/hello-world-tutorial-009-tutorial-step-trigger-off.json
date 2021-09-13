@@ -1,0 +1,64 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 9,
+    "type": "Tutorial Step - Trigger Off",
+    "definition": {
+        "text": "If you do not need a condition just set it to False or True!",
+        "icon": {
+            "name": "trigger-off",
+            "project": "Foundations"
+        },
+        "updated": 1614333368044,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wenn du keine Bedingung benötigst setze es einfach auf „False“ oder „True“!",
+                "updated": 1622978946854,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Si no necesitas una condición, configúrela en False o True!",
+                "updated": 1629352241171
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "For my backtest I don't need a Trigger Off condition so I just write false in Javascript code",
+            "updated": 1614334212315,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Für meinen Backtest benötige ich keine Trigger Off Bedingung, also schreibe ich einfach False in den Javascript-Code",
+                    "updated": 1622978973861,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Para mi backtest no necesito un Trigger Off condición, así que solo escribo false en codigo Javascript",
+                    "updated": 1629354481694
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Remember that Conditions can be only True or False. When I write some Javascript code inside these type of nodes, they must evaluate True or False because essentially what I'm writing is a test.",
+            "updated": 1614245807894,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Denke daran, dass Bedingungen nur True oder False sein können. Wenn ich Javascript-Code innerhalb dieser Art von Knoten schreibe, müssen sie True oder False auswerten, weil das, was ich schreibe, im Wesentlichen ein Test ist.",
+                    "updated": 1622978923884,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Recuerda que Conditions puede ser solo True o False. Cuando escribo código Javascript dentro de este tipo de nodos, deben evaluar True o False porque esencialmente lo que estoy escribiendo es una prueba.",
+                    "updated": 1629354487276
+                }
+            ]
+        }
+    ]
+}

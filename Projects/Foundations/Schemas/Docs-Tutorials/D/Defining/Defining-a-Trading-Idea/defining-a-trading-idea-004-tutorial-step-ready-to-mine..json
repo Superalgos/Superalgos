@@ -1,0 +1,43 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 4,
+    "type": "Tutorial Step - Ready to Mine..?",
+    "definition": {
+        "icon": {
+            "name": "Data\\data-tasks",
+            "project": "Foundations"
+        },
+        "text": "We'll mine some data to analyze a few events over the charts. We'll use the same data to test the trading idea in the next tutorial!",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Extraeremos algunos datos para analizar algunos eventos en los gráficos. ¡Usaremos los mismos datos para probar la idea comercial en el próximo tutorial!",
+                "updated": 1630377229613
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "The sensor bot will run on the BTC/USDT market (Binance) from January 1st, 2020, along with the following indicators from the Masters data mine: Candles Volumes, Bollinger Bands, and Bollinger Channels.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El robot sensor se ejecutará en el mercado BTC / USDT (Binance) a partir del 1 de enero de 2020, junto con los siguientes indicadores de la mina de datos Masters: Candles Volumes, Bollinger Bands y Bollinger Channels.",
+                    "updated": 1630377249570
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "If you have data on this market/exchange but on a different time range, this may affect your data! Read the sensor bot documentation to learn how! If the data you have is not important, feel free to keep going!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si tiene datos en este mercado / intercambio pero en un rango de tiempo diferente, ¡esto puede afectar tus datos! ¡Lee la documentación del robot sensor para aprender cómo hacerlo! Si los datos que tiene no son importantes, ¡no dude en continuar!",
+                    "updated": 1630377309627
+                }
+            ]
+        }
+    ]
+}

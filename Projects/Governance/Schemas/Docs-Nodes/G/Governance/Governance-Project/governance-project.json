@@ -1,0 +1,18 @@
+{
+    "type": "Governance Project",
+    "definition": {
+        "text": "The Governance Project is the section of the Superalgos Platform that enables the distributed governance of the Superalgos Project.",
+        "updated": 1630067351210
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Use this hierarchy to spawn project definition hierarchies such as the Pools, Positions, Features and Assets Hierarchies.",
+            "updated": 1630067423070
+        },
+        {
+            "style": "Text",
+            "text": "This is also where you find the option to spawn the Profile Constructor node."
+        }
+    ]
+}

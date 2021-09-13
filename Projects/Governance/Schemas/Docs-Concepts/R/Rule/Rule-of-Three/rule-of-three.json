@@ -1,0 +1,13 @@
+{
+    "type": "Rule of Three",
+    "definition": {
+        "text": "In math, the rule of three is a form that allows the resolution of problems of proportionality between three known values and an unknown. In other words, it is an operation that allows you to find the fourth term with respect to a given proportion.",
+        "updated": 1630142150472
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+        }
+    ]
+}

@@ -1,0 +1,62 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 1,
+    "type": "Welcome to Superalgos Tutorial",
+    "definition": {
+        "text": "This tutorial introduces you to the Superalgos universe. It walks you through the main areas of the system, teaches you the basic operation, walks you through the process of backtesting a demo Trading System, and even sets you up with your first Live Trading Session.",
+        "updated": 1616697023254,
+        "translations": [
+            {
+                "language": "FR",
+                "text": "Résumé: Ce tutoriel vous présente l'univers de Superalgos. Il vous guide à travers les principaux domaines du système, vous apprend le fonctionnement de base, vous guide à travers le processus de backtesting du Trading System, et vous permet même d'obtenir votre premier Live Trading Session.",
+                "updated": 1623946807972,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Este tutorial le presenta el universo Superalgos.Lo guía a través de las áreas principales del sistema, le enseña el funcionamiento básico, lo guía a través del proceso de backtesting de una demostración Trading System, e incluso te configura con tu primer Live Trading Session.",
+                "updated": 1628897237327
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "About This Tutorial",
+            "updated": 1617111443632,
+            "translations": [
+                {
+                    "language": "FR",
+                    "text": "À propos de ce tutoriel :",
+                    "updated": 1623946884414,
+                    "style": "Title"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Workspace: Getting Started Tutorials Plugin Workspace.",
+            "updated": 1622633723741,
+            "translations": [
+                {
+                    "language": "FR",
+                    "text": "Espace de travail: Getting Started Tutorials Plugin Workspace.",
+                    "updated": 1623949967730,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Maintainer: @julianmolina (Telegram).",
+            "translations": [
+                {
+                    "language": "FR",
+                    "text": "Responsable: @julianmolina (Telegram).",
+                    "updated": 1623947189422,
+                    "style": "List"
+                }
+            ]
+        }
+    ]
+}

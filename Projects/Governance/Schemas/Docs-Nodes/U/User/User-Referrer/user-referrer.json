@@ -1,0 +1,27 @@
+{
+    "type": "User Referrer",
+    "definition": {
+        "text": "A User Referrer node must establish a reference with the User Profile of your referrer. If you have more than one referrer, add more nodes! This is how you establish who your referrers are.",
+        "updated": 1630232566550
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624726623564
+        },
+        {
+            "style": "Warning",
+            "text": "Declaring at least one User Referrer is a requirement to participate in the program. If you fail to declare at least one, you don't qualify for Tokens Bonus incentives.",
+            "updated": 1630232662165
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

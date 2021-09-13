@@ -1,0 +1,46 @@
+{
+    "tutorial": "Setting Up a New Chart",
+    "pageNumber": 30,
+    "type": "Tutorial Step - Verify the Layers",
+    "definition": {
+        "text": "As you may have noticed, the layers that were added match the Bot Products under the Candles Data Mine Products node.",
+        "updated": 1620048469797,
+        "icon": {
+            "name": "Layer/layer",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Esto agregará automáticamente referencias a todas las capas individuales producidas por el Bot Products bajo el nodo Candles Data Mine Products.",
+                "updated": 1628725658313
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Take a few minutes and check between the Bot Products offspring nodes and your new layers. They Match!",
+            "updated": 1620559042193,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Tómate unos minutos y comprueba entre nodos Bot Products descendientes y sus nuevas capas. ¡Coinciden!",
+                    "updated": 1628725744845
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "You can have more fine tuned control over the layers available in your charts by adding or deleting individual layers.  Your charts are truly yours! ",
+            "updated": 1621522922044,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Puede tener un control más preciso sobre las capas disponibles en sus gráficos agregando o eliminando capas individuales. ¡Tus gráficos son verdaderamente tuyos!",
+                    "updated": 1628725765776
+                }
+            ]
+        }
+    ]
+}

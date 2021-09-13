@@ -1,0 +1,27 @@
+{
+    "type": "Position Contribution Claim",
+    "definition": {
+        "text": "Use this node to reference a Position node in one of the Positions hierarchy to establish a Position Contribution Claim. This claim means that you declare that you have worked on that Position, and that you expect to be rewarded accordingly!",
+        "updated": 1630349455755
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624728656474
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Claims Content",
+            "updated": 1630325507398
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

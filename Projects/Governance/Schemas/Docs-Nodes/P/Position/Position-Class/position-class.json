@@ -1,0 +1,26 @@
+{
+    "type": "Position Class",
+    "definition": {
+        "text": "A Position Class node is an organizational device used to group positions in arbitrary arrangements. The node may receive Weight Votes. When it does, votes are evenly distributed among offspring nodes.",
+        "updated": 1630427487603
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624707587709
+        },
+        {
+            "style": "Text",
+            "text": "You may direct Weight Votes to a Position Class node when you intend to support the whole class, including all positions within."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

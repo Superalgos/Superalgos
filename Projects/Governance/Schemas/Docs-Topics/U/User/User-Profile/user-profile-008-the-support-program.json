@@ -1,0 +1,49 @@
+{
+    "topic": "User Profile",
+    "pageNumber": 8,
+    "type": "The Support Program",
+    "definition": {
+        "text": "Let's reward Community Mods so that they keep up the good work, and so that more people want to join the team!",
+        "updated": 1630495305649
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Node->Support Program->Definition",
+            "updated": 1624732912622
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Support Program->Content"
+        },
+        {
+            "style": "Title",
+            "text": "Your Favorite Supporters"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->User Supporter->Definition"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->User Supporter->Content"
+        },
+        {
+            "style": "Title",
+            "text": "Becoming a Community Mod"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Community Mods->Definition",
+            "updated": 1624733385331
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Community Mods->Content"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

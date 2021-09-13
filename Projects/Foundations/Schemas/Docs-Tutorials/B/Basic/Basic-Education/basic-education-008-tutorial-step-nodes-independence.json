@@ -1,0 +1,89 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 8,
+    "type": "Tutorial Step - Node's Independence",
+    "definition": {
+        "text": "Notice how you changed the Angle to Parent setting on different siblings and each of them reacted to the new setting independently from the rest!",
+        "updated": 1615319889017,
+        "icon": {
+            "name": "Set\\set-angle-to-parent-node-to-90-degrees",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Nota come hai modificato l'impostazione Angle to Parent su nodi fratelli e come ognuno di essi ha reagito alla nuova impostazione in maniera indipendente dagli altri!",
+                "updated": 1619460136934,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Observa cómo cambió la configuración de Ángulo a padre en diferentes hermanos y cada uno de ellos reaccionó a la nueva configuración de forma independiente del resto!",
+                "updated": 1625956624650,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You control the position of each node from within the node's menu. Not the parent node nor the siblings may affect the position... save for this cool exception:",
+            "updated": 1615459643749,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi controllare la posizione di ogni nodo dal suo menù. Nè il padre nè i fratelli influenzano la posizione, a parte per un'eccezione:",
+                    "updated": 1619460176032,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Tu controlas la posición de cada nodo desde el menú del nodo. Ni el nodo principal ni los hermanos pueden afectar la posición ... excepto por esta genial excepción:",
+                    "updated": 1625956814758,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the Lightning Strike Backtesting Session and select Add Missing Children from the right-hand side of the menu!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Vai al nodo Backtesting Session e seleziona Add Missing Children dal lato destro del menù!",
+                    "updated": 1619460209880,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Ve a el Lightning Strike Backtesting Session y selecciona Add Missing Childrendesde el lado derecho del menú!",
+                    "updated": 1625956891800,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Notice how the Social Bots node inherited the Angle to Parent setting from its closest sibling!",
+            "updated": 1615322906744,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nota come il nodo Social Bots ha ereditato la proprietà Angle to Parent dal più vicino nodo fratello!",
+                    "updated": 1619460248115,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Nota como el nodo Social Bots  heredó el ajuste Ángulo a padre de su hermano más cercano.",
+                    "updated": 1625956967094,
+                    "style": "Success"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "type": "Delegation Program",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Delegate Power Switch",
+            "relatedUiObject": "Delegate Power Switch"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "tokensBonus",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Tokens Bonus",
+            "relatedUiObject": "Tokens Bonus"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Financial Programs->"
+    },
+    "addLeftIcons": true,
+    "level": 1,
+    "propertyNameAtParent": "delegationProgram",
+    "childrenNodesProperties": [
+        {
+            "name": "delegatePowerSwitch",
+            "type": "array",
+            "childType": "Delegate Power Switch",
+            "autoAdd": false
+        },
+        {
+            "name": "tokensBonus",
+            "type": "node",
+            "childType": "Tokens Bonus",
+            "autoAdd": true
+        }
+    ]
+}

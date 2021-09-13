@@ -1,0 +1,144 @@
+{
+    "type": "Workspace",
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1610620673078
+        },
+        {
+            "style": "Text",
+            "text": "A workspace stores information about:"
+        },
+        {
+            "style": "List",
+            "text": "Any hierarchy that is not included as a plugin."
+        },
+        {
+            "style": "List",
+            "text": "Nodes that may be floating around, detached from hierarchies."
+        },
+        {
+            "style": "List",
+            "text": "Information regarding the physical position and state of all nodes within the design space, even those detached from hierarchies.",
+            "updated": 1615891174248
+        },
+        {
+            "style": "Text",
+            "text": "A workspace is not part of any of the hierarchies; instead, it contains them."
+        },
+        {
+            "style": "Title",
+            "text": "Loading Workspaces"
+        },
+        {
+            "style": "Text",
+            "text": "Users may manage multiple workspaces, but only one workspace may be loaded in the system at any point."
+        },
+        {
+            "style": "Text",
+            "text": "To load a workspace, click the workspaces tab on the left-hand side of the screen and select one of the available files.",
+            "updated": 1624469374859
+        },
+        {
+            "style": "Success",
+            "text": "To load a workspace you got from a third party, you may place the file in the My-Workspaces folder so that you may open it from the workspaces tab. You may also drag the file and drop it on the design space.",
+            "updated": 1615892822939
+        },
+        {
+            "style": "Warning",
+            "text": "It is not recommended to launch multiple instances of the UI in separate browser tabs to load different workspaces at the same time. The system is not prepared to handle this type of use and it may behave erratically as a consequence.",
+            "updated": 1629892156573
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Saving Workspaces"
+        },
+        {
+            "style": "Text",
+            "text": "Any workspace that is saved by the user is a User Workspace.",
+            "updated": 1622634912210
+        },
+        {
+            "style": "Note",
+            "text": "User workspaces feature a purple background in the workspaces tab.",
+            "updated": 1624469335347
+        },
+        {
+            "style": "Text",
+            "text": "Workspaces are saved as JSON files in the My-Workspaces folder.",
+            "updated": 1615891202642
+        },
+        {
+            "style": "Text",
+            "text": "You may save a workspace manually using the following hot-key combination:",
+            "updated": 1629892197901
+        },
+        {
+            "style": "Text",
+            "text": "Ctrl or Cmd + Shift + Key-S",
+            "updated": 1615891225650
+        },
+        {
+            "style": "Success",
+            "text": "Backing up a workspace downloads the same file to your local Downloads folder. This is a good way to store sequential versions in case you ever need to go back to a previous state of affairs.",
+            "updated": 1615892985307
+        },
+        {
+            "style": "Title",
+            "text": "Plugin Workspaces"
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos ships with several Plugin Workspaces. These are pre-configured workspaces built for specific purposes, for example, to host tutorials, demo strategies, specific projects, and so on.",
+            "updated": 1629893908384
+        },
+        {
+            "style": "Note",
+            "text": "In the workspaces tab, plugin workspaces are marked with the words \"Plugin Workspace\", and feature a black background so that you may differentiate them from your own workspaces.",
+            "updated": 1622634983432
+        },
+        {
+            "style": "Important",
+            "text": "When you load, modify, and save a Plugin Workspace, the actual plugin file remains intact, that is, the plugin is not modified. Instead, a new file is created in the My-Workspaces folder. This file is a copy of the plugin workspace featuring the modifications you introduced. The copy is saved with the name of the Workspace node, which is usually the same name as the plugin. To save the workspace with a different name, you must change the name of the Workspace node and save.",
+            "updated": 1629894244406
+        },
+        {
+            "style": "Title",
+            "text": "Creating Workspaces"
+        },
+        {
+            "style": "Text",
+            "text": "To create a new workspace, rename any of the existing workspaces by changing the label of the workspace node, and save it as explained above. After you change the label and once the workspace is saved (by any of the usual means), a new file is stored in the My-Workspaces folder."
+        },
+        {
+            "style": "Success",
+            "text": "The Blank Template Plugin Workspace is the best to start with if you wish to create your own setup.",
+            "updated": 1629894382983
+        },
+        {
+            "style": "Title",
+            "text": "Deleting Workspaces"
+        },
+        {
+            "style": "Text",
+            "text": "To delete a workspace, delete the corresponding workspace file from within the file system application of your operating system."
+        }
+    ],
+    "definition": {
+        "text": "A workspace is an entity storing all system and user-generated information, excluding the state and contents of plugins. In technical terms, a workspace is a JSON file.",
+        "updated": 1610620463347,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un Workspace es una entidad que almacena toda la información generada por el usuario y el sistema, excluyendo el estado y el contenido de los complementos. En términos técnicos, un espacio de trabajo es un archivo JSON.",
+                "updated": 1624292534795,
+                "style": "Definition"
+            }
+        ]
+    }
+}

@@ -1,0 +1,81 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 7,
+    "type": "Tutorial Step - Trigger Stage",
+    "definition": {
+        "text": "Trigger Stage is our Talent Scout",
+        "icon": {
+            "name": "trigger-stage",
+            "project": "Foundations"
+        },
+        "updated": 1622385913906,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Trigger Stage ist unser Talent Scout.",
+                "updated": 1622978455848,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Trigger Stagees es nuestro talento scout",
+                "updated": 1629348587860
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Our strategy is based on SMA cross and it is in this node that we can instruct the bot to search for conditions that have to be met in order to take a trade.",
+            "updated": 1614243969544,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Unsere Strategie basiert auf dem SMA-Kreuz und in diesem Knoten können wir den Bot anweisen, nach Bedingungen zu suchen, die erfüllt sein müssen, um einen Handel zu tätigen.",
+                    "updated": 1622978530689,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Nuestra estrategia se basa en el cruce de SMA y es en este nodo donde podemos instruir al bot para que busque las condiciones que deben cumplirse para realizar una operación.",
+                    "updated": 1629348884906
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "This stage is all about checking the market and deciding if some conditions are worth a trade or not!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In dieser Phase geht es darum, den Markt zu überprüfen und zu entscheiden, ob die Bedingungen einen Handel wert sind oder nicht!",
+                    "updated": 1622978559675,
+                    "style": "Important"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Esta etapa se trata de verificar el mercado y decidir si algunas condiciones valen la pena o no!",
+                    "updated": 1629348903247
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Let's have a look at its 3 offsprings and I show you some little tricks to implement the strategy in the fastest possible way!",
+            "updated": 1614244059064,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Werfen wir einen Blick auf seine drei Nachfolger und ich zeige dir ein paar kleine Tricks, um die Strategie schnellstmöglich zu implementieren!",
+                    "updated": 1622978601078,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Echemos un vistazo a sus 3 descendientes y te muestro algunos pequeños trucos para implementar la estrategia de la manera más rápida posible!",
+                    "updated": 1629348921004
+                }
+            ]
+        }
+    ]
+}

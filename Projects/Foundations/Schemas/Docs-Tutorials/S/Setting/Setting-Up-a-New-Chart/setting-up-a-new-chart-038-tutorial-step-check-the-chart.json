@@ -1,0 +1,46 @@
+{
+    "tutorial": "Setting Up a New Chart",
+    "pageNumber": 38,
+    "type": "Tutorial Step - Check the Chart",
+    "definition": {
+        "text": "At this point everything is all hooked up, hurray! Go ahead and take your shiny new charts for a spin!",
+        "updated": 1619024696288,
+        "icon": {
+            "name": "Charting-Space/chart-points",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "En este punto, todo está bien conectado, ¡hurra! ¡Adelante, pruebe sus nuevas y brillantes listas de éxitos!",
+                "updated": 1628732255279
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Important",
+            "text": "Make sure to run the Backtesting Session for the Lightning Strike Trading System and wait for it to finish.",
+            "updated": 1617887112622,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Asegúrate de ejecutar el Backtesting Session para el Lightning Strike Trading System y espera a que termine.",
+                    "updated": 1628732385577
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Check your chart by turning on a few Trading System layers.",
+            "updated": 1617887153627,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Comprueba tu gráfico activando algunas capas de Trading System.",
+                    "updated": 1628732345902
+                }
+            ]
+        }
+    ]
+}

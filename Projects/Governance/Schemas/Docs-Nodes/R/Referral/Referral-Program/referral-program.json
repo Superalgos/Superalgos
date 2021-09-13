@@ -1,0 +1,48 @@
+{
+    "type": "Referral Program",
+    "definition": {
+        "text": "The referral program incentivizes the promotion of the project, either by word-of-mouth or “en masse” through articles, social media posts, videos, and other forms of influencer marketing.",
+        "updated": 1630227795694
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624726477501
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Featuring Tokens Bonus",
+            "updated": 1630230465415
+        },
+        {
+            "style": "Text",
+            "text": "With this program, you may earn Superalgos SA Tokens for every user you refer to the project, and also for the users they refer!"
+        },
+        {
+            "style": "Callout",
+            "text": "To participate, you must spawn the Referral Program and declare your referrer. To do that, add a User Referrer node and use it to establish a reference to the User Profile of the person that referred you to Superalgos. If you have more than one referrer, simply add more User Referrer nodes."
+        },
+        {
+            "style": "Text",
+            "text": "Maybe you learned about Superalgos from an article, a video, a comment on Reddit, a tweet, the official website, or someone who told you about us!"
+        },
+        {
+            "style": "Text",
+            "text": "Declaring your referrers is the best way to thank the people that may have written that article or tweet, produced that video, maintained the website, or told you about Superalgos! Without them, you probably wouldn’t be here yet!"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Community Building Programs",
+            "updated": 1630230671246
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

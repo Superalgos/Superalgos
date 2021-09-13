@@ -1,0 +1,32 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 21,
+    "type": "Tutorial Topic - You Made It!",
+    "definition": {
+        "icon": {
+            "name": "Tutorial/tutorial",
+            "project": "Foundations"
+        },
+        "text": "Congratulations... you have reached the end of this tutorial!",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Felicitaciones ... ¡has llegado al final de este tutorial!",
+                "updated": 1629251820232
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "You may revisit this tutorial at any point. If you select the Play option on the menu, you start right from the beginning. If you select the Resume option instead, you start where you last left, or where you last skipped a step.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Puedes volver a visitar este tutorial en cualquier momento. Si seleccionas el Play en el menú, comienza desde el principio. Si seleccionas el Resume en su lugar, comienzas donde lo dejaste por última vez o donde saltaste un paso por última vez.",
+                    "updated": 1629251900929
+                }
+            ]
+        }
+    ]
+}

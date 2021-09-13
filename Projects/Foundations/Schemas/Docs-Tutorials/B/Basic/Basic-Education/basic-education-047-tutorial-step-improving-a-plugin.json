@@ -1,0 +1,58 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 47,
+    "type": "Tutorial Step - Improving a Plugin",
+    "definition": {
+        "text": "About the second scenario: let's say you are testing the EMA indicator, found a bug and know how to fix it. You intend to contribute the fix so that everyone benefits from it!",
+        "icon": {
+            "name": "sensor-bot",
+            "project": "Foundations"
+        },
+        "updated": 1629909327051,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Mettiamo che sei uno sviluppatore che testa un nuovo exchange, e vuoi modificare il Sensor Bot introducendo un nuovo parametro.",
+                "updated": 1619590703521,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Si eres un desarrollador y estás probando un nuevo exchange. Deseas modificar el Sensor Bot para introducir una nueva característica o parámetro.",
+                "updated": 1626710809333,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This Indicator Bot is part of the Sparta Data Mine, which is usually included as a plugin in some plugin workspaces. To modify the plugin from within the UI and save the changes, you have two options:",
+            "updated": 1629909479093,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Quel bot è parte del Master Data Mine, che è incluso come plugin nella maggior parte dei plugin workspace. In questo caso, procedi come nel caso precedente: cancella il nodo Plugin File del Mastart Data Mine e ripristina il file dalla cartella Plugins\\Data-Mines come fosse un Backup.",
+                    "updated": 1619590793878,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "El Sensor Bot es parte del Candles Data Mine, que generalmente se incluye como plugin en la mayoría de los workspaces de plugins. En tal caso, debes proceder como en el caso anterior: eliminar el nodo Plugin File correspondiente a los  Candles Data Mine y restaurar el archivo de mina de datos desde la carpeta   Plugins\\Data-Mines como si fuera un backup.",
+                    "updated": 1626709343670,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Go to the corresponding Plugin File in the Plugins hierarchy and select Enable Saving With Workspace on the menu. Now the plugin file is updated every time you save the workspace to include the changes you may have introduced!",
+            "updated": 1629909628165
+        },
+        {
+            "style": "List",
+            "text": "Or use the Save Plugin option to manually save the plugin file whenever you wish to!",
+            "updated": 1629909705348
+        }
+    ]
+}

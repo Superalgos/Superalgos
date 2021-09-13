@@ -1,0 +1,57 @@
+{
+    "type": "Weight Votes Switch",
+    "definition": {
+        "text": "Use this switch to spawn different types of Weight Votes, and to reference Class types of nodes within any of the Project Definition Hierarchies to map large structures of definitions.",
+        "updated": 1630356971950
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624729675267
+        },
+        {
+            "style": "Text",
+            "text": "You may use this switch for three different purposes:"
+        },
+        {
+            "style": "List",
+            "text": "As an organizational device: You may create arbitrary arrangements of votes, spawning more switches and votes."
+        },
+        {
+            "style": "List",
+            "text": "As a switch: You may control the flow of Weight Power, pretty much like with a Token Power Switch, but within the Voting Program. If you need a reminder, read about how Token Power Flows.",
+            "updated": 1630394709837
+        },
+        {
+            "style": "List",
+            "text": "As a data-structure mapper: Use the node to reference Class types of nodes within Project Definition Hierarchies to map entire structures of definitions."
+        },
+        {
+            "style": "Text",
+            "text": "The first two use cases are self-explanatory. Let's explore the third one in more detail."
+        },
+        {
+            "style": "Callout",
+            "text": "Use a Weight Votes Switch node to establish a reference with a Class type of node — Pool Class, Position Class, Feature Class, or Asset Class — within Project Definition Hierarchies. Then use the Install Missing Votes option on the menu of the Weight Votes Switch to map the entire Class section of the hierarchy! ",
+            "updated": 1630498028825
+        },
+        {
+            "style": "Note",
+            "text": "The process creates a Weight Votes Switch for each Class type of node, and matching Weight Votes for each Asset, Feature, Position, or Pool defined within each Class node."
+        },
+        {
+            "style": "Success",
+            "text": "If something changes on the side of the definitions, you may always go back a run the Install Missing Votes process again. The process will remap the structure with the appropriate votes and switches."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration",
+            "updated": 1624729681447
+        }
+    ]
+}

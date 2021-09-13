@@ -1,0 +1,81 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 5,
+    "type": "Tutorial Step - Pinned Nodes Can't Dance",
+    "definition": {
+        "text": "When a node is pinned, it becomes fixed to a position regardless of the setting of the rest of the arrangement properties!",
+        "icon": {
+            "name": "pinned-node",
+            "project": "Foundations"
+        },
+        "updated": 1615315595276,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Quando un nodo è \"pinned\", è fissato a una posizione indipendentemente dal resto delle proprietà di disposizione!",
+                "updated": 1619459518708,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Cuando se fija un nodo, se fija en una posición independientemente de la configuración del resto de las propiedades de la disposición.",
+                "updated": 1625935739732
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You may pin a node, a structure of nodes, and even the complete hierarchy. Let's try something else...",
+            "updated": 1615316007384,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi fissare un nodo, una struttura di nodi o anche un'intera gerarchia. Proviamo un'altra cosa...",
+                    "updated": 1619459542669,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Puedes fijar un nodo, una estructura de nodos e incluso la jerarquía completa. Probemos algo más...",
+                    "updated": 1625935796375
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Pin the Trading Parameters node and drag it away!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Fissa il nodo Trading Parameters e trascinalo via!",
+                    "updated": 1619459606476,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Fija el nodo Trading Parameters y arrástralo!",
+                    "updated": 1625935853192
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Notice how all offspring nodes follow the parent node. However, the Session Base Asset node remains in position! Before we move on, unpin all nodes to keep the workspace in order!",
+            "updated": 1615316147113,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nota come tutti i nodi figli seguono il nodo padre, ma il nodo Session Base Asset rimane fisso! Prima di proseguire, togli il pin da tutti i nodi per tenere in ordine il workspace!",
+                    "updated": 1619459651253,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Observa cómo todos los nodos descendientes siguen al nodo principal. Sin embargo, el nodo de Session Base Asset permanece en posición. Antes de continuar, desfija todos los nodos para mantener el espacio de trabajo en orden.",
+                    "updated": 1625936048997
+                }
+            ]
+        }
+    ]
+}

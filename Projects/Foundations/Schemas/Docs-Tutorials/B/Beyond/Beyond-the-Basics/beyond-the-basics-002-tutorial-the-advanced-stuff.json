@@ -1,0 +1,72 @@
+{
+    "tutorial": "Beyond the Basics",
+    "pageNumber": 2,
+    "type": "Tutorial - The Advanced Stuff!",
+    "definition": {
+        "text": "You're still around, now with the first two tutorials under your belt! You're family already! Welcome to the Community!",
+        "updated": 1616757706219,
+        "icon": {
+            "name": "Tutorial\\tutorial",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ci sei ancora? Ormai, con due tutorial completati sul tuo curriculum, sei di famiglia! Benvenuto nella Community!",
+                "updated": 1619631145148,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Todavía estás aquí, ahora con los dos primeros tutoriales en tu haber! ¡Ya eres familia! Bienvenido a la Community!",
+                "updated": 1628112222837,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In this tutorial, you will learn to keep your system up to date, use the built-in command line, switch branches, and a few more tricks that will make your life easier!",
+            "updated": 1616871630234,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "In questo tutorial imparerai come tenere aggiornato il sistema, usare la sua command-line, cambiare branches e altri trucchi utili!",
+                    "updated": 1619631204346,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "En este tutorial, aprenderás a mantener tu sistema actualizado, utilizar la línea de comandos incorporada, cambiar de rama y algunos trucos más que le facilitarán la vida.",
+                    "updated": 1628112392254,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "The skills you will learn will also allow you to start contributing to the project! Remember, this is a community project... We are all expected to give back and help improve the software!",
+            "updated": 1617034994342,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Le skill che imparerai ti permetteranno anche di iniziare a contribuire al progetto! Ricorda, questo è un progetto basato sulla community... Ci si aspetta che ognuno di noi faccia quel che può per aiutare e migliorare il software!",
+                    "updated": 1619631313456,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Las habilidades que aprenderás también te permitirán comenzar a contribuir al proyecto! Recuerda, este es un proyecto comunitario ... ¡Se espera que todos retribuyamos y ayudemos a mejorar el software!",
+                    "updated": 1628112441113,
+                    "style": "Note"
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "By the way, contributing to the project earns you Superalgos (SA) tokens! Click to learn more!->superalgos.org/token-overview.shtml",
+            "updated": 1617035100951
+        }
+    ]
+}

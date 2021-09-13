@@ -1,0 +1,85 @@
+{
+    "type": "Pools",
+    "definition": {
+        "text": "The Superalgos Pools is the top-level hierarchy kickstarting the definition of the whole Superalgos Project. It features the definition of several Pool nodes describing the main areas of project development that the Community wishes to incentivize.",
+        "updated": 1630426598623
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624706897078
+        },
+        {
+            "style": "Text",
+            "text": "In essence, this hierarchy is used to determine how the tokens allocated to each release will be distributed.",
+            "updated": 1624706911544
+        },
+        {
+            "style": "Text",
+            "text": "To produce unequivocal definitions, the hierarchy uses two specific resources:"
+        },
+        {
+            "style": "List",
+            "text": "On one hand, the data structure represented by the hierarchy itself describes the organization of the Project, fragmenting specific incumbencies into specific distribution pools. This allows the granular allocation of tokens."
+        },
+        {
+            "style": "List",
+            "text": "On the other hand, each Pool may accept Weight Votes from User Profiles. This is how the Community determines how many tokens will go to each distribution pool."
+        },
+        {
+            "style": "Text",
+            "text": "In addition, there is a third resource characteristic to the Pool Hierarchy. Each Pool may reference a separate Pools hierarchy so that the definitions may continue on a separate hierarchy, which may be included as a plugin in the same or in separate Governance Workspaces.",
+            "updated": 1630426515819
+        },
+        {
+            "style": "Callout",
+            "text": "A Pool may also reference other types of hierarchies, namely Positions, Assets, and Features. These hierarchies take the granularity of the definition to a whole new level! But we’ll go into those later on!",
+            "updated": 1630426529656
+        },
+        {
+            "style": "Text",
+            "text": "This resource allows fragmenting the definitions of how the project is organized, for readability, organizational, and logistical reasons:"
+        },
+        {
+            "style": "List",
+            "text": "a single hierarchy describing the whole Superalgos Project and every other project within would grow too big and be cumbersome to deal with;"
+        },
+        {
+            "style": "List",
+            "text": "each hierarchy may be defined and maintained by different people or teams;"
+        },
+        {
+            "style": "List",
+            "text": "each hierarchy may be better visualized in different workspaces in which they may interact with other definitions; etc."
+        },
+        {
+            "style": "Title",
+            "text": "Superalgos Pools"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Superalgos Pools->Definition",
+            "updated": 1630171005510
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Superalgos Pools->Content",
+            "updated": 1630171012564
+        },
+        {
+            "style": "Block",
+            "text": "Configuration",
+            "updated": 1624706986873
+        },
+        {
+            "style": "Title",
+            "text": "Configuration",
+            "updated": 1624706995696
+        },
+        {
+            "style": "List",
+            "text": "tokens: the total number of tokens to be distributed in the next Distribution Event. Only the top-level Superalgos Pools hierarchy requires this configuration."
+        }
+    ]
+}

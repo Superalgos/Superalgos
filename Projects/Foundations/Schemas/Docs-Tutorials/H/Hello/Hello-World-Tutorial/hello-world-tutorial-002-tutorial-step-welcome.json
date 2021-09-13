@@ -1,0 +1,158 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 2,
+    "type": "Tutorial Step - Welcome",
+    "definition": {
+        "text": "Let’s build the mother of all trading strategies: The Moving Average Cross!",
+        "icon": {
+            "name": "Tutorial\\tutorial",
+            "project": "Foundations"
+        },
+        "updated": 1629342747241,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Lass uns die Mutter aller Handelsstrategien aufbauen: Die Moving Average Überkreuzung!",
+                "updated": 1622970055812,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Construyamos la madre de todas las estrategias trading: The Moving Average Cross",
+                "updated": 1629342995750,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Construisons la mère de toutes les stratégies de trading : Le croisement des moyennes mobiles !",
+                "updated": 1630680395371
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "For this tutorial I assume that:",
+            "updated": 1629342738424,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Für dieses Lernprogramm gehe ich davon aus, dass",
+                    "updated": 1622970071369,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Para este tutorial supongo que:",
+                    "updated": 1629343108610,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Pour ce tuto nous partirons du principe que:",
+                    "updated": 1630680728706
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "You have done the Welcome Tutorial in the Getting Started Workspace",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "du das Willkommens-Tutorial im Workspace \"Erste Schritte\" absolviert haben",
+                    "updated": 1622970086389,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Has hecho el Welcome Tutorial en el Getting Started Workspace",
+                    "updated": 1629343127301,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous avez fait le Welcome Tutorial à l'intérieur du Getting Started Workspace",
+                    "updated": 1630680751819
+                }
+            ],
+            "updated": 1629342770748
+        },
+        {
+            "style": "List",
+            "text": "You are comfortable moving around the Workspace and the Charts",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "du dich sicher im Workspace und in den Charts bewegen kannst.",
+                    "updated": 1622970109192,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Te sientes cómodo moviéndote por el Workspace y los Charts",
+                    "updated": 1629343147093,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous êtes à l'aise afin de vous déplacer dans les workspaces ainsi que sur les graphiques",
+                    "updated": 1630680807222
+                }
+            ],
+            "updated": 1629342792390
+        },
+        {
+            "style": "List",
+            "text": "You have a basic understanding about what is a Trading Bot and a strategy",
+            "updated": 1629342812080,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "du hast ein grundlegendes Verständnis davon, was ein Trading Bot und eine Trading Strategie ist",
+                    "updated": 1622970162593,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Tienes un conocimiento básico sobre lo que es un Trading Bot y una estrategia",
+                    "updated": 1629343167648,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous possédez une compréhension basique de ce qu'est un Trading Bot et une stratégie",
+                    "updated": 1630680872076
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "We will build a bot to backtest a strategy based on Simple Moving Average Cross between SMA50 and SMA200 on 4h TF, a classic!",
+            "updated": 1629342831236,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir werden einen Bot bauen, der auf eine Simple Moving Average Überkreuzung zwischen SMA50 und SMA200 auf 4h TF(Time Frame) basierende Strategie backtestet, ein Klassiker!",
+                    "updated": 1622980080284,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Construiremos un bot para probar una estrategia basada en Simple Moving Average Cross entre SMA50 y SMA200 en 4h TF, ¡un clásico!",
+                    "updated": 1629343206412,
+                    "style": "Note"
+                },
+                {
+                    "language": "FR",
+                    "text": "Nous allons construire un bot afin de Backtester une stratégi basée sur le croisement des moyennes mobiles SMA50 et SMA200 sur une période de 4heures, un classique!",
+                    "updated": 1630680963598
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

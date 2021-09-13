@@ -1,0 +1,60 @@
+{
+    "topic": "Beta 10 Claims",
+    "pageNumber": "1",
+    "type": "Beta 10 Claim - API Maps",
+    "definition": {
+        "text": "The new API Maps and Data Fetcher Bots allow users to map any API and mine data without coding, while the new User Defined Code node enables developers to bypass hard framework definitions.",
+        "updated": 1628248752870
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "API Maps and Data Fetcher Bots",
+            "updated": 1628248811396
+        },
+        {
+            "style": "Text",
+            "text": "An API Map hierarchy represents the mapping of an API so that it can be consumed by bots within Superalgos. You may create API Maps and contribute them as Plugins, or you may use the maps community members have built."
+        },
+        {
+            "style": "Text",
+            "text": "API Maps are used by API Data Fetcher Bots to request and save the data from an API. Data Fetcher Bots run like any other Superalgos bot, under a Task node, and tasks are created automatically during the Install Market process provided there is a Data Mine with the corresponding definitions present in the Workspace."
+        },
+        {
+            "style": "Note",
+            "text": "This new feature opens up the Superalgos game massively, as it allows both coders and non-developers to connect to their favorite sources of data, bringing an almost unlimited wealth of intelligence into the system."
+        },
+        {
+            "style": "Text",
+            "text": "At this point, only public APIs are supported."
+        },
+        {
+            "style": "Text",
+            "text": "An API Data Fetcher Bot is a new type of bot that can fetch data from any API on the internet as long as it is provided with an API Map at runtime. An API Data Fetcher Bots is similar to a Sensor Bot. The most important difference is that you don’t need to code anything to get one up and running. All you need to do is point it to the required API Map!"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Workflow"
+        },
+        {
+            "style": "Text",
+            "text": "The data you may bring into Superalgos from any API on the Internet goes into the same workflow you are already familiar with."
+        },
+        {
+            "style": "Text",
+            "text": "This means that the data is written in JSON files, which may be read by Plotters to produce graphical representations over the charts, and can be accessed from within Trading Systems, pretty much like with data output by indicators. Needless to say, the data may be further processed by indicators too!"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Messari and CoinGecko Implementation"
+        },
+        {
+            "style": "Text",
+            "text": "These are the first two implementations of API Maps and the corresponding Data Fetcher Bots, enabling Superalgos users to fetch News and Asset Metrics data from Messari v1 API and providing access to Coin data from CoinGeko v3 API."
+        },
+        {
+            "style": "Note",
+            "text": "Both implementations are limited to few endpoints each. We hope users will complete the mapping to all interesting endpoints!"
+        }
+    ]
+}

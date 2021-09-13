@@ -1,0 +1,50 @@
+{
+    "tutorial": "Setting Up a New Chart",
+    "pageNumber": 13,
+    "type": "Tutorial Step - Keep It in One Place",
+    "definition": {
+        "text": "Setting up a Time Machine will allow you to keep your data synchronized and accessible.",
+        "updated": 1628357175235,
+        "icon": {
+            "name": "Time/time-machine",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Configurar un Time Machine le permitirá mantener sus datos sincronizados y accesibles.",
+                "updated": 1628645411356
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Time Machine is all about synchronizing. Whether it’s matching up candles with volume indicators or seeing exactly when a buy order was placed by your Trading Strategy, the time machine is your best friend in the Charting Space.",
+            "updated": 1628357210732,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El Time Machinese trata de sincronizar. Ya sea para hacer coincidir velas con indicadores de volumen o ver exactamente cuándo realizó una orden de compra por el Trading Strategy, la máquina del tiempo es tu mejor amiga en el Charting Space.",
+                    "updated": 1628645470396
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "One Time Machine in the Design Space will show up as one box, or set of Charts, in the Charting Space",
+            "updated": 1628357244644,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un Time Machine en el Design Space aparecerá como un cuadro, o conjunto de gráficos, en el Charting Space",
+                    "updated": 1628645498722
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

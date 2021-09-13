@@ -1,0 +1,69 @@
+{
+    "tutorial": "Setting Up a New Chart",
+    "pageNumber": 40,
+    "type": "Tutorial Step - Easy as 1, 2, 3",
+    "definition": {
+        "text": "You did it! I knew you could. You have successfully added your first custom chart. I hope you had as much fun as I did!",
+        "icon": {
+            "name": "Charting-Space/charting-space",
+            "project": "Foundations"
+        },
+        "updated": 1619025041063,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¡Lo hiciste! Sabía que podías. Has agregado correctamente su primer gráfico personalizado. ¡Espero que te hayas divertido tanto como yo!",
+                "updated": 1628732594182
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Congratulations, your custom chart is now hooked up and working! You now know the basic steps of chart creation. You can repeat the same steps, adding more Timeline Charts, to connect any combination of data you want. Just a quick reminder, the three types of nodes you can connect a Timeline Chart’s Layer Manager to are:",
+            "updated": 1617886835178,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Felicitaciones, tu gráfico personalizado ahora está conectado y funcionando! Puedes repetir los mismos pasos, agregando más Timeline Charts, para conectar cualquier combinación de datos que desees. Solo un recordatorio rápido, los tres tipos de nodos a los que puede conectar un Timeline Chart’s Layer Manager son:",
+                    "updated": 1628732779748
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Data Mine Products – for Market Data and indicators.",
+            "updated": 1617453477817,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Data Mine Products – para Market Data e indicadores.",
+                    "updated": 1628732687448
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Trading Mine Products– for the results of a Trading System’s Backtesting Session or Live Trading Session.",
+            "updated": 1617453541079,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Trading Mine Products– para resultados de un Trading System’s Backtesting Session o Live Trading Session.",
+                    "updated": 1628732744101
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Learning Mine Products – for data output from learning algorithms. ",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Learning Mine Products – para la salida de datos de algoritmos de aprendizaje.",
+                    "updated": 1628732726276
+                }
+            ]
+        }
+    ]
+}

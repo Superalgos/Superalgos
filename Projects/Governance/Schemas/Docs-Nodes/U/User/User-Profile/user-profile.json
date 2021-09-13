@@ -1,0 +1,51 @@
+{
+    "type": "User Profile",
+    "definition": {
+        "text": "The User Profile is the hierarchy that allows you to define how you intend to use the Token Power conferred by your holdings of Superalgos SA Tokens. These definitions are spread across several programs, and your Token Power cascades down to these programs from the head of the hierarchy. Each program is designed to get Contributors involved in different governance needs.",
+        "updated": 1624726047712
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624726061843
+        },
+        {
+            "style": "Text",
+            "text": "As explained in the Building Your Profile page, your User Profile is paired with your Governance Address. The tokens you hold in this address confer you Token Power that you may use to influence how Superalgos distributes the tokens allocated to each release.",
+            "updated": 1630091460767
+        },
+        {
+            "style": "Text",
+            "text": "After building your profile, you should see your Token Power flowing to the Token Power Switch node, the first offspring of the head of the hierarchy. This principle is maintained throughout the hierarchy: Token Power flows down to offspring nodes, through each section of the hierarchy.",
+            "updated": 1630094400877
+        },
+        {
+            "style": "Title",
+            "text": "Token Power Flows",
+            "updated": 1630216274356
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Token Power Flows->Definition",
+            "updated": 1630216248820
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Token Power Flows->Content",
+            "updated": 1630216256004
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

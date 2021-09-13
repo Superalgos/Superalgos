@@ -1,0 +1,48 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 5,
+    "type": "Tutorial Step - With Tokens Comes Responsibility",
+    "definition": {
+        "text": "Holding tokens does more than just show commitment. SA Tokens also confer Token Power!",
+        "updated": 1630605735788,
+        "icon": {
+            "name": "governance",
+            "project": "Governance"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Tener tokens hace más que mostrar compromiso. Los tokens SA también confieren Token Power!",
+                "updated": 1630873231890,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The more tokens you hold the more influence you can have over the direction of the project. This means, by owning SA Tokens, you hold the power to use those tokens to exert influence over what parts of the system will be developed and how the community will evolve.",
+            "updated": 1629165111109,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuantas más fichas tengas, más influencia podrás tener sobre la dirección del proyecto. Esto significa que, al poseer SA Tokens, tienes el poder de usar esos tokens para ejercer influencia sobre qué partes del sistema se desarrollarán y cómo evolucionará la comunidad.",
+                    "updated": 1630873381109,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "This works in a cycle. The more you contribute, the more tokens you earn, the more say you have!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Esto funciona en un ciclo. Cuanto más contribuyas, más fichas ganarás, ¡más dirá que tienes!",
+                    "updated": 1630873348182,
+                    "style": "Note"
+                }
+            ]
+        }
+    ]
+}

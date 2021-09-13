@@ -1,0 +1,50 @@
+{
+    "tutorial": "Setting Up a New Chart",
+    "pageNumber": 22,
+    "type": "Tutorial Step - The Chart of Many Talents",
+    "definition": {
+        "text": "The Timeline Chart gives you total control over the layers available  in your chart.",
+        "icon": {
+            "name": "Time/timeline-chart",
+            "project": "Foundations"
+        },
+        "updated": 1619023145084,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El Timeline Chart te da un control total sobre las capas disponibles en tu gráfico.",
+                "updated": 1628647109155
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "As I mentioned earlier, one of the main features the Charting Space offers is the ability to combine many different types of data all in one place. The Timeline Chart gives you this control! Each timeline chart allows you to collect the data you wish to see under a Layer Manager. As you may remember, the layer manager is what allows you to turn different layers on and off while inside a Time Machine.",
+            "updated": 1617839354763,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Como mencioné anteriormente, una de las principales características del Charting Space ofrece es la capacidad de combinar muchos tipos diferentes de datos en un solo lugar. El Timeline Chartte da este control! Cada gráfico de línea de tiempo le permite recopilar los datos que desea ver en un Layer Manager. Como recordarás, el layer manageres lo que te permite activar y desactivar diferentes capas mientras está dentro de un Time Machine.",
+                    "updated": 1628647224784
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "When we connect Data Products to the Layers held by a layer manager, we gain access to that data within our chart!",
+            "updated": 1617637222752,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando conectamos Data Products a las capas en poder de un layer manager obtenemos acceso a esos datos dentro de nuestro gráfico.",
+                    "updated": 1628647319101
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

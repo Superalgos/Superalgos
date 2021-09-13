@@ -1,0 +1,53 @@
+{
+    "topic": "Governance Definitions",
+    "pageNumber": "3",
+    "type": "Positions Hierarchy",
+    "definition": {
+        "text": "Projects may define positions that people may assume while contributing to the project.",
+        "updated": 1624719589021
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Node->Positions->Definition",
+            "updated": 1624719628603
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Positions->Content"
+        },
+        {
+            "style": "Title",
+            "text": "Position Class Nodes",
+            "updated": 1624719765396
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Position Class->Definition",
+            "updated": 1624719782927
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Position Class->Content",
+            "updated": 1624719787155
+        },
+        {
+            "style": "Title",
+            "text": "Position Nodes"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Position->Definition",
+            "updated": 1624719793612
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Position->Content",
+            "updated": 1624719798497
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

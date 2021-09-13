@@ -1,0 +1,140 @@
+{
+    "type": "Asset",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "level": 4,
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"codeName\": \"Type_the_code_name_of_the_asset\"\n}"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Exchange Assets->"
+    },
+    "propertyNameAtParent": "assets",
+    "alternativeIcons": [
+        {
+            "codeName": "XMR",
+            "iconName": "monero"
+        },
+        {
+            "codeName": "USDT",
+            "iconName": "tether"
+        },
+        {
+            "codeName": "TRX",
+            "iconName": "tron"
+        },
+        {
+            "codeName": "XLM",
+            "iconName": "stellar"
+        },
+        {
+            "codeName": "QTUM",
+            "iconName": "qtum"
+        },
+        {
+            "codeName": "NEO",
+            "iconName": "neo"
+        },
+        {
+            "codeName": "LTC",
+            "iconName": "litecoin"
+        },
+        {
+            "codeName": "ETC",
+            "iconName": "ethereum-classic"
+        },
+        {
+            "codeName": "ETH",
+            "iconName": "ethereum"
+        },
+        {
+            "codeName": "EOS",
+            "iconName": "eos"
+        },
+        {
+            "codeName": "DASH",
+            "iconName": "dash"
+        },
+        {
+            "codeName": "ADA",
+            "iconName": "cardano"
+        },
+        {
+            "codeName": "BCH",
+            "iconName": "bitcoin-cash"
+        },
+        {
+            "codeName": "BTC",
+            "iconName": "bitcoin"
+        },
+        {
+            "codeName": "BNB",
+            "iconName": "binance-coin"
+        },
+        {
+            "codeName": "USD",
+            "iconName": "us-dollar"
+        },
+        {
+            "codeName": "ZAR",
+            "iconName": "zar"
+        },
+        {
+            "codeName": "XRP",
+            "iconName": "xrp"
+        },
+        {
+            "codeName": "DOGE",
+            "iconName": "dogecoin"
+        },
+        {
+            "codeName": "SOL",
+            "iconName": "solana"
+        },
+        {
+            "codeName": "DOT",
+            "iconName": "polkadot"
+         },
+        {
+            "codeName": "UNI",
+            "iconName": "uniswap"
+        },
+        {
+            "codeName": "BUSD",
+            "iconName": "binance-usd"
+        },
+        {
+            "codeName": "SXP",
+            "iconName": "swipe"
+        },
+        {
+            "codeName": "LINK",
+            "iconName": "chainlink"
+        },
+        {
+            "codeName": "EUR",
+            "iconName": "euro"
+        }
+    ]
+}

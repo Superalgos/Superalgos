@@ -1,0 +1,22 @@
+{
+    "type": "Position Claims Folder",
+    "definition": {
+        "text": "Use this node as an organizational device, to spawn Position Contribution Claim nodes, and to map entire structures in a Positions hierarchy to place multiple Contribution Claims at once.",
+        "updated": 1630352182572
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Claims Folder->Content",
+            "updated": 1630260202600
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

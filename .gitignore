@@ -4,10 +4,12 @@ My-Workspaces
 debug.log
 .DS_Store
 *.db
-Projects/Superalgos/Icons/Thumbs.db
+Projects/Foundations/Icons/Thumbs.db
 *.bat
 !launch-windows.bat
 !create-shortcut-windows.bat
 !uninstall-shortcut-windows.bat
 *.exe
 node_modules
+launch.json
+.idea

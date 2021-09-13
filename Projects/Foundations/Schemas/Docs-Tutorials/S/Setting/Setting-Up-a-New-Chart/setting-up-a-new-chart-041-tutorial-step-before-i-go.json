@@ -1,0 +1,50 @@
+{
+    "tutorial": "Setting Up a New Chart",
+    "pageNumber": 41,
+    "type": "Tutorial Step - Before I Go",
+    "definition": {
+        "text": "Want some more help figuring out complex chart configurations? You are in luck! I have some friends who would love to help you out.",
+        "icon": {
+            "name": "Charting-Space/charting-space",
+            "project": "Foundations"
+        },
+        "updated": 1617371031010,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¿Quieres más ayuda para descubrir configuraciones de gráficos complejas? ¡Estas de suerte! Tengo algunos amigos a los que les encantaría ayudarte.",
+                "updated": 1628732843747
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Fire up one of my friends to keep going!",
+            "updated": 1617656189804,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Enciende a uno de mis amigos para que continúe!",
+                    "updated": 1628733009291
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "The following tutorials are currently under construction: How to customize a Layer Manager Tutorial, How to set up a custom Rate Scale Tutorial, How to combine Markets in a Chart Tutorial, How to combine Exchanges in a Chart Tutorial",
+            "updated": 1620049134601,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los siguientes tutoriales están actualmente en construcción: How to customize a Layer Manager Tutorial, How to set up a custom Rate Scale Tutorial, How to combine Markets in a Chart Tutorial, How to combine Exchanges in a Chart Tutorial",
+                    "updated": 1628733032271
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

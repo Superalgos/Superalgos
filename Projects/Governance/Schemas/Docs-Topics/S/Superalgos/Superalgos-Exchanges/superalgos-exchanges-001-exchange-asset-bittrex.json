@@ -1,0 +1,28 @@
+{
+    "topic": "Superalgos Exchanges",
+    "pageNumber": "1",
+    "type": "Exchange Asset - Bittrex",
+    "definition": {
+        "text": "Bittrex Global is the most trusted\ncryptocurrency exchange known\nfor its next-level security.",
+        "updated": 1628185606196
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Website",
+            "updated": 1628185730258
+        },
+        {
+            "style": "Link",
+            "text": "https://bittrex.com->https://bittrex.com"
+        },
+        {
+            "style": "Title",
+            "text": "Listing Summary"
+        },
+        {
+            "style": "Text",
+            "text": "We have been introduced to the Exchange listing team and we will be meeting soon."
+        }
+    ]
+}

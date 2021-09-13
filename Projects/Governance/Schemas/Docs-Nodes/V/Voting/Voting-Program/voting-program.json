@@ -1,0 +1,75 @@
+{
+    "type": "Voting Program",
+    "definition": {
+        "text": "The Voting Program is the heart and soul of governance, as it enables you to cast various types of votes. You may decide what to incentivize, weighing Pools, Assets, Features, and Positions. You may also evaluate and support Contribution Claims and transfer Voting Power to other users.",
+        "updated": 1630351287920
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624729363885
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Featuring Tokens Bonus",
+            "updated": 1630329521827
+        },
+        {
+            "style": "Note",
+            "text": "Your Reputation is added to the Token Power that flows into the Voting Program, effectively increasing your Voting Power. Read more about Reputation!",
+            "updated": 1630424362937
+        },
+        {
+            "style": "Text",
+            "text": "The features in the Voting Program allow you to cast three different categories of votes:"
+        },
+        {
+            "style": "List",
+            "text": "Claim Votes: Use Claim Votes to support the claims of other users so that they may get the rewards they deserve for their contributions. There are three types of claim vote nodes, namely Asset Claim Vote, Feature Claim Vote, and Position Claim Vote nodes.",
+            "updated": 1630344722135
+        },
+        {
+            "style": "List",
+            "text": "Weight Votes: Use Weight Votes to influence what areas of the project should be incentivized. There are four types of weight votes, namely Pool Weight Vote, Asset Weight Vote, Feature Weight Vote, and Position Weight Vote nodes.",
+            "updated": 1630344790466
+        },
+        {
+            "style": "List",
+            "text": "User Profile Votes: Use a User Profile Vote to transfer Voting Power to other users.",
+            "updated": 1630344853204
+        },
+        {
+            "style": "Text",
+            "text": "There is a top-level Votes Switch node that allows spawning several other switches, each one associated to the different types of votes described above:",
+            "updated": 1630343139964
+        },
+        {
+            "style": "List",
+            "text": "Claim Votes Switch",
+            "updated": 1630329624666
+        },
+        {
+            "style": "List",
+            "text": "Weight Votes Switch"
+        },
+        {
+            "style": "List",
+            "text": "User Profile Votes Switch"
+        },
+        {
+            "style": "Success",
+            "text": "These switches control the flow of Voting Power, may be used as organizational devices, may spawn the different types of votes, and may help you map entire data structures easily. Find the details on the page of each switch!",
+            "updated": 1630348670996
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration",
+            "updated": 1624729377169
+        }
+    ]
+}

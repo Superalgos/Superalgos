@@ -1,0 +1,54 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 17,
+    "type": "Tutorial Step - Network Verification 4",
+    "definition": {
+        "icon": {
+            "name": "Data/data-storage",
+            "project": "Foundations"
+        },
+        "text": "Verify that the Data Storage nodes for the corresponding Market were created successfully.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Verifica que los nodo Data Storage para el Market correspondiente se crearon con éxito.",
+                "updated": 1629249917009
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Look for the following data structures:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Busque las siguientes estructuras de datos:",
+                    "updated": 1629249952621
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "A Market Data Products node under Data Mines Data, with a Data Mine Products node for each Data Mine in the workspace.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un nodo Market Data Products  bajo Data Mines Data, con un nodo Data Mine Products para cada Data Mine en el espacio de trabajo.",
+                    "updated": 1629250030704
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "A Market Trading Products node under Trading Mines Data, with a Trading Session Reference for each trading session in the testing and production environments.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un nodo Market Trading Products bajo Trading Mines Data, con un Trading Session Reference para cada sesión de trading en los entornos de prueba y producción.",
+                    "updated": 1629250105046
+                }
+            ]
+        }
+    ]
+}

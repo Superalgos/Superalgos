@@ -1,0 +1,36 @@
+{
+    "type": "Adagrad Instance",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n  \"learningRate\": 0.001 ,\n \"initialAccumulatorValue\": 0.1 \n}"
+    },
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Optimizer->"
+    },
+    "propertyNameAtParent": "optimizerType",
+    "childrenNodesProperties": [],
+    "icon": "tensorflow"
+}

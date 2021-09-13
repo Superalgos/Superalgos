@@ -1,0 +1,18 @@
+{
+    "type": "Features",
+    "definition": {
+        "text": "The Features hierarchy defines existing software features, or features in the wish list, yet to be developed. The definition of existing features exist to reward Contributors maintaining the code. Definitions of features that don’t yet exist are intended to incentivize the creation and contribution of the said features.",
+        "updated": 1630427874621
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624708488815
+        },
+        {
+            "style": "Text",
+            "text": "Use your Weight Votes to influence the direction of development of specific Feature nodes, or sets of features represented by Feature Class nodes."
+        }
+    ]
+}

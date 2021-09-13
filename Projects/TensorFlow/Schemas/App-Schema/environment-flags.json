@@ -3,6 +3,7 @@
     "menuItems": [
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "mode",
             "label": "Add Debug Mode",
@@ -11,6 +12,7 @@
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "mode",
             "label": "Add Production Mode",
@@ -19,6 +21,7 @@
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Foundations",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

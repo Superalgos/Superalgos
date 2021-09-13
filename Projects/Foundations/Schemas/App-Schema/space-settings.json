@@ -1,0 +1,33 @@
+{
+    "type": "Space Settings",
+    "level": 4,
+    "propertyNameAtParent": "spaceSettings",
+    "attachingRules": {
+        "compatibleTypes": "->Charting Space->Design Space->Docs Space->"
+    },
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\"node\":{\"distancePercentage\":60,\"radiusPercentage\":85,\"massPercentage\":100,\"animationSteps\":2,\"menuItem\":{\"widthPercentage\":100,\"heightPercentage\":60,\"radiusPercentage\":90}},\"physics\":false,\"shortcuts\":{\"toggleMapMode\":\"M\",\"toggleDrawRelationshipLines\":\"R\",\"toggleDrawParentLines\":\"C\",\"saveWorkspace\":\"S\",\"adjustAspectRatio\":\"A\"}}"
+    },
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true
+}

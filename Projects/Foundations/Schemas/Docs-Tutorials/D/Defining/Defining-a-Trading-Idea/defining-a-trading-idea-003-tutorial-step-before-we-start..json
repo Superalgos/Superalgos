@@ -1,0 +1,43 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 3,
+    "type": "Tutorial Step - Before we start...",
+    "definition": {
+        "icon": {
+            "name": "Bullet\\bullet-warning",
+            "project": "Foundations"
+        },
+        "text": "Let me give you the heads up on a few matters you should consider before we start!",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¡Permítanme informarles sobre algunos asuntos que deben considerar antes de comenzar!",
+                "updated": 1630376946171
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Take any trading-related information for what it's worth! When I share trading concepts, take them with a grain of salt! I'm just a tutorial, not your financial advisor! I'm here to teach you Superalgos, not to tell you how to trade! If you are not a trader, you may pick up something of value, but always make sure you do your own research!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Toma cualquier información relacionada con el comercio por lo que vale! Cuando comparta conceptos comerciales, ¡tómelos con un grano de sal! ¡Soy solo un tutorial, no su asesor financiero! ¡Estoy aquí para enseñarte Superalgos, no para decirte cómo comerciar! Si no es un comerciante, puede adquirir algo de valor, ¡pero asegúrese siempre de hacer su propia investigación!",
+                    "updated": 1630376997809
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "This tutorial is aimed at a wide audience! I'll take it easy and lay out concepts so that everyone may understand them. If you are a seasoned trader you may feel some explanations are too basic. In that case, feel free to skip this tutorial and go to the next one in the series.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": " Me lo tomaré con calma y expondré conceptos para que todos puedan entenderlos. Si eres es un comerciante experimentado, puede sentir que algunas explicaciones son demasiado básicas. En ese caso, no dudes en omitir este tutorial y pasar al siguiente de la serie.",
+                    "updated": 1630377193083
+                }
+            ]
+        }
+    ]
+}

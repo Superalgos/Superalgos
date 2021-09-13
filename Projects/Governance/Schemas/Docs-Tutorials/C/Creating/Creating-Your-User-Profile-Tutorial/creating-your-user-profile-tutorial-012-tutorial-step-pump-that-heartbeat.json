@@ -1,0 +1,58 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 12,
+    "type": "Tutorial Step - Pump that Heartbeat!",
+    "definition": {
+        "text": "Now let’s configure the Profile Constructor so that we may later build the profile!",
+        "updated": 1630658339365,
+        "icon": {
+            "name": "configuration",
+            "project": "Governance"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Ahora configuremos el Profile Constructor para que luego podamos construir el perfil.",
+                "updated": 1630887647502,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Click the configuration option and enter your GitHub username like this:",
+            "updated": 1629553104003,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Has clic en la opción de configuración e ingrese su nombre de usuario de GitHub así:",
+                    "updated": 1630888170425,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "{\n\"githubUsername\": \"My-Awesome-Username\"\n\"mnemonic\": \"\"\n}",
+            "updated": 1629706380660
+        },
+        {
+            "style": "Text",
+            "text": "If you want to link an address you already own, type the twelve word mnemonic associated with your address under the mnemonic property. If not, leave the property blank and the system will make a new one for you!",
+            "updated": 1629706491511,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para vincular una dirección que ya posees, escribe el mnemónico de doce palabras asociado con tu dirección en la propiedad mnemónico. De lo contrario, deja la propiedad en blanco y el sistema creará una nueva.",
+                    "updated": 1630888231106,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

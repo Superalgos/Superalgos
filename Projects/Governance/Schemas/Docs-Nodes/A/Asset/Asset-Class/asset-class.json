@@ -1,0 +1,31 @@
+{
+    "type": "Asset Class",
+    "definition": {
+        "text": "The Asset Class node is an organizational device used to group Asset nodes in arbitrary arrangements. The node may receive Weight Votes. When it does, votes are evenly distributed among offspring nodes.",
+        "updated": 1624720632494
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624720655011
+        },
+        {
+            "style": "Text",
+            "text": "You may direct Weight Votes to an Asset Class node when you intend to drive Weight to the whole class, including all assets within.",
+            "updated": 1630434955110
+        },
+        {
+            "style": "Text",
+            "text": "Asset Class nodes may take incoming Weight Votes. When you cast Weight Votes on an Asset Class node, votes cascade evenly to all offspring nodes."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "tutorial": "Beyond the Basics",
+    "pageNumber": 1,
+    "type": "Beyond the Basics Tutorial",
+    "definition": {
+        "text": "This tutorial covers the setup to allow the app to interact with your Github fork, the commands to update the app, switching branches, and how to contribute to the project.",
+        "updated": 1616697721841,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este tutorial cubre la configuración para permitir que la aplicación interactúe con tu fork de Github, los comandos para actualizar la aplicación, cambiar de rama y cómo contribuir al proyecto.",
+                "updated": 1628204964884
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "About This Tutorial",
+            "updated": 1617111531823
+        },
+        {
+            "style": "List",
+            "text": "Workspace: Getting Started Plugin Workspace."
+        },
+        {
+            "style": "List",
+            "text": "Maintainer: @julianmolina (Telegram)."
+        }
+    ]
+}

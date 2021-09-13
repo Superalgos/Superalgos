@@ -1,0 +1,23 @@
+{
+    "type": "Open",
+    "definition": {
+        "text": "Open is the rate at the datetime of the begin property, as provided by the exchange. That is, the rate at the open of the candle.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Open es la tasa en la fecha y hora de la propiedad de inicio, según lo dispuesto por el exchange. Es decir, la tasa de apertura de la vela.",
+                "updated": 1628897429918
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Right click and Edit to enter edit mode and change this text."
+        }
+    ]
+}

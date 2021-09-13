@@ -1,0 +1,61 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 9,
+    "type": "Tutorial Step - Program Participation",
+    "definition": {
+        "text": "How you use your Token Power is defined within a number of Governance Programs within your profile hierarchy.",
+        "updated": 1630657749389,
+        "icon": {
+            "name": "User\\user-referrer",
+            "project": "Governance"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Cómo usas tu Token Power se define dentro de una serie de Governance Programs dentro de la jerarquía de su perfil.",
+                "updated": 1630875913309,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "These programs help organize the types of development and community relationships you want to reward.",
+            "updated": 1630657777891,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Estos programas ayudan a organizar los tipos de desarrollo y relaciones comunitarias que deseas recompensar.",
+                    "updated": 1630877556436,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "For instance, the Claims Program lets you present claims for the work you’ve done. While the Support Program lets you thank other Superalgos users that have helped you with technical support. ",
+            "updated": 1629166416422,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Por ejemplo, el Claims Program le permite presentar reclamaciones por el trabajo que ha realizado. Mientras que la Support Program te permite agradecer a otros usuarios de Superalgos que te han ayudado con el soporte técnico.",
+                    "updated": 1630878873256,
+                    "style": "Note"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "We’ll cover all these and other programs in detail once you have a working profile!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Cubriremos todos estos y otros programas en detalle una vez que tengas un perfil funcional!",
+                    "updated": 1630878930911,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

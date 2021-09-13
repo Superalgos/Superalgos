@@ -1,0 +1,70 @@
+{
+    "tutorial": "Setting Up a New Chart",
+    "pageNumber": 7,
+    "type": "Tutorial Step - Adjust for Your Exchange",
+    "definition": {
+        "text": "You may remember this question from the welcome tutorial. Are you trading at binance.com or binance.us?",
+        "updated": 1628362159423,
+        "icon": {
+            "name": "crypto-exchange",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Puedes recordar esta pregunta del tutorial de bienvenida. ¿Estás operando en binance.com o binance.us?",
+                "updated": 1628639559252
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This workspace was built using binance.com. If that is your exchange, go ahead and skip this step. However, if your data is stored on binance.us you will need to make one quick adjustment.",
+            "updated": 1628362179049,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Este espacio de trabajo fue construido usando binance.com. Si ese es su intercambio, continúe y omita este paso. Sin embargo, si sus datos están almacenados en binance.us, deberá realizar un ajuste rápido.",
+                    "updated": 1628639619761
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Configure the Binance node to your left.",
+            "updated": 1628362210759,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Configure el nodo Binance a tu izquierda.",
+                    "updated": 1628639643918
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Open the configuration and change the codeName to binanceus. Move the mouse pointer out of the configuration bubble and it will close and save automatically.",
+            "updated": 1628362245139,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Open la configuración y cambiar la codeName a binanceus. Mueva el puntero del mouse fuera de la burbuja de configuración y se cerrará y guardará automáticamente.",
+                    "updated": 1628639735404
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Edit the label of the node to read Binanceus.",
+            "updated": 1628362267536,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Clic en Edit de la etiqueta del nodo a leer Binanceus.",
+                    "updated": 1628639820319
+                }
+            ]
+        }
+    ]
+}

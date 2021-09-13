@@ -1,0 +1,38 @@
+{
+    "type": "Asset Weight Vote",
+    "definition": {
+        "text": "Use this node to establish a reference with an Asset node in an Assets hierarchy. With this vote, you are passing on Weight Power to the referenced node. That way, the node gets more of the Token Rewards available in the hierarchy. This is how you influence how different areas of the project are incentivized.",
+        "updated": 1630356598807
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1630356862496
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Weight Votes->Content"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Working on Multiple Workspaces"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Deep in Governance"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Computational Limitations 2"
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

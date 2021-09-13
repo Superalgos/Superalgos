@@ -11,18 +11,21 @@
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "label": "Add Process Definition",
             "relatedUiObject": "Process Definition",
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "label": "Add Product Definition",
             "relatedUiObject": "Product Definition",
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Foundations",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -48,14 +51,14 @@
             "name": "processes",
             "type": "array",
             "childType": "Process Definition",
-            "project": "Superalgos",
+            "project": "Foundations",
             "autoAdd": true
         },
         {
             "name": "products",
             "type": "array",
             "childType": "Product Definition",
-            "project": "Superalgos",
+            "project": "Foundations",
             "autoAdd": true
         }
     ],

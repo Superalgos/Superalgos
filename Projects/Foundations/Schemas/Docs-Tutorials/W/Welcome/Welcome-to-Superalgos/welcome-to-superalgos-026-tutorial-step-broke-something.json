@@ -1,0 +1,97 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 26,
+    "type": "Tutorial Step - Broke Something?",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "workspace"
+        },
+        "text": "If you ever break something&mdash;like deleting a node or changing a configuration&mdash;and don't know how to deal with the outcome...",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Se ti capiterà mai di rompere qualcosa (per esempio cancellare un nodo o cambiare una configurazione) e non sai come sistemare...",
+                "updated": 1614791180230,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Jika kamu merusak sesuatu seperti menghapus node atau merubah konfigurasi dan tidak tahu cara untuk menghadapinya...",
+                "updated": 1616770121960,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Si alguna vez rompes algo -como borrar un nodo por error o cambiar la configuración- y no sabes cómo afrontar el resultado...",
+                "updated": 1618438157553,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "... you may easily start over with the original Getting Started Tutorials Plugin Workspace!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "...c'è un modo semplice di ricominciare con un nuovo workspace!",
+                    "updated": 1614791206441,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "... ada cara mudah untuk memulai kembali dengan workspace baru!",
+                    "updated": 1616770151572,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Puedes volver a empezar fácilmente con los tutoriales de introducción originales en el Workspace!",
+                    "updated": 1624292407924,
+                    "style": "Callout"
+                }
+            ],
+            "updated": 1622196973760
+        },
+        {
+            "style": "Text",
+            "text": "In such a case, just pull the tab on the left-hand side, scroll, find the Getting Started Tutorials plugin, and click it! The original Plugin Workspace will load and the tutorial will show up again, fresh from the start!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Tutto ciò che devi fare è tirare la tab sul lato sinistro dello schermo e cliccare sul plugin workspace Getting-Started.",
+                    "updated": 1614791245119,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "yang kamu butuhkan yaitu menarik tab yang ada di sisi kiri dari layarmu dan click pada Getting-Started plugin workspace.",
+                    "updated": 1616770232356,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Todo lo que tienes que hacer es tirar de la pestaña de la izquierda de la pantalla y hacer clic en Getting-Started plugin workspace.",
+                    "updated": 1618438234984,
+                    "style": "Text"
+                }
+            ],
+            "updated": 1622634394712
+        },
+        {
+            "style": "Success",
+            "text": "Plugin Workspaces ship with the system. Let's see how you can make them your own, or create new workspaces!",
+            "updated": 1629802595052,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Plugin Workspaces son los primeros en la lista con un fondo negro. Luego viene la lista de espacios de trabajo de usuarios, sobre un fondo violeta.",
+                    "updated": 1624292101033,
+                    "style": "Note"
+                }
+            ]
+        }
+    ]
+}

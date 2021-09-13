@@ -1,0 +1,62 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 61,
+    "type": "Tutorial Step - Plotters Magic!",
+    "definition": {
+        "icon": {
+           "project": "Foundations",
+            "name": "plotter"
+        },
+        "text": "And this is how plotters are built! Plotters create graphical representations of data... from candles, to everything else!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ed ecco come vengono costruiti i Plotters! Essi creano rappresentazioni grafiche di tutti i dati...dalle candele, a qualsiasi altra cosa!",
+                "updated": 1618056813296,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Y así es como se construyen los trazadores! Los trazadores crean representaciones gráficas de datos ... ¡desde velas hasta todo lo demás!",
+                "updated": 1624413955983
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Again, visual scripting at its best! Plotters use stylized polygons made out of coordinate points to paint lines and shapes that represent data. Every layer made available on the charts is created with a set of definitions of the sort you are looking at right now. The particular case of the Resistances and Supports bot is a rather complex one, but does showcase the power of the tool!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Di nuovo, il meglio del visual scripting! I Plotters usano poligoni stilizzati definiti da punti e coordinate per disegnare linee e forme che rappresentano dati. Ogni layer disponibile sul grafico è creato da un insieme di definizioni come quello che stai guardando ora. Il caso del bot dei Supporti e Resistenze è abbastanza complesso, ma mostra la potenza di questo strumento!",
+                    "updated": 1618057031198,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Una vez más, guiones visuales en su máxima expresión. Los trazadores utilizan polígonos estilizados hechos de puntos de coordenadas para pintar líneas y formas que representan datos. Cada capa disponible en los gráficos se crea con un conjunto de definiciones del tipo que estas viendo en este momento. El caso particular del bot Resistances y Supports es bastante complejo, ¡pero muestra el poder de la herramienta!",
+                    "updated": 1624414165332
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Find the Resistance Zone 5 Polygon (to the left), expand it, and crawl your way up the branches for a sneak peek of how this beauty was built!",
+            "updated": 1610623154560,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Cerca il Resistance 5 Polygon (qui a sinistra), espandilo e esplora i percorsi che collegano i vari componenti per osservare come è stata costruita questa bellezza!",
+                    "updated": 1618057208787,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Encuentra el Resistance Zone 5 Polygon (a la izquierda), amplíalo y trepa por las ramas para echar un vistazo a cómo se construyó esta belleza.",
+                    "updated": 1624414251258
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "topic": "Gov Commands Messages",
+    "pageNumber": "1",
+    "type": "Gov Message - Pull Requests Processed",
+    "definition": {
+        "text": "The pull requests at the main Superalgos repository have been succesfully processed.",
+        "updated": 1628336677481,
+        "translations": []
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "No further action from you is required. The PRs Processing Rules have been applied and all PRs that could be merged were merged.",
+            "updated": 1611002626154,
+            "translations": []
+        }
+    ]
+}

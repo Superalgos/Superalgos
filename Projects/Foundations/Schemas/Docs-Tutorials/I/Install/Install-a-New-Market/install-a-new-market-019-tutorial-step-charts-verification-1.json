@@ -1,0 +1,54 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 19,
+    "type": "Tutorial Step - Charts Verification 1",
+    "definition": {
+        "icon": {
+            "name": "Charting-Space/charting-space",
+            "project": "Foundations"
+        },
+        "text": "Verify that the Charting Space data structures for the corresponding Market were created successfully.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Verifica que las estructuras de datos del Charting Space para el mercado correspondiente se crearon con éxito.",
+                "updated": 1629251098125
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Look for the following data structures:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Busca las siguientes estructuras de datos:",
+                    "updated": 1629251126491
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "A Time Machine node for each trading session created in the Testing Trading Tasks.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un nodo Time Machine para cada Trading Session creada en el Testing Trading Tasks.",
+                    "updated": 1629251359090
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "A Time Machine node for each trading session created in the Production Trading Tasks.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un nodo Time Machine oara cada Trading Session creada en el Production Trading Tasks.",
+                    "updated": 1629251407209
+                }
+            ]
+        }
+    ]
+}

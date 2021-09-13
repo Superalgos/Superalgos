@@ -1,0 +1,53 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 2,
+    "type": "Tutorial Step - Better Together",
+    "definition": {
+        "text": "This is the Governance Project! Today I will help you create a User Profile and join the first few Governance Programs!",
+        "updated": 1630870465142,
+        "icon": {
+            "name": "governance",
+            "project": "Governance"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este es el Governance Project! Hoy te ayudaré a crear un User ProfileY únete a los primeros Governance Programs",
+                "updated": 1630870722161,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "\"But before you start, you should know that you may only submit your profile to the Develop branch, so it's time to switch!",
+            "updated": 1630870593062,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Pero antes de comenzar, debe saber que solo puede enviar su perfil a la rama Develop , ¡así que es hora de cambiar!",
+                    "updated": 1630870746617,
+                    "style": "Note"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the footer and switch both the Contributions Branch and the Current Branch to Develop. <br/><br/>Now run the app.update command to get up to date with Develop, restart the Client and UI, and only then may you proceed with this tutorial!",
+            "updated": 1630923957096,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Ve al pie de página y cambia la rama Contrubutions  a la Develop. Luego cierra y reinicia la aplicación después del cambio. Una vez que estés de regreso, ejecuta el comando app.update para actualizarse con Develop, reiniciar, ¡y solo entonces podrá continuar con este tutorial!",
+                    "updated": 1630870801873,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

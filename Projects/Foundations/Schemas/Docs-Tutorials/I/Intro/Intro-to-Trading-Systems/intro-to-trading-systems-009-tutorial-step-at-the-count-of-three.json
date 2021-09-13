@@ -1,0 +1,55 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 9,
+    "type": "Tutorial Step - At The Count of Three!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "condition"
+        },
+        "text": "BB Top Bounce features an interesting approach: it defines the trading idea with three simple conditions.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "BB Top Bounce presenta un enfoque interesante: define la idea comercial con tres condiciones simples.",
+                "updated": 1629591593112
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You are looking at the Trigger On Event of the first strategy. Notice the first three conditions defined...",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Estás mirando el Trigger On Event de la primera estrategia. Observa las tres primeras condiciones definidas...",
+                    "updated": 1629591638723
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Now go and look at the trigger on event of any of the other strategies... What do you see?",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Ahora ve y mira el desencadenante de cualquiera de las otras estrategias ... ¿Qué ves?",
+                    "updated": 1629591679346
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Exactly! All strategies feature the same first three conditions on the trigger on event. This shows that all strategies are based on the same trading idea. Now... how are they different?",
+            "updated": 1610466052450,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Exactamente! Todas las estrategias presentan las mismas tres primeras condiciones en el desencadenante del evento. Esto muestra que todas las estrategias se basan en la misma idea de trading. Ahora... ¿en qué se diferencian?",
+                    "updated": 1629591763135
+                }
+            ]
+        }
+    ]
+}

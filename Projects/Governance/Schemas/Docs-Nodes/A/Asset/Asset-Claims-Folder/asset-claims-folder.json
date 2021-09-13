@@ -1,0 +1,22 @@
+{
+    "type": "Asset Claims Folder",
+    "definition": {
+        "text": "Use this node as an organizational device, to spawn Asset Contribution Claim nodes, and to map entire structures in an Assets hierarchy to place multiple Contribution Claims at once.",
+        "updated": 1630352114041
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Claims Folder->Content",
+            "updated": 1630259502301
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

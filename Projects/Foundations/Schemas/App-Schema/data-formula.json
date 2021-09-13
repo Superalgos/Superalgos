@@ -1,0 +1,33 @@
+{
+    "type": "Data Formula",
+    "level": 4,
+    "propertyNameAtParent": "dataFormula",
+    "editors": {
+        "formula": true
+    },
+    "initialValues": {
+        "code": "// Type your code"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Panel Data->"
+    },
+    "menuItems": [
+        {
+            "action": "Edit",
+            "actionFunction": "uiObject.formulaEditor.activate",
+            "label": "Edit",
+            "iconPathOn": "javascript-code",
+            "iconPathOff": "javascript-code"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true
+}

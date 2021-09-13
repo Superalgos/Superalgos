@@ -1,0 +1,22 @@
+{
+    "type": "Feature Claims Folder",
+    "definition": {
+        "text": "Use this node as an organizational device, to spawn Feature Contribution Claim nodes, and to map entire structures in a Features hierarchy to place multiple Contribution Claims at once.",
+        "updated": 1630352152356
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Claims Folder->Content",
+            "updated": 1630260159250
+        },
+        {
+            "style": "Block",
+            "text": "Cnfiguration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

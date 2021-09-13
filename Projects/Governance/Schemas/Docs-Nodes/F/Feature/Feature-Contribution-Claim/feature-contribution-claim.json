@@ -1,0 +1,27 @@
+{
+    "type": "Feature Contribution Claim",
+    "definition": {
+        "text": "Use this node to reference a Feature node in one of the Features hierarchy to establish a Feature Contribution Claim. This claim means that you declare that you have worked on that Feature, either creating or improving it, and that you expect to be rewarded accordingly!",
+        "updated": 1630349366359
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624728714757
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Claims Content",
+            "updated": 1630325534128
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

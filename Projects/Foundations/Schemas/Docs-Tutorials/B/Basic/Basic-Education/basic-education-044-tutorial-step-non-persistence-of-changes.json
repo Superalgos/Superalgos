@@ -1,0 +1,76 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 44,
+    "type": "Tutorial Step - Non-Persistence of Changes",
+    "definition": {
+        "text": "Remember I said that the plugin file is loaded every time the workspace is loaded? This feature has an immediate consequence...",
+        "icon": {
+            "name": "Bullet\\bullet-error",
+            "project": "Foundations"
+        },
+        "updated": 1615978752612,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ricordi che ho detto che i file plugin vengono ricreati ogni volta che ricarichi il Workspace? Questo ha delle conseguenze immediate...",
+                "updated": 1619590273553,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Recuerda que dije que el archivo plugin se carga cada vez que se carga el espacio de trabajo? Esta característica tiene una consecuencia inmediata ...",
+                "updated": 1626655086632,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Warning",
+            "text": "Hierarchies placed in the workspace as plugins do not save with the workspace by default. As a result, changes made in those hierarchies do not persist, unless you save them manually or enable automatic saving. ",
+            "updated": 1629897700219,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Le gerarchie incluse come plugins non sono salvate a livello del workspace, quindi i cambiamenti che applichi ai loro oggetti non sono persistenti. Se vuoi modificare un plugin e mantenere i cambiamenti in futuro, devi clonarlo o fare il backup e lavorare sulla copia.",
+                    "updated": 1619590378028,
+                    "style": "Warning"
+                },
+                {
+                    "language": "ES",
+                    "text": "Hierarchies incluidos en el workspace, ya que los plugins no se guardan en el nivel del workspace. Como tal, los cambios realizados en esas jerarquías no persisten. Si deseas modificar un plugin y seguir trabajando con la versión modificada en el futuro, debes clonar o hacer una copia de seguridad del plugin y trabajar en la copia resultante.",
+                    "updated": 1626702533816,
+                    "style": "Warning"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "There are two main use cases for modifying plugins:",
+            "updated": 1629897808476,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nei prossimi step vedremo più in dettaglio quanto detto!",
+                    "updated": 1619590413453,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Pasaré por algunos casos de uso específicos en los próximos pasos!",
+                    "updated": 1626702765005,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "You wish to modify a plugin to make it your own and keep working with the modified version in the future.",
+            "updated": 1629897838348
+        },
+        {
+            "style": "List",
+            "text": "You wish to update and improve a plugin to contribute the improvements to the project."
+        }
+    ]
+}

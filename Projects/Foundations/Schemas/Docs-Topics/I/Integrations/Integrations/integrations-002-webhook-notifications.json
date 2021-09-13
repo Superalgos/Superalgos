@@ -1,0 +1,573 @@
+{
+    "topic": "Integrations",
+    "pageNumber": "2",
+    "type": "Webhook Notifications",
+    "definition": {
+        "text": "Receive webhook notifications from other systems like Trading View, and use them as signals in your strategies.",
+        "updated": 1615365927821
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Overview",
+            "updated": 1611486037477
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos allows you to receive webhook notifications from TradingView or any other system supporting webhooks. You may use this feature to turn notifications into signals upon which you may act from within your strategies."
+        },
+        {
+            "style": "Title",
+            "text": "How does it Work?",
+            "updated": 1615366465462
+        },
+        {
+            "style": "List",
+            "text": "Receving Data: the Client receives via it's http interface notifications from external sources (like Trading View) and keep the data received in-memory. This happens independently of the Webhooks Sensor Bot, meaning that it does not matter if the Webhook Sensor Bot is running or not.",
+            "updated": 1615366502234
+        },
+        {
+            "style": "List",
+            "text": "Retrieving Data: The Webhooks Sensor Bot, when it is running, queries the Client and ask it for the in-memory data it holds.",
+            "updated": 1615366526381
+        },
+        {
+            "style": "List",
+            "text": "Saving Data: The Webhooks Sensor Bot saves this data to disk.",
+            "updated": 1615366538404
+        },
+        {
+            "style": "List",
+            "text": "Consuming Data: A Trading Bot running a Strategy, might consume the data saved by the Webhooks Sensor Bot.",
+            "updated": 1615366547425
+        },
+        {
+            "style": "Text",
+            "text": "The rest of this page describes the set up process and how to use webhook notifications from within Superalgos."
+        },
+        {
+            "style": "Title",
+            "text": "Set-up the Client for Webhooks"
+        },
+        {
+            "style": "Text",
+            "text": "There is nothing to configure in order for the Client to receive webhooks calls from external systems. The only thing you might need to do is to change the http interface port number at the Environment.js file if and only if your signals provider has any constraints regarding the port number it can send the notifications to."
+        },
+        {
+            "style": "Title",
+            "text": "Run a Quick Local Test"
+        },
+        {
+            "style": "Text",
+            "text": "Before setting up the actual signal at the corresponding provider, you may run a quick local test that will help you familiarize with how Superalgos handles webhooks."
+        },
+        {
+            "style": "Text",
+            "text": "In the crypto ecosystem node menu, select Add Signals Providers. A structure of nodes is added with a signals provider node that allows you to run a little test. Select Configure Signals Provider on the menu."
+        },
+        {
+            "style": "Json",
+            "text": "{\n\"webhookURL\": \"Webhook/New-Message/Trading-View/binance/BTC-USDT\",\n\"testMessage\": \"\"\n}",
+            "updated": 1615370606690
+        },
+        {
+            "style": "List",
+            "text": "webhookURL: This is the URL you need to use for testing purposes. Make sure you refer to the correct exchange and market. Something very similar to this, you will configure later at Trading View or other Signal Provider. ",
+            "updated": 1615368679683
+        },
+        {
+            "style": "List",
+            "text": "testMessage: Enter any message, for testing purposes. This message will be what you will use at your Trading System conditions to know which type of signal you received. ",
+            "updated": 1615368846219
+        },
+        {
+            "style": "Subtitle",
+            "text": "testMessage Examples"
+        },
+        {
+            "style": "Javascript",
+            "text": "BUY"
+        },
+        {
+            "style": "Javascript",
+            "text": "SELL"
+        },
+        {
+            "style": "Javascript",
+            "text": "TRIGGER ON"
+        },
+        {
+            "style": "Javascript",
+            "text": "TRIGGER OFF"
+        },
+        {
+            "style": "Javascript",
+            "text": "TAKE POSITION"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Send the Test Message to the Client",
+            "updated": 1615368890166
+        },
+        {
+            "style": "Text",
+            "text": "Once the test message is configured, select Send Test Message on the menu."
+        },
+        {
+            "style": "Success",
+            "text": "By doing this, you are simulating being Trading View's server and sending the message in the exact same way they would do it, to the Superalgos Client you are running. "
+        },
+        {
+            "style": "Text",
+            "text": "The Client does not know you are sending a Test Message, and it does not know it is you and not the real Trading View. For the Client's point of view someone sent a Webhook message to it and it will do with it what it will do with any other message of this type. Store it in-memory waiting for the Webhook Sensor Bot to fetch the pending messages, in which case the Client will delete them upon delivery to the Sensor Bot.",
+            "updated": 1615369237281
+        },
+        {
+            "style": "Note",
+            "text": "At the Signals Provider node you will see a message of failure or success depending if the message was succesfuly delivered to the Client or not."
+        },
+        {
+            "style": "Note",
+            "text": "At the Client 's console, you will see 3 lines of logs, aknolidging that the message was received or if something was wrong, an error message with the cause."
+        },
+        {
+            "style": "Text",
+            "text": "The success logs looks like this:"
+        },
+        {
+            "style": "Javascript",
+            "text": "[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = binance-BTC-USDT\n[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = Sell\n[INFO] httpInterface -> Webhook -> New-Message -> Messeges waiting to be Ferched by Webhooks Sensor Bot = 1",
+            "updated": 1615370618823
+        },
+        {
+            "style": "Title",
+            "text": "Set-up the Webhooks Sensor Bot Tasks",
+            "updated": 1615370044893
+        },
+        {
+            "style": "Text",
+            "text": "The Webhooks Data Mine features the definition of the Webhooks sensor bot used to monitor incoming notifications. You need to run an instance of this bot in the data mining section of the exchange and market of your choice.",
+            "updated": 1629361373616
+        },
+        {
+            "style": "Text",
+            "text": "The Getting-Started-Tutorials workspace does not have this Data Mine as a plugin so you will need to add it first. To do that locate the Plugins node, expand it and at the Plugins Data Mines add a New Plugin File. You can setup it's configuration like this:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"project\": \"Foundations\",\n    \"fileName\": \"Webhooks\",\n    \"folderName\": \"Data-Mines\",\n    \"nodeType\": \"Data Mine\",\n    \"saveWithWorkspace\": false\n}",
+            "updated": 1629361560976
+        },
+        {
+            "style": "Text",
+            "text": "The default workspace does not feature these tasks. To create a task for the Webhooks sensor bot, you need to uninstall and re-install the corresponding market.  The prcess of installing a market adds all the tasks needed to run all the bots defined at all Data Mines present at the workspace.",
+            "updated": 1629361603647
+        },
+        {
+            "style": "Success",
+            "text": "Once the Webhooks sensor task is set up, you are all set at the application level. It’s that simple.",
+            "updated": 1615370160742
+        },
+        {
+            "style": "Title",
+            "text": "Running the Webhooks Sensor Bot"
+        },
+        {
+            "style": "Text",
+            "text": "Now that you have verified that the Client is receiving the signal messages and storing them for you, the next thing to do is to run the Webhooks Sensor Bot so that it fetches the signals from the Client and saves them on disk in the format that later can be consumed from strategies.",
+            "updated": 1615369878800
+        },
+        {
+            "style": "Text",
+            "text": "By default, this bot will run every 30 seconds. Each time it runs you will see logs entries at the Client 's console similar to this:"
+        },
+        {
+            "style": "Javascript",
+            "text": "2021-03-10T09:57:40.111Z              Binance   BTC/USDT              Masters                       Webhooks                  Check-Webhook          Main Loop #        3\n[INFO] httpInterface -> Webhook -> Fetch-Messages -> Exchange-Market = binance-BTC-USDT\n[INFO] httpInterface -> Webhook -> Fetch-Messages -> Messeges Fetched by Webhooks Sensor Bot = 0",
+            "updated": 1615370294905
+        },
+        {
+            "style": "Title",
+            "text": "Send Test Messages while Sensor Bot is Running",
+            "updated": 1615371461320
+        },
+        {
+            "style": "Text",
+            "text": "Now that you know how to send test messages, try doing that while the Sensor Bot is running. By looking at the Client 's console you will be able to see what is going on:",
+            "updated": 1615370466427
+        },
+        {
+            "style": "List",
+            "text": "The Client accumulates the signas received.",
+            "updated": 1615370477786
+        },
+        {
+            "style": "List",
+            "text": "The Sensor Bot fetches all the accumulated signals every time it runs."
+        },
+        {
+            "style": "Text",
+            "text": "In the example below I sent 3 signal messages from the UI to the Client, and then the Sensor Bot fetch them all."
+        },
+        {
+            "style": "Javascript",
+            "text": "[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = binance-BTC-USDT\n[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = Sell\n[INFO] httpInterface -> Webhook -> New-Message -> Messeges waiting to be Fetched by Webhooks Sensor Bot = 1\n[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = binance-BTC-USDT\n[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = Sell\n[INFO] httpInterface -> Webhook -> New-Message -> Messeges waiting to be Fetched by Webhooks Sensor Bot = 2\n[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = binance-BTC-USDT\n[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = Sell\n[INFO] httpInterface -> Webhook -> New-Message -> Messeges waiting to be Fetched by Webhooks Sensor Bot = 3\n2021-03-10T10:04:40.472Z              Binance   BTC/USDT              Masters                       Webhooks                  Check-Webhook          Main Loop #       17\n[INFO] httpInterface -> Webhook -> Fetch-Messages -> Exchange-Market = binance-BTC-USDT\n[INFO] httpInterface -> Webhook -> Fetch-Messages -> Messeges Fetched by Webhooks Sensor Bot = 3",
+            "updated": 1615370778562
+        },
+        {
+            "style": "Title",
+            "text": "Webhooks Sensor Bot Output"
+        },
+        {
+            "style": "Text",
+            "text": "The Webhooks sensor bot outputs a single file, Data.json, in the following location: ",
+            "updated": 1611486267182
+        },
+        {
+            "style": "Json",
+            "text": " Data-Storage\\Project\\Superalgos\\Data-Mine\\Masters\\Webhooks\\Exchange-Id\\Market\\Output\\External-Signals\\Single-File\n",
+            "updated": 1615371100856
+        },
+        {
+            "style": "Text",
+            "text": "Based on our tests, the location you would find the file would be:",
+            "updated": 1615371008258
+        },
+        {
+            "style": "Json",
+            "text": "Data-Storage\\Project\\Superalgos\\Data-Mine\\Masters\\Webhooks\\binance\\BTC-USDT\\Output\\External-Signals\\Single-File",
+            "updated": 1615371017985
+        },
+        {
+            "style": "Text",
+            "text": "You may open the file and see if the content corresponds to what is expected."
+        },
+        {
+            "style": "Note",
+            "text": "Make sure the Webhooks sensor bot task is running. The process is configured to run every 30 seconds by default. If that time has passed, you should find the messages you may have sent.",
+            "updated": 1611486302392
+        },
+        {
+            "style": "Text",
+            "text": "This is what the file may look like after the 3 test messages we sent:",
+            "updated": 1615370943470
+        },
+        {
+            "style": "Json",
+            "text": "[[1615370665064,\"Trading-View\",\"Sell\"],[1615370665655,\"Trading-View\",\"Sell\"],[1615370666472,\"Trading-View\",\"Sell\"]]\n",
+            "updated": 1615370924302
+        },
+        {
+            "style": "Text",
+            "text": "As per the record definition of the Webhooks sensor bot in the Masters data mine, each record in the file features three fields:"
+        },
+        {
+            "style": "List",
+            "text": "timestamp: the Unix datetime of the message. This is the moment in time the Client received the signal from the external Signals provider.",
+            "updated": 1615371169447
+        },
+        {
+            "style": "List",
+            "text": "source: the name of the Signal Provider. This comes as part of the message sent by the provider, because is part of the URL you will specify later at the Signal Provider's system. In our example we used Trading View, but in fact it could be any other provider. You will have this property available at your Trading System, meaning that you will be able to write conditions that distingish the signal by Signal Provider.",
+            "updated": 1615371322994
+        },
+        {
+            "style": "List",
+            "text": "message: the message set up at the provider’s system (BUY, SELL, etc.).",
+            "updated": 1615371373274
+        },
+        {
+            "style": "Title",
+            "text": "Using Webhooks Signals from within Strategies"
+        },
+        {
+            "style": "Text",
+            "text": "You may use each of the three available properties with the following syntax:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.atAnyTimeFrame.externalSignal.timestamp"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.atAnyTimeFrame.externalSignal.source"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.atAnyTimeFrame.externalSignal.message"
+        },
+        {
+            "style": "Text",
+            "text": "For example, a simple condition evaluating to true when a the last message received is a buy signal from TradingView would look like this:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.atAnyTimeFrame.externalSignal.source === \"Trading-View\" && \nchart.atAnyTimeFrame.externalSignal.message === \"BUY\"",
+            "updated": 1615371544991
+        },
+        {
+            "style": "Text",
+            "text": "You may also use the previous property to check the previous message, as follows:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.atAnyTimeFrame.externalSignal.previous.message === \"BUY\"",
+            "updated": 1615371536367
+        },
+        {
+            "style": "Text",
+            "text": "It may be wise to verify the date of the message, or to check if the message corresponds to a certain time frame. To do that, you may use the isItInside function as follows:"
+        },
+        {
+            "style": "Javascript",
+            "text": "isItInside(chart.atAnyTimeFrame.externalSignal, chart.at01hs.candle)"
+        },
+        {
+            "style": "Text",
+            "text": "In the above example, the first parameter chart.atAnyTimeFrame.externalSignal is the signal object you wish to check, and the second parameter chart.at01hs.candle is any other object that is delimited in time. In this case, the condition validates true if the last message falls within the last 1-hour candle."
+        },
+        {
+            "style": "Warning",
+            "text": "The reason to make this validation is to avoid situations where the Webhook sensor bot was not running and it retrieved from the Client signals that are already old. If you do not check the age of the signal you might get into the situation where you are triggering a buy or sell based on old data."
+        },
+        {
+            "style": "Title",
+            "text": "Test that the Signal is Taken by your Strategy",
+            "updated": 1615377044554
+        },
+        {
+            "style": "Text",
+            "text": "We will make ourselves sure that from within a strategy we can react to an external Signal. To test this, plese take the following steps. All of the following goes into the current Lighting Strike Backtesting Session / Task.",
+            "updated": 1615379790606
+        },
+        {
+            "style": "Subtitle",
+            "text": "Paper Trading Session",
+            "updated": 1615380274411
+        },
+        {
+            "style": "Text",
+            "text": "Rigth click over the Backtesting Session node and select switch to Paper Trading so that we can simulate live trading without connecting to the exchange."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Set-up Session Parameters"
+        },
+        {
+            "style": "Text",
+            "text": "Since you have reinstalled the market in order for the task of the Webhooks bot to appear at the Master Trading Mine Tasks, the setup for the Lighting Strike strategy needs to be fixed. (Assuming you are at the Getting Started Workspace). This is what we are going to do:",
+            "updated": 1615379719899
+        },
+        {
+            "style": "Text",
+            "text": "Apply this config to your Session Base Asset",
+            "updated": 1615379980416
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"initialBalance\": 0\n}",
+            "updated": 1615382028446
+        },
+        {
+            "style": "Text",
+            "text": "Apply this config to the Session Quoted Asset",
+            "updated": 1615379973089
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"initialBalance\": 1\n}",
+            "updated": 1615380003924
+        },
+        {
+            "style": "Text",
+            "text": "Apply this config to the Time Range",
+            "updated": 1615380023496
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"initialDatetime\": \"2020-09-01\",\n    \"finalDatetime\": \"2030-09-02\"\n}",
+            "updated": 1615380126836
+        },
+        {
+            "style": "Text",
+            "text": "The initialDatetime will be ingoned because we are running a Paper Trading Session. The important thing is that the finalDatetime is in the future.",
+            "updated": 1615380159343
+        },
+        {
+            "style": "Text",
+            "text": "Apply this config to the Time Frame",
+            "updated": 1615380180549
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"label\": \"01-min\"\n}",
+            "updated": 1615380196254
+        },
+        {
+            "style": "Subtitle",
+            "text": "Set-up the Strategy for Webhooks Signals",
+            "updated": 1615380571676
+        },
+        {
+            "style": "Text",
+            "text": "Inside the Lighting Strike trading system locate the Trigger On Event, and paste the following into the Javascript Node of the only condition it has.",
+            "updated": 1615380721252
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.atAnyTimeFrame.externalSignal.message === \"TRIGGER ON\"",
+            "updated": 1615380737459
+        },
+        {
+            "style": "Text",
+            "text": "What we are doing here is setting the strategy to be triggered once an external signal with the message TRIGGER ON is received via the Webhook Sensor Bot."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Run the Data Mining Tasks"
+        },
+        {
+            "style": "Text",
+            "text": "For this test, since we are Paper Trading, we will need a live stream of data from the exchange. We don't need to run all the Task of Mater Data Mining, only the ones needed by the Lighting Strike strategy:"
+        },
+        {
+            "style": "List",
+            "text": "Exchange Raw Data"
+        },
+        {
+            "style": "List",
+            "text": "Candles Volumens"
+        },
+        {
+            "style": "List",
+            "text": "Resistances and Supports"
+        },
+        {
+            "style": "List",
+            "text": "Webhooks "
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Subtitle",
+            "text": "Run Task and Session"
+        },
+        {
+            "style": "Text",
+            "text": "Run Task and the Session, and monitor the chart that was called Backtesting (now that is our Papertrading session), at the end of the market at the 1 minute time frame. Turn on the Episodes layer and wait for a few minutes until you see the Episode icons appear at the charts.",
+            "updated": 1615380482184
+        },
+        {
+            "style": "Text",
+            "text": "Before running the task and session, delete the data at "
+        },
+        {
+            "style": "Javascript",
+            "text": "Data-Storage\\Project\\Superalgos\\Data-Mine\\Masters\\Webhooks",
+            "updated": 1615381701627
+        },
+        {
+            "style": "Important",
+            "text": "This is not necesary the first time you run this, but if you are repeating this test, you will avoid confusions since the file of signals will be accumulating the test messages you send, and at the strategy we are not checking for the age of the messages, so it is a good idea to delete this data every time you try this procedure.",
+            "updated": 1615381726583
+        },
+        {
+            "style": "Subtitle",
+            "text": "Set-up the Signals Provider",
+            "updated": 1615380812487
+        },
+        {
+            "style": "Text",
+            "text": "At the Crypto Ecosystem, paste the following config to the Signals Provider.",
+            "updated": 1615380855069
+        },
+        {
+            "style": "Javascript",
+            "text": "{\n    \"webhookURL\": \"Webhook/New-Message/Trading-View/binance/BTC-USDT\",\n    \"testMessage\": \"TRIGGER ON\"\n}",
+            "updated": 1615380896874
+        },
+        {
+            "style": "Text",
+            "text": "This means that when you send this test message, you will be delivering the TRIGGER ON signal expected by the strategy."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Ready to Send the Test Message TRIGGER ON",
+            "updated": 1615381087734
+        },
+        {
+            "style": "Text",
+            "text": "Go to the charts again an turn on the Strategies layer. You should not see anything at the charts since no strategy has been triggered.",
+            "updated": 1615381066133
+        },
+        {
+            "style": "Success",
+            "text": "Now you can send the test message."
+        },
+        {
+            "style": "Text",
+            "text": "After you see the confirmation at the UI that the message was sent, check the Client's console to verify the message was received. Then wait until the message is picked up by the Webhooks Sensor Bot. Then wait until the Trading Bot runs again."
+        },
+        {
+            "style": "Text",
+            "text": "Go to the charts and wait until it plots the icons of the strategy, confirming that the strategy was triggered by the test message you sent."
+        },
+        {
+            "style": "Note",
+            "text": "If all this worked, it means that it will work if the message comes from Trading View or other Signal Provider too."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Set-up your Firewall / Rounter to accept Incoming Connections"
+        },
+        {
+            "style": "Text",
+            "text": "As you might have imagined, you will need to open a port at your rounter / firewall to accept incomming connections from the signal provider's servers (like Trading View for instance). This is what allows that server to connect to the server where the Client is running, enabling the Client to receive those signals."
+        },
+        {
+            "style": "Important",
+            "text": "How you configure your Rounter / Firewall is up to you, and it depends on your network setup. You will need to do your research for details on how to do it, because it depends on which rounter / firewall you are using. We suggest you to include on the rules of your Firewall / Rounter the domain name or IP address of the Signal provider, so that nobody else can connect to the Client's http interface, which has, beyond Webhooks other features you don't want to expose openly to the world without restrictions.",
+            "updated": 1615368540044
+        },
+        {
+            "style": "Text",
+            "text": "What we can tell you regarding this, is that the Superalgos Client is running a very simple http server at the port configured at the Environment.js file."
+        },
+        {
+            "style": "Title",
+            "text": "Set-up Alerts / Messages at the Signals Provider",
+            "updated": 1615368585310
+        },
+        {
+            "style": "Text",
+            "text": "You will use the following syntax to craft the URL you need to configure for the webhooks at the provider:"
+        },
+        {
+            "style": "Javascript",
+            "text": "http://YourIPAddress:Port/Webhook/New-Message/Provider-Name/Exchange/Market"
+        },
+        {
+            "style": "Text",
+            "text": "For example:"
+        },
+        {
+            "style": "Json",
+            "text": "http://182.45.73.1:34247/Webhook/New-Message/Trading-View/binance/BTC-USDT",
+            "updated": 1615371762205
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

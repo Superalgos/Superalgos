@@ -1,0 +1,44 @@
+{
+    "type": "Github Program",
+    "definition": {
+        "text": "This program incentivizes users to fork the Superalgos repository, a necessary step to contribute. It also incentivizes users to give a star and watch the repository, which helps developers find the project when searching on Github.com.",
+        "updated": 1630221291041
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1630221318391
+        },
+        {
+            "style": "Text",
+            "text": "The Github Program distributes the Rewards Pool defined under the Governance Programs > Onboarding Programs section of the Superalgos Pools hierarchy.",
+            "updated": 1630221340561
+        },
+        {
+            "style": "Callout",
+            "text": "Spawning the Github Program and submitting your User Profile is all you need to do to participate in the program. To maximize your Tokens Awarded, make sure you have a fork, a star, and are watching the repository! The system does automatic checks on Github.com and verifies their existence in real-time."
+        },
+        {
+            "style": "Text",
+            "text": "There is a cap of SA 1,000 for each of these incentives. This means that you may get up to SA 3,000 in Tokens Awarded if you maximize your participation. ",
+            "updated": 1630228105213
+        },
+        {
+            "style": "Text",
+            "text": "In case there aren't enough tokens in the Rewards Pool to cover each incentive up to the defined cap for all User Profiles, then each profile gets an equal proportion for each of the applicable incentives."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

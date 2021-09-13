@@ -4,9 +4,9 @@
   "description": "Learning Bot",
   "main": "TensorFlowLibrary.js",
   "author": {
-    "name": "Luis-Fernando-Molina"
+  "name": "Luis-F-Molina && Philip-W-Love"
   },
   "dependencies": {
-    "@tensorflow/tfjs": "^3.6.0"
+    "@tensorflow/tfjs-node": "^3.8.0"
   }
 }

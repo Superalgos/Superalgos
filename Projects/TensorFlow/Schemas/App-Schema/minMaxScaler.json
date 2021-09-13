@@ -1,0 +1,36 @@
+{
+    "type": "MinMax Scaler",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n  \"minimum\": 0 ,\n \"maximum\": 1 \n }"
+    },
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Feature Preprocessing->"
+    },
+    "propertyNameAtParent": "minMaxScaler",
+    "childrenNodesProperties": [],
+    "icon": "tensorflow"
+}

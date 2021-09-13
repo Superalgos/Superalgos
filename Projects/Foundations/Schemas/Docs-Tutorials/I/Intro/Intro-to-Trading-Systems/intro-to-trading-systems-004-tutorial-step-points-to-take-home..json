@@ -1,0 +1,76 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 4,
+    "type": "Tutorial Step - Points to Take Home...",
+    "definition": {
+        "icon": {
+            "name": "Trading\\trading-system",
+            "project": "Foundations"
+        },
+        "text": "There are some key learnings in the previous reading: multiple strategies, single positions, and precedence.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Hay algunos aprendizajes clave en la lectura anterior: estrategias múltiples, posiciones únicas y precedencia.",
+                "updated": 1629588118888
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's take some mental notes for what comes next:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Tomemos algunas notas mentales para lo que viene a continuación:",
+                    "updated": 1629588135560
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Multiple strategies may coexist within a trading system&mdash;as many as you wish.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Pueden coexistir múltiples estrategias dentro de un sistema trading, tantas como desees.",
+                    "updated": 1629588192365
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "One active strategy with one open position at any given moment is allowed only.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Solo se permite una estrategia activa con una posición abierta en un momento dado.",
+                    "updated": 1629588175743
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Precedence is given by the order in which strategies are defined around the Trading System node. You may change the order, of course!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La precedencia viene dada por el orden en el que se definen las estrategias alrededor del nodo Trading System. ¡Puedes cambiar el orden!",
+                    "updated": 1629588262008
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "You are probably asking why? Do these rules sound arbitrary? They are, for good reason!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Probablemente te estés preguntando.. ¿por qué estas reglas suenan arbitrarias? ¡Lo son!",
+                    "updated": 1629588865354
+                }
+            ]
+        }
+    ]
+}

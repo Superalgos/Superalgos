@@ -1,0 +1,109 @@
+{
+    "type": "Token Power Switch",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Token Power Switch",
+            "relatedUiObject": "Token Power Switch"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "onboardingPrograms",
+            "label": "Add Onboarding Programs",
+            "relatedUiObject": "Onboarding Programs"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "communityBuildingPrograms",
+            "label": "Add Community Building Programs",
+            "relatedUiObject": "Community Building Programs"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "votesAndClaimsPrograms",
+            "label": "Add Votes And Claims Programs",
+            "relatedUiObject": "Votes And Claims Programs"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "financialPrograms",
+            "label": "Add Financial Programs",
+            "relatedUiObject": "Financial Programs"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->User Profile->Token Power Switch->"
+    },
+    "propertyNameAtParent": "tokenPowerSwitch",
+    "childrenNodesProperties": [
+        {
+            "name": "tokenPowerSwitch",
+            "type": "array",
+            "childType": "Token Power Switch",
+            "autoAdd": false
+        },
+        {
+            "name": "onboardingPrograms",
+            "type": "node",
+            "childType": "Onboarding Programs",
+            "autoAdd": false
+        },
+        {
+            "name": "communityBuildingPrograms",
+            "type": "node",
+            "childType": "Community Building Programs",
+            "autoAdd": false
+        },
+        {
+            "name": "votesAndClaimsPrograms",
+            "type": "node",
+            "childType": "Votes And Claims Programs",
+            "autoAdd": false
+        },
+        {
+            "name": "financialPrograms",
+            "type": "node",
+            "childType": "Financial Programs",
+            "autoAdd": false
+        }
+    ]
+}

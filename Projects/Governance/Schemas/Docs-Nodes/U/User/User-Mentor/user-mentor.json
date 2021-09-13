@@ -1,0 +1,27 @@
+{
+    "type": "User Mentor",
+    "definition": {
+        "text": "A User Mentor node must establish a reference with the User Profile of your mentor. If you have more than one mentor, add more nodes! This is how you establish who your mentors are.",
+        "updated": 1630232933516
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624727421712
+        },
+        {
+            "style": "Warning",
+            "text": "Declaring at least one User Mentor is a requirement to participate in the program. If you fail to declare at least one, you don't qualify for Tokens Bonus incentives.",
+            "updated": 1630232958240
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

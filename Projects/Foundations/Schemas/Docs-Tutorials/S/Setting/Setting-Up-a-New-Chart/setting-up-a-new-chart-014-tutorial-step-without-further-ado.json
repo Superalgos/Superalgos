@@ -1,0 +1,70 @@
+{
+    "tutorial": "Setting Up a New Chart",
+    "pageNumber": 14,
+    "type": "Tutorial Step - Without Further Ado",
+    "definition": {
+        "text": "I know I'm ready to customize some charts. Are you? Let's walk through how to add the foundational nodes we need to start our chart.",
+        "icon": {
+            "name": "Charting-Space/chart-points",
+            "project": "Foundations"
+        },
+        "updated": 1628353223855,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Sé que estoy listo para personalizar algunos gráficos. ¿Y tú? Veamos cómo agregar los nodos fundamentales que necesitamos para comenzar nuestro gráfico.",
+                "updated": 1628645553111
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The first thing we need to do is add a fresh dashboard.",
+            "updated": 1628353247624,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Lo primero que debemos hacer es agregar un nuevo dashboard.",
+                    "updated": 1628645614150
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Hover over the Project Dashboards node and click Add Dashboard.",
+            "updated": 1628353287451,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Coloca el cursor sobre el nodo Project Dashboardsy has clic en Add Dashboard.",
+                    "updated": 1628645660586
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Make sure to name your new Dashboard with something you will recognize. A good naming practice is to reference the type of environment (live trading, backtesting, etc.) and something distinctive about the charts you plan on adding. For us that would be:",
+            "updated": 1628353330563,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Asegúrate de nombrar tu nuevo Dashboard con algo que reconocerás. Una buena práctica de nomenclatura es hacer referencia al tipo de entorno (ive trading, backtesting, etc.) y algo distintivo sobre los gráficos que planeas agregar. Para nosotros eso sería:",
+                    "updated": 1628645744284
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": " "
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

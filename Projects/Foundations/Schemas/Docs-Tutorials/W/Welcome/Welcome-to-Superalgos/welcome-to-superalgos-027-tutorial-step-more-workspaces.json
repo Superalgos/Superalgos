@@ -1,0 +1,98 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 27,
+    "type": "Tutorial Step - More Workspaces?",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "workspace"
+        },
+        "text": "Plugin Workspaces shipping with the system feature a black background in the Workspaces Tab on the left.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Oh sì! Alcuni di quelli sono plugin nativi del sistema, e altri sono i tuoi!",
+                "updated": 1614791394697,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Yes! Beberapa dari plugin berkaitan dengan sistem dan beberapa adalah milikmu sendiri!",
+                "updated": 1616770406123,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡La mayoría son Plugin Workspaces conectándose con el sistema! ¡También hay un User Workspace al final de la lista!",
+                "updated": 1625872662394,
+                "style": "Definition"
+            }
+        ],
+        "updated": 1629803469668
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Workspaces save all the information relative to the data structures that are included in the workspace.",
+            "updated": 1629803440353,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Mentre usi il sistema, il workspace viene salvato automaticamente ogni minuto. Viene salvato anche quando chiudi il browser o la tab, e puoi salvarlo manualmente usando Ctrl + Shift + Key-S",
+                    "updated": 1614791481642,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Segera setelah memulai sistem, workspace akan tersimpan setiap menit. Hal itu juga tersimpan sebelum menutup browser atau tab browser, dan juga bisa simpan manual dengan Ctrl + Shift + Key-S",
+                    "updated": 1616770552231,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "En cuanto inició el interfaz de usuario por primera vez, se cargó el espacio de Getting Started Tutorials y Plugin Workspace. Se guardó un nuevo User Workspace después de 60 segundos en la carpeta My-Workspaces.",
+                    "updated": 1624492978440,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Let's create a copy of this Plugin Workspace and make it your own! Hit the following key combination: Ctrl + Shift + Key-S",
+            "updated": 1629803279820,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El Workspace se guarda automáticamente cada minuto. Antes de cerrar el navegador, y manualmente con Ctrl + Shift + Key-S",
+                    "updated": 1625872986091,
+                    "style": "Success"
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "Now open the Workspaces Tab on the left, scroll to the bottom, and find the only workspace with a purple background! That's your workspace! But no need to click on it!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "I file plugin non devono essere modificati in altro modo!",
+                    "updated": 1614791561359,
+                    "style": "Important"
+                },
+                {
+                    "language": "ID",
+                    "text": "File plugin tidak boleh dimodifikasi tanpa menggunakan sistem!",
+                    "updated": 1616770726775,
+                    "style": "Important"
+                },
+                {
+                    "language": "ES",
+                    "text": "Los cambios en los Plugins Workspaces no persisten en el plugin sino en el User Workspace.",
+                    "updated": 1624493291791,
+                    "style": "Important"
+                }
+            ],
+            "updated": 1629803460646
+        }
+    ]
+}

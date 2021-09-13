@@ -1,0 +1,43 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 8,
+    "type": "Tutorial Step - Another Example?",
+    "definition": {
+        "icon": {
+            "name": "Trading\\trading-system",
+            "project": "Foundations"
+        },
+        "text": "Let's take a look at another example! This is BB Top Bounce, a Trading System based on the bounce off the upper Bollinger Band trading idea.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¡Echemos un vistazo a otro ejemplo! Este es BB Top Bounce, un Trading System basado en el rebote de la parte superior de la idea de trading Bollinger Band.",
+                "updated": 1629590642973
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Expand the trading system node... Let's see what it may teach us!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Expande el nodo del Trading System ... ¡Veamos qué nos puede enseñar!",
+                    "updated": 1629590784815
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "I told you! You may have as many strategies as you wish under the same trading system! Well... there your are!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Te dije! ¡Puedes tener tantas estrategias como desees bajo el mismo Trading System! Bueno ... ¡ahí estás!",
+                    "updated": 1629590821468
+                }
+            ]
+        }
+    ]
+}

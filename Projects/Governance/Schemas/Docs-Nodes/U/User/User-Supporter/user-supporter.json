@@ -1,0 +1,27 @@
+{
+    "type": "User Supporter",
+    "definition": {
+        "text": "A User Supporter node must establish a reference with the User Profile of your supporter. If you have more than one supporter, add more nodes! This is how you establish who your supporters are.",
+        "updated": 1630232791200
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624727081804
+        },
+        {
+            "style": "Warning",
+            "text": "Declaring at least one User Supporter is a requirement to participate in the program. If you fail to declare at least one, you don't qualify for Tokens Bonus incentives.",
+            "updated": 1630232813838
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

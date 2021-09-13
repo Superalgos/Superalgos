@@ -1,0 +1,23 @@
+{
+    "type": "Positions",
+    "definition": {
+        "text": "The Positions hierarchy is used to define different positions or roles that Contributors may assume in the project’s organization chart. Contributors may claim to have worked in a specific position or role. When a Position Contribution Claim is supported by a Position Claim Vote, the Contributor receives tokens according to the position’s relative weight.",
+        "updated": 1624707433425
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624707461136
+        },
+        {
+            "style": "Text",
+            "text": "Positions hierarchies acquire Token Rewards from Pool nodes referencing the said hierarchy. These are the tokens available for distribution among the different positions in the hierarchy. "
+        },
+        {
+            "style": "Text",
+            "text": "Any Position and Position Class node within the hierarchy may receive Weight Votes to determine how the Token Rewards in the hierarchy is distributed. How many tokens each Position is awarded depends on the relative weight of the position determined by the number of Weight Votes each position receives from users.",
+            "updated": 1630427395380
+        }
+    ]
+}

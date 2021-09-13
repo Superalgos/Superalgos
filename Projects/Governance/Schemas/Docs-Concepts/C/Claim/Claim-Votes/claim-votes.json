@@ -1,0 +1,19 @@
+{
+    "type": "Claim Votes",
+    "definition": {
+        "text": "In general terms, Claim Votes allow you to support the claims of other users. The term Claim Votes is a generalization referring to either or all of the existing types: Position Claim Vote, Feature Claim Vote, and Asset Claim Vote nodes.",
+        "updated": 1630343978470
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624781429515
+        },
+        {
+            "style": "Callout",
+            "text": "In general terms, Claim Votes allow you to support the claims of other users. The term Claim Votes is a generalization referring to either or all of the existing particular types: Position Claim Vote, Feature Claim Vote, and Asset Claim Vote nodes.",
+            "updated": 1630343984130
+        }
+    ]
+}

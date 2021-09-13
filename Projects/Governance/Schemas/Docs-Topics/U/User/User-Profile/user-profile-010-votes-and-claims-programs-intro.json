@@ -1,0 +1,20 @@
+{
+    "topic": "User Profile",
+    "pageNumber": 10,
+    "type": "Votes And Claims Programs Intro",
+    "definition": {
+        "text": "Help us govern the Superalgos Project!",
+        "updated": 1630495810385
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Node->Votes And Claims Programs->Definition",
+            "updated": 1630495822844
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Votes And Claims Programs->Content"
+        }
+    ]
+}

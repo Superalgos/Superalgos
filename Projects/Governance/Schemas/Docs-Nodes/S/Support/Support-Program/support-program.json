@@ -1,0 +1,54 @@
+{
+    "type": "Support Program",
+    "definition": {
+        "text": "At Superalgos, we take pride in the level of support we offer to newcomers and the Community in general. It is a crucial aspect of our culture, based above all on collaboration. The Support Program enables the Community to compensate Community Mods contributing to the project’s support efforts.",
+        "updated": 1630231393370
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624726970556
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Featuring Tokens Bonus",
+            "updated": 1630231411117
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos is a vast system and the learning curve is still quite steep. Many users need help, particularly during the early stages."
+        },
+        {
+            "style": "Text",
+            "text": "While the Community is always ready to help with typical questions, we’ve noticed that it takes a certain level of experience and knowledge to provide effective support. This is why select Community Mods are in charge of the Support Group."
+        },
+        {
+            "style": "Note",
+            "text": "If you ever wish to join the team of Community Mods, start participating in the various Telegram groups and Discord channels, helping users and answering questions. We’ll soon spot you and draft you into the Community Mods team!",
+            "updated": 1630231465692
+        },
+        {
+            "style": "Callout",
+            "text": "To participate, you must spawn the Support Program and declare your favorite supporters. To do that, add a User Supporter node and use it to establish a reference to the User Profile of the person that has helped you the most! If you have more than one favorite supporter, add more User Supporter nodes!",
+            "updated": 1630231527435
+        },
+        {
+            "style": "Text",
+            "text": "If you seldom use the Support Group, that may be thanks to the effort put in crafting tutorials and documentation. If that is your case, then feel free to select the individuals or teams doing this work as your preferred supporters!",
+            "updated": 1630231554533
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Community Building Programs"
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

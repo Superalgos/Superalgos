@@ -4,22 +4,43 @@
     "type": "Tutorial Step - Dashboards in the Future",
     "definition": {
         "text": "The future holds more in store. But it is still a work in progress!",
-        "updated": 1619016709723,
+        "updated": 1628360382244,
         "icon": {
             "name": "under-construction",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El futuro nos depara más. ¡Pero todavía es un trabajo en progreso!",
+                "updated": 1628642151827
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Eventually Dashboards will be used to bring multiple Time Machines together in useful configurations within the Charting Space. Think of multiple charts configured in intricate side by side displays! But for right now, they help us stay organized.",
-            "updated": 1620554034465
+            "updated": 1628360410405,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Finalmente Dashboards se utilizará para traer múltiples Time Machines juntos en configuraciones útiles dentro del Charting Space. ¡Piensa en múltiples gráficos configurados en intrincadas pantallas una al lado de la otra! Pero por ahora, nos ayudan a mantenernos organizados.",
+                    "updated": 1628644087316
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Superalgos is a community project. If you are a developer that would like to see this feature come to life, you can help make it happen!",
-            "updated": 1617799444931
+            "updated": 1628360435813,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Superalgos es un proyecto comunitario. Si eres un desarrollador al que le gustaría que esta función cobre vida, ¡puedes ayudar a que esto suceda!",
+                    "updated": 1628644124615
+                }
+            ]
         }
     ]
 }

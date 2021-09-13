@@ -46,8 +46,8 @@
         },
         {
             "style": "Callout",
-            "text": "Hit the following key combination:<br/> Ctrl + Shift + Alt + Key-R",
-            "updated": 1615804638167,
+            "text": "Hit the following key combination: Ctrl + Shift + Key-R or Cmd + Shift + Key-R on a Mac",
+            "updated": 1629705646789,
             "translations": [
                 {
                     "language": "IT",

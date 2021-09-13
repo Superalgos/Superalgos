@@ -1,0 +1,29 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 2,
+    "type": "Tutorial Step - Better Together",
+    "definition": {
+        "text": "This is the Governance Project! Today I will help you create a User Profile and join the first few Governance Programs!",
+        "updated": 1630604953792,
+        "icon": {
+            "name": "governance",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "But before you start, you should know that you may only submit your profile to the Develop branch, so it's time to switch!",
+            "updated": 1630605011924
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the footer and switch both the Contributions Branch and the Current Branch to Develop. Then close and restart the app after the switch! <br/><br/>Once you're back, run the app.update command to get up to date with Develop, restart, and only then may you proceed with this tutorial!",
+            "updated": 1630605450785
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

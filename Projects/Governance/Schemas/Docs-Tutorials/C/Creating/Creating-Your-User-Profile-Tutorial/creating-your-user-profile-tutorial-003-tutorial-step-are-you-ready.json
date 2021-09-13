@@ -1,0 +1,30 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 3,
+    "type": "Tutorial Step - Are You Ready?",
+    "definition": {
+        "text": "Before you jump into governance, it’s important you know how Superalgos works!",
+        "updated": 1629720525960,
+        "icon": {
+            "name": "Pool\\pools",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We've got a lot of exciting things to talk about, but I want to make sure you can follow along easily.",
+            "updated": 1630657385662
+        },
+        {
+            "style": "Callout",
+            "text": "Make sure you go through the tutorials in the Getting Started Tutorials Plugin Workspace before continuing if you haven't yet!",
+            "updated": 1630598529991
+        },
+        {
+            "style": "Success",
+            "text": "No need to be an expert, but you will need some general knowledge of the system to understand what this is all about!",
+            "updated": 1629720316727
+        }
+    ]
+}

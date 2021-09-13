@@ -1,0 +1,25 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 6,
+    "type": "Tutorial Step - A Mighty Meritocracy",
+    "definition": {
+        "text": "Superalgos does not reward freeloading! Real contributions to the project and community are what get rewarded with tokens and Token Power.",
+        "updated": 1630605807061,
+        "icon": {
+            "name": "Position\\positions",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The fancy word for this kind of project governance is meritocracy. In other words, the more you contribute to the improvement of Superalgos and to the support of our Community, the more Token Power and Reputation you earn to influence the future of the project.",
+            "updated": 1630605980783
+        },
+        {
+            "style": "Note",
+            "text": "This is a collaboration! Only together can we continue to make Superalgos the game changer it is today no matter what the future may bring.",
+            "updated": 1629165548280
+        }
+    ]
+}

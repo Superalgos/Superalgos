@@ -141,16 +141,16 @@ function newGovernanceUtilitiesTables() {
                             break
                         }
                         case 'integer': {
-                            value = parseFloat(value | 0).toLocaleString('en')
+                            value = parseFloat(parseFloat(value | 0).toFixed(0)).toLocaleString('en')
                             break
                         }
                         case '2 decimals': {
-                            value = parseFloat(value | 2).toLocaleString('en')
+                            value = parseFloat(parseFloat(value | 0).toFixed(2)).toLocaleString('en')
                             break
                         }
                         case 'percentage': {
                             if (isNaN(value)) { value = 0 }
-                            value = (value * 100).toFixed(2) + " %"
+                            value = (value * 100).toFixed(2) + "%"
                             break
                         }
                     }

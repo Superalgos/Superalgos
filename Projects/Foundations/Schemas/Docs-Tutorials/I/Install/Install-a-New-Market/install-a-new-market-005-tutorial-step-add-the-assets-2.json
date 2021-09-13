@@ -4,11 +4,18 @@
     "type": "Tutorial Step - Add the Assets 2",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "asset"
+            "name": "Market/asset",
+            "project": "Foundations"
         },
         "text": "Edit the configuration of each of the new assets entering the ticker (as listed by the exchange) in the codeName property. ",
-        "updated": 1617210890633
+        "updated": 1617210890633,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Edita la configuración de cada uno de los nuevos activos que ingresan al ticker (según lo enumerado por el exchange) en la propiedad codeName.",
+                "updated": 1629163635069
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -22,7 +29,14 @@
         },
         {
             "style": "Note",
-            "text": "If the icon for the configured assets exist in the image library, the default icon is replaced automatically."
+            "text": "If the icon for the configured assets exist in the image library, the default icon is replaced automatically.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si el icono de los assets configurados existe en la biblioteca de imágenes, el icono predeterminado se reemplaza automáticamente.",
+                    "updated": 1629163669241
+                }
+            ]
         }
     ]
 }

@@ -5,7 +5,7 @@
     "definition": {
         "text": "There are a few things you should consider every time you switch branches! Let's go through a quick list before you proceed!",
         "icon": {
-            "name": "bullet-warning",
+            "name": "Bullet\\bullet-warning",
             "project": "Foundations"
         },
         "updated": 1618147991903,

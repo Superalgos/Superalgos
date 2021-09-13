@@ -20,8 +20,8 @@
                     "id": "0759bf5b-d439-4c62-b0d9-74330b151331",
                     "savedPayload": {
                         "position": {
-                            "x": 15018.000000000004,
-                            "y": 38336.30762113533
+                            "x": 15110.705098312488,
+                            "y": 38252.83557568774
                         },
                         "targetPosition": {
                             "x": 14868.000000000004,
@@ -42,7 +42,7 @@
                 },
                 {
                     "type": "Position",
-                    "name": "Advisor",
+                    "name": "Marketing Advisor",
                     "config": "{}",
                     "project": "Governance",
                     "positions": [],
@@ -50,8 +50,68 @@
                     "id": "1870446d-a572-4568-9956-c3e9bb941657",
                     "savedPayload": {
                         "position": {
-                            "x": 14718.000000000004,
-                            "y": 38336.30762113533
+                            "x": 14960.705098312488,
+                            "y": 38361.81695488855
+                        },
+                        "targetPosition": {
+                            "x": 14868.000000000004,
+                            "y": 38076.5
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Position",
+                    "name": "Webmaster Superalgos.org",
+                    "config": "{}",
+                    "project": "Governance",
+                    "positions": [],
+                    "positionClasss": [],
+                    "id": "089c3f0f-2ce6-4ba8-991b-38c8b70f6c17",
+                    "savedPayload": {
+                        "position": {
+                            "x": 14775.294901687519,
+                            "y": 38361.81695488855
+                        },
+                        "targetPosition": {
+                            "x": 14868.000000000004,
+                            "y": 38076.5
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Position",
+                    "name": "Social Media Accounts Manager",
+                    "config": "{}",
+                    "project": "Governance",
+                    "positions": [],
+                    "positionClasss": [],
+                    "id": "d2babe29-ea0c-4792-9305-30d755d23ea8",
+                    "savedPayload": {
+                        "position": {
+                            "x": 14625.294901687519,
+                            "y": 38252.83557568774
                         },
                         "targetPosition": {
                             "x": 14868.000000000004,

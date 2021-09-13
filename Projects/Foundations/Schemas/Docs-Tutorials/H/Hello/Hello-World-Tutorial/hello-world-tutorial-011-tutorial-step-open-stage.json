@@ -5,7 +5,7 @@
     "definition": {
         "text": "The Open Stage is where bot take position!",
         "icon": {
-            "name": "Open/open-stage",
+            "name": "Open\\open-stage",
             "project": "Foundations"
         },
         "updated": 1614260398081,
@@ -15,6 +15,11 @@
                 "text": "Die Open Stage ist der Zeitpunkt, an dem der Bot die Position einnimmt!",
                 "updated": 1622979315892,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "El Open Stage es donde el bot toma posición!",
+                "updated": 1629356240122
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Die Strategie, die ich backtesten möchte, basiert auf 4h TF und die Strategie ist Long (steigende Kurse). Das bedeutet, dass der Bot das Asset kaufen wird, um es später zu verkaufen (zu einem besseren Preis, wie wir hoffen!). Um die Dinge einfach zu halten, muss ich nur den TF im Target Rate-Knoten angeben, indem ich meinen vollen Saldo im Target Size in Quoted Asset verwende.",
                     "updated": 1622979336945,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "La estrategia que quiero hacer backtesting se basa en 4h TF y la estrategia es Long. Esto significa que el bot Buy el asset para después Sell (¡a un mejor precio esperamos!). Para simplificar las cosas, todo lo que tengo que hacer es indicar el TF en el nodo Target Rate usando todo mi saldo en el Target Size en Quoted Asset.",
+                    "updated": 1629356415752
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Wenn unser Markt BTC/USDT ist, dann ist das Quoted Asset USDT und Base Asset ist BTC.",
                     "updated": 1622979556680,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si nuestro mercado es BTC/USDT entonces la Quoted Asset is USDT y Base Asset es BTC",
+                    "updated": 1629356454601
                 }
             ]
         }

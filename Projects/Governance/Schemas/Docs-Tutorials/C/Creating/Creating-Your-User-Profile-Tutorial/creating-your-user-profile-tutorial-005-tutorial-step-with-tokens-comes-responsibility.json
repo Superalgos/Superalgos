@@ -1,0 +1,24 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 5,
+    "type": "Tutorial Step - With Tokens Comes Responsibility",
+    "definition": {
+        "text": "Holding tokens does more than just show commitment. SA Tokens also confer Token Power!",
+        "updated": 1630605735788,
+        "icon": {
+            "name": "governance",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The more tokens you hold the more influence you can have over the direction of the project. This means, by owning SA Tokens, you hold the power to use those tokens to exert influence over what parts of the system will be developed and how the community will evolve.",
+            "updated": 1629165111109
+        },
+        {
+            "style": "Note",
+            "text": "This works in a cycle. The more you contribute, the more tokens you earn, the more say you have!"
+        }
+    ]
+}

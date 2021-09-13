@@ -5,7 +5,7 @@
     "definition": {
         "text": "The data you download from exchanges and process with indicators is available across the board, accessible from any workspace and strategy.",
         "icon": {
-            "name": "dataset-definition",
+            "name": "Data\\dataset-definition",
             "project": "Foundations"
         },
         "updated": 1616174427620,
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Los datos que descargas de los exchanges y procesas están disponibles en todos los ámbitos, accesibles desde cualquier Workspace y estrategia.",
-                "updated": 1628020470335
+                "updated": 1628020470335,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "Los datos se almacenan en el disco en la carpeta Data-Storage y están organizados por Project, Data Mine, bot y Market. No importa qué Worksapce hayas utilizado para minar los datos o los indicadores de proceso.",
-                    "updated": 1628017724144
+                    "updated": 1628017724144,
+                    "style": "Text"
                 }
             ]
         },
@@ -55,7 +57,8 @@
                 {
                     "language": "ES",
                     "text": "Todos los datos están disponibles para todos los espacios de trabajo, por lo que puedes trabajar con las mismas fuentes de datos independientemente de lo que estés haciendo.",
-                    "updated": 1628017031765
+                    "updated": 1628017031765,
+                    "style": "Note"
                 }
             ]
         },
@@ -73,7 +76,8 @@
                 {
                     "language": "ES",
                     "text": "No hay gestión de datos incorporada en la aplicación. ¡Utilice tu sistema de archivos!",
-                    "updated": 1628019703596
+                    "updated": 1628019703596,
+                    "style": "Success"
                 }
             ]
         }

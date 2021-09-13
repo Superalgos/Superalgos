@@ -4,7 +4,14 @@
     "type": "Simple Moving Average",
     "definition": {
         "text": "A simple moving average (SMA) calculates the average of a selected range of prices, usually closing prices, by the number of periods in that range.",
-        "updated": 1622686933380
+        "updated": 1622686933380,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un simple moving average (SMA) calcula el promedio de un rango seleccionado de precios, generalmente precios de cierre, por el número de períodos en ese rango.",
+                "updated": 1629579640550
+            }
+        ]
     },
     "paragraphs": [
         {

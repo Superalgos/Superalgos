@@ -4,21 +4,43 @@
     "type": "Tutorial Step - Charts Without Tears",
     "definition": {
         "text": "It's frustrating to look at a chart that is empty. I am here to make sure you don’t feel stuck setting up the charts of your dreams.",
-        "updated": 1619015910948,
+        "updated": 1628362517392,
         "icon": {
-            "name": "charting-space",
+            "name": "Charting-Space/charting-space",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Es frustrante mirar un gráfico vacío. Estoy aquí para asegurarme de que no te sientas atrapado configurando los gráficos de tus sueños.",
+                "updated": 1628639062880
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "If you are just starting out here in Superalgos, all this freedom might be a bit overwhelming. Superalgos allows you to do almost anything you can think up, but there are some key puzzle pieces that need to be in place.",
-            "updated": 1619404909688
+            "updated": 1628362540286,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si recién está comenzando aquí en Superalgos, toda esta libertad puede ser un poco abrumadora. Superalgos te permite hacer casi cualquier cosa que se te ocurra, pero hay algunas piezas clave del rompecabezas que deben estar en su lugar.",
+                    "updated": 1628639135840
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "That’s where I come in! My friends and I will walk you through how to customize charts from start to finish! By the time we are done you will have the tools to create charts limited only by your imagination."
+            "text": "That’s where I come in! My friends and I will walk you through how to customize charts from start to finish! By the time we are done you will have the tools to create charts limited only by your imagination.",
+            "updated": 1628362555525,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Ahí es donde entro yo! ¡Mis amigos y yo les explicaremos cómo personalizar gráficos de principio a fin! Cuando terminemos, tendrás las herramientas para crear gráficos limitados solo por su imaginación.",
+                    "updated": 1628639172038
+                }
+            ]
         }
     ]
 }

@@ -223,6 +223,7 @@ function newFoundationsFloatingSpace() {
 
             for (let i = 0; i < snapCandidateNodes.length; i++) {
                 let node = snapCandidateNodes[i]
+                if (node.payload === undefined) { continue }
                 let nodePosition = {
                     x: node.payload.floatingObject.container.frame.position.x,
                     y: node.payload.floatingObject.container.frame.position.y

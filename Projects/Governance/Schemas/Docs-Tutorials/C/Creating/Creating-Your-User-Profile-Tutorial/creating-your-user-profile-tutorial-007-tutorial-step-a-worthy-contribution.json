@@ -1,0 +1,24 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 7,
+    "type": "Tutorial Step - A Worthy Contribution",
+    "definition": {
+        "text": "No matter who you are, you can bring value to the Superalgos network!",
+        "updated": 1629162880545,
+        "icon": {
+            "name": "Programs\\referral-program",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "Each of us bring unique talents and experience into our work with Superalgos. Even if you are not a programmer or expert trader there is still ways for you to get involved!",
+            "updated": 1630606036389
+        },
+        {
+            "style": "Text",
+            "text": "One of the first contributions you can make to the project is getting involved in governance itself. The network of users guiding Superalgos is an integral part of the success of our open collaboration. You bring value to the network just by being a part of it!"
+        }
+    ]
+}

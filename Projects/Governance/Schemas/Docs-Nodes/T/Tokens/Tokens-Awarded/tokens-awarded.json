@@ -1,8 +1,8 @@
 {
     "type": "Tokens Awarded",
     "definition": {
-        "text": "The Tokens Awarded node is present on each of the programs in the hierarchy. It exists to accumulate and display the number of Superalgos SA Tokens awarded to your profile through each of the existing programs.",
-        "updated": 1624726369909
+        "text": "The Tokens Awarded node represents the number of tokens you get in reward for your contributions. The node is present on many of the Governance Programs.",
+        "updated": 1630436769778
     },
     "paragraphs": [
         {
@@ -12,11 +12,49 @@
         },
         {
             "style": "Text",
-            "text": "The information on how many tokens the particular program has awarded you is displayed as a notice below the node, along with the number of people that helped you get them."
+            "text": "The information on how many tokens the particular program has awarded you is displayed as a notice below the node, along with other relevant information that depends on the context, like the number of people that helped you get them, or the number of claims computed, etc.",
+            "updated": 1630095366072
         },
         {
-            "style": "Callout",
-            "text": "The system calculates the token distribution dynamically with every change in the definitions, and computes all the hierarchies loaded in and referenced from the Current Workspace. This may or may not be accurate, depending on many things, including whether or not you are computing all relevant hierarchies."
+            "style": "Subtitle",
+            "text": "Calculations",
+            "updated": 1630324592451
+        },
+        {
+            "style": "Note",
+            "text": "Each program calculates Tokens Awarded in a particular way. Follow the links below to learn the details about each program.",
+            "updated": 1630324671871
+        },
+        {
+            "style": "List",
+            "text": "In the Airdrop Program.",
+            "updated": 1630324552707
+        },
+        {
+            "style": "List",
+            "text": "In the Github Program.",
+            "updated": 1630324714648
+        },
+        {
+            "style": "List",
+            "text": "The Community Building Programs node page explains how Tokens Awarded is calculated for the referral, support, and mentorship programs.",
+            "updated": 1630324749961
+        },
+        {
+            "style": "List",
+            "text": "The How Claims are Resolved page explains how tokens are awarded in the Claims Program."
+        },
+        {
+            "style": "List",
+            "text": "In the Staking Program."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
         },
         {
             "style": "Block",

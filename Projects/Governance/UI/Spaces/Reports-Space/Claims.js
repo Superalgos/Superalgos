@@ -46,7 +46,7 @@ function newGovernanceReportsClaims() {
                 },
                 {
                     "name": "ownPower",
-                    "label": "Claims Power",
+                    "label": "Claim Power",
                     "type": "number",
                     "order": "descending",
                     "textAlign": "center",

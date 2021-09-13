@@ -16,7 +16,7 @@ function newWorkspace() {
         save: saveWorkspace,
         backup: backupWorkspace,
         share: shareWorkspace,
-        getNodesByTypeAndHierarchyHeadsType: getNodesByTypeAndHierarchyHeadsType, 
+        getNodesByTypeAndHierarchyHeadsType: getNodesByTypeAndHierarchyHeadsType,
         getProjectsHeads: getProjectsHeads,
         getHierarchyHeads: getHierarchyHeads,
         getHierarchyHeadsById: getHierarchyHeadsById,
@@ -70,8 +70,12 @@ function newWorkspace() {
                 /* Set up the action switches map */
                 for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
                     let project = PROJECTS_SCHEMA[i].name
-                    let actionSwitch = eval('new' + project + 'ActionSwitch()')
-                    actionSwitchesByProject.set(project, actionSwitch)
+                    try {
+                        let actionSwitch = eval('new' + project + 'ActionSwitch()')
+                        actionSwitchesByProject.set(project, actionSwitch)
+                    } catch (err) {
+                        console.log('[WARN] Action Switch for project ' + project + ' not found.')
+                    }
                 }
 
                 /* Check which was the last workspace. */
@@ -157,9 +161,9 @@ function newWorkspace() {
         let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
 
         /* Validation if it is too early to save. */
-        if (thisObject.isInitialized === false) { 
+        if (thisObject.isInitialized === false) {
             console.log('Workspace not saved because it has not been initialized. =')
-            return 
+            return
         }
 
         /* Validation of 2 sessions opened at the same time. */
@@ -420,6 +424,7 @@ function newWorkspace() {
                         thisObject.isInitialized = true
 
                         UI.projects.governance.spaces.reportsSpace.reset()
+                        UI.projects.governance.spaces.userProfileSpace.reset()
 
                         await UI.projects.education.spaces.docsSpace.reset()
                         await UI.projects.education.spaces.tutorialSpace.reset()

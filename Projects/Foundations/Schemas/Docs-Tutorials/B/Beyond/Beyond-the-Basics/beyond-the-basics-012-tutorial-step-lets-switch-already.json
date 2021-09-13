@@ -5,7 +5,7 @@
     "definition": {
         "text": "Now that everything's clear, let's do the switch and get ready for what comes next!",
         "icon": {
-            "name": "docs-success-style",
+            "name": "Docs\\docs-success-style",
             "project": "Foundations"
         },
         "updated": 1617019411568,
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "Ahora que todo está claro, ¡hagamos el cambio y prepárete para lo que viene a continuación!",
-                "updated": 1628127987969
+                "updated": 1628127987969,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "Esto es lo que necesitas hacer:",
-                    "updated": 1628128191379
+                    "updated": 1628128191379,
+                    "style": "Text"
                 }
             ]
         },
@@ -56,7 +58,8 @@
                 {
                     "language": "ES",
                     "text": "Regresa al pie de página y selecciona Plugins-Docs como tu Current Branch.",
-                    "updated": 1628128266760
+                    "updated": 1628128266760,
+                    "style": "List"
                 }
             ]
         },
@@ -74,7 +77,8 @@
                 {
                     "language": "ES",
                     "text": "Obtendrás una página que explica lo que se está haciendo. Luego, aparecerá otra página que te informará del resultado y te explicará que debes reiniciar la aplicación.",
-                    "updated": 1628128508302
+                    "updated": 1628128508302,
+                    "style": "List"
                 }
             ]
         },
@@ -92,7 +96,8 @@
                 {
                     "language": "ES",
                     "text": "Cierra la aplicación y reiníciela (navegador y consola).",
-                    "updated": 1628128700479
+                    "updated": 1628128700479,
+                    "style": "List"
                 }
             ]
         },
@@ -110,7 +115,8 @@
                 {
                     "language": "ES",
                     "text": "Encuentra el Beyond the Basics Tutorial en la esquina inferior derecha del Workspace y selecciona \"Resume\" en el menú. Si \"Resume\" No funciona, encuentra el \"Welcome Back!\" bajo el Branches Topic y haz clic en \"Play\" en el menú.",
-                    "updated": 1628128938546
+                    "updated": 1628128938546,
+                    "style": "List"
                 }
             ]
         }

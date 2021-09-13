@@ -13,24 +13,35 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         Some validations first...
         */
         let githubUsername = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'githubUsername')
+        let mnemonic = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'mnemonic')
 
         if (githubUsername === undefined || githubUsername === "") {
-            node.payload.uiObject.setErrorMessage("githubUsername config property missing.")
+            node.payload.uiObject.setErrorMessage(
+                "githubUsername config property missing.",
+            UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+            )
             return
         }
 
-        let userProfile = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(
-            node,
-            'User Profile',
-            UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
-            )
+        createWallet()
 
-        createNewAccount()
+        function createWallet() {
+            let params
 
-        function createNewAccount() {
-            let params = {
-                method: 'createWalletAccount',
-                entropy: node.id + (new Date()).valueOf()
+            /*
+            If the user provides a mnemonic then we will get the private key and address from it,
+            otherwise, we will create a new private key and address.
+            */
+            if (mnemonic === undefined || mnemonic === "") {
+                params = {
+                    method: 'createWalletAccount',
+                    entropy: node.id + (new Date()).valueOf()
+                }
+            } else {
+                params = {
+                    method: 'mnemonicToPrivateKey',
+                    mnemonic: mnemonic
+                }
             }
 
             let url = 'WEB3' // We will access the default Client WEB3 endpoint.
@@ -40,8 +51,10 @@ function newGovernanceFunctionLibraryProfileConstructor() {
             function onResponse(err, data) {
                 /* Lets check the result of the call through the http interface */
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    node.payload.uiObject.setErrorMessage('Call via HTTP Interface failed.')
-                    walletAccountNode.payload.uiObject.menu.internalClick('Delete UI Object')
+                    node.payload.uiObject.setErrorMessage(
+                        'Call via HTTP Interface failed.',
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
                     return
                 }
 
@@ -49,8 +62,22 @@ function newGovernanceFunctionLibraryProfileConstructor() {
 
                 /* Lets check the result of the method call */
                 if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    node.payload.uiObject.setErrorMessage('Call to WEB3 Server failed. ' + response.error)
-                    return
+
+                    if (mnemonic === undefined || mnemonic === "") {
+                        node.payload.uiObject.setErrorMessage(
+                            'Call to WEB3 Server failed. ' + response.error,
+                            UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                            )
+                        console.log('Call to WEB3 Server failed. ' + response.error)
+                        return
+                    } else {
+                        node.payload.uiObject.setErrorMessage(
+                            'Call to WEB3 Server failed. Most likely the Mnemonic provided is not correct or you need to run node setup because a dependency is missing. ' + response.error,
+                            UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                            )
+                        console.log('Call to WEB3 Server failed. Most likely the Mnemonic provided is not correct or you need to run node setup because a dependency is missing. ' + response.error)
+                        return
+                    }
                 }
 
                 signUserProfileData(response.address, response.privateKey)
@@ -73,7 +100,10 @@ function newGovernanceFunctionLibraryProfileConstructor() {
             function onResponse(err, data) {
                 /* Lets check the result of the call through the http interface */
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    node.payload.uiObject.setErrorMessage('Call via HTTP Interface failed.')
+                    node.payload.uiObject.setErrorMessage(
+                        'Call via HTTP Interface failed.',
+                        UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                        )
                     return
                 }
 
@@ -81,10 +111,18 @@ function newGovernanceFunctionLibraryProfileConstructor() {
 
                 /* Lets check the result of the method call */
                 if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    node.payload.uiObject.setErrorMessage('Call to WEB3 Server failed. ' + response.error)
+                    node.payload.uiObject.setErrorMessage(
+                        'Call to WEB3 Server failed. ' + response.error,
+                        UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                        )
                     console.log('Call to WEB3 Server failed. ' + response.error)
                     return
                 }
+                let userProfile = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(
+                    node,
+                    'User Profile',
+                    UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                )
                 /*
                 We store at the User Profile the Signed githubUsername
                 */
@@ -103,7 +141,17 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 /*
                 Show nice message.
                 */
-                node.payload.uiObject.setInfoMessage("Profile Private Key has been successfully created. User Profile installed as a plugin and saved. Use the Private Key at a crypto wallet and delete this node once done.", 10000)
+                if (mnemonic === undefined || mnemonic === "") {
+                    node.payload.uiObject.setInfoMessage(
+                        "Profile Private Key has been successfully created. User Profile installed as a plugin and saved. Use the Private Key at a crypto wallet and delete this node once done.",
+                        UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
+                        )
+                } else {
+                    node.payload.uiObject.setInfoMessage(
+                        "Mnemonic successfully imported. User Profile installed as a plugin and saved. Your external wallet was sucessfully linked to your profile.",
+                        UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
+                        )
+                }
             }
         }
     }

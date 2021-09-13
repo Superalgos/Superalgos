@@ -58,7 +58,7 @@ exports.newFoundationsBotModulesLearningEpisode = function (processIndex) {
         /* Recording the opening at the Learning Engine Data Structure */
         learningEngine.learningCurrent.learningEpisode.status.value = 'Open'
         learningEngine.learningCurrent.learningEpisode.serialNumber.value = 1
-        learningEngine.learningCurrent.learningEpisode.identifier.value = TS.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
+        learningEngine.learningCurrent.learningEpisode.identifier.value = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
         learningEngine.learningCurrent.learningEpisode.beginRate.value = learningEngine.learningCurrent.learningEpisode.candle.close.value
     }
 
@@ -73,7 +73,7 @@ exports.newFoundationsBotModulesLearningEpisode = function (processIndex) {
     }
 
     function resetEpisode() {
-        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(learningEngine.learningCurrent.learningEpisode)
+        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).LEARNING_ENGINE_MODULE_OBJECT.initializeNode(learningEngine.learningCurrent.learningEpisode)
     }
 
     function updateEnds() {

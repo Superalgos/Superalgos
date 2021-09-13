@@ -6,25 +6,53 @@
         "text": "Did you find the Time Machine you added? Don't forget to move around the Charting Space, I know it's here!",
         "updated": 1620264964599,
         "icon": {
-            "name": "chart-points",
+            "name": "Charting-Space/chart-points",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¿Encontraste el Time Machine que agregaste? No olvides moverte por el Charting Space, ¡Sé que está aquí!",
+                "updated": 1628646486524
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "You should see three charts within the Charting Space.",
-            "updated": 1620264097333
+            "updated": 1620264097333,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Debería ver tres gráficos dentro del Charting Space.",
+                    "updated": 1628646517644
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Read the titles and find the one you added!",
-            "updated": 1620264144764
+            "updated": 1620264144764,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Lee los títulos y encuentra el que agregaste!",
+                    "updated": 1628646530332
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "If you zoom in there's not much to look at yet. But that's okay. We are on our way to your very own custom chart. Woohoo! Let's keep going and add some data to your new Time Machine.",
-            "updated": 1620264752831
+            "updated": 1620264752831,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si amplía, no hay mucho que ver todavía. Pero eso está bien. Estamos en camino a su propia carta personalizada. ¡Guau! Sigamos y agreguemos algunos datos a su nuevo Time Machine.",
+                    "updated": 1628646548672
+                }
+            ]
         },
         {
             "style": "Text",

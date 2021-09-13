@@ -1,0 +1,25 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 8,
+    "type": "Tutorial Step - What’s in a Profile?",
+    "definition": {
+        "text": "So what are we waiting for? Let’s get started! To participate in Governance you will need a User Profile.",
+        "updated": 1630657682741,
+        "icon": {
+            "name": "User\\user-profile",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Your profile is set up just like the rest of the Superalgos system. It is a hierarchy of nodes. Only this hierarchy defines how you intend to use the Token Power you have earned or is delegated to you by other users. ",
+            "updated": 1629165991225
+        },
+        {
+            "style": "Note",
+            "text": "By channelling your token power you help decide what parts of the system will be incentivised for further development and who will be rewarded for the community roles they have played.",
+            "updated": 1629166027369
+        }
+    ]
+}

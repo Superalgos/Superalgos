@@ -5,7 +5,7 @@
     "definition": {
         "text": "Strategy is defined!",
         "icon": {
-            "name": "Announcement/announcement",
+            "name": "Announcement\\announcement",
             "project": "Foundations"
         },
         "updated": 1614262144926,
@@ -14,6 +14,12 @@
                 "language": "DE",
                 "text": "Strategie definiert!",
                 "updated": 1622980119217,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡ Strategy está definida!",
+                "updated": 1629357095005,
                 "style": "Definition"
             }
         ]
@@ -29,6 +35,12 @@
                     "text": "Wie du gesehen hast, ist die Implementierung einer einfachen Strategie eine Sache von wenigen Zeilen Code!",
                     "updated": 1622980130290,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Es cuestión de unas pocas líneas de código.",
+                    "updated": 1629576702851,
+                    "style": "Text"
                 }
             ]
         },
@@ -42,6 +54,12 @@
                     "text": "Beachte dies, um korrekt mit Base und Quoted Asset umzugehen. Base ist oben, Quoted ist unten! In unserem Fall BTC/USD ist also BTC das Basis-Asset, während USDT das quotierte Asset ist.",
                     "updated": 1622980143220,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ten esto en cuenta para tratar correctamente Base and Quoted Asset. Base está en la cima, Quoted está en el fondo! Entonces en nuestro caso BTC / USD tenemos BTC es el Base Asset mientras que USDT es el Quoted Asset",
+                    "updated": 1629357672381,
+                    "style": "Success"
                 }
             ]
         },
@@ -54,6 +72,12 @@
                     "language": "DE",
                     "text": "Das ändert sich nicht, wenn du Short gehst. Wenn die Strategie Short ist, wird der Bot in der Eröffnungsphase das Basis-Asset verkaufen und es später mit dem quotierten Asset zurückkaufen!",
                     "updated": 1622980155348,
+                    "style": "Warning"
+                },
+                {
+                    "language": "ES",
+                    "text": "No cambia si te vas Short. Si la estrategia es Short luego en el Open Stage Bot venderá el Base Asset y luego volver a comprarlo usando Quoted Asset!",
+                    "updated": 1629357633755,
                     "style": "Warning"
                 }
             ]

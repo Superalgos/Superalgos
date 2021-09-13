@@ -6,14 +6,15 @@
         "text": "Are you wondering how to get data from sources other than exchanges in CCXT? Messari? Twitter? We've got you covered!",
         "updated": 1622645027378,
         "icon": {
-            "name": "api-map",
+            "name": "Api\\api-map",
             "project": "Foundations"
         },
         "translations": [
             {
                 "language": "ES",
                 "text": "¿Se preguntas cómo obtener datos de fuentes distintas a los intercambios en CCXT? Messari? Twitter? ¡Te tenemos cubierto!",
-                "updated": 1628032498537
+                "updated": 1628032498537,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "ES",
                     "text": "Superalgos le permite obtener datos de cualquier API en Internet, ¡y no necesitas programar para hacerlo! En su lugar, puedes diseñar un API Map o utilizar los que se envían con el sistema.",
-                    "updated": 1628032719618
+                    "updated": 1628032719618,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "ES",
                     "text": "Un API Map es un conjunto de definiciones que dictan cómo un bot puede acceder a una API en particular y cómo interpretar las respuestas del servidor.",
-                    "updated": 1628032814964
+                    "updated": 1628032814964,
+                    "style": "Note"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "ES",
                     "text": "¡Sumérgete en esta sección del Data Mining para explorar el panorama de API!",
-                    "updated": 1628032872757
+                    "updated": 1628032872757,
+                    "style": "Callout"
                 }
             ]
         }

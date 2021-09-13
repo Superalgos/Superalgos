@@ -27,8 +27,8 @@
     "paragraphs": [
         {
             "style": "Warning",
-            "text": "Hierarchies included in the workspace as plugins are not saved by default. As such, changes made in those hierarchies do not persist. ",
-            "updated": 1628349317266,
+            "text": "Hierarchies placed in the workspace as plugins do not save with the workspace by default. As a result, changes made in those hierarchies do not persist, unless you save them manually or enable automatic saving. ",
+            "updated": 1629897700219,
             "translations": [
                 {
                     "language": "IT",
@@ -46,26 +46,31 @@
         },
         {
             "style": "Text",
-            "text": "If you would like to make changes to a plugin you will need to enable saving. To do this find the Plugin File node associated with the hierarchy you would like to save. Then simply click the Enable Saving with Workspace button. It's that easy!",
-            "updated": 1628349401737,
+            "text": "There are two main use cases for modifying plugins:",
+            "updated": 1629897808476,
             "translations": [
                 {
                     "language": "IT",
                     "text": "Nei prossimi step vedremo più in dettaglio quanto detto!",
                     "updated": 1619590413453,
-                    "style": "Success"
+                    "style": "Text"
                 },
                 {
                     "language": "ES",
                     "text": "¡Pasaré por algunos casos de uso específicos en los próximos pasos!",
                     "updated": 1626702765005,
-                    "style": "Success"
+                    "style": "Text"
                 }
             ]
         },
         {
-            "style": "Success",
-            "text": "I will go through some specific use cases in the next few steps!"
+            "style": "List",
+            "text": "You wish to modify a plugin to make it your own and keep working with the modified version in the future.",
+            "updated": 1629897838348
+        },
+        {
+            "style": "List",
+            "text": "You wish to update and improve a plugin to contribute the improvements to the project."
         }
     ]
 }

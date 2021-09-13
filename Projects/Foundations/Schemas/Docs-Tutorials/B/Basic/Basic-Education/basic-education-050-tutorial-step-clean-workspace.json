@@ -19,15 +19,16 @@
             {
                 "language": "ES",
                 "text": "Hablando de exchanges y plugins probados, hay un espacio de trabajo de plugins que se puede usar como borrón y cuenta nueva al diseñar cosas nuevas.",
-                "updated": 1628015811665
+                "updated": 1628015811665,
+                "style": "Definition"
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Note",
-            "text": "It's the Blake Template Plugin Workspace!",
-            "updated": 1628356623276,
+            "text": "It's the Blank Template Plugin Workspace!",
+            "updated": 1629912296914,
             "translations": [
                 {
                     "language": "IT",
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "¡Es el Tested Exchanges Plugin Workspace!",
-                    "updated": 1628015859577
+                    "updated": 1628015859577,
+                    "style": "Note"
                 }
             ]
         },
@@ -56,7 +58,8 @@
                 {
                     "language": "ES",
                     "text": "Una vez que termines tu educación inicial con todos los tutoriales existentes, eventualmente estarás listo para comenzar a construir tu propio Trading System. ¡Este es el Plugin Workspace que puedes usar para ese propósito!",
-                    "updated": 1628016330767
+                    "updated": 1628016330767,
+                    "style": "Text"
                 }
             ]
         },
@@ -74,7 +77,8 @@
                 {
                     "language": "ES",
                     "text": "Cuenta con un  Trading System limpio desde el primer momento, el Install New Market Tutorial y la línea de exchages probados que puedes usar.",
-                    "updated": 1628016671067
+                    "updated": 1628016671067,
+                    "style": "Success"
                 }
             ]
         }

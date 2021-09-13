@@ -1,8 +1,8 @@
 {
     "type": "Pool",
     "definition": {
-        "text": "A Pool represents a high-level container of Token Rewards. The node is used to receive Weight Votes and to route tokens to other hierarchies via references. Contributors may direct Weight Votes to Pool nodes to affect how many tokens will be routed to and distributed at the referenced hierarchy.",
-        "updated": 1624707171824
+        "text": "A Pool represents a high-level container of Token Rewards. The node may receive Weight Votes and route Token Rewards to other hierarchies via references. Contributors may direct Weight Votes to Pool nodes to affect how many tokens will be routed to and distributed at the referenced hierarchy.",
+        "updated": 1630426946700
     },
     "paragraphs": [
         {
@@ -35,11 +35,12 @@
             "text": "Weight: The total weight of the Pool is expressed as a percentage of the total Weight Votes directed at the whole hierarchy."
         },
         {
-            "style": "Callout",
-            "text": "Notice that Pool nodes participate in the pool of tokens assigned to the Pools hierarchy it belongs to. The aforementioned Weight value is in relation to the said hierarchy, and not necessarily to the top-level Superalgos Pools hierarchy."
+            "style": "Note",
+            "text": "Notice that a Pool node gets Token Rewards allocated to the hierarchy it belongs to. The aforementioned Weight value is in relation to the said hierarchy, and not necessarily to the top-level Superalgos Pools hierarchy.",
+            "updated": 1630427153739
         },
         {
-            "style": "Text",
+            "style": "Callout",
             "text": "We mentioned that Pool nodes may pass on Token Rewards to other hierarchies which, in turn, further break up the definitions of where tokens go to. We’ll explore those hierarchies in the next few pages."
         },
         {

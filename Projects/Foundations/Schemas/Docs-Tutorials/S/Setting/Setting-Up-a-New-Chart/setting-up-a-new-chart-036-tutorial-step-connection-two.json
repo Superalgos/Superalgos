@@ -8,21 +8,49 @@
             "name": "delink-node",
             "project": "Foundations"
         },
-        "updated": 1619024620415
+        "updated": 1619024620415,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¡Estamos casi alli! Ve a arrastrar tu Time Machine, vuelve aquí y haz la última conexión.",
+                "updated": 1628731771086
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Under the Session Reference node you will see the Trading Mine Products node we are after."
+            "text": "Under the Session Reference node you will see the Trading Mine Products node we are after.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Bajo el nodo Session Reference verás el nodo Trading Mine Products.",
+                    "updated": 1628731861158
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Now create a reference between your new Layer Manager and the Trading Mind Products node labeled \"Lightning Strike Backtesting Session\"",
-            "updated": 1621523291610
+            "updated": 1621523291610,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Ahora crea una referencia entre su nuevo Layer Manager y el nodo Trading Mind Products etiquetado \"Lightning Strike Backtesting Session\".",
+                    "updated": 1628731972281
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "If you hooked it up correctly, the name Candles should appear over the layer manager."
+            "text": "If you hooked it up correctly, the name Candles should appear over the layer manager.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si lo conectaste correctamente, el nombre Velas debería aparecer sobre el layer manager.",
+                    "updated": 1628731999230
+                }
+            ]
         },
         {
             "style": "Text",

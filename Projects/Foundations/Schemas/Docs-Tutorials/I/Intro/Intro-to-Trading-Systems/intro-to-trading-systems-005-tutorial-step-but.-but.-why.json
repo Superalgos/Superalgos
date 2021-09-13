@@ -4,23 +4,51 @@
     "type": "Tutorial Step - But... But... Why?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-system"
+            "name": "Trading\\trading-system",
+            "project": "Foundations"
         },
-        "text": "Why would I want to have multiple strategies within a trading system, when only one of them may trade at any point?"
+        "text": "Why would I want to have multiple strategies within a trading system, when only one of them may trade at any point?",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¿Por qué querría tener múltiples estrategias dentro de un Trading System, cuando solo una de ellas puede operar en cualquier momento?",
+                "updated": 1629591838961
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Before answering the burning question, let's take a look at a couple of examples. Take a look at the two strategies within the Weak-hands Buster (WHB v2) trading system!"
+            "text": "Before answering the burning question, let's take a look at a couple of examples. Take a look at the two strategies within the Weak-hands Buster (WHB v2) trading system!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Antes de responder a la pregunta candente, echemos un vistazo a un par de ejemplos. ¡Echa un vistazo a las dos estrategias dentro del Tradiing System Weak-Hands Buster (WHB v2)!",
+                    "updated": 1629598150880
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Explore the definitions of the Trigger On Event on the Trigger Stage and see if you notice the difference between the two."
+            "text": "Explore the definitions of the Trigger On Event on the Trigger Stage and see if you notice the difference between the two.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Explore las definiciones de Trigger On Event sobre el Trigger Stagey vea si nota la diferencia entre los dos.",
+                    "updated": 1629598211253
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "There's a hint in the name of each strategy!"
+            "text": "There's a hint in the name of each strategy!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Hay una pista en el nombre de cada estrategia!",
+                    "updated": 1629598225693
+                }
+            ]
         }
     ]
 }

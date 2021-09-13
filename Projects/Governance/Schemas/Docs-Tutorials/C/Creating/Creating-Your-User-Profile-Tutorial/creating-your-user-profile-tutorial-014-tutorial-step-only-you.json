@@ -1,0 +1,29 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 14,
+    "type": "Tutorial Step - Only You",
+    "definition": {
+        "text": "The Profile Constructor also did some work to make sure only you can change your profile.",
+        "updated": 1630658478769,
+        "icon": {
+            "name": "User\\user-profile",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "A cryptographic message with your GitHub.com username has been signed with the private key corresponding to your Governance Address. This message will be stored in your User Profile so that we may authenticate it comes from you once you submit your profile as a plugin to the Governance Project.",
+            "updated": 1630658507981
+        },
+        {
+            "style": "Success",
+            "text": "What this means is that your profile and its associated token address can only be accessed and changed by you!",
+            "updated": 1630606585784
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

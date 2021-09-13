@@ -21,8 +21,8 @@
     "paragraphs": [
         {
             "style": "Note",
-            "text": "That is why we ask you to help in this manner! By completing those three tasks, you are effectively helping more developers find Superalgos, which is a win for everyone, as the more developers, the faster the project advances!",
-            "updated": 1630660356226,
+            "text": "That is why we ask you to help in this manner! By completing those three tasks, you are effectively helping more developers find Superalgos.",
+            "updated": 1631548798983,
             "translations": [
                 {
                     "language": "ES",
@@ -70,6 +70,11 @@
                     "style": "List"
                 }
             ]
+        },
+        {
+            "style": "List",
+            "text": "This may not be immediately reflected in the system, as Github limits the number of queries the system makes. Don't worry, you will get your tokens anyway.",
+            "updated": 1631548891216
         }
     ]
 }

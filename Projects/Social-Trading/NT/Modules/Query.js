@@ -79,7 +79,7 @@ exports.newSocialTradingModulesQuery = function newSocialTradingModulesQuery() {
                 break
             }
 
-            case SA.projects.socialTrading.globals.queryTypes.maps.EVENTS: {
+            case SA.projects.socialTrading.globals.queryTypes.EVENTS: {
                 thisObject.query = NT.projects.socialTrading.modules.queriesEvents.newSocialTradingModulesQueriesEvents()
                 thisObject.query.initialize(queryReceived)
                 break

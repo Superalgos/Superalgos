@@ -145,6 +145,9 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             Any exception that happens while trying to change the state of the Social Graph,
             will be returned to the caller without doing anything else here.
             */
+            if (err.stack !== undefined) {
+                console.log('[ERROR] Client Interface -> err.stack = ' + err.stack)
+            }
             let errorMessage = err.message
             if (errorMessage === undefined) { errorMessage = err }
             let response = {
@@ -218,6 +221,9 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             /*
             Any exception that happens while trying to execute the query.
             */
+            if (err.stack !== undefined) {
+                console.log('[ERROR] Client Interface -> err.stack = ' + err.stack)
+            }
             let errorMessage = err.message
             if (errorMessage === undefined) { errorMessage = err }
             let response = {

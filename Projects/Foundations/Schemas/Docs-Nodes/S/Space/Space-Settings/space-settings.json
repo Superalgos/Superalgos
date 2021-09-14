@@ -20,13 +20,8 @@
         },
         {
             "style": "List",
-            "text": "physics determines whether the environment is static (false) or dynamic (true). When physics is set to true, nodes in the design space are affected by th gravitational pull and repulsion of other nodes.",
-            "updated": 1631554248476
-        },
-        {
-            "style": "List",
-            "text": "indexContent defines whether the contents of the docs space will be indexed for searching upon loading the workspace.  If false docs space will be disabled allowing faster load times for development.",
-            "updated": 1631554443380
+            "text": "\"physics\" determines whether the environment is static (false) or dynamic (true). When physics is set to true, nodes in the design space are affected by th gravitational pull and repulsion of other nodes.",
+            "updated": 1631588883144
         },
         {
             "style": "List",
@@ -38,31 +33,33 @@
         },
         {
             "style": "List",
-            "text": "node refers to every node in the design space."
+            "text": "\"node\" here refers to every node in the design space. This collection of properties adjusts the settings of all nodes in the design space.",
+            "updated": 1631588871268
         },
         {
             "style": "List",
-            "text": "distancePercentage",
-            "updated": 1631554058045
+            "text": "distancePercentage adjusts the baseline distance between nodes.",
+            "updated": 1631588124341
         },
         {
             "style": "List",
-            "text": "radiusPercentage is the radius of the circular nodes'menu applied as a percentage of an arbitrary default radius."
+            "text": "radiusPercentage is the radius of the circular nodes' menu applied as a percentage of an arbitrary default radius. A higher value will lead to a larger node menu.",
+            "updated": 1631588202567
         },
         {
             "style": "List",
-            "text": "massPercentage is the refernce mass of nodes that affect the attraction and repulsion of the environment's pysics whe the physics setting is set to true.",
-            "updated": 1609863964761
+            "text": "massPercentage is the reference mass of nodes that affects the attraction and repulsion of the environment's physics when the physics setting is set to true.",
+            "updated": 1631588798797
         },
         {
             "style": "List",
-            "text": "animationSteps",
-            "updated": 1631554296700
+            "text": "animationSteps adjusts the amount of steps the animation takes to open a node menu upon hovering over it. A higher value leads to smoother transtion.",
+            "updated": 1631588728860
         },
         {
             "style": "List",
-            "text": "menuItem refers to the items on the right-hand side of nodes'menus and has the following three properties.",
-            "updated": 1631554154211
+            "text": "menuItem refers to the items on the right-hand side of a node's menus and has the following three properties.",
+            "updated": 1631588761551
         },
         {
             "style": "List",

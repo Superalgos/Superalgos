@@ -9,13 +9,6 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Tutorial",
-            "iconProject": "Education",
-            "relatedUiObject": "Tutorial",
-            "actionFunction": "payload.executeAction"
-        },
-        {
-            "action": "Add UI Object",
             "label": "Add Plugins",
             "relatedUiObject": "Plugins",
             "actionFunction": "payload.executeAction"

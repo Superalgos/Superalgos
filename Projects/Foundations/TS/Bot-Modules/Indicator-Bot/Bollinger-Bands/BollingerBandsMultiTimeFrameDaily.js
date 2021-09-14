@@ -270,8 +270,8 @@
                             /*  Telling the world we are alive and doing well */
                             let currentDateString =
                                 processDate.getUTCFullYear() + '-' +
-                                TS.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '-' +
-                                TS.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2);
+                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '-' +
+                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2);
                             let currentDate = new Date(processDate)
                             let percentage = TS.projects.foundations.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
                             TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, currentDateString, percentage)
@@ -322,8 +322,8 @@
                                 try {
                                     let dateForPath =
                                         previousDay.getUTCFullYear() + '/' +
-                                        TS.projects.foundations.utilities.miscellaneousFunctions.pad(previousDay.getUTCMonth() + 1, 2) + '/' +
-                                        TS.projects.foundations.utilities.miscellaneousFunctions.pad(previousDay.getUTCDate(), 2);
+                                        SA.projects.foundations.utilities.miscellaneousFunctions.pad(previousDay.getUTCMonth() + 1, 2) + '/' +
+                                        SA.projects.foundations.utilities.miscellaneousFunctions.pad(previousDay.getUTCDate(), 2);
                                     let fileName = "Data.json"
                                     let filePathRoot =
                                         'Project/' +
@@ -368,8 +368,8 @@
                                 try {
                                     let dateForPath =
                                         processDate.getUTCFullYear() + '/' +
-                                        TS.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '/' +
-                                        TS.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2);
+                                        SA.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '/' +
+                                        SA.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2);
                                     let fileName = "Data.json"
                                     let filePathRoot =
                                         'Project/' +
@@ -584,8 +584,8 @@
 
                                     let dateForPath =
                                         processDate.getUTCFullYear() + '/' +
-                                        TS.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '/' +
-                                        TS.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2);
+                                        SA.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '/' +
+                                        SA.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2);
                                     let fileName = 'Data.json';
                                     let filePath =
                                         TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
@@ -654,8 +654,8 @@
 
                                     let dateForPath =
                                         processDate.getUTCFullYear() + '/' +
-                                        TS.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '/' +
-                                        TS.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2);
+                                        SA.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '/' +
+                                        SA.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2);
                                     let fileName = 'Data.json';
                                     let filePath =
                                         TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +

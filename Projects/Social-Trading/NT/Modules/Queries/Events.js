@@ -22,7 +22,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
     function initialize(queryReceived) {
 
         NT.projects.socialTrading.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
-        NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, NT.memory.arrays.EVENTS)
+        NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, NT.projects.socialTrading.globals.memory.arrays.EVENTS)
 
     }
 
@@ -31,7 +31,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
         switch (thisObject.direction) {
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
-                    let event = NT.memory.arrays.EVENTS[i]
+                    let event = NT.projects.socialTrading.globals.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }
                     checkEventContext(event)
                 }
@@ -39,7 +39,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
             }
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
-                    let event = NT.memory.arrays.EVENTS[i]
+                    let event = NT.projects.socialTrading.globals.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }
                     checkEventContext(event)
                 }

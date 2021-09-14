@@ -8,16 +8,17 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
 
     let thisObject = {
         asyncGetTextFile: asyncGetTextFile,
-        asyncCreateTextFile: asyncCreateTextFile, 
+        asyncCreateTextFile: asyncCreateTextFile,
         getTextFile: getTextFile,
         createTextFile: createTextFile,
         deleteTextFile: deleteTextFile
     }
 
-    
+
     let logger
     if (TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT === undefined) { // Dummy logger
         logger = {}
+
         function write() {
 
         }
@@ -31,16 +32,17 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
         /* This function allows its caller to work with async / await instead of callbacks */
         let promise = new Promise((resolve, reject) => {
 
-            getTextFile(filePath, onFileRead, noRetry, canUsePrevious) 
+            getTextFile(filePath, onFileRead, noRetry, canUsePrevious)
+
             function onFileRead(err, text) {
- 
+
                 let response = {
                     err: err,
                     text: text
                 }
                 resolve(response)
             }
-          })
+        })
 
         return promise
     }
@@ -49,15 +51,16 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
         /* This function allows its caller to work with async / await instead of callbacks */
         let promise = new Promise((resolve, reject) => {
 
-            createTextFile(filePath, fileContent, onFileWriten, keepPrevious, noTemp) 
+            createTextFile(filePath, fileContent, onFileWriten, keepPrevious, noTemp)
+
             function onFileWriten(err) {
- 
+
                 let response = {
                     err: err
                 }
                 resolve(response)
             }
-          })
+        })
 
         return promise
     }
@@ -78,8 +81,13 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
                 fileLocation = global.env.PATH_TO_PROJECTS + '/' + filePath
                 mustBeJason = false
             } else {
+                if (filePath.indexOf('.csv') > 0) {
+                    mustBeJason = false
+                } else {
+                    mustBeJason = true
+                }
                 fileLocation = global.env.PATH_TO_DATA_STORAGE + '/' + filePath
-                mustBeJason = true
+
             }
 
             try {
@@ -145,7 +153,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
                     }
 
                     /*
-                    We are going to check if the file is a valir JSON object
+                    We are going to check if the file is a valid JSON object
                     */
                     try {
                         let jsonCheck = JSON.parse(text.toString())
@@ -244,7 +252,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
                 logger.write(MODULE_NAME, '[INFO] FileStorage -> createTextFile -> fileLocation: ' + fileLocation)
 
                 /* If necesary a folder or folders are created before writing the file to disk. */
-                TS.projects.foundations.utilities.miscellaneousFunctions.mkDirByPathSync(fileLocation)
+                SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(fileLocation)
 
                 /*
                 Here we write the file with a temporary name so as to avoid dirty read from other processes.
@@ -457,7 +465,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
 
             let request = http.get(url, onResponse);
 
-            request.on('error', function (err) {
+            request.on('error', function(err) {
                 logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> onError -> err = " + err.stack);
                 logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> onError -> Failed to fetch file via HTTP. Will retry later. ");
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);

@@ -32,15 +32,15 @@
     "level": 0,
     "childrenNodesProperties": [
         {
-            "name": "spaceStyle",
+            "name": "docsSpaceStyle",
             "type": "node",
-            "childType": "Space Style",
+            "childType": "Docs Space Style",
             "autoAdd": true
         },
         {
-            "name": "spaceSettings",
+            "name": "docsSpaceSettings",
             "type": "node",
-            "childType": "Space Settings",
+            "childType": "Docs Space Settings",
             "autoAdd": true
         }
     ]

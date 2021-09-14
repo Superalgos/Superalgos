@@ -44,7 +44,9 @@ SA.nodeModules = {
     web3: require('web3'),
     ws: require('ws'),
     open: require('open'),
-    http: require('http')
+    http: require('http'),
+    octokit: require("@octokit/rest"),
+    simpleGit: require('simple-git')
 }
 
 /*
@@ -60,7 +62,10 @@ DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID = "baa2f02c-2920-4edb-a103-d452fc61d82f"
 DK.TEST_NETWORK_CLIENT_USER_PROFILE_HANDLE = "Test-Network-Client-Profile"  
 DK.TEST_NETWORK_CLIENT_USER_PROFILE_PRIVATE_KEY = "0x5fed4817a87431c8a328d0936561e63f45b6db289adac6125b9306ded644dfe9" 
 
-DK.app = require('./Desktop/DesktopApp.js').newDesktopApp()
-DK.app.run()
+run() 
 
-console.log('Superalgos Desktop is Running.')
+async function run() {
+    DK.app = require('./Desktop/DesktopApp.js').newDesktopApp()
+    await DK.app.run()
+    console.log('Superalgos Desktop App is Running!')
+} 

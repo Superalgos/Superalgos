@@ -44,6 +44,11 @@
                     "style": "Text"
                 }
             ]
+        },
+        {
+            "style": "Important",
+            "text": "We will use this node to build your User Profile. Later on, you will delete this node to erase all the sensitive information you may enter along with the information the constructor will generate. But no need to worry at this point! I'll let you know when to delete it!",
+            "updated": 1631547429975
         }
     ]
 }

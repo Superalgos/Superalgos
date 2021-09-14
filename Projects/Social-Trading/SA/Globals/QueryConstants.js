@@ -6,7 +6,9 @@ exports.newSocialTradingGlobalsQueryConstants = function () {
         MIN_AMOUNT_REQUESTED: 1,
         MAX_AMOUNT_REQUESTED: 100,
         DIRECTION_FUTURE: 'Future',
-        DIRECTION_PAST: 'Past'
+        DIRECTION_PAST: 'Past',
+        DIRECTION_UP: 'Up',
+        DIRECTION_Down: 'Down'
     }
 
     return thisObject

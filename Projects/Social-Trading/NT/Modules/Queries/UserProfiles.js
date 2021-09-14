@@ -5,7 +5,7 @@ exports.newSocialTradingModulesQueriesUserProfiles = function newSocialTradingMo
     and provide them with alternative of who to follow.
     */
     let thisObject = {
-        array: undefined,
+        profiles: undefined,
         initialIndex: undefined,
         amountRequested: undefined,
         direction: undefined,
@@ -17,18 +17,18 @@ exports.newSocialTradingModulesQueriesUserProfiles = function newSocialTradingMo
     return thisObject
 
     function finalize() {
-        thisObject.array = undefined
+        thisObject.profiles = undefined
     }
 
     function initialize(queryReceived) {
 
-        thisObject.array = Array.from(
+        thisObject.profiles = Array.from(
             NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID, 
             x => x[1]
             )
-        thisObject.array.sort((a, b) => (a["ranking"] > b["ranking"]) ? 1 : -1)
+        thisObject.profiles.sort((a, b) => (a["ranking"] > b["ranking"]) ? 1 : -1)
 
-        NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
+        NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.profiles)
 
     }
 
@@ -37,19 +37,19 @@ exports.newSocialTradingModulesQueriesUserProfiles = function newSocialTradingMo
         let response = []
 
         switch (thisObject.direction) {
-            case SA.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE: {
+            case SA.projects.socialTrading.globals.queryConstants.DIRECTION_UP: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
-                    let arrayItem = thisObject.array[i]
-                    if (arrayItem === undefined) { break }
-                    addToResponse(arrayItem)
+                    let profile = thisObject.profiles[i]
+                    if (profile === undefined) { break }
+                    addToResponse(profile)
                 }
                 break
             }
-            case SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
+            case SA.projects.socialTrading.globals.queryConstants.DIRECTION_DOWN: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
-                    let arrayItem = thisObject.array[i]
-                    if (arrayItem === undefined) { break }
-                    addToResponse(arrayItem)
+                    let profile = thisObject.profiles[i]
+                    if (profile === undefined) { break }
+                    addToResponse(profile)
                 }
                 break
             }

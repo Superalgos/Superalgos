@@ -85,7 +85,6 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
       let fileLocation;
       let mustBeJason;
       if (filePath.indexOf('/bots/') > 0) {
-        console.log('no jason file');
         fileLocation = global.env.PATH_TO_PROJECTS + '/' + filePath;
         mustBeJason = false;
       } else {
@@ -206,7 +205,6 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
             );
             return;
           } catch (err) {
-            // console.log(text.toString());
             if (canUsePrevious === true) {
               logger.write(
                 MODULE_NAME,

@@ -1,15 +1,15 @@
 {
-    "type": "Space Settings",
+    "type": "Docs Space Style",
     "level": 4,
-    "propertyNameAtParent": "spaceSettings",
+    "propertyNameAtParent": "docsSpaceStyle",
     "attachingRules": {
-        "compatibleTypes": "->Charting Space->Design Space->Docs Space->"
+        "compatibleTypes": "Docs Space->"
     },
     "editors": {
         "config": true
     },
     "initialValues": {
-        "config": "{\"node\":{\"distancePercentage\":60,\"radiusPercentage\":85,\"massPercentage\":100,\"animationSteps\":2,\"menuItem\":{\"widthPercentage\":100,\"heightPercentage\":60,\"radiusPercentage\":90}},\"physics\":false,\"shortcuts\":{\"toggleMapMode\":\"M\",\"toggleDrawRelationshipLines\":\"R\",\"toggleDrawParentLines\":\"C\",\"saveWorkspace\":\"S\",\"adjustAspectRatio\":\"A\"} \n }"
+        "config": "{\"backgroundColor\":\"UI_COLOR.BLACK\",\"node\":{\"fontSize\":16,\"imageSize\":60,\"type\":{\"fontColor\":\"UI_COLOR.WHITE\"},\"name\":{\"fontColor\":\"UI_COLOR.WHITE\"},\"menuItem\":{\"backgroundColor\":\"UI_COLOR.BLACK\",\"fontColor\":\"UI_COLOR.WHITE\",\"fontSize\":14,\"imageSize\":14}}}"
     },
     "menuItems": [
         {

@@ -1,15 +1,15 @@
 {
-    "type": "Space Settings",
+    "type": "Docs Space Settings",
     "level": 4,
-    "propertyNameAtParent": "spaceSettings",
+    "propertyNameAtParent": "docsSpaceSettings",
     "attachingRules": {
-        "compatibleTypes": "->Charting Space->Design Space->Docs Space->"
+        "compatibleTypes": "Docs Space->"
     },
     "editors": {
         "config": true
     },
     "initialValues": {
-        "config": "{\"node\":{\"distancePercentage\":60,\"radiusPercentage\":85,\"massPercentage\":100,\"animationSteps\":2,\"menuItem\":{\"widthPercentage\":100,\"heightPercentage\":60,\"radiusPercentage\":90}},\"physics\":false,\"shortcuts\":{\"toggleMapMode\":\"M\",\"toggleDrawRelationshipLines\":\"R\",\"toggleDrawParentLines\":\"C\",\"saveWorkspace\":\"S\",\"adjustAspectRatio\":\"A\"} \n }"
+        "config": "{\"indexContent\": true \n }"
     },
     "menuItems": [
         {

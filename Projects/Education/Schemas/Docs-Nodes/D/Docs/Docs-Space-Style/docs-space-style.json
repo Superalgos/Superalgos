@@ -1,0 +1,13 @@
+{
+    "type": "Docs Space Style",
+    "definition": {
+        "text": "This node is currently a place holder that will eventually allow users to adjust the visual apperance of the docs space.",
+        "updated": 1631589004055
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

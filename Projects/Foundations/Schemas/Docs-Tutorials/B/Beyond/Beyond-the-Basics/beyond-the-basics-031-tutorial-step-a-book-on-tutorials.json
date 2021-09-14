@@ -45,9 +45,15 @@
             ]
         },
         {
+<<<<<<< HEAD
             "style": "Callout",
             "text": "Take a look at the list of tutorials available on each of the Plugin Worspaces and choose which one to do next!",
             "updated": 1629914136171,
+=======
+            "style": "Success",
+            "text": "Take a look at the list of tutorials available on each of the Plugin Workspaces and choose which one to do next!",
+            "updated": 1630945219778,
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
             "translations": [
                 {
                     "language": "IT",
@@ -64,8 +70,13 @@
             ]
         },
         {
+<<<<<<< HEAD
             "style": "Success",
             "text": "To participate in the next Airdrop and Governance in general, get started by loading the Token Distribution Superalgos Plugin Workspace!",
+=======
+            "style": "Callout",
+            "text": "To participate in the next Airdrop and Governance in general, get started by loading the following:",
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
             "translations": [
                 {
                     "language": "IT",
@@ -80,7 +91,15 @@
                     "style": "Success"
                 }
             ],
+<<<<<<< HEAD
             "updated": 1629914176718
+=======
+            "updated": 1630945286991
+        },
+        {
+            "style": "Text",
+            "text": "Token Distribution Superalgos Governance Workspace"
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         }
     ]
 }

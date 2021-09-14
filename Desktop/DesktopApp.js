@@ -8,13 +8,20 @@ exports.newDesktopApp = function newDesktopApp() {
 
     async function run() {
         /*
+<<<<<<< HEAD
                 let socialGraphService = NT.projects.network.modules.socialGraph.newSocialGraph()
                 await socialGraphService.initialize()
         */
+=======
+        Heree we will store our running objects:
+        */
+        DK.running = {}
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
 
         /*
         This is the Web Sockets client that interacts with the Superalgos Network.
         */
+<<<<<<< HEAD
         //DK.webSocketsClient = SA.projects.network.modules.webSocketsClient.newNetworkModulesWebSocketsClient()
         //await DK.webSocketsClient.initialize()
 
@@ -34,6 +41,30 @@ exports.newDesktopApp = function newDesktopApp() {
 
         return
 
+=======
+        DK.running.socialGraph = DK.projects.socialTrading.modules.socialGraph.newSocialTradingModulesSocialGraph()
+        await DK.running.socialGraph.initialize()
+
+        /*
+        This is the Web Sockets client that interacts with the Superalgos Network.
+        */
+        DK.running.webSocketsClient = SA.projects.network.modules.webSocketsClient.newNetworkModulesWebSocketsClient()
+        await DK.running.webSocketsClient.initialize()
+        console.log('Desktop Client Connected to Network Node via Web Sockets ................... Connected to port ' + global.env.NETWORK_WEB_SOCKETS_INTERFACE_PORT)
+
+        /* These are the Network Interfaces by which the UI interacts with the Desktop App.*/
+
+        DK.running.webSocketsInterface = DK.projects.socialTrading.modules.webSocketsInterface.newDesktopModulesWebSocketsInterface()
+        DK.running.webSocketsInterface.initialize()
+        console.log('Desktop Client Web Sockets Interface ....................................... Listening at port ' + global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT)
+
+
+        DK.running.httpInterface = DK.projects.socialTrading.modules.httpInterface.newDesktopModulesHttpInterface()
+        DK.running.httpInterface.initialize()
+        console.log('Desktop Client Http Interface .............................................. Listening at port ' + global.env.DESKTOP_HTTP_INTERFACE_PORT)
+
+        return
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
 
         let queryMessage
         let query

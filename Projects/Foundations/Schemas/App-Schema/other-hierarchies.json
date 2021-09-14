@@ -9,15 +9,21 @@
         },
         {
             "action": "Add UI Object",
+<<<<<<< HEAD
             "label": "Add Tutorial",
             "iconProject": "Education",
             "relatedUiObject": "Tutorial",
+=======
+            "label": "Add Plugins",
+            "relatedUiObject": "Plugins",
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Add UI Object",
-            "label": "Add Plugins",
-            "relatedUiObject": "Plugins",
+            "label": "Add Crypto Ecosystem",
+            "disableIfPropertyIsDefined": true,
+            "relatedUiObject": "Crypto Ecosystem",
             "actionFunction": "payload.executeAction"
         },
         {

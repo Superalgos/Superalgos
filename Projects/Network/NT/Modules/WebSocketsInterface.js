@@ -1,6 +1,12 @@
 exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSocketsInterface() {
 
     let thisObject = {
+<<<<<<< HEAD
+=======
+        networkClients: undefined,
+        networkPeers: undefined,
+        callersMap: undefined,
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         initialize: initialize,
         finalize: finalize
     }
@@ -14,6 +20,13 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
     return thisObject
 
     function finalize() {
+<<<<<<< HEAD
+=======
+        thisObject.networkClients = undefined
+        thisObject.networkPeers = undefined
+        callersMap = undefined
+
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         socketServer = undefined
         clientInterface = undefined
         peerInterface = undefined
@@ -26,11 +39,19 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
         clientInterface = NT.projects.socialTrading.modules.clientInterface.newSocialTradingModulesClientInterface()
         peerInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesPeerInterface()
 
+<<<<<<< HEAD
+=======
+        thisObject.networkClients = []
+        thisObject.networkPeers = []
+        thisObject.callersMap = new Map()
+
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         setUpWebSocketServer()
     }
 
     function setUpWebSocketServer() {
         try {
+<<<<<<< HEAD
             socketServer.on('connection', onConnection)
 
             function onConnection(socket) {
@@ -38,6 +59,28 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 let calledTimestamp = (new Date()).valueOf()
 
                 socket.on('message', onMenssage)
+=======
+            socketServer.on('connection', onConnectionOpened)
+
+            function onConnectionOpened(socket)
+
+            /*
+            This function is executed every time a new Websockets connection
+            is stablished.  
+            */ {
+                let caller = {
+                    socket: socket,
+                    userProfile: undefined,
+                    role: undefined
+                }
+
+                caller.socket.id = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
+                caller.socket.on('close', onConnectionClosed)
+
+                let calledTimestamp = (new Date()).valueOf()
+
+                caller.socket.on('message', onMenssage)
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
 
                 async function onMenssage(message) {
                     try {
@@ -49,7 +92,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                 result: 'Error',
                                 message: 'messageHeader Not Coorrect JSON Format.'
                             }
+<<<<<<< HEAD
                             socket.send(JSON.stringify(response))
+=======
+                            caller.socket.send(JSON.stringify(response))
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                             return
                         }
                         /*
@@ -60,13 +107,21 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                 result: 'Error',
                                 message: 'messageType Not Provided.'
                             }
+<<<<<<< HEAD
                             socket.send(JSON.stringify(response))
+=======
+                            caller.socket.send(JSON.stringify(response))
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                             return
                         }
 
                         switch (messageHeader.messageType) {
                             case "Handshake": {
+<<<<<<< HEAD
                                 handshakeProducedure(socket, caller, calledTimestamp, messageHeader)
+=======
+                                handshakeProducedure(caller, calledTimestamp, messageHeader)
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                                 break
                             }
                             case "Request": {
@@ -76,6 +131,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                         result: 'Error',
                                         message: 'Handshake Not Done Yet.'
                                     }
+<<<<<<< HEAD
                                     socket.send(JSON.stringify(response))
                                     return
                                 }
@@ -92,6 +148,29 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                         break
                                     }
                                 }
+=======
+                                    caller.socket.send(JSON.stringify(response))
+                                    return
+                                }
+
+                                let response
+                                switch (caller.role) {
+                                    case 'Network Client': {
+                                        response = await clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                        caller.socket.send(JSON.stringify(response))
+                                        break
+                                    }
+                                    case 'Network Peer': {
+                                        response = await peerInterface.messageReceived(messageHeader.payload)
+                                        caller.socket.send(JSON.stringify(response))
+                                        break
+                                    }
+                                }
+                                if (response.result === 'Ok' && messageHeader.payload.requestType === 'Event') {
+                                    broadcastToPeers(messageHeader, caller)
+                                    broadcastToClients(messageHeader, caller)
+                                }
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                                 break
                             }
                             default: {
@@ -99,7 +178,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                     result: 'Error',
                                     message: 'messageType Not Supported.'
                                 }
+<<<<<<< HEAD
                                 socket.send(JSON.stringify(response))
+=======
+                                caller.socket.send(JSON.stringify(response))
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                                 break
                             }
                         }
@@ -109,7 +192,17 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 }
             }
 
+<<<<<<< HEAD
             function handshakeProducedure(socket, caller, calledTimestamp, messageHeader) {
+=======
+            function onConnectionClosed() {
+                let socketId = this.id
+                let caller = thisObject.callersMap.get(socketId)
+                removeCaller(caller)
+            }
+
+            function handshakeProducedure(caller, calledTimestamp, messageHeader) {
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                 /*
                 The handshage producedure have 2 steps, we need to know 
                 now which one we are at. 
@@ -119,7 +212,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         result: 'Error',
                         message: 'step Not Provided.'
                     }
+<<<<<<< HEAD
                     socket.send(JSON.stringify(response))
+=======
+                    caller.socket.send(JSON.stringify(response))
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                     return
                 }
                 if (messageHeader.step !== 'One' && messageHeader.step !== 'Two') {
@@ -127,7 +224,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         result: 'Error',
                         message: 'step Not Supported.'
                     }
+<<<<<<< HEAD
                     socket.send(JSON.stringify(response))
+=======
+                    caller.socket.send(JSON.stringify(response))
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                     return
                 }
                 switch (messageHeader.step) {
@@ -149,7 +250,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'callerRole Not Provided.'
                         }
+<<<<<<< HEAD
                         socket.send(JSON.stringify(response))
+=======
+                        caller.socket.send(JSON.stringify(response))
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
 
@@ -158,7 +263,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'callerRole Not Supported.'
                         }
+<<<<<<< HEAD
                         socket.send(JSON.stringify(response))
+=======
+                        caller.socket.send(JSON.stringify(response))
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
 
@@ -171,7 +280,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'callerProfileHandle Not Provided.'
                         }
+<<<<<<< HEAD
                         socket.send(JSON.stringify(response))
+=======
+                        caller.socket.send(JSON.stringify(response))
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
 
@@ -184,7 +297,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'callerTimestamp Not Provided.'
                         }
+<<<<<<< HEAD
                         socket.send(JSON.stringify(response))
+=======
+                        caller.socket.send(JSON.stringify(response))
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
                     /*
@@ -195,7 +312,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'callerTimestamp Too Old.'
                         }
+<<<<<<< HEAD
                         socket.send(JSON.stringify(response))
+=======
+                        caller.socket.send(JSON.stringify(response))
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
                     /*
@@ -215,7 +336,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         message: 'Handshake Step One Complete',
                         signature: JSON.stringify(signature)
                     }
+<<<<<<< HEAD
                     socket.send(JSON.stringify(response))
+=======
+                    caller.socket.send(JSON.stringify(response))
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                 }
 
                 function handshakeStepTwo() {
@@ -227,7 +352,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'Handshake Step One Not Completed.'
                         }
+<<<<<<< HEAD
                         socket.send(JSON.stringify(response))
+=======
+                        caller.socket.send(JSON.stringify(response))
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
                     /*
@@ -238,7 +367,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'signature Not Provided.'
                         }
+<<<<<<< HEAD
                         socket.send(JSON.stringify(response))
+=======
+                        caller.socket.send(JSON.stringify(response))
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
 
@@ -250,7 +383,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'Bad Signature.'
                         }
+<<<<<<< HEAD
                         socket.send(JSON.stringify(response))
+=======
+                        caller.socket.send(JSON.stringify(response))
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
                     /*
@@ -263,7 +400,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'userProfile Not Found.'
                         }
+<<<<<<< HEAD
                         socket.send(JSON.stringify(response))
+=======
+                        caller.socket.send(JSON.stringify(response))
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
                     /*
@@ -277,7 +418,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'callerProfileHandle Does Not Match witnessUserProfile.'
                         }
+<<<<<<< HEAD
                         socket.send(JSON.stringify(response))
+=======
+                        caller.socket.send(JSON.stringify(response))
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
                     /*
@@ -289,7 +434,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'calledProfileHandle Does Not Match This Network Node Handle.'
                         }
+<<<<<<< HEAD
                         socket.send(JSON.stringify(response))
+=======
+                        caller.socket.send(JSON.stringify(response))
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
                     /*
@@ -300,7 +449,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'calledTimestamp Does Not Match calledTimestamp On Record.'
                         }
+<<<<<<< HEAD
                         socket.send(JSON.stringify(response))
+=======
+                        caller.socket.send(JSON.stringify(response))
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
                     /*
@@ -310,12 +463,103 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     We will remember the user profile behind this caller.
                     */
                     caller.userProfile = witnessUserProfile
+<<<<<<< HEAD
+=======
+                    /*
+                    We will remember the caller itself.
+                    */
+                    addCaller(caller)
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
 
                     let response = {
                         result: 'Ok',
                         message: 'Handshake Successful.'
                     }
+<<<<<<< HEAD
                     socket.send(JSON.stringify(response))
+=======
+                    caller.socket.send(JSON.stringify(response))
+                }
+            }
+
+            function addCaller(caller) {
+
+                thisObject.callersMap.set(caller.socket.id, caller)
+
+                switch (caller.role) {
+                    case 'Network Client': {
+                        addToArray(thisObject.networkClients, caller)
+                        break
+                    }
+                    case 'Network Peer': {
+                        addToArray(thisObject.networkPeers, caller)
+                        break
+                    }
+                }
+
+                function addToArray(callersArray, caller) {
+                    /*
+                    We will add the caller to the existing array, first the ones with highest ranking.
+                    */
+                    for (let i = 0; i < callersArray.length; i++) {
+                        let callerInArray = callersArray[i]
+                        if (caller.userProfile.ranking > callerInArray.userProfile.ranking) {
+                            callersArray.splice(i, 0, caller)
+                            return
+                        }
+                    }
+                    callersArray.push(caller)
+                }
+            }
+
+            function removeCaller(caller) {
+
+                thisObject.callersMap.delete(caller.socket.id)
+
+                switch (caller.role) {
+                    case 'Network Client': {
+                        removeFromArray(thisObject.networkClients, caller)
+                        break
+                    }
+                    case 'Network Peer': {
+                        removeFromArray(thisObject.networkPeers, caller)
+                        break
+                    }
+                }
+
+                function removeFromArray(callersArray, caller) {
+                    for (let i = 0; i < callersArray.length; i++) {
+                        let callerInArray = callersArray[i]
+                        if (caller.socket.id === callerInArray.socket.id) {
+                            callersArray.splice(i, 1)
+                            return
+                        }
+                    }
+                }
+            }
+
+            function broadcastToPeers(messageHeader, caller) {
+                let callerIdToAVoid
+                if (caller.role === 'Network Peer') {
+                    callerIdToAVoid = caller.socket.id
+                }
+                for (let i = 0; i < thisObject.networkPeers.length; i++) {
+                    let networkPeer = thisObject.networkPeers[i]
+                    if (networkPeer.socket.id === callerIdToAVoid) { continue }
+                    networkPeer.socket.send(messageHeader)
+                }
+            }
+
+            function broadcastToClients(messageHeader, caller) {
+                let callerIdToAVoid
+                if (caller.role === 'Network Client') {
+                    callerIdToAVoid = caller.socket.id
+                }
+                for (let i = 0; i < thisObject.networkClients.length; i++) {
+                    let networkClient = thisObject.networkClients[i]
+                    if (networkClient.socket.id === callerIdToAVoid) { continue }
+                    networkClient.socket.send(messageHeader)
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                 }
             }
 

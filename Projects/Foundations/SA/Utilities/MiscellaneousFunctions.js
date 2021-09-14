@@ -1,7 +1,12 @@
 exports.newFoundationsUtilitiesMiscellaneousFunctions = function () {
 
     let thisObject = {
+<<<<<<< HEAD
         genereteUniqueId: genereteUniqueId
+=======
+        genereteUniqueId: genereteUniqueId,
+        pad: pad
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
     }
 
     return thisObject
@@ -12,4 +17,12 @@ exports.newFoundationsUtilitiesMiscellaneousFunctions = function () {
             return v.toString(16)
         })
     }
+<<<<<<< HEAD
+=======
+
+    function pad(str, max) {
+        str = str.toString();
+        return str.length < max ? pad("0" + str, max) : str;
+    }
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
 }

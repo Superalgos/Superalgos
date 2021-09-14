@@ -8,22 +8,70 @@
         "icon": {
             "name": "Programs\\staking-program",
             "project": "Governance"
+<<<<<<< HEAD
         }
+=======
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "A diferencia de algunos tokens criptográficos, Superalgos SA Token realmente significa algo.",
+                "updated": 1630872083712,
+                "style": "Definition"
+            }
+        ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The SA Token is a BEP20 token on the Binance Smart Chain (BSC). Your token holdings embody your contributions to the Superalgos Project and Community, as the token is used to reward the user base and grow the development pool.",
+<<<<<<< HEAD
             "updated": 1630657545503
         },
         {
             "style": "Note",
             "text": "The project distributes tokens exclusively among contributors!"
+=======
+            "updated": 1630657545503,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El SA Token es un token BEP20 en Binance Smart Chain (BSC). Sus existencias de tokens representan sus contribuciones al Superalgos Project y Community, ya que el token se utiliza para recompensar a la base de usuarios y hacer crecer el grupo de desarrollo.",
+                    "updated": 1630872813106,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "The project distributes tokens exclusively among contributors!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡El proyecto distribuye tokens exclusivamente entre contribuyentes!",
+                    "updated": 1630872830278,
+                    "style": "Note"
+                }
+            ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         },
         {
             "style": "Success",
             "text": "The more you contribute to the project and help others, the more tokens you will earn!",
+<<<<<<< HEAD
             "updated": 1630657555715
+=======
+            "updated": 1630657555715,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Cuanto más contribuyas al proyecto y ayudes a otros, más tokens ganarás!",
+                    "updated": 1630872874947,
+                    "style": "Success"
+                }
+            ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         },
         {
             "style": "Text",

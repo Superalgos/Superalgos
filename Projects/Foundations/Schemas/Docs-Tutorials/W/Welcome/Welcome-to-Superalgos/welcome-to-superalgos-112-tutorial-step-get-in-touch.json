@@ -26,9 +26,9 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "Community Group — Let's talk Superalgos!",
-            "updated": 1626356740214,
+            "style": "List",
+            "text": "Announcements Channel — Get official news first!",
+            "updated": 1630944704472,
             "translations": [
                 {
                     "language": "ES",
@@ -39,26 +39,43 @@
             ]
         },
         {
-            "style": "Text",
-            "text": "<li style=\"padding-bottom: 7px;\"><a href=\"https://t.me/superalgossupport\" target=\"_blank\" style=\"color:blue;\">Support Group</a> &mdash; Have an issue and need help?</li>",
-            "updated": 1610964976645,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Support Group — ¿Tienes algún problema y necesitas ayuda?",
-                    "updated": 1624488565737,
-                    "style": "Text"
-                }
-            ]
+            "style": "List",
+            "text": "Community Group — Let's talk Superalgos!"
         },
         {
-            "style": "Text",
-            "text": "<li><a href=\"https://t.me/superalgosdevelop\" target=\"_blank\" style=\"color:blue;\">Develop Group</a> &mdash; Meet other developers!</li>"
+            "style": "List",
+            "text": "Develop Group — Meet other developers!",
+            "updated": 1630944360229
+        },
+        {
+            "style": "List",
+            "text": "Support Group — Need help getting started?",
+            "updated": 1630944446828
+        },
+        {
+            "style": "List",
+            "text": "Token Group — Let's talk Governance and the token!",
+            "updated": 1630944580226
+        },
+        {
+            "style": "List",
+            "text": "UX-UI Group — Can you design?",
+            "updated": 1630944831647
+        },
+        {
+            "style": "List",
+            "text": "Docs Group — Helps us improve the Docs!",
+            "updated": 1630944624658
+        },
+        {
+            "style": "List",
+            "text": "Machine Learning Group — Discuss TensorFlow!",
+            "updated": 1630944752351
         },
         {
             "style": "Callout",
-            "text": "Join the <a href=\"https://t.me/superalgos\" target=\"_blank\" style=\"color:blue;\">Announcements Channel</a> to be the first to know about new releases, hot fixes, and important issues!",
-            "updated": 1610964709408,
+            "text": "Click to find the invite link in the Docs panel!",
+            "updated": 1630944807940,
             "translations": [
                 {
                     "language": "IT",
@@ -67,15 +84,6 @@
                     "style": "Callout"
                 }
             ]
-        },
-        {
-            "style": "Text",
-            "text": "<li style=\"padding-bottom: 7px;\"><a href=\"https://t.me/superalgos_es\" target=\"_blank\" style=\"color:blue;\">Grupo en Español</a> &mdash; Hablemos en español!</li>",
-            "updated": 1610964994878
-        },
-        {
-            "style": "Text",
-            "text": "<li><a href=\"https://t.me/superalgos_ru\" target=\"_blank\" style=\"color:blue;\">Группа на русском</a> &mdash; Давайте говорить по русски</li>"
         }
     ]
 }

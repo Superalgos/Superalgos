@@ -34,6 +34,15 @@ exports.newSocialTradingModulesQuery = function newSocialTradingModulesQuery() {
                 break
             }
 
+<<<<<<< HEAD
+=======
+            case SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_USER_PROFILES: {
+                thisObject.query = NT.projects.socialTrading.modules.queriesUnfollowedUserProfiles.newSocialTradingModulesQueriesUnfollowedUserProfiles()
+                thisObject.query.initialize(queryReceived)
+                break
+            }
+
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
             case SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_STATS: {
                 thisObject.query = NT.projects.socialTrading.modules.queriesUserProfileStats.newSocialTradingModulesQueriesUserProfileStats()
                 thisObject.query.initialize(queryReceived)

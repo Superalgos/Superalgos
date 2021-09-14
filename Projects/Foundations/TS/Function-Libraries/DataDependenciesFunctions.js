@@ -241,7 +241,7 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
         processDate
     ) {
         /*  Telling the world we are alive and doing well and which date we are processing right now. */
-        let processingDateString = processDate.getUTCFullYear() + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2)
+        let processingDateString = processDate.getUTCFullYear() + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2)
         TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, processingDateString, undefined, "Running...")
 
         /* 
@@ -327,7 +327,7 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
 
                         async function getDataFileFromDate(dataFileDate) {
 
-                            let dateForPath = dataFileDate.getUTCFullYear() + '/' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(dataFileDate.getUTCMonth() + 1, 2) + '/' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(dataFileDate.getUTCDate(), 2)
+                            let dateForPath = dataFileDate.getUTCFullYear() + '/' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(dataFileDate.getUTCMonth() + 1, 2) + '/' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(dataFileDate.getUTCDate(), 2)
                             let filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath
                             let fileName = "Data.json"
 

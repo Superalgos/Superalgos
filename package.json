@@ -1,8 +1,16 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "http": "0.0.1-security",
     "node-fetch": "^2.6.1",
     "open": "^8.2.1",
+=======
+    "@octokit/rest": "^18.10.0",
+    "http": "0.0.1-security",
+    "node-fetch": "^2.6.1",
+    "open": "^8.2.1",
+    "simple-git": "^2.45.1",
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
     "web3": "^1.5.2",
     "ws": "^8.2.1"
   }

@@ -8,18 +8,54 @@
         "icon": {
             "name": "User\\user-profile",
             "project": "Governance"
+<<<<<<< HEAD
         }
+=======
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Echemos un vistazo más de cerca a la firma criptográfica en tu nuevo perfil.",
+                "updated": 1630888742337,
+                "style": "Definition"
+            }
+        ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Click the configuration option on your User Profile node and take a look at what's inside.",
+<<<<<<< HEAD
             "updated": 1629554250933
+=======
+            "updated": 1629554250933,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Haz clic en la opción de configuración en tu nodo User Profile y echa un vistazo a lo que hay dentro.",
+                    "updated": 1630888787848,
+                    "style": "Callout"
+                }
+            ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         },
         {
             "style": "Note",
             "text": "Wow that’s a lot of numbers! Again, this is how the governance system will know that this User Profile belongs to the private key that signed the message, which in turn belongs to the address that will hold the tokens that confer your profile with Token Power.",
+<<<<<<< HEAD
             "updated": 1629554289159
+=======
+            "updated": 1629554289159,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Vaya, son muchos números! Nuevamente, así es como el sistema de gobernanza sabrá que este User Profile pertenece a la clave privada que firmó el mensaje, que a su vez pertenece a la dirección que albergará los tokens que confieren tu perfil con Token Power.",
+                    "updated": 1630888835905,
+                    "style": "Note"
+                }
+            ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         }
     ]
 }

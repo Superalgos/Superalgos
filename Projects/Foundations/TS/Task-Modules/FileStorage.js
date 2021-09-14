@@ -244,7 +244,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
                 logger.write(MODULE_NAME, '[INFO] FileStorage -> createTextFile -> fileLocation: ' + fileLocation)
 
                 /* If necesary a folder or folders are created before writing the file to disk. */
-                TS.projects.foundations.utilities.miscellaneousFunctions.mkDirByPathSync(fileLocation)
+                SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(fileLocation)
 
                 /*
                 Here we write the file with a temporary name so as to avoid dirty read from other processes.

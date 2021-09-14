@@ -4,14 +4,24 @@
         "**/Documentation": true,
         "**/Log-Files": true,
         "**/node_modules": true,
+<<<<<<< HEAD
         "**/Deprecated-Code": true
+=======
+        "**/Deprecated-Code": true,
+        "**/My-Social-Trading-Data": true,
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
     },
     "search.exclude": {
         "**/Data-Storage": true,
         "**/Documentation": true,
         "**/Log-Files": true,
         "**/node_modules": true,
+<<<<<<< HEAD
         "**/Deprecated-Code": true
+=======
+        "**/Deprecated-Code": true,
+        "**/My-Social-Trading-Data": true
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
     },
     "search.maintainFileSearchCache": true
 }

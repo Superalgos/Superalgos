@@ -8,13 +8,37 @@
         "icon": {
             "name": "configuration",
             "project": "Governance"
+<<<<<<< HEAD
         }
+=======
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Ahora configuremos el Profile Constructor para que luego podamos construir el perfil.",
+                "updated": 1630887647502,
+                "style": "Definition"
+            }
+        ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Click the configuration option and enter your GitHub username like this:",
+<<<<<<< HEAD
             "updated": 1629553104003
+=======
+            "updated": 1629553104003,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Has clic en la opción de configuración e ingrese su nombre de usuario de GitHub así:",
+                    "updated": 1630888170425,
+                    "style": "Callout"
+                }
+            ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         },
         {
             "style": "Json",
@@ -23,8 +47,21 @@
         },
         {
             "style": "Text",
+<<<<<<< HEAD
             "text": "If you want to link an address you already own, type the twelve word mnemonic associated with your address under the mnemonic property. If not, leave the property blank and the system will make a new one for you!",
             "updated": 1629706491511
+=======
+            "text": "If you want to link an existing address, type its twelve-word mnemonic in the mnemonic property. Leave the property blank to generate a new address! You will delete this sensitive info later on. The info will not leave your computer and will not be saved to disk.",
+            "updated": 1631547921782,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para vincular una dirección que ya posees, escribe el mnemónico de doce palabras asociado con tu dirección en la propiedad mnemónico. De lo contrario, deja la propiedad en blanco y el sistema creará una nueva.",
+                    "updated": 1630888231106,
+                    "style": "Text"
+                }
+            ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         },
         {
             "style": "Text",

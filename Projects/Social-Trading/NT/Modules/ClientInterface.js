@@ -103,6 +103,19 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             return response
         }
         /*
+<<<<<<< HEAD
+=======
+        We will not accept events that don't have an eventId.
+        */
+        if (eventReceived.eventId === undefined) {
+            let response = {
+                result: 'Error',
+                message: 'eventId Not Provided.'
+            }
+            return response
+        }
+        /*
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         We will not accept events that have already been processed.
         */
 

@@ -65,7 +65,11 @@ exports.newMultiProject = function () {
             }
 
             /*
+<<<<<<< HEAD
             From here we will require and get the modules, but without instantiation thisObject. 
+=======
+            From here we will require and get the modules, but without instantiating thisObject. 
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
             */
 
             /* Set up  Modules for this Project */

@@ -4,6 +4,11 @@ exports.newEnvironment = function () {
         WEB_SERVER_URL: 'localhost',
         CLIENT_WEB_SOCKETS_INTERFACE_PORT: 18041,
         NETWORK_WEB_SOCKETS_INTERFACE_PORT: 18042,
+<<<<<<< HEAD
+=======
+        DESKTOP_WEB_SOCKETS_INTERFACE_PORT: 18043,
+        DESKTOP_WEB_SOCKETS_INTERFACE_HOST: 'localhost',
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         CLIENT_HTTP_INTERFACE_PORT: 34248,
         DESKTOP_HTTP_INTERFACE_PORT: 34249,
         PATH_TO_TASK_SERVER: './TaskServer',

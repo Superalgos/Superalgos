@@ -16,11 +16,11 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
         */
         if (queryReceived.targetUserProfileId !== undefined) {
             thisObject.profile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
+            if (thisObject.profile === undefined) {
+                throw ('Target User Profile Not Found.')
+            }
         }
 
-        if (thisObject.profile === undefined) {
-            throw ('Target User Profile Not Found.')
-        }
         /*
         Validate Bot Profile
         */

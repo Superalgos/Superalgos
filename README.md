@@ -565,7 +565,7 @@ node uninstall
 ```
 This will remove any shortcut files that have been installed. 
 
-Then simply delete the `Superalgos` folder. There will be nothing left on your computor.
+Then simply delete the `Superalgos` folder. There will be nothing left on your computer.
 
 # Welcome Tutorial
 

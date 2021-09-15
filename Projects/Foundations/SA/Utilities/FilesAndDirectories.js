@@ -2,13 +2,9 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
 
     let thisObject = {
         getDirectories: getDirectories,
-<<<<<<< HEAD
-        getAllFilesInDirectoryAndSubdirectories: getAllFilesInDirectoryAndSubdirectories
-=======
         getAllFilesInDirectoryAndSubdirectories: getAllFilesInDirectoryAndSubdirectories,
         pathFromDate: pathFromDate,
         mkDirByPathSync: mkDirByPathSync
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
     }
 
     return thisObject
@@ -57,8 +53,6 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
             return files.reduce((a, f) => a.concat(f), []);
         }
     }
-<<<<<<< HEAD
-=======
 
     function pathFromDate(timestamp) {
         let file = { date: new Date(timestamp) }

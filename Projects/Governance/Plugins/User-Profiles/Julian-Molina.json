@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "Julian-Molina",
-    "config": "{\"signature\":{\"message\":\"julian-molina\",\"messageHash\":\"0x34eae63163cc918a1a1fab82836b0f15e33051925812cf7d5f8ffe5ff0854f2c\",\"v\":\"0x1b\",\"r\":\"0x8560ff34239215408cb869d3c90c30ed11ab6634c4269b255d2b4159b7690fe5\",\"s\":\"0x017b2c5e080b0f340dcd09f8ba5c67119a3b62c375252d96f541c57db109a0b7\",\"signature\":\"0x8560ff34239215408cb869d3c90c30ed11ab6634c4269b255d2b4159b7690fe5017b2c5e080b0f340dcd09f8ba5c67119a3b62c375252d96f541c57db109a0b71b\"},\"codeName\":\"Julian-Molina\"}",
+    "config": "{\n    \"signature\": {\n        \"message\": \"julian-molina\",\n        \"messageHash\": \"0x34eae63163cc918a1a1fab82836b0f15e33051925812cf7d5f8ffe5ff0854f2c\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x8560ff34239215408cb869d3c90c30ed11ab6634c4269b255d2b4159b7690fe5\",\n        \"s\": \"0x017b2c5e080b0f340dcd09f8ba5c67119a3b62c375252d96f541c57db109a0b7\",\n        \"signature\": \"0x8560ff34239215408cb869d3c90c30ed11ab6634c4269b255d2b4159b7690fe5017b2c5e080b0f340dcd09f8ba5c67119a3b62c375252d96f541c57db109a0b71b\"\n    },\n    \"codeName\": \"Julian-Molina\"\n}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -54,7 +54,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Luis-Fernando-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                 ]
                             ]
                         }
@@ -172,14 +174,14 @@
                             "referenceParent": {
                                 "type": "User Profile",
                                 "name": "Raplh2502",
-                                "id": "59a87d1a-0457-4a49-a11b-216716e5c889"
+                                "id": "c538f02f-9a2c-47e2-bf92-f6e97ede4031"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Raplh2502",
                                     "User Profile",
                                     "Governance",
-                                    "59a87d1a-0457-4a49-a11b-216716e5c889"
+                                    "c538f02f-9a2c-47e2-bf92-f6e97ede4031"
                                 ]
                             ]
                         }
@@ -507,7 +509,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Luis-Fernando-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                 ]
                             ]
                         }
@@ -10079,12 +10083,12 @@
     "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11",
     "savedPayload": {
         "position": {
-            "x": 24963.166666666664,
-            "y": 23058.100619195047
+            "x": 40000,
+            "y": 21250
         },
         "targetPosition": {
-            "x": 24963.166666666664,
-            "y": 23058.100619195047
+            "x": 40000,
+            "y": 21250
         },
         "floatingObject": {
             "isPinned": false,

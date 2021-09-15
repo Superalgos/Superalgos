@@ -1340,15 +1340,12 @@
                     "fileName": "Queries/UserProfiles.js"
                 },
                 {
-<<<<<<< HEAD
-=======
                     "name": "Unfollowed User Profiles",
                     "propertyName": "queriesUnfollowedUserProfiles",
                     "functionName": "newSocialTradingModulesQueriesUnfollowedUserProfiles",
                     "fileName": "Queries/UnfollowedUserProfiles.js"
                 },                
                 {
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                     "name": "Bot Profile Stats",
                     "propertyName": "queriesBotProfileStats",
                     "functionName": "newSocialTradingModulesQueriesBotProfileStats",

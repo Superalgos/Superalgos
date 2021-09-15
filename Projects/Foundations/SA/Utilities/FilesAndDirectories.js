@@ -98,5 +98,4 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
             return curDir;
         }, initDir);
     }
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
 }

@@ -42,7 +42,7 @@ You may install Node.JS just like you would on any other machine as per the abov
 **NOTE:** It is best to use the most current and updated version of the FULL PiOS image.
 
 ```
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 ```
 Followed by:
 ```

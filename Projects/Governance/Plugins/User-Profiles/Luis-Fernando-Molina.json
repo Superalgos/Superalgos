@@ -12725,7 +12725,9 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Raplh2502",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "c538f02f-9a2c-47e2-bf92-f6e97ede4031"
                                                 ]
                                             ]
                                         }
@@ -13211,12 +13213,12 @@
     "id": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
     "savedPayload": {
         "position": {
-            "x": 10000,
-            "y": 21251
+            "x": 7692.307692307692,
+            "y": 21250
         },
         "targetPosition": {
-            "x": 10000,
-            "y": 21251
+            "x": 7692.307692307692,
+            "y": 21250
         },
         "floatingObject": {
             "isPinned": false,

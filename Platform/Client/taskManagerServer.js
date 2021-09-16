@@ -63,7 +63,7 @@
             //console.log('[INFO] Client -> Task Manager Server -> runTask -> Task Name = ' + message.event.taskName)
             //console.log('[INFO] Client -> Task Manager Server -> runTask -> Task Id = ' + message.event.taskId) 
 
-            let path = global.env.PATH_TO_TASK_SERVER + '/Task.js'
+            let path = './TaskServerRoot.js'
 
             /* Workarround to avoid having the same debug port at the forked process which makes it crash. */
             for (let i = 0; i < process.execArgv.length; i++) {

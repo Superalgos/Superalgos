@@ -4,7 +4,6 @@ exports.newEnvironment = function () {
         WEB_SERVER_URL: 'localhost',
         CLIENT_WEB_SOCKETS_INTERFACE_PORT: 18041,
         CLIENT_HTTP_INTERFACE_PORT: 34248,
-        PATH_TO_TASK_SERVER: './TaskServer',
         PATH_TO_DATA_STORAGE: './Data-Storage',
         PATH_TO_PROJECTS: './Projects',
         PATH_TO_LOG_FILES: './Log-Files',

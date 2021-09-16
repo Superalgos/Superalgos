@@ -582,7 +582,7 @@ exports.newFoundationsBotModulesFetchingProcess = function (processIndex) {
                                 Now that we have the endpointNode, the parameters and all the information 
                                 needed to place the call to the API.
                                 */
-                                const fetch = require('node-fetch')
+                                const fetch = SA.nodeModules.nodeFetch
                                 let url = protocol + '://' +
                                     hostName +
                                     portNumber +

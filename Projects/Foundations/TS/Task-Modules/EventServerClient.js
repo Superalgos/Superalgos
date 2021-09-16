@@ -18,7 +18,7 @@
     let responseWaiters = new Map()
 
     let WEB_SOCKETS_CLIENT
-    const WEB_SOCKET = require('ws')
+    const WEB_SOCKET = SA.nodeModules.ws
 
     if (host === undefined) {
         host = 'localhost'

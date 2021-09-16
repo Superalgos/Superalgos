@@ -41,6 +41,8 @@ exports.newDesktopRoot = function newDesktopRoot() {
         */
         SA.nodeModules = {
             fs: require('fs'),
+            util: require('util'),
+            path: require('path'),
             web3: require('web3'),
             ws: require('ws'),
             open: require('open'),

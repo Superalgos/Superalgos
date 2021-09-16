@@ -35,11 +35,19 @@ Setting up external dependencies.
 */
 SA.nodeModules = {
     fs: require('fs'),
+    util: require('util'),
+    path: require('path'),
     ws: require('ws'),
+    ip: require('ip'),
+    telegraf: require('telegraf'),
+    telegram: require('telegram'),
+    https: require('https'),
+    http: require('http'),
     web3: require('web3'),
     nodeFetch: require('node-fetch'),
     http: require('http'),
     ccxt: require('ccxt'),
+    ccxtMisc: require('./node_modules/ccxt/js/base/functions/misc'),
     lookpath: require('lookpath')
 }
 

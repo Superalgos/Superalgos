@@ -13,10 +13,16 @@
     "ethereumjs-tx": "^2.1.2",
     "ethers": "^5.4.6",
     "http": "0.0.1-security",
+    "https": "^1.0.0",
+    "ip": "^1.1.5",
     "lookpath": "^1.2.2",
     "node-fetch": "^2.6.1",
     "open": "^8.2.1",
+    "path": "^0.12.7",
     "simple-git": "^2.45.1",
+    "telegraf": "^4.4.2",
+    "telegram": "^1.8.14",
+    "util": "^0.12.4",
     "web3": "^1.5.2",
     "ws": "^8.2.1"
   }

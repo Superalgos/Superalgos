@@ -35,6 +35,8 @@ Setting up external dependencies.
 */
 SA.nodeModules = {
     fs: require('fs'),
+    util: require('util'),
+    path: require('path'),
     ws: require('ws'),
     web3: require('web3'),
     ethers: require('ethers'),

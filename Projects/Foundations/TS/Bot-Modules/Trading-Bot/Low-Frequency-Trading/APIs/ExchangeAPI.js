@@ -16,7 +16,7 @@
     let options = {}
     let exchange
   
-    const ccxt = require('ccxt')
+    const ccxt = SA.nodeModules.ccxt
   
     return thisObject;
   

@@ -15,7 +15,7 @@ exports.newWeb3Server = function newWeb3Server() {
         run: run
     }
 
-    const Web3 = require('web3');
+    const Web3 = SA.nodeModules.web3
     let web3Map = new Map()
 
     return thisObject
@@ -241,7 +241,7 @@ exports.newWeb3Server = function newWeb3Server() {
 
     async function mnemonicToPrivateKey(mnemonic) {
         try {
-            const ethers = require('ethers')
+            const ethers = SA.nodeModules.ethers
             let wallet = ethers.Wallet.fromMnemonic(mnemonic)
 
             if (wallet.privateKey !== undefined) {
@@ -269,7 +269,7 @@ exports.newWeb3Server = function newWeb3Server() {
             let privateKey = response.privateKey
 
             for (let i = 0; i < paymentsArray.length; i++) {
-                await CL.projects.foundations.utilities.asyncFunctions.sleep(10000)
+                await PL.projects.foundations.utilities.asyncFunctions.sleep(10000)
                 let payment = paymentsArray[i]
                 sendTokens(
                     i + 1,
@@ -288,14 +288,14 @@ exports.newWeb3Server = function newWeb3Server() {
                     console.log('---------------------------------------------------------------------------------------------------------------------------------------------------')
                     console.log('')
 
-                    const Tx = require('ethereumjs-tx').Transaction;
+                    const Tx = SA.nodeModules.ethereumjsTx.Transaction;
                     const web3 = new Web3(new Web3.providers.HttpProvider('https://bsc-dataseed.binance.org/'))
                     const amount = web3.utils.toHex(tokenAmount)
                     privateKey = privateKey.replace('0x', '')
                     const privateKeyBuffer = Buffer.from(privateKey, 'hex')
                     const contractAbiObject = JSON.parse(contractAbi)
                     const contract = new web3.eth.Contract(contractAbiObject, contractAddress, { from: fromAddress })
-                    const Common = require('ethereumjs-common').default
+                    const Common = SA.nodeModules.ethereumjsCommon.default
                     const BSC_FORK = Common.forCustomChain(
                         'mainnet',
                         {

@@ -9,6 +9,7 @@ function newSocialTradingModulesWebSocketsClient() {
     let socketClient
 
     let called = {}
+    let onMessageFunctionsMap = new Map()
 
     return thisObject
 
@@ -18,6 +19,7 @@ function newSocialTradingModulesWebSocketsClient() {
         clientInterface = undefined
 
         called = undefined
+        onMessageFunctionsMap = undefined
     }
 
     async function initialize() {
@@ -38,6 +40,7 @@ function newSocialTradingModulesWebSocketsClient() {
                 socketClient.onerror = err => { onError(err) }
 
                 function onConnection() {
+                    socketClient.onmessage = socketMessage => { onMenssage(socketMessage) }
                     resolve()
                 }
 
@@ -65,22 +68,17 @@ function newSocialTradingModulesWebSocketsClient() {
             }
 
             let socketMessage = {
+                messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 messageType: 'Request',
                 payload: message
             }
-            socketClient.onmessage = socketMessage => { onMenssage(socketMessage) }
+            onMessageFunctionsMap.set(socketMessage.messageId, onMenssageFunction)
             socketClient.send(
                 JSON.stringify(socketMessage)
-                )
+            )
 
-            function onMenssage(socketMessage) {
+            function onMenssageFunction(response) {
                 try {
-
-                    let response = JSON.parse(socketMessage.data)
-                    /*
-                    Chack if we are waiting for the Handshake response.
-                    */
-
                     if (response.result === 'Ok') {
                         resolve(response.data)
                     } else {
@@ -94,5 +92,16 @@ function newSocialTradingModulesWebSocketsClient() {
                 }
             }
         }
+    }
+
+    function onMenssage(socketMessage) {
+
+        let response = JSON.parse(socketMessage.data)
+        /*
+        We get the functioin that is going to resolve or reject the promise given.
+        */
+        onMenssageFunction = onMessageFunctionsMap.get(response.messageId)
+        onMessageFunctionsMap.delete(response.messageId)
+        onMenssageFunction(response)
     }
 }

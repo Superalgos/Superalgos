@@ -35,6 +35,7 @@ Setting up external dependencies.
 */
 SA.nodeModules = {
     fs: require('fs'),
+    ws: require('ws'),
     web3: require('web3'),
     nodeFetch: require('node-fetch'),
     http: require('http'),

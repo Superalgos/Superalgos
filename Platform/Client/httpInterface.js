@@ -24,13 +24,13 @@ exports.newHttpInterface = function newHttpInterface() {
         /*
         We will create an HTTP Server and leave it running forever.
         */
-       SA.nodeModules.http.createServer(onHttpRequest).listen(global.env.CLIENT_HTTP_INTERFACE_PORT)
-       /* Starting the browser now is optional */
-       if (process.argv.includes("noBrowser")) {
-           //Running Client only with no UI.
-       } else {
-           SA.nodeModules.open('http://localhost:' + global.env.CLIENT_HTTP_INTERFACE_PORT)
-       }
+        SA.nodeModules.http.createServer(onHttpRequest).listen(global.env.CLIENT_HTTP_INTERFACE_PORT)
+        /* Starting the browser now is optional */
+        if (process.argv.includes("noBrowser")) {
+            //Running Client only with no UI.
+        } else {
+            SA.nodeModules.open('http://localhost:' + global.env.CLIENT_HTTP_INTERFACE_PORT)
+        }
     }
 
     function onHttpRequest(httpRequest, httpResponse) {
@@ -52,7 +52,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 switch (params.method) {
                                     case 'getNetworkClientStatus': {
 
-                                        let serverResponse = await CL.servers.WEB3_SERVER.getNetworkClientStatus(
+                                        let serverResponse = await PL.servers.WEB3_SERVER.getNetworkClientStatus(
                                             params.host,
                                             params.port,
                                             params.interface
@@ -63,7 +63,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     case 'createWalletAccount': {
 
-                                        let serverResponse = await CL.servers.WEB3_SERVER.createWalletAccount(
+                                        let serverResponse = await PL.servers.WEB3_SERVER.createWalletAccount(
                                             params.entropy
                                         )
 
@@ -72,7 +72,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     case 'getWalletBalances': {
 
-                                        let serverResponse = await CL.servers.WEB3_SERVER.getWalletBalances(
+                                        let serverResponse = await PL.servers.WEB3_SERVER.getWalletBalances(
                                             params.host,
                                             params.port,
                                             params.interface,
@@ -84,7 +84,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     case 'signData': {
 
-                                        let serverResponse = await CL.servers.WEB3_SERVER.signData(
+                                        let serverResponse = await PL.servers.WEB3_SERVER.signData(
                                             params.privateKey,
                                             params.data
                                         )
@@ -94,7 +94,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     case 'recoverAddress': {
 
-                                        let serverResponse = await CL.servers.WEB3_SERVER.recoverAddress(
+                                        let serverResponse = await PL.servers.WEB3_SERVER.recoverAddress(
                                             params.signature
                                         )
 
@@ -103,7 +103,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     case 'mnemonicToPrivateKey': {
 
-                                        let serverResponse = await CL.servers.WEB3_SERVER.mnemonicToPrivateKey(
+                                        let serverResponse = await PL.servers.WEB3_SERVER.mnemonicToPrivateKey(
                                             params.mnemonic
                                         )
 
@@ -625,7 +625,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     contribute()
 
                                     async function contribute() {
-                                        const { lookpath } =  SA.nodeModules.lookpath
+                                        const { lookpath } = SA.nodeModules.lookpath
                                         const gitpath = await lookpath('git')
                                         if (gitpath === undefined) {
                                             console.log('[ERROR] `git` not installed.')
@@ -1000,7 +1000,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 switch (params.method) {
                                     case 'getGithubStars': {
 
-                                        let serverResponse = await CL.servers.GITHUB_SERVER.getGithubStars(
+                                        let serverResponse = await PL.servers.GITHUB_SERVER.getGithubStars(
                                             params.repository,
                                             params.username,
                                             params.token
@@ -1011,7 +1011,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     case 'getGithubWatchers': {
 
-                                        let serverResponse = await CL.servers.GITHUB_SERVER.getGithubWatchers(
+                                        let serverResponse = await PL.servers.GITHUB_SERVER.getGithubWatchers(
                                             params.repository,
                                             params.username,
                                             params.token
@@ -1022,7 +1022,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     case 'getGithubForks': {
 
-                                        let serverResponse = await CL.servers.GITHUB_SERVER.getGithubForks(
+                                        let serverResponse = await PL.servers.GITHUB_SERVER.getGithubForks(
                                             params.repository,
                                             params.username,
                                             params.token
@@ -1033,7 +1033,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     case 'mergePullRequests': {
 
-                                        let serverResponse = await CL.servers.GITHUB_SERVER.mergePullRequests(
+                                        let serverResponse = await PL.servers.GITHUB_SERVER.mergePullRequests(
                                             params.commitMessage,
                                             params.username,
                                             params.token
@@ -1044,7 +1044,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     case 'payContributors': {
 
-                                        let serverResponse = await CL.servers.WEB3_SERVER.payContributors(
+                                        let serverResponse = await PL.servers.WEB3_SERVER.payContributors(
                                             params.contractAddress,
                                             params.contractAbi,
                                             params.paymentsArray,
@@ -1375,6 +1375,11 @@ exports.newHttpInterface = function newHttpInterface() {
                                 let folder = unescape(requestPath[3])
                                 let fileName = unescape(requestPath[4])
 
+                                /*Beta 12 Refactoring Code: Remove this before realeasing beta 12.*/
+                                if (fileName === 'Superalgos-CL.json') {
+                                    fileName = 'Superalgos-PL.json'
+                                }
+
                                 let response = await SA.projects.foundations.utilities.plugins.getPluginFileContent(
                                     project,
                                     folder,
@@ -1693,7 +1698,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 default:
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithWebFile(httpResponse, endpointOrFile,  global.env.PATH_TO_CLIENT)
+                        SA.projects.foundations.utilities.httpResponses.respondWithWebFile(httpResponse, endpointOrFile, global.env.PATH_TO_CLIENT)
                     }
             }
         } catch (err) {

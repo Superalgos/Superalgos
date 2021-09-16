@@ -1,7 +1,7 @@
 {
     "type": "Assets",
-    "name": "Superalgos-CL",
-    "config": "{\"codeName\":\"Superalgos-CL\"}",
+    "name": "Superalgos-PL",
+    "config": "{\"codeName\":\"Superalgos-PL\"}",
     "project": "Governance",
     "assetClasses": [
         {

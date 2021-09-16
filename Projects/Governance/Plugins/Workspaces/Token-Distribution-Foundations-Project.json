@@ -1082,8 +1082,8 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Foundations-Project-CL",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project-CL\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
+                                "name": "Foundations-Project-PL",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Foundations-Project-PL\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
                                 "id": "81f1afb2-c08c-4f98-88d9-be0790002c09",
                                 "savedPayload": {

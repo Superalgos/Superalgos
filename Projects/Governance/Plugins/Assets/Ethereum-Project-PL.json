@@ -1,25 +1,25 @@
 {
     "type": "Assets",
-    "name": "Foundations-Project-CL",
-    "config": "{\"codeName\":\"Foundations-Project-CL\"}",
+    "name": "Ethereum-Project-PL",
+    "config": "{\"codeName\":\"Ethereum-Project-PL\"}",
     "project": "Governance",
     "assetClasses": [
         {
             "type": "Asset Class",
             "name": "Client",
-            "config": "{\n    \"folderPath\": \"Foundations/CL\"\n}",
+            "config": "{\n    \"folderPath\": \"Ethereum/PL\"\n}",
             "project": "Governance",
             "assetClasses": [],
             "assets": [],
             "id": "f7a7f5ea-95a0-4065-905b-158847e06cba",
             "savedPayload": {
                 "position": {
-                    "x": 2890.750000000002,
-                    "y": 46580.75000000001
+                    "x": 2896.75,
+                    "y": 46578.25
                 },
                 "targetPosition": {
-                    "x": 2890.750000000002,
-                    "y": 46280.75000000001
+                    "x": 2896.75,
+                    "y": 46278.25
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -39,12 +39,12 @@
     "id": "5ea11d1d-31e4-4e77-9697-cf373ab0c1e3",
     "savedPayload": {
         "position": {
-            "x": 2890.750000000002,
-            "y": 46280.75000000001
+            "x": 2896.75,
+            "y": 46278.25
         },
         "targetPosition": {
-            "x": 2890.750000000002,
-            "y": 46280.75000000001
+            "x": 2896.75,
+            "y": 46278.25
         },
         "floatingObject": {
             "isPinned": false,

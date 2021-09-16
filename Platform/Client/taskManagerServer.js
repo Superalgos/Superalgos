@@ -263,7 +263,7 @@
                     responseWaiters.set(command.callerId, responseCallBack)
                 }
 
-                CL.servers.EVENT_SERVER.onMessage(JSON.stringify(command), thisObject.onMessage)
+                PL.servers.EVENT_SERVER.onMessage(JSON.stringify(command), thisObject.onMessage)
             } catch (err) {
                 console.log('[ERROR] Client -> Task Manager Server -> sendCommand -> Error Sending Command to Events Server -> command = ' + JSON.stringify(command))
                 console.log('[ERROR] Client -> Task Manager Server -> sendCommand -> Error Sending Command to Events Server -> error = ' + err.stack)

@@ -866,7 +866,7 @@
                 }
             ]
         },
-        "CL": {
+        "PL": {
             "utilities": [
                 {
                     "name": "Async Functions",
@@ -983,7 +983,7 @@
             ]
         },
         "TS": {},
-        "CL": {}
+        "PL": {}
     },
     {
         "name": "TensorFlow",
@@ -1091,7 +1091,7 @@
             "processModules": [],
             "botModules": []
         },
-        "CL": {}
+        "PL": {}
     },
     {
         "name": "Governance",
@@ -1283,7 +1283,7 @@
             ]
         },
         "TS": {},
-        "CL": {},
+        "PL": {},
         "plugins": [
             "User Profiles",
             "Pools",

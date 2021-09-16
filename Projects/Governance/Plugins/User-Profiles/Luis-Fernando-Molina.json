@@ -7792,7 +7792,7 @@
                                                             },
                                                             "referenceParent": {
                                                                 "type": "Asset Class",
-                                                                "name": "Superalgos-CL",
+                                                                "name": "Superalgos-PL",
                                                                 "id": "5d13e350-4267-4d2f-a3fa-a1fabd5df10d"
                                                             },
                                                             "referenceParentCombinedNodePath": [
@@ -7809,7 +7809,7 @@
                                                                     "d6e22645-35ee-443e-9349-01d2e8362d79"
                                                                 ],
                                                                 [
-                                                                    "Superalgos-CL",
+                                                                    "Superalgos-PL",
                                                                     "Asset Class",
                                                                     "Governance",
                                                                     "5d13e350-4267-4d2f-a3fa-a1fabd5df10d"

@@ -86,7 +86,7 @@
                         }
 
 
-                        CL.servers.EVENT_SERVER.onMessage(messageToEventServer, onResponse)
+                        PL.servers.EVENT_SERVER.onMessage(messageToEventServer, onResponse)
 
                         function onResponse(message) {
                             socket.send(message)

@@ -6,10 +6,10 @@ load all node dependencies and get them ready to the actual App.
 */
 
 /* 
-The CL object is accesible everywhere at the Superalgos Platform Client. 
+The PL object is accesible everywhere at the Superalgos Platform Client. 
 It provides access to all modules built for this Client.
 */
-global.CL = {}
+global.PL = {}
 /* 
 The SA object is accesible everywhere at the Superalgos Desktop App. 
 It provides access to all modules built for Superalgos in general.
@@ -28,7 +28,7 @@ Setting up the modules that will be available, defined at the Project Schema fil
 */
 let MULTI_PROJECT = require('./MultiProject.js');
 let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
-MULTI_PROJECT_MODULE.initialize(CL, 'CL')
+MULTI_PROJECT_MODULE.initialize(PL, 'PL')
 MULTI_PROJECT_MODULE.initialize(SA, 'SA')
 /*
 Setting up external dependencies.
@@ -54,7 +54,7 @@ SA.nodeModules = {
 run()
 
 async function run() {
-    CL.app = require('./Platform/PlatformApp.js').newPlatformApp()
-    await CL.app.run()
+    PL.app = require('./Platform/PlatformApp.js').newPlatformApp()
+    await PL.app.run()
     console.log('Superalgos Platform App is Running!')
 }

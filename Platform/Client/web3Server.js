@@ -269,7 +269,7 @@ exports.newWeb3Server = function newWeb3Server() {
             let privateKey = response.privateKey
 
             for (let i = 0; i < paymentsArray.length; i++) {
-                await CL.projects.foundations.utilities.asyncFunctions.sleep(10000)
+                await PL.projects.foundations.utilities.asyncFunctions.sleep(10000)
                 let payment = paymentsArray[i]
                 sendTokens(
                     i + 1,

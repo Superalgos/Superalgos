@@ -76,38 +76,38 @@ exports.newPlatformApp = function newPlatformApp() {
             /*
             Setting up servers running inside this Client.
             */
-            CL.servers = {}
+            PL.servers = {}
             console.log('SUPERALGOS PLATFORM CLIENT SERVERS:')
             console.log('')
 
-            CL.servers.WEB_SERVER = WEB_SERVER.newWebServer()
-            CL.servers.WEB_SERVER.initialize()
-            CL.servers.WEB_SERVER.run()
+            PL.servers.WEB_SERVER = WEB_SERVER.newWebServer()
+            PL.servers.WEB_SERVER.initialize()
+            PL.servers.WEB_SERVER.run()
             console.log('Web Server .................................................. Started')
 
-            CL.servers.UI_FILE_SERVER = UI_FILE_SERVER.newUIFileServer()
-            CL.servers.UI_FILE_SERVER.initialize()
-            CL.servers.UI_FILE_SERVER.run()
+            PL.servers.UI_FILE_SERVER = UI_FILE_SERVER.newUIFileServer()
+            PL.servers.UI_FILE_SERVER.initialize()
+            PL.servers.UI_FILE_SERVER.run()
             console.log('UI File Server .............................................. Started')
 
-            CL.servers.PROJECT_FILE_SERVER = PROJECT_FILE_SERVER.newProjectFileServer()
-            CL.servers.PROJECT_FILE_SERVER.initialize()
-            CL.servers.PROJECT_FILE_SERVER.run()
+            PL.servers.PROJECT_FILE_SERVER = PROJECT_FILE_SERVER.newProjectFileServer()
+            PL.servers.PROJECT_FILE_SERVER.initialize()
+            PL.servers.PROJECT_FILE_SERVER.run()
             console.log('Project File Server ......................................... Started')
 
-            CL.servers.PLUGIN_SERVER = PLUGIN_SERVER.newPluginServer()
-            CL.servers.PLUGIN_SERVER.initialize()
-            CL.servers.PLUGIN_SERVER.run()
+            PL.servers.PLUGIN_SERVER = PLUGIN_SERVER.newPluginServer()
+            PL.servers.PLUGIN_SERVER.initialize()
+            PL.servers.PLUGIN_SERVER.run()
             console.log('Plugin Server ............................................... Started')
 
-            CL.servers.DATA_FILE_SERVER = DATA_FILE_SERVER.newDataFileServer()
-            CL.servers.DATA_FILE_SERVER.initialize()
-            CL.servers.DATA_FILE_SERVER.run()
+            PL.servers.DATA_FILE_SERVER = DATA_FILE_SERVER.newDataFileServer()
+            PL.servers.DATA_FILE_SERVER.initialize()
+            PL.servers.DATA_FILE_SERVER.run()
             console.log('Data File Server ............................................ Started')
 
-            CL.servers.EVENT_SERVER = EVENT_SERVER.newEventServer()
-            CL.servers.EVENT_SERVER.initialize()
-            CL.servers.EVENT_SERVER.run()
+            PL.servers.EVENT_SERVER = EVENT_SERVER.newEventServer()
+            PL.servers.EVENT_SERVER.initialize()
+            PL.servers.EVENT_SERVER.run()
             console.log('Events Server ............................................... Started')
 
             TASK_MANAGER_SERVER = TASK_MANAGER_SERVER.newTaskManagerServer()
@@ -115,19 +115,19 @@ exports.newPlatformApp = function newPlatformApp() {
             TASK_MANAGER_SERVER.run()
             console.log('Task Manager Server ......................................... Started')
 
-            CL.servers.CCXT_SERVER = CCXT_SERVER.newCCXTServer()
-            CL.servers.CCXT_SERVER.initialize()
-            CL.servers.CCXT_SERVER.run()
+            PL.servers.CCXT_SERVER = CCXT_SERVER.newCCXTServer()
+            PL.servers.CCXT_SERVER.initialize()
+            PL.servers.CCXT_SERVER.run()
             console.log('CCXT Server ................................................. Started')
 
-            CL.servers.WEB3_SERVER = WEB3_SERVER.newWeb3Server()
-            CL.servers.WEB3_SERVER.initialize()
-            CL.servers.WEB3_SERVER.run()
+            PL.servers.WEB3_SERVER = WEB3_SERVER.newWeb3Server()
+            PL.servers.WEB3_SERVER.initialize()
+            PL.servers.WEB3_SERVER.run()
             console.log('WEB3 Server ................................................. Started')
 
-            CL.servers.GITHUB_SERVER = GITHUB_SERVER.newGithubServer()
-            CL.servers.GITHUB_SERVER.initialize()
-            CL.servers.GITHUB_SERVER.run()
+            PL.servers.GITHUB_SERVER = GITHUB_SERVER.newGithubServer()
+            PL.servers.GITHUB_SERVER.initialize()
+            PL.servers.GITHUB_SERVER.run()
             console.log('Github Server ............................................... Started')
 
             console.log('')

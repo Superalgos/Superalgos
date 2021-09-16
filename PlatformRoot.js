@@ -35,6 +35,10 @@ Setting up external dependencies.
 */
 SA.nodeModules = {
     fs: require('fs'),
+    web3: require('web3'),
+    ethers: require('ethers'),
+    ethereumjsTx: require('ethereumjs-tx'),
+    ethereumjsCommon: require('ethereumjs-common'),
     nodeFetch: require('node-fetch'),
     open: require('open'),
     http: require('http'),

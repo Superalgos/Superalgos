@@ -75,7 +75,7 @@ exports.newGithubServer = function newGithubServer() {
 
             async function doGithub() {
 
-                const { Octokit } = require("@octokit/rest")
+                const { Octokit } = SA.nodeModules.octokit
 
                 const octokit = new Octokit({
                     auth: token,
@@ -204,7 +204,7 @@ exports.newGithubServer = function newGithubServer() {
                 try {
                     const repo = repository
                     const owner = 'Superalgos'
-                    const { Octokit } = require("@octokit/rest")
+                    const { Octokit } = SA.nodeModules.octokit
                     const octokit = new Octokit({
                         auth: token,
                         userAgent: 'Superalgos Beta 11'

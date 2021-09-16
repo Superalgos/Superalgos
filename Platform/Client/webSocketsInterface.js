@@ -7,7 +7,7 @@
         finalize: finalize
     }
 
-    const WEB_SOCKET = require('ws')
+    const WEB_SOCKET = SA.nodeModules.ws
     let socketServer
     let port = global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT  
 

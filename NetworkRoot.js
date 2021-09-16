@@ -40,7 +40,7 @@ exports.newNetworkRoot = function newNetworkRoot() {
         Setting up external dependencies.
         */
         SA.nodeModules = {
-            fs: SA.nodeModules.fs,
+            fs: require('fs'),
             nodeFetch: require('node-fetch'),
             web3: require('web3'),
             ws: require('ws')

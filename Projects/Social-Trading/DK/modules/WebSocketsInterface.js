@@ -57,6 +57,7 @@ exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSock
                             messageHeader = JSON.parse(message)
                         } catch (err) {
                             let response = {
+                                messageId: messageHeader.messageId,
                                 result: 'Error',
                                 message: 'messageHeader Not Coorrect JSON Format.'
                             }
@@ -69,12 +70,14 @@ exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSock
                             .catch(onError)
 
                         function sendResponseToWebApp(response) {
+                            response.messageId = messageHeader.messageId
                             webApp.socket.send(JSON.stringify(response))
                         }
 
                         function onError(errorMessage) {
                             console.log('[ERROR] Web Sockets Interface -> onMenssage -> errorMessage = ' + errorMessage)
                             let response = {
+                                messageId: messageHeader.messageId,
                                 result: 'Error',
                                 message: errorMessage
                             }

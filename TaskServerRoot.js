@@ -6,7 +6,7 @@ load all node dependencies and get them ready to the actual App.
 */
 
 /* 
-The TS object is accesible everywhere at the Superalgos Client. 
+The TS object is accesible everywhere at the Superalgos Platform Client. 
 It provides access to all modules built for the Task Server.
 */
 global.TS = {}

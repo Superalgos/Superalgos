@@ -101,7 +101,7 @@ Before you begin, it is recommended that you set up Chrome/Safari as your defaul
 
 **IMPORTANT:** Use Chrome/Safari so that you have a similar environment as the dev team in case you need help. We are not testing on any other browsers, and it is a well-known fact that browsers behave differently.
 
-# Superalgos Client Installation
+# Superalgos Platform Client Installation
 
 ## 1. Fork the Superalgos Repository
 
@@ -283,7 +283,7 @@ If you're running Superalgos on a headless linux server like a Raspberry Pi, you
 Create a `superalgos.service` file looking like this (change `<user>` to your user name and `/path/to/Superalgos` to your Superalgos folder, for instance `/home/John/Superalgos`):
 ```
 [Unit]
-Description=Superalgos client
+Description=Superalgos Platform Client
 
 [Service]
 Type=simple

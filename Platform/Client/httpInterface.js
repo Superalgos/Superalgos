@@ -625,8 +625,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                     contribute()
 
                                     async function contribute() {
-                                        const { lookpath } = require('lookpath');
-                                        const gitpath = await lookpath('git');
+                                        const { lookpath } =  SA.nodeModules.lookpath
+                                        const gitpath = await lookpath('git')
                                         if (gitpath === undefined) {
                                             console.log('[ERROR] `git` not installed.')
                                         } else {
@@ -665,7 +665,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
 
                                     async function doGit() {
-                                        const simpleGit = require('simple-git');
+                                        const simpleGit = SA.nodeModules.simpleGit
                                         const options = {
                                             baseDir: process.cwd(),
                                             binary: 'git',
@@ -696,7 +696,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     async function doGithub() {
 
-                                        const { Octokit } = require("@octokit/rest")
+                                        const { Octokit } = SA.nodeModules.octokit
 
                                         const octokit = new Octokit({
                                             auth: token,
@@ -760,7 +760,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     update()
 
                                     async function update() {
-                                        const { lookpath } = require('lookpath');
+                                        const { lookpath } = SA.nodeModules.lookpath
                                         const gitpath = await lookpath('git');
                                         if (gitpath === undefined) {
                                             console.log('[ERROR] `git` not installed.')
@@ -790,7 +790,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
 
                                     async function doGit() {
-                                        const simpleGit = require('simple-git');
+                                        const simpleGit = SA.nodeModules.simpleGit
                                         const options = {
                                             baseDir: process.cwd(),
                                             binary: 'git',
@@ -831,7 +831,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     checkout()
 
                                     async function checkout() {
-                                        const { lookpath } = require('lookpath');
+                                        const { lookpath } = SA.nodeModules.lookpath
                                         const gitpath = await lookpath('git');
                                         if (gitpath === undefined) {
                                             console.log('[ERROR] `git` not installed.')
@@ -855,7 +855,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
 
                                     async function doGit() {
-                                        const simpleGit = require('simple-git');
+                                        const simpleGit = SA.nodeModules.simpleGit
                                         const options = {
                                             baseDir: process.cwd(),
                                             binary: 'git',
@@ -890,7 +890,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     branch()
 
                                     async function branch() {
-                                        const { lookpath } = require('lookpath');
+                                        const { lookpath } = SA.nodeModules.lookpath
                                         const gitpath = await lookpath('git');
                                         if (gitpath === undefined) {
                                             console.log('[ERROR] `git` not installed.')
@@ -918,7 +918,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
 
                                     async function doGit() {
-                                        const simpleGit = require('simple-git');
+                                        const simpleGit = SA.nodeModules.simpleGit
                                         const options = {
                                             baseDir: process.cwd(),
                                             binary: 'git',

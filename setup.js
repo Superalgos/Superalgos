@@ -45,6 +45,9 @@ if (
     process.argv.includes("--tensorflow") 
     ) {
 
+    console.log('');
+    console.log('tensorflow ................................................... Setting TensorFlow Dependencies.')
+
     nodeModulesDirs = [
         path.join( process.cwd(), "Projects", "TensorFlow", "TS", "Bot-Modules", "Learning-Bot", "Low-Frequency-Learning")
     ]
@@ -57,15 +60,23 @@ if (platform === 'win32') {  // *Note: win32 == win32 || win64
 }
 
 console.log('');
-console.log("Installing node dependencies at the following directories:");
+console.log("Removing node dependencies at the following directories:");
 console.log('');
 console.log(nodeModulesDirs);
 console.log('');
 
+// Remove old Node_Modules
 for (let dir of nodeModulesDirs) {
-    // Loop through directories and run npm ci in a child process shell.
-    let command = "echo Results of install at "+ dir + " & npm ci";
-    exec( command,
+    // Loop through directories and remove node_modules.
+    
+    let removeCommand
+    if (platform == "win32") {
+        removeCommand = "echo Removing old Node_Modules at "+ dir + " & rmdir /Q /s node_modules"
+    } else {
+        removeCommand = "echo Removing old Node_Modules at "+ dir + " & rm -rf node_modules/";
+    }
+
+    exec( removeCommand,
         {
             cwd: dir 
         },
@@ -75,15 +86,34 @@ for (let dir of nodeModulesDirs) {
                 console.log("There was an error installing some dependencies error: ");
                 console.log('');
                 console.log( error );
-                if (tfjsWinInstallFlag == true && dir == path.join(process.cwd(), "Projects", "TensorFlow", "TS", "Bot-Modules", "Learning-Bot", "Low-Frequency-Learning")) {
-                    tfjsWinInstall();
-                }
                 return;
             }
             console.log('');
             console.log( stdout );
         });
 };
+
+// Install Node_Modules to Main Superalgos Directory
+let dir = process.cwd()
+let command = "echo Results of install at "+ dir + " & npm ci";
+exec( command,
+    {
+        cwd: dir 
+    },
+    function ( error, stdout ){
+        if (error) {
+            console.log('');
+            console.log("There was an error installing some dependencies error: ");
+            console.log('');
+            console.log( error );
+            if (tfjsWinInstallFlag == true && dir == path.join(process.cwd(), "Projects", "TensorFlow", "TS", "Bot-Modules", "Learning-Bot", "Low-Frequency-Learning")) {
+                tfjsWinInstall();
+            }
+            return;
+        }
+        console.log('');
+        console.log( stdout );
+    });
 
 
 /*  If WinOS && error with tfjs installation:

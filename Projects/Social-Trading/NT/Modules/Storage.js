@@ -18,7 +18,47 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
     }
 
     function initialize() {
+        loadEventsFromStorage()
         setInterval(saveEventsAtStorage, 60000)
+    }
+
+    async function loadEventsFromStorage() {
+
+        SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories('./My-Network-Nodes-Data/Nodes/Node-1/', onFiles)
+
+        function onFiles(fileList) {
+
+            for (let i = 0; i < fileList.length; i++) {
+                let filePath = './My-Network-Nodes-Data/Nodes/Node-1/' + fileList[i]
+
+                for (let k = 0; k < 5; k++) {
+                    filePath = filePath.replace('\\', '/')
+                }
+
+                let fileContent = SA.nodeModules.fs.readFileSync(filePath)
+
+                let eventsList = JSON.parse(fileContent)
+
+                for (let j = 0; j < eventsList.length; j++) {
+                    let storedEvent = eventsList[j]
+
+                    try {
+                        let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
+                        event.initialize(storedEvent)
+                        NT.projects.socialTrading.globals.memory.maps.EVENTS.set(storedEvent.eventId, event)
+                        NT.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
+                        indexLastSavedEvent = NT.projects.socialTrading.globals.memory.arrays.EVENTS.length - 1
+                    } catch (err) {
+                        if (err.stack !== undefined) {
+                            console.log('[ERROR] Client Interface -> err.stack = ' + err.stack)
+                        }
+                        let errorMessage = err.message
+                        if (errorMessage === undefined) { errorMessage = err }
+                        throw ('Could not apply the events from storage. ' + errorMessage)
+                    }
+                }
+            }
+        }
     }
 
     async function saveEventsAtStorage() {

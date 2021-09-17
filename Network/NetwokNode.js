@@ -15,11 +15,10 @@ exports.newNetworkNode = function newNetworkNode() {
         NT.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
         NT.webSocketsInterface.initialize()
 
-        thisObject.storage = NT.projects.socialTrading.modules.storage.newSocialTradingModulesStorage()
-        thisObject.storage.initialize()
-
         thisObject.socialGraphService = NT.projects.socialTrading.modules.socialGraph.newNetworkModulesSocialGraph()
         await thisObject.socialGraphService.initialize()
 
+        thisObject.storage = NT.projects.socialTrading.modules.storage.newSocialTradingModulesStorage()
+        thisObject.storage.initialize()
     }
 }

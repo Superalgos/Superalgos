@@ -47,7 +47,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 queryMessage.emitterUserProfileId = DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID
                 messageHeader.queryMessage = JSON.stringify(queryMessage)
 
-                console.log((new Date()).toISOString(), '- Web App Interface', '- Query Message Received', JSON.stringify(queryMessage))
+                // console.log((new Date()).toISOString(), '- Web App Interface', '- Query Message Received', JSON.stringify(queryMessage))
 
                 let response = {
                     result: 'Ok',
@@ -55,7 +55,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     data: await DK.running.webSocketsClient.sendMessage(JSON.stringify(messageHeader))
                 }
 
-                console.log((new Date()).toISOString(), '- Web App Interface', '- Query Respose Sent', JSON.stringify(response))
+                // console.log((new Date()).toISOString(), '- Web App Interface', '- Query Respose Sent', JSON.stringify(response))
 
                 return response
             }

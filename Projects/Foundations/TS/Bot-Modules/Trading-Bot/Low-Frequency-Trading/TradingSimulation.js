@@ -303,7 +303,7 @@ exports.newFoundationsBotModulesTradingSimulation = function (processIndex) {
                     if (sessionParameters.heartbeats.config.date === true || sessionParameters.heartbeats.config.candleIndex === true) {
                         /* We will produce a simulation level heartbeat in order to inform the user this is running. */
 
-                        heartBeatDate = new Date(Math.trunc(tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value / TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) * TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS + TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                        heartBeatDate = new Date(Math.trunc(tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value / SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS + SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
 
                         let fromDate = new Date(sessionParameters.timeRange.config.initialDatetime)
                         let lastDate = new Date(sessionParameters.timeRange.config.finalDatetime)
@@ -493,7 +493,7 @@ exports.newFoundationsBotModulesTradingSimulation = function (processIndex) {
                     the day, we will advance current process day one day. By doing so, during the next execution, the
                     simulation will receive the candles and indicators files of the next day. 
                     */
-                    let candlesPerDay = TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
+                    let candlesPerDay = SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
                     if (
                         TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES &&
                         tradingEngine.tradingCurrent.tradingEpisode.candle.index.value + 1 + 1 === candlesPerDay
@@ -507,7 +507,7 @@ exports.newFoundationsBotModulesTradingSimulation = function (processIndex) {
                         */
                         tradingEngine.tradingCurrent.tradingEpisode.candle.index.value = 0
                         tradingEngine.tradingCurrent.tradingEpisode.processDate.value =
-                            tradingEngine.tradingCurrent.tradingEpisode.processDate.value + TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+                            tradingEngine.tradingCurrent.tradingEpisode.processDate.value + SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
                         return false
                     }
 

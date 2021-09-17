@@ -319,7 +319,7 @@ function newWebApp() {
                 eventType: eventType,
                 eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 targetUserProfileId: userProfileId,
-                timestamp: new Date()
+                timestamp: (new Date()).valueOf()
             }
 
             event = {
@@ -355,7 +355,7 @@ function newWebApp() {
                 eventType: SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST,
                 eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 text: postText,
-                timestamp: new Date()
+                timestamp: (new Date()).valueOf()
             }
 
             event = {

@@ -462,11 +462,11 @@ exports.newFoundationsBotModulesFetchingProcess = function (processIndex) {
                                         break
                                     }
                                     case '@BeginCurrentMinute': {
-                                        parameterValue = Math.trunc((new Date()).valueOf() / TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
+                                        parameterValue = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
                                         break
                                     }
                                     case '@EndCurrentMinute': {
-                                        parameterValue = Math.trunc((new Date()).valueOf() / TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS + TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1
+                                        parameterValue = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS + SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1
                                         break
                                     }
                                 }

@@ -341,12 +341,6 @@
                     "fileName": "StandardResponses.js"
                 },
                 {
-                    "name": "Time Constants",
-                    "propertyName": "timeConstants",
-                    "functionName": "newFoundationsGlobalsTimeConstants",
-                    "fileName": "TimeConstants.js"
-                },
-                {
                     "name": "Process Variables",
                     "propertyName": "processVariables",
                     "functionName": "newFoundationsGlobalsProcessVariables",
@@ -883,6 +877,14 @@
             ]
         },
         "SA": {
+            "globals":[
+                {
+                    "name": "Time Constants",
+                    "propertyName": "timeConstants",
+                    "functionName": "newFoundationsGlobalsTimeConstants",
+                    "fileName": "TimeConstants.js"
+                }
+            ],
             "utilities": [
                 {
                     "name": "Plugins",

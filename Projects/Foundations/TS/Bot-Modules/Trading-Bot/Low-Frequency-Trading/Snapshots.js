@@ -307,9 +307,10 @@ exports.newFoundationsBotModulesSnapshots = function(processIndex) {
         let baseClose = tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.feesPaid.value
         let quoteOpen = tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.feesPaid.value
         let quoteClose = tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.feesPaid.value
+        let qouteProfit = ((quoteClose / quoteOpen * 100) - 100)
+        let baseProfit = ((baseClose / baseOpen * 100) - 100)
 
-
-        let closeHeaders = ['Trade Number', 'Open Datetime', 'Close Datetime', 'Strategy Name', 'Trigger On Situation', 'Take Position Situation', 'Open Position in Base Asset', 'Close Position in Base Asset', 'Open Position in Quoted Asset', 'Close Position in Quoted Asset', 'Result In Base Asset', 'Result In Quoted Asset', 'ROI in Base Asset', '% Profit / Loss in Base Asset', 'ROI in Quoted Asset', '% Profit / Loss in Quoted Asset', 'Exit Type']
+        let closeHeaders = ['Trade Number', 'Open Datetime', 'Close Datetime', 'Strategy Name', 'Trigger On Situation', 'Take Position Situation', 'Open Position in Base Asset', 'Close Position in Base Asset', 'Open Position in Quoted Asset', 'Close Position in Quoted Asset', 'Result In Base Asset', 'Result In Quoted Asset', 'ROI in Base Asset', '% P/L Base Asset', 'P/L Type Base Asset', 'ROI in Quoted Asset', '% P/L Quoted Asset', 'P/L Type Quoted Asset', 'Exit Type']
         closeValues = [
             tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value, // Position Number
             (new Date(openDatetime)).toISOString(), // Open Datetime
@@ -324,9 +325,12 @@ exports.newFoundationsBotModulesSnapshots = function(processIndex) {
             tradingEngine.tradingCurrent.position.positionBaseAsset.hitFail.value, // Result in Base Asset
             tradingEngine.tradingCurrent.position.positionQuotedAsset.hitFail.value, // Result in Base Asset
             tradingEngine.tradingCurrent.position.positionBaseAsset.ROI.value, // ROI in Base Asset <- not sure this works as intended
-            ((baseClose / baseOpen * 100) - 100) + '%', // % profit / loss in base Asset
+            baseProfit + '%', // % profit / loss in base Asset
+            baseProfit === 0 ? 'Even' : (baseProfit > 0 ? "Profit" : "Loss"),
+
             tradingEngine.tradingCurrent.position.positionQuotedAsset.ROI.value, // ROI in Quoted Asset <- not sure this works as intended
-            ((quoteClose / quoteOpen * 100) - 100) + '%', // % profit loss in quoted Asset
+            qouteProfit + '%', // % profit loss in quoted Asset
+            qouteProfit === 0 ? 'Even' : (qouteProfit > 0 ? "Profit" : "Loss"),
             tradingEngine.tradingCurrent.position.exitType.value // Exit Type
         ]
 

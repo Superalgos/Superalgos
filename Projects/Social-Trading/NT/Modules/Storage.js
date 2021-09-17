@@ -54,7 +54,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                         }
                         let errorMessage = err.message
                         if (errorMessage === undefined) { errorMessage = err }
-                        throw ('Could not apply the events from storage. ' + errorMessage)
+                        console.log ('Could not apply the event from storage. -> errorMessage = ' + errorMessage)
                     }
                 }
             }

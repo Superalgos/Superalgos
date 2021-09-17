@@ -47,11 +47,16 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 queryMessage.emitterUserProfileId = DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID
                 messageHeader.queryMessage = JSON.stringify(queryMessage)
 
+                console.log((new Date()).toISOString(), '- Web App Interface', '- Query Message Received', JSON.stringify(queryMessage))
+
                 let response = {
                     result: 'Ok',
                     message: 'Web App Interface Query Processed.',
                     data: await DK.running.webSocketsClient.sendMessage(JSON.stringify(messageHeader))
                 }
+
+                console.log((new Date()).toISOString(), '- Web App Interface', '- Query Respose Sent', JSON.stringify(response))
+
                 return response
             }
             case 'Event': {
@@ -131,7 +136,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         const fileHash = hash.update(fileContent).digest('hex')
         const fileName = fileHash + ".json"
 
-        let filePath = './My-Social-Trading-Data/User-Posts/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDate(timestamp) 
+        let filePath = './My-Social-Trading-Data/User-Posts/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDate(timestamp)
 
         SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
         SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)

@@ -1,0 +1,18 @@
+{
+    "type": "Docs Space Settings",
+    "definition": {
+        "text": "This node allows the user to determine how the docs space will be loaded by the current workspace.",
+        "updated": 1631587592724
+    },
+    "paragraphs": [
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1631587516173
+        },
+        {
+            "style": "List",
+            "text": "indexContent defines whether the contents of the docs space will be indexed for searching upon loading the workspace. If false docs space will be disabled allowing faster load times for development."
+        }
+    ]
+}

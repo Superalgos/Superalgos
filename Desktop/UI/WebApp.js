@@ -16,7 +16,8 @@ function newWebApp() {
             setupRootObject(UI, 'UI')
             setupRootObject(SA, 'SA')
             await UI.projects.socialTrading.modules.webSocketsClient.initialize()
-            setupHomePage()
+            loadWUserProfileTimeline()
+            loadWhoToFollow()
             setupEventHandlers()
         } catch (err) {
             console.log('[ERROR] initialize -> err.stack = ' + err.stack)
@@ -94,21 +95,16 @@ function newWebApp() {
         }
     }
 
-    async function setupHomePage() {
-        let queryMessage
-        let query
-        /*
-        Test Query User Profiles.
-        */
-        queryMessage = {
-            queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_USER_PROFILES,
+    async function loadWUserProfileTimeline() {
+        let queryMessage = {
+            queryType: SA.projects.socialTrading.globals.queryTypes.EVENTS,
             emitterUserProfileId: undefined,
-            initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_FIRST,
-            amountRequested: 3,
-            direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_UP
+            initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,
+            amountRequested: 100,
+            direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST
         }
 
-        query = {
+        let query = {
             requestType: 'Query',
             queryMessage: JSON.stringify(queryMessage)
         }
@@ -116,22 +112,120 @@ function newWebApp() {
         await UI.projects.socialTrading.modules.webSocketsClient.sendMessage(
             JSON.stringify(query)
         )
-            .then(showProfiles)
+            .then(addToContentDiv)
             .catch(onError)
 
-        async function showProfiles(profiles) {
-            console.log(profiles)
-            document.getElementById('context-cell')
-
-            addWhoToFollowTable(profiles)
-        }
-
-        /*
-        Error Handling
-        */
         function onError(errorMessage) {
             console.log('[ERROR] Query not executed. ' + errorMessage)
             console.log('[ERROR] query = ' + JSON.stringify(query))
+        }
+
+        function addToContentDiv(events) {
+
+            let contentDiv = document.getElementById('content-div')
+
+            for (let i = 0; i < events.length; i++) {
+                let event = events[i]
+
+                let postDiv = document.createElement("div")
+                postDiv.setAttribute("class", "post-div")
+                let textNode = document.createTextNode('POST #' + i)
+                postDiv.appendChild(textNode)
+                contentDiv.appendChild(postDiv)
+            }
+        }
+    }
+
+    async function loadWhoToFollow() {
+        let queryMessage = {
+            queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_USER_PROFILES,
+            emitterUserProfileId: undefined,
+            initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_FIRST,
+            amountRequested: 3,
+            direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_UP
+        }
+
+        let query = {
+            requestType: 'Query',
+            queryMessage: JSON.stringify(queryMessage)
+        }
+
+        await UI.projects.socialTrading.modules.webSocketsClient.sendMessage(
+            JSON.stringify(query)
+        )
+            .then(addWhoToFollowTable)
+            .catch(onError)
+
+        function onError(errorMessage) {
+            console.log('[ERROR] Query not executed. ' + errorMessage)
+            console.log('[ERROR] query = ' + JSON.stringify(query))
+        }
+
+        function addWhoToFollowTable(profiles) {
+
+            let contextCell = document.getElementById('who-to-follow-cell')
+            let table = document.createElement("table")
+            let tblBody = document.createElement("tbody")
+
+            for (let i = 0; i < profiles.length; i++) {
+                let profile = profiles[i]
+                let row = document.createElement("tr")
+
+                let cell = document.createElement("td")
+                addProfileToFollowTable(cell, profile)
+                row.appendChild(cell)
+
+                tblBody.appendChild(row)
+            }
+
+            table.appendChild(tblBody)
+            contextCell.appendChild(table)
+            table.setAttribute("class", "who-to-follow-table")
+
+            function addProfileToFollowTable(htmlElement, profile) {
+                let table = document.createElement("table")
+                let tblBody = document.createElement("tbody")
+
+                let row = document.createElement("tr")
+
+                {
+                    let cell = document.createElement("td")
+                    let textNode = document.createTextNode('Profile Picture')
+                    cell.appendChild(textNode)
+                    row.appendChild(cell)
+                }
+                {
+                    let cell = document.createElement("td")
+                    let textNode = document.createTextNode(profile.userProfileHandle)
+                    cell.appendChild(textNode)
+                    row.appendChild(cell)
+                }
+                {
+                    let cell = document.createElement("td")
+                    let span = document.createElement("span")
+                    let button = document.createElement("button")
+                    let text = document.createTextNode('Follow')
+
+                    span.setAttribute("id", "profile-to-follow-span-" + profile.userProfileId)
+                    button.setAttribute("id", "profile-to-follow-button-" + profile.userProfileId)
+                    button.name = 'Follow Profile'
+                    button.userProfileId = profile.userProfileId
+
+                    span.setAttribute("class", "profile-to-follow-span")
+                    button.setAttribute("class", "profile-to-follow-button")
+
+                    button.appendChild(text)
+                    span.appendChild(button)
+                    cell.appendChild(span)
+                    row.appendChild(cell)
+                }
+
+                tblBody.appendChild(row)
+
+                table.appendChild(tblBody)
+                htmlElement.appendChild(table)
+                table.setAttribute("class", "profile-to-follow-table")
+            }
         }
     }
 
@@ -150,7 +244,7 @@ function newWebApp() {
                         let textArea = document.getElementById("new-post-text-area")
                         await sendNewPostEvent(
                             textArea.value
-                            )
+                        )
                             .then(updateTextArea)
                             .catch(onError)
 
@@ -163,7 +257,7 @@ function newWebApp() {
                         await sendTargetUserProfileEvent(
                             event.target.userProfileId,
                             SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE
-                            )
+                        )
                             .then(updateButton)
                             .catch(onError)
 
@@ -180,7 +274,7 @@ function newWebApp() {
                         await sendTargetUserProfileEvent(
                             event.target.userProfileId,
                             SA.projects.socialTrading.globals.eventTypes.UNFOLLOW_USER_PROFILE
-                            )
+                        )
                             .then(updateButton)
                             .catch(onError)
 
@@ -210,84 +304,17 @@ function newWebApp() {
         }
     }
 
-    function addWhoToFollowTable(profiles) {
-
-        let contextCell = document.getElementById('who-to-follow-cell')
-        let table = document.createElement("table")
-        let tblBody = document.createElement("tbody")
-
-        for (let i = 0; i < profiles.length; i++) {
-            let profile = profiles[i]
-            let row = document.createElement("tr")
-
-            let cell = document.createElement("td")
-            addProfileToFollowTable(cell, profile)
-            row.appendChild(cell)
-
-            tblBody.appendChild(row)
-        }
-
-        table.appendChild(tblBody)
-        contextCell.appendChild(table)
-        table.setAttribute("class", "who-to-follow-table")
-    }
-
-    function addProfileToFollowTable(htmlElement, profile) {
-        let table = document.createElement("table")
-        let tblBody = document.createElement("tbody")
-
-        let row = document.createElement("tr")
-
-        {
-            let cell = document.createElement("td")
-            let cellText = document.createTextNode('Profile Picture')
-            cell.appendChild(cellText)
-            row.appendChild(cell)
-        }
-        {
-            let cell = document.createElement("td")
-            let cellText = document.createTextNode(profile.userProfileHandle)
-            cell.appendChild(cellText)
-            row.appendChild(cell)
-        }
-        {
-            let cell = document.createElement("td")
-            let span = document.createElement("span")
-            let button = document.createElement("button")
-            let text = document.createTextNode('Follow')
-
-            span.setAttribute("id", "profile-to-follow-span-" + profile.userProfileId)
-            button.setAttribute("id", "profile-to-follow-button-" + profile.userProfileId)
-            button.name = 'Follow Profile'
-            button.userProfileId = profile.userProfileId
-
-            span.setAttribute("class", "profile-to-follow-span")
-            button.setAttribute("class", "profile-to-follow-button")
-
-            button.appendChild(text)
-            span.appendChild(button)
-            cell.appendChild(span)
-            row.appendChild(cell)
-        }
-
-        tblBody.appendChild(row)
-
-        table.appendChild(tblBody)
-        htmlElement.appendChild(table)
-        table.setAttribute("class", "profile-to-follow-table")
-    }
-
     async function sendTargetUserProfileEvent(
         userProfileId,
-        eventType 
-        ) {
+        eventType
+    ) {
 
         return new Promise((resolve, reject) => { asyncCall(resolve, reject) })
 
         async function asyncCall(resolve, reject) {
             let eventMessage
             let event
- 
+
             eventMessage = {
                 eventType: eventType,
                 eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
@@ -315,15 +342,15 @@ function newWebApp() {
     }
 
     async function sendNewPostEvent(
-        postText 
-        ) {
+        postText
+    ) {
 
         return new Promise((resolve, reject) => { asyncCall(resolve, reject) })
 
         async function asyncCall(resolve, reject) {
             let eventMessage
             let event
- 
+
             eventMessage = {
                 eventType: SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST,
                 eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),

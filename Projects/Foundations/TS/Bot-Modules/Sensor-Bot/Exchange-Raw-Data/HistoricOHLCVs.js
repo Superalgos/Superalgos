@@ -15,12 +15,12 @@
 
     const MAX_OHLCVs_PER_EXECUTION = 10000000
     const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-    const ccxt = require('ccxt')
+    const ccxt = SA.nodeModules.ccxt
     /*
     This next is required when using an exchange that uses fetchTrades in place of fetchOHLCVs
     in order to be able to access the method that builds the OHLCVs, and this method is inside the CCTX library.
     */
-    const ccxtMisc = require('./node_modules/ccxt/js/base/functions/misc')
+    const ccxtMisc = SA.nodeModules.ccxtMisc
 
     let fetchType = "by Time"
     let lastId

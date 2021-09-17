@@ -1,13 +1,13 @@
 {
     "type": "Assets",
-    "name": "Education-Project-CL",
-    "config": "{\"codeName\":\"Education-Project-CL\"}",
+    "name": "Education-Project-PL",
+    "config": "{\"codeName\":\"Education-Project-PL\"}",
     "project": "Governance",
     "assetClasses": [
         {
             "type": "Asset Class",
             "name": "Client",
-            "config": "{\n    \"folderPath\": \"Education/CL\"\n}",
+            "config": "{\n    \"folderPath\": \"Education/PL\"\n}",
             "project": "Governance",
             "assetClasses": [],
             "assets": [],

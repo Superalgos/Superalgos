@@ -139,23 +139,23 @@ function newWebApp() {
 
                     let postDiv = document.createElement("div")
                     postDiv.setAttribute("class", "post-div")
-                    let textNode 
+                    let textNode
 
                     switch (event.eventType) {
                         case SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST: {
-                            textNode = document.createTextNode( event.emitterUserProfile.userProfileHandle + " Posted ")
+                            textNode = document.createTextNode(event.emitterUserProfile.userProfileHandle + " POSTED " + event.postText)
                             break
                         }
                         case SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE: {
-                            textNode = document.createTextNode(event.emitterUserProfile.userProfileHandle + " Followed " + event.targetUserProfile.userProfileHandle)
+                            textNode = document.createTextNode(event.emitterUserProfile.userProfileHandle + " FOLLOWED " + event.targetUserProfile.userProfileHandle)
                             break
                         }
                         case SA.projects.socialTrading.globals.eventTypes.UNFOLLOW_USER_PROFILE: {
-                            textNode = document.createTextNode(event.emitterUserProfile.userProfileHandle + " Unfollowed " + event.targetUserProfile.userProfileHandle)
+                            textNode = document.createTextNode(event.emitterUserProfile.userProfileHandle + " UNFOLLOWED " + event.targetUserProfile.userProfileHandle)
                             break
                         }
-                    }                    
-                    
+                    }
+
                     postDiv.appendChild(textNode)
                     contentDiv.appendChild(postDiv)
                 }
@@ -384,7 +384,7 @@ function newWebApp() {
             eventMessage = {
                 eventType: SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST,
                 eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                text: postText,
+                postText: postText,
                 timestamp: (new Date()).valueOf()
             }
 

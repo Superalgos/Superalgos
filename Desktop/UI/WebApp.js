@@ -121,17 +121,47 @@ function newWebApp() {
         }
 
         function addToContentDiv(events) {
+            try {
+                let contentDiv = document.getElementById('content-div')
 
-            let contentDiv = document.getElementById('content-div')
+                /*
+                Delete al current content.
+                */
+                while (contentDiv.childNodes.length > 4) {
+                    let childToRemove = contentDiv.childNodes[contentDiv.childNodes.length - 1]
+                    contentDiv.removeChild(childToRemove)
+                }
+                /*
+                Render the timeline.
+                */
+                for (let i = 0; i < events.length; i++) {
+                    let event = events[i]
 
-            for (let i = 0; i < events.length; i++) {
-                let event = events[i]
+                    let postDiv = document.createElement("div")
+                    postDiv.setAttribute("class", "post-div")
+                    let textNode 
 
-                let postDiv = document.createElement("div")
-                postDiv.setAttribute("class", "post-div")
-                let textNode = document.createTextNode('POST #' + i)
-                postDiv.appendChild(textNode)
-                contentDiv.appendChild(postDiv)
+                    switch (event.eventType) {
+                        case SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST: {
+                            textNode = document.createTextNode( event.emitterUserProfile.userProfileHandle + " Posted ")
+                            break
+                        }
+                        case SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE: {
+                            textNode = document.createTextNode(event.emitterUserProfile.userProfileHandle + " Followed " + event.targetUserProfile.userProfileHandle)
+                            break
+                        }
+                        case SA.projects.socialTrading.globals.eventTypes.UNFOLLOW_USER_PROFILE: {
+                            textNode = document.createTextNode(event.emitterUserProfile.userProfileHandle + " Unfollowed " + event.targetUserProfile.userProfileHandle)
+                            break
+                        }
+                    }                    
+                    
+                    postDiv.appendChild(textNode)
+                    contentDiv.appendChild(postDiv)
+                }
+            }
+            catch (err) {
+                console.log('[ERROR] err.stack = ' + err.stack)
             }
         }
     }

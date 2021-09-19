@@ -315,7 +315,7 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
                         /*
                         We will need to fetch the data of the current day and the previous day, in order for .previous properties in conditions and formulas to work well.
                         */
-                        let previousDate = new Date(processDate.valueOf() - TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                        let previousDate = new Date(processDate.valueOf() - SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
                         let currentDate = new Date(processDate.valueOf())
 
                         let previousFile = await getDataFileFromDate(previousDate)

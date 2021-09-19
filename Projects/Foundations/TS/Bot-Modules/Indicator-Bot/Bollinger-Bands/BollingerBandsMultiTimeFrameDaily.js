@@ -94,7 +94,7 @@
                         thisReport.beginingOfMarket.days + " " +
                         thisReport.beginingOfMarket.hours + ":" +
                         thisReport.beginingOfMarket.minutes +
-                        TS.projects.foundations.globals.timeConstants.GMT_SECONDS);
+                        SA.projects.foundations.globals.timeConstants.GMT_SECONDS);
 
                     /* Second, we get the report from Exchange Raw Data, to know when the marted ends. */
                     statusReport = statusDependenciesModule.reportsByMainUtility.get('Market Ending Point')
@@ -158,15 +158,15 @@
                                 contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
                                 (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
                                 contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
-                                TS.projects.foundations.globals.timeConstants.GMT_SECONDS);
+                                SA.projects.foundations.globals.timeConstants.GMT_SECONDS);
                             contextVariables.lastBandFile = new Date(
                                 contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
                                 (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
                                 contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
-                                TS.projects.foundations.globals.timeConstants.GMT_SECONDS);
+                                SA.projects.foundations.globals.timeConstants.GMT_SECONDS);
                             contextVariables.lastBandFile = new Date(
                                 contextVariables.lastBandFile.valueOf() +
-                                TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS);
+                                SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS);
 
                             buildBands();
                             return;
@@ -199,16 +199,16 @@
                             contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
                             (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
                             contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
-                            TS.projects.foundations.globals.timeConstants.GMT_SECONDS);
+                            SA.projects.foundations.globals.timeConstants.GMT_SECONDS);
                         contextVariables.lastBandFile = new Date(
                             contextVariables.lastBandFile.valueOf() +
-                            TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS);
+                            SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS);
 
                         beginingOfMarket = new Date(
                             contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
                             (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
                             contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
-                            TS.projects.foundations.globals.timeConstants.GMT_SECONDS);
+                            SA.projects.foundations.globals.timeConstants.GMT_SECONDS);
 
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[INFO] start -> getContextVariables -> thisReport.lastFile === undefined")
@@ -237,7 +237,7 @@
 
                 try {
                     let n;
-                    processDate = new Date(contextVariables.lastBandFile.valueOf() - TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
+                    processDate = new Date(contextVariables.lastBandFile.valueOf() - SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
                     let fromDate = new Date(processDate.valueOf())
                     let lastDate = TS.projects.foundations.utilities.dateTimeFunctions.removeTime(new Date())
 
@@ -249,8 +249,8 @@
                     function advanceTime() {
 
                         try {
-                            processDate = new Date(processDate.valueOf() + TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS);
-                            previousDay = new Date(processDate.valueOf() - TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS);
+                            processDate = new Date(processDate.valueOf() + SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS);
+                            previousDay = new Date(processDate.valueOf() - SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS);
 
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[INFO] start -> buildBands -> advanceTime -> processDate = " + processDate)
@@ -784,7 +784,7 @@
                 try {
                     let dataRange = {
                         begin: pBegin.valueOf(),
-                        end: pEnd.valueOf() + TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+                        end: pEnd.valueOf() + SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
                     }
 
                     let fileContent = JSON.stringify(dataRange);

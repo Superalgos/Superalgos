@@ -41,9 +41,12 @@ exports.newNetworkRoot = function newNetworkRoot() {
         */
         SA.nodeModules = {
             fs: require('fs'),
+            path: require('path'),
+            util: require('util'),
             nodeFetch: require('node-fetch'),
             web3: require('web3'),
-            ws: require('ws')
+            ws: require('ws'),
+            simpleGit: require('simple-git')
         }
 
         /*

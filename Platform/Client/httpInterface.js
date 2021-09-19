@@ -43,7 +43,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                 case 'WEB3':
                     {
-                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                         async function processRequest(body) {
                             try {
@@ -131,7 +131,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'CCXT':
                     {
-                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                         async function processRequest(body) {
                             try {
@@ -242,7 +242,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 break
                             }
                             case 'New-Message': {
-                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                                 function processRequest(messageReceived) {
                                     let timestamp = (new Date()).valueOf()
@@ -291,7 +291,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     {
                         switch (requestPath[2]) { // switch by command
                             case 'Save-Node-Schema': {
-                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                                 async function processRequest(body) {
                                     try {
@@ -322,7 +322,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             }
 
                             case 'Save-Concept-Schema': {
-                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                                 async function processRequest(body) {
                                     try {
@@ -353,7 +353,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             }
 
                             case 'Save-Topic-Schema': {
-                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                                 async function processRequest(body) {
                                     try {
@@ -384,7 +384,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             }
 
                             case 'Save-Tutorial-Schema': {
-                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                                 async function processRequest(body) {
                                     try {
@@ -415,7 +415,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             }
 
                             case 'Save-Review-Schema': {
-                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                                 async function processRequest(body) {
                                     try {
@@ -446,7 +446,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             }
 
                             case 'Save-Book-Schema': {
-                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                                 async function processRequest(body) {
                                     try {
@@ -991,7 +991,7 @@ exports.newHttpInterface = function newHttpInterface() {
                         related to the Governance System are implemented here and routed
                         to the backend Servers that can process them. 
                         */
-                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                         async function processRequest(body) {
                             try {
@@ -1412,7 +1412,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'SavePlugin':
                     {
-                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                         async function processRequest(body) {
                             try {
@@ -1546,7 +1546,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'SaveWorkspace':
                     {
-                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                         async function processRequest(body) {
 
@@ -1702,7 +1702,12 @@ exports.newHttpInterface = function newHttpInterface() {
                     }
             }
         } catch (err) {
-            console.log(err.stack)
+            if (err.stack !== undefined) {
+                console.log(err.stack)
+            }
+            if (err.message !== undefined) {
+                console.log('[ERROR] onHttpRequest -> err.message = ' + err.message)
+            }
         }
     }
 }

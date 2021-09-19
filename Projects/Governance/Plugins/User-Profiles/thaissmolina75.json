@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "thaissmolina75",
-    "config": "{\n    \"signature\": {\n        \"message\": \"thaissmolina75\",\n        \"messageHash\": \"0xea9dba957e7349de58c216419575965cde797b0ccd766dc552030eb345bf8655\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x670205a3bf6a83ed30b3d8b4505f5187684a3bfeef4e592e5c2d7858c39dae63\",\n        \"s\": \"0x04c58e35050c8b5b57bf5a7e98c63427d1e4e1533431014a430c99861af32004\",\n        \"signature\": \"0x670205a3bf6a83ed30b3d8b4505f5187684a3bfeef4e592e5c2d7858c39dae6304c58e35050c8b5b57bf5a7e98c63427d1e4e1533431014a430c99861af320041c\"\n    }\n}",
+    "config": "{\"signature\":{\"message\":\"thaissmolina75\",\"messageHash\":\"0xea9dba957e7349de58c216419575965cde797b0ccd766dc552030eb345bf8655\",\"v\":\"0x1c\",\"r\":\"0x670205a3bf6a83ed30b3d8b4505f5187684a3bfeef4e592e5c2d7858c39dae63\",\"s\":\"0x04c58e35050c8b5b57bf5a7e98c63427d1e4e1533431014a430c99861af32004\",\"signature\":\"0x670205a3bf6a83ed30b3d8b4505f5187684a3bfeef4e592e5c2d7858c39dae6304c58e35050c8b5b57bf5a7e98c63427d1e4e1533431014a430c99861af320041c\"},\"codeName\":\"thaissmolina75\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -285,17 +285,17 @@
     "id": "45c60ab4-3c57-4692-9764-2cd073128e16",
     "savedPayload": {
         "position": {
-            "x": 13262,
-            "y": 10659.5
+            "x": 9090.90909090909,
+            "y": 21251
         },
         "targetPosition": {
-            "x": 13262,
-            "y": 10659.5
+            "x": 9090.90909090909,
+            "y": 21251
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

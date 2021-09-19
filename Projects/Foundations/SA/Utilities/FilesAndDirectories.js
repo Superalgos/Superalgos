@@ -4,6 +4,7 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
         getDirectories: getDirectories,
         getAllFilesInDirectoryAndSubdirectories: getAllFilesInDirectoryAndSubdirectories,
         pathFromDate: pathFromDate,
+        pathFromDatetime: pathFromDatetime, 
         mkDirByPathSync: mkDirByPathSync
     }
 
@@ -55,13 +56,33 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
     }
 
     function pathFromDate(timestamp) {
+        
         let file = { date: new Date(timestamp) }
+        
         file.year = file.date.getUTCFullYear()
         file.month = file.date.getUTCMonth() + 1
         file.day = file.date.getUTCDate()
+        
         return file.year + '/' +
             SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.month, 2) + '/' +
             SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.day, 2)
+    }
+
+    function pathFromDatetime(timestamp) {
+        
+        let file = { date: new Date(timestamp) }
+        
+        file.year = file.date.getUTCFullYear()
+        file.month = file.date.getUTCMonth() + 1
+        file.day = file.date.getUTCDate()
+        file.hour = file.date.getUTCHours()
+        file.minute = file.date.getMinutes()
+
+        return file.year + '/' +
+            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.month, 2) + '/' +
+            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.day, 2) + '/' +
+            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.hour, 2) + '/' +
+            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.minute, 2)
     }
 
     /* Function to create folders of missing folders at any path. */

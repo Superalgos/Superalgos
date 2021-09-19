@@ -48,7 +48,8 @@ exports.newDesktopRoot = function newDesktopRoot() {
             open: require('open'),
             http: require('http'),
             octokit: require("@octokit/rest"),
-            simpleGit: require('simple-git')
+            simpleGit: require('simple-git'),
+            nodeFetch: require('node-fetch')
         }
 
         /*

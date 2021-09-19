@@ -1286,7 +1286,7 @@ exports.newFoundationsBotModulesTradingOrders = function (processIndex) {
     }
 
     function updateStatistics(tradingEngineOrder) {
-        tradingEngineOrder.orderStatistics.days.value = tradingEngineOrder.orderCounters.periods.value * sessionParameters.timeFrame.config.value / TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+        tradingEngineOrder.orderStatistics.days.value = tradingEngineOrder.orderCounters.periods.value * sessionParameters.timeFrame.config.value / SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
         tradingEngineOrder.orderStatistics.days.value = TS.projects.foundations.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderStatistics.days.value, 10)
     }
 

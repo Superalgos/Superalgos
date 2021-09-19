@@ -215,15 +215,15 @@ exports.newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = fun
                         contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
                         (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
                         contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
-                        TS.projects.foundations.globals.timeConstants.GMT_SECONDS)
+                        SA.projects.foundations.globals.timeConstants.GMT_SECONDS)
                     contextVariables.datetimeLastProducedFile = new Date(
                         contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
                         (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
                         contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
-                        TS.projects.foundations.globals.timeConstants.GMT_SECONDS)
+                        SA.projects.foundations.globals.timeConstants.GMT_SECONDS)
                     contextVariables.datetimeLastProducedFile = new Date(
                         contextVariables.datetimeLastProducedFile.valueOf() -
-                        TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) // Go back one day to start well.
+                        SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) // Go back one day to start well.
 
                     callbackFirstRun()
                     return
@@ -236,7 +236,7 @@ exports.newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = fun
                 For that reason we go back one day, the partial information is discarded and 
                 added again with whatever new info is available.
                 */
-                contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() - TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() - SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
 
                 callbackNotFirstRun()
                 return
@@ -249,15 +249,15 @@ exports.newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = fun
                     contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
                     (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
                     contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
-                    TS.projects.foundations.globals.timeConstants.GMT_SECONDS)
+                    SA.projects.foundations.globals.timeConstants.GMT_SECONDS)
                 contextVariables.datetimeLastProducedFile = new Date(
                     contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
                     (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
                     contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
-                    TS.projects.foundations.globals.timeConstants.GMT_SECONDS)
+                    SA.projects.foundations.globals.timeConstants.GMT_SECONDS)
                 contextVariables.datetimeLastProducedFile = new Date(
                     contextVariables.datetimeLastProducedFile.valueOf() -
-                    TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) // Go back one day to start well.
+                    SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) // Go back one day to start well.
 
                 callbackFirstRun()
                 return
@@ -298,7 +298,7 @@ exports.newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = fun
         from there into the future.
         */
         contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() +
-            TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+            SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
 
         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
             "[INFO] advanceTime -> New processing time @ " +

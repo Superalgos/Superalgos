@@ -44,8 +44,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Para vincular una dirección que ya posees, escribe el mnemónico de doce palabras asociado con tu dirección en la propiedad mnemónico. De lo contrario, deja la propiedad en blanco y el sistema creará una nueva.",
-                    "updated": 1630888231106,
+                    "text": "Escribe tu mnemónico de doce palabras en la propiedad mnemotécnica. ¡Deja la propiedad en blanco para generar una nueva dirección! Eliminarás esta información confidencial más adelante, no saldrá de tu computadora y no se guardará en el disco.",
+                    "updated": 1632012849405,
                     "style": "Text"
                 }
             ]

@@ -158,13 +158,14 @@ function newEducationTutorialSpace() {
         switch (currentStatus) {
             case 'Stopped': {
                 makeInvisible()
-                thisObject.sidePanelTab.close()
+                //thisObject.sidePanelTab.close()
                 currentNode = undefined
                 break
             }
             case 'Playing Tutorial': {
                 makeVsible()
-                thisObject.sidePanelTab.open()
+                 // Animation Caused the advance() function to be called skipping the first tutorial step commented out until better implementation can be added
+                //thisObject.sidePanelTab.open()
                 break
             }
             case 'Playing Topic': {

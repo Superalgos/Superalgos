@@ -47,6 +47,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         async function processRequest(body) {
                             try {
+                                if (body === undefined) { return }
                                 let params = JSON.parse(body)
 
                                 switch (params.method) {
@@ -135,6 +136,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         async function processRequest(body) {
                             try {
+                                if (body === undefined) { return }
                                 let params = JSON.parse(body)
 
                                 switch (params.method) {
@@ -245,6 +247,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                 SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                                 function processRequest(messageReceived) {
+                                    if (messageReceived === undefined) { return }
+
                                     let timestamp = (new Date()).valueOf()
                                     let source = requestPath[3]
                                     let exchange = requestPath[4]
@@ -295,6 +299,8 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 async function processRequest(body) {
                                     try {
+                                        if (body === undefined) { return }
+
                                         let docsSchema = JSON.parse(body)
                                         let project = requestPath[3]
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Nodes'
@@ -326,6 +332,8 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 async function processRequest(body) {
                                     try {
+                                        if (body === undefined) { return }
+
                                         let docsSchema = JSON.parse(body)
                                         let project = requestPath[3]
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Concepts'
@@ -357,6 +365,8 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 async function processRequest(body) {
                                     try {
+                                        if (body === undefined) { return }
+
                                         let docsSchema = JSON.parse(body)
                                         let project = requestPath[3]
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Topics'
@@ -388,6 +398,8 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 async function processRequest(body) {
                                     try {
+                                        if (body === undefined) { return }
+
                                         let docsSchema = JSON.parse(body)
                                         let project = requestPath[3]
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Tutorials'
@@ -419,6 +431,8 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 async function processRequest(body) {
                                     try {
+                                        if (body === undefined) { return }
+
                                         let docsSchema = JSON.parse(body)
                                         let project = requestPath[3]
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Reviews'
@@ -450,6 +464,8 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 async function processRequest(body) {
                                     try {
+                                        if (body === undefined) { return }
+
                                         let docsSchema = JSON.parse(body)
                                         let project = requestPath[3]
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Books'
@@ -995,6 +1011,8 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         async function processRequest(body) {
                             try {
+                                if (body === undefined) { return }
+
                                 let params = JSON.parse(body)
 
                                 switch (params.method) {
@@ -1416,6 +1434,8 @@ exports.newHttpInterface = function newHttpInterface() {
 
                         async function processRequest(body) {
                             try {
+                                if (body === undefined) { return }
+
                                 let plugin = JSON.parse(body)
                                 let project = requestPath[2]
                                 let folder = requestPath[3]
@@ -1549,6 +1569,8 @@ exports.newHttpInterface = function newHttpInterface() {
                         SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                         async function processRequest(body) {
+
+                            if (body === undefined) { return }
 
                             let fileContent = body
                             let fileName = unescape(requestPath[2])

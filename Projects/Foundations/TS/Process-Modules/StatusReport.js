@@ -12,7 +12,7 @@
     const MODULE_NAME = "Status Report"
 
     let thisObject = {
-        networkNode: undefined,
+        lanNetworkNode: undefined,
         mainUtility: undefined,
         file: undefined,                    // Here we have the JSON object representing the file content.
         initialize: initialize,
@@ -106,13 +106,13 @@
             let network = TS.projects.foundations.globals.taskConstants.NETWORK_NODE
             let processThisDependsOn = statusDependencyNode.referenceParent.parentNode
 
-            for (let i = 0; i < network.networkNodes.length; i++) {
-                let networkNode = network.networkNodes[i]
+            for (let i = 0; i < network.lanNetworkNodes.length; i++) {
+                let lanNetworkNode = network.lanNetworkNodes[i]
 
-                if (checkThisDataBranch(networkNode.dataTasks) === true) { return }
-                if (checkThisTradingBranch(networkNode.testingTradingTasks) === true) { return }
-                if (checkThisTradingBranch(networkNode.productionTradingTasks) === true) { return }
-                if (checkThisLearningBranch(networkNode.learningTasks) === true) { return }
+                if (checkThisDataBranch(lanNetworkNode.dataTasks) === true) { return }
+                if (checkThisTradingBranch(lanNetworkNode.testingTradingTasks) === true) { return }
+                if (checkThisTradingBranch(lanNetworkNode.productionTradingTasks) === true) { return }
+                if (checkThisLearningBranch(lanNetworkNode.learningTasks) === true) { return }
 
                 function checkThisDataBranch(branch) {
                     if (branch === undefined) { return }
@@ -151,10 +151,10 @@
                                                     We found where the task that runs the process definition this status report depends on 
                                                     and where it is located on the network. 
                                                     */
-                                                    thisObject.networkNode = networkNode
-                                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.')
+                                                    thisObject.lanNetworkNode = lanNetworkNode
+                                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + lanNetworkNode.name + " -> host = " + lanNetworkNode.config.host + ' -> port = ' + lanNetworkNode.config.webPort + '.')
 
-                                                    fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex, networkNode.config.host, networkNode.config.webPort)
+                                                    fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex, lanNetworkNode.config.host, lanNetworkNode.config.webPort)
                                                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
                                                     return true
                                                 }
@@ -203,10 +203,10 @@
                                                     We found where the task that runs the process definition this status report depends on 
                                                     and where it is located on the network. 
                                                     */
-                                                    thisObject.networkNode = networkNode
-                                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.')
+                                                    thisObject.lanNetworkNode = lanNetworkNode
+                                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + lanNetworkNode.name + " -> host = " + lanNetworkNode.config.host + ' -> port = ' + lanNetworkNode.config.webPort + '.')
 
-                                                    fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex, networkNode.config.host, networkNode.config.webPort)
+                                                    fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex, lanNetworkNode.config.host, lanNetworkNode.config.webPort)
                                                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
                                                     return true
                                                 }
@@ -255,10 +255,10 @@
                                                     We found where the task that runs the process definition this status report depends on 
                                                     and where it is located on the network. 
                                                     */
-                                                    thisObject.networkNode = networkNode
-                                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.')
+                                                    thisObject.lanNetworkNode = lanNetworkNode
+                                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + lanNetworkNode.name + " -> host = " + lanNetworkNode.config.host + ' -> port = ' + lanNetworkNode.config.webPort + '.')
 
-                                                    fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex, networkNode.config.host, networkNode.config.webPort)
+                                                    fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex, lanNetworkNode.config.host, lanNetworkNode.config.webPort)
                                                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
                                                     return true
                                                 }
@@ -294,7 +294,7 @@
 
     function finalize() {
         fileStorage = undefined
-        thisObject.networkNode = undefined
+        thisObject.lanNetworkNode = undefined
         bot = undefined
         thisObject = undefined
     }

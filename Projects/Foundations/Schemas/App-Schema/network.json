@@ -1,10 +1,10 @@
 {
-    "type": "Network",
+    "type": "LAN Network",
     "menuItems": [
         {
             "action": "Add UI Object",
             "label": "Add Network Node",
-            "relatedUiObject": "Network Node",
+            "relatedUiObject": "LAN Network Node",
             "actionFunction": "payload.executeAction"
         },
         {
@@ -22,9 +22,9 @@
     "level": 0,
     "childrenNodesProperties": [
         {
-            "name": "networkNodes",
+            "name": "lanNetworkNodes",
             "type": "array",
-            "childType": "Network Node"
+            "childType": "LAN Network Node"
         }
     ]
 }

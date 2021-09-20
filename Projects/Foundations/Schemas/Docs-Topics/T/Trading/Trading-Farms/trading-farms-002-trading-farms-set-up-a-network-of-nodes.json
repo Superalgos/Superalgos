@@ -176,7 +176,7 @@
         },
         {
             "style": "Text",
-            "text": "To add a network node, select Add Network Node on the Superalgos Network node menu. A network node is added along with the basic structure of nodes to set up a node."
+            "text": "To add a network node, select Add LAN Network Node on the Superalgos Network node menu. A network node is added along with the basic structure of nodes to set up a node."
         },
         {
             "style": "Subtitle",

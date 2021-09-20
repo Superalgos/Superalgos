@@ -3,7 +3,7 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Network Node",
+            "label": "Add LAN Network Node",
             "relatedUiObject": "LAN Network Node",
             "actionFunction": "payload.executeAction"
         },

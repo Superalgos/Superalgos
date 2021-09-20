@@ -104,13 +104,13 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
     }
 
     function addMissingTradingSessionReferences(node, rootNodes) {
-        let networkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(node, 'Network Node', undefined, true, false, true, false)
-        if (networkNode === undefined) { return }
+        let lanNetworkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(node, 'LAN Network Node', undefined, true, false, true, false)
+        if (lanNetworkNode === undefined) { return }
 
-        let backtestingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Backtesting Session')
-        let fordwardTestingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Forward Testing Session')
-        let paperTradingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Paper Trading Session')
-        let liveTradingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Live Trading Session')
+        let backtestingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Backtesting Session')
+        let fordwardTestingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Forward Testing Session')
+        let paperTradingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Paper Trading Session')
+        let liveTradingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Live Trading Session')
 
         addMissingSession(backtestingSessionsArray)
         addMissingSession(fordwardTestingSessionsArray)
@@ -131,11 +131,11 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
     }
 
     function addMissingLearningSessionReferences(node, rootNodes) {
-        let networkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(node, 'Network Node', undefined, true, false, true, false)
-        if (networkNode === undefined) { return }
+        let lanNetworkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(node, 'LAN Network Node', undefined, true, false, true, false)
+        if (lanNetworkNode === undefined) { return }
 
-        let backLearningSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Back Learning Session')
-        let liveLearningSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Live Learning Session')
+        let backLearningSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Back Learning Session')
+        let liveLearningSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Live Learning Session')
 
         addMissingSession(backLearningSessionsArray)
         addMissingSession(liveLearningSessionsArray)

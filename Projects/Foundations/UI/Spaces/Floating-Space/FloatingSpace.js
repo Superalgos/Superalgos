@@ -272,7 +272,7 @@ function newFoundationsFloatingSpace() {
             payload.node.type === 'Learning System' ||
             payload.node.type === 'Trading Engine' ||
             payload.node.type === 'Learning Engine' ||
-            payload.node.type === 'Network' ||
+            payload.node.type === 'LAN Network' ||
             payload.node.type === 'Crypto Ecosystem' ||
             payload.node.type === 'Charting Space' ||
             payload.node.type === 'Data Mine' ||

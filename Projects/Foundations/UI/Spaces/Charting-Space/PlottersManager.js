@@ -171,12 +171,12 @@ function newPlottersManager() {
                 }
             }
 
-            let host = layer.networkNode.config.host
-            let webPort = layer.networkNode.config.webPort
+            let host = layer.lanNetworkNode.config.host
+            let webPort = layer.lanNetworkNode.config.webPort
             if (host === undefined) { host = window.location.hostname }
             if (webPort === undefined) { webPort = window.location.port }
 
-            let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(layer.networkNode.id)
+            let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(layer.lanNetworkNode.id)
 
             storage.initialize(
                 mine,

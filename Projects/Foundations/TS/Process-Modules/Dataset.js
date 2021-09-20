@@ -190,7 +190,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
         A. We are interested in a particular Exchange and Market.
         B. We have the Network we received from the UI whe the user ran the Task.
         C. We have the Product Definition that is the parent node of the Data Set represented by this object.
-        D. This Product Definition is referenced by one or more Data Products nodes at some branch of the Network Hierarchy.
+        D. This Product Definition is referenced by one or more Data Products nodes at some branch of the LAN Network Hierarchy.
         E. We need to find the right Data Product node, the one who is itself a descendent of the Market Data Products
         node that is referencing the market and exchange that we have as a parameter of this function.
 

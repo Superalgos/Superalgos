@@ -16,7 +16,68 @@
                     "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}",
                     "project": "Governance",
                     "featureClasses": [],
-                    "features": [],
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "name": "Quick Position Node Feature",
+                            "config": "{}",
+                            "project": "Governance",
+                            "featureClasses": [],
+                            "features": [],
+                            "id": "98b5642a-faba-4a04-bf72-6efec86de56a",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 36194.06166692297,
+                                    "y": 38420.19411466804
+                                },
+                                "targetPosition": {
+                                    "x": 35895.70509831249,
+                                    "y": 38388.83557568774
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "name": "Tutorial Tab Feature",
+                            "config": "{}",
+                            "project": "Governance",
+                            "featureClasses": [],
+                            "features": [],
+                            "id": "5ac7a46b-f462-4dc4-a627-2c7588a67e7a",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 36017.72609123523,
+                                    "y": 38662.89921298053
+                                },
+                                "targetPosition": {
+                                    "x": 35895.70509831249,
+                                    "y": 38388.83557568774
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
                     "id": "18584f3f-6e48-4a68-89f1-0268185156e9",
                     "savedPayload": {
                         "position": {
@@ -232,7 +293,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

@@ -367,7 +367,7 @@ function newUiObjectConstructor() {
         }
         menuItemsInitialValues.push(
             {
-                action: 'Copy Position',
+                action: 'Save node to be moved',
                 actionFunction: floatingObject.payload.executeAction,
                 actionProject: 'Foundations',
                 label: undefined,
@@ -383,7 +383,7 @@ function newUiObjectConstructor() {
         )
         menuItemsInitialValues.push(
             {
-                action: 'Snap to Position',
+                action: 'Snap saved node to position',
                 actionFunction: floatingObject.payload.executeAction,
                 actionProject: 'Foundations',
                 label: undefined,

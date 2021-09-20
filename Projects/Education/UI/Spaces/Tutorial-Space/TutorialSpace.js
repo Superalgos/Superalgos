@@ -1537,8 +1537,9 @@ function newEducationTutorialSpace() {
 
     function onOpening() {
         //console.log('onOpening');
-        let nodeResume = navigationStack.pop()
+        if (currentStatus !== "Stopped"){return}
 
+        let nodeResume = navigationStack.pop()
         switch (nodeResume.type) {
             case 'Tutorial': {
                 resumeTutorial(nodeResume)

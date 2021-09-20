@@ -40,7 +40,6 @@ SA.nodeModules = {
     ws: require('ws'),
     ip: require('ip'),
     telegraf: require('telegraf'),
-    telegram: require('telegram'),
     https: require('https'),
     http: require('http'),
     web3: require('web3'),

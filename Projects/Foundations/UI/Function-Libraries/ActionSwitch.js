@@ -779,48 +779,14 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.socialBotsFunctions.sendSlackTestMessage(action.node, action.callBackFunction)
                 }
                 break
-            case 'Copy Position':
+            case 'Save node to be moved':
             {
-                UI.projects.foundations.utilities.clipboard.copyTextToClipboard( action.node.payload.position.x + ';' + action.node.payload.position.y)
-                action.node.payload.uiObject.setInfoMessage('Position copied')
+                UI.projects.foundations.spaces.floatingSpace.saveFloatingObjectToBeMoved()
             }
                 break
-            case 'Snap to Position':
+            case 'Snap saved node to position':
             {
-                navigator.clipboard.readText()
-                    .then(text => {
-                        //console.log('Pasted content: ', text);
-                        let newPosition = {
-                            x: 0,
-                            y: 0
-                        }
-                        let newVector = {
-                            x: 0,
-                            y: 0
-                        }
-                        let positionArray = text.split(";",2)
-
-                        newPosition.x = positionArray[0]
-                        newPosition.y = positionArray[1]
-
-                        if (newPosition.x >= 0 && newPosition.x <= UI.projects.foundations.spaces.floatingSpace.container.frame.width) {
-                            newVector.x = newPosition.x - action.node.payload.position.x
-
-                            if (newPosition.y >= 0 && newPosition.y <= UI.projects.foundations.spaces.floatingSpace.container.frame.height) {
-
-                                newVector.y = newPosition.y - action.node.payload.position.y
-                                action.node.payload.floatingObject.container.displace(newVector)
-                                action.node.payload.uiObject.setInfoMessage('Snapped to new position')
-                            }
-                        }
-                        else {
-                            action.node.payload.uiObject.setErrorMessage('[Error]:Failed to read clipboard contents')
-                        }
-                    })
-                    .catch(err => {
-                        console.error('[Error]:Failed to read clipboard contents: ', err);
-                        action.node.payload.uiObject.setErrorMessage('[Error]:Failed to read clipboard contents')
-                    });
+                UI.projects.foundations.spaces.floatingSpace.moveFloatingObject(action.node.payload.position)
             }
                 break
         }

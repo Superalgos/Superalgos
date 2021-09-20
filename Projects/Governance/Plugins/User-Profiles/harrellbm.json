@@ -594,12 +594,12 @@
         "votesAndClaimsPrograms": {
             "type": "Votes And Claims Programs",
             "name": "New Votes And Claims Programs",
-            "config": "{\n    \"percentage\": 78\n}",
+            "config": "{\n    \"percentage\": 77\n}",
             "project": "Governance",
             "votingProgram": {
                 "type": "Voting Program",
                 "name": "New Voting Program",
-                "config": "{\n    \"percentage\": 4\n}",
+                "config": "{\n    \"percentage\": 3\n}",
                 "project": "Governance",
                 "votesSwitch": [
                     {
@@ -6469,19 +6469,27 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Foundations-Project",
-                                                                                    "Features"
+                                                                                    "Features",
+                                                                                    "Governance",
+                                                                                    "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                 ],
                                                                                 [
                                                                                     "Foundations Project",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                 ],
                                                                                 [
                                                                                     "Visual Designer",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "18584f3f-6e48-4a68-89f1-0268185156e9"
                                                                                 ],
                                                                                 [
                                                                                     "Quick Position Node Feature",
-                                                                                    "Feature"
+                                                                                    "Feature",
+                                                                                    "Governance",
+                                                                                    "98b5642a-faba-4a04-bf72-6efec86de56a"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -6520,19 +6528,27 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Foundations-Project",
-                                                                                    "Features"
+                                                                                    "Features",
+                                                                                    "Governance",
+                                                                                    "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                 ],
                                                                                 [
                                                                                     "Foundations Project",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                 ],
                                                                                 [
                                                                                     "Visual Designer",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "18584f3f-6e48-4a68-89f1-0268185156e9"
                                                                                 ],
                                                                                 [
                                                                                     "Tutorial Tab Feature",
-                                                                                    "Feature"
+                                                                                    "Feature",
+                                                                                    "Governance",
+                                                                                    "5ac7a46b-f462-4dc4-a627-2c7588a67e7a"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -6568,15 +6584,21 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Foundations-Project",
-                                                                            "Features"
+                                                                            "Features",
+                                                                            "Governance",
+                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                         ],
                                                                         [
                                                                             "Foundations Project",
-                                                                            "Feature Class"
+                                                                            "Feature Class",
+                                                                            "Governance",
+                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                         ],
                                                                         [
                                                                             "Visual Designer",
-                                                                            "Feature Class"
+                                                                            "Feature Class",
+                                                                            "Governance",
+                                                                            "18584f3f-6e48-4a68-89f1-0268185156e9"
                                                                         ]
                                                                     ]
                                                                 }
@@ -6624,19 +6646,27 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Foundations-Project",
-                                                                                    "Features"
+                                                                                    "Features",
+                                                                                    "Governance",
+                                                                                    "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                 ],
                                                                                 [
                                                                                     "Foundations Project",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                 ],
                                                                                 [
                                                                                     "Visual Debugger",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "0e329071-a542-405f-ae8c-2933098759c1"
                                                                                 ],
                                                                                 [
                                                                                     "Highlights",
-                                                                                    "Feature"
+                                                                                    "Feature",
+                                                                                    "Governance",
+                                                                                    "3997cd4b-15be-4c81-b8d9-23bee80dde32"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -6672,15 +6702,21 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Foundations-Project",
-                                                                            "Features"
+                                                                            "Features",
+                                                                            "Governance",
+                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                         ],
                                                                         [
                                                                             "Foundations Project",
-                                                                            "Feature Class"
+                                                                            "Feature Class",
+                                                                            "Governance",
+                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                         ],
                                                                         [
                                                                             "Visual Debugger",
-                                                                            "Feature Class"
+                                                                            "Feature Class",
+                                                                            "Governance",
+                                                                            "0e329071-a542-405f-ae8c-2933098759c1"
                                                                         ]
                                                                     ]
                                                                 }
@@ -6728,19 +6764,27 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Foundations-Project",
-                                                                                    "Features"
+                                                                                    "Features",
+                                                                                    "Governance",
+                                                                                    "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                 ],
                                                                                 [
                                                                                     "Foundations Project",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                 ],
                                                                                 [
                                                                                     "Charting System",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "7edc83c0-74fc-4427-816d-4db5d840577f"
                                                                                 ],
                                                                                 [
                                                                                     "Rate Scale",
-                                                                                    "Feature"
+                                                                                    "Feature",
+                                                                                    "Governance",
+                                                                                    "ebd8abdc-710e-4184-976d-44000eb57658"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -6776,15 +6820,21 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Foundations-Project",
-                                                                            "Features"
+                                                                            "Features",
+                                                                            "Governance",
+                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                         ],
                                                                         [
                                                                             "Foundations Project",
-                                                                            "Feature Class"
+                                                                            "Feature Class",
+                                                                            "Governance",
+                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                         ],
                                                                         [
                                                                             "Charting System",
-                                                                            "Feature Class"
+                                                                            "Feature Class",
+                                                                            "Governance",
+                                                                            "7edc83c0-74fc-4427-816d-4db5d840577f"
                                                                         ]
                                                                     ]
                                                                 }
@@ -6828,15 +6878,21 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Foundations-Project",
-                                                                            "Features"
+                                                                            "Features",
+                                                                            "Governance",
+                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                         ],
                                                                         [
                                                                             "Foundations Project",
-                                                                            "Feature Class"
+                                                                            "Feature Class",
+                                                                            "Governance",
+                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                         ],
                                                                         [
                                                                             "Data Mining",
-                                                                            "Feature Class"
+                                                                            "Feature Class",
+                                                                            "Governance",
+                                                                            "025c0e15-ad8d-49ae-b501-577bb82c207d"
                                                                         ]
                                                                     ]
                                                                 }
@@ -6875,11 +6931,15 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Foundations-Project",
-                                                                    "Features"
+                                                                    "Features",
+                                                                    "Governance",
+                                                                    "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                 ],
                                                                 [
                                                                     "Foundations Project",
-                                                                    "Feature Class"
+                                                                    "Feature Class",
+                                                                    "Governance",
+                                                                    "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                 ]
                                                             ]
                                                         }
@@ -6918,7 +6978,9 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Foundations-Project",
-                                                            "Features"
+                                                            "Features",
+                                                            "Governance",
+                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                         ]
                                                     ]
                                                 }
@@ -16290,7 +16352,7 @@
         "financialPrograms": {
             "type": "Financial Programs",
             "name": "New Financial Programs",
-            "config": "{\n    \"percentage\": 2\n}",
+            "config": "{\n    \"percentage\": 5\n}",
             "project": "Governance",
             "delegationProgram": {
                 "type": "Delegation Program",
@@ -16305,47 +16367,6 @@
                         "project": "Governance",
                         "delegatePowerSwitch": [],
                         "userDelegates": [
-                            {
-                                "type": "User Delegate",
-                                "name": "quantum8",
-                                "config": "{}",
-                                "project": "Governance",
-                                "id": "eea24b92-438a-435d-ae4f-fcd300ad4748",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 7447.892471986432,
-                                        "y": 25459.13523406867
-                                    },
-                                    "targetPosition": {
-                                        "x": 7416.533933006136,
-                                        "y": 25160.77866545819
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "User Profile",
-                                        "name": "quantum8",
-                                        "id": "f2ba562b-9032-4fb4-8b97-0b58d8542905"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "quantum8",
-                                            "User Profile",
-                                            "Governance",
-                                            "f2ba562b-9032-4fb4-8b97-0b58d8542905"
-                                        ]
-                                    ]
-                                }
-                            },
                             {
                                 "type": "User Delegate",
                                 "name": "Tentacule23",
@@ -16402,7 +16423,7 @@
                                 "isPinned": true,
                                 "isFrozen": false,
                                 "isCollapsed": false,
-                                "angleToParent": 2,
+                                "angleToParent": 3,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 1
                             },

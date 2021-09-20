@@ -56,10 +56,6 @@ function newCircularMenu() {
             let menuItem = newCircularMenuItem()
             let menuItemInitialValue = menuItemsInitialValues[i]
 
-            if (payload.node.id === "df162757-f7ac-4850-8112-57399b8b640f") {
-                let a = 1
-            }
-
             menuItem.action = menuItemInitialValue.action
             menuItem.actionProject = menuItemInitialValue.actionProject
             menuItem.actionFunction = menuItemInitialValue.actionFunction

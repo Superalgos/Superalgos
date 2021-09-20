@@ -12,6 +12,7 @@ function newEducationTutorialSpace() {
         playTutorialStep: playTutorialStep,
         resumeTutorialStep: resumeTutorialStep,
         resetTutorialProgress: resetTutorialProgress,
+        sidePanelTab: undefined,
         container: undefined,
         physics: physics,
         draw: draw,
@@ -37,6 +38,8 @@ function newEducationTutorialSpace() {
     resize()
 
     let browserResizedEventSubscriptionId
+    let openingEventSubscriptionId
+    let closingEventSubscriptionId
 
     let tutorialRootNode
     let currentNode
@@ -104,6 +107,8 @@ function newEducationTutorialSpace() {
         batchConfigChangesCounter = 0
         workspacesCounter = 0
 
+        setupSidePanelTab()
+
         browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
         let workspace = UI.projects.foundations.spaces.designSpace.workspace
         workspace.executeAction({ name: 'Play Tutorials', project: 'Foundations' })
@@ -112,6 +117,8 @@ function newEducationTutorialSpace() {
 
     function finalize() {
         canvas.eventHandler.stopListening(browserResizedEventSubscriptionId)
+        thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
+        thisObject.sidePanelTab.container.eventHandler.stopListening(closingEventSubscriptionId)
 
         tutorialRootNode = undefined
         currentNode = undefined
@@ -130,7 +137,13 @@ function newEducationTutorialSpace() {
     }
 
     function getContainer(point, purpose) {
+
+        if (thisObject.sidePanelTab === undefined) { return }
+
         let container
+
+        container = thisObject.sidePanelTab.getContainer(point, purpose)
+        if (container !== undefined) { return container }
 
         if (thisObject.container.frame.isThisPointHere(point, true) === true) {
             return thisObject.container
@@ -145,11 +158,14 @@ function newEducationTutorialSpace() {
         switch (currentStatus) {
             case 'Stopped': {
                 makeInvisible()
+                //thisObject.sidePanelTab.close()
                 currentNode = undefined
                 break
             }
             case 'Playing Tutorial': {
                 makeVsible()
+                 // Animation Caused the advance() function to be called skipping the first tutorial step commented out until better implementation can be added
+                //thisObject.sidePanelTab.open()
                 break
             }
             case 'Playing Topic': {
@@ -978,8 +994,8 @@ function newEducationTutorialSpace() {
 
     function resumeTutorial(node) {
         if (UI.projects.foundations.spaces.designSpace.workspace.isInitialized !== true) { return }
-
-        navigationStack = []
+        //Testing if removing the navigationStack reset here fixes the tutorial resume issues
+        //navigationStack = []
         node.payload.uiObject.isPlaying = true
         tutorialRootNode = node
         currentNode = node
@@ -1000,7 +1016,8 @@ function newEducationTutorialSpace() {
     }
 
     function resumeTutorialTopic(node) {
-        navigationStack = []
+        //Testing if removing the navigationStack reset here fixes the tutorial resume issues
+        //navigationStack = []
         currentTopicNode = node
         currentNode = node
         currentStatus = 'Playing Topic'
@@ -1020,7 +1037,8 @@ function newEducationTutorialSpace() {
     }
 
     function resumeTutorialStep(node) {
-        navigationStack = []
+        //Testing if removing the navigationStack reset here fixes the tutorial resume issues
+        //navigationStack = []
         currentStepNode = node
         currentNode = node
         currentStatus = 'Playing Step'
@@ -1508,5 +1526,38 @@ function newEducationTutorialSpace() {
 
     function draw() {
         if (isInitialized === false) { return }
+    }
+
+    function setupSidePanelTab() {
+        thisObject.sidePanelTab = UI.projects.foundations.spaces.sideSpace.createSidePanelTab(thisObject.container, 'Education', 'tutorial', 'Tutorial', 'left')
+
+        openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', onOpening)
+        closingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closing', onClosing)
+    }
+
+    function onOpening() {
+        //console.log('onOpening');
+        if (currentStatus !== "Stopped"){return}
+
+        let nodeResume = navigationStack.pop()
+        switch (nodeResume.type) {
+            case 'Tutorial': {
+                resumeTutorial(nodeResume)
+                break
+            }
+            case 'Tutorial Topic': {
+                resumeTutorialTopic(nodeResume)
+                break
+            }
+            case 'Tutorial Step': {
+                resumeTutorialStep(nodeResume)
+                break
+            }
+        }
+    }
+
+    function onClosing() {
+        //console.log('onClosing');
+        stop()
     }
 }

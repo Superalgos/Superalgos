@@ -9,7 +9,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\"node\":{\"distancePercentage\":60,\"radiusPercentage\":85,\"massPercentage\":100,\"animationSteps\":2,\"menuItem\":{\"widthPercentage\":100,\"heightPercentage\":60,\"radiusPercentage\":90}},\"physics\":false,\"shortcuts\":{\"toggleMapMode\":\"M\",\"toggleDrawRelationshipLines\":\"R\",\"toggleDrawParentLines\":\"C\",\"saveWorkspace\":\"S\",\"adjustAspectRatio\":\"A\"}}"
+        "config": "{\"node\":{\"distancePercentage\":60,\"radiusPercentage\":85,\"massPercentage\":100,\"animationSteps\":2,\"menuItem\":{\"widthPercentage\":100,\"heightPercentage\":60,\"radiusPercentage\":90}},\"physics\":false,\"shortcuts\":{\"toggleMapMode\":\"M\",\"toggleDrawRelationshipLines\":\"R\",\"toggleDrawParentLines\":\"C\",\"saveWorkspace\":\"S\",\"adjustAspectRatio\":\"A\"} \n }"
     },
     "menuItems": [
         {

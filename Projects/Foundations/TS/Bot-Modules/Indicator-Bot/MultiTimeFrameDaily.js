@@ -104,7 +104,7 @@
                             thisReport.beginingOfMarket.days + " " +
                             thisReport.beginingOfMarket.hours + ":" +
                             thisReport.beginingOfMarket.minutes +
-                            TS.projects.foundations.globals.timeConstants.GMT_SECONDS
+                            SA.projects.foundations.globals.timeConstants.GMT_SECONDS
                         )
                     } else { // This is the standard way.
                         contextVariables.dateBeginOfMarket = new Date(thisReport.beginingOfMarket)
@@ -198,7 +198,7 @@
                             contextVariables.dateBeginOfMarket.getUTCFullYear() + "-" +
                             (contextVariables.dateBeginOfMarket.getUTCMonth() + 1) + "-" +
                             contextVariables.dateBeginOfMarket.getUTCDate() + " " + "00:00" +
-                            TS.projects.foundations.globals.timeConstants.GMT_SECONDS
+                            SA.projects.foundations.globals.timeConstants.GMT_SECONDS
                         )
 
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -242,7 +242,7 @@
                 let botNeverRan = true;
 
                 TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME =
-                    new Date(contextVariables.lastFile.valueOf() - TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) // Go back one day to start well when we advance time at the begining of the loop.
+                    new Date(contextVariables.lastFile.valueOf() - SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) // Go back one day to start well when we advance time at the begining of the loop.
                 let fromDate = new Date(TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.valueOf())
                 let lastDate = TS.projects.foundations.utilities.dateTimeFunctions.removeTime(new Date())
 
@@ -251,9 +251,9 @@
                 function advanceTime() {
                     TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME =
                         new Date(TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.valueOf() +
-                            TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                            SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
                     previousDay = new Date(TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.valueOf() -
-                        TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                        SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
 
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[INFO] start -> processTimeFrames -> advanceTime -> TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME = " +
@@ -541,7 +541,7 @@
             function writeDataRange(pBegin, pEnd, productCodeName, callBack) {
                 let dataRange = {
                     begin: pBegin.valueOf(),
-                    end: pEnd.valueOf() + TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+                    end: pEnd.valueOf() + SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
                 };
                 let fileContent = JSON.stringify(dataRange)
                 let fileName = '/Data.Range.json';

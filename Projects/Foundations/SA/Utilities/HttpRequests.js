@@ -6,7 +6,7 @@ exports.newFoundationsUtilitiesHttpRequests = function () {
 
     return thisObject
 
-    function getRequestBody(httpRequest, callback) { // Gets the de body from a POST httpRequest to the web server
+    function getRequestBody(httpRequest, httpResponse, callback) { // Gets the de body from a POST httpRequest to the web server
         try {
 
             let body = ''
@@ -26,10 +26,12 @@ exports.newFoundationsUtilitiesHttpRequests = function () {
             httpRequest.on('error', function (err) {
                 console.log('[ERROR] getBody -> err.stack = ' + err.stack)
                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                callback()
             })
         } catch (err) {
             console.log('[ERROR] getBody -> err.stack = ' + err.stack)
             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+            callback()
         }
     }
 }

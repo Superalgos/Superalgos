@@ -100,6 +100,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                         result: 'Error',
                                         message: 'Handshake Not Done Yet.'
                                     }
+                                    response.messageId = messageHeader.messageId
                                     caller.socket.send(JSON.stringify(response))
                                     return
                                 }
@@ -108,11 +109,13 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                 switch (caller.role) {
                                     case 'Network Client': {
                                         response = await clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                        response.messageId = messageHeader.messageId
                                         caller.socket.send(JSON.stringify(response))
                                         break
                                     }
                                     case 'Network Peer': {
                                         response = await peerInterface.messageReceived(messageHeader.payload)
+                                        response.messageId = messageHeader.messageId
                                         caller.socket.send(JSON.stringify(response))
                                         break
                                     }

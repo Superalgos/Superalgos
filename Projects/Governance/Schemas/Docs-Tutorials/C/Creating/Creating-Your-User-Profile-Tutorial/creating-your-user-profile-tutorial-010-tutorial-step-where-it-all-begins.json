@@ -44,6 +44,18 @@
                     "style": "Text"
                 }
             ]
+        },
+        {
+            "style": "Important",
+            "text": "We will use this node to build your User Profile. Later on, you will delete this node to erase all the sensitive information you may enter along with the information the constructor will generate. But no need to worry at this point! I'll let you know when to delete it!",
+            "updated": 1631547429975,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Usaremos este nodo para construir tu User Profile. Más adelante, eliminarás este nodo para borrar toda la información sensible que pueda ingresar junto con la información que generará el constructor. ¡Pero no hay necesidad de preocuparse en este momento! ¡Te avisaré cuándo eliminarlo!",
+                    "updated": 1632011343101
+                }
+            ]
         }
     ]
 }

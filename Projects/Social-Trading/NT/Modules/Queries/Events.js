@@ -22,7 +22,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
     function initialize(queryReceived) {
 
         NT.projects.socialTrading.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
-        NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, NT.memory.arrays.EVENTS)
+        NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, NT.projects.socialTrading.globals.memory.arrays.EVENTS)
 
     }
 
@@ -31,7 +31,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
         switch (thisObject.direction) {
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
-                    let event = NT.memory.arrays.EVENTS[i]
+                    let event = NT.projects.socialTrading.globals.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }
                     checkEventContext(event)
                 }
@@ -39,7 +39,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
             }
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
-                    let event = NT.memory.arrays.EVENTS[i]
+                    let event = NT.projects.socialTrading.globals.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }
                     checkEventContext(event)
                 }
@@ -59,17 +59,17 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
 
             Any of the above happening, means that indeed it is related.
             */
-            let emitterUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(eventReceived.emitterUserProfileId)
-            let emitterBotProfile = emitterUserProfile.bots.get(eventReceived.emitterBotProfileId)
-            let emitterPost = emitterUserProfile.posts.get(eventReceived.emitterPostHash)
+            let emitterUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(event.emitterUserProfileId)
+            let emitterBotProfile = emitterUserProfile.bots.get(event.emitterBotProfileId)
+            let emitterPost = emitterUserProfile.posts.get(event.emitterPostHash)
 
-            let targetUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(eventReceived.targetUserProfileId)
+            let targetUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(event.targetUserProfileId)
             let targetBotProfile
             let targetPost
 
             if (targetUserProfile !== undefined) {
-                targetBotProfile = targetUserProfile.bots.get(eventReceived.targetBotProfileId)
-                targetPost = targetUserProfile.posts.get(eventReceived.targetPostHash)
+                targetBotProfile = targetUserProfile.bots.get(event.targetBotProfileId)
+                targetPost = targetUserProfile.posts.get(event.targetPostHash)
             }
             /*
             Test #1 : The Emitter or Target profile must be the same as the Context Profile.

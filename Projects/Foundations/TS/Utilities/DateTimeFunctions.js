@@ -10,7 +10,7 @@ exports.newFoundationsUtilitiesDateTimeFunctions = function () {
 
     function removeTime(datetime) {
         let date = new Date(datetime)
-        return new Date(date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate() + " " + "00:00" + TS.projects.foundations.globals.timeConstants.GMT_SECONDS);
+        return new Date(date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate() + " " + "00:00" + SA.projects.foundations.globals.timeConstants.GMT_SECONDS);
     }
 
     function getPercentage(fromDate, currentDate, lastDate) {
@@ -26,8 +26,8 @@ exports.newFoundationsUtilitiesDateTimeFunctions = function () {
     }
 
     function areTheseDatesEqual(date1, date2) {
-        let day1Days = Math.trunc(date1.valueOf() / TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
-        let day2Days = Math.trunc(date2.valueOf() / TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+        let day1Days = Math.trunc(date1.valueOf() / SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+        let day2Days = Math.trunc(date2.valueOf() / SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
 
         if (day1Days === day2Days) {
             return true

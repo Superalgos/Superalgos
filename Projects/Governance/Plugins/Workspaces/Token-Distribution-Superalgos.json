@@ -1193,8 +1193,8 @@
                         "pluginFiles": [
                             {
                                 "type": "Plugin File",
-                                "name": "Superalgos-CL",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos-CL\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
+                                "name": "Superalgos-PL",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos-PL\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
                                 "id": "92ef88cd-4921-4a11-ab45-3ae57c6c903c",
                                 "savedPayload": {

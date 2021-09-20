@@ -7792,7 +7792,7 @@
                                                             },
                                                             "referenceParent": {
                                                                 "type": "Asset Class",
-                                                                "name": "Superalgos-CL",
+                                                                "name": "Superalgos-PL",
                                                                 "id": "5d13e350-4267-4d2f-a3fa-a1fabd5df10d"
                                                             },
                                                             "referenceParentCombinedNodePath": [
@@ -7809,7 +7809,7 @@
                                                                     "d6e22645-35ee-443e-9349-01d2e8362d79"
                                                                 ],
                                                                 [
-                                                                    "Superalgos-CL",
+                                                                    "Superalgos-PL",
                                                                     "Asset Class",
                                                                     "Governance",
                                                                     "5d13e350-4267-4d2f-a3fa-a1fabd5df10d"
@@ -12725,7 +12725,9 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Raplh2502",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "c538f02f-9a2c-47e2-bf92-f6e97ede4031"
                                                 ]
                                             ]
                                         }
@@ -13211,12 +13213,12 @@
     "id": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
     "savedPayload": {
         "position": {
-            "x": 10000,
-            "y": 21251
+            "x": 7692.307692307692,
+            "y": 21250
         },
         "targetPosition": {
-            "x": 10000,
-            "y": 21251
+            "x": 7692.307692307692,
+            "y": 21250
         },
         "floatingObject": {
             "isPinned": false,

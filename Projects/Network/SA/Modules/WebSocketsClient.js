@@ -8,9 +8,10 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
 
     let socketClient
 
-    let web3 
+    let web3
     let called = {}
     let selectedNetworkNode // This is a Network Node we pick to try to connect to.
+    let onMessageFunctionsMap = new Map()
 
     return thisObject
 
@@ -22,6 +23,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
 
         web3 = undefined
         called = undefined
+        onMessageFunctionsMap = undefined
     }
 
     async function initialize() {
@@ -192,6 +194,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             Network Node and from now on, all response messages will be received
                             at this following function.
                             */
+                            socketClient.onmessage = socketMessage => { onMenssage(socketMessage) }
                             resolve()
                         }
                     }
@@ -222,34 +225,39 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
             }
 
             let socketMessage = {
+                messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 messageType: 'Request',
                 payload: message
             }
-            socketClient.onmessage = socketMessage => { onMenssage(socketMessage) }
+            onMessageFunctionsMap.set(socketMessage.messageId, onMenssageFunction)
             socketClient.send(
                 JSON.stringify(socketMessage)
             )
 
-            function onMenssage(socketMessage) {
+            function onMenssageFunction(response) {
                 try {
-
-                    let response = JSON.parse(socketMessage.data)
-                    /*
-                    Chack if we are waiting for the Handshake response.
-                    */
-
                     if (response.result === 'Ok') {
                         resolve(response.data)
                     } else {
-                        console.log('[ERROR] Web Sockets Client -> onMenssage -> response.message = ' + response.message)
+                        console.log('[ERROR] Web Sockets Client -> onMenssageFunction -> response.message = ' + response.message)
                         reject(response.message)
                     }
-
                 } catch (err) {
                     callbackFunction = undefined
                     console.log('[ERROR] Web Sockets Client -> err.stack = ' + err.stack)
                 }
             }
         }
+    }
+
+    function onMenssage(socketMessage) {
+
+        let response = JSON.parse(socketMessage.data)
+        /*
+        We get the functioin that is going to resolve or reject the promise given.
+        */
+        onMenssageFunction = onMessageFunctionsMap.get(response.messageId)
+        onMessageFunctionsMap.delete(response.messageId)
+        onMenssageFunction(response)
     }
 }

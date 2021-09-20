@@ -21,13 +21,13 @@
     "paragraphs": [
         {
             "style": "Note",
-            "text": "That is why we ask you to help in this manner! By completing those three tasks, you are effectively helping more developers find Superalgos, which is a win for everyone, as the more developers, the faster the project advances!",
-            "updated": 1630660356226,
+            "text": "That is why we ask you to help in this manner! By completing those three tasks, you are effectively helping more developers find Superalgos.",
+            "updated": 1631548798983,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "¡Por eso te pedimos que ayudes de esta manera! Al completar esas tres tareas, está ayudando de manera efectiva a más desarrolladores a encontrar Superalgos, lo cual es una ganancia para todos, ya que mientras más desarrolladores, más rápido avanza el proyecto.",
-                    "updated": 1630892425121,
+                    "text": "¡Por eso les pedimos que ayuden de esta manera! Al completar esas tres tareas, está ayudando de manera efectiva a más desarrolladores a encontrar Superalgos.",
+                    "updated": 1632016358401,
                     "style": "Note"
                 }
             ]
@@ -68,6 +68,18 @@
                     "text": "Hay un límite de 1.000 SA para cada uno de estos incentivos. Puedes obtener hasta SA 3.000.",
                     "updated": 1630892707618,
                     "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "This may not be immediately reflected in the system, as Github limits the number of queries the system makes. Don't worry, you will get your tokens anyway.",
+            "updated": 1631548891216,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Es posible que no se refleje de inmediato. Github limita la cantidad de consultas que realiza el sistema. Obtendrás tus tokens de todos modos.",
+                    "updated": 1632024032825
                 }
             ]
         }

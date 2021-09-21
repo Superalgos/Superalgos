@@ -591,16 +591,17 @@ exports.newGithubServer = function newGithubServer() {
                                     for (let i = 0; i < userProfile.signingAccounts.length; i++) {
                                         let signingAccount = userProfile.signingAccounts[i]
                                         let config = JSON.parse(signingAccount.config)
+                                        let messageSigned = config.signature.message
 
-                                        if (config.signature.message !== githubUsername) {
-                                            console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #8 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Signing Account ' + signingAccount.name + ' has not signed the current Github User Account, but something else. -> config.signature.message = ' + config.signature.message + '-> githubUsername = ' + githubUsername)
+                                        if (messageSigned !== githubUsername) {
+                                            console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #8 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Signing Account ' + signingAccount.name + ' has not signed the current Github User Account, but something else. -> messageSigned = ' + messageSigned + '-> githubUsername = ' + githubUsername)
 
                                             await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                             await octokit.rest.issues.createComment({
                                                 owner: owner,
                                                 repo: repo,
                                                 issue_number: pullRequest.number,
-                                                body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because the Signing Account ' + signingAccount.name + ' has not signed the current Github User Account, but something else. \n\nconfig.signature.message = ' + config.signature.message + '" \n\n githubUsername = ' + githubUsername + '"'
+                                                body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because the Signing Account ' + signingAccount.name + ' has not signed the current Github User Account, but something else. \n\n messageSigned = ' + messageSigned + '" \n\n githubUsername = ' + githubUsername + '"'
                                             });
     
                                             await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)

@@ -23,7 +23,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->User Profile->"
+        "compatibleTypes": "->Signing Accounts->"
     },
     "editors": {
         "config": true
@@ -31,5 +31,5 @@
     "initialValues": {
         "config": "{}"
     },
-    "propertyNameAtParent": "signingAccount"
+    "propertyNameAtParent": "signingAccounts"
 }

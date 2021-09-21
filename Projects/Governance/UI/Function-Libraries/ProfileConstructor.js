@@ -161,8 +161,18 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         node,
         rootNodes
     ) {
+        let githubUsername = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'githubUsername')
         let mnemonic = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'mnemonic')
         let signingAccounts
+
+        if (githubUsername === undefined || githubUsername === "") {
+            node.payload.uiObject.setErrorMessage(
+                "githubUsername config property missing.",
+                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+            )
+            return
+        }
+
         /*
         Some validations first...
         */
@@ -240,35 +250,81 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     }
                 }
 
-                createSigningAccount(response.address, response.privateKey)
+                signUserProfileData(response.address, response.privateKey)
             }
         }
 
-        function createSigningAccount(address, privateKey) {
+        function signUserProfileData(address, privateKey) {
 
-            let signingAccount = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(
-                signingAccounts,
-                'Signing Account',
-                UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
-            )
-            /*
-            We store at the User Profile the Signed githubUsername
-            */
-            UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(signingAccount.payload, 'address', address)
-            UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'privateKey', privateKey)
-            /*
-            Show nice message.
-            */
-            if (mnemonic === undefined || mnemonic === "") {
-                node.payload.uiObject.setInfoMessage(
-                    "Signing Account has been successfully created.",
-                    UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
+            let request = {
+                url: 'WEB3',
+                params: {
+                    method: "signData",
+                    privateKey: privateKey,
+                    data: githubUsername
+                }
+            }
+
+            httpRequest(JSON.stringify(request.params), request.url, onResponse)
+
+            function onResponse(err, data) {
+                /* Lets check the result of the call through the http interface */
+                if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    node.payload.uiObject.setErrorMessage(
+                        'Call via HTTP Interface failed.',
+                        UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
+                    return
+                }
+
+                let response = JSON.parse(data)
+
+                /* Lets check the result of the method call */
+                if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    node.payload.uiObject.setErrorMessage(
+                        'Call to WEB3 Server failed. ' + response.error,
+                        UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
+                    console.log('Call to WEB3 Server failed. ' + response.error)
+                    return
+                }
+
+                createSigningAccount(response.signature)
+            }
+
+            function createSigningAccount(signature) {
+
+                let signingAccount = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(
+                    signingAccounts,
+                    'Signing Account',
+                    UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
                 )
-            } else {
-                node.payload.uiObject.setInfoMessage(
-                    "Mnemonic successfully imported. Signing Account has been successfully created.",
-                    UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
-                )
+                /*
+                We store at the User Profile the Signed githubUsername
+                */
+                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(signingAccount.payload, 'signature', signature)
+    
+                node.config = "{}"
+                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'nodeName', signingAccount.name)
+                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'nodeType', signingAccount.type)
+                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'nodeId', signingAccount.id)
+                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'address', address)
+                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'privateKey', privateKey)
+                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'githubUsername', githubUsername)
+                /*
+                Show nice message.
+                */
+                if (mnemonic === undefined || mnemonic === "") {
+                    node.payload.uiObject.setInfoMessage(
+                        "Signing Account has been successfully created.",
+                        UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
+                    )
+                } else {
+                    node.payload.uiObject.setInfoMessage(
+                        "Mnemonic successfully imported. Signing Account has been successfully created.",
+                        UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
+                    )
+                }
             }
         }
     }

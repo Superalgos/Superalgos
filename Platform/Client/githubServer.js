@@ -586,11 +586,10 @@ exports.newGithubServer = function newGithubServer() {
                                     must have a signature of the same Github username of the User Profile.
                                     */
 
-                                    console.log('userProfile.signingAccounts ', userProfile.signingAccounts)
                                     if (userProfile.signingAccounts === undefined) { return true }
 
-                                    for (let i = 0; i < userProfile.signingAccounts.length; i++) {
-                                        let signingAccount = userProfile.signingAccounts[i]
+                                    for (let i = 0; i < userProfile.signingAccounts.signingAccounts.length; i++) {
+                                        let signingAccount = userProfile.signingAccounts.signingAccounts[i]
                                         let config = JSON.parse(signingAccount.config)
                                         let messageSigned = config.signature.message
                                         console.log(signingAccount.name, messageSigned, config.signature.message)

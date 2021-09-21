@@ -13274,7 +13274,7 @@
             {
                 "type": "Signing Account",
                 "name": "Social Trading Mobile",
-                "config": "{\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x502693fda93e9331e1eb1f5f6bd2896f6175d86816d11437ab8f4c51bdb95c5c\",\n        \"s\": \"0x3c901bdb9f56f97cf558159c0f57c94dcade020a992be74a955a2cddf88047e1\",\n        \"signature\": \"0x502693fda93e9331e1eb1f5f6bd2896f6175d86816d11437ab8f4c51bdb95c5c3c901bdb9f56f97cf558159c0f57c94dcade020a992be74a955a2cddf88047e11c\"\n    }\n}",
+                "config": "{\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb8\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x502693fda93e9331e1eb1f5f6bd2896f6175d86816d11437ab8f4c51bdb95c5c\",\n        \"s\": \"0x3c901bdb9f56f97cf558159c0f57c94dcade020a992be74a955a2cddf88047e1\",\n        \"signature\": \"0x502693fda93e9331e1eb1f5f6bd2896f6175d86816d11437ab8f4c51bdb95c5c3c901bdb9f56f97cf558159c0f57c94dcade020a992be74a955a2cddf88047e11c\"\n    }\n}",
                 "project": "Governance",
                 "id": "5828093e-65e1-4b18-9cbc-9ff33c98acc1",
                 "savedPayload": {

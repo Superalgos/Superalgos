@@ -592,7 +592,6 @@ exports.newGithubServer = function newGithubServer() {
                                         let signingAccount = userProfile.signingAccounts.signingAccounts[i]
                                         let config = JSON.parse(signingAccount.config)
                                         let messageSigned = config.signature.message
-                                        console.log(signingAccount.name, messageSigned, config.signature.message)
 
                                         if (messageSigned !== githubUsername) {
                                             console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #8 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Signing Account ' + signingAccount.name + ' has not signed the current Github User Account, but something else. -> messageSigned = ' + messageSigned + '-> githubUsername = ' + githubUsername)
@@ -602,7 +601,7 @@ exports.newGithubServer = function newGithubServer() {
                                                 owner: owner,
                                                 repo: repo,
                                                 issue_number: pullRequest.number,
-                                                body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because the Signing Account ' + signingAccount.name + ' has not signed the current Github User Account, but something else. \n\n messageSigned = ' + messageSigned + '" \n\n githubUsername = ' + githubUsername + '"'
+                                                body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because the Signing Account "' + signingAccount.name + '" has not signed the current Github User Account, but something else. \n\n messageSigned = "' + messageSigned + '" \n\n githubUsername = "' + githubUsername + '"'
                                             });
     
                                             await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)

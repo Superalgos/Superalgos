@@ -53,6 +53,10 @@
             "iconName": "binance-usd"
         },
         {
+            "codeName": "CAKE",
+            "iconName": "cake"
+        },
+        {
             "codeName": "DAI",
             "iconName": "dai"
         },
@@ -135,6 +139,10 @@
         {
             "codeName": "USDT",
             "iconName": "tether"
+        },
+        {
+            "codeName": "VET",
+            "iconName": "vechain"
         },
         {
             "codeName": "XLM",

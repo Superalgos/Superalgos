@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "Luis-Fernando-Molina",
-    "config": "{\"signature\":{\"message\":\"Luis-Fernando-Molina\",\"messageHash\":\"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\"v\":\"0x1c\",\"r\":\"0x8645be85fd4b053c9102194be4d007b79d971ca27acd38a7f6abe2588cb2b1a3\",\"s\":\"0x55c5bff8b6d0a038ef53287fb5feffca4eb7002f521472091a0a0014dea4d23e\",\"signature\":\"0x8645be85fd4b053c9102194be4d007b79d971ca27acd38a7f6abe2588cb2b1a355c5bff8b6d0a038ef53287fb5feffca4eb7002f521472091a0a0014dea4d23e1c\"},\"codeName\":\"Luis-Fernando-Molina\"}",
+    "config": "{\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb8\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x8645be85fd4b053c9102194be4d007b79d971ca27acd38a7f6abe2588cb2b1a3\",\n        \"s\": \"0x55c5bff8b6d0a038ef53287fb5feffca4eb7002f521472091a0a0014dea4d23e\",\n        \"signature\": \"0x8645be85fd4b053c9102194be4d007b79d971ca27acd38a7f6abe2588cb2b1a355c5bff8b6d0a038ef53287fb5feffca4eb7002f521472091a0a0014dea4d23e1c\"\n    },\n    \"codeName\": \"Luis-Fernando-Molina\"\n}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",

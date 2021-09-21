@@ -592,6 +592,7 @@ exports.newGithubServer = function newGithubServer() {
                                         let signingAccount = userProfile.signingAccounts[i]
                                         let config = JSON.parse(signingAccount.config)
                                         let messageSigned = config.signature.message
+                                        console.log(signingAccount.name, messageSigned, config.signature.message)
 
                                         if (messageSigned !== githubUsername) {
                                             console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #8 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Signing Account ' + signingAccount.name + ' has not signed the current Github User Account, but something else. -> messageSigned = ' + messageSigned + '-> githubUsername = ' + githubUsername)

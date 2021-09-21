@@ -26,7 +26,7 @@ function newGovernanceUserProfileSpace() {
         /*
         If the workspace is not related to governance, then we exit the Intialize Function
         */
-        let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Governance Project')
+        let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
         if (governanceProject === undefined) { return }
         /*
         Here we will run the distribution process, that in turn will run all the programs.
@@ -334,12 +334,13 @@ function newGovernanceUserProfileSpace() {
         /*
         If the workspace is not related to governance, then we exit the Intialize Function
         */
-        let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Governance Project')
+        let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
         if (governanceProject === undefined) { return }
         /*
         Load the user profiles with Token Power.
         */
         let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+        if (waitingForResponses !== 0) { return }
         /*
         We will get all the user Profiles tokens from the blockchain, making a call
         every 5 seconds so as not to exceed the rate limit.

@@ -1,0 +1,29 @@
+{
+    "type": "Signing Accounts",
+    "menuItems": [
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->User Profile->"
+    },
+    "propertyNameAtParent": "signingAccounts",
+    "childrenNodesProperties": [
+        {
+            "name": "signingAccounts",
+            "type": "array",
+            "childType": "Signing Account",
+            "autoAdd": false
+        }
+    ]
+}

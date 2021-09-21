@@ -187,6 +187,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                         if (childNode === undefined) { continue }
                         if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                         if (childNode.type === "Tokens Mined") { continue }
+                        if (childNode.type === "Signing Accounts") { continue }
 
                         let percentage = getPercentage(childNode)
 
@@ -205,6 +206,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                                 if (childNode.type === "Tokens Mined") { continue }
+                                if (childNode.type === "Signing Accounts") { continue }
 
                                 let percentage = getPercentage(childNode)
                                 if (percentage !== undefined && isNaN(percentage) !== true) {
@@ -241,6 +243,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                         if (childNode === undefined) { continue }
                         if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                         if (childNode.type === "Tokens Mined") { continue }
+                        if (childNode.type === "Signing Accounts") { continue }
 
                         let percentage = getPercentage(childNode)
                         if (percentage === undefined || isNaN(percentage) === true) {
@@ -262,6 +265,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
                                 if (childNode.type === "Tokens Mined") { continue }
+                                if (childNode.type === "Signing Accounts") { continue }
 
                                 let percentage = getPercentage(childNode)
                                 if (percentage === undefined || isNaN(percentage) === true) {

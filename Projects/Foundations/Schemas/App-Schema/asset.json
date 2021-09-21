@@ -125,6 +125,10 @@
             "iconName": "us-dollar"
         },
         {
+            "codeName": "USDC",
+            "iconName": "usdc"
+        },
+        {
             "codeName": "USDT",
             "iconName": "tether"
         },

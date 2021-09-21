@@ -13382,12 +13382,12 @@
     "id": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
     "savedPayload": {
         "position": {
-            "x": 9723,
-            "y": 24281
+            "x": 9901,
+            "y": 24261
         },
         "targetPosition": {
-            "x": 9723,
-            "y": 24281
+            "x": 9901,
+            "y": 24261
         },
         "floatingObject": {
             "isPinned": false,

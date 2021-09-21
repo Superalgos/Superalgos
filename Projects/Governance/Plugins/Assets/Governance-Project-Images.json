@@ -12,36 +12,6 @@
             "assetClasses": [
                 {
                     "type": "Asset Class",
-                    "name": "Icons",
-                    "config": "{\n    \"folderPath\": \"Governance/Icons\"\n}",
-                    "project": "Governance",
-                    "assetClasses": [],
-                    "assets": [],
-                    "id": "a35f2db5-a433-42bc-987f-e80c753dd884",
-                    "savedPayload": {
-                        "position": {
-                            "x": 25339.70509831248,
-                            "y": 46730.58557568774
-                        },
-                        "targetPosition": {
-                            "x": 25096.999999999996,
-                            "y": 46554.25
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": false,
-                            "angleToParent": 2,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                {
-                    "type": "Asset Class",
                     "name": "GIFs",
                     "config": "{\n    \"folderPath\": \"Governance/GIFs\"\n}",
                     "project": "Governance",
@@ -50,8 +20,8 @@
                     "id": "147924a4-312e-4835-819d-3c241ef20936",
                     "savedPayload": {
                         "position": {
-                            "x": 25189.70509831248,
-                            "y": 46839.56695488855
+                            "x": 25339.70509831248,
+                            "y": 46730.58557568774
                         },
                         "targetPosition": {
                             "x": 25096.999999999996,
@@ -80,7 +50,7 @@
                     "id": "c392025a-2fc6-4d2a-8655-fc8a8db9057e",
                     "savedPayload": {
                         "position": {
-                            "x": 25004.294901687514,
+                            "x": 25189.70509831248,
                             "y": 46839.56695488855
                         },
                         "targetPosition": {
@@ -108,6 +78,67 @@
                     "assetClasses": [],
                     "assets": [],
                     "id": "e97681b3-75d1-4661-9ca3-b10a631ee5e2",
+                    "savedPayload": {
+                        "position": {
+                            "x": 25004.294901687514,
+                            "y": 46839.56695488855
+                        },
+                        "targetPosition": {
+                            "x": 25096.999999999996,
+                            "y": 46554.25
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset Class",
+                    "name": "Icons",
+                    "config": "{\n    \"folderPath\": \"Governance/Icons\"\n}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Beta 10 & Beta 11 Icons Package",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "b63ee118-bb2d-4071-b25e-ee41b6b6fb8e",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 24611.58980337503,
+                                    "y": 46906.921151375485
+                                },
+                                "targetPosition": {
+                                    "x": 24854.294901687514,
+                                    "y": 46730.58557568774
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "88e4c021-476a-4020-8db1-c5502792572e",
                     "savedPayload": {
                         "position": {
                             "x": 24854.294901687514,

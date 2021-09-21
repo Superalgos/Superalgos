@@ -53,6 +53,10 @@
             "iconName": "binance-usd"
         },
         {
+            "codeName": "DAI",
+            "iconName": "dai"
+        },
+        {
             "codeName": "DASH",
             "iconName": "dash"
         },

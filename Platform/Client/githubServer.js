@@ -586,6 +586,7 @@ exports.newGithubServer = function newGithubServer() {
                                     must have a signature of the same Github username of the User Profile.
                                     */
 
+                                    console.log('userProfile.signingAccounts ', userProfile.signingAccounts)
                                     if (userProfile.signingAccounts === undefined) { return true }
 
                                     for (let i = 0; i < userProfile.signingAccounts.length; i++) {

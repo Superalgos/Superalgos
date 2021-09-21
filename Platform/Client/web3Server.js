@@ -7,6 +7,7 @@ exports.newWeb3Server = function newWeb3Server() {
         createWalletAccount: createWalletAccount,
         getWalletBalances: getWalletBalances,
         signData: signData,
+        hashData: hashData,
         recoverAddress: recoverAddress,
         mnemonicToPrivateKey: mnemonicToPrivateKey,
         payContributors: payContributors,
@@ -220,6 +221,22 @@ exports.newWeb3Server = function newWeb3Server() {
 
         } catch (err) {
             return { error: 'Could not sign the data. ' + err.stack }
+        }
+    }
+
+    async function hashData(data) {
+        try {
+
+            let web3 = new Web3()
+            let hash = web3.eth.accounts.hashMessage(data)
+
+            return {
+                hash: hash,
+                result: 'Ok'
+            }
+
+        } catch (err) {
+            return { error: 'Could not hash the data. ' + err.stack }
         }
     }
 

@@ -13218,7 +13218,7 @@
             {
                 "type": "Signing Account",
                 "name": "Social Trading Desktop",
-                "config": "{\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x44cba4eeebb7f8bfb0d9fedb8b3c5c34ecd75b69969766435ae641547a8158c4\",\n        \"s\": \"0x144b9076038085fa5fa51c381e76377cd2bcc87c835698eeb5195cceefb63ead\",\n        \"signature\": \"0x44cba4eeebb7f8bfb0d9fedb8b3c5c34ecd75b69969766435ae641547a8158c4144b9076038085fa5fa51c381e76377cd2bcc87c835698eeb5195cceefb63ead1c\"\n    }\n}",
+                "config": "{\n    \"signature\": {\n        \"message\": \"Luis-Fernando-MolinaX\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x44cba4eeebb7f8bfb0d9fedb8b3c5c34ecd75b69969766435ae641547a8158c4\",\n        \"s\": \"0x144b9076038085fa5fa51c381e76377cd2bcc87c835698eeb5195cceefb63ead\",\n        \"signature\": \"0x44cba4eeebb7f8bfb0d9fedb8b3c5c34ecd75b69969766435ae641547a8158c4144b9076038085fa5fa51c381e76377cd2bcc87c835698eeb5195cceefb63ead1c\"\n    }\n}",
                 "project": "Governance",
                 "id": "30858b11-5b8d-46c6-97f8-765e3676fc2f",
                 "savedPayload": {

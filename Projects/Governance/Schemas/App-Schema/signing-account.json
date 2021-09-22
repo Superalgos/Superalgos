@@ -10,6 +10,51 @@
             "iconPathOff": "configuration"
         },
         {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "assignedTo",
+            "label": "Add P2P Network Node",
+            "relatedUiObject": "P2P Network Node",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "assignedTo",
+            "label": "Add Algo Traders Platform",
+            "relatedUiObject": "Algo Traders Platform",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "assignedTo",
+            "label": "Add Social Trading Mobile App",
+            "relatedUiObject": "Social Trading Mobile App",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "assignedTo",
+            "label": "Add Social Trading Desktop App",
+            "relatedUiObject": "Social Trading Desktop App",
+            "actionFunction": "payload.executeAction"
+        },     
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "assignedTo",
+            "label": "Add Social Trading Server App",
+            "relatedUiObject": "Social Trading Server App",
+            "actionFunction": "payload.executeAction"
+        },    
+        {
             "action": "Delete UI Object",
             "actionProject": "Foundations",
             "askConfirmation": true,
@@ -31,5 +76,37 @@
     "initialValues": {
         "config": "{}"
     },
-    "propertyNameAtParent": "signingAccounts"
+    "propertyNameAtParent": "signingAccounts",
+    "childrenNodesProperties": [
+        {
+            "name": "assignedTo",
+            "type": "node",
+            "childType": "P2P Network Node",
+            "autoAdd": false
+        },
+        {
+            "name": "assignedTo",
+            "type": "node",
+            "childType": "Algo Traders Platform",
+            "autoAdd": false
+        },
+        {
+            "name": "assignedTo",
+            "type": "node",
+            "childType": "Social Trading Mobile App",
+            "autoAdd": false
+        },
+        {
+            "name": "assignedTo",
+            "type": "node",
+            "childType": "Social Trading Desktop App",
+            "autoAdd": false
+        },
+        {
+            "name": "assignedTo",
+            "type": "node",
+            "childType": "Social Trading Server App",
+            "autoAdd": false
+        }
+    ]
 }

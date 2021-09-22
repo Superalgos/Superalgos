@@ -306,11 +306,13 @@ function newGovernanceFunctionLibraryProfileConstructor() {
     
                 node.config = "{}"
                 UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'nodeName', signingAccount.name)
+                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'codeName', signingAccount.name)
                 UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'nodeType', signingAccount.type)
                 UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'nodeId', signingAccount.id)
                 UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'address', address)
                 UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'privateKey', privateKey)
                 UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'githubUsername', githubUsername)
+                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'userProfileId', node.payload.referenceParent.id)
                 /*
                 Show nice message.
                 */

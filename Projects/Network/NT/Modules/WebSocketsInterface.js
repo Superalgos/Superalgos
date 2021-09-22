@@ -242,11 +242,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     */
                     let signedMessage = {
                         callerProfileHandle: messageHeader.callerProfileHandle,
-                        calledProfileHandle: NT.NETWORK_NODE_USER_PROFILE_HANDLE,
+                        calledProfileHandle: SA.secrets.map.get('P2P Network Node').githubUsername,
                         callerTimestamp: messageHeader.callerTimestamp,
                         calledTimestamp: calledTimestamp
                     }
-                    let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), NT.NETWORK_NODE_USER_PROFILE_PRIVATE_KEY)
+                    let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get('P2P Network Node').privateKey)
 
                     let response = {
                         result: 'Ok',
@@ -322,7 +322,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     We will check that the signature includes this Network Node handle, to avoid
                     man in the middle attackts.
                     */
-                    if (signedMessage.calledProfileHandle !== NT.NETWORK_NODE_USER_PROFILE_HANDLE) {
+                    if (signedMessage.calledProfileHandle !== SA.secrets.map.get('P2P Network Node').githubUsername) {
                         let response = {
                             result: 'Error',
                             message: 'calledProfileHandle Does Not Match This Network Node Handle.'

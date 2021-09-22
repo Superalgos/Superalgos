@@ -26,12 +26,12 @@
                     "id": "0506b1ab-94f9-4b88-9434-a88a01fe551c",
                     "savedPayload": {
                         "position": {
-                            "x": 29242.140246915966,
-                            "y": 22675.223011731352
+                            "x": 9136.186687544141,
+                            "y": 24941.356345414926
                         },
                         "targetPosition": {
-                            "x": 28962.066118966806,
-                            "y": 22567.71262686776
+                            "x": 8856.11255959498,
+                            "y": 24833.845960551334
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -49,12 +49,12 @@
                 "id": "f1b70eed-60f2-4f5b-ba24-3f1646fe1cf4",
                 "savedPayload": {
                     "position": {
-                        "x": 28962.066118966806,
-                        "y": 22567.71262686776
+                        "x": 8856.11255959498,
+                        "y": 24833.845960551334
                     },
                     "targetPosition": {
-                        "x": 28681.991991017647,
-                        "y": 22460.20224200417
+                        "x": 8576.038431645818,
+                        "y": 24726.335575687743
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -81,12 +81,12 @@
                     "id": "0b238cc2-80f7-4738-b79f-658d1ebe439c",
                     "savedPayload": {
                         "position": {
-                            "x": 29059.584225647544,
-                            "y": 22926.489818878348
+                            "x": 8953.63066627572,
+                            "y": 25192.623152561922
                         },
                         "targetPosition": {
-                            "x": 28870.788108332596,
-                            "y": 22693.34603044126
+                            "x": 8764.83454896077,
+                            "y": 24959.479364124833
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -104,12 +104,12 @@
                 "id": "48eafed9-37ee-4397-858c-5de5d396ce7c",
                 "savedPayload": {
                     "position": {
-                        "x": 28870.788108332596,
-                        "y": 22693.34603044126
+                        "x": 8764.83454896077,
+                        "y": 24959.479364124833
                     },
                     "targetPosition": {
-                        "x": 28681.991991017647,
-                        "y": 22460.20224200417
+                        "x": 8576.038431645818,
+                        "y": 24726.335575687743
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -594,12 +594,12 @@
         "votesAndClaimsPrograms": {
             "type": "Votes And Claims Programs",
             "name": "New Votes And Claims Programs",
-            "config": "{\n    \"percentage\": 78\n}",
+            "config": "{\n    \"percentage\": 70\n}",
             "project": "Governance",
             "votingProgram": {
                 "type": "Voting Program",
                 "name": "New Voting Program",
-                "config": "{\n    \"percentage\": 4\n}",
+                "config": "{\n    \"percentage\": 3\n}",
                 "project": "Governance",
                 "votesSwitch": [
                     {
@@ -650,12 +650,12 @@
                                                                         "id": "a2305104-7de8-4d0a-9c54-add1c5648878",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 9881.899265235059,
-                                                                                "y": 24465.003841020636
+                                                                                "x": 9773.536767947737,
+                                                                                "y": 24356.13609854521
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 9759.878272312319,
-                                                                                "y": 24739.067478313416
+                                                                                "x": 9680.831669635252,
+                                                                                "y": 24641.453053433754
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -733,12 +733,12 @@
                                                                         "id": "b441f7db-fbc7-4905-80da-242f38dc9314",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 10058.2348409228,
-                                                                                "y": 24707.70893933312
+                                                                                "x": 9974.275949855393,
+                                                                                "y": 24579.079546188426
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 9759.878272312319,
-                                                                                "y": 24739.067478313416
+                                                                                "x": 9680.831669635252,
+                                                                                "y": 24641.453053433754
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -812,12 +812,12 @@
                                                                 "id": "a1e25902-a618-4a2d-b63f-496f3423f570",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 9759.878272312319,
-                                                                        "y": 24739.067478313416
+                                                                        "x": 9680.831669635252,
+                                                                        "y": 24641.453053433754
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 9517.173173999834,
-                                                                        "y": 24915.40305400116
+                                                                        "x": 9457.888221992034,
+                                                                        "y": 24842.192235341412
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -888,12 +888,12 @@
                                                         "id": "ecec13b5-7ad3-4dc3-bf00-40c8e9c113bf",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 9517.173173999834,
-                                                                "y": 24915.40305400116
+                                                                "x": 9457.888221992034,
+                                                                "y": 24842.192235341412
                                                             },
                                                             "targetPosition": {
-                                                                "x": 9274.46807568735,
-                                                                "y": 25091.7386296889
+                                                                "x": 9234.944774348816,
+                                                                "y": 25042.93141724907
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -958,12 +958,12 @@
                                                 "id": "d331ab13-af14-4ea4-a431-2448c480a6c9",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 9274.46807568735,
-                                                        "y": 25091.7386296889
+                                                        "x": 9234.944774348816,
+                                                        "y": 25042.93141724907
                                                     },
                                                     "targetPosition": {
-                                                        "x": 9031.762977374865,
-                                                        "y": 25268.074205376644
+                                                        "x": 9012.001326705598,
+                                                        "y": 25243.67059915673
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -1022,8 +1022,8 @@
                                         "id": "4108f335-b3c8-46ce-b632-1318a461cc5d",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 9031.762977374865,
-                                                "y": 25268.074205376644
+                                                "x": 9012.001326705598,
+                                                "y": 25243.67059915673
                                             },
                                             "targetPosition": {
                                                 "x": 8789.05787906238,
@@ -1674,12 +1674,12 @@
                                                 "id": "90e563b3-0d62-4805-94dc-852757556a83",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 9301.189913418344,
-                                                        "y": 25232.277746708423
+                                                        "x": 9245.893869787029,
+                                                        "y": 25130.435103435433
                                                     },
                                                     "targetPosition": {
-                                                        "x": 9089.05787906238,
-                                                        "y": 25444.409781064387
+                                                        "x": 9082.502159282521,
+                                                        "y": 25382.03627381906
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2081,12 +2081,12 @@
                                                 "id": "4a1bb38c-053f-4e5a-bf9a-df3b495d970f",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 9389.05787906238,
-                                                        "y": 25444.409781064387
+                                                        "x": 9375.946439502663,
+                                                        "y": 25319.662766573732
                                                     },
                                                     "targetPosition": {
-                                                        "x": 9089.05787906238,
-                                                        "y": 25444.409781064387
+                                                        "x": 9082.502159282521,
+                                                        "y": 25382.03627381906
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -4559,12 +4559,12 @@
                                                 "id": "9ebe45c5-d69b-4489-b55f-1dfde62bb372",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 9301.189913418344,
-                                                        "y": 25656.54181542035
+                                                        "x": 9334.103329666148,
+                                                        "y": 25545.427984323567
                                                     },
                                                     "targetPosition": {
-                                                        "x": 9089.05787906238,
-                                                        "y": 25444.409781064387
+                                                        "x": 9082.502159282521,
+                                                        "y": 25382.03627381906
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -4586,8 +4586,8 @@
                                         "id": "7a9dc433-38aa-4380-af32-8cd0289891e8",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 9089.05787906238,
-                                                "y": 25444.409781064387
+                                                "x": 9082.502159282521,
+                                                "y": 25382.03627381906
                                             },
                                             "targetPosition": {
                                                 "x": 8789.05787906238,
@@ -4621,12 +4621,12 @@
                                                 "id": "034eb62c-ac7a-41a4-a62f-eb265058f8d6",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 9274.46807568735,
-                                                        "y": 25797.080932439872
+                                                        "x": 9359.691788839471,
+                                                        "y": 25629.819977689353
                                                     },
                                                     "targetPosition": {
-                                                        "x": 9031.762977374865,
-                                                        "y": 25620.74535675213
+                                                        "x": 9074.374833950926,
+                                                        "y": 25537.11487937687
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -4690,8 +4690,8 @@
                                         "id": "fd97e471-d094-47ab-89b1-07723c964722",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 9031.762977374865,
-                                                "y": 25620.74535675213
+                                                "x": 9074.374833950926,
+                                                "y": 25537.11487937687
                                             },
                                             "targetPosition": {
                                                 "x": 8789.05787906238,
@@ -5201,8 +5201,253 @@
                                         "id": "7082eec1-b726-4125-93f7-d463e2804417",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 8881.762977374865,
-                                                "y": 25729.726735952932
+                                                "x": 8989.797060970039,
+                                                "y": 25667.353228707605
+                                            },
+                                            "targetPosition": {
+                                                "x": 8789.05787906238,
+                                                "y": 25444.409781064387
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": true,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "Claim Votes Switch",
+                                        "name": "Tentacule23 Claims",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "claimVotesSwitch": [
+                                            {
+                                                "type": "Claim Votes Switch",
+                                                "name": "New Feature Claims Folder",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "claimVotesSwitch": [],
+                                                "positionClaimVotes": [],
+                                                "assetClaimVotes": [],
+                                                "featureClaimVotes": [
+                                                    {
+                                                        "type": "Feature Claim Vote",
+                                                        "name": "Tentacule23 Quick Position Node Feature Visual Designer",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "id": "57eb55a4-8717-4d2d-ad09-a488c45d71b0",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 9114.544075460693,
+                                                                "y": 26254.241789147887
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 8913.804893553035,
+                                                                "y": 26031.29834150467
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Feature Contribution Claim",
+                                                                "name": "Quick Position Node Feature Visual Designer",
+                                                                "id": "d7c5da08-3757-46b4-8175-bc9a7b02359f"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Tentacule23",
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "7af21baa-ebc0-436f-94a7-a1746209418e"
+                                                                ],
+                                                                [
+                                                                    "New Token Power Switch",
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "5683e2bf-45ca-4dd6-9ade-53b4cad76ed0"
+                                                                ],
+                                                                [
+                                                                    "New Votes And Claims Programs",
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "705bfab3-e851-4469-ab70-ac972950de6c"
+                                                                ],
+                                                                [
+                                                                    "New Claims Program",
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "cce1f59a-bb5d-4700-abf8-ab8d2932ff6a"
+                                                                ],
+                                                                [
+                                                                    "New Feature Claims Folder",
+                                                                    "Feature Claims Folder",
+                                                                    "Governance",
+                                                                    "eb425c2c-6b7c-460d-a74e-650691f52fc7"
+                                                                ],
+                                                                [
+                                                                    "Quick Position Node Feature Visual Designer",
+                                                                    "Feature Contribution Claim",
+                                                                    "Governance",
+                                                                    "d7c5da08-3757-46b4-8175-bc9a7b02359f"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "Feature Claim Vote",
+                                                        "name": "Tentacule23 Tutorial Tab Feature Visual Designer",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "id": "4b520fab-47a8-42a5-bd13-4a19f95f79bb",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 8821.09979524055,
+                                                                "y": 26316.615296393215
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 8913.804893553035,
+                                                                "y": 26031.29834150467
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Feature Contribution Claim",
+                                                                "name": "Tutorial Tab Feature Visual Designer",
+                                                                "id": "5d6b30bc-4f05-4001-87ba-45cba35fe1ce"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Tentacule23",
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "7af21baa-ebc0-436f-94a7-a1746209418e"
+                                                                ],
+                                                                [
+                                                                    "New Token Power Switch",
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "5683e2bf-45ca-4dd6-9ade-53b4cad76ed0"
+                                                                ],
+                                                                [
+                                                                    "New Votes And Claims Programs",
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "705bfab3-e851-4469-ab70-ac972950de6c"
+                                                                ],
+                                                                [
+                                                                    "New Claims Program",
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "cce1f59a-bb5d-4700-abf8-ab8d2932ff6a"
+                                                                ],
+                                                                [
+                                                                    "New Feature Claims Folder",
+                                                                    "Feature Claims Folder",
+                                                                    "Governance",
+                                                                    "eb425c2c-6b7c-460d-a74e-650691f52fc7"
+                                                                ],
+                                                                [
+                                                                    "Tutorial Tab Feature Visual Designer",
+                                                                    "Feature Contribution Claim",
+                                                                    "Governance",
+                                                                    "5d6b30bc-4f05-4001-87ba-45cba35fe1ce"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "id": "ead2632b-b4dc-47c1-9341-6d3067b9540e",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 8913.804893553035,
+                                                        "y": 26031.29834150467
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 8851.431386307708,
+                                                        "y": 25737.854061284528
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Feature Claims Folder",
+                                                        "name": "New Feature Claims Folder",
+                                                        "id": "eb425c2c-6b7c-460d-a74e-650691f52fc7"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Tentacule23",
+                                                            "User Profile",
+                                                            "Governance",
+                                                            "7af21baa-ebc0-436f-94a7-a1746209418e"
+                                                        ],
+                                                        [
+                                                            "New Token Power Switch",
+                                                            "Token Power Switch",
+                                                            "Governance",
+                                                            "5683e2bf-45ca-4dd6-9ade-53b4cad76ed0"
+                                                        ],
+                                                        [
+                                                            "New Votes And Claims Programs",
+                                                            "Votes And Claims Programs",
+                                                            "Governance",
+                                                            "705bfab3-e851-4469-ab70-ac972950de6c"
+                                                        ],
+                                                        [
+                                                            "New Claims Program",
+                                                            "Claims Program",
+                                                            "Governance",
+                                                            "cce1f59a-bb5d-4700-abf8-ab8d2932ff6a"
+                                                        ],
+                                                        [
+                                                            "New Feature Claims Folder",
+                                                            "Feature Claims Folder",
+                                                            "Governance",
+                                                            "eb425c2c-6b7c-460d-a74e-650691f52fc7"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "positionClaimVotes": [],
+                                        "assetClaimVotes": [],
+                                        "featureClaimVotes": [],
+                                        "id": "a2919f2e-8e02-4f17-8b4d-5c548fb13634",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 8851.431386307708,
+                                                "y": 25737.854061284528
                                             },
                                             "targetPosition": {
                                                 "x": 8789.05787906238,
@@ -6417,7 +6662,7 @@
                                             {
                                                 "type": "Weight Votes Switch",
                                                 "name": "Foundations-Project",
-                                                "config": "{\n    \"percentage\": 15\n}",
+                                                "config": "{\n    \"percentage\": 20\n}",
                                                 "project": "Governance",
                                                 "weightVotesSwitch": [
                                                     {
@@ -6443,12 +6688,12 @@
                                                                         "id": "fc79fe50-f7a7-48ed-b222-63292de26e93",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 8893.476955020044,
-                                                                                "y": 26873.9532442045
+                                                                                "x": 8486.5697936489,
+                                                                                "y": 27061.846065114332
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 8619.413317727263,
-                                                                                "y": 26751.93225128176
+                                                                                "x": 8350.372643727036,
+                                                                                "y": 26794.544107857822
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -6469,19 +6714,27 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Foundations-Project",
-                                                                                    "Features"
+                                                                                    "Features",
+                                                                                    "Governance",
+                                                                                    "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                 ],
                                                                                 [
                                                                                     "Foundations Project",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                 ],
                                                                                 [
                                                                                     "Visual Designer",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "18584f3f-6e48-4a68-89f1-0268185156e9"
                                                                                 ],
                                                                                 [
                                                                                     "Quick Position Node Feature",
-                                                                                    "Feature"
+                                                                                    "Feature",
+                                                                                    "Governance",
+                                                                                    "98b5642a-faba-4a04-bf72-6efec86de56a"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -6494,12 +6747,12 @@
                                                                         "id": "61ba1653-63ac-4856-8027-5a7a1191f16b",
                                                                         "savedPayload": {
                                                                             "position": {
-                                                                                "x": 8650.771856707559,
-                                                                                "y": 27050.28881989224
+                                                                                "x": 8257.667545414552,
+                                                                                "y": 27079.861062746368
                                                                             },
                                                                             "targetPosition": {
-                                                                                "x": 8619.413317727263,
-                                                                                "y": 26751.93225128176
+                                                                                "x": 8350.372643727036,
+                                                                                "y": 26794.544107857822
                                                                             },
                                                                             "floatingObject": {
                                                                                 "isPinned": false,
@@ -6520,19 +6773,86 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Foundations-Project",
-                                                                                    "Features"
+                                                                                    "Features",
+                                                                                    "Governance",
+                                                                                    "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                                 ],
                                                                                 [
                                                                                     "Foundations Project",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                                 ],
                                                                                 [
                                                                                     "Visual Designer",
-                                                                                    "Feature Class"
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "18584f3f-6e48-4a68-89f1-0268185156e9"
                                                                                 ],
                                                                                 [
                                                                                     "Tutorial Tab Feature",
-                                                                                    "Feature"
+                                                                                    "Feature",
+                                                                                    "Governance",
+                                                                                    "5ac7a46b-f462-4dc4-a627-2c7588a67e7a"
+                                                                                ]
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "Feature Weight Vote",
+                                                                        "name": "Foundations Project Visual Designer Node Menu Tool Tip Feature",
+                                                                        "config": "{}",
+                                                                        "project": "Governance",
+                                                                        "id": "7ac7e0d5-336f-41a7-a7f4-155c953053ef",
+                                                                        "savedPayload": {
+                                                                            "position": {
+                                                                                "x": 8083.070686470526,
+                                                                                "y": 26930.741257779686
+                                                                            },
+                                                                            "targetPosition": {
+                                                                                "x": 8350.372643727036,
+                                                                                "y": 26794.544107857822
+                                                                            },
+                                                                            "floatingObject": {
+                                                                                "isPinned": false,
+                                                                                "isFrozen": false,
+                                                                                "isCollapsed": false,
+                                                                                "angleToParent": 2,
+                                                                                "distanceToParent": 3,
+                                                                                "arrangementStyle": 0
+                                                                            },
+                                                                            "uiObject": {
+                                                                                "isRunning": false
+                                                                            },
+                                                                            "referenceParent": {
+                                                                                "type": "Feature",
+                                                                                "name": "Node Menu Tool Tip Feature",
+                                                                                "id": "402b540e-4e1f-4756-9cb8-8445a672b36d"
+                                                                            },
+                                                                            "referenceParentCombinedNodePath": [
+                                                                                [
+                                                                                    "Foundations-Project",
+                                                                                    "Features",
+                                                                                    "Governance",
+                                                                                    "1d2c1985-c762-4ece-b350-15bd893bd1f4"
+                                                                                ],
+                                                                                [
+                                                                                    "Foundations Project",
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "136b6e7a-f042-441b-84be-395b56b65b70"
+                                                                                ],
+                                                                                [
+                                                                                    "Visual Designer",
+                                                                                    "Feature Class",
+                                                                                    "Governance",
+                                                                                    "18584f3f-6e48-4a68-89f1-0268185156e9"
+                                                                                ],
+                                                                                [
+                                                                                    "Node Menu Tool Tip Feature",
+                                                                                    "Feature",
+                                                                                    "Governance",
+                                                                                    "402b540e-4e1f-4756-9cb8-8445a672b36d"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -6542,8 +6862,8 @@
                                                                 "id": "eae1b2e2-bf1b-40f9-8b43-ca319fb73d23",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 8619.413317727263,
-                                                                        "y": 26751.93225128176
+                                                                        "x": 8350.372643727036,
+                                                                        "y": 26794.544107857822
                                                                     },
                                                                     "targetPosition": {
                                                                         "x": 8443.07774203952,
@@ -6568,275 +6888,21 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Foundations-Project",
-                                                                            "Features"
+                                                                            "Features",
+                                                                            "Governance",
+                                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                         ],
                                                                         [
                                                                             "Foundations Project",
-                                                                            "Feature Class"
+                                                                            "Feature Class",
+                                                                            "Governance",
+                                                                            "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                         ],
                                                                         [
                                                                             "Visual Designer",
-                                                                            "Feature Class"
-                                                                        ]
-                                                                    ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "type": "Weight Votes Switch",
-                                                                "name": "Visual Debugger",
-                                                                "config": "{    \"percentage\": 0 }",
-                                                                "project": "Governance",
-                                                                "weightVotesSwitch": [],
-                                                                "poolWeightVotes": [],
-                                                                "assetWeightVotes": [],
-                                                                "featureWeightVotes": [
-                                                                    {
-                                                                        "type": "Feature Weight Vote",
-                                                                        "name": "Foundations Project Visual Debugger Highlights",
-                                                                        "config": "{}",
-                                                                        "project": "Governance",
-                                                                        "id": "e50f56b2-8e35-4a33-b014-71bdce1d7b57",
-                                                                        "savedPayload": {
-                                                                            "position": {
-                                                                                "x": 8443.07774203952,
-                                                                                "y": 27109.227152969277
-                                                                            },
-                                                                            "targetPosition": {
-                                                                                "x": 8443.07774203952,
-                                                                                "y": 26809.227152969277
-                                                                            },
-                                                                            "floatingObject": {
-                                                                                "isPinned": false,
-                                                                                "isFrozen": false,
-                                                                                "isCollapsed": false,
-                                                                                "angleToParent": 2,
-                                                                                "distanceToParent": 3,
-                                                                                "arrangementStyle": 0
-                                                                            },
-                                                                            "uiObject": {
-                                                                                "isRunning": false
-                                                                            },
-                                                                            "referenceParent": {
-                                                                                "type": "Feature",
-                                                                                "name": "Highlights",
-                                                                                "id": "3997cd4b-15be-4c81-b8d9-23bee80dde32"
-                                                                            },
-                                                                            "referenceParentCombinedNodePath": [
-                                                                                [
-                                                                                    "Foundations-Project",
-                                                                                    "Features"
-                                                                                ],
-                                                                                [
-                                                                                    "Foundations Project",
-                                                                                    "Feature Class"
-                                                                                ],
-                                                                                [
-                                                                                    "Visual Debugger",
-                                                                                    "Feature Class"
-                                                                                ],
-                                                                                [
-                                                                                    "Highlights",
-                                                                                    "Feature"
-                                                                                ]
-                                                                            ]
-                                                                        }
-                                                                    }
-                                                                ],
-                                                                "positionWeightVotes": [],
-                                                                "id": "46a0865c-3bdc-42ef-9e09-51d6c4311162",
-                                                                "savedPayload": {
-                                                                    "position": {
-                                                                        "x": 8443.07774203952,
-                                                                        "y": 26809.227152969277
-                                                                    },
-                                                                    "targetPosition": {
-                                                                        "x": 8443.07774203952,
-                                                                        "y": 26509.227152969277
-                                                                    },
-                                                                    "floatingObject": {
-                                                                        "isPinned": false,
-                                                                        "isFrozen": false,
-                                                                        "isCollapsed": false,
-                                                                        "angleToParent": 2,
-                                                                        "distanceToParent": 3,
-                                                                        "arrangementStyle": 0
-                                                                    },
-                                                                    "uiObject": {
-                                                                        "isRunning": false
-                                                                    },
-                                                                    "referenceParent": {
-                                                                        "type": "Feature Class",
-                                                                        "name": "Visual Debugger",
-                                                                        "id": "0e329071-a542-405f-ae8c-2933098759c1"
-                                                                    },
-                                                                    "referenceParentCombinedNodePath": [
-                                                                        [
-                                                                            "Foundations-Project",
-                                                                            "Features"
-                                                                        ],
-                                                                        [
-                                                                            "Foundations Project",
-                                                                            "Feature Class"
-                                                                        ],
-                                                                        [
-                                                                            "Visual Debugger",
-                                                                            "Feature Class"
-                                                                        ]
-                                                                    ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "type": "Weight Votes Switch",
-                                                                "name": "Charting System",
-                                                                "config": "{    \"percentage\": 0 }",
-                                                                "project": "Governance",
-                                                                "weightVotesSwitch": [],
-                                                                "poolWeightVotes": [],
-                                                                "assetWeightVotes": [],
-                                                                "featureWeightVotes": [
-                                                                    {
-                                                                        "type": "Feature Weight Vote",
-                                                                        "name": "Foundations Project Charting System Rate Scale",
-                                                                        "config": "{}",
-                                                                        "project": "Governance",
-                                                                        "id": "a35d75ee-a3af-45b2-86c1-ffa864b937c7",
-                                                                        "savedPayload": {
-                                                                            "position": {
-                                                                                "x": 8090.406590664036,
-                                                                                "y": 26994.637349594243
-                                                                            },
-                                                                            "targetPosition": {
-                                                                                "x": 8266.742166351778,
-                                                                                "y": 26751.93225128176
-                                                                            },
-                                                                            "floatingObject": {
-                                                                                "isPinned": false,
-                                                                                "isFrozen": false,
-                                                                                "isCollapsed": false,
-                                                                                "angleToParent": 2,
-                                                                                "distanceToParent": 3,
-                                                                                "arrangementStyle": 0
-                                                                            },
-                                                                            "uiObject": {
-                                                                                "isRunning": false
-                                                                            },
-                                                                            "referenceParent": {
-                                                                                "type": "Feature",
-                                                                                "name": "Rate Scale",
-                                                                                "id": "ebd8abdc-710e-4184-976d-44000eb57658"
-                                                                            },
-                                                                            "referenceParentCombinedNodePath": [
-                                                                                [
-                                                                                    "Foundations-Project",
-                                                                                    "Features"
-                                                                                ],
-                                                                                [
-                                                                                    "Foundations Project",
-                                                                                    "Feature Class"
-                                                                                ],
-                                                                                [
-                                                                                    "Charting System",
-                                                                                    "Feature Class"
-                                                                                ],
-                                                                                [
-                                                                                    "Rate Scale",
-                                                                                    "Feature"
-                                                                                ]
-                                                                            ]
-                                                                        }
-                                                                    }
-                                                                ],
-                                                                "positionWeightVotes": [],
-                                                                "id": "eb4b9ad7-3bf4-47f3-a8ab-8c1424e45910",
-                                                                "savedPayload": {
-                                                                    "position": {
-                                                                        "x": 8266.742166351778,
-                                                                        "y": 26751.93225128176
-                                                                    },
-                                                                    "targetPosition": {
-                                                                        "x": 8443.07774203952,
-                                                                        "y": 26509.227152969277
-                                                                    },
-                                                                    "floatingObject": {
-                                                                        "isPinned": false,
-                                                                        "isFrozen": false,
-                                                                        "isCollapsed": false,
-                                                                        "angleToParent": 2,
-                                                                        "distanceToParent": 3,
-                                                                        "arrangementStyle": 0
-                                                                    },
-                                                                    "uiObject": {
-                                                                        "isRunning": false
-                                                                    },
-                                                                    "referenceParent": {
-                                                                        "type": "Feature Class",
-                                                                        "name": "Charting System",
-                                                                        "id": "7edc83c0-74fc-4427-816d-4db5d840577f"
-                                                                    },
-                                                                    "referenceParentCombinedNodePath": [
-                                                                        [
-                                                                            "Foundations-Project",
-                                                                            "Features"
-                                                                        ],
-                                                                        [
-                                                                            "Foundations Project",
-                                                                            "Feature Class"
-                                                                        ],
-                                                                        [
-                                                                            "Charting System",
-                                                                            "Feature Class"
-                                                                        ]
-                                                                    ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "type": "Weight Votes Switch",
-                                                                "name": "Data Mining",
-                                                                "config": "{    \"percentage\": 0 }",
-                                                                "project": "Governance",
-                                                                "weightVotesSwitch": [],
-                                                                "poolWeightVotes": [],
-                                                                "assetWeightVotes": [],
-                                                                "featureWeightVotes": [],
-                                                                "positionWeightVotes": [],
-                                                                "id": "b7f861d4-d39f-4ba2-9610-85d965b039d3",
-                                                                "savedPayload": {
-                                                                    "position": {
-                                                                        "x": 8157.7607871509745,
-                                                                        "y": 26601.93225128176
-                                                                    },
-                                                                    "targetPosition": {
-                                                                        "x": 8443.07774203952,
-                                                                        "y": 26509.227152969277
-                                                                    },
-                                                                    "floatingObject": {
-                                                                        "isPinned": false,
-                                                                        "isFrozen": false,
-                                                                        "isCollapsed": false,
-                                                                        "angleToParent": 2,
-                                                                        "distanceToParent": 3,
-                                                                        "arrangementStyle": 0
-                                                                    },
-                                                                    "uiObject": {
-                                                                        "isRunning": false
-                                                                    },
-                                                                    "referenceParent": {
-                                                                        "type": "Feature Class",
-                                                                        "name": "Data Mining",
-                                                                        "id": "025c0e15-ad8d-49ae-b501-577bb82c207d"
-                                                                    },
-                                                                    "referenceParentCombinedNodePath": [
-                                                                        [
-                                                                            "Foundations-Project",
-                                                                            "Features"
-                                                                        ],
-                                                                        [
-                                                                            "Foundations Project",
-                                                                            "Feature Class"
-                                                                        ],
-                                                                        [
-                                                                            "Data Mining",
-                                                                            "Feature Class"
+                                                                            "Feature Class",
+                                                                            "Governance",
+                                                                            "18584f3f-6e48-4a68-89f1-0268185156e9"
                                                                         ]
                                                                     ]
                                                                 }
@@ -6875,11 +6941,15 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Foundations-Project",
-                                                                    "Features"
+                                                                    "Features",
+                                                                    "Governance",
+                                                                    "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                                 ],
                                                                 [
                                                                     "Foundations Project",
-                                                                    "Feature Class"
+                                                                    "Feature Class",
+                                                                    "Governance",
+                                                                    "136b6e7a-f042-441b-84be-395b56b65b70"
                                                                 ]
                                                             ]
                                                         }
@@ -6918,7 +6988,9 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Foundations-Project",
-                                                            "Features"
+                                                            "Features",
+                                                            "Governance",
+                                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
                                                         ]
                                                     ]
                                                 }
@@ -15173,7 +15245,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 2,
                                 "distanceToParent": 4,
                                 "arrangementStyle": 0
@@ -16290,8 +16362,63 @@
         "financialPrograms": {
             "type": "Financial Programs",
             "name": "New Financial Programs",
-            "config": "{\n    \"percentage\": 2\n}",
+            "config": "{\n    \"percentage\": 10\n}",
             "project": "Governance",
+            "stakingProgram": {
+                "type": "Staking Program",
+                "name": "New Staking Program",
+                "config": "{\n    \"percentage\": 5\n}",
+                "project": "Governance",
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "e54887d5-9d91-4315-b08f-655137068276",
+                    "savedPayload": {
+                        "position": {
+                            "x": 7846.586249175369,
+                            "y": 25274.462850273303
+                        },
+                        "targetPosition": {
+                            "x": 7968.607242098109,
+                            "y": 25000.399212980523
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "f159efc5-185a-46b6-9a1d-a9dbd281cb7e",
+                "savedPayload": {
+                    "position": {
+                        "x": 7968.607242098109,
+                        "y": 25000.399212980523
+                    },
+                    "targetPosition": {
+                        "x": 8090.628235020849,
+                        "y": 24726.335575687743
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
             "delegationProgram": {
                 "type": "Delegation Program",
                 "name": "New Delegation Program",
@@ -16307,55 +16434,14 @@
                         "userDelegates": [
                             {
                                 "type": "User Delegate",
-                                "name": "quantum8",
-                                "config": "{}",
-                                "project": "Governance",
-                                "id": "eea24b92-438a-435d-ae4f-fcd300ad4748",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 7447.892471986432,
-                                        "y": 25459.13523406867
-                                    },
-                                    "targetPosition": {
-                                        "x": 7416.533933006136,
-                                        "y": 25160.77866545819
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "User Profile",
-                                        "name": "quantum8",
-                                        "id": "f2ba562b-9032-4fb4-8b97-0b58d8542905"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "quantum8",
-                                            "User Profile",
-                                            "Governance",
-                                            "f2ba562b-9032-4fb4-8b97-0b58d8542905"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "User Delegate",
                                 "name": "Tentacule23",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "f2718f2d-0287-48f0-a55b-b9ac99ca5fcf",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 7227.737815691185,
-                                        "y": 25393.92245389528
+                                        "x": 7136.459805056976,
+                                        "y": 25268.289050321782
                                     },
                                     "targetPosition": {
                                         "x": 7416.533933006136,
@@ -16395,14 +16481,14 @@
                                 "y": 25160.77866545819
                             },
                             "targetPosition": {
-                                "x": 7847.923136708365,
-                                "y": 24902.671151375485
+                                "x": 7792.271666410367,
+                                "y": 24757.69411466804
                             },
                             "floatingObject": {
                                 "isPinned": true,
                                 "isFrozen": false,
                                 "isCollapsed": false,
-                                "angleToParent": 2,
+                                "angleToParent": 3,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 1
                             },
@@ -16419,12 +16505,12 @@
                     "id": "3c5eca51-14ad-46d5-9eb0-5dd02feba357",
                     "savedPayload": {
                         "position": {
-                            "x": 7549.566568097883,
-                            "y": 24934.029690355783
+                            "x": 7518.208029117587,
+                            "y": 24635.6731217453
                         },
                         "targetPosition": {
-                            "x": 7847.923136708365,
-                            "y": 24902.671151375485
+                            "x": 7792.271666410367,
+                            "y": 24757.69411466804
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -16442,8 +16528,8 @@
                 "id": "6b971e83-5d44-4e4f-bf25-64a6ebad3d2d",
                 "savedPayload": {
                     "position": {
-                        "x": 7847.923136708365,
-                        "y": 24902.671151375485
+                        "x": 7792.271666410367,
+                        "y": 24757.69411466804
                     },
                     "targetPosition": {
                         "x": 8090.628235020849,
@@ -16475,7 +16561,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 2,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -16548,7 +16634,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

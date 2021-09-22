@@ -304,12 +304,25 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         caller.socket.send(JSON.stringify(response))
                         return
                     }
+                    let signedMessage = JSON.parse(signature.message)
+                    /*
+                    We will verify that the signature belongs to the signature.message.
+                    To do this we will hash the signature.message and see if we get 
+                    the same hash of the signature.
+                    */
+                    let hash = web3.eth.accounts.hashMessage(signature.message)
+                    if (hash !== signature.messageHash) {
+                        let response = {
+                            result: 'Error',
+                            message: 'signature.message Hashed Does Not Match signature.messageHash.'
+                        }
+                        caller.socket.send(JSON.stringify(response))
+                        return
+                    }
                     /*
                     The user profile based on the blockchain account, based on the signature,
                     it is our witness user profile, to validate the caller.
                     */
-                    let signedMessage = JSON.parse(signature.message)
-
                     if (signedMessage.callerProfileHandle !== witnessUserProfile.userProfileHandle) {
                         let response = {
                             result: 'Error',

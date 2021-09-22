@@ -18,6 +18,7 @@ function newWorkspace() {
         share: shareWorkspace,
         getNodesByTypeAndHierarchyHeadsType: getNodesByTypeAndHierarchyHeadsType,
         getProjectsHeads: getProjectsHeads,
+        getProjectHeadByNodeType: getProjectHeadByNodeType, 
         getHierarchyHeads: getHierarchyHeads,
         getHierarchyHeadsById: getHierarchyHeadsById,
         getHierarchyHeadsByCodeNameAndNodeType: getHierarchyHeadsByCodeNameAndNodeType,
@@ -545,6 +546,17 @@ function newWorkspace() {
             }
         }
         return nodes
+    }
+
+    function getProjectHeadByNodeType(nodeType) {
+        let projectHeads = getProjectsHeads()
+        if (projectHeads === undefined) { return }
+        for (let i = 0; i < projectHeads.length; i++) {
+            let hierarchyHead = projectHeads[i]
+            if (hierarchyHead.type === nodeType) {
+                return hierarchyHead
+            }
+        }
     }
 
     function getHierarchyHeadsById(nodeId) {

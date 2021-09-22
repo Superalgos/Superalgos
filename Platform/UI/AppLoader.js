@@ -138,7 +138,7 @@ function newAppLoader() {
 
                 for (let i = 0; i < modulesArray.length; i++) {
                     let path = modulesArray[i]
-                    console.log(path)
+              
                     REQUIREJS([path], onRequired)
 
                     if (INFO_LOG === true) { logger.write('[INFO] loadModules -> Module Requested.') }

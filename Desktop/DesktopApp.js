@@ -45,7 +45,7 @@ exports.newDesktopApp = function newDesktopApp() {
         */
         queryMessage = {
             queryType: SA.projects.socialTrading.globals.queryTypes.USER_PROFILES,
-            emitterUserProfileId: DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID,
+            emitterUserProfileId: SA.secrets.map.get('Social Trading Desktop').userProfileId,
             initialIndex: 'Last',
             amountRequested: 10,
             direction: 'Past'
@@ -74,7 +74,7 @@ exports.newDesktopApp = function newDesktopApp() {
                 let eventMessage = {
                     eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                     eventType: SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE,
-                    emitterUserProfileId: DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID,
+                    emitterUserProfileId: SA.secrets.map.get('Social Trading Desktop').userProfileId,
                     targetUserProfileId: profile.userProfileId
                 }
 
@@ -99,8 +99,8 @@ exports.newDesktopApp = function newDesktopApp() {
         */
         queryMessage = {
             queryType: SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_STATS,
-            emitterUserProfileId: DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID,
-            targetUserProfileId: DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID
+            emitterUserProfileId: SA.secrets.map.get('Social Trading Desktop').userProfileId,
+            targetUserProfileId: SA.secrets.map.get('Social Trading Desktop').userProfileId
         }
 
         query = {

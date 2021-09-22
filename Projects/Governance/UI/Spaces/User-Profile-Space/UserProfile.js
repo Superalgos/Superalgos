@@ -24,6 +24,11 @@ function newGovernanceUserProfileSpace() {
 
     function initialize() {
         /*
+        If the workspace is not related to governance, then we exit the Intialize Function
+        */
+        let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
+        if (governanceProject === undefined) { return }
+        /*
         Here we will run the distribution process, that in turn will run all the programs.
         */
         intervalId = setInterval(UI.projects.governance.functionLibraries.distributionProcess.calculate, DISTRIBUTION_PROCESS_RECALCULATION_DELAY)
@@ -40,11 +45,8 @@ function newGovernanceUserProfileSpace() {
         thisObject.container = newContainer()
         thisObject.container.initialize(MODULE_NAME)
         thisObject.container.isDraggeable = false
-        /*
-        If the workspace is not related to governance, then we exit the Intialize Function
-        */
+
         let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
-        if (userProfiles.length === 0) { return }
         /*
         We are going to collapse all User Profiles to save processing resources at the UI
         */
@@ -330,6 +332,11 @@ function newGovernanceUserProfileSpace() {
     function physics() {
         if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
         /*
+        If the workspace is not related to governance, then we exit the Intialize Function
+        */
+        let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
+        if (governanceProject === undefined) { return }
+        /*
         Load the user profiles with Token Power.
         */
         let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
@@ -368,7 +375,7 @@ function newGovernanceUserProfileSpace() {
                     userProfile.payload.uiObject.setErrorMessage(
                         'Call via HTTP Interface failed.',
                         UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                        )
+                    )
                     return
                 }
 
@@ -379,7 +386,7 @@ function newGovernanceUserProfileSpace() {
                     userProfile.payload.uiObject.setErrorMessage(
                         'Call to WEB3 Server failed. ' + response.error,
                         UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                        )
+                    )
                     console.log('Call to WEB3 Server failed. ' + response.error)
                     return
                 }
@@ -411,7 +418,7 @@ function newGovernanceUserProfileSpace() {
                 } else {
                     userProfile.payload.uiObject.setInfoMessage(data,
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
-                        )
+                    )
                     userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000
                     userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens)
                 }
@@ -422,7 +429,7 @@ function newGovernanceUserProfileSpace() {
                 if (userProfile.payload !== undefined) {
                     userProfile.payload.uiObject.setErrorMessage(message,
                         UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                        )
+                    )
                 }
                 waitingForResponses--
             });

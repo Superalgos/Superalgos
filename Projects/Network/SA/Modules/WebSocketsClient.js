@@ -124,7 +124,17 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             }
 
                             let signedMessage = JSON.parse(signature.message)
-
+                            /*
+                            We will verify that the signature belongs to the signature.message.
+                            To do this we will hash the signature.message and see if we get 
+                            the same hash of the signature.
+                            */
+                            let hash = web3.eth.accounts.hashMessage(signature.message)
+                            if (hash !== signature.messageHash) {
+                                console.log('[ERROR] Web Sockets Client -> stepOneResponse -> signature.message Hashed Does Not Match signature.messageHash.')
+                                reject()
+                                return
+                            }
                             /*
                             We will check that the Network Node that responded has the same User Profile Handle
                             that we have on record, otherwise something is wrong and we should not proceed.

@@ -30,16 +30,13 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
         /*
         Here we will pick a Network Node from all users profiles available that do have a Network Node running. // TODO
         In the meantime, we will assume that we have chosen the following Network Node to connect to.
-        {
-            "githubUsername": "Test-Network-Node-Profile",
-            "address": "0xa153469c57A91F5a59Fc6c45A37aD8dbad85e417"
-        }        
+       
         */
         web3 = new SA.nodeModules.web3()
 
         selectedNetworkNode = {
-            userProfileHandle: "Test-Network-Node-Profile",
-            blockchainAccount: "0xa153469c57A91F5a59Fc6c45A37aD8dbad85e417",
+            userProfileHandle: "Luis-Fernando-Molina",
+            blockchainAccount: "0xeBDCB7a73c4796ca9F025d005630eCe773dd9e54",
             ranking: 0,
             host: "localhost",
             port: global.env.NETWORK_WEB_SOCKETS_INTERFACE_PORT
@@ -90,7 +87,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             let message = {
                                 messageType: 'Handshake',
                                 callerRole: 'Network Client',
-                                callerProfileHandle: DK.TEST_NETWORK_CLIENT_USER_PROFILE_HANDLE,
+                                callerProfileHandle: SA.secrets.map.get('Social Trading Desktop').githubUsername,
                                 callerTimestamp: callerTimestamp,
                                 step: 'One'
                             }
@@ -127,7 +124,17 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             }
 
                             let signedMessage = JSON.parse(signature.message)
-
+                            /*
+                            We will verify that the signature belongs to the signature.message.
+                            To do this we will hash the signature.message and see if we get 
+                            the same hash of the signature.
+                            */
+                            let hash = web3.eth.accounts.hashMessage(signature.message)
+                            if (hash !== signature.messageHash) {
+                                console.log('[ERROR] Web Sockets Client -> stepOneResponse -> signature.message Hashed Does Not Match signature.messageHash.')
+                                reject()
+                                return
+                            }
                             /*
                             We will check that the Network Node that responded has the same User Profile Handle
                             that we have on record, otherwise something is wrong and we should not proceed.
@@ -141,7 +148,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             We will check that the profile handle we sent to the Network Node, is returned at the
                             signed message, to avoid man in the middle attackts.
                             */
-                            if (signedMessage.callerProfileHandle !== DK.TEST_NETWORK_CLIENT_USER_PROFILE_HANDLE) {
+                            if (signedMessage.callerProfileHandle !== SA.secrets.map.get('Social Trading Desktop').githubUsername) {
                                 console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node callerProfileHandle does not match my own userProfileHandle.')
                                 reject()
                                 return
@@ -171,7 +178,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             */
                             socketClient.onmessage = socketMessage => { stepTwoResponse(socketMessage) }
 
-                            let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), DK.TEST_NETWORK_CLIENT_USER_PROFILE_PRIVATE_KEY)
+                            let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get('Social Trading Desktop').privateKey)
 
                             let message = {
                                 messageType: 'Handshake',

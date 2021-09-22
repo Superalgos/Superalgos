@@ -44,7 +44,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     }
                     return JSON.stringify(response)
                 }
-                queryMessage.emitterUserProfileId = DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID
+                queryMessage.emitterUserProfileId = SA.secrets.map.get('Social Trading Desktop').userProfileId
                 messageHeader.queryMessage = JSON.stringify(queryMessage)
 
                 let response
@@ -123,7 +123,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     eventMessage.postText = undefined
                 }
 
-                eventMessage.emitterUserProfileId = DK.TEST_NETWORK_CLIENT_USER_PROFILE_ID
+                eventMessage.emitterUserProfileId = SA.secrets.map.get('Social Trading Desktop').userProfileId
                 messageHeader.eventMessage = JSON.stringify(eventMessage)
 
                 let response = {
@@ -175,9 +175,6 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
 
     async function getPostText(userProfileHandle, postHash, timestamp) {
         let promise = new Promise((resolve, reject) => {
-//https://raw.githubusercontent.com/Luis-Fernando-Molina/My-Social-Trading-Data/main/User-Posts/2021/09/17/0608070d8d2aab12e63cf3aa871918a04e237edff4fc0f886d158311811cf7c9.json
-
-            const userProfileHandle = "Luis-Fernando-Molina" /// TODO Delete this line
 
             const fileName = postHash + ".json"
             const filePath = 'My-Social-Trading-Data/main/User-Posts/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDate(timestamp)

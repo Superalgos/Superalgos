@@ -301,9 +301,11 @@ exports.newGithubServer = function newGithubServer() {
                             if (await validateFileNameEqualsGithubUsername() === false) { continue }
                             if (await validateFileChangedIsUserProfile() === false) { continue }
                             if (await validateMessageSignedIsGithubUsername() === false) { continue }
+                            if (await validateMessageSignedHashIsSignatureHash() === false) { continue }
                             if (await validateUserProfileNodeNameEqualsGithubUsername() === false) { continue }
                             if (await validateUserProfileIdDoesNotBelongtoAnotherUserProfile() === false) { continue }
                             if (await validateUserProfileBlockchainAccountDoesNotBelongtoAnotherUserProfile() === false) { continue }
+                            if (await validateUserProfileSigningAccountsDoesNotBelongtoAnotherUserProfile() === false) { continue }
 
                             if (await mergePullRequest() === false) {
                                 console.log('[WARN] Github Server -> mergeGithubPullRequests -> Merge Failed -> Pull Request "' + pullRequest.title + '" not merged because Github could not merge it. -> mergeResponse.message = ' + mergeResponse.data.message)
@@ -440,12 +442,46 @@ exports.newGithubServer = function newGithubServer() {
                                 }
                             }
 
+                            async function validateMessageSignedHashIsSignatureHash() {
+                                /*
+                                Validation #5: The message signed has is equal to the signature messageHash.
+                                */
+                                let config = JSON.parse(userProfile.config)
+
+                                let serverResponse = await PL.servers.WEB3_SERVER.hashData(
+                                    config.signature.message
+                                )
+                                let messageSignedHash = serverResponse.hash
+                                let signatureHash = config.signature.messageHash
+
+                                if (messageSignedHash !== signatureHash) {
+                                    console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #5 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Message Signed Hash is not equal to the the Signature Hash. -> messageSignedHash = ' + messageSignedHash + '-> signatureHash = ' + signatureHash)
+
+                                    await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await octokit.rest.issues.createComment({
+                                        owner: owner,
+                                        repo: repo,
+                                        issue_number: pullRequest.number,
+                                        body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because the Message Signed Hash is not equal to the the Signature Hash.\n\n messageSignedHash = "' + messageSignedHash + '"\n\n signatureHash = "' + signatureHash + '"'
+                                    });
+
+                                    await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await octokit.rest.pulls.update({
+                                        owner: owner,
+                                        repo: repo,
+                                        pull_number: pullRequest.number,
+                                        state: 'closed'
+                                    });
+                                    return false
+                                }
+                            }
+
                             async function validateUserProfileNodeNameEqualsGithubUsername() {
                                 /*
-                                Validation #5: The name of the User Profile node is not the Github Username.
+                                Validation #6: The name of the User Profile node is not the Github Username.
                                 */
                                 if (userProfile.name !== githubUsername) {
-                                    console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #5 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the User Profile node\'s name. -> Github Username = ' + githubUsername + '-> userProfile.name = ' + userProfile.name)
+                                    console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #6 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the User Profile node\'s name. -> Github Username = ' + githubUsername + '-> userProfile.name = ' + userProfile.name)
 
                                     await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.issues.createComment({
@@ -468,7 +504,7 @@ exports.newGithubServer = function newGithubServer() {
 
                             async function validateUserProfileIdDoesNotBelongtoAnotherUserProfile() {
                                 /*
-                                Validation #6: The id of the User Profile can not be the id of an already existing User Profile
+                                Validation #7: The id of the User Profile can not be the id of an already existing User Profile
                                 unless the existing one belongs to the same Github username.
                                 */
                                 let userProfileIdMap = new Map()
@@ -493,7 +529,7 @@ exports.newGithubServer = function newGithubServer() {
                                 if (testUserProfile === undefined) { return true }
                                 if (testUserProfile !== userProfile.name) {
 
-                                    console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #6 Failed -> Pull Request "' + pullRequest.title + '" not merged because the User Profile Id already exists and belongs to another User Profile on record. -> Profile Id = ' + userProfile.id + '-> User Profile with the same Id = ' + testUserProfile)
+                                    console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #7 Failed -> Pull Request "' + pullRequest.title + '" not merged because the User Profile Id already exists and belongs to another User Profile on record. -> Profile Id = ' + userProfile.id + '-> User Profile with the same Id = ' + testUserProfile)
 
                                     await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                     await octokit.rest.issues.createComment({
@@ -517,7 +553,7 @@ exports.newGithubServer = function newGithubServer() {
                             async function validateUserProfileBlockchainAccountDoesNotBelongtoAnotherUserProfile() {
                                 try {
                                     /*
-                                    Validation #7 The blockchain account of the User Profile can not be the 
+                                    Validation #8 The blockchain account of the User Profile can not be the 
                                     blockchain account of an already existing User Profile
                                     unless the existing one belongs to the same Github username.
                                     */
@@ -554,7 +590,7 @@ exports.newGithubServer = function newGithubServer() {
                                     if (testUserProfile === undefined) { return true }
                                     if (testUserProfile !== userProfile.name) {
 
-                                        console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #7 Failed -> Pull Request "' + pullRequest.title + '" not merged because the User Profile Blockchain Account already exists and belongs to another User Profile on record. -> Profile Blockchain Account = ' + serverResponse.address + '-> User Profile with the same Blockchain Account = ' + testUserProfile)
+                                        console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #8 Failed -> Pull Request "' + pullRequest.title + '" not merged because the User Profile Blockchain Account already exists and belongs to another User Profile on record. -> Profile Blockchain Account = ' + serverResponse.address + '-> User Profile with the same Blockchain Account = ' + testUserProfile)
 
                                         await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                         await octokit.rest.issues.createComment({
@@ -573,6 +609,77 @@ exports.newGithubServer = function newGithubServer() {
                                         });
                                         return false
                                     }
+                                } catch (err) {
+                                    console.log(err.stack)
+                                }
+                            }
+
+                            async function validateUserProfileSigningAccountsDoesNotBelongtoAnotherUserProfile() {
+                                try {
+
+                                    if (userProfile.signingAccounts === undefined) { return true }
+
+                                    for (let i = 0; i < userProfile.signingAccounts.signingAccounts.length; i++) {
+                                        let signingAccount = userProfile.signingAccounts.signingAccounts[i]
+                                        let config = JSON.parse(signingAccount.config)
+                                        /*
+                                        Validation #9 Signing accounts of the User Profile 
+                                        must have a signature of the same Github username of the User Profile.
+                                        */
+                                        let messageSigned = config.signature.message
+
+                                        if (messageSigned !== githubUsername) {
+                                            console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #9 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Signing Account ' + signingAccount.name + ' has not signed the current Github User Account, but something else. -> messageSigned = ' + messageSigned + '-> githubUsername = ' + githubUsername)
+
+                                            await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                            await octokit.rest.issues.createComment({
+                                                owner: owner,
+                                                repo: repo,
+                                                issue_number: pullRequest.number,
+                                                body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because the Signing Account "' + signingAccount.name + '" has not signed the current Github User Account, but something else. \n\n messageSigned = "' + messageSigned + '" \n\n githubUsername = "' + githubUsername + '"'
+                                            });
+
+                                            await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                            await octokit.rest.pulls.update({
+                                                owner: owner,
+                                                repo: repo,
+                                                pull_number: pullRequest.number,
+                                                state: 'closed'
+                                            });
+                                            return false
+                                        }
+                                        /*
+                                        Validation #10: The message signed has is equal to the signature messageHash.
+                                        */
+                                        let serverResponse = await PL.servers.WEB3_SERVER.hashData(
+                                            config.signature.message
+                                        )
+                                        let messageSignedHash = serverResponse.hash
+                                        let signatureHash = config.signature.messageHash
+
+                                        if (messageSignedHash !== signatureHash) {
+                                            console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #10 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Message Signed Hash is not equal to the the Signature Hash. -> messageSignedHash = ' + messageSignedHash + '-> signatureHash = ' + signatureHash)
+
+                                            await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                            await octokit.rest.issues.createComment({
+                                                owner: owner,
+                                                repo: repo,
+                                                issue_number: pullRequest.number,
+                                                body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because the Message Signed Hash is not equal to the the Signature Hash.\n\n messageSignedHash = "' + messageSignedHash + '"\n\n signatureHash = "' + signatureHash + '"'
+                                            });
+
+                                            await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                            await octokit.rest.pulls.update({
+                                                owner: owner,
+                                                repo: repo,
+                                                pull_number: pullRequest.number,
+                                                state: 'closed'
+                                            });
+                                            return false
+                                        }
+                                    }
+
+                                    return true
                                 } catch (err) {
                                     console.log(err.stack)
                                 }

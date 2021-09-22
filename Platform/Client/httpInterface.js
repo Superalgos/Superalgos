@@ -1067,6 +1067,15 @@ exports.newHttpInterface = function newHttpInterface() {
                                         )
 
                                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                        
+                                        setInterval(
+                                            PL.servers.GITHUB_SERVER.mergePullRequests,
+                                            60000,
+                                            params.commitMessage,
+                                            params.username,
+                                            params.token
+                                        )
+                                        
                                         return
                                     }
                                     case 'payContributors': {

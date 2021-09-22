@@ -48,17 +48,17 @@ exports.newNetworkRoot = function newNetworkRoot() {
             ws: require('ws'),
             simpleGit: require('simple-git')
         }
-
         /*
-        We will use this User Profile for testing purposes.
-        {
-            "githubUsername": "Test-Network-Node-Profile",
-            "address": "0xa153469c57A91F5a59Fc6c45A37aD8dbad85e417",
-            "privateKey": "0xac498ae59407e6b68429a814f64da2339550f93a767578e28c161ff119159271"
-        }
+        Setting up Secrets.
         */
-        NT.NETWORK_NODE_USER_PROFILE_HANDLE = "Test-Network-Node-Profile"
-        NT.NETWORK_NODE_USER_PROFILE_PRIVATE_KEY = "0xac498ae59407e6b68429a814f64da2339550f93a767578e28c161ff119159271"
+        SA.secrets = {
+            array: require('./My-Secrets/Secrets.json'),
+            map: new Map()
+        }
+        for (let i = 0; i < SA.secrets.array.length; i++) {
+            let secret = SA.secrets.array[i]
+            SA.secrets.map.set(secret.codeName, secret)
+        }
 
         NT.app = require('./Network/NetwokNode.js').newNetworkNode()
         NT.app.run()

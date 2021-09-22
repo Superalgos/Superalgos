@@ -63,9 +63,10 @@ exports.newFoundationsBotModulesSnapshots = function(processIndex) {
 
     function finalize() {
         //trigger exits added for extra save moment for datapreserve
-        strategyExit()
-        positionExit()
-
+        if (tradingEngine.tradingCurrent.strategy.begin.value > 0) {
+            strategyExit()
+            positionExit()
+        }
         writeSnapshotFiles()
         tradingEngine = undefined
         tradingSystem = undefined
@@ -449,7 +450,7 @@ exports.newFoundationsBotModulesSnapshots = function(processIndex) {
                 function onFileReceived(err, text) {
                     if (err.result === TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                         try {
-                            // remove the last linebreak and seperator wich is introduced extra during save
+                            // remove the last linebreak and seperator which is introduced extra during save
                             text = text.replace(/\n$/, '')
                             text = text.replace(/\r\n$/, '')
                             writeOutput(text)

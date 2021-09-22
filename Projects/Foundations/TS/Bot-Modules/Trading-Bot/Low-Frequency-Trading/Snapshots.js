@@ -62,6 +62,10 @@ exports.newFoundationsBotModulesSnapshots = function(processIndex) {
     }
 
     function finalize() {
+        //trigger exits added for extra save moment for datapreserve
+        strategyExit()
+        positionExit()
+
         writeSnapshotFiles()
         tradingEngine = undefined
         tradingSystem = undefined
@@ -220,8 +224,8 @@ exports.newFoundationsBotModulesSnapshots = function(processIndex) {
                 instruction = instruction.replace(/!==/g, '')
                 instruction = instruction.replace(/==/g, '')
                 instruction = instruction.replace(/===/g, '')
-                instruction = instruction.replace(/{/g, '') //this wrecks something in JS markup?
-                instruction = instruction.replace(/}/g, '') //this wrecks something in JS markup?
+                instruction = instruction.replace(/{/g, '')
+                instruction = instruction.replace(/}/g, '')
                 if (instruction.indexOf('chart') >= 0) {
                     let parts = instruction.split('.')
                     let timeFrame = parts[1]
@@ -243,7 +247,6 @@ exports.newFoundationsBotModulesSnapshots = function(processIndex) {
                     }
                     let key = timeFrame + '-' + product + '-' + property
                     let existingKey
-
                     if (addToStrategyValues === true) {
                         addValues(strategyKeys, strategyValues)
                     }
@@ -373,15 +376,35 @@ exports.newFoundationsBotModulesSnapshots = function(processIndex) {
 
             function writeOutput(fileContent) {
                 let separator = '\r\n';
+                let contentArray = [];
+
+                // if we have file content extract rows
+                if (fileContent != '') {
+                    contentArray = fileContent.split(separator)
+                }
 
                 parseRecord(snapshots.headers)
-
                 for (let i = 0; i < snapshotArray.length; i++) {
                     let record = snapshotArray[i];
-                    parseRecord(record)
+                    if (record.length > 0) {
+                        parseRecord(record)
+                    }
                 }
 
                 function parseRecord(record) {
+                    // if we have undefined values, we need to extract the previous stored values for this trade and append them to the new record for completion
+                    if (record[record.length - 1] === undefined) {
+
+                        let rowToMutateArray = contentArray[contentArray.length - 1].split(',')
+                            // check if are for sure on the same tradenumber and merge the data and remove previous line incl separator
+                        if (rowToMutateArray[0] == record[0]) {
+                            record.pop()
+                            rowToMutateArray.splice(0, record.length)
+                            record = record.concat(rowToMutateArray)
+                            fileContent = fileContent.replace(contentArray[contentArray.length - 1], '')
+                            fileContent = fileContent.replace(/\r\n$/, '')
+                        }
+                    }
                     for (let j = 0; j < record.length; j++) {
                         let property = record[j]
 
@@ -426,6 +449,9 @@ exports.newFoundationsBotModulesSnapshots = function(processIndex) {
                 function onFileReceived(err, text) {
                     if (err.result === TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                         try {
+                            // remove the last linebreak and seperator wich is introduced extra during save
+                            text = text.replace(/\n$/, '')
+                            text = text.replace(/\r\n$/, '')
                             writeOutput(text)
                         } catch (err) {
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> fileName = ' + filePath);

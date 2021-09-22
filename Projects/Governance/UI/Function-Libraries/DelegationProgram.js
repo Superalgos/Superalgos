@@ -2,7 +2,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
     let thisObject = {
         calculate: calculate
     }
-    const MAX_GENERATIONS = 10
+    const MAX_GENERATIONS = 3
 
     return thisObject
 

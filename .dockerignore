@@ -9,7 +9,10 @@ debug.log
 .vscode
 README.md
 LICENSE
-CONTRIBUITING.md
+CONTRIBUTING.md
 CODE_OF_CONDUCT.md
-./**/.vscode
-Dockerfile
+*/**/.vscode
+*/**/Dockerfile
+*/**/docker-compose.yml
+*/**/node_modules
+.env

@@ -1050,7 +1050,7 @@
             "votingProgram": {
                 "type": "Voting Program",
                 "name": "New Voting Program",
-                "config": "{\n    \"percentage\": 20\n}",
+                "config": "{\n    \"percentage\": 25\n}",
                 "project": "Governance",
                 "votesSwitch": [
                     {
@@ -1387,7 +1387,7 @@
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": false,
+                                        "isCollapsed": true,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -2828,7 +2828,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 1,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -2924,9 +2924,80 @@
             "delegationProgram": {
                 "type": "Delegation Program",
                 "name": "New Delegation Program",
-                "config": "{\n    \"percentage\": 0\n}",
+                "config": "{\n    \"percentage\": 50\n}",
                 "project": "Governance",
-                "delegatePowerSwitch": [],
+                "delegatePowerSwitch": [
+                    {
+                        "type": "Delegate Power Switch",
+                        "name": "New Delegate Power Switch",
+                        "config": "{}",
+                        "project": "Governance",
+                        "delegatePowerSwitch": [],
+                        "userDelegates": [
+                            {
+                                "type": "User Delegate",
+                                "name": "Raplh2502",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "867204bc-6e33-4cd4-86ce-1ffa08f26bf6",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 41537.66989710637,
+                                        "y": 25322.944697236486
+                                    },
+                                    "targetPosition": {
+                                        "x": 41475.29638986104,
+                                        "y": 25029.500417016345
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "User Profile",
+                                        "name": "Raplh2502",
+                                        "id": "c538f02f-9a2c-47e2-bf92-f6e97ede4031"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Raplh2502",
+                                            "User Profile"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "id": "f866bd3e-520d-4399-9949-52927848af78",
+                        "savedPayload": {
+                            "position": {
+                                "x": 41475.29638986104,
+                                "y": 25029.500417016345
+                            },
+                            "targetPosition": {
+                                "x": 41412.92288261571,
+                                "y": 24736.056136796204
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
                 "tokensBonus": {
                     "type": "Tokens Bonus",
                     "name": "New Tokens Bonus",
@@ -2934,8 +3005,8 @@
                     "id": "04eba2ad-9420-4db8-a60d-b82ac4974c4f",
                     "savedPayload": {
                         "position": {
-                            "x": 41189.97943497249,
-                            "y": 24936.795318703862
+                            "x": 41127.60592772716,
+                            "y": 24643.35103848372
                         },
                         "targetPosition": {
                             "x": 41412.92288261571,
@@ -2990,7 +3061,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -3063,7 +3134,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

@@ -1,0 +1,38 @@
+{
+    "type": "Social Trading Mobile App",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionProject": "Foundations",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 1,
+    "attachingRules": {
+        "compatibleTypes": "->Signing Account->"
+    },
+    "childrenNodesProperties": [
+    ],
+    "propertyNameAtParent": "assignedTo"
+}

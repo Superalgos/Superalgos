@@ -27,8 +27,8 @@
                             "id": "98b5642a-faba-4a04-bf72-6efec86de56a",
                             "savedPayload": {
                                 "position": {
-                                    "x": 36194.06166692297,
-                                    "y": 38420.19411466804
+                                    "x": 36192.01160049103,
+                                    "y": 38341.90523617568
                                 },
                                 "targetPosition": {
                                     "x": 35895.70509831249,
@@ -57,8 +57,38 @@
                             "id": "5ac7a46b-f462-4dc4-a627-2c7588a67e7a",
                             "savedPayload": {
                                 "position": {
-                                    "x": 36017.72609123523,
-                                    "y": 38662.89921298053
+                                    "x": 36138.41019662497,
+                                    "y": 38565.171151375485
+                                },
+                                "targetPosition": {
+                                    "x": 35895.70509831249,
+                                    "y": 38388.83557568774
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "name": "Node Menu Tool Tip Feature",
+                            "config": "{}",
+                            "project": "Governance",
+                            "featureClasses": [],
+                            "features": [],
+                            "id": "402b540e-4e1f-4756-9cb8-8445a672b36d",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 35942.63543782455,
+                                    "y": 38685.14207786629
                                 },
                                 "targetPosition": {
                                     "x": 35895.70509831249,

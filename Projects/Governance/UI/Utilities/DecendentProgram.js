@@ -7,7 +7,7 @@ function newGovernanceUtilitiesDecendentProgram() {
     let thisObject = {
         run: run
     }
-    const MAX_GENERATIONS = 10
+    const MAX_GENERATIONS = 3
 
     return thisObject
 

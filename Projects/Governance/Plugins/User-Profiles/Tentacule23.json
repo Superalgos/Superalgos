@@ -26,12 +26,12 @@
                     "id": "deaea400-fa7f-48fd-a3fe-653b1bd18650",
                     "savedPayload": {
                         "position": {
-                            "x": 18750,
-                            "y": 17430.384757729335
+                            "x": 18181.81818181818,
+                            "y": 20430.384757729335
                         },
                         "targetPosition": {
-                            "x": 18900,
-                            "y": 17690.192378864667
+                            "x": 18331.81818181818,
+                            "y": 20690.192378864667
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -49,12 +49,12 @@
                 "id": "97ae26ad-542d-4373-806a-593e979e1a1b",
                 "savedPayload": {
                     "position": {
-                        "x": 18900,
-                        "y": 17690.192378864667
+                        "x": 18331.81818181818,
+                        "y": 20690.192378864667
                     },
                     "targetPosition": {
-                        "x": 19050,
-                        "y": 17950
+                        "x": 18481.81818181818,
+                        "y": 20950
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -81,12 +81,12 @@
                     "id": "54a2fcd6-e80c-4a30-84c0-d80ae9d197e9",
                     "savedPayload": {
                         "position": {
-                            "x": 19350,
-                            "y": 17430.384757729335
+                            "x": 18781.81818181818,
+                            "y": 20430.384757729335
                         },
                         "targetPosition": {
-                            "x": 19200,
-                            "y": 17690.192378864667
+                            "x": 18631.81818181818,
+                            "y": 20690.192378864667
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -104,12 +104,12 @@
                 "id": "786e62d1-6b32-49d9-8046-9c8577dbcd87",
                 "savedPayload": {
                     "position": {
-                        "x": 19200,
-                        "y": 17690.192378864667
+                        "x": 18631.81818181818,
+                        "y": 20690.192378864667
                     },
                     "targetPosition": {
-                        "x": 19050,
-                        "y": 17950
+                        "x": 18481.81818181818,
+                        "y": 20950
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -127,12 +127,12 @@
             "id": "7e7f3e6e-30f4-400d-a1f6-b3611498b7bf",
             "savedPayload": {
                 "position": {
-                    "x": 19050,
-                    "y": 17950
+                    "x": 18481.81818181818,
+                    "y": 20950
                 },
                 "targetPosition": {
-                    "x": 19050,
-                    "y": 18250
+                    "x": 18481.81818181818,
+                    "y": 21250
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -528,12 +528,12 @@
             "id": "db99bd94-cded-4ef0-bfb2-979cac295f7f",
             "savedPayload": {
                 "position": {
-                    "x": 19650,
-                    "y": 18250
+                    "x": 19081.81818181818,
+                    "y": 21250
                 },
                 "targetPosition": {
-                    "x": 19050,
-                    "y": 18250
+                    "x": 18481.81818181818,
+                    "y": 21250
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -572,23 +572,83 @@
                                 "config": "{}",
                                 "project": "Governance",
                                 "claimVotesSwitch": [],
-                                "positionClaimVotes": [],
+                                "positionClaimVotes": [
+                                    {
+                                        "type": "Position Claim Vote",
+                                        "name": "Tentacule23 Moderator Community Management",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "ddfeb70e-06ca-4354-88e5-eac680aa6a66",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 19670.7938446979,
+                                                "y": 21104.412192876047
+                                            },
+                                            "targetPosition": {
+                                                "x": 19563.283459834307,
+                                                "y": 21384.486320825206
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Moderator Community Management",
+                                                "id": "9c74a2a8-4bcf-42b7-b53d-7ba68f3acfc2"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Tentacule23",
+                                                    "User Profile"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program"
+                                                ],
+                                                [
+                                                    "New Position Claims Folder",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "Moderator Community Management",
+                                                    "Position Contribution Claim"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
                                 "assetClaimVotes": [],
                                 "featureClaimVotes": [
                                     {
                                         "type": "Feature Claim Vote",
-                                        "name": "Tentacule23 Tutorial Tab Feature Visual Designer",
+                                        "name": "Tentacule23 ",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "48a23c6d-51fa-4049-bb51-b37c9881a711",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 20281.465278016127,
-                                                "y": 18124.678699689874
+                                                "x": 19814.884630217934,
+                                                "y": 21221.0946103207
                                             },
                                             "targetPosition": {
-                                                "x": 20131.465278016127,
-                                                "y": 18384.486320825206
+                                                "x": 19563.283459834307,
+                                                "y": 21384.486320825206
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -603,7 +663,7 @@
                                             },
                                             "referenceParent": {
                                                 "type": "Feature Contribution Claim",
-                                                "name": "Tutorial Tab Feature Visual Designer",
+                                                "name": "",
                                                 "id": "5d6b30bc-4f05-4001-87ba-45cba35fe1ce"
                                             },
                                             "referenceParentCombinedNodePath": [
@@ -638,7 +698,7 @@
                                                     "eb425c2c-6b7c-460d-a74e-650691f52fc7"
                                                 ],
                                                 [
-                                                    "Tutorial Tab Feature Visual Designer",
+                                                    "",
                                                     "Feature Contribution Claim",
                                                     "Governance",
                                                     "5d6b30bc-4f05-4001-87ba-45cba35fe1ce"
@@ -648,18 +708,18 @@
                                     },
                                     {
                                         "type": "Feature Claim Vote",
-                                        "name": "Tentacule23 Quick Position Node Feature Visual Designer",
+                                        "name": "Tentacule23 ",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "6a6f2a21-930b-4403-bcee-80ea71022927",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 20421.243025902848,
-                                                "y": 18306.84060729445
+                                                "x": 19862.872320260678,
+                                                "y": 21400.18710769809
                                             },
                                             "targetPosition": {
-                                                "x": 20131.465278016127,
-                                                "y": 18384.486320825206
+                                                "x": 19563.283459834307,
+                                                "y": 21384.486320825206
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -674,7 +734,7 @@
                                             },
                                             "referenceParent": {
                                                 "type": "Feature Contribution Claim",
-                                                "name": "Quick Position Node Feature Visual Designer",
+                                                "name": "",
                                                 "id": "d7c5da08-3757-46b4-8175-bc9a7b02359f"
                                             },
                                             "referenceParentCombinedNodePath": [
@@ -709,7 +769,7 @@
                                                     "eb425c2c-6b7c-460d-a74e-650691f52fc7"
                                                 ],
                                                 [
-                                                    "Quick Position Node Feature Visual Designer",
+                                                    "",
                                                     "Feature Contribution Claim",
                                                     "Governance",
                                                     "d7c5da08-3757-46b4-8175-bc9a7b02359f"
@@ -719,18 +779,18 @@
                                     },
                                     {
                                         "type": "Feature Claim Vote",
-                                        "name": "Tentacule23 Node Menu Tool Tip Feature Visual Designer",
+                                        "name": "Tentacule23 ",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "050787ad-5f04-45c5-8ded-e3c452ab2bee",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 20391.27289915146,
-                                                "y": 18534.486320825206
+                                                "x": 19796.427248271397,
+                                                "y": 21573.28243814016
                                             },
                                             "targetPosition": {
-                                                "x": 20131.465278016127,
-                                                "y": 18384.486320825206
+                                                "x": 19563.283459834307,
+                                                "y": 21384.486320825206
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -745,33 +805,45 @@
                                             },
                                             "referenceParent": {
                                                 "type": "Feature Contribution Claim",
-                                                "name": "Node Menu Tool Tip Feature Visual Designer",
+                                                "name": "",
                                                 "id": "faa99198-6c04-4722-bbc2-f4dd4f9d297f"
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Tentacule23",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "7af21baa-ebc0-436f-94a7-a1746209418e"
                                                 ],
                                                 [
                                                     "New Token Power Switch",
-                                                    "Token Power Switch"
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "5683e2bf-45ca-4dd6-9ade-53b4cad76ed0"
                                                 ],
                                                 [
                                                     "New Votes And Claims Programs",
-                                                    "Votes And Claims Programs"
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "705bfab3-e851-4469-ab70-ac972950de6c"
                                                 ],
                                                 [
                                                     "New Claims Program",
-                                                    "Claims Program"
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "cce1f59a-bb5d-4700-abf8-ab8d2932ff6a"
                                                 ],
                                                 [
                                                     "New Feature Claims Folder",
-                                                    "Feature Claims Folder"
+                                                    "Feature Claims Folder",
+                                                    "Governance",
+                                                    "eb425c2c-6b7c-460d-a74e-650691f52fc7"
                                                 ],
                                                 [
-                                                    "Node Menu Tool Tip Feature Visual Designer",
-                                                    "Feature Contribution Claim"
+                                                    "",
+                                                    "Feature Contribution Claim",
+                                                    "Governance",
+                                                    "faa99198-6c04-4722-bbc2-f4dd4f9d297f"
                                                 ]
                                             ]
                                         }
@@ -780,12 +852,12 @@
                                 "id": "008b3b69-cc01-4e09-9122-ec885a882d76",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 20131.465278016127,
-                                        "y": 18384.486320825206
+                                        "x": 19563.283459834307,
+                                        "y": 21384.486320825206
                                     },
                                     "targetPosition": {
-                                        "x": 19841.687530129406,
-                                        "y": 18462.132034355964
+                                        "x": 19273.505711947586,
+                                        "y": 21462.132034355964
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -806,12 +878,12 @@
                         "id": "fb7f7b7e-a2fb-421f-8158-faa5006f4636",
                         "savedPayload": {
                             "position": {
-                                "x": 19841.687530129406,
-                                "y": 18462.132034355964
+                                "x": 19273.505711947586,
+                                "y": 21462.132034355964
                             },
                             "targetPosition": {
-                                "x": 19551.909782242685,
-                                "y": 18539.77774788672
+                                "x": 18983.727964060865,
+                                "y": 21539.77774788672
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -834,12 +906,12 @@
                     "id": "2bc7d2be-bd4a-47b8-966f-349202f799bf",
                     "savedPayload": {
                         "position": {
-                            "x": 19764.04181659865,
-                            "y": 18751.909782242685
+                            "x": 19195.85999841683,
+                            "y": 21751.909782242685
                         },
                         "targetPosition": {
-                            "x": 19551.909782242685,
-                            "y": 18539.77774788672
+                            "x": 18983.727964060865,
+                            "y": 21539.77774788672
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -857,12 +929,12 @@
                 "id": "f16e524c-4e32-4a6e-840b-bfdd6080f20c",
                 "savedPayload": {
                     "position": {
-                        "x": 19551.909782242685,
-                        "y": 18539.77774788672
+                        "x": 18983.727964060865,
+                        "y": 21539.77774788672
                     },
                     "targetPosition": {
-                        "x": 19262.132034355964,
-                        "y": 18462.132034355964
+                        "x": 18693.950216174144,
+                        "y": 21462.132034355964
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -893,18 +965,18 @@
                         "featureContributionClaims": [
                             {
                                 "type": "Feature Contribution Claim",
-                                "name": "Quick Position Node Feature Visual Designer",
+                                "name": "",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "d7c5da08-3757-46b4-8175-bc9a7b02359f",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 19851.909782242685,
-                                        "y": 18964.04181659865
+                                        "x": 19321.181298726955,
+                                        "y": 21824.264068711927
                                     },
                                     "targetPosition": {
-                                        "x": 19551.909782242685,
-                                        "y": 18964.04181659865
+                                        "x": 19031.403550840234,
+                                        "y": 21901.909782242685
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -952,18 +1024,18 @@
                             },
                             {
                                 "type": "Feature Contribution Claim",
-                                "name": "Tutorial Tab Feature Visual Designer",
+                                "name": "",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "5d6b30bc-4f05-4001-87ba-45cba35fe1ce",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 19764.04181659865,
-                                        "y": 19176.173850954612
+                                        "x": 19291.211171975567,
+                                        "y": 22051.909782242685
                                     },
                                     "targetPosition": {
-                                        "x": 19551.909782242685,
-                                        "y": 18964.04181659865
+                                        "x": 19031.403550840234,
+                                        "y": 21901.909782242685
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1011,18 +1083,18 @@
                             },
                             {
                                 "type": "Feature Contribution Claim",
-                                "name": "Node Menu Tool Tip Feature Visual Designer",
+                                "name": "",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "faa99198-6c04-4722-bbc2-f4dd4f9d297f",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 19551.909782242685,
-                                        "y": 19264.04181659865
+                                        "x": 19109.04926437099,
+                                        "y": 22191.687530129406
                                     },
                                     "targetPosition": {
-                                        "x": 19551.909782242685,
-                                        "y": 18964.04181659865
+                                        "x": 19031.403550840234,
+                                        "y": 21901.909782242685
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1064,12 +1136,12 @@
                         "id": "eb425c2c-6b7c-460d-a74e-650691f52fc7",
                         "savedPayload": {
                             "position": {
-                                "x": 19551.909782242685,
-                                "y": 18964.04181659865
+                                "x": 19031.403550840234,
+                                "y": 21901.909782242685
                             },
                             "targetPosition": {
-                                "x": 19339.77774788672,
-                                "y": 18751.909782242685
+                                "x": 18771.5959297049,
+                                "y": 21751.909782242685
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -1085,7 +1157,90 @@
                         }
                     }
                 ],
-                "positionClaimsFolders": [],
+                "positionClaimsFolders": [
+                    {
+                        "type": "Position Claims Folder",
+                        "name": "New Position Claims Folder",
+                        "config": "{}",
+                        "project": "Governance",
+                        "positionClaimsFolders": [],
+                        "positionContributionClaims": [
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Moderator Community Management",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "9c74a2a8-4bcf-42b7-b53d-7ba68f3acfc2",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 18926.887356766416,
+                                        "y": 22331.465278016127
+                                    },
+                                    "targetPosition": {
+                                        "x": 18849.24164323566,
+                                        "y": 22041.687530129406
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Moderator",
+                                        "id": "6e141ab6-cc79-44b6-a58a-60b6480f706e"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Rewarded Positions",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Community Management",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Moderator",
+                                            "Position"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "id": "be3ab259-2505-4200-a8cc-a373874aedb0",
+                        "savedPayload": {
+                            "position": {
+                                "x": 18849.24164323566,
+                                "y": 22041.687530129406
+                            },
+                            "targetPosition": {
+                                "x": 18771.5959297049,
+                                "y": 21751.909782242685
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
                 "tokensAwarded": {
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
@@ -1093,12 +1248,12 @@
                     "id": "9673136d-ac9a-40b7-bd6f-6c8c3fbbb384",
                     "savedPayload": {
                         "position": {
-                            "x": 19262.132034355964,
-                            "y": 19041.687530129406
+                            "x": 18621.5959297049,
+                            "y": 22011.717403378017
                         },
                         "targetPosition": {
-                            "x": 19339.77774788672,
-                            "y": 18751.909782242685
+                            "x": 18771.5959297049,
+                            "y": 21751.909782242685
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -1116,12 +1271,12 @@
                 "id": "cce1f59a-bb5d-4700-abf8-ab8d2932ff6a",
                 "savedPayload": {
                     "position": {
-                        "x": 19339.77774788672,
-                        "y": 18751.909782242685
+                        "x": 18771.5959297049,
+                        "y": 21751.909782242685
                     },
                     "targetPosition": {
-                        "x": 19262.132034355964,
-                        "y": 18462.132034355964
+                        "x": 18693.950216174144,
+                        "y": 21462.132034355964
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -1139,12 +1294,12 @@
             "id": "705bfab3-e851-4469-ab70-ac972950de6c",
             "savedPayload": {
                 "position": {
-                    "x": 19262.132034355964,
-                    "y": 18462.132034355964
+                    "x": 18693.950216174144,
+                    "y": 21462.132034355964
                 },
                 "targetPosition": {
-                    "x": 19050,
-                    "y": 18250
+                    "x": 18481.81818181818,
+                    "y": 21250
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1162,12 +1317,12 @@
         "id": "5683e2bf-45ca-4dd6-9ade-53b4cad76ed0",
         "savedPayload": {
             "position": {
-                "x": 19050,
-                "y": 18250
+                "x": 18481.81818181818,
+                "y": 21250
             },
             "targetPosition": {
-                "x": 18750,
-                "y": 18250
+                "x": 18181.81818181818,
+                "y": 21250
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1189,12 +1344,12 @@
         "id": "96f1c595-f94e-4207-9828-4199c74c4bfd",
         "savedPayload": {
             "position": {
-                "x": 18450,
-                "y": 18250
+                "x": 17881.81818181818,
+                "y": 21250
             },
             "targetPosition": {
-                "x": 18750,
-                "y": 18250
+                "x": 18181.81818181818,
+                "y": 21250
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1212,12 +1367,12 @@
     "id": "7af21baa-ebc0-436f-94a7-a1746209418e",
     "savedPayload": {
         "position": {
-            "x": 18750,
-            "y": 18250
+            "x": 18181.81818181818,
+            "y": 21250
         },
         "targetPosition": {
-            "x": 18750,
-            "y": 18250
+            "x": 18181.81818181818,
+            "y": 21250
         },
         "floatingObject": {
             "isPinned": false,

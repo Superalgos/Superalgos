@@ -24,6 +24,7 @@
     "addLeftIcons": true,
     "isPinned": true,
     "positionLocked": true,
+    "icon": "tensorflow",
     "childrenNodesProperties": [
         {
             "name": "projectDefinition",

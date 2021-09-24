@@ -8,9 +8,10 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
 
     let socketClient
 
-    let web3 = new SA.nodeModules.web3()
+    let web3
     let called = {}
     let selectedNetworkNode // This is a Network Node we pick to try to connect to.
+    let onMessageFunctionsMap = new Map()
 
     return thisObject
 
@@ -22,20 +23,20 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
 
         web3 = undefined
         called = undefined
+        onMessageFunctionsMap = undefined
     }
 
     async function initialize() {
         /*
         Here we will pick a Network Node from all users profiles available that do have a Network Node running. // TODO
         In the meantime, we will assume that we have chosen the following Network Node to connect to.
-        {
-            "githubUsername": "Test-Network-Node-Profile",
-            "address": "0xa153469c57A91F5a59Fc6c45A37aD8dbad85e417"
-        }        
+       
         */
+        web3 = new SA.nodeModules.web3()
+
         selectedNetworkNode = {
-            userProfileHandle: "Test-Network-Node-Profile",
-            blockchainAccount: "0xa153469c57A91F5a59Fc6c45A37aD8dbad85e417",
+            userProfileHandle: "Luis-Fernando-Molina",
+            blockchainAccount: "0xeBDCB7a73c4796ca9F025d005630eCe773dd9e54",
             ranking: 0,
             host: "localhost",
             port: global.env.NETWORK_WEB_SOCKETS_INTERFACE_PORT
@@ -86,7 +87,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             let message = {
                                 messageType: 'Handshake',
                                 callerRole: 'Network Client',
-                                callerProfileHandle: DK.TEST_NETWORK_CLIENT_USER_PROFILE_HANDLE,
+                                callerProfileHandle: SA.secrets.map.get('Social Trading Desktop').githubUsername,
                                 callerTimestamp: callerTimestamp,
                                 step: 'One'
                             }
@@ -123,7 +124,17 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             }
 
                             let signedMessage = JSON.parse(signature.message)
-
+                            /*
+                            We will verify that the signature belongs to the signature.message.
+                            To do this we will hash the signature.message and see if we get 
+                            the same hash of the signature.
+                            */
+                            let hash = web3.eth.accounts.hashMessage(signature.message)
+                            if (hash !== signature.messageHash) {
+                                console.log('[ERROR] Web Sockets Client -> stepOneResponse -> signature.message Hashed Does Not Match signature.messageHash.')
+                                reject()
+                                return
+                            }
                             /*
                             We will check that the Network Node that responded has the same User Profile Handle
                             that we have on record, otherwise something is wrong and we should not proceed.
@@ -137,7 +148,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             We will check that the profile handle we sent to the Network Node, is returned at the
                             signed message, to avoid man in the middle attackts.
                             */
-                            if (signedMessage.callerProfileHandle !== DK.TEST_NETWORK_CLIENT_USER_PROFILE_HANDLE) {
+                            if (signedMessage.callerProfileHandle !== SA.secrets.map.get('Social Trading Desktop').githubUsername) {
                                 console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node callerProfileHandle does not match my own userProfileHandle.')
                                 reject()
                                 return
@@ -167,7 +178,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             */
                             socketClient.onmessage = socketMessage => { stepTwoResponse(socketMessage) }
 
-                            let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), DK.TEST_NETWORK_CLIENT_USER_PROFILE_PRIVATE_KEY)
+                            let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get('Social Trading Desktop').privateKey)
 
                             let message = {
                                 messageType: 'Handshake',
@@ -185,12 +196,12 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                                 reject()
                                 return
                             }
-                            console.log('[INFO] Web Sockets Client -> stepTwoResponse -> response.message = ' + response.message)
                             /*
                             This was the end of the Handshake producere. We are connected to the 
                             Network Node and from now on, all response messages will be received
                             at this following function.
                             */
+                            socketClient.onmessage = socketMessage => { onMenssage(socketMessage) }
                             resolve()
                         }
                     }
@@ -217,37 +228,43 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
             if (socketClient.readyState !== 1) { // 1 means connected and ready.
                 console.log('[ERROR] Web Sockets Client -> sendMessage -> Cannot send message while connection is closed.')
                 reject('Websockets Connection Not Ready.')
+                return
             }
 
             let socketMessage = {
+                messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 messageType: 'Request',
                 payload: message
             }
-            socketClient.onmessage = socketMessage => { onMenssage(socketMessage) }
+            onMessageFunctionsMap.set(socketMessage.messageId, onMenssageFunction)
             socketClient.send(
                 JSON.stringify(socketMessage)
-                )
+            )
 
-            function onMenssage(socketMessage) {
+            function onMenssageFunction(response) {
                 try {
-
-                    let response = JSON.parse(socketMessage.data)
-                    /*
-                    Chack if we are waiting for the Handshake response.
-                    */
-
                     if (response.result === 'Ok') {
                         resolve(response.data)
                     } else {
-                        console.log('[ERROR] Web Sockets Client -> onMenssage -> response.message = ' + response.message)
+                        console.log('[ERROR] Web Sockets Client -> onMenssageFunction -> response.message = ' + response.message)
                         reject(response.message)
                     }
-
                 } catch (err) {
                     callbackFunction = undefined
                     console.log('[ERROR] Web Sockets Client -> err.stack = ' + err.stack)
                 }
             }
         }
+    }
+
+    function onMenssage(socketMessage) {
+
+        let response = JSON.parse(socketMessage.data)
+        /*
+        We get the functioin that is going to resolve or reject the promise given.
+        */
+        onMenssageFunction = onMessageFunctionsMap.get(response.messageId)
+        onMessageFunctionsMap.delete(response.messageId)
+        onMenssageFunction(response)
     }
 }

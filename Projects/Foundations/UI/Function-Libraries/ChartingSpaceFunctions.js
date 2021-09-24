@@ -98,21 +98,21 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
 
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
-            if (rootNode.type === 'Network') {
-                let networkNode = rootNode
-                scanNetworkNode(networkNode)
+            if (rootNode.type === 'LAN Network') {
+                let lanNetworkNode = rootNode
+                scanNetworkNode(lanNetworkNode)
             }
         }
 
-        function scanNetworkNode(networkNode) {
-            if (networkNode === undefined) { return }
+        function scanNetworkNode(lanNetworkNode) {
+            if (lanNetworkNode === undefined) { return }
 
-            let backtestingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Backtesting Session')
-            let fordwardTestingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Forward Testing Session')
-            let paperTradingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Paper Trading Session')
-            let liveTradingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Live Trading Session')
-            let backLearningSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Back Learning Session')
-            let liveLearningSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Live Learning Session')
+            let backtestingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Backtesting Session')
+            let fordwardTestingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Forward Testing Session')
+            let paperTradingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Paper Trading Session')
+            let liveTradingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Live Trading Session')
+            let backLearningSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Back Learning Session')
+            let liveLearningSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Live Learning Session')
 
             scanSessionArray(backtestingSessionsArray)
             scanSessionArray(fordwardTestingSessionsArray)
@@ -129,20 +129,20 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                     if (environment.id !== node.payload.referenceParent.id) { continue }
                     let market = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                     if (market.payload.referenceParent === undefined) { continue }
-                    if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, session, true) === true) {
-                        createTimeMachine(node, session, market.payload.referenceParent, networkNode, rootNodes)
+                    if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, session, true) === true) {
+                        createTimeMachine(node, session, market.payload.referenceParent, lanNetworkNode, rootNodes)
                     }
                 }
             }
         }
     }
 
-    function createTimeMachine(dashboard, session, market, networkNode, rootNodes) {
+    function createTimeMachine(dashboard, session, market, lanNetworkNode, rootNodes) {
         let mineProducts
         let timeMachine = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(dashboard, 'Time Machine')
         let exchange = market.payload.parentNode.payload.parentNode
         UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(timeMachine, session)
-        timeMachine.name = session.name + ' ' + session.type + ' ' + networkNode.name + ' ' + exchange.name + ' ' + market.name
+        timeMachine.name = session.name + ' ' + session.type + ' ' + lanNetworkNode.name + ' ' + exchange.name + ' ' + market.name
         timeMachine.payload.floatingObject.collapseToggle()
         timeMachine.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
         timeMachine.timeFrameScale.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
@@ -151,7 +151,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
         /*
         We will create 3 Time Line Charts for the Trading Mine Products
         */
-        mineProducts = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Trading Mine Products')
+        mineProducts = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Trading Mine Products')
         for (let j = 0; j < mineProducts.length; j++) {
             let mineProduct = mineProducts[j]
             /*
@@ -210,7 +210,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
         /*
         We will create 3 Time Line Charts for the Learning Mine Products
         */
-        mineProducts = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Learning Mine Products')
+        mineProducts = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Learning Mine Products')
         for (let j = 0; j < mineProducts.length; j++) {
             let mineProduct = mineProducts[j]
             /*
@@ -269,7 +269,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
         /*
         We need to create a Timeline Chart for each Data Mine Products.
         */
-        mineProducts = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Data Mine Products')
+        mineProducts = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Data Mine Products')
         for (let j = 0; j < mineProducts.length; j++) {
             let mineProduct = mineProducts[j]
             /*
@@ -302,7 +302,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
     function addMissingDashboards(node, rootNodes) {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
-            if (rootNode.type === 'Network') {
+            if (rootNode.type === 'LAN Network') {
                 let network = rootNode
                 scanNetwork(network)
             }
@@ -311,25 +311,25 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
         function scanNetwork(network) {
             if (network === undefined) { return }
 
-            for (let j = 0; j < network.networkNodes.length; j++) {
-                let networkNode = network.networkNodes[j]
-                scanNetworkNode(networkNode)
+            for (let j = 0; j < network.lanNetworkNodes.length; j++) {
+                let lanNetworkNode = network.lanNetworkNodes[j]
+                scanNetworkNode(lanNetworkNode)
             }
 
-            function scanNetworkNode(networkNode) {
-                let testingTradingTasks = UI.projects.foundations.utilities.branches.findInBranch(networkNode, 'Testing Trading Tasks', node, true)
-                let productionTradingTasks = UI.projects.foundations.utilities.branches.findInBranch(networkNode, 'Production Trading Tasks', node, true)
+            function scanNetworkNode(lanNetworkNode) {
+                let testingTradingTasks = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Testing Trading Tasks', node, true)
+                let productionTradingTasks = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Production Trading Tasks', node, true)
 
-                if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, testingTradingTasks, true) === true) {
+                if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, testingTradingTasks, true) === true) {
                     let dashboard = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
                     UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(dashboard, testingTradingTasks)
-                    dashboard.name = testingTradingTasks.type + ' ' + networkNode.name
+                    dashboard.name = testingTradingTasks.type + ' ' + lanNetworkNode.name
                 }
 
-                if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, productionTradingTasks, true) === true) {
+                if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, productionTradingTasks, true) === true) {
                     let dashboard = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
                     UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(dashboard, productionTradingTasks)
-                    dashboard.name = productionTradingTasks.type + ' ' + networkNode.name
+                    dashboard.name = productionTradingTasks.type + ' ' + lanNetworkNode.name
                 }
             }
         }
@@ -345,7 +345,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                 if (rootNode.type === project + ' Project') {
                     let projectDefinition = rootNode.projectDefinition
                     if (projectDefinition !== undefined) {
-                        if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, projectDefinition, true) === true) {
+                        if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, projectDefinition, true) === true) {
                             let projectTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Project Dashboards', undefined, project)
                             UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
                         }

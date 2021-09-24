@@ -1082,8 +1082,8 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Ethereum-Project-CL",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Ethereum-Project-CL\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
+                                "name": "Ethereum-Project-PL",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Ethereum-Project-PL\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
                                 "id": "6a48da6b-88ae-4ae0-8638-2473d66abe58",
                                 "savedPayload": {

@@ -21,7 +21,7 @@
         }
     ],
     "referencingRules": {
-        "compatibleTypes": "->Network Node->"
+        "compatibleTypes": "->LAN Network Node->"
     },
     "editors": {
         "config": true

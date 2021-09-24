@@ -69,6 +69,12 @@
             "type": "node",
             "childType": "Tokens Mined",
             "autoAdd": true
+        },
+        {
+            "name": "signingAccounts",
+            "type": "node",
+            "childType": "Signing Accounts",
+            "autoAdd": false
         }
     ]
 }

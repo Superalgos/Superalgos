@@ -62,12 +62,12 @@
     "id": "baa2f02c-2920-4edb-a103-d452fc61d82f",
     "savedPayload": {
         "position": {
-            "x": 20588.235294117643,
-            "y": 18250
+            "x": 40000,
+            "y": 21250
         },
         "targetPosition": {
-            "x": 20588.235294117643,
-            "y": 18250
+            "x": 40000,
+            "y": 21250
         },
         "floatingObject": {
             "isPinned": false,

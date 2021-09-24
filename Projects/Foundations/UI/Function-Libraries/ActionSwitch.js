@@ -779,6 +779,16 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.socialBotsFunctions.sendSlackTestMessage(action.node, action.callBackFunction)
                 }
                 break
+            case 'Save node to be moved':
+            {
+                UI.projects.foundations.spaces.floatingSpace.saveFloatingObjectToBeMoved()
+            }
+                break
+            case 'Snap saved node to position':
+            {
+                UI.projects.foundations.spaces.floatingSpace.moveFloatingObject(action.node.payload.position)
+            }
+                break
         }
     }
 }

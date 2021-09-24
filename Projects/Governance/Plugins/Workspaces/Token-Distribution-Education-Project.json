@@ -1082,8 +1082,8 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Education-Project-CL",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Education-Project-CL\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
+                                "name": "Education-Project-PL",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Education-Project-PL\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
                                 "id": "eefc0ae6-0364-4c0e-84ba-138ba30e6ce8",
                                 "savedPayload": {

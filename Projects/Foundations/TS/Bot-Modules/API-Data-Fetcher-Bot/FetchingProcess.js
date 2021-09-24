@@ -462,11 +462,11 @@ exports.newFoundationsBotModulesFetchingProcess = function (processIndex) {
                                         break
                                     }
                                     case '@BeginCurrentMinute': {
-                                        parameterValue = Math.trunc((new Date()).valueOf() / TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
+                                        parameterValue = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
                                         break
                                     }
                                     case '@EndCurrentMinute': {
-                                        parameterValue = Math.trunc((new Date()).valueOf() / TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS + TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1
+                                        parameterValue = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS + SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1
                                         break
                                     }
                                 }
@@ -582,7 +582,7 @@ exports.newFoundationsBotModulesFetchingProcess = function (processIndex) {
                                 Now that we have the endpointNode, the parameters and all the information 
                                 needed to place the call to the API.
                                 */
-                                const fetch = require('node-fetch')
+                                const fetch = SA.nodeModules.nodeFetch
                                 let url = protocol + '://' +
                                     hostName +
                                     portNumber +
@@ -922,8 +922,8 @@ exports.newFoundationsBotModulesFetchingProcess = function (processIndex) {
                                 file.month = file.date.getUTCMonth() + 1
                                 file.day = file.date.getUTCDate()
                                 let dateForPath = file.year + '/' +
-                                    TS.projects.foundations.utilities.miscellaneousFunctions.pad(file.month, 2) + '/' +
-                                    TS.projects.foundations.utilities.miscellaneousFunctions.pad(file.day, 2)
+                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.month, 2) + '/' +
+                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.day, 2)
 
                                 /* We will need to save this at the Status Report */
                                 contextVariables.lastFile = file.date

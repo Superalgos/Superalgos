@@ -301,6 +301,13 @@ function newCircularMenuItem() {
 
     function onMouseOver(point) {
         if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {
+            let text = thisObject.action
+
+            if(thisObject.payload.uiObject.payload.referenceParent !== undefined && thisObject.action === 'Reference Detach'){
+                text = text + ' -> [Existing Reference] Type : [' + thisObject.payload.uiObject.payload.referenceParent.type + '] , Name : [' + thisObject.payload.uiObject.payload.referenceParent.name + ']'
+            }
+
+            thisObject.payload.uiObject.setInfoMessage(text)
             isMouseOver = true
         } else {
             isMouseOver = false

@@ -249,7 +249,7 @@
                         type: 'Time Range',
                         config: {
                             initialDatetime: (new Date()).valueOf(),
-                            finalDatetime: (new Date()).valueOf() + TS.projects.foundations.globals.timeConstants.ONE_YEAR_IN_MILISECONDS
+                            finalDatetime: (new Date()).valueOf() + SA.projects.foundations.globals.timeConstants.ONE_YEAR_IN_MILISECONDS
                         }
                     }
                 } else {
@@ -300,8 +300,8 @@
 
                 /* Session Type Forced Values */
                 let today = (new Date()).valueOf()
-                let aYearAgo = today - TS.projects.foundations.globals.timeConstants.ONE_YEAR_IN_MILISECONDS
-                let aYearFromNow = today + TS.projects.foundations.globals.timeConstants.ONE_YEAR_IN_MILISECONDS
+                let aYearAgo = today - SA.projects.foundations.globals.timeConstants.ONE_YEAR_IN_MILISECONDS
+                let aYearFromNow = today + SA.projects.foundations.globals.timeConstants.ONE_YEAR_IN_MILISECONDS
                 switch (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type) {
                     case 'Backtesting Session': {
                         useDefaultDatetimes(aYearAgo, today)

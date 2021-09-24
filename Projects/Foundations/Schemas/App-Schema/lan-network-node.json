@@ -1,0 +1,107 @@
+{
+    "type": "LAN Network Node",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "dataTasks",
+            "label": "Add Data Tasks",
+            "relatedUiObject": "Data Tasks",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "learningTasks",
+            "label": "Add Learning Tasks",
+            "relatedUiObject": "Learning Tasks",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "testingTradingTasks",
+            "label": "Add Testing Trading Tasks",
+            "relatedUiObject": "Testing Trading Tasks",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "productionTradingTasks",
+            "label": "Add Production Trading Tasks",
+            "relatedUiObject": "Production Trading Tasks",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "dataStorage",
+            "label": "Add Data Storage",
+            "relatedUiObject": "Data Storage",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"host\": \"localhost\", \n\"webPort\": \"34248\", \n\"webSocketsPort\": \"18041\"\n}"
+    },
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "level": 1,
+    "attachingRules": {
+        "compatibleTypes": "->LAN Network->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "dataTasks",
+            "type": "node",
+            "childType": "Data Tasks",
+            "autoAdd": true
+        },
+        {
+            "name": "learningTasks",
+            "type": "node",
+            "childType": "Learning Tasks",
+            "autoAdd": true
+        },
+        {
+            "name": "testingTradingTasks",
+            "type": "node",
+            "childType": "Testing Trading Tasks",
+            "autoAdd": true
+        },
+        {
+            "name": "productionTradingTasks",
+            "type": "node",
+            "childType": "Production Trading Tasks",
+            "autoAdd": true
+        },
+        {
+            "name": "dataStorage",
+            "type": "node",
+            "childType": "Data Storage",
+            "autoAdd": true
+        }
+    ],
+    "propertyNameAtParent": "lanNetworkNodes"
+}

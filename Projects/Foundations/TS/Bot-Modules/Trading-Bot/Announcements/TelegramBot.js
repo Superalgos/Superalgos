@@ -22,7 +22,7 @@ exports.newFoundationsBotModulesTelegramBot = function (processIndex) {
 
             thisObject.chatId = chatId
 
-            const Telegraf = require('telegraf')
+            const { Telegraf } = SA.nodeModules.telegraf
 
             thisObject.telegramBot = new Telegraf(botToken)
             thisObject.telegramBot.start((ctx) => ctx.reply('Hi! I am the Telegram Bot that will tell you what happens with your trading session.'))
@@ -41,9 +41,7 @@ exports.newFoundationsBotModulesTelegramBot = function (processIndex) {
 
             thisObject.telegramBot.launch()
 
-            const Telegram = require('telegraf/telegram')
-
-            thisObject.telegramAPI = new Telegram(botToken)
+            thisObject.telegramAPI = thisObject.telegramBot.telegram
 
             const message = "Telegram bot is starting. For assistance type /help."
             thisObject.telegramAPI.sendMessage(thisObject.chatId, message)

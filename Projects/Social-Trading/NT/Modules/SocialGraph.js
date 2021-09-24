@@ -1,4 +1,4 @@
-exports.newSocialGraph = function newSocialGraph() {
+exports.newNetworkModulesSocialGraph = function newNetworkModulesSocialGraph() {
     /*
     This module represents the Social Graph Service that 
     this deals with the Social Graph this node mantains. 

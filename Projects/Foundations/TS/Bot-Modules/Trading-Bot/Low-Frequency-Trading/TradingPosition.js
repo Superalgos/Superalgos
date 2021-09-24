@@ -513,7 +513,7 @@ exports.newFoundationsBotModulesTradingPosition = function (processIndex) {
             /* Days Calculation */
             tradingEngine.tradingCurrent.position.positionStatistics.days.value =
                 tradingEngine.tradingCurrent.position.positionCounters.periods.value *
-                sessionParameters.timeFrame.config.value / TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+                sessionParameters.timeFrame.config.value / SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
 
             tradingEngine.tradingCurrent.position.positionStatistics.days.value = TS.projects.foundations.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.position.positionStatistics.days.value, 10)
         }

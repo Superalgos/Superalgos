@@ -2,6 +2,6 @@ console.log('Superalgos is growing! In addition to the Platform for algo-traders
 console.log('')
 console.log('For that reason, the "node run" command has been deprecated. Please, use one of these instead:')
 console.log('')
-console.log('node platform --------------- Runs the Superalgos Platform for algo-tarders.')
+console.log('node platform --------------- Runs the Superalgos Platform for algo-traders.')
 console.log('node network  --------------- Runs the P2P Network for social trading.')
 console.log('node desktop  --------------- Runs the Desktop App for crypto users.')

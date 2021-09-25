@@ -80,6 +80,7 @@ function newCircularMenu() {
             menuItem.angle = menuItemInitialValue.angle
             menuItem.currentStatus = menuItemInitialValue.currentStatus
             menuItem.relatedUiObject = menuItemInitialValue.relatedUiObject
+            menuItem.relatedUiObjectProject = menuItemInitialValue.relatedUiObjectProject
             menuItem.dontShowAtFullscreen = menuItemInitialValue.dontShowAtFullscreen
             menuItem.askConfirmation = menuItemInitialValue.askConfirmation
             menuItem.confirmationLabel = menuItemInitialValue.confirmationLabel

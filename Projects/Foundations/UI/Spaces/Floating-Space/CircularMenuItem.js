@@ -39,6 +39,7 @@ function newCircularMenuItem() {
         container: undefined,
         payload: undefined,
         relatedUiObject: undefined,
+        relatedUiObjectProject: undefined,
         dontShowAtFullscreen: undefined,
         isEnabled: true,
         shorcutNumber: undefined,
@@ -263,13 +264,18 @@ function newCircularMenuItem() {
             thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
             thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
         } else {
-            if (thisObject.label === "Add Dependency Product Folder") { console.log ("Test") }
+
             if (thisObject.relatedUiObject !== undefined && thisObject.iconProject !== undefined) {
                 thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.iconProject, thisObject.relatedUiObject)
                 thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.iconProject, thisObject.relatedUiObject)
             } else if (thisObject.relatedUiObject !== undefined && thisObject.iconProject === undefined) {
-                thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
-                thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
+                if (thisObject.relatedUiObjectProject !== undefined) {
+                    thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.relatedUiObjectProject, thisObject.relatedUiObject)
+                    thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.relatedUiObjectProject, thisObject.relatedUiObject)
+                } else {
+                    thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
+                    thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
+                }
             } else {
                 if (thisObject.iconPathOn !== undefined && thisObject.iconPathOff !== undefined && thisObject.iconProject !== undefined) {
                     thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.iconPathOn)
@@ -303,7 +309,7 @@ function newCircularMenuItem() {
         if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {
             let text = thisObject.action
 
-            if(thisObject.payload.uiObject.payload.referenceParent !== undefined && thisObject.action === 'Reference Detach'){
+            if (thisObject.payload.uiObject.payload.referenceParent !== undefined && thisObject.action === 'Reference Detach') {
                 text = text + ' -> [Existing Reference] Type : [' + thisObject.payload.uiObject.payload.referenceParent.type + '] , Name : [' + thisObject.payload.uiObject.payload.referenceParent.name + ']'
             }
 
@@ -485,32 +491,33 @@ function newCircularMenuItem() {
             iconSize = UI.projects.foundations.spaces.floatingSpace.style.node.menuItem.imageSize
         }
 
-        if (thisObject.icon === undefined) { return }
-        if (thisObject.icon.canDrawIcon === true && thisObject.currentRadius > 1 && thisObject.isDeployed === true) {
-            browserCanvasContext.drawImage(thisObject.icon, menuPosition.x - iconSize, menuPosition.y - iconSize, iconSize * 2, iconSize * 2)
+        if (thisObject.icon !== undefined) {
+            if (thisObject.icon.canDrawIcon === true && thisObject.currentRadius > 1 && thisObject.isDeployed === true) {
+                browserCanvasContext.drawImage(thisObject.icon, menuPosition.x - iconSize, menuPosition.y - iconSize, iconSize * 2, iconSize * 2)
+            }
+        }
 
-            /* Menu Label */
-            if (thisObject.type === 'Icon & Text') {
-                label = labelToPrint
-                if (thisObject.shorcutNumber !== undefined) {
-                    label = '' + thisObject.shorcutNumber + '- ' + labelToPrint
+        /* Menu Label */
+        if (thisObject.type === 'Icon & Text') {
+            label = labelToPrint
+            if (thisObject.shorcutNumber !== undefined) {
+                label = '' + thisObject.shorcutNumber + '- ' + labelToPrint
+            }
+
+            let labelPoint
+            let fontSize = UI.projects.foundations.spaces.floatingSpace.style.node.menuItem.fontSize
+
+            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+
+            if (thisObject.currentRadius >= thisObject.targetRadius) {
+                labelPoint = {
+                    x: menuPosition.x + thisObject.currentRadius + 25,
+                    y: menuPosition.y + fontSize * FONT_ASPECT_RATIO
                 }
-
-                let labelPoint
-                let fontSize = UI.projects.foundations.spaces.floatingSpace.style.node.menuItem.fontSize
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-
-                if (thisObject.currentRadius >= thisObject.targetRadius) {
-                    labelPoint = {
-                        x: menuPosition.x + thisObject.currentRadius + 25,
-                        y: menuPosition.y + fontSize * FONT_ASPECT_RATIO
-                    }
-
-                    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-                    browserCanvasContext.fillStyle = 'rgba(' + UI.projects.foundations.spaces.floatingSpace.style.node.menuItem.fontColor + ', 1)'
-                    browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
-                }
+                browserCanvasContext.fillStyle = 'rgba(' + UI.projects.foundations.spaces.floatingSpace.style.node.menuItem.fontColor + ', 1)'
+                browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
             }
         }
     }

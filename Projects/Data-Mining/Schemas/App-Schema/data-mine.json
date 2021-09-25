@@ -35,6 +35,7 @@
             "action": "Add UI Object",
             "label": "Add Plotter",
             "relatedUiObject": "Plotter",
+            "relatedUiObjectProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "actionProject": "Foundations"
         },

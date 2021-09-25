@@ -10,8 +10,8 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Data Mien",
-            "relatedUiObject": "Data Mien",
+            "label": "Add Data Mine",
+            "relatedUiObject": "Data Mine",
             "actionFunction": "payload.executeAction",
             "actionProject": "Foundations"
         },

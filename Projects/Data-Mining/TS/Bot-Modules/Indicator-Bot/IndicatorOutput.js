@@ -1,4 +1,4 @@
-﻿exports.newFoundationsBotModulesIndicatorOutput = function (processIndex) {
+﻿exports.newDataMiningBotModulesIndicatorOutput = function (processIndex) {
     /*
     This module coordinates the actions to be taken to generate an indicator output.
     It is used from both Multi-Time-Frame-Market and Multi-Time-Frame-Daily frameworks.

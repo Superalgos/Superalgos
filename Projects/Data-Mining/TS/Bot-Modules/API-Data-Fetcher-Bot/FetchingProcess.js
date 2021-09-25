@@ -1,5 +1,5 @@
 
-exports.newFoundationsBotModulesFetchingProcess = function (processIndex) {
+exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
 
     const MODULE_NAME = "Fetching Process";
 

@@ -1,5 +1,5 @@
 ﻿
-exports.newFoundationsBotModulesCheckWebhook = function (processIndex) {
+exports.newDataMiningBotModulesCheckWebhook = function (processIndex) {
 
     const MODULE_NAME = "Check Webhooks";
     const FOLDER_NAME = "External-Signals";

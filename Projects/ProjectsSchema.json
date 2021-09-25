@@ -520,114 +520,6 @@
             ],
             "botModules": [
                 {
-                    "name": "Single Market Sensor Bot",
-                    "propertyName": "singleMarketSensorBot",
-                    "functionName": "newFoundationsBotModulesSingleMarketSensorBot",
-                    "fileName": "SingleMarketSensorBot.js",
-                    "folderName": "Sensor-Bot",
-                    "botType": "Sensor Bot"
-                },
-                {
-                    "name": "Exchange Raw Data Historic OHLCVs",
-                    "propertyName": "historicOHLCVs",
-                    "functionName": "newFoundationsBotModulesHistoricOHLCVs",
-                    "fileName": "HistoricOHLCVs.js",
-                    "folderName": "Sensor-Bot/Exchange-Raw-Data"
-                },
-                {
-                    "name": "Webhooks Check Webhook",
-                    "propertyName": "checkWebhook",
-                    "functionName": "newFoundationsBotModulesCheckWebhook",
-                    "fileName": "CheckWebhook.js",
-                    "folderName": "Sensor-Bot/Webhooks"
-                },
-                {
-                    "name": "Single Market API Data Fetcher Bot",
-                    "propertyName": "singleMarketAPIDataFetcherBot",
-                    "functionName": "newFoundationsBotModulesSingleMarketAPIDataFetcherBot",
-                    "fileName": "SingleMarketAPIDataFetcherBot.js",
-                    "folderName": "API-Data-Fetcher-Bot",
-                    "botType": "API Data Fetcher Bot"
-                },
-                {
-                    "name": "API Data Fetcher Fetching Process",
-                    "propertyName": "fetchingProcess",
-                    "functionName": "newFoundationsBotModulesFetchingProcess",
-                    "fileName": "FetchingProcess.js",
-                    "folderName": "API-Data-Fetcher-Bot"
-                },
-                {
-                    "name": "Single Market Indicator Bot",
-                    "propertyName": "singleMarketIndicatorBot",
-                    "functionName": "newFoundationsBotModulesSingleMarketIndicatorBot",
-                    "fileName": "SingleMarketIndicatorBot.js",
-                    "folderName": "Indicator-Bot",
-                    "botType": "Indicator Bot"
-                },
-                {
-                    "name": "Candles Volumes Multi Time Frame Daily",
-                    "propertyName": "candlesVolumesMultiTimeFrameDaily",
-                    "functionName": "newFoundationsBotModulesCandlesVolumesMultiTimeFrameDaily",
-                    "fileName": "CandlesVolumesMultiTimeFrameDaily.js",
-                    "folderName": "Indicator-Bot/Candles-Volumes"
-                },
-                {
-                    "name": "Candles Volumes Multi Time Frame Market",
-                    "propertyName": "candlesVolumesMultiTimeFrameMarket",
-                    "functionName": "newFoundationsBotModulesCandlesVolumesMultiTimeFrameMarket",
-                    "fileName": "CandlesVolumesMultiTimeFrameMarket.js",
-                    "folderName": "Indicator-Bot/Candles-Volumes"
-                },
-                {
-                    "name": "Bollinger Bands Multi Time Frame Daily",
-                    "propertyName": "bollingerBandsMultiTimeFrameDaily",
-                    "functionName": "newFoundationsBotModulesBollingerBandsMultiTimeFrameDaily",
-                    "fileName": "BollingerBandsMultiTimeFrameDaily.js",
-                    "folderName": "Indicator-Bot/Bollinger-Bands"
-                },
-                {
-                    "name": "Bollinger Bands Multi Time Frame Market",
-                    "propertyName": "bollingerBandsMultiTimeFrameMarket",
-                    "functionName": "newFoundationsBotModulesBollingerBandsMultiTimeFrameMarket",
-                    "fileName": "BollingerBandsMultiTimeFrameMarket.js",
-                    "folderName": "Indicator-Bot/Bollinger-Bands"
-                },
-                {
-                    "name": "Multi Time Frame Market",
-                    "propertyName": "multiTimeFrameMarket",
-                    "functionName": "newFoundationsBotModulesMultiTimeFrameMarket",
-                    "fileName": "MultiTimeFrameMarket.js",
-                    "folderName": "Indicator-Bot"
-                },
-                {
-                    "name": "Multi Time Frame Daily",
-                    "propertyName": "multiTimeFrameDaily",
-                    "functionName": "newFoundationsBotModulesMultiTimeFrameDaily",
-                    "fileName": "MultiTimeFrameDaily.js",
-                    "folderName": "Indicator-Bot"
-                },
-                {
-                    "name": "From One Min To Multi Time Frame Market",
-                    "propertyName": "fromOneMinToMultiTimeFrameMarket",
-                    "functionName": "newFoundationsBotModulesFromOneMinToMultiTimeFrameMarket",
-                    "fileName": "FromOneMinToMultiTimeFrameMarket.js",
-                    "folderName": "Indicator-Bot"
-                },
-                {
-                    "name": "From One Min To Multi Time Frame Daily",
-                    "propertyName": "fromOneMinToMultiTimeFrameDaily",
-                    "functionName": "newFoundationsBotModulesFromOneMinToMultiTimeFrameDaily",
-                    "fileName": "FromOneMinToMultiTimeFrameDaily.js",
-                    "folderName": "Indicator-Bot"
-                },
-                {
-                    "name": "Indicator Output",
-                    "propertyName": "indicatorOutput",
-                    "functionName": "newFoundationsBotModulesIndicatorOutput",
-                    "fileName": "IndicatorOutput.js",
-                    "folderName": "Indicator-Bot"
-                },
-                {
                     "name": "Single Market Trading Bot",
                     "propertyName": "singleMarketTradingBot",
                     "functionName": "newFoundationsBotModulesSingleMarketTradingBot",
@@ -937,7 +829,118 @@
                 }
             ]
         },
-        "TS": {}
+        "TS": {
+            "botModules":[
+                {
+                    "name": "Single Market Sensor Bot",
+                    "propertyName": "singleMarketSensorBot",
+                    "functionName": "newDataMiningBotModulesSingleMarketSensorBot",
+                    "fileName": "SingleMarketSensorBot.js",
+                    "folderName": "Sensor-Bot",
+                    "botType": "Sensor Bot"
+                },
+                {
+                    "name": "Exchange Raw Data Historic OHLCVs",
+                    "propertyName": "historicOHLCVs",
+                    "functionName": "newDataMiningBotModulesHistoricOHLCVs",
+                    "fileName": "HistoricOHLCVs.js",
+                    "folderName": "Sensor-Bot/Exchange-Raw-Data"
+                },
+                {
+                    "name": "Single Market API Data Fetcher Bot",
+                    "propertyName": "singleMarketAPIDataFetcherBot",
+                    "functionName": "newDataMiningBotModulesSingleMarketAPIDataFetcherBot",
+                    "fileName": "SingleMarketAPIDataFetcherBot.js",
+                    "folderName": "API-Data-Fetcher-Bot",
+                    "botType": "API Data Fetcher Bot"
+                },
+                {
+                    "name": "API Data Fetcher Fetching Process",
+                    "propertyName": "fetchingProcess",
+                    "functionName": "newDataMiningBotModulesFetchingProcess",
+                    "fileName": "FetchingProcess.js",
+                    "folderName": "API-Data-Fetcher-Bot"
+                },
+                {
+                    "name": "Single Market Indicator Bot",
+                    "propertyName": "singleMarketIndicatorBot",
+                    "functionName": "newDataMiningBotModulesSingleMarketIndicatorBot",
+                    "fileName": "SingleMarketIndicatorBot.js",
+                    "folderName": "Indicator-Bot",
+                    "botType": "Indicator Bot"
+                },
+                {
+                    "name": "Candles Volumes Multi Time Frame Daily",
+                    "propertyName": "candlesVolumesMultiTimeFrameDaily",
+                    "functionName": "newDataMiningBotModulesCandlesVolumesMultiTimeFrameDaily",
+                    "fileName": "CandlesVolumesMultiTimeFrameDaily.js",
+                    "folderName": "Indicator-Bot/Candles-Volumes"
+                },
+                {
+                    "name": "Candles Volumes Multi Time Frame Market",
+                    "propertyName": "candlesVolumesMultiTimeFrameMarket",
+                    "functionName": "newDataMiningBotModulesCandlesVolumesMultiTimeFrameMarket",
+                    "fileName": "CandlesVolumesMultiTimeFrameMarket.js",
+                    "folderName": "Indicator-Bot/Candles-Volumes"
+                },
+                {
+                    "name": "Bollinger Bands Multi Time Frame Daily",
+                    "propertyName": "bollingerBandsMultiTimeFrameDaily",
+                    "functionName": "newDataMiningBotModulesBollingerBandsMultiTimeFrameDaily",
+                    "fileName": "BollingerBandsMultiTimeFrameDaily.js",
+                    "folderName": "Indicator-Bot/Bollinger-Bands"
+                },
+                {
+                    "name": "Bollinger Bands Multi Time Frame Market",
+                    "propertyName": "bollingerBandsMultiTimeFrameMarket",
+                    "functionName": "newDataMiningBotModulesBollingerBandsMultiTimeFrameMarket",
+                    "fileName": "BollingerBandsMultiTimeFrameMarket.js",
+                    "folderName": "Indicator-Bot/Bollinger-Bands"
+                },
+                {
+                    "name": "Multi Time Frame Market",
+                    "propertyName": "multiTimeFrameMarket",
+                    "functionName": "newDataMiningBotModulesMultiTimeFrameMarket",
+                    "fileName": "MultiTimeFrameMarket.js",
+                    "folderName": "Indicator-Bot"
+                },
+                {
+                    "name": "Multi Time Frame Daily",
+                    "propertyName": "multiTimeFrameDaily",
+                    "functionName": "newDataMiningBotModulesMultiTimeFrameDaily",
+                    "fileName": "MultiTimeFrameDaily.js",
+                    "folderName": "Indicator-Bot"
+                },
+                {
+                    "name": "From One Min To Multi Time Frame Market",
+                    "propertyName": "fromOneMinToMultiTimeFrameMarket",
+                    "functionName": "newDataMiningBotModulesFromOneMinToMultiTimeFrameMarket",
+                    "fileName": "FromOneMinToMultiTimeFrameMarket.js",
+                    "folderName": "Indicator-Bot"
+                },
+                {
+                    "name": "From One Min To Multi Time Frame Daily",
+                    "propertyName": "fromOneMinToMultiTimeFrameDaily",
+                    "functionName": "newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily",
+                    "fileName": "FromOneMinToMultiTimeFrameDaily.js",
+                    "folderName": "Indicator-Bot"
+                },
+                {
+                    "name": "Indicator Output",
+                    "propertyName": "indicatorOutput",
+                    "functionName": "newDataMiningBotModulesIndicatorOutput",
+                    "fileName": "IndicatorOutput.js",
+                    "folderName": "Indicator-Bot"
+                },
+                {
+                    "name": "Webhooks Check Webhook",
+                    "propertyName": "checkWebhook",
+                    "functionName": "newDataMiningBotModulesCheckWebhook",
+                    "fileName": "CheckWebhook.js",
+                    "folderName": "Sensor-Bot/Webhooks"
+                }
+            ]
+        }
     },
     {
         "name": "Ethereum",

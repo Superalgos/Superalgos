@@ -1,4 +1,4 @@
-﻿exports.newFoundationsBotModulesHistoricOHLCVs = function (processIndex) {
+﻿exports.newDataMiningBotModulesHistoricOHLCVs = function (processIndex) {
 
     const MODULE_NAME = "Historic OHLCVs";
     const CANDLES_FOLDER_NAME = "Candles/One-Min";

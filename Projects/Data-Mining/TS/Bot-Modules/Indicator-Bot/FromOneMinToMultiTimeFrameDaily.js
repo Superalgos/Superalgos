@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesFromOneMinToMultiTimeFrameDaily = function (processIndex) {
+exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily = function (processIndex) {
     /*
         This module is about converting a One-Min Daily typeo of data set into a Multi Time Frame Daily type.
 

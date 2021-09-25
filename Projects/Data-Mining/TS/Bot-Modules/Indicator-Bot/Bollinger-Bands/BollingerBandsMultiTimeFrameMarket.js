@@ -1,4 +1,4 @@
-﻿exports.newFoundationsBotModulesBollingerBandsMultiTimeFrameMarket = function (processIndex) {
+﻿exports.newDataMiningBotModulesBollingerBandsMultiTimeFrameMarket = function (processIndex) {
 
     const MODULE_NAME = "Bollinger Bands Multi Time Frame Market"
     const CANDLES_FOLDER_NAME = "Candles"

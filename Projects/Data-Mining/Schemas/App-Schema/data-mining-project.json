@@ -1,0 +1,42 @@
+{
+    "type": "Data-Mining Project",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Foundations Project",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "isProjectHead": true,
+    "isTitleAllwaysVisible": false,
+    "addLeftIcons": true,
+    "isPinned": true,
+    "positionLocked": true,
+    "icon": "data-mining",
+    "childrenNodesProperties": [
+        {
+            "name": "projectDefinition",
+            "type": "node",
+            "childType": "Project Definition",
+            "project": "Foundations",
+            "autoAdd": true
+        },
+        {
+            "name": "mines",
+            "type": "node",
+            "childType": "Mines",
+            "project": "Foundations",
+            "autoAdd": true
+        }
+    ]
+}

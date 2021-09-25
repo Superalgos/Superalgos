@@ -90,7 +90,7 @@
         },
         {
             "style": "Json",
-            "text": "\"botModules\": [\n                {\n                    \"name\": \"Candles Volumes Multi Time Frame Market\",\n                    \"propertyName\": \"candlesVolumesMultiTimeFrameMarket\",\n                    \"functionName\": \"newFoundationsBotModulesCandlesVolumesMultiTimeFrameMarket\",\n                    \"fileName\": \"CandlesVolumesMultiTimeFrameMarket.js\",\n                    \"folderName\": \"Indicator-Bot/Candles-Volumes\"\n                },",
+            "text": "\"botModules\": [\n                {\n                    \"name\": \"Candles Volumes Multi Time Frame Market\",\n                    \"propertyName\": \"candlesVolumesMultiTimeFrameMarket\",\n                    \"functionName\": \"newDataMiningBotModulesCandlesVolumesMultiTimeFrameMarket\",\n                    \"fileName\": \"CandlesVolumesMultiTimeFrameMarket.js\",\n                    \"folderName\": \"Indicator-Bot/Candles-Volumes\"\n                },",
             "updated": 1621703869144
         },
         {

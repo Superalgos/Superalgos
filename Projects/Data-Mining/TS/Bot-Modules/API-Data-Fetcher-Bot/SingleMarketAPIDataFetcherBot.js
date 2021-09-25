@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesSingleMarketAPIDataFetcherBot = function (processIndex) {
+exports.newDataMiningBotModulesSingleMarketAPIDataFetcherBot = function (processIndex) {
 
     const MODULE_NAME = "Single Market API Data Fetcher Bot";
 
@@ -41,7 +41,8 @@ exports.newFoundationsBotModulesSingleMarketAPIDataFetcherBot = function (proces
                 let botModuleDefinition = TS.projects.foundations.functionLibraries.taskFunctions.getBotModuleByName(
                     TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.botModule
                 )
-                let project = TS.projects[TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName.toLowerCase()]
+                let projectCodeName = TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName
+                let project = TS.projects[PROJECTS_SCHEMA_MAP.get(projectCodeName).propertyName]
                 let botModule = project.botModules[botModuleDefinition.propertyName]
                 let moduleFunction = botModule[botModuleDefinition.functionName]
                 botModuleObject = moduleFunction(processIndex)

@@ -1,7 +1,7 @@
-exports.newFoundationsBotModulesSnapshots = function (processIndex) {
+exports.newFoundationsBotModulesSnapshots = function(processIndex) {
     /*
-    This module encapsulates the snapshots functionality.
-    */
+      This module encapsulates the snapshots functionality.
+      */
     const MODULE_NAME = 'Snapshots'
 
     let thisObject = {
@@ -28,20 +28,21 @@ exports.newFoundationsBotModulesSnapshots = function (processIndex) {
         positions: []
     }
 
-    let positionKeys = new Map()            // This is to prevent adding the same indicator / variable to the output collection.
+    let positionKeys = new Map() // This is to prevent adding the same indicator / variable to the output collection.
     let strategyKeys = new Map()
-    let createHeaders = true                // This is going to be true only once
-    let createCloseHeaders = true           // This is going to be true only once
+    let createHeaders = true // This is going to be true only once
+    let createCloseHeaders = true // This is going to be true only once
     let closeValues
     let strategyValues
     let addToStrategyValues
     let positionValues
     let addToPositionValues
+    let snapshotAvailable = false
 
     /* 
-    These 3 are the main data structures available to users
-    when writing conditions and formulas.
-    */
+      These 3 are the main data structures available to users
+      when writing conditions and formulas.
+      */
     let chart
     let exchange
     let market
@@ -52,9 +53,20 @@ exports.newFoundationsBotModulesSnapshots = function (processIndex) {
         tradingEngine = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine
         tradingSystem = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem
         sessionParameters = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters
+            // first trade forces overwrite of the existing file
+        if (tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value > 1) {
+            snapshotAvailable = true
+            createHeaders = false // This is going to be true only once
+            createCloseHeaders = false
+        }
     }
 
     function finalize() {
+        //trigger exits added for extra save moment for datapreserve
+        if (tradingEngine.tradingCurrent.strategy.begin.value > 0) {
+            strategyExit()
+            positionExit()
+        }
         writeSnapshotFiles()
         tradingEngine = undefined
         tradingSystem = undefined
@@ -70,9 +82,9 @@ exports.newFoundationsBotModulesSnapshots = function (processIndex) {
 
     function updateChart(pChart, pExchange, pMarket) {
         /* 
-        We need these 3 data structures  to be a local objects 
-        accessible while evaluating conditions and formulas.
-        */
+            We need these 3 data structures  to be a local objects 
+            accessible while evaluating conditions and formulas.
+            */
         chart = pChart
         exchange = pExchange
         market = pMarket
@@ -80,9 +92,9 @@ exports.newFoundationsBotModulesSnapshots = function (processIndex) {
 
     function strategyEntry() {
         /* 
-        We will record here a snapshot of all values used in conditions and formulas within the Trading System. 
-        If the strategy exists with a trade, this information will be added to the snapshots file.
-        */
+            We will record here a snapshot of all values used in conditions and formulas within the Trading System. 
+            If the strategy exists with a trade, this information will be added to the snapshots file.
+            */
 
         strategyKeys = new Map()
         strategyValues = []
@@ -147,24 +159,26 @@ exports.newFoundationsBotModulesSnapshots = function (processIndex) {
                 let property = schemaDocument.childrenNodesProperties[i]
 
                 switch (property.type) {
-                    case 'node': {
-                        if (property.name !== previousPropertyName) {
+                    case 'node':
+                        {
+                            if (property.name !== previousPropertyName) {
+                                if (node[property.name] !== undefined) {
+                                    evalNode(node[property.name])
+                                }
+                                previousPropertyName = property.name
+                            }
+                            break
+                        }
+                    case 'array':
+                        {
                             if (node[property.name] !== undefined) {
-                                evalNode(node[property.name])
+                                let nodePropertyArray = node[property.name]
+                                for (let m = 0; m < nodePropertyArray.length; m++) {
+                                    evalNode(nodePropertyArray[m])
+                                }
                             }
-                            previousPropertyName = property.name
+                            break
                         }
-                        break
-                    }
-                    case 'array': {
-                        if (node[property.name] !== undefined) {
-                            let nodePropertyArray = node[property.name]
-                            for (let m = 0; m < nodePropertyArray.length; m++) {
-                                evalNode(nodePropertyArray[m])
-                            }
-                        }
-                        break
-                    }
                 }
             }
         }
@@ -173,10 +187,10 @@ exports.newFoundationsBotModulesSnapshots = function (processIndex) {
     function evalCondition(node) {
 
         /*
-        The code can be at the condition node if it was done with the Conditions Editor, or it can also be
-        at a Javascript Code node. If there is a Javascript object we will give it preference and take the code
-        from there. Otherwise we will take the code from the Condition node.
-        */
+            The code can be at the condition node if it was done with the Conditions Editor, or it can also be
+            at a Javascript Code node. If there is a Javascript object we will give it preference and take the code
+            from there. Otherwise we will take the code from the Condition node.
+            */
 
         let nodeWithCode = node
         if (node.javascriptCode !== undefined) {
@@ -219,6 +233,7 @@ exports.newFoundationsBotModulesSnapshots = function (processIndex) {
                     let product = parts[2]
                     let property
                     checkPrevious(3)
+
                     function checkPrevious(index) {
                         property = parts[index]
                         if (property === 'previous') {
@@ -233,7 +248,6 @@ exports.newFoundationsBotModulesSnapshots = function (processIndex) {
                     }
                     let key = timeFrame + '-' + product + '-' + property
                     let existingKey
-
                     if (addToStrategyValues === true) {
                         addValues(strategyKeys, strategyValues)
                     }
@@ -293,19 +307,36 @@ exports.newFoundationsBotModulesSnapshots = function (processIndex) {
 
     function getResults(openDatetime, closeDatetime) {
 
-        let closeHeaders = ['Trade Number', 'Open Datetime', 'Close Datetime', 'Strategy Name', 'Trigger On Situation', 'Take Position Situation', 'Result In Base Asset', 'Result In Quoted Asset', 'ROI in Base Asset', 'ROI in Quoted Asset', 'Exit Type']
+        let baseOpen = tradingEngine.tradingCurrent.strategyCloseStage.stageBaseAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyCloseStage.stageBaseAsset.feesPaid.value
+        let baseClose = tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.feesPaid.value
+        let quoteOpen = tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.feesPaid.value
+        let quoteClose = tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.feesPaid.value
+        let qouteProfit = ((quoteClose / quoteOpen * 100) - 100)
+        let baseProfit = ((baseClose / baseOpen * 100) - 100)
+
+        let closeHeaders = ['Trade Number', 'Open Datetime', 'Close Datetime', 'Strategy Name', 'Trigger On Situation', 'Take Position Situation', 'Open Position in Base Asset', 'Close Position in Base Asset', 'Open Position in Quoted Asset', 'Close Position in Quoted Asset', 'Result In Base Asset', 'Result In Quoted Asset', 'ROI in Base Asset', '% P/L Base Asset', 'P/L Type Base Asset', 'ROI in Quoted Asset', '% P/L Quoted Asset', 'P/L Type Quoted Asset', 'Exit Type', '# Periods']
         closeValues = [
-            tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value,                                     // Position Number
-            (new Date(openDatetime)).toISOString(),                                                            // Open Datetime
-            (new Date(closeDatetime)).toISOString(),                                                           // Open Datetime
-            tradingEngine.tradingCurrent.strategy.strategyName.value,                                                 // Strategy Name
-            tradingEngine.tradingCurrent.strategy.situationName.value,                                                // Trigger On Situation
-            tradingEngine.tradingCurrent.position.situationName.value,                                                // Take Position Situation
-            tradingEngine.tradingCurrent.position.positionBaseAsset.hitFail.value,                                    // Result in Base Asset
-            tradingEngine.tradingCurrent.position.positionQuotedAsset.hitFail.value,                                  // Result in Base Asset
-            tradingEngine.tradingCurrent.position.positionBaseAsset.ROI.value,                                        // ROI in Base Asseet
-            tradingEngine.tradingCurrent.position.positionQuotedAsset.ROI.value,                                      // ROI in Quoted Asset
-            tradingEngine.tradingCurrent.position.exitType.value                                                      // Exit Type
+            tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value, // Position Number
+            (new Date(openDatetime)).toISOString(), // Open Datetime
+            (new Date(closeDatetime)).toISOString(), // Open Datetime
+            tradingEngine.tradingCurrent.strategy.strategyName.value, // Strategy Name
+            tradingEngine.tradingCurrent.strategy.situationName.value, // Trigger On Situation
+            tradingEngine.tradingCurrent.position.situationName.value, // Take Position Situation
+            baseOpen, // open position in base asset
+            baseClose, // close position in base asset
+            quoteOpen, //open quote in base asset
+            quoteClose, // close quote in base asset
+            tradingEngine.tradingCurrent.position.positionBaseAsset.hitFail.value, // Result in Base Asset
+            tradingEngine.tradingCurrent.position.positionQuotedAsset.hitFail.value, // Result in Base Asset
+            tradingEngine.tradingCurrent.position.positionBaseAsset.ROI.value, // ROI in Base Asset <- not sure this works as intended
+            baseProfit + '%', // % profit / loss in base Asset
+            baseProfit === 0 ? 'Even' : (baseProfit > 0 ? "Profit" : "Loss"),
+
+            tradingEngine.tradingCurrent.position.positionQuotedAsset.ROI.value, // ROI in Quoted Asset <- not sure this works as intended
+            qouteProfit + '%', // % profit loss in quoted Asset
+            qouteProfit === 0 ? 'Even' : (qouteProfit > 0 ? "Profit" : "Loss"),
+            tradingEngine.tradingCurrent.position.exitType.value, // Exit Type
+            tradingEngine.tradingCurrent.position.positionCounters.periods.value // periods counter
         ]
 
         if (createCloseHeaders === true) {
@@ -333,46 +364,118 @@ exports.newFoundationsBotModulesSnapshots = function (processIndex) {
         try {
             let fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex);
 
-            let fileContent = "";
-            let separator = "\r\n";
+            let fileName = pFileName + '.csv'
 
-            parseRecord(snapshots.headers)
-
-            for (let i = 0; i < snapshotArray.length; i++) {
-                let record = snapshotArray[i];
-                parseRecord(record)
-            }
-
-            function parseRecord(record) {
-                for (let j = 0; j < record.length; j++) {
-                    let property = record[j]
-
-                    fileContent = fileContent + '' + property
-                    if (j !== record.length - 1) {
-                        fileContent = fileContent + ","
-                    }
-                }
-                fileContent = fileContent + separator
-            }
-
-            fileContent = "" + fileContent + "";
-
-            let fileName = pFileName + '.csv';
-            let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + "/" + SNAPSHOTS_FOLDER_NAME;
+            let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + '/Output/' + TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + '/' + SNAPSHOTS_FOLDER_NAME;
             filePath += '/' + fileName
 
-            fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
+            //Get contents of current file if available, otherwise start empty file
+            if (snapshotAvailable) {
+                getSnapShotFile(filePath)
+            } else {
+                writeOutput('')
+            }
 
-            function onFileCreated(err) {
-                if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] writeSnapshotFile -> onFileCreated -> err = " + err.stack);
-                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] writeSnapshotFile -> onFileCreated -> filePath = " + filePath);
-                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] writeSnapshotFile -> onFileCreated -> market = " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName);
+            function writeOutput(fileContent) {
+                let separator = '\r\n';
+                let contentArray = [];
+
+                // if we have file content extract rows
+                if (fileContent != '') {
+                    contentArray = fileContent.split(separator)
+                }
+
+                parseRecord(snapshots.headers)
+                for (let i = 0; i < snapshotArray.length; i++) {
+                    let record = snapshotArray[i];
+                    if (record.length > 0) {
+                        parseRecord(record)
+                    }
+                }
+
+                function parseRecord(record) {
+                    // if we have undefined values, we need to extract the previous stored values for this trade and append them to the new record for completion
+                    if (record[record.length - 1] === undefined && contentArray.length > 0) {
+
+                        let rowToMutateArray = contentArray[contentArray.length - 1].split(',')
+                            // check if are for sure on the same tradenumber and merge the data and remove previous line incl separator
+                        if (rowToMutateArray[0] == record[0]) {
+                            record.pop()
+                            rowToMutateArray.splice(0, record.length)
+                            record = record.concat(rowToMutateArray)
+                            fileContent = fileContent.replace(contentArray[contentArray.length - 1], '')
+                            fileContent = fileContent.replace(/\r\n$/, '')
+                        }
+                    }
+                    for (let j = 0; j < record.length; j++) {
+                        let property = record[j]
+
+                        fileContent = fileContent + '' + property
+                        if (j !== record.length - 1) {
+                            fileContent = fileContent + ","
+                        }
+                    }
+                    fileContent = fileContent + separator
+                }
+
+                fileContent = "" + fileContent + "";
+
+                fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
+
+                function onFileCreated(err) {
+                    if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] writeSnapshotFile -> onFileCreated -> err = ' + err.stack);
+                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] writeSnapshotFile -> onFileCreated -> filePath = ' + filePath);
+                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] writeSnapshotFile -> onFileCreated -> market = ' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '_' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName);
+                    }
                 }
             }
+
+        } catch (err) {
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(
+                processIndex
+            ).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(
+                MODULE_NAME,
+                '[ERROR] writeSnapshotFile -> err = ' + err.stack
+            )
         }
-        catch (err) {
-            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] writeSnapshotFile -> err = " + err.stack);
+        //get file contents
+        function getSnapShotFile(filePath) {
+
+            try {
+
+                let fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex);
+
+                fileStorage.getTextFile(filePath, onFileReceived)
+
+                function onFileReceived(err, text) {
+                    if (err.result === TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+                        try {
+                            // remove the last linebreak and seperator which is introduced extra during save
+                            text = text.replace(/\n$/, '')
+                            text = text.replace(/\r\n$/, '')
+                            writeOutput(text)
+                        } catch (err) {
+                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> fileName = ' + filePath);
+                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> filePath = ' + filePath);
+                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> err = ' + err.stack);
+                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.');
+                            callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                        }
+                    } else {
+                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> err = ' + err.stack);
+                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> filePath = ' + filePath);
+                        TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err;
+                        callBackFunction(err)
+                    }
+                }
+
+            } catch (error) {
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> err = ' + err.stack);
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> filePath = ' + filePath);
+                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err;
+                callBackFunction(err);
+            }
         }
     }
 }

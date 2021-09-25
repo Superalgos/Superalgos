@@ -19330,7 +19330,7 @@
         },
         {
             "type": "Indicator Bot",
-            "name": "Relative Strenght Index (RSI)",
+            "name": "Relative Strength Index (RSI)",
             "config": "{\n\"codeName\": \"RSI\"\n}",
             "project": "Foundations",
             "processes": [
@@ -19383,7 +19383,7 @@
                                                 "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                             ],
                                             [
-                                                "Relative Strenght Index (RSI)",
+                                                "Relative Strength Index (RSI)",
                                                 "Indicator Bot",
                                                 "Foundations",
                                                 "b2fc1830-30e3-407a-9cd2-ab93a9e36cc7"
@@ -19535,7 +19535,7 @@
                                                 "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                             ],
                                             [
-                                                "Relative Strenght Index (RSI)",
+                                                "Relative Strength Index (RSI)",
                                                 "Indicator Bot",
                                                 "Foundations",
                                                 "b2fc1830-30e3-407a-9cd2-ab93a9e36cc7"
@@ -19829,7 +19829,7 @@
                                                 "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                             ],
                                             [
-                                                "Relative Strenght Index (RSI)",
+                                                "Relative Strength Index (RSI)",
                                                 "Indicator Bot",
                                                 "Foundations",
                                                 "b2fc1830-30e3-407a-9cd2-ab93a9e36cc7"
@@ -19920,7 +19920,7 @@
                                                 "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                             ],
                                             [
-                                                "Relative Strenght Index (RSI)",
+                                                "Relative Strength Index (RSI)",
                                                 "Indicator Bot",
                                                 "Foundations",
                                                 "b2fc1830-30e3-407a-9cd2-ab93a9e36cc7"
@@ -20717,7 +20717,7 @@
                                     "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                 ],
                                 [
-                                    "Relative Strenght Index (RSI)",
+                                    "Relative Strength Index (RSI)",
                                     "Plotter",
                                     "Foundations",
                                     "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -38266,7 +38266,7 @@
         },
         {
             "type": "Plotter",
-            "name": "Relative Strenght Index (RSI)",
+            "name": "Relative Strength Index (RSI)",
             "config": "{\n\"codeName\": \"Plotter RSI\"\n}",
             "project": "Foundations",
             "modules": [
@@ -39291,7 +39291,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -39363,7 +39363,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -39435,7 +39435,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -39507,7 +39507,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -39664,7 +39664,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -39736,7 +39736,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -39808,7 +39808,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -39880,7 +39880,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -40037,7 +40037,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -40109,7 +40109,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -40181,7 +40181,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -40253,7 +40253,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -40410,7 +40410,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -40482,7 +40482,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -40554,7 +40554,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -40626,7 +40626,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -40783,7 +40783,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -40855,7 +40855,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -41012,7 +41012,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -41084,7 +41084,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -41241,7 +41241,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -41313,7 +41313,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -41470,7 +41470,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -41542,7 +41542,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -41699,7 +41699,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -41771,7 +41771,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -41985,7 +41985,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -42057,7 +42057,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -42214,7 +42214,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -42286,7 +42286,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -42358,7 +42358,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"
@@ -42430,7 +42430,7 @@
                                                         "63b3bd4b-97da-47a7-8f72-b9eaf0632ebb"
                                                     ],
                                                     [
-                                                        "Relative Strenght Index (RSI)",
+                                                        "Relative Strength Index (RSI)",
                                                         "Plotter",
                                                         "Foundations",
                                                         "d87c1a49-c376-404b-98ff-62feac714c64"

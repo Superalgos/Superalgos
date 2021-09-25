@@ -34,6 +34,12 @@ exports.newSocialTradingModulesQuery = function newSocialTradingModulesQuery() {
                 break
             }
 
+            case SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_USER_PROFILES: {
+                thisObject.query = NT.projects.socialTrading.modules.queriesUnfollowedUserProfiles.newSocialTradingModulesQueriesUnfollowedUserProfiles()
+                thisObject.query.initialize(queryReceived)
+                break
+            }
+
             case SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_STATS: {
                 thisObject.query = NT.projects.socialTrading.modules.queriesUserProfileStats.newSocialTradingModulesQueriesUserProfileStats()
                 thisObject.query.initialize(queryReceived)
@@ -70,7 +76,7 @@ exports.newSocialTradingModulesQuery = function newSocialTradingModulesQuery() {
                 break
             }
 
-            case SA.projects.socialTrading.globals.queryTypes.maps.EVENTS: {
+            case SA.projects.socialTrading.globals.queryTypes.EVENTS: {
                 thisObject.query = NT.projects.socialTrading.modules.queriesEvents.newSocialTradingModulesQueriesEvents()
                 thisObject.query.initialize(queryReceived)
                 break

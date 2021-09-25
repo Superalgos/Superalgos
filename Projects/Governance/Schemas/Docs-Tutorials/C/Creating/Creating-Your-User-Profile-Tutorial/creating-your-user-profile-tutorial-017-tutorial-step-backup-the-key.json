@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Ahora que tienes un nuevo User Profile, hablemos un poco más sobre esa clave privada.",
-                "updated": 1630889083782,
+                "text": "Necesitas la copia de seguridad de la clave privada para luego importar tu dirección de gobierno en una billetera criptográfica.",
+                "updated": 1632014909086,
                 "style": "Definition"
             }
         ]
@@ -26,8 +26,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Necesitas la clave privada para agregar tu dirección de gobierno a una billetera criptográfica. Superalgos lo genera localmente en tu computadora. Esto significa que no hay nadie más que tenga acceso o conocimiento de su clave, siempre que su máquina sea segura.",
-                    "updated": 1630889987656,
+                    "text": "Superalgos genera la clave privada localmente. Nadie más en el mundo tiene acceso o conocimiento de tu clave, siempre que su máquina sea segura.",
+                    "updated": 1632014575112,
                     "style": "Text"
                 }
             ]
@@ -39,8 +39,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": " ¡Debes hacer una copia de seguridad de tu clave privada!",
-                    "updated": 1630890021587,
+                    "text": "Algunas personas imprimen varias copias de la clave privada para almacenarla en diferentes lugares. Recuerda la mayoría de los casos de criptomonedas perdidas involucran personas que pierden claves, ¡no hackeos!",
+                    "updated": 1632014671513,
                     "style": "Warning"
                 }
             ]
@@ -51,8 +51,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Al vincular una dirección anterior, no necesitarás guardar la clave privada, pero debes hacer una copia de seguridad del contenido del constructor por seguridad.",
-                    "updated": 1630890278006,
+                    "text": "Al vincular una dirección anterior, no necesitarás guardar la clave privada, pero debes hacer un Backup del contenido del constructor.",
+                    "updated": 1632016270585,
                     "style": "Note"
                 }
             ]

@@ -22,13 +22,288 @@
     font-style: normal;
   }
   
-  kbd {
-    padding: 2px 8px;
-    font-size: 125%;
-    font-weight: 500;
+  .body{
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .scroll-div {
+    position:absolute; 
+    overflow-y: scroll;
+    overflow-x: hidden;
+    top:0px; 
+    left:0px;
+    vertical-align: top;
+    height: 100%;
+    width: 100%;
     color: #000;
-    background-color: #bcd643;
-    border-radius: 5px;
-    border-style: outset;
+    border-color: blue;
+    background-color: transparent;    
+    border-width: 0px;
+  }
+
+  .static-div {
+    position: fixed;
+    top:0px; 
+    left:18%;
+    width: 100%;
+    height: 100%;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    background:transparent;
+    border-width: 0px;
+    border-collapse: collapse;
+  }
+
+  .content-div {
+    position:relative; 
+    vertical-align: top;
+    height: 100%;
+    width: 30%;
+    left: 31.2%;
+    color: #000;
+    border-color: blue;
+    background-color:transparent;
     border-width: 1px;
+  }
+
+  .post-placeholder {
+    vertical-align: top;
+    height: 50px;
+    width: 100%;
+    color: #000;
+    border-color: blue;
+    background-color: transparent;
+    border-width: 0px;
+  }
+
+  .post-div {
+    vertical-align: top;
+    height: 300px;
+    width: 100%;
+    color: #000;
+    border-color: blue;
+    background-color: transparent;
+    border-width: 0px;
+  }
+
+  .new-post-div {
+    vertical-align: top;
+    height: 300px;
+    width: 100%;
+    color: #000;
+    border-color: blue;
+    background-color: transparent;
+    border-width: 0px;
+  }
+
+  .page-table {
+    top:0px; 
+    left:18%;
+    width: 64%;
+    height: 100%;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    background:transparent;
+    border-width: 0px;
+    border-collapse: collapse;
+  }
+
+  .left-column {
+    position:relative; 
+    top:0px; 
+    width: 20%;
+    height: 100%;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    border-width: 0px;
+  }
+
+  .middle-column {
+    position:relative; 
+    top:0px; 
+    width: 50%;
+    height: 100%;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    border-width: 0px;
+  }
+
+  .right-column {
+    position:relative; 
+    top:0px; 
+    left:0px;
+    width: 30%;
+    height: 100%;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    border-width: 0px;
+  }
+
+  .left-table {
+    position:relative; 
+    width: 100%;
+    height: 100%;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    border-width: 0px;
+    border-collapse: collapse;
+  }
+
+  .logo-cell {
+    vertical-align: top;
+    width: 100%;
+    height: 70px;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    border-width: 0px;
+  }
+
+  .menu-cell {
+    vertical-align: top;
+    width: 100%;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    border-width: 0px;
+  }
+
+  .profile-cell {
+    vertical-align: bottom;
+    width: 100%;
+    height: 50px;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    border-width: 0px;
+  }
+
+  .middle-table {
+    position:relative; 
+    width: 100%;
+    height: 100%;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    border-width: 0px;
+    border-collapse: collapse;
+  }
+
+  .content-title-cell {
+    vertical-align: top;
+    width: 100%;
+    height: 50px;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    border-width: 0px;
+    background-color: #ffffff;    
+  }
+
+  .content-cell {
+    vertical-align: top;
+    width: 100%;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    border-width: 0px;
+  }
+
+  .right-table {
+    position:relative; 
+    width: 100%;
+    height: 100%;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    border-width: 0px;
+    border-collapse: collapse;
+  }
+
+  .search-cell {
+    vertical-align: top;
+    width: 100%;
+    height: 50px;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    border-width: 0px;
+  }
+
+  .context-cell {
+    vertical-align: top;
+    width: 100%;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    border-width: 0px;
+    background:transparent;
+  }
+
+  .menu-table {
+    position:relative; 
+    width: 100%;
+    height: 65%;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    border-width: 0px;
+    border-collapse: collapse;
+  }
+
+  .menu-item-cell {
+    vertical-align: top;
+    width: 100%;
+    height: 50px;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    border-width: 0px;
+  }
+
+  .who-to-follow-table {
+    position:relative; 
+    width: 100%;
+    height: 30%;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    border-width: 0px;
+    border-collapse: collapse;
+  }
+
+  .profile-to-follow-table {
+    position:relative; 
+    width: 100%;
+    height: 30%;
+    padding: 0; 
+    margin: 0;
+    color: #000;
+    border-width: 0px;
+    border-collapse: collapse;
+  }
+
+  .profile-to-follow-span {
+    float: right;
+  }
+
+  .profile-to-follow-button {
+    float: right;
+    background-color: green;
+  }
+
+  .profile-to-unfollow-span {
+    float: right;
+  }
+
+  .profile-to-unfollow-button {
+    float: right;
+    background-color: red;
   }

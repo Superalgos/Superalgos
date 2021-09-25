@@ -4,14 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Network",
-            "relatedUiObject": "Network",
-            "actionFunction": "payload.executeAction"
-        },
-        {
-            "action": "Add UI Object",
-            "label": "Add Tutorial",
-            "iconProject": "Education",
-            "relatedUiObject": "Tutorial",
+            "relatedUiObject": "LAN Network",
             "actionFunction": "payload.executeAction"
         },
         {

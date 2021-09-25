@@ -42,7 +42,7 @@ You may install Node.JS just like you would on any other machine as per the abov
 **NOTE:** It is best to use the most current and updated version of the FULL PiOS image.
 
 ```
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 ```
 Followed by:
 ```
@@ -101,7 +101,7 @@ Before you begin, it is recommended that you set up Chrome/Safari as your defaul
 
 **IMPORTANT:** Use Chrome/Safari so that you have a similar environment as the dev team in case you need help. We are not testing on any other browsers, and it is a well-known fact that browsers behave differently.
 
-# Superalgos Client Installation
+# Superalgos Platform Client Installation
 
 ## 1. Fork the Superalgos Repository
 
@@ -213,7 +213,7 @@ If you are having difficulty running the node setup command here are a few commo
 
 ## 1. Run the Client and GUI
 
-**A.** To run Superalgos, go to the Superalgos directory/folder and run this command:
+To run Superalgos, go to the Superalgos directory/folder and run this command:
 
 ```
 node platform
@@ -225,7 +225,17 @@ A Welcome Tutorial pops-up automatically. You must do this Tutorial to finish th
 
 ![run-the-system-01](https://user-images.githubusercontent.com/13994516/107037804-e5fc6200-67bb-11eb-82f2-d0f40247fa14.gif)
 
+Alternatively, you may use any of the automatically installed desktop and start menu shortcuts to launch Superalgos.
+
+**NOTE:** Shortcuts are not currently supported on Mac. Collaborators are needed to finish this feature.
+
+
+<hr>
+
+**RUNNING THE CLIENT FOR HEADLESS RASPBERRY PI USERS**
+
 If you are running a headless Raspberry Pi (one without a screen) you may need to change directories first and run Superalgos with the `minMemo` and `noBrowser` options.
+
 ```
 cd Superalgos
 ```
@@ -234,11 +244,9 @@ then
 node platform  minMemo noBrowser
 ```
 
-In addition, you may use any of the automatically installed desktop and start menu shortcuts to launch Superalgos.
+<hr>
 
-**NOTE:** Shortcuts are not currently supported on Mac. Collaborators are needed to finish this feature.
-
-**B.** Enable Desktop Shortcut on Ubuntu
+**NOTE FOR UBUNTU USERS**: Enable Desktop Shortcut
 
 The majority of shortcuts that are automatically installed will work out of the box. Desktop shortcuts on Ubuntu, however, require a few additional steps to set up.
 
@@ -275,7 +283,7 @@ If you're running Superalgos on a headless linux server like a Raspberry Pi, you
 Create a `superalgos.service` file looking like this (change `<user>` to your user name and `/path/to/Superalgos` to your Superalgos folder, for instance `/home/John/Superalgos`):
 ```
 [Unit]
-Description=Superalgos client
+Description=Superalgos Platform Client
 
 [Service]
 Type=simple

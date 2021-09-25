@@ -38,7 +38,7 @@ exports.newFoundationsBotModulesDiscordBot = function (processIndex) {
     function finalize() {}
 
     function sendMessage(message) {
-        const https = require('https')
+        const https = SA.nodeModules.https
 
         try {
             message = formatMessage(message)

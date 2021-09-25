@@ -2,7 +2,10 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
 
     let thisObject = {
         getDirectories: getDirectories,
-        getAllFilesInDirectoryAndSubdirectories: getAllFilesInDirectoryAndSubdirectories
+        getAllFilesInDirectoryAndSubdirectories: getAllFilesInDirectoryAndSubdirectories,
+        pathFromDate: pathFromDate,
+        pathFromDatetime: pathFromDatetime, 
+        mkDirByPathSync: mkDirByPathSync
     }
 
     return thisObject
@@ -19,8 +22,8 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
     }
 
     function getAllFilesInDirectoryAndSubdirectories(dir, callback) {
-        const { promisify } = require('util');
-        const { resolve } = require('path');
+        const { promisify } = SA.nodeModules.util
+        const { resolve } = SA.nodeModules.path;
         const fs = SA.nodeModules.fs;
         const readdir = promisify(fs.readdir);
         const stat = promisify(fs.stat);
@@ -50,5 +53,70 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
             }));
             return files.reduce((a, f) => a.concat(f), []);
         }
+    }
+
+    function pathFromDate(timestamp) {
+        
+        let file = { date: new Date(timestamp) }
+        
+        file.year = file.date.getUTCFullYear()
+        file.month = file.date.getUTCMonth() + 1
+        file.day = file.date.getUTCDate()
+        
+        return file.year + '/' +
+            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.month, 2) + '/' +
+            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.day, 2)
+    }
+
+    function pathFromDatetime(timestamp) {
+        
+        let file = { date: new Date(timestamp) }
+        
+        file.year = file.date.getUTCFullYear()
+        file.month = file.date.getUTCMonth() + 1
+        file.day = file.date.getUTCDate()
+        file.hour = file.date.getUTCHours()
+        file.minute = file.date.getMinutes()
+
+        return file.year + '/' +
+            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.month, 2) + '/' +
+            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.day, 2) + '/' +
+            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.hour, 2) + '/' +
+            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.minute, 2)
+    }
+
+    /* Function to create folders of missing folders at any path. */
+    function mkDirByPathSync(targetDir, { isRelativeToScript = false } = {}) {
+        const path = SA.nodeModules.path
+
+        targetDir = targetDir.substring(0, targetDir.lastIndexOf('/') + 1);
+
+        const sep = '/';
+        const initDir = path.isAbsolute(targetDir) ? sep : '';
+        const baseDir = isRelativeToScript ? __dirname : '.';
+
+        return targetDir.split(sep).reduce((parentDir, childDir) => {
+            const curDir = path.resolve(baseDir, parentDir, childDir);
+            try {
+                const fs = SA.nodeModules.fs
+                fs.mkdirSync(curDir);
+            } catch (err) {
+                if (err.code === 'EEXIST') { // curDir already exists!
+                    return curDir;
+                }
+
+                // To avoid `EISDIR` error on Mac and `EACCES`-->`ENOENT` and `EPERM` on Windows.
+                if (err.code === 'ENOENT') { // Throw the original parentDir error on curDir `ENOENT` failure.
+                    throw new Error(`EACCES: permission denied, mkdir '${parentDir}'`);
+                }
+
+                const caughtErr = ['EACCES', 'EPERM', 'EISDIR'].indexOf(err.code) > -1;
+                if (!caughtErr || caughtErr && curDir === path.resolve(targetDir)) {
+                    throw err; // Throw if it's just the last created dir.
+                }
+            }
+
+            return curDir;
+        }, initDir);
     }
 }

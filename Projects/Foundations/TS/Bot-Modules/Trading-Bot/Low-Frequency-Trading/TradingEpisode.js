@@ -113,7 +113,7 @@ exports.newFoundationsBotModulesTradingEpisode = function (processIndex) {
         tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.days.value =
             tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.periods.value *
             sessionParameters.timeFrame.config.value /
-            TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+            SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
     }
 
     function cycleBasedStatistics() {

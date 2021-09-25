@@ -1,6 +1,6 @@
 exports.newFileStorage = function newFileStorage(processIndex, host, port) {
 
-    const ip = require("ip");
+    const ip = SA.nodeModules.ip
     const MODULE_NAME = 'FileStorage'
     const MAX_RETRY = 10
     const FAST_RETRY_TIME_IN_MILISECONDS = 500
@@ -8,16 +8,17 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
 
     let thisObject = {
         asyncGetTextFile: asyncGetTextFile,
-        asyncCreateTextFile: asyncCreateTextFile, 
+        asyncCreateTextFile: asyncCreateTextFile,
         getTextFile: getTextFile,
         createTextFile: createTextFile,
         deleteTextFile: deleteTextFile
     }
 
-    
+
     let logger
     if (TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT === undefined) { // Dummy logger
         logger = {}
+
         function write() {
 
         }
@@ -31,16 +32,17 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
         /* This function allows its caller to work with async / await instead of callbacks */
         let promise = new Promise((resolve, reject) => {
 
-            getTextFile(filePath, onFileRead, noRetry, canUsePrevious) 
+            getTextFile(filePath, onFileRead, noRetry, canUsePrevious)
+
             function onFileRead(err, text) {
- 
+
                 let response = {
                     err: err,
                     text: text
                 }
                 resolve(response)
             }
-          })
+        })
 
         return promise
     }
@@ -49,15 +51,16 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
         /* This function allows its caller to work with async / await instead of callbacks */
         let promise = new Promise((resolve, reject) => {
 
-            createTextFile(filePath, fileContent, onFileWriten, keepPrevious, noTemp) 
+            createTextFile(filePath, fileContent, onFileWriten, keepPrevious, noTemp)
+
             function onFileWriten(err) {
- 
+
                 let response = {
                     err: err
                 }
                 resolve(response)
             }
-          })
+        })
 
         return promise
     }
@@ -78,8 +81,13 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
                 fileLocation = global.env.PATH_TO_PROJECTS + '/' + filePath
                 mustBeJason = false
             } else {
+                if (filePath.indexOf('.csv') > 0) {
+                    mustBeJason = false
+                } else {
+                    mustBeJason = true
+                }
                 fileLocation = global.env.PATH_TO_DATA_STORAGE + '/' + filePath
-                mustBeJason = true
+
             }
 
             try {
@@ -89,7 +97,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
                 /* Here we actually reaad the file. */
                 if (host === undefined || host === 'localhost' || host === ip.address() || host === '127.0.0.1') {
                     /* We read the file from the local file system. */
-                    const fs = require('fs')
+                    const fs = SA.nodeModules.fs
                     fs.readFile(fileLocation, onFileRead)
                 } else {
                     /* We read the file via a web server over http */
@@ -145,7 +153,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
                     }
 
                     /*
-                    We are going to check if the file is a valir JSON object
+                    We are going to check if the file is a valid JSON object
                     */
                     try {
                         let jsonCheck = JSON.parse(text.toString())
@@ -161,7 +169,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
 
                             if (host === undefined || host === 'localhost' || host === ip.address() || host === '127.0.0.1') {
                                 /* We read the file from the local file system. */
-                                const fs = require('fs')
+                                const fs = SA.nodeModules.fs
                                 fs.readFile(fileLocation + '.Previous.json', onPreviousFileRead)
                             } else {
                                 /* We read the file via a web server over http */
@@ -244,13 +252,13 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
                 logger.write(MODULE_NAME, '[INFO] FileStorage -> createTextFile -> fileLocation: ' + fileLocation)
 
                 /* If necesary a folder or folders are created before writing the file to disk. */
-                TS.projects.foundations.utilities.miscellaneousFunctions.mkDirByPathSync(fileLocation)
+                SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(fileLocation)
 
                 /*
                 Here we write the file with a temporary name so as to avoid dirty read from other processes.
                 Then we delete the original file, if exists, and finally we rename the temporary into the original name.
                 */
-                const fs = require('fs')
+                const fs = SA.nodeModules.fs
                 if (noTemp === true) {
                     fs.writeFile(fileLocation, fileContent, onFileWriten)
                 } else {
@@ -400,7 +408,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
 
                 logger.write(MODULE_NAME, '[INFO] FileStorage -> deleteTextFile -> fileLocation: ' + fileLocation)
 
-                const fs = require('fs')
+                const fs = SA.nodeModules.fs
                 fs.unlink(fileLocation, onUnlinked)
 
                 function onUnlinked(err) {
@@ -447,7 +455,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
             /* The filePath received is the one that is needed to fetch data from with fs. To do it via http we need to remove the prefix that includes this: ./Data-Storage/  */
             filePath = filePath.substring(15, filePath.length)
 
-            let http = require('http');
+            let http = SA.nodeModules.http
             let url = 'http://' + host +
                 ':' + port +
                 '/Storage/' +
@@ -457,7 +465,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
 
             let request = http.get(url, onResponse);
 
-            request.on('error', function (err) {
+            request.on('error', function(err) {
                 logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> onError -> err = " + err.stack);
                 logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> onError -> Failed to fetch file via HTTP. Will retry later. ");
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);

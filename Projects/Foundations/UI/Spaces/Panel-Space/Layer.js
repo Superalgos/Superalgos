@@ -23,7 +23,7 @@ function newLayer() {
         plotterTypeIcon: undefined,
         baseAssetIcon: undefined,
         quotedAssetIcon: undefined,
-        networkNode: undefined,
+        lanNetworkNode: undefined,
         checkStatusAtShutDown: checkStatusAtShutDown,
         physics: physics,
         draw: draw,
@@ -132,7 +132,7 @@ function newLayer() {
         thisObject.plotterTypeIcon = undefined
         thisObject.baseAssetIcon = undefined
         thisObject.quotedAssetIcon = undefined
-        thisObject.networkNode = undefined
+        thisObject.lanNetworkNode = undefined
         thisObject.bot = undefined
         thisObject.productDefinition = undefined
         thisObject.mine = undefined
@@ -166,8 +166,8 @@ function newLayer() {
                 'Market Trading Products->Exchange Trading Products->' +
                 'Market Learning Products->Exchange Learning Products->' +
                 'Project Data Products->Project Learning Products->Project Trading Products->' +
-                'Data Mines Data->Trading Mines Data->Learning Mines Data->Data Storage->Network Node->' +
-                'Data Storage->Network Node->' +
+                'Data Mines Data->Trading Mines Data->Learning Mines Data->Data Storage->LAN Network Node->' +
+                'Data Storage->LAN Network Node->' +
                 'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
                 'Back Learning Session->Live Learning Session->' +
                 'Trading System Reference->Trading Engine Reference->Trading System->Trading Engine->' +
@@ -285,8 +285,8 @@ function newLayer() {
                 return
             }
 
-            thisObject.networkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Network Node', undefined, false, true, true, true)
-            if (thisObject.networkNode === undefined) {
+            thisObject.lanNetworkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'LAN Network Node', undefined, false, true, true, true)
+            if (thisObject.lanNetworkNode === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Network Node not Found')
                 return
             }

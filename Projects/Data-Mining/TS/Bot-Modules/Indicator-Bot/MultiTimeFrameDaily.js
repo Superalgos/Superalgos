@@ -25,7 +25,7 @@
         statusDependenciesModule = pStatusDependencies;
         dataDependenciesModule = pStatusDependenciesModule;
 
-        indicatorOutputModule = TS.projects.foundations.botModules.indicatorOutput.newDataMiningBotModulesIndicatorOutput(processIndex)
+        indicatorOutputModule = TS.projects.dataMining.botModules.indicatorOutput.newDataMiningBotModulesIndicatorOutput(processIndex)
         indicatorOutputModule.initialize(callBackFunction)
     }
 

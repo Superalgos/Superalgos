@@ -277,22 +277,22 @@
 
                                             switch (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.name) {
                                                 case 'Multi-Time-Frame-Market': {
-                                                    processFramework = TS.projects.foundations.botModules.multiTimeFrameMarket.newDataMiningBotModulesMultiTimeFrameMarket(processIndex)
+                                                    processFramework = TS.projects.dataMining.botModules.multiTimeFrameMarket.newDataMiningBotModulesMultiTimeFrameMarket(processIndex)
                                                     intitializeProcessFramework()
                                                     break;
                                                 }
                                                 case 'Multi-Time-Frame-Daily': {
-                                                    processFramework = TS.projects.foundations.botModules.multiTimeFrameDaily.newDataMiningBotModulesMultiTimeFrameDaily(processIndex)
+                                                    processFramework = TS.projects.dataMining.botModules.multiTimeFrameDaily.newDataMiningBotModulesMultiTimeFrameDaily(processIndex)
                                                     intitializeProcessFramework()
                                                     break;
                                                 }
                                                 case 'From-One-Min-To-Multi-Time-Frame-Market': {
-                                                    processFramework = TS.projects.foundations.botModules.fromOneMinToMultiTimeFrameMarket.newDataMiningBotModulesFromOneMinToMultiTimeFrameMarket(processIndex)
+                                                    processFramework = TS.projects.dataMining.botModules.fromOneMinToMultiTimeFrameMarket.newDataMiningBotModulesFromOneMinToMultiTimeFrameMarket(processIndex)
                                                     intitializeProcessFramework()
                                                     break;
                                                 }
                                                 case 'From-One-Min-To-Multi-Time-Frame-Daily': {
-                                                    processFramework = TS.projects.foundations.botModules.fromOneMinToMultiTimeFrameDaily.newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily(processIndex)
+                                                    processFramework = TS.projects.dataMining.botModules.fromOneMinToMultiTimeFrameDaily.newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily(processIndex)
                                                     intitializeProcessFramework()
                                                     break;
                                                 }

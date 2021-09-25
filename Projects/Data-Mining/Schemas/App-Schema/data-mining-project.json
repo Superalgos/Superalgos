@@ -5,7 +5,15 @@
             "action": "Add Missing Children",
             "label": "Add Missing Children",
             "relatedUiObject": "Foundations Project",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Data Mien",
+            "relatedUiObject": "Data Mien",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
@@ -14,7 +22,8 @@
             "actionFunction": "payload.executeAction",
             "label": "Delete",
             "iconPathOn": "delete-entity",
-            "iconPathOff": "delete-entity"
+            "iconPathOff": "delete-entity",
+            "actionProject": "Foundations"
         }
     ],
     "isProjectHead": true,
@@ -28,13 +37,6 @@
             "name": "projectDefinition",
             "type": "node",
             "childType": "Project Definition",
-            "project": "Foundations",
-            "autoAdd": true
-        },
-        {
-            "name": "mines",
-            "type": "node",
-            "childType": "Mines",
             "project": "Foundations",
             "autoAdd": true
         }

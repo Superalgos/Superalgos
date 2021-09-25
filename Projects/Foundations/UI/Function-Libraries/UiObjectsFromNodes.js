@@ -441,6 +441,16 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
         ) {
             node.type = "LAN Network Node"
         }
+
+        if (
+            node.type === 'Data Mine' ||
+            node.type === 'API Data Fetcher Bot' ||
+            node.type === 'Indicator Bot' ||
+            node.type === 'Sensor Bot' 
+        ) {
+            node.project = "Data-Mining"
+        }
+
         /* 
         This function can be called with a positionOffset to change the node
         saved position and all of its descendants positions as well with an 

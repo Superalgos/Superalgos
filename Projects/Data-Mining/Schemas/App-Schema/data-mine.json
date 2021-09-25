@@ -7,31 +7,36 @@
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "dontShowAtFullscreen": true,
-            "actionFunction": "uiObject.configEditor.activate"
+            "actionFunction": "uiObject.configEditor.activate",
+            "actionProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add Sensor Bot",
             "relatedUiObject": "Sensor Bot",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add API Data Fetcher Bot",
             "relatedUiObject": "API Data Fetcher Bot",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add Indicator Bot",
             "relatedUiObject": "Indicator Bot",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add Plotter",
             "relatedUiObject": "Plotter",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
@@ -40,7 +45,8 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "isTitleAllwaysVisible": true,
@@ -72,7 +78,8 @@
         {
             "name": "plotters",
             "type": "array",
-            "childType": "Plotter"
+            "childType": "Plotter",
+            "project": "Foundations"
         }
     ]
 }

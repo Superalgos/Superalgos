@@ -1,4 +1,4 @@
-function newFoundationsFunctionLibraryMineFunctions() {
+function newDataMiningFunctionLibraryMineFunctions() {
     let thisObject = {
         addAllOutputDatasets: addAllOutputDatasets,
         addAllDataDependencies: addAllDataDependencies, 

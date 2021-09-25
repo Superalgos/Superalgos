@@ -87,11 +87,6 @@
                     "functionName": "newFoundationsFunctionLibraryCryptoEcosystemFunctions"
                 },
                 {
-                    "name": "Mine Functions",
-                    "propertyName": "mineFunctions",
-                    "functionName": "newFoundationsFunctionLibraryMineFunctions"
-                },
-                {
                     "name": "Data Storage Functions",
                     "propertyName": "dataStorageFunctions",
                     "functionName": "newFoundationsFunctionLibraryDataStorageFunctions"
@@ -929,6 +924,20 @@
             "Tutorials",
             "API Maps"
         ]
+    },
+    {
+        "name": "Data-Mining",
+        "propertyName": "dataMining",
+        "UI": {
+            "functionLibraries": [
+                {
+                    "name": "Mine Functions",
+                    "propertyName": "mineFunctions",
+                    "functionName": "newDataMiningFunctionLibraryMineFunctions"
+                }
+            ]
+        },
+        "TS": {}
     },
     {
         "name": "Ethereum",

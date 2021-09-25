@@ -425,7 +425,7 @@ function newFoundationsActionSwitch() {
                 break
             case 'Add All Output Datasets':
                 {
-                    UI.projects.foundations.functionLibraries.mineFunctions.addAllOutputDatasets(action.node)
+                    UI.projects.dataMining.functionLibraries.mineFunctions.addAllOutputDatasets(action.node)
                 }
                 break
             case 'Add All Data Products':
@@ -505,12 +505,12 @@ function newFoundationsActionSwitch() {
                 break
             case 'Add All Data Dependencies':
                 {
-                    UI.projects.foundations.functionLibraries.mineFunctions.addAllDataDependencies(action.node)
+                    UI.projects.dataMining.functionLibraries.mineFunctions.addAllDataDependencies(action.node)
                 }
                 break
             case 'Add All Data Mine Dependencies':
                 {
-                    UI.projects.foundations.functionLibraries.mineFunctions.addAllDataMineDataDependencies(action.node, action.rootNodes)
+                    UI.projects.dataMining.functionLibraries.mineFunctions.addAllDataMineDataDependencies(action.node, action.rootNodes)
                 }
                 break
             case 'Add All Layer Panels':

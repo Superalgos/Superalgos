@@ -97,11 +97,6 @@
                     "functionName": "newFoundationsFunctionLibraryChartingSpaceFunctions"
                 },
                 {
-                    "name": "Plugins Functions",
-                    "propertyName": "pluginsFunctions",
-                    "functionName": "newFoundationsFunctionLibraryPluginsFunctions"
-                },
-                {
                     "name": "Workspace Functions",
                     "propertyName": "workspaceFunctions",
                     "functionName": "newFoundationsFunctionLibraryWorkspaceFunctions"
@@ -202,11 +197,6 @@
                     "name": "Status Bar",
                     "propertyName": "statusBar",
                     "functionName": "newFoundationsUtilitiesStatusBar"
-                },
-                {
-                    "name": "Plugins",
-                    "propertyName": "plugins",
-                    "functionName": "newFoundationsUtilitiesPlugins"
                 }
             ],
             "spaces": [
@@ -764,7 +754,7 @@
             ]
         },
         "SA": {
-            "globals":[
+            "globals": [
                 {
                     "name": "Time Constants",
                     "propertyName": "timeConstants",
@@ -773,12 +763,6 @@
                 }
             ],
             "utilities": [
-                {
-                    "name": "Plugins",
-                    "propertyName": "plugins",
-                    "functionName": "newFoundationsUtilitiesPlugins",
-                    "fileName": "Plugins.js"
-                },
                 {
                     "name": "Miscellaneous Functions",
                     "propertyName": "miscellaneousFunctions",
@@ -806,7 +790,6 @@
             ]
         },
         "plugins": [
-            "Data Mines",
             "Trading Mines",
             "Learning Mines",
             "Trading Systems",
@@ -830,7 +813,7 @@
             ]
         },
         "TS": {
-            "botModules":[
+            "botModules": [
                 {
                     "name": "Single Market Sensor Bot",
                     "propertyName": "singleMarketSensorBot",
@@ -940,7 +923,41 @@
                     "folderName": "Sensor-Bot/Webhooks"
                 }
             ]
-        }
+        },
+        "plugins": [
+            "Data Mines"
+        ]
+    },
+    {
+        "name": "Plugins",
+        "propertyName": "plugins",
+        "UI": {
+            "functionLibraries": [
+                {
+                    "name": "Plugins Functions",
+                    "propertyName": "pluginsFunctions",
+                    "functionName": "newPluginsFunctionLibraryPluginsFunctions"
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Plugins",
+                    "propertyName": "plugins",
+                    "functionName": "newPluginsUtilitiesPlugins"
+                }
+            ]
+        },
+        "SA": {
+            "utilities": [
+                {
+                    "name": "Plugins",
+                    "propertyName": "plugins",
+                    "functionName": "newPluginsUtilitiesPlugins",
+                    "fileName": "Plugins.js"
+                }
+            ]
+        },
+        "plugins": []
     },
     {
         "name": "Ethereum",
@@ -1358,7 +1375,7 @@
                     "propertyName": "queriesUnfollowedUserProfiles",
                     "functionName": "newSocialTradingModulesQueriesUnfollowedUserProfiles",
                     "fileName": "Queries/UnfollowedUserProfiles.js"
-                },                
+                },
                 {
                     "name": "Bot Profile Stats",
                     "propertyName": "queriesBotProfileStats",
@@ -1523,8 +1540,8 @@
             ],
             "utilities": []
         },
-        "UI":{
-            "modules":[
+        "UI": {
+            "modules": [
                 {
                     "name": "Web Sockets Client",
                     "propertyName": "webSocketsClient",

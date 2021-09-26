@@ -1,13 +1,14 @@
 {
-    "type": "Plugin Trading Engines",
+    "type": "Plugin Tutorials",
     "menuItems": [
         {
-            "action": "Add Missing Plugin Trading Engines",
-            "label": "Add Missing Trading Engines",
+            "action": "Add Missing Plugin Tutorials",
+            "label": "Add Missing Tutorials",
+            "iconProject": "Education",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
-            "relatedUiObject": "Trading Engine",
+            "relatedUiObject": "Tutorial",
             "actionFunction": "payload.executeAction"
         },
         {
@@ -17,12 +18,13 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "addLeftIcons": true,
     "level": 1,
-    "propertyNameAtParent": "pluginTradingEngines",
+    "propertyNameAtParent": "pluginTutorials",
     "attachingRules": {
         "compatibleTypes": "->Plugin Project->"
     },

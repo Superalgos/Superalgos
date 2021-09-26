@@ -1,4 +1,4 @@
-exports.newFoundationsUtilitiesPlugins = function () {
+exports.newPluginsUtilitiesPlugins = function () {
 
     let thisObject = {
         getPluginFileNames: getPluginFileNames,
@@ -14,7 +14,7 @@ exports.newFoundationsUtilitiesPlugins = function () {
 
             SA.nodeModules.fs.readdir(path, (err, files) => {
                 if (err) {
-                    reject()
+                    reject(err)
                     return
                 }
                 if (files === undefined) {

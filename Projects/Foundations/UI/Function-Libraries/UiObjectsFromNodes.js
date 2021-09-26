@@ -451,6 +451,24 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
             node.project = "Data-Mining"
         }
 
+        if (
+            node.type === 'Plugins' ||
+            node.type === 'Plugin Tutorials' ||
+            node.type === 'Plugin Trading Systems' ||
+            node.type === 'Plugin Trading Mines' ||
+            node.type === 'Plugin Trading Engines' ||
+            node.type === 'Plugin Project' ||
+            node.type === 'Plugin Learning Systems' ||
+            node.type === 'Plugin Learning Mines' ||
+            node.type === 'Plugin Learning Engines' ||
+            node.type === 'Plugin File' ||
+            node.type === 'Plugin File Position' ||
+            node.type === 'Plugin Data Mines' ||
+            node.type === 'Plugin API Maps' 
+        ) {
+            node.project = "Plugins"
+        }
+
         /* 
         This function can be called with a positionOffset to change the node
         saved position and all of its descendants positions as well with an 

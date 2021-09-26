@@ -1,13 +1,15 @@
 {
-    "type": "Plugin API Maps",
+    "type": "Plugin Data Mines",
     "menuItems": [
         {
-            "action": "Add Missing Plugin API Maps",
-            "label": "Add Missing API Maps",
+            "action": "Add Missing Plugin Data Mines",
+            "label": "Add Missing Data Mines",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
-            "relatedUiObject": "API Map",
+            "iconPathOn": "data-mine",
+            "iconPathOff": "data-mine",
+            "iconProject": "Data-Mining",
             "actionFunction": "payload.executeAction"
         },
         {
@@ -17,12 +19,13 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "addLeftIcons": true,
     "level": 1,
-    "propertyNameAtParent": "pluginApiMaps",
+    "propertyNameAtParent": "pluginDataMines",
     "attachingRules": {
         "compatibleTypes": "->Plugin Project->"
     },
@@ -31,7 +34,8 @@
             "name": "pluginFiles",
             "type": "array",
             "childType": "Plugin File",
-            "autoAdd": false
+            "autoAdd": false,
+            "project": "Foundations"
         }
     ]
 }

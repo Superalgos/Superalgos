@@ -1,5 +1,5 @@
 {
-    "type": "Data-Mining Project",
+    "type": "Plugins Project",
     "menuItems": [
         {
             "action": "Add Missing Children",
@@ -10,9 +10,9 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Data Mine",
-            "relatedUiObject": "Data Mine",
-            "relatedUiObjectProject": "Data-Mining",
+            "label": "Add Plugins",
+            "relatedUiObject": "Plugins",
+            "relatedUiObjectProject": "Plugins",
             "actionFunction": "payload.executeAction",
             "actionProject": "Foundations"
         },
@@ -32,7 +32,7 @@
     "addLeftIcons": true,
     "isPinned": true,
     "positionLocked": true,
-    "icon": "data-mining-project",
+    "icon": "plugins-project",
     "childrenNodesProperties": [
         {
             "name": "projectDefinition",

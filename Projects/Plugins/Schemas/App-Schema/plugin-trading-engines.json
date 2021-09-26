@@ -1,13 +1,13 @@
 {
-    "type": "Plugin Trading Systems",
+    "type": "Plugin Trading Engines",
     "menuItems": [
         {
-            "action": "Add Missing Plugin Trading Systems",
-            "label": "Add Missing Trading Systems",
+            "action": "Add Missing Plugin Trading Engines",
+            "label": "Add Missing Trading Engines",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
-            "relatedUiObject": "Trading System",
+            "relatedUiObject": "Trading Engine",
             "actionFunction": "payload.executeAction"
         },
         {
@@ -17,12 +17,13 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "addLeftIcons": true,
     "level": 1,
-    "propertyNameAtParent": "pluginTradingSystems",
+    "propertyNameAtParent": "pluginTradingEngines",
     "attachingRules": {
         "compatibleTypes": "->Plugin Project->"
     },

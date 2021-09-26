@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesPlugins() {
+function newPluginsUtilitiesPlugins() {
     let thisObject = {
         getPluginFileNames: getPluginFileNames,
         getPluginFolderNamesByNodeType: getPluginFolderNamesByNodeType,
@@ -24,20 +24,20 @@ function newFoundationsUtilitiesPlugins() {
         }
     }
 
-    function addMissingPluginFiles(node, fileNames, pluginFolder, nodeType) {
+    function addMissingPluginFiles(node, fileNames, pluginFolder, nodeType, project) {
         for (let i = 0; i < fileNames.length; i++) {
             let fileName = fileNames[i]
             fileName = fileName.replace('.json', '')
-            addMissingPluginFile(node, fileName, pluginFolder, nodeType, false)
+            addMissingPluginFile(node, fileName, pluginFolder, nodeType, project, false)
         }
     }
 
-    function addMissingPluginFile(node, fileName, pluginFolder, nodeType, saveWithWorkspace) {
+    function addMissingPluginFile(node, fileName, pluginFolder, nodeType, project, saveWithWorkspace) {
         if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenByName(node, fileName) === true) {
-            let child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin File', undefined, 'Foundations')
+            let child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin File', undefined, 'Plugins')
             child.name = fileName
             child.config = JSON.stringify({
-                project: node.project,
+                project: project,
                 fileName: fileName,
                 folderName: pluginFolder,
                 nodeType: nodeType,

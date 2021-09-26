@@ -1,13 +1,13 @@
 {
-    "type": "Plugin Learning Systems",
+    "type": "Plugin Learning Mines",
     "menuItems": [
         {
-            "action": "Add Missing Plugin Learning Systems",
-            "label": "Add Missing Learning Systems",
+            "action": "Add Missing Plugin Learning Mines",
+            "label": "Add Missing Learning Mines",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
-            "relatedUiObject": "Learning System",
+            "relatedUiObject": "Learning Mine",
             "actionFunction": "payload.executeAction"
         },
         {
@@ -17,12 +17,13 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "addLeftIcons": true,
     "level": 1,
-    "propertyNameAtParent": "pluginLearningSystems",
+    "propertyNameAtParent": "pluginLearningMines",
     "attachingRules": {
         "compatibleTypes": "->Plugin Project->"
     },

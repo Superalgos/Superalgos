@@ -1,33 +1,37 @@
 {
-    "type": "Plugins",
+    "type": "Plugin API Maps",
     "menuItems": [
         {
-            "action": "Add Missing Plugin Projects",
-            "label": "Add Missing Projects",
+            "action": "Add Missing Plugin API Maps",
+            "label": "Add Missing API Maps",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
-            "relatedUiObject": "Plugin Project",
+            "relatedUiObject": "API Map",
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Delete UI Object",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
-            "actionFunction": "payload.executeAction",
             "label": "Delete",
             "iconPathOn": "delete-entity",
-            "iconPathOff": "delete-entity"
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
-    "isHierarchyHead": true,
     "addLeftIcons": true,
-    "level": 0,
+    "level": 1,
+    "propertyNameAtParent": "pluginApiMaps",
+    "attachingRules": {
+        "compatibleTypes": "->Plugin Project->"
+    },
     "childrenNodesProperties": [
         {
-            "name": "pluginProjects",
+            "name": "pluginFiles",
             "type": "array",
-            "childType": "Plugin Project",
+            "childType": "Plugin File",
             "autoAdd": false
         }
     ]

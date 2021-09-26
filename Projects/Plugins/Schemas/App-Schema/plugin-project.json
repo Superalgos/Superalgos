@@ -6,7 +6,8 @@
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
             "iconPathOn": "configuration",
-            "iconPathOff": "configuration"
+            "iconPathOff": "configuration",
+            "actionProject": "Foundations"
         },
         {
             "action": "Add Missing Plugin Types",
@@ -21,7 +22,8 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "initialValues": {

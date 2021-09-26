@@ -114,11 +114,6 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(action.node, action.rootNodes)
                 }
                 break
-            case 'Install as Plugin':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.installAsPlugin(action.node, action.rootNodes)
-                }
-                break
             case 'Edit Code':
 
                 break
@@ -658,76 +653,6 @@ function newFoundationsActionSwitch() {
                     } else {
                         UI.projects.education.spaces.docsSpace.openSpaceAreaAndNavigateTo(docs.project, docs.category, docs.type, docs.anchor, docs.nodeId, docs.placeholder)
                     }
-                }
-                break
-            case 'Add Missing Plugin Projects':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginProjects(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Types':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginTypes(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Data Mines':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginDataMines(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Trading Mines':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginTradingMines(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Trading Systems':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginTradingSystems(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Trading Engines':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginTradingEngines(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Learning Mines':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginLearningMines(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Learning Systems':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginLearningSystems(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Learning Engines':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginLearningEngines(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Tutorials':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginTutorials(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin API Maps':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginApiMaps(action.node, action.rootNodes)
-                }
-                break
-            case 'Enable Saving With Workspace':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.enableSavingWithWorkspace(action.node, action.rootNodes)
-                }
-                break
-            case 'Disable Saving With Workspace':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.disableSavingWithWorkspace(action.node, action.rootNodes)
-                }
-                break
-            case 'Save Plugin':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.savePlugin(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Workspace Projects':

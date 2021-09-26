@@ -1,13 +1,13 @@
 {
-    "type": "Plugin Trading Mines",
+    "type": "Plugin Trading Systems",
     "menuItems": [
         {
-            "action": "Add Missing Plugin Trading Mines",
-            "label": "Add Missing Trading Mines",
+            "action": "Add Missing Plugin Trading Systems",
+            "label": "Add Missing Trading Systems",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
-            "relatedUiObject": "Trading Mine",
+            "relatedUiObject": "Trading System",
             "actionFunction": "payload.executeAction"
         },
         {
@@ -17,12 +17,13 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "addLeftIcons": true,
     "level": 1,
-    "propertyNameAtParent": "pluginTradingMines",
+    "propertyNameAtParent": "pluginTradingSystems",
     "attachingRules": {
         "compatibleTypes": "->Plugin Project->"
     },

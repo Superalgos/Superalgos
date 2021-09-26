@@ -1,14 +1,13 @@
 {
-    "type": "Plugin Tutorials",
+    "type": "Plugin Learning Systems",
     "menuItems": [
         {
-            "action": "Add Missing Plugin Tutorials",
-            "label": "Add Missing Tutorials",
-            "iconProject": "Education",
+            "action": "Add Missing Plugin Learning Systems",
+            "label": "Add Missing Learning Systems",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
-            "relatedUiObject": "Tutorial",
+            "relatedUiObject": "Learning System",
             "actionFunction": "payload.executeAction"
         },
         {
@@ -18,12 +17,13 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "addLeftIcons": true,
     "level": 1,
-    "propertyNameAtParent": "pluginTutorials",
+    "propertyNameAtParent": "pluginLearningSystems",
     "attachingRules": {
         "compatibleTypes": "->Plugin Project->"
     },

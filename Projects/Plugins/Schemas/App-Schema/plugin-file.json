@@ -6,7 +6,8 @@
             "label": "Configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
-            "actionFunction": "uiObject.configEditor.activate"
+            "actionFunction": "uiObject.configEditor.activate",
+            "actionProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -41,7 +42,8 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "editors": {

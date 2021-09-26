@@ -1,13 +1,13 @@
 {
-    "type": "Plugin Learning Mines",
+    "type": "Plugin Trading Mines",
     "menuItems": [
         {
-            "action": "Add Missing Plugin Learning Mines",
-            "label": "Add Missing Learning Mines",
+            "action": "Add Missing Plugin Trading Mines",
+            "label": "Add Missing Trading Mines",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
-            "relatedUiObject": "Learning Mine",
+            "relatedUiObject": "Trading Mine",
             "actionFunction": "payload.executeAction"
         },
         {
@@ -17,12 +17,13 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "addLeftIcons": true,
     "level": 1,
-    "propertyNameAtParent": "pluginLearningMines",
+    "propertyNameAtParent": "pluginTradingMines",
     "attachingRules": {
         "compatibleTypes": "->Plugin Project->"
     },

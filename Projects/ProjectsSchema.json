@@ -929,8 +929,8 @@
         ]
     },
     {
-        "name": "Plugins",
-        "propertyName": "plugins",
+        "name": "Community-Plugins",
+        "propertyName": "communityPlugins",
         "UI": {
             "functionLibraries": [
                 {

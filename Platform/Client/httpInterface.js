@@ -1383,7 +1383,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 let project = unescape(requestPath[2])
                                 let folder = unescape(requestPath[3])
                                 
-                                let response = await SA.projects.plugins.utilities.plugins.getPluginFileNames(
+                                let response = await SA.projects.communityPlugins.utilities.plugins.getPluginFileNames(
                                     project,
                                     folder
                                 ).catch(err =>  {
@@ -1422,7 +1422,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     fileName = 'Superalgos-PL.json'
                                 }
                                 
-                                await SA.projects.plugins.utilities.plugins.getPluginFileContent(
+                                await SA.projects.communityPlugins.utilities.plugins.getPluginFileContent(
                                     project,
                                     folder,
                                     fileName

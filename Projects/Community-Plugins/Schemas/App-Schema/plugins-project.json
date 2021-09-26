@@ -12,7 +12,7 @@
             "action": "Add UI Object",
             "label": "Add Plugins",
             "relatedUiObject": "Plugins",
-            "relatedUiObjectProject": "Plugins",
+            "relatedUiObjectProject": "Community-Plugins",
             "actionFunction": "payload.executeAction",
             "actionProject": "Foundations"
         },

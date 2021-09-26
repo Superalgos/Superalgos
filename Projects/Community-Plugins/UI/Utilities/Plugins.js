@@ -34,7 +34,7 @@ function newPluginsUtilitiesPlugins() {
 
     function addMissingPluginFile(node, fileName, pluginFolder, nodeType, project, saveWithWorkspace) {
         if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenByName(node, fileName) === true) {
-            let child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin File', undefined, 'Plugins')
+            let child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin File', undefined, 'Community-Plugins')
             child.name = fileName
             child.config = JSON.stringify({
                 project: project,

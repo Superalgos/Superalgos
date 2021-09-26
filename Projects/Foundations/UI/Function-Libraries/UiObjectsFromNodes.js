@@ -466,7 +466,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
             node.type === 'Plugin Data Mines' ||
             node.type === 'Plugin API Maps' 
         ) {
-            node.project = "Plugins"
+            node.project = "Community-Plugins"
         }
 
         /* 

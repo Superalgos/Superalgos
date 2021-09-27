@@ -202,7 +202,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                             config.codeName = name
                             receivedNode.config = JSON.stringify(config)
 
-                            if (pluginFile.pluginFilePosition !== undefined) {
+                            if (pluginFile.pluginFilePosition !== undefined && receivedNode.savedPayload !== undefined) {
                                 let positionOffset = {
                                     x: pluginFile.pluginFilePosition.savedPayload.position.x - receivedNode.savedPayload.position.x,
                                     y: pluginFile.pluginFilePosition.savedPayload.position.y - receivedNode.savedPayload.position.y
@@ -449,7 +449,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
             node.type === 'Data Mine' ||
             node.type === 'API Data Fetcher Bot' ||
             node.type === 'Indicator Bot' ||
-            node.type === 'Sensor Bot' 
+            node.type === 'Sensor Bot'
         ) {
             node.project = "Data-Mining"
         }
@@ -458,7 +458,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
             node.type === 'Trading Engine' ||
             node.type === 'Trading Mine' ||
             node.type === 'Trading System' ||
-            node.type === 'Trading Bot' 
+            node.type === 'Trading Bot'
         ) {
             node.project = "Algorithmic-Trading"
         }
@@ -476,7 +476,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
             node.type === 'Plugin File' ||
             node.type === 'Plugin File Position' ||
             node.type === 'Plugin Data Mines' ||
-            node.type === 'Plugin API Maps' 
+            node.type === 'Plugin API Maps'
         ) {
             node.project = "Community-Plugins"
         }

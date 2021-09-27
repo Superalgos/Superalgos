@@ -66,7 +66,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                     for (let j = 0; j < plugins.pluginProjects.length; j++) {
                         let project = plugins.pluginProjects[j]
                         /*
-                        Foundations Plugin Types
+                        Miscelaneours Plugin Types
                         */
                         if (project.pluginDataMines !== undefined) {
                             totalPlugin = totalPlugin + project.pluginDataMines.pluginFiles.length
@@ -84,6 +84,9 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                             totalPlugin = totalPlugin + project.pluginTradingEngines.pluginFiles.length
                             pluginAllTheseFiles(project.pluginTradingEngines.pluginFiles, 'Trading-Engines')
                         }
+                        /*
+                        Foundations Plugin Types
+                        */
                         if (project.pluginLearningMines !== undefined) {
                             totalPlugin = totalPlugin + project.pluginLearningMines.pluginFiles.length
                             pluginAllTheseFiles(project.pluginLearningMines.pluginFiles, 'Learning-Mines')
@@ -449,6 +452,15 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
             node.type === 'Sensor Bot' 
         ) {
             node.project = "Data-Mining"
+        }
+
+        if (
+            node.type === 'Trading Engine' ||
+            node.type === 'Trading Mine' ||
+            node.type === 'Trading System' ||
+            node.type === 'Trading Bot' 
+        ) {
+            node.project = "Algorithmic-Trading"
         }
 
         if (

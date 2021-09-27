@@ -24,7 +24,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
     let tradingStrategyModuleObject = TS.projects.algorithmicTrading.botModules.tradingStrategy.newAlgorithmicTradingBotModulesTradingStrategy(processIndex)
     let tradingPositionModuleObject = TS.projects.algorithmicTrading.botModules.tradingPosition.newAlgorithmicTradingBotModulesTradingPosition(processIndex)
     let tradingExecutionModuleObject = TS.projects.algorithmicTrading.botModules.tradingExecution.newAlgorithmicTradingBotModulesTradingExecution(processIndex)
-    let announcementsModuleObject = TS.projects.algorithmicTrading.botModules.announcements.newFoundationsBotModulesAnnouncements(processIndex)
+    let announcementsModuleObject = TS.projects.foundations.botModules.announcements.newFoundationsBotModulesAnnouncements(processIndex)
     let snapshotsModuleObject = TS.projects.algorithmicTrading.botModules.snapshots.newAlgorithmicTradingBotModulesSnapshots(processIndex)
     let tradingEpisodeModuleObject = TS.projects.algorithmicTrading.botModules.tradingEpisode.newAlgorithmicTradingBotModulesTradingEpisode(processIndex)
 

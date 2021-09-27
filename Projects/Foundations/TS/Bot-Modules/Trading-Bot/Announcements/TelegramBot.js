@@ -30,7 +30,7 @@ exports.newFoundationsBotModulesTelegramBot = function (processIndex) {
                 '•   Use /stop to stop the session.\n' +
                 '•   Use /help to receive this help message.\n\n' +
                 'Additional commands can be configured using the Social Bot Command node.'))
-            thisObject.telegramBot.command('stop', (ctx) => TS.projects.algorithmicTrading.functionLibraries.sessionFunctions.stopSession(processIndex, 'by command from Telegram.'))
+            thisObject.telegramBot.command('stop', (ctx) => TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'by command from Telegram.'))
 
             /* Set up additional commands for each Social Bot Command node */
             if(commands !== undefined) {

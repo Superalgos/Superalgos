@@ -89,7 +89,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     meaning that the dataSet needs to be updated with more up-to-date data. 
                     */
                     console.log('DEBUGGING ..................', initialCandle, candles.length)
-                    TS.projects.algorithmicTrading.functionLibraries.sessionFunctions.stopSession(processIndex, 'Data is not up-to-date enough. Please start the Data Mining Operation.')
+                    TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Data is not up-to-date enough. Please start the Data Mining Operation.')
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         '[IMPORTANT] runSimulation -> Data is not up-to-date enough. Stopping the Session now. ')
                     return
@@ -253,7 +253,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     if (checkFinalDatetime() === false) {
                         closeEpisode('Final Datetime Reached')
                         breakLoop = true
-                        TS.projects.algorithmicTrading.functionLibraries.sessionFunctions.stopSession(processIndex, 'Final Datetime Reached')
+                        TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Final Datetime Reached')
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             '[IMPORTANT] runSimulation -> Final Datetime Reached. Stopping the Session now. ')
                         return
@@ -262,7 +262,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     if (checkMinimunAndMaximunBalance() === false) {
                         closeEpisode('Min or Max Balance Reached')
                         breakLoop = true
-                        TS.projects.algorithmicTrading.functionLibraries.sessionFunctions.stopSession(processIndex, 'Min or Max Balance Reached')
+                        TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Min or Max Balance Reached')
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             '[IMPORTANT] runSimulation -> Min or Max Balance Reached. Stopping the Session now. ')
                         return

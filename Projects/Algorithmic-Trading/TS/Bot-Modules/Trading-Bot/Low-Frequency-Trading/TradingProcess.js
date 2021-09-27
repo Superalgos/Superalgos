@@ -285,7 +285,7 @@
                     */
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         '[IMPORTANT] checkIfSessionMustStop -> Backtesting Session Finished. Stopping the Session now. ')
-                    TS.projects.algorithmicTrading.functionLibraries.sessionFunctions.stopSession(processIndex, 'Backtesting Session Finished.')
+                    TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Backtesting Session Finished.')
                 }
             }
         }

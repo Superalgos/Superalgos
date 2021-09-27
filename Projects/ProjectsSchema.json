@@ -798,6 +798,10 @@
             "Learning Engines",
             "Tutorials",
             "API Maps"
+        ],
+        "tasks": [
+            "Learning Tasks",
+            "Trading Tasks"
         ]
     },
     {
@@ -926,6 +930,9 @@
         },
         "plugins": [
             "Data Mines"
+        ],
+        "tasks": [
+            "Data Tasks"
         ]
     },
     {

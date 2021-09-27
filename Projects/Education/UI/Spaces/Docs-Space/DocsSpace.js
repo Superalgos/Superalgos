@@ -255,6 +255,10 @@ function newEducationDocSpace() {
                 if (doNotNavigate === true) { return }
 
                 // Run Node Setup to Update dependencies upon branch switch
+                const path = require("path");
+                const process = require("process");
+                const { exec } = require("child_process");
+                
                 let dir = path.join( process.cwd(), "..", "..", "..", "..", ".." )
                 let command = "node setup";
                 exec( command,

@@ -16,8 +16,8 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
     let tradingSystem
     let sessionParameters
 
-    let exchangeAPIModuleObject = TS.projects.foundations.botModules.exchangeAPI.newAlgorithmicTradingBotModulesExchangeAPI(processIndex)
-    let announcementsModuleObject = TS.projects.foundations.botModules.announcements.newAlgorithmicTradingBotModulesAnnouncements(processIndex)
+    let exchangeAPIModuleObject = TS.projects.algorithmicTrading.botModules.exchangeAPI.newAlgorithmicTradingBotModulesExchangeAPI(processIndex)
+    let announcementsModuleObject = TS.projects.foundations.botModules.announcements.newFoundationsBotModulesAnnouncements(processIndex)
 
     return thisObject
 
@@ -843,7 +843,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
         let previousBaseAssetFeesPaid = tradingEngineOrder.orderBaseAsset.feesPaid.value
         let previousQuotedAssetFeesPaid = tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
-        let ordersSimulationsModuleObject = TS.projects.foundations.botModules.ordersSimulations.newAlgorithmicTradingBotModulesOrdersSimulations(processIndex)
+        let ordersSimulationsModuleObject = TS.projects.algorithmicTrading.botModules.ordersSimulations.newAlgorithmicTradingBotModulesOrdersSimulations(processIndex)
         ordersSimulationsModuleObject.initialize()
 
         ordersSimulationsModuleObject.actualSizeSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage)
@@ -874,7 +874,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
         let previousBaseAssetFeesPaid = tradingEngineOrder.orderBaseAsset.feesPaid.value
         let previousQuotedAssetFeesPaid = tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
-        let ordersCalculationsModuleObject = TS.projects.foundations.botModules.ordersCalculations.newAlgorithmicTradingBotModulesOrdersCalculations(processIndex)
+        let ordersCalculationsModuleObject = TS.projects.algorithmicTrading.botModules.ordersCalculations.newAlgorithmicTradingBotModulesOrdersCalculations(processIndex)
         ordersCalculationsModuleObject.initialize()
 
         await ordersCalculationsModuleObject.actualSizeCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage)

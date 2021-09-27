@@ -29,7 +29,7 @@ exports.newAlgorithmicTradingBotModulesTradingOutput = function (processIndex) {
             }
 
             /* Preparing everything for the Simulation */
-            let tradingSimulationModuleObject = TS.projects.foundations.botModules.tradingSimulation.newAlgorithmicTradingBotModulesTradingSimulation(processIndex)
+            let tradingSimulationModuleObject = TS.projects.algorithmicTrading.botModules.tradingSimulation.newAlgorithmicTradingBotModulesTradingSimulation(processIndex)
 
             let outputDatasets = TS.projects.foundations.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
             let outputDatasetsMap = new Map()

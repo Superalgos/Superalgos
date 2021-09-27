@@ -1,4 +1,4 @@
-exports.newAlgorithmicTradingBotModulesAnnouncements = function (processIndex) {
+exports.newFoundationsBotModulesAnnouncements = function (processIndex) {
 
     const MODULE_NAME = 'Announcements'
 

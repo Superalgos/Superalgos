@@ -26,7 +26,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
     let sessionParameters
     let dynamicIndicators
 
-    let tradingStagesModuleObject = TS.projects.foundations.botModules.tradingStages.newAlgorithmicTradingBotModulesTradingStages(processIndex)
+    let tradingStagesModuleObject = TS.projects.algorithmicTrading.botModules.tradingStages.newAlgorithmicTradingBotModulesTradingStages(processIndex)
 
     let taskParameters = {
         market: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +

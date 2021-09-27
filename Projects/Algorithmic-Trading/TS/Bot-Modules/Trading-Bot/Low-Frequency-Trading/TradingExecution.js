@@ -16,7 +16,7 @@ exports.newAlgorithmicTradingBotModulesTradingExecution = function (processIndex
     let tradingSystem
     let sessionParameters
 
-    let tradingOrdersModuleObject = TS.projects.foundations.botModules.tradingOrders.newAlgorithmicTradingBotModulesTradingOrders(processIndex)
+    let tradingOrdersModuleObject = TS.projects.algorithmicTrading.botModules.tradingOrders.newAlgorithmicTradingBotModulesTradingOrders(processIndex)
 
     return thisObject
 

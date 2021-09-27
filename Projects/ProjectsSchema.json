@@ -505,6 +505,13 @@
             ],
             "botModules": [
                 {
+                    "name": "Announcements",
+                    "propertyName": "announcements",
+                    "functionName": "newFoundationsBotModulesAnnouncements",
+                    "fileName": "Announcements.js",
+                    "folderName": "Trading-Bot/Announcements"
+                },
+                {
                     "name": "Social Bots",
                     "propertyName": "socialBots",
                     "functionName": "newFoundationsBotModulesSocialBots",
@@ -896,13 +903,6 @@
                     "propertyName": "tradingPosition",
                     "functionName": "newAlgorithmicTradingBotModulesTradingPosition",
                     "fileName": "TradingPosition.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Announcements",
-                    "propertyName": "announcements",
-                    "functionName": "newAlgorithmicTradingBotModulesAnnouncements",
-                    "fileName": "Announcements.js",
                     "folderName": "Trading-Bot/Low-Frequency-Trading"
                 },
                 {

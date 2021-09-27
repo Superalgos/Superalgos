@@ -16,8 +16,8 @@
 
             let dataFiles = new Map()
             let multiTimeFrameDataFiles = new Map()
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT = TS.projects.foundations.botModules.tradingEngine.newAlgorithmicTradingBotModulesTradingEngine(processIndex)
-            let tradingOutputModuleObject = TS.projects.foundations.botModules.tradingOutput.newAlgorithmicTradingBotModulesTradingOutput(processIndex)
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT = TS.projects.algorithmicTrading.botModules.tradingEngine.newAlgorithmicTradingBotModulesTradingEngine(processIndex)
+            let tradingOutputModuleObject = TS.projects.algorithmicTrading.botModules.tradingOutput.newAlgorithmicTradingBotModulesTradingOutput(processIndex)
 
             let currentTimeFrame = {}
 

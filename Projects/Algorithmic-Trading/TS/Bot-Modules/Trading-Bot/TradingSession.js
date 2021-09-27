@@ -162,12 +162,12 @@
             }
 
             function onSessionStop() {
-                TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Session Stopped From the User Interface.')
+                TS.projects.algorithmicTrading.functionLibraries.sessionFunctions.stopSession(processIndex, 'Session Stopped From the User Interface.')
             }
 
             function onSessionResume(message) {
                 try {
-                    if (TS.projects.foundations.functionLibraries.sessionFunctions.stopSession === undefined) {
+                    if (TS.projects.algorithmicTrading.functionLibraries.sessionFunctions.stopSession === undefined) {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[WARN] onSessionResume -> Event received to resume the Session that have never be ran before. ")
                         return

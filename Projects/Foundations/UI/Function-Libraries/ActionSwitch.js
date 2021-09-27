@@ -580,12 +580,12 @@ function newFoundationsActionSwitch() {
                 break
             case 'Run Trading Session':
                 {
-                    UI.projects.foundations.functionLibraries.tradingSessionFunctions.runSession(action.node, false, action.callBackFunction)
+                    UI.projects.algorithmicTrading.functionLibraries.tradingSessionFunctions.runSession(action.node, false, action.callBackFunction)
                 }
                 break
             case 'Resume Trading Session':
                 {
-                    UI.projects.foundations.functionLibraries.tradingSessionFunctions.runSession(action.node, true, action.callBackFunction)
+                    UI.projects.algorithmicTrading.functionLibraries.tradingSessionFunctions.runSession(action.node, true, action.callBackFunction)
                 }
                 break
             case 'Stop Trading Session':

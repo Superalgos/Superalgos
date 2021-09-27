@@ -267,7 +267,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
     function syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd() {
         for (let i = 0; i < tradingSessionsFoundAtWorkspace.length; i++) {
             let node = tradingSessionsFoundAtWorkspace[i]
-            UI.projects.foundations.functionLibraries.tradingSessionFunctions.syncronizeSessionWithBackEnd(node)
+            UI.projects.algorithmicTrading.functionLibraries.tradingSessionFunctions.syncronizeSessionWithBackEnd(node)
         }
         tradingSessionsFoundAtWorkspace = undefined
     }
@@ -275,7 +275,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
     function syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd() {
         for (let i = 0; i < learningSessionsFoundAtWorkspace.length; i++) {
             let node = learningSessionsFoundAtWorkspace[i]
-            UI.projects.foundations.functionLibraries.tradingSessionFunctions.syncronizeSessionWithBackEnd(node)
+            UI.projects.algorithmicTrading.functionLibraries.tradingSessionFunctions.syncronizeSessionWithBackEnd(node)
         }
         learningSessionsFoundAtWorkspace = undefined
     }

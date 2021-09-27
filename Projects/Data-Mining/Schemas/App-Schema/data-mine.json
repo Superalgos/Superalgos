@@ -6,6 +6,7 @@
             "label": "Configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
+            "iconProject": "Foundations",
             "dontShowAtFullscreen": true,
             "actionFunction": "uiObject.configEditor.activate",
             "actionProject": "Foundations"

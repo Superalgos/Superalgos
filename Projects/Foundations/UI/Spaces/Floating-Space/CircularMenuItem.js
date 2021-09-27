@@ -265,6 +265,10 @@ function newCircularMenuItem() {
             thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
         } else {
 
+            /*
+            TODO : This code needs to be cleaned and reorganized. It is not clear how a menu item icon is going to be selected.
+            */
+
             if (thisObject.relatedUiObject !== undefined && thisObject.iconProject !== undefined) {
                 thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.iconProject, thisObject.relatedUiObject)
                 thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.iconProject, thisObject.relatedUiObject)

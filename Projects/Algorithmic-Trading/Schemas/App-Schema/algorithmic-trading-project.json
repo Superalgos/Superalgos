@@ -1,20 +1,20 @@
 {
-    "type": "Data-Mining Project",
+    "type": "Algorithmic-Trading Project",
     "menuItems": [
         {
             "action": "Add Missing Children",
             "label": "Add Missing Children",
-            "iconPathOn": "data-mining-project",
-            "iconPathOff": "data-mining-project",
-            "iconProject": "Data-Mining",
+            "iconPathOn": "algorithmic-trading-project",
+            "iconPathOff": "algorithmic-trading-project",
+            "iconProject": "Algorithmic-Trading",
             "actionFunction": "payload.executeAction",
             "actionProject": "Foundations"
         },
         {
             "action": "Add UI Object",
-            "label": "Add Data Mine",
-            "relatedUiObject": "Data Mine",
-            "relatedUiObjectProject": "Data-Mining",
+            "label": "Add Trading Mine",
+            "relatedUiObject": "Trading Mine",
+            "relatedUiObjectProject": "Algorithmic-Trading",
             "actionFunction": "payload.executeAction",
             "actionProject": "Foundations"
         },
@@ -34,7 +34,7 @@
     "addLeftIcons": true,
     "isPinned": true,
     "positionLocked": true,
-    "icon": "data-mining-project",
+    "icon": "algorithmic-trading-project",
     "childrenNodesProperties": [
         {
             "name": "projectDefinition",

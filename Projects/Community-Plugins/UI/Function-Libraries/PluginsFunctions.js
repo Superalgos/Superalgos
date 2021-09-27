@@ -77,7 +77,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Trading-Mines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Trading-Mines', 'Trading Mine', 'Foundations')
+            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Trading-Mines', 'Trading Mine', 'Algorithmic-Trading')
         }
     }
 
@@ -93,7 +93,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Trading-Systems', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Trading-Systems', 'Trading System', 'Foundations')
+            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Trading-Systems', 'Trading System', 'Algorithmic-Trading')
         }
     }
 
@@ -109,7 +109,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Trading-Engines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Trading-Engines', 'Trading Engine', 'Foundations')
+            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Trading-Engines', 'Trading Engine', 'Algorithmic-Trading')
         }
     }
 

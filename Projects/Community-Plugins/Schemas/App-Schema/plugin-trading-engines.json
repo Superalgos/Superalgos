@@ -7,7 +7,9 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
-            "relatedUiObject": "Trading Engine",
+            "iconPathOn": "trading-engine",
+            "iconPathOff": "trading-engine",
+            "iconProject": "Algorithmic-Trading",
             "actionFunction": "payload.executeAction"
         },
         {

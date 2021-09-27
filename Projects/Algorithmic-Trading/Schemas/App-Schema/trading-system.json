@@ -5,7 +5,8 @@
             "action": "Add UI Object",
             "label": "Add Trading Strategy",
             "relatedUiObject": "Trading Strategy",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -13,7 +14,8 @@
             "propertyToCheckFor": "dynamicIndicators",
             "label": "Add Dynamic Indicators",
             "relatedUiObject": "Dynamic Indicators",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
@@ -22,7 +24,8 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "isHierarchyHead": true,
@@ -33,13 +36,15 @@
             "name": "tradingStrategies",
             "type": "array",
             "childType": "Trading Strategy",
-            "autoAdd": true
+            "autoAdd": true,
+            "project": "Foundations"
         },
         {
             "name": "dynamicIndicators",
             "type": "node",
             "childType": "Dynamic Indicators",
-            "autoAdd": true
+            "autoAdd": true,
+            "project": "Foundations"
         }
     ]
 }

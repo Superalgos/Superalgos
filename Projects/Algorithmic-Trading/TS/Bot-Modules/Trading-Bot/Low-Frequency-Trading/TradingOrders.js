@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesTradingOrders = function (processIndex) {
+exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
     /*
     The Trading Orders modules manages the execution of orders against the exchanges.
     */
@@ -16,8 +16,8 @@ exports.newFoundationsBotModulesTradingOrders = function (processIndex) {
     let tradingSystem
     let sessionParameters
 
-    let exchangeAPIModuleObject = TS.projects.foundations.botModules.exchangeAPI.newFoundationsBotModulesExchangeAPI(processIndex)
-    let announcementsModuleObject = TS.projects.foundations.botModules.announcements.newFoundationsBotModulesAnnouncements(processIndex)
+    let exchangeAPIModuleObject = TS.projects.foundations.botModules.exchangeAPI.newAlgorithmicTradingBotModulesExchangeAPI(processIndex)
+    let announcementsModuleObject = TS.projects.foundations.botModules.announcements.newAlgorithmicTradingBotModulesAnnouncements(processIndex)
 
     return thisObject
 
@@ -843,7 +843,7 @@ exports.newFoundationsBotModulesTradingOrders = function (processIndex) {
         let previousBaseAssetFeesPaid = tradingEngineOrder.orderBaseAsset.feesPaid.value
         let previousQuotedAssetFeesPaid = tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
-        let ordersSimulationsModuleObject = TS.projects.foundations.botModules.ordersSimulations.newFoundationsBotModulesOrdersSimulations(processIndex)
+        let ordersSimulationsModuleObject = TS.projects.foundations.botModules.ordersSimulations.newAlgorithmicTradingBotModulesOrdersSimulations(processIndex)
         ordersSimulationsModuleObject.initialize()
 
         ordersSimulationsModuleObject.actualSizeSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage)
@@ -874,7 +874,7 @@ exports.newFoundationsBotModulesTradingOrders = function (processIndex) {
         let previousBaseAssetFeesPaid = tradingEngineOrder.orderBaseAsset.feesPaid.value
         let previousQuotedAssetFeesPaid = tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
-        let ordersCalculationsModuleObject = TS.projects.foundations.botModules.ordersCalculations.newFoundationsBotModulesOrdersCalculations(processIndex)
+        let ordersCalculationsModuleObject = TS.projects.foundations.botModules.ordersCalculations.newAlgorithmicTradingBotModulesOrdersCalculations(processIndex)
         ordersCalculationsModuleObject.initialize()
 
         await ordersCalculationsModuleObject.actualSizeCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage)

@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesSnapshots = function(processIndex) {
+exports.newAlgorithmicTradingBotModulesSnapshots = function(processIndex) {
     /*
       This module encapsulates the snapshots functionality.
       */

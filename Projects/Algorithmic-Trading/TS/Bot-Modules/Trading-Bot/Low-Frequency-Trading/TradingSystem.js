@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesTradingSystem = function (processIndex) {
+exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
     /*
     The Trading System is the user defined set of rules compliant with the Trading Protocol that
     defines the trading logic to be applied during each cycle of the Simulation.
@@ -26,7 +26,7 @@ exports.newFoundationsBotModulesTradingSystem = function (processIndex) {
     let sessionParameters
     let dynamicIndicators
 
-    let tradingStagesModuleObject = TS.projects.foundations.botModules.tradingStages.newFoundationsBotModulesTradingStages(processIndex)
+    let tradingStagesModuleObject = TS.projects.foundations.botModules.tradingStages.newAlgorithmicTradingBotModulesTradingStages(processIndex)
 
     let taskParameters = {
         market: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +

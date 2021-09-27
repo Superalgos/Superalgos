@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesOrdersCalculations = function (processIndex) {
+exports.newAlgorithmicTradingBotModulesOrdersCalculations = function (processIndex) {
     /*
     When we are live trading, we need to syncronize with the exchange.
     */

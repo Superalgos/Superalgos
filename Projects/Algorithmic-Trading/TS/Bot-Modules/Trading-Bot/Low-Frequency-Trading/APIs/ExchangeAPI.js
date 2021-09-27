@@ -1,4 +1,4 @@
-﻿exports.newFoundationsBotModulesExchangeAPI = function (processIndex) {
+﻿exports.newAlgorithmicTradingBotModulesExchangeAPI = function (processIndex) {
 
     let MODULE_NAME = "Exchange API";
   

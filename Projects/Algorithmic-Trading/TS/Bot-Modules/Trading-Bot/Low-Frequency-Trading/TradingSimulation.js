@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesTradingSimulation = function (processIndex) {
+exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processIndex) {
     /*
     This Module represents the trading simulacion. Escentially a loop through a set of candles and 
     the execution at each loop cycle of the Trading System Protocol.
@@ -34,13 +34,13 @@ exports.newFoundationsBotModulesTradingSimulation = function (processIndex) {
                 '[INFO] runSimulation -> finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime)
 
             /* These are the Modules we will need to run the Simulation */
-            let tradingRecordsModuleObject = TS.projects.foundations.botModules.tradingRecords.newFoundationsBotModulesTradingRecords(processIndex)
+            let tradingRecordsModuleObject = TS.projects.foundations.botModules.tradingRecords.newAlgorithmicTradingBotModulesTradingRecords(processIndex)
             tradingRecordsModuleObject.initialize(outputDatasetsMap)
 
-            let tradingSystemModuleObject = TS.projects.foundations.botModules.tradingSystem.newFoundationsBotModulesTradingSystem(processIndex)
+            let tradingSystemModuleObject = TS.projects.foundations.botModules.tradingSystem.newAlgorithmicTradingBotModulesTradingSystem(processIndex)
             tradingSystemModuleObject.initialize()
 
-            let tradingEpisodeModuleObject = TS.projects.foundations.botModules.tradingEpisode.newFoundationsBotModulesTradingEpisode(processIndex)
+            let tradingEpisodeModuleObject = TS.projects.foundations.botModules.tradingEpisode.newAlgorithmicTradingBotModulesTradingEpisode(processIndex)
             tradingEpisodeModuleObject.initialize()
 
             /* Setting up the candles array: The whole simulation is based on the array of candles at the time-frame defined at the session parameters. */

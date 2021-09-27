@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesTradingStages = function (processIndex) {
+exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
     /*
     This module packages all functions related to Stages.
     */
@@ -21,12 +21,12 @@ exports.newFoundationsBotModulesTradingStages = function (processIndex) {
         finalize: finalize
     }
 
-    let tradingStrategyModuleObject = TS.projects.foundations.botModules.tradingStrategy.newFoundationsBotModulesTradingStrategy(processIndex)
-    let tradingPositionModuleObject = TS.projects.foundations.botModules.tradingPosition.newFoundationsBotModulesTradingPosition(processIndex)
-    let tradingExecutionModuleObject = TS.projects.foundations.botModules.tradingExecution.newFoundationsBotModulesTradingExecution(processIndex)
-    let announcementsModuleObject = TS.projects.foundations.botModules.announcements.newFoundationsBotModulesAnnouncements(processIndex)
-    let snapshotsModuleObject = TS.projects.foundations.botModules.snapshots.newFoundationsBotModulesSnapshots(processIndex)
-    let tradingEpisodeModuleObject = TS.projects.foundations.botModules.tradingEpisode.newFoundationsBotModulesTradingEpisode(processIndex)
+    let tradingStrategyModuleObject = TS.projects.foundations.botModules.tradingStrategy.newAlgorithmicTradingBotModulesTradingStrategy(processIndex)
+    let tradingPositionModuleObject = TS.projects.foundations.botModules.tradingPosition.newAlgorithmicTradingBotModulesTradingPosition(processIndex)
+    let tradingExecutionModuleObject = TS.projects.foundations.botModules.tradingExecution.newAlgorithmicTradingBotModulesTradingExecution(processIndex)
+    let announcementsModuleObject = TS.projects.foundations.botModules.announcements.newAlgorithmicTradingBotModulesAnnouncements(processIndex)
+    let snapshotsModuleObject = TS.projects.foundations.botModules.snapshots.newAlgorithmicTradingBotModulesSnapshots(processIndex)
+    let tradingEpisodeModuleObject = TS.projects.foundations.botModules.tradingEpisode.newAlgorithmicTradingBotModulesTradingEpisode(processIndex)
 
     let tradingEngine
     let tradingSystem

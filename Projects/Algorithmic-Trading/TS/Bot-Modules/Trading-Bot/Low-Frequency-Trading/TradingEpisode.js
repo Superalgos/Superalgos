@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesTradingEpisode = function (processIndex) {
+exports.newAlgorithmicTradingBotModulesTradingEpisode = function (processIndex) {
     /*
     This module packages all functions related to Episodes.
     */

@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesTradingOutput = function (processIndex) {
+exports.newAlgorithmicTradingBotModulesTradingOutput = function (processIndex) {
     /*
     This module will load if necesary all the data outputs so that they can be appended with new
     records if needed. After running the simulation, it will save all the data outputs.
@@ -29,7 +29,7 @@ exports.newFoundationsBotModulesTradingOutput = function (processIndex) {
             }
 
             /* Preparing everything for the Simulation */
-            let tradingSimulationModuleObject = TS.projects.foundations.botModules.tradingSimulation.newFoundationsBotModulesTradingSimulation(processIndex)
+            let tradingSimulationModuleObject = TS.projects.foundations.botModules.tradingSimulation.newAlgorithmicTradingBotModulesTradingSimulation(processIndex)
 
             let outputDatasets = TS.projects.foundations.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
             let outputDatasetsMap = new Map()

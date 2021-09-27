@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesOrdersSimulations = function (processIndex) {
+exports.newAlgorithmicTradingBotModulesOrdersSimulations = function (processIndex) {
     /*
     When we are backtesting or paper trading, we need to simulate what would have happened at the exchange.
     */

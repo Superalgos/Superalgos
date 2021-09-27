@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesTradingPosition = function (processIndex) {
+exports.newAlgorithmicTradingBotModulesTradingPosition = function (processIndex) {
     /*
     This module packages all functions related to Positions.
     */

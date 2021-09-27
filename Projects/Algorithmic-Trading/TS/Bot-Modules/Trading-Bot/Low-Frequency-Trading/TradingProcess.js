@@ -1,4 +1,4 @@
-﻿exports.newFoundationsBotModulesTradingProcess = function (processIndex) {
+﻿exports.newAlgorithmicTradingBotModulesTradingProcess = function (processIndex) {
     /*
     This Module will load all the process data dependencies from files and send them downstream.
     After execution, will save the time range and status report of the process.
@@ -16,8 +16,8 @@
 
             let dataFiles = new Map()
             let multiTimeFrameDataFiles = new Map()
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT = TS.projects.foundations.botModules.tradingEngine.newFoundationsBotModulesTradingEngine(processIndex)
-            let tradingOutputModuleObject = TS.projects.foundations.botModules.tradingOutput.newFoundationsBotModulesTradingOutput(processIndex)
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT = TS.projects.foundations.botModules.tradingEngine.newAlgorithmicTradingBotModulesTradingEngine(processIndex)
+            let tradingOutputModuleObject = TS.projects.foundations.botModules.tradingOutput.newAlgorithmicTradingBotModulesTradingOutput(processIndex)
 
             let currentTimeFrame = {}
 

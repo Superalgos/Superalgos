@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesTradingExecution = function (processIndex) {
+exports.newAlgorithmicTradingBotModulesTradingExecution = function (processIndex) {
     /*
     The Trading Execution modules manages the execution nodes and execution algoritms.
     */
@@ -16,7 +16,7 @@ exports.newFoundationsBotModulesTradingExecution = function (processIndex) {
     let tradingSystem
     let sessionParameters
 
-    let tradingOrdersModuleObject = TS.projects.foundations.botModules.tradingOrders.newFoundationsBotModulesTradingOrders(processIndex)
+    let tradingOrdersModuleObject = TS.projects.foundations.botModules.tradingOrders.newAlgorithmicTradingBotModulesTradingOrders(processIndex)
 
     return thisObject
 

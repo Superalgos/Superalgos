@@ -1,8 +1,8 @@
-﻿exports.newFoundationsBotModulesSingleMarketTradingBot = function (processIndex) {
+﻿exports.newAlgorithmicTradingBotModulesSingleMarketTradingBot = function (processIndex) {
 
     const MODULE_NAME = "Single Market Trading Bot";
 
-    let session = TS.projects.foundations.botModules.tradingSession.newFoundationsBotModulesTradingSession(processIndex)
+    let session = TS.projects.foundations.botModules.tradingSession.newAlgorithmicTradingBotModulesTradingSession(processIndex)
     let nextLoopTimeoutHandle;
 
     let thisObject = {
@@ -282,7 +282,7 @@
                                                 "[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well.")
                                             switch (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.name) {
                                                 case 'Low-Frequency-Trading-Process': {
-                                                    processFramework = TS.projects.foundations.botModules.tradingProcess.newFoundationsBotModulesTradingProcess(processIndex);
+                                                    processFramework = TS.projects.foundations.botModules.tradingProcess.newAlgorithmicTradingBotModulesTradingProcess(processIndex);
                                                     startProcessFramework();
                                                     break;
                                                 }

@@ -72,11 +72,6 @@
                     "functionName": "newFoundationsFunctionLibraryTaskFunctions"
                 },
                 {
-                    "name": "Trading Session Functions",
-                    "propertyName": "tradingSessionFunctions",
-                    "functionName": "newFoundationsFunctionLibraryTradingSessionFunctions"
-                },
-                {
                     "name": "Learning Session Functions",
                     "propertyName": "learningSessionFunctions",
                     "functionName": "newFoundationsFunctionLibraryLearningSessionFunctions"
@@ -510,21 +505,6 @@
             ],
             "botModules": [
                 {
-                    "name": "Single Market Trading Bot",
-                    "propertyName": "singleMarketTradingBot",
-                    "functionName": "newFoundationsBotModulesSingleMarketTradingBot",
-                    "fileName": "SingleMarketTradingBot.js",
-                    "folderName": "Trading-Bot",
-                    "botType": "Trading Bot"
-                },
-                {
-                    "name": "Trading Session",
-                    "propertyName": "tradingSession",
-                    "functionName": "newFoundationsBotModulesTradingSession",
-                    "fileName": "TradingSession.js",
-                    "folderName": "Trading-Bot"
-                },
-                {
                     "name": "Social Bots",
                     "propertyName": "socialBots",
                     "functionName": "newFoundationsBotModulesSocialBots",
@@ -551,125 +531,6 @@
                     "functionName": "newFoundationsBotModulesSlackBot",
                     "fileName": "SlackBot.js",
                     "folderName": "Trading-Bot/Announcements"
-                },
-                {
-                    "name": "Trading Process",
-                    "propertyName": "tradingProcess",
-                    "functionName": "newFoundationsBotModulesTradingProcess",
-                    "fileName": "TradingProcess.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Engine",
-                    "propertyName": "tradingEngine",
-                    "functionName": "newFoundationsBotModulesTradingEngine",
-                    "fileName": "TradingEngine.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Output",
-                    "propertyName": "tradingOutput",
-                    "functionName": "newFoundationsBotModulesTradingOutput",
-                    "fileName": "TradingOutput.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Simulation",
-                    "propertyName": "tradingSimulation",
-                    "functionName": "newFoundationsBotModulesTradingSimulation",
-                    "fileName": "TradingSimulation.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Episode",
-                    "propertyName": "tradingEpisode",
-                    "functionName": "newFoundationsBotModulesTradingEpisode",
-                    "fileName": "TradingEpisode.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Records",
-                    "propertyName": "tradingRecords",
-                    "functionName": "newFoundationsBotModulesTradingRecords",
-                    "fileName": "TradingRecords.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading System",
-                    "propertyName": "tradingSystem",
-                    "functionName": "newFoundationsBotModulesTradingSystem",
-                    "fileName": "TradingSystem.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Stages",
-                    "propertyName": "tradingStages",
-                    "functionName": "newFoundationsBotModulesTradingStages",
-                    "fileName": "TradingStages.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Strategy",
-                    "propertyName": "tradingStrategy",
-                    "functionName": "newFoundationsBotModulesTradingStrategy",
-                    "fileName": "TradingStrategy.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Execution",
-                    "propertyName": "tradingExecution",
-                    "functionName": "newFoundationsBotModulesTradingExecution",
-                    "fileName": "TradingExecution.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Position",
-                    "propertyName": "tradingPosition",
-                    "functionName": "newFoundationsBotModulesTradingPosition",
-                    "fileName": "TradingPosition.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Announcements",
-                    "propertyName": "announcements",
-                    "functionName": "newFoundationsBotModulesAnnouncements",
-                    "fileName": "Announcements.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Snapshots",
-                    "propertyName": "snapshots",
-                    "functionName": "newFoundationsBotModulesSnapshots",
-                    "fileName": "Snapshots.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Orders",
-                    "propertyName": "tradingOrders",
-                    "functionName": "newFoundationsBotModulesTradingOrders",
-                    "fileName": "TradingOrders.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Orders Simulations",
-                    "propertyName": "ordersSimulations",
-                    "functionName": "newFoundationsBotModulesOrdersSimulations",
-                    "fileName": "OrdersSimulations.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Orders Calculations",
-                    "propertyName": "ordersCalculations",
-                    "functionName": "newFoundationsBotModulesOrdersCalculations",
-                    "fileName": "OrdersCalculations.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Exchange API",
-                    "propertyName": "exchangeAPI",
-                    "functionName": "newFoundationsBotModulesExchangeAPI",
-                    "fileName": "ExchangeAPI.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading/APIs"
                 },
                 {
                     "name": "Single Market Learning Bot",
@@ -790,18 +651,14 @@
             ]
         },
         "plugins": [
-            "Trading Mines",
             "Learning Mines",
-            "Trading Systems",
             "Learning Systems",
-            "Trading Engines",
             "Learning Engines",
             "Tutorials",
             "API Maps"
         ],
         "tasks": [
-            "Learning Tasks",
-            "Trading Tasks"
+            "Learning Tasks"
         ]
     },
     {
@@ -933,6 +790,165 @@
         ],
         "tasks": [
             "Data Tasks"
+        ]
+    },
+    {
+        "name": "Algorithmic-Trading",
+        "propertyName": "algorithmicTrading",
+        "UI": {
+            "functionLibraries": [
+                {
+                    "name": "Trading Session Functions",
+                    "propertyName": "tradingSessionFunctions",
+                    "functionName": "newAlgorithmicTradingFunctionLibraryTradingSessionFunctions"
+                }
+            ]
+        },
+        "TS": {
+            "botModules": [
+                {
+                    "name": "Single Market Trading Bot",
+                    "propertyName": "singleMarketTradingBot",
+                    "functionName": "newAlgorithmicTradingBotModulesSingleMarketTradingBot",
+                    "fileName": "SingleMarketTradingBot.js",
+                    "folderName": "Trading-Bot",
+                    "botType": "Trading Bot"
+                },
+                {
+                    "name": "Trading Session",
+                    "propertyName": "tradingSession",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingSession",
+                    "fileName": "TradingSession.js",
+                    "folderName": "Trading-Bot"
+                },
+                {
+                    "name": "Trading Process",
+                    "propertyName": "tradingProcess",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingProcess",
+                    "fileName": "TradingProcess.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Engine",
+                    "propertyName": "tradingEngine",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingEngine",
+                    "fileName": "TradingEngine.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Output",
+                    "propertyName": "tradingOutput",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingOutput",
+                    "fileName": "TradingOutput.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Simulation",
+                    "propertyName": "tradingSimulation",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingSimulation",
+                    "fileName": "TradingSimulation.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Episode",
+                    "propertyName": "tradingEpisode",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingEpisode",
+                    "fileName": "TradingEpisode.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Records",
+                    "propertyName": "tradingRecords",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingRecords",
+                    "fileName": "TradingRecords.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading System",
+                    "propertyName": "tradingSystem",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingSystem",
+                    "fileName": "TradingSystem.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Stages",
+                    "propertyName": "tradingStages",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingStages",
+                    "fileName": "TradingStages.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Strategy",
+                    "propertyName": "tradingStrategy",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingStrategy",
+                    "fileName": "TradingStrategy.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Execution",
+                    "propertyName": "tradingExecution",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingExecution",
+                    "fileName": "TradingExecution.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Position",
+                    "propertyName": "tradingPosition",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingPosition",
+                    "fileName": "TradingPosition.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Announcements",
+                    "propertyName": "announcements",
+                    "functionName": "newAlgorithmicTradingBotModulesAnnouncements",
+                    "fileName": "Announcements.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Snapshots",
+                    "propertyName": "snapshots",
+                    "functionName": "newAlgorithmicTradingBotModulesSnapshots",
+                    "fileName": "Snapshots.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Orders",
+                    "propertyName": "tradingOrders",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingOrders",
+                    "fileName": "TradingOrders.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Orders Simulations",
+                    "propertyName": "ordersSimulations",
+                    "functionName": "newAlgorithmicTradingBotModulesOrdersSimulations",
+                    "fileName": "OrdersSimulations.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Orders Calculations",
+                    "propertyName": "ordersCalculations",
+                    "functionName": "newAlgorithmicTradingBotModulesOrdersCalculations",
+                    "fileName": "OrdersCalculations.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Exchange API",
+                    "propertyName": "exchangeAPI",
+                    "functionName": "newAlgorithmicTradingBotModulesExchangeAPI",
+                    "fileName": "ExchangeAPI.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading/APIs"
+                }
+            ]
+        },
+        "plugins": [
+            "Trading Mines",
+            "Trading Systems",
+            "Trading Engines"
+        ],
+        "tasks": [
+            "Trading Tasks"
         ]
     },
     {

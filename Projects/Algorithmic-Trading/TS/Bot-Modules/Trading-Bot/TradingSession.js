@@ -1,4 +1,4 @@
-﻿exports.newFoundationsBotModulesTradingSession = function (processIndex) {
+﻿exports.newAlgorithmicTradingBotModulesTradingSession = function (processIndex) {
 
     const MODULE_NAME = "Trading Session"
 

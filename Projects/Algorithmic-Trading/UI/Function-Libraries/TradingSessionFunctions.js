@@ -1,4 +1,4 @@
-function newFoundationsFunctionLibraryTradingSessionFunctions() {
+function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
     let thisObject = {
         syncronizeSessionWithBackEnd: syncronizeSessionWithBackEnd,
         runSession: runSession,

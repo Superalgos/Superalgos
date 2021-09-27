@@ -239,7 +239,7 @@ function newEducationDocSpace() {
     }
 
     function changeCurrentBranch(branch, doNotNavigate) {
-        httpRequest(undefined, 'App/Checkout/' + branch, onResponse())
+        httpRequest(undefined, 'App/Checkout/' + branch, onResponse)
         if (doNotNavigate !== true) {
             UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Changing Current Branch')
         }

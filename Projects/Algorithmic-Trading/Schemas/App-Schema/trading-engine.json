@@ -27,21 +27,21 @@
             "name": "tradingCurrent",
             "type": "node",
             "childType": "Trading Current",
-            "autoAdd": true,
+            "autoAdd": false,
             "project": "Foundations"
         },
         {
             "name": "tradingLast",
             "type": "node",
             "childType": "Trading Last",
-            "autoAdd": true,
+            "autoAdd": false,
             "project": "Foundations"
         },
         {
             "name": "exchangeOrders",
             "type": "node",
             "childType": "Exchange Orders",
-            "autoAdd": true,
+            "autoAdd": false,
             "project": "Foundations"
         }
     ]

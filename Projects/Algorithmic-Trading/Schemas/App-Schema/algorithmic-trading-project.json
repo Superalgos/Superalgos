@@ -19,6 +19,22 @@
             "actionProject": "Foundations"
         },
         {
+            "action": "Add UI Object",
+            "label": "Add Trading Engine",
+            "relatedUiObject": "Trading Engine",
+            "relatedUiObjectProject": "Algorithmic-Trading",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Trading System",
+            "relatedUiObject": "Trading System",
+            "relatedUiObjectProject": "Algorithmic-Trading",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
+        },
+        {
             "action": "Delete UI Object",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",

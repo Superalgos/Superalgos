@@ -756,7 +756,11 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                 if (property.type === 'node') {
                     if (property.name !== previousPropertyName) {
                         if (node[property.name] === undefined) {
-                            addUIObject(node, property.childType, rootNodes)
+                            let currenAngleToParent = node.payload.floatingObject.angleToParent  
+                            node.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                            let uiObject = addUIObject(node, property.childType, rootNodes, property.project)
+                            node.payload.floatingObject.angleToParent = currenAngleToParent
+                            //uiObject.payload.floatingObject.angleToParent = currenAngleToParent
                             previousPropertyName = property.name
                         }
                     }

@@ -3,7 +3,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
         calculate: calculate,
         installMissingVotes: installMissingVotes
     }
-    const MAX_GENERATIONS = 10
+    const MAX_GENERATIONS = 3
 
     return thisObject
 

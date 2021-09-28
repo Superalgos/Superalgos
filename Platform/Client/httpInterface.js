@@ -93,6 +93,15 @@ exports.newHttpInterface = function newHttpInterface() {
                                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                         return
                                     }
+                                    case 'hashData': {
+
+                                        let serverResponse = await PL.servers.WEB3_SERVER.hashData(
+                                            params.data
+                                        )
+
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                        return
+                                    }
                                     case 'recoverAddress': {
 
                                         let serverResponse = await PL.servers.WEB3_SERVER.recoverAddress(
@@ -1058,6 +1067,15 @@ exports.newHttpInterface = function newHttpInterface() {
                                         )
 
                                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                        
+                                        setInterval(
+                                            PL.servers.GITHUB_SERVER.mergePullRequests,
+                                            60000,
+                                            params.commitMessage,
+                                            params.username,
+                                            params.token
+                                        )
+                                        
                                         return
                                     }
                                     case 'payContributors': {

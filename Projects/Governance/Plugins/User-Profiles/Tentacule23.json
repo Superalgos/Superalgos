@@ -26,12 +26,12 @@
                     "id": "deaea400-fa7f-48fd-a3fe-653b1bd18650",
                     "savedPayload": {
                         "position": {
-                            "x": 9240.90909090909,
-                            "y": 20471.577136594
+                            "x": 18181.81818181818,
+                            "y": 20430.384757729335
                         },
                         "targetPosition": {
-                            "x": 9390.90909090909,
-                            "y": 20731.384757729335
+                            "x": 18331.81818181818,
+                            "y": 20690.192378864667
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -49,18 +49,18 @@
                 "id": "97ae26ad-542d-4373-806a-593e979e1a1b",
                 "savedPayload": {
                     "position": {
-                        "x": 9390.90909090909,
-                        "y": 20731.384757729335
+                        "x": 18331.81818181818,
+                        "y": 20690.192378864667
                     },
                     "targetPosition": {
-                        "x": 9540.90909090909,
-                        "y": 20991.192378864667
+                        "x": 18481.81818181818,
+                        "y": 20950
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
                         "isCollapsed": false,
-                        "angleToParent": 1,
+                        "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
@@ -81,12 +81,12 @@
                     "id": "54a2fcd6-e80c-4a30-84c0-d80ae9d197e9",
                     "savedPayload": {
                         "position": {
-                            "x": 10140.90909090909,
-                            "y": 20991.192378864667
+                            "x": 18781.81818181818,
+                            "y": 20430.384757729335
                         },
                         "targetPosition": {
-                            "x": 9840.90909090909,
-                            "y": 20991.192378864667
+                            "x": 18631.81818181818,
+                            "y": 20690.192378864667
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -104,18 +104,18 @@
                 "id": "786e62d1-6b32-49d9-8046-9c8577dbcd87",
                 "savedPayload": {
                     "position": {
-                        "x": 9840.90909090909,
-                        "y": 20991.192378864667
+                        "x": 18631.81818181818,
+                        "y": 20690.192378864667
                     },
                     "targetPosition": {
-                        "x": 9540.90909090909,
-                        "y": 20991.192378864667
+                        "x": 18481.81818181818,
+                        "y": 20950
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
                         "isCollapsed": false,
-                        "angleToParent": 1,
+                        "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
@@ -127,12 +127,12 @@
             "id": "7e7f3e6e-30f4-400d-a1f6-b3611498b7bf",
             "savedPayload": {
                 "position": {
-                    "x": 9540.90909090909,
-                    "y": 20991.192378864667
+                    "x": 18481.81818181818,
+                    "y": 20950
                 },
                 "targetPosition": {
-                    "x": 9390.90909090909,
-                    "y": 21251
+                    "x": 18481.81818181818,
+                    "y": 21250
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -150,7 +150,7 @@
         "communityBuildingPrograms": {
             "type": "Community Building Programs",
             "name": "New Community Building Programs",
-            "config": "{}",
+            "config": "{\n    \"percentage\": 20\n}",
             "project": "Governance",
             "referralProgram": {
                 "type": "Referral Program",
@@ -166,12 +166,12 @@
                         "id": "bdf5f1d1-8441-4171-859f-d6e13f56ebd5",
                         "savedPayload": {
                             "position": {
-                                "x": 9990.070230063444,
-                                "y": 21748.196214194737
+                                "x": 26137.388593059404,
+                                "y": 20800.838860845644
                             },
                             "targetPosition": {
-                                "x": 9690.90909090909,
-                                "y": 21770.615242270665
+                                "x": 26159.807621135333,
+                                "y": 21100
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -207,12 +207,12 @@
                         "id": "67c981c9-f18b-4476-911e-9761b375386a",
                         "savedPayload": {
                             "position": {
-                                "x": 9970.17121550235,
-                                "y": 21880.217549580582
+                                "x": 26269.409928445253,
+                                "y": 20820.73787540674
                             },
                             "targetPosition": {
-                                "x": 9690.90909090909,
-                                "y": 21770.615242270665
+                                "x": 26159.807621135333,
+                                "y": 21100
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -233,7 +233,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "harrellbm",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "3af73d3b-7c0e-4de7-a1e1-a72238081740"
                                 ]
                             ]
                         }
@@ -246,12 +248,12 @@
                         "id": "2ca043e2-2332-4d61-b950-1e66fd360914",
                         "savedPayload": {
                             "position": {
-                                "x": 9894.960912240365,
-                                "y": 21990.530803819613
+                                "x": 26379.72318268428,
+                                "y": 20895.948178668725
                             },
                             "targetPosition": {
-                                "x": 9690.90909090909,
-                                "y": 21770.615242270665
+                                "x": 26159.807621135333,
+                                "y": 21100
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -272,7 +274,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Luis-Fernando-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                 ]
                             ]
                         }
@@ -285,18 +289,18 @@
                         "id": "b53f989c-8771-4000-81f3-aef821170101",
                         "savedPayload": {
                             "position": {
-                                "x": 9713.328118985017,
-                                "y": 22069.77638142502
+                                "x": 26446.479462871175,
+                                "y": 21011.57344767673
                             },
                             "targetPosition": {
-                                "x": 9690.90909090909,
-                                "y": 21770.615242270665
+                                "x": 26159.807621135333,
+                                "y": 21100
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
                                 "isCollapsed": false,
-                                "angleToParent": 1,
+                                "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
@@ -311,7 +315,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "1fd95e41-4b22-48d5-be3a-904c37afcb11"
                                 ]
                             ]
                         }
@@ -324,18 +330,18 @@
                     "id": "4f6ba6d0-501c-40ec-be81-806d505ca60f",
                     "savedPayload": {
                         "position": {
-                            "x": 9470.993529360143,
-                            "y": 21974.66706360194
+                            "x": 26456.456869002872,
+                            "y": 21144.71267985285
                         },
                         "targetPosition": {
-                            "x": 9690.90909090909,
-                            "y": 21770.615242270665
+                            "x": 26159.807621135333,
+                            "y": 21100
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": false,
-                            "angleToParent": 1,
+                            "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
@@ -351,18 +357,18 @@
                     "id": "a364c990-fdaa-4b29-9c66-bd365d857532",
                     "savedPayload": {
                         "position": {
-                            "x": 9394.259843041551,
-                            "y": 21725.902562417814
+                            "x": 26407.67925343013,
+                            "y": 21268.996017419086
                         },
                         "targetPosition": {
-                            "x": 9690.90909090909,
-                            "y": 21770.615242270665
+                            "x": 26159.807621135333,
+                            "y": 21100
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": false,
-                            "angleToParent": 1,
+                            "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
@@ -374,12 +380,137 @@
                 "id": "4894f190-0535-4e91-b61f-9f74cbc273fb",
                 "savedPayload": {
                     "position": {
-                        "x": 9690.90909090909,
-                        "y": 21770.615242270665
+                        "x": 26159.807621135333,
+                        "y": 21100
                     },
                     "targetPosition": {
-                        "x": 9540.90909090909,
-                        "y": 21510.807621135333
+                        "x": 25900,
+                        "y": 21250
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 2,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "mentorshipProgram": {
+                "type": "Mentorship Program",
+                "name": "New Mentorship Program",
+                "config": "{}",
+                "project": "Governance",
+                "userMentors": [
+                    {
+                        "type": "User Mentor",
+                        "name": "harrellbm",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "41d5d8d6-8562-4fb6-a56d-4953ec7ba2db",
+                        "savedPayload": {
+                            "position": {
+                                "x": 26709.392990157383,
+                                "y": 21472.354286469243
+                            },
+                            "targetPosition": {
+                                "x": 26419.615242270662,
+                                "y": 21550
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 2,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "harrellbm",
+                                "id": "3af73d3b-7c0e-4de7-a1e1-a72238081740"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "harrellbm",
+                                    "User Profile",
+                                    "Governance",
+                                    "3af73d3b-7c0e-4de7-a1e1-a72238081740"
+                                ]
+                            ]
+                        }
+                    }
+                ],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "6bbd1e87-1691-4a35-9a4d-13f0637185f2",
+                    "savedPayload": {
+                        "position": {
+                            "x": 26679.422863405995,
+                            "y": 21700
+                        },
+                        "targetPosition": {
+                            "x": 26419.615242270662,
+                            "y": 21550
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 2,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "tokensBonus": {
+                    "type": "Tokens Bonus",
+                    "name": "New Tokens Bonus",
+                    "project": "Governance",
+                    "id": "9d0b1f9c-2c43-4692-9f9d-0e11acb24448",
+                    "savedPayload": {
+                        "position": {
+                            "x": 26497.26095580142,
+                            "y": 21839.77774788672
+                        },
+                        "targetPosition": {
+                            "x": 26419.615242270662,
+                            "y": 21550
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 2,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "1cf64e4d-89cd-434a-b2b1-2d845d569271",
+                "savedPayload": {
+                    "position": {
+                        "x": 26419.615242270662,
+                        "y": 21550
+                    },
+                    "targetPosition": {
+                        "x": 25900,
+                        "y": 21250
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -397,18 +528,784 @@
             "id": "db99bd94-cded-4ef0-bfb2-979cac295f7f",
             "savedPayload": {
                 "position": {
-                    "x": 9540.90909090909,
-                    "y": 21510.807621135333
+                    "x": 19081.81818181818,
+                    "y": 21250
                 },
                 "targetPosition": {
-                    "x": 9390.90909090909,
-                    "y": 21251
+                    "x": 18481.81818181818,
+                    "y": 21250
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 2,
+                    "distanceToParent": 5,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "votesAndClaimsPrograms": {
+            "type": "Votes And Claims Programs",
+            "name": "New Votes And Claims Programs",
+            "config": "{}",
+            "project": "Governance",
+            "votingProgram": {
+                "type": "Voting Program",
+                "name": "New Voting Program",
+                "config": "{\n\"percentage\": 10\n}",
+                "project": "Governance",
+                "votesSwitch": [
+                    {
+                        "type": "Votes Switch",
+                        "name": "New Votes Switch",
+                        "config": "{}",
+                        "project": "Governance",
+                        "votesSwitch": [],
+                        "claimVotesSwitch": [
+                            {
+                                "type": "Claim Votes Switch",
+                                "name": "New Claim Votes Switch",
+                                "config": "{}",
+                                "project": "Governance",
+                                "claimVotesSwitch": [],
+                                "positionClaimVotes": [
+                                    {
+                                        "type": "Position Claim Vote",
+                                        "name": "Tentacule23 Moderator Community Management",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "ddfeb70e-06ca-4354-88e5-eac680aa6a66",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 19670.7938446979,
+                                                "y": 21104.412192876047
+                                            },
+                                            "targetPosition": {
+                                                "x": 19563.283459834307,
+                                                "y": 21384.486320825206
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Moderator Community Management",
+                                                "id": "9c74a2a8-4bcf-42b7-b53d-7ba68f3acfc2"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Tentacule23",
+                                                    "User Profile"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program"
+                                                ],
+                                                [
+                                                    "New Position Claims Folder",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "Moderator Community Management",
+                                                    "Position Contribution Claim"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "assetClaimVotes": [],
+                                "featureClaimVotes": [
+                                    {
+                                        "type": "Feature Claim Vote",
+                                        "name": "Tentacule23 ",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "48a23c6d-51fa-4049-bb51-b37c9881a711",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 19814.884630217934,
+                                                "y": 21221.0946103207
+                                            },
+                                            "targetPosition": {
+                                                "x": 19563.283459834307,
+                                                "y": 21384.486320825206
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Feature Contribution Claim",
+                                                "name": "",
+                                                "id": "5d6b30bc-4f05-4001-87ba-45cba35fe1ce"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Tentacule23",
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "7af21baa-ebc0-436f-94a7-a1746209418e"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "5683e2bf-45ca-4dd6-9ade-53b4cad76ed0"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "705bfab3-e851-4469-ab70-ac972950de6c"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "cce1f59a-bb5d-4700-abf8-ab8d2932ff6a"
+                                                ],
+                                                [
+                                                    "New Feature Claims Folder",
+                                                    "Feature Claims Folder",
+                                                    "Governance",
+                                                    "eb425c2c-6b7c-460d-a74e-650691f52fc7"
+                                                ],
+                                                [
+                                                    "",
+                                                    "Feature Contribution Claim",
+                                                    "Governance",
+                                                    "5d6b30bc-4f05-4001-87ba-45cba35fe1ce"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Feature Claim Vote",
+                                        "name": "Tentacule23 ",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "6a6f2a21-930b-4403-bcee-80ea71022927",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 19862.872320260678,
+                                                "y": 21400.18710769809
+                                            },
+                                            "targetPosition": {
+                                                "x": 19563.283459834307,
+                                                "y": 21384.486320825206
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Feature Contribution Claim",
+                                                "name": "",
+                                                "id": "d7c5da08-3757-46b4-8175-bc9a7b02359f"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Tentacule23",
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "7af21baa-ebc0-436f-94a7-a1746209418e"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "5683e2bf-45ca-4dd6-9ade-53b4cad76ed0"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "705bfab3-e851-4469-ab70-ac972950de6c"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "cce1f59a-bb5d-4700-abf8-ab8d2932ff6a"
+                                                ],
+                                                [
+                                                    "New Feature Claims Folder",
+                                                    "Feature Claims Folder",
+                                                    "Governance",
+                                                    "eb425c2c-6b7c-460d-a74e-650691f52fc7"
+                                                ],
+                                                [
+                                                    "",
+                                                    "Feature Contribution Claim",
+                                                    "Governance",
+                                                    "d7c5da08-3757-46b4-8175-bc9a7b02359f"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Feature Claim Vote",
+                                        "name": "Tentacule23 ",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "050787ad-5f04-45c5-8ded-e3c452ab2bee",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 19796.427248271397,
+                                                "y": 21573.28243814016
+                                            },
+                                            "targetPosition": {
+                                                "x": 19563.283459834307,
+                                                "y": 21384.486320825206
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Feature Contribution Claim",
+                                                "name": "",
+                                                "id": "faa99198-6c04-4722-bbc2-f4dd4f9d297f"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Tentacule23",
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "7af21baa-ebc0-436f-94a7-a1746209418e"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "5683e2bf-45ca-4dd6-9ade-53b4cad76ed0"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "705bfab3-e851-4469-ab70-ac972950de6c"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "cce1f59a-bb5d-4700-abf8-ab8d2932ff6a"
+                                                ],
+                                                [
+                                                    "New Feature Claims Folder",
+                                                    "Feature Claims Folder",
+                                                    "Governance",
+                                                    "eb425c2c-6b7c-460d-a74e-650691f52fc7"
+                                                ],
+                                                [
+                                                    "",
+                                                    "Feature Contribution Claim",
+                                                    "Governance",
+                                                    "faa99198-6c04-4722-bbc2-f4dd4f9d297f"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "id": "008b3b69-cc01-4e09-9122-ec885a882d76",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 19563.283459834307,
+                                        "y": 21384.486320825206
+                                    },
+                                    "targetPosition": {
+                                        "x": 19273.505711947586,
+                                        "y": 21462.132034355964
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
+                        "weightVotesSwitch": [],
+                        "userProfileVotesSwitch": [],
+                        "id": "fb7f7b7e-a2fb-421f-8158-faa5006f4636",
+                        "savedPayload": {
+                            "position": {
+                                "x": 19273.505711947586,
+                                "y": 21462.132034355964
+                            },
+                            "targetPosition": {
+                                "x": 18983.727964060865,
+                                "y": 21539.77774788672
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "tokensBonus": {
+                    "type": "Tokens Bonus",
+                    "name": "New Tokens Bonus",
+                    "project": "Governance",
+                    "id": "2bc7d2be-bd4a-47b8-966f-349202f799bf",
+                    "savedPayload": {
+                        "position": {
+                            "x": 19195.85999841683,
+                            "y": 21751.909782242685
+                        },
+                        "targetPosition": {
+                            "x": 18983.727964060865,
+                            "y": 21539.77774788672
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "f16e524c-4e32-4a6e-840b-bfdd6080f20c",
+                "savedPayload": {
+                    "position": {
+                        "x": 18983.727964060865,
+                        "y": 21539.77774788672
+                    },
+                    "targetPosition": {
+                        "x": 18693.950216174144,
+                        "y": 21462.132034355964
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "claimsProgram": {
+                "type": "Claims Program",
+                "name": "New Claims Program",
+                "config": "{}",
+                "project": "Governance",
+                "assetClaimsFolders": [],
+                "featureClaimsFolders": [
+                    {
+                        "type": "Feature Claims Folder",
+                        "name": "New Feature Claims Folder",
+                        "config": "{}",
+                        "project": "Governance",
+                        "featureClaimsFolders": [],
+                        "featureContributionClaims": [
+                            {
+                                "type": "Feature Contribution Claim",
+                                "name": "",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "d7c5da08-3757-46b4-8175-bc9a7b02359f",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 19321.181298726955,
+                                        "y": 21824.264068711927
+                                    },
+                                    "targetPosition": {
+                                        "x": 19031.403550840234,
+                                        "y": 21901.909782242685
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Feature",
+                                        "name": "Quick Position Node Feature",
+                                        "id": "98b5642a-faba-4a04-bf72-6efec86de56a"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Foundations-Project",
+                                            "Features",
+                                            "Governance",
+                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
+                                        ],
+                                        [
+                                            "Foundations Project",
+                                            "Feature Class",
+                                            "Governance",
+                                            "136b6e7a-f042-441b-84be-395b56b65b70"
+                                        ],
+                                        [
+                                            "Visual Designer",
+                                            "Feature Class",
+                                            "Governance",
+                                            "18584f3f-6e48-4a68-89f1-0268185156e9"
+                                        ],
+                                        [
+                                            "Quick Position Node Feature",
+                                            "Feature",
+                                            "Governance",
+                                            "98b5642a-faba-4a04-bf72-6efec86de56a"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Feature Contribution Claim",
+                                "name": "",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "5d6b30bc-4f05-4001-87ba-45cba35fe1ce",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 19291.211171975567,
+                                        "y": 22051.909782242685
+                                    },
+                                    "targetPosition": {
+                                        "x": 19031.403550840234,
+                                        "y": 21901.909782242685
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Feature",
+                                        "name": "Tutorial Tab Feature",
+                                        "id": "5ac7a46b-f462-4dc4-a627-2c7588a67e7a"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Foundations-Project",
+                                            "Features",
+                                            "Governance",
+                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
+                                        ],
+                                        [
+                                            "Foundations Project",
+                                            "Feature Class",
+                                            "Governance",
+                                            "136b6e7a-f042-441b-84be-395b56b65b70"
+                                        ],
+                                        [
+                                            "Visual Designer",
+                                            "Feature Class",
+                                            "Governance",
+                                            "18584f3f-6e48-4a68-89f1-0268185156e9"
+                                        ],
+                                        [
+                                            "Tutorial Tab Feature",
+                                            "Feature",
+                                            "Governance",
+                                            "5ac7a46b-f462-4dc4-a627-2c7588a67e7a"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Feature Contribution Claim",
+                                "name": "",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "faa99198-6c04-4722-bbc2-f4dd4f9d297f",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 19109.04926437099,
+                                        "y": 22191.687530129406
+                                    },
+                                    "targetPosition": {
+                                        "x": 19031.403550840234,
+                                        "y": 21901.909782242685
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Feature",
+                                        "name": "Node Menu Tool Tip Feature",
+                                        "id": "402b540e-4e1f-4756-9cb8-8445a672b36d"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Foundations-Project",
+                                            "Features"
+                                        ],
+                                        [
+                                            "Foundations Project",
+                                            "Feature Class"
+                                        ],
+                                        [
+                                            "Visual Designer",
+                                            "Feature Class"
+                                        ],
+                                        [
+                                            "Node Menu Tool Tip Feature",
+                                            "Feature"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "id": "eb425c2c-6b7c-460d-a74e-650691f52fc7",
+                        "savedPayload": {
+                            "position": {
+                                "x": 19031.403550840234,
+                                "y": 21901.909782242685
+                            },
+                            "targetPosition": {
+                                "x": 18771.5959297049,
+                                "y": 21751.909782242685
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "positionClaimsFolders": [
+                    {
+                        "type": "Position Claims Folder",
+                        "name": "New Position Claims Folder",
+                        "config": "{}",
+                        "project": "Governance",
+                        "positionClaimsFolders": [],
+                        "positionContributionClaims": [
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Moderator Community Management",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "9c74a2a8-4bcf-42b7-b53d-7ba68f3acfc2",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 18926.887356766416,
+                                        "y": 22331.465278016127
+                                    },
+                                    "targetPosition": {
+                                        "x": 18849.24164323566,
+                                        "y": 22041.687530129406
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Moderator",
+                                        "id": "6e141ab6-cc79-44b6-a58a-60b6480f706e"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Rewarded Positions",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Community Management",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Moderator",
+                                            "Position"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "id": "be3ab259-2505-4200-a8cc-a373874aedb0",
+                        "savedPayload": {
+                            "position": {
+                                "x": 18849.24164323566,
+                                "y": 22041.687530129406
+                            },
+                            "targetPosition": {
+                                "x": 18771.5959297049,
+                                "y": 21751.909782242685
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "9673136d-ac9a-40b7-bd6f-6c8c3fbbb384",
+                    "savedPayload": {
+                        "position": {
+                            "x": 18621.5959297049,
+                            "y": 22011.717403378017
+                        },
+                        "targetPosition": {
+                            "x": 18771.5959297049,
+                            "y": 21751.909782242685
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "cce1f59a-bb5d-4700-abf8-ab8d2932ff6a",
+                "savedPayload": {
+                    "position": {
+                        "x": 18771.5959297049,
+                        "y": 21751.909782242685
+                    },
+                    "targetPosition": {
+                        "x": 18693.950216174144,
+                        "y": 21462.132034355964
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "705bfab3-e851-4469-ab70-ac972950de6c",
+            "savedPayload": {
+                "position": {
+                    "x": 18693.950216174144,
+                    "y": 21462.132034355964
+                },
+                "targetPosition": {
+                    "x": 18481.81818181818,
+                    "y": 21250
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
                     "isCollapsed": false,
-                    "angleToParent": 1,
+                    "angleToParent": 2,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
@@ -420,12 +1317,12 @@
         "id": "5683e2bf-45ca-4dd6-9ade-53b4cad76ed0",
         "savedPayload": {
             "position": {
-                "x": 9390.90909090909,
-                "y": 21251
+                "x": 18481.81818181818,
+                "y": 21250
             },
             "targetPosition": {
-                "x": 9090.90909090909,
-                "y": 21251
+                "x": 18181.81818181818,
+                "y": 21250
             },
             "floatingObject": {
                 "isPinned": false,
@@ -447,12 +1344,12 @@
         "id": "96f1c595-f94e-4207-9828-4199c74c4bfd",
         "savedPayload": {
             "position": {
-                "x": 8790.90909090909,
-                "y": 21251
+                "x": 17881.81818181818,
+                "y": 21250
             },
             "targetPosition": {
-                "x": 9090.90909090909,
-                "y": 21251
+                "x": 18181.81818181818,
+                "y": 21250
             },
             "floatingObject": {
                 "isPinned": false,
@@ -470,12 +1367,12 @@
     "id": "7af21baa-ebc0-436f-94a7-a1746209418e",
     "savedPayload": {
         "position": {
-            "x": 9090.90909090909,
-            "y": 21251
+            "x": 18181.81818181818,
+            "y": 21250
         },
         "targetPosition": {
-            "x": 9090.90909090909,
-            "y": 21251
+            "x": 18181.81818181818,
+            "y": 21250
         },
         "floatingObject": {
             "isPinned": false,

@@ -1,20 +1,20 @@
 {
-    "topic": "Network",
+    "topic": "LAN Network",
     "pageNumber": "1",
-    "type": "Network Hierarchy",
+    "type": "LAN Network Hierarchy",
     "definition": {
-        "text": "The Network Hierarchy organizes the infrastructure to run bots and store data. It is the hierarchy you will use the most to operate the system.",
+        "text": "The LAN Network Hierarchy organizes the infrastructure to run bots and store data. It is the hierarchy you will use the most to operate the system.",
         "updated": 1610043827538
     },
     "paragraphs": [
         {
             "style": "Include",
-            "text": "Foundations->Node->Network->Definition",
+            "text": "Foundations->Node->LAN Network->Definition",
             "updated": 1610043677920
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Network->Content",
+            "text": "Foundations->Node->LAN Network->Content",
             "updated": 1610043683253
         },
         {
@@ -24,21 +24,21 @@
         },
         {
             "style": "Hierarchy",
-            "text": "Foundations->Network->3",
+            "text": "Foundations->LAN Network->3",
             "updated": 1610049486480
         },
         {
             "style": "Title",
-            "text": "Network Node"
+            "text": "LAN Network Node"
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Network Node->Definition",
+            "text": "Foundations->Node->LAN Network Node->Definition",
             "updated": 1610043762523
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Network Node->Content",
+            "text": "Foundations->Node->LAN Network Node->Content",
             "updated": 1610043768852
         },
         {

@@ -426,6 +426,21 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
         ) {
             node.project = 'Foundations'
         }
+        /* Migration code from beta 11 to beta 12 */
+        if (
+            node.type === 'Network'
+        ) {
+            node.type = "LAN Network"
+            if (node.lanNetworkNodes === undefined && node.networkNodes !== undefined) {
+                node.lanNetworkNodes = node.networkNodes
+            }
+        }
+
+        if (
+            node.type === 'Network Node'
+        ) {
+            node.type = "LAN Network Node"
+        }
         /* 
         This function can be called with a positionOffset to change the node
         saved position and all of its descendants positions as well with an 

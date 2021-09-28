@@ -1,5 +1,5 @@
 {
-    "type": "Network Node",
+    "type": "LAN Network Node",
     "menuItems": [
         {
             "action": "Configure",
@@ -69,7 +69,7 @@
     "addLeftIcons": true,
     "level": 1,
     "attachingRules": {
-        "compatibleTypes": "->Network->"
+        "compatibleTypes": "->LAN Network->"
     },
     "childrenNodesProperties": [
         {
@@ -103,5 +103,5 @@
             "autoAdd": true
         }
     ],
-    "propertyNameAtParent": "networkNodes"
+    "propertyNameAtParent": "lanNetworkNodes"
 }

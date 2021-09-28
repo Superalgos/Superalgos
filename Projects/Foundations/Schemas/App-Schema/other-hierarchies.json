@@ -4,7 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Network",
-            "relatedUiObject": "Network",
+            "relatedUiObject": "LAN Network",
             "actionFunction": "payload.executeAction"
         },
         {

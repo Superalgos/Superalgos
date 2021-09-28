@@ -272,7 +272,7 @@ function newFoundationsFloatingSpace() {
             payload.node.type === 'Learning System' ||
             payload.node.type === 'Trading Engine' ||
             payload.node.type === 'Learning Engine' ||
-            payload.node.type === 'Network' ||
+            payload.node.type === 'LAN Network' ||
             payload.node.type === 'Crypto Ecosystem' ||
             payload.node.type === 'Charting Space' ||
             payload.node.type === 'Data Mine' ||
@@ -667,6 +667,10 @@ function newFoundationsFloatingSpace() {
 
             newVector.x = newPosition.x - thisObject.floatingObjetSaved.payload.position.x
             newVector.y = newPosition.y - thisObject.floatingObjetSaved.payload.position.y
+
+            thisObject.floatingObjetSaved.payload.position = {}
+            thisObject.floatingObjetSaved.payload.position.x = position.x
+            thisObject.floatingObjetSaved.payload.position.y = position.y
 
             thisObject.floatingObjetSaved.container.displace(newVector)
             UI.projects.foundations.spaces.cockpitSpace.setStatus('Type : [' + UI.projects.foundations.spaces.floatingSpace.floatingObjetSaved.payload.node.type + '] , Name : [' + UI.projects.foundations.spaces.floatingSpace.floatingObjetSaved.payload.node.name + '] -> Snapped to new position', 100, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)

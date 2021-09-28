@@ -4,12 +4,12 @@
     "config": "{\n    \"docsLanguage\": \"EN\",\n    \"contributionsBranch\": \"develop\"\n}",
     "rootNodes": [
         {
-            "type": "Network",
-            "name": "My Network",
+            "type": "LAN Network",
+            "name": "My LAN Network",
             "project": "Foundations",
-            "networkNodes": [
+            "lanNetworkNodes": [
                 {
-                    "type": "Network Node",
+                    "type": "LAN Network Node",
                     "name": "My Computer",
                     "config": "{ \n\"host\": \"localhost\", \n\"webPort\": \"34248\", \n\"webSocketsPort\": \"18041\"\n}",
                     "project": "Foundations",
@@ -330,7 +330,9 @@
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     {
@@ -356,7 +358,9 @@
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     }
                                 ],
@@ -417,12 +421,46 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Asset",
                                                     "name": "Bitcoin",
                                                     "id": "5f5e4a94-5090-47d4-8883-cc2325d20bfa"
-                                                }
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
+                                                    ],
+                                                    [
+                                                        "Tested",
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "e3879d63-6f8f-41a3-8ac3-0349c4361722"
+                                                    ],
+                                                    [
+                                                        "Binance",
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets",
+                                                        "Foundations",
+                                                        "95d2c30f-215b-486e-8119-f4eac0279575"
+                                                    ],
+                                                    [
+                                                        "Bitcoin",
+                                                        "Asset",
+                                                        "Foundations",
+                                                        "5f5e4a94-5090-47d4-8883-cc2325d20bfa"
+                                                    ]
+                                                ]
                                             }
                                         },
                                         "quotedAsset": {
@@ -447,12 +485,46 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Asset",
                                                     "name": "Tether",
                                                     "id": "f110bfa0-bd5b-469b-a940-4524c8688136"
-                                                }
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
+                                                    ],
+                                                    [
+                                                        "Tested",
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "e3879d63-6f8f-41a3-8ac3-0349c4361722"
+                                                    ],
+                                                    [
+                                                        "Binance",
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets",
+                                                        "Foundations",
+                                                        "95d2c30f-215b-486e-8119-f4eac0279575"
+                                                    ],
+                                                    [
+                                                        "Tether",
+                                                        "Asset",
+                                                        "Foundations",
+                                                        "f110bfa0-bd5b-469b-a940-4524c8688136"
+                                                    ]
+                                                ]
                                             }
                                         },
                                         "id": "9a867bf0-a71d-445c-b99a-75b60bbdce09",
@@ -505,8 +577,8 @@
                             "id": "61ef0b8d-de6e-4e76-bdd5-996836760a4b",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19585.43365241951,
-                                    "y": 30768.102850058836
+                                    "x": 19549.63719375129,
+                                    "y": 30737.529786102317
                                 },
                                 "targetPosition": {
                                     "x": 19373.301618063546,
@@ -563,7 +635,9 @@
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     {
@@ -589,7 +663,9 @@
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     }
                                 ],
@@ -650,12 +726,46 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Asset",
                                                     "name": "Bitcoin",
                                                     "id": "5f600d91-40e6-43cc-82b0-586c5c422077"
-                                                }
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
+                                                    ],
+                                                    [
+                                                        "Tested",
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "e3879d63-6f8f-41a3-8ac3-0349c4361722"
+                                                    ],
+                                                    [
+                                                        "Binance US",
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "d763fdb6-bfe0-4fd2-9b1f-0a12ead4098b"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets",
+                                                        "Foundations",
+                                                        "8b0d5d47-de2c-4770-976d-14a006ac25e7"
+                                                    ],
+                                                    [
+                                                        "Bitcoin",
+                                                        "Asset",
+                                                        "Foundations",
+                                                        "5f600d91-40e6-43cc-82b0-586c5c422077"
+                                                    ]
+                                                ]
                                             }
                                         },
                                         "quotedAsset": {
@@ -680,12 +790,46 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Asset",
                                                     "name": "Tether",
                                                     "id": "d9a04ff0-c729-490c-84d1-d5d5a0397989"
-                                                }
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
+                                                    ],
+                                                    [
+                                                        "Tested",
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "e3879d63-6f8f-41a3-8ac3-0349c4361722"
+                                                    ],
+                                                    [
+                                                        "Binance US",
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "d763fdb6-bfe0-4fd2-9b1f-0a12ead4098b"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets",
+                                                        "Foundations",
+                                                        "8b0d5d47-de2c-4770-976d-14a006ac25e7"
+                                                    ],
+                                                    [
+                                                        "Tether",
+                                                        "Asset",
+                                                        "Foundations",
+                                                        "d9a04ff0-c729-490c-84d1-d5d5a0397989"
+                                                    ]
+                                                ]
                                             }
                                         },
                                         "id": "6af7c681-a924-4e65-a8aa-a45589e12bde",
@@ -738,8 +882,8 @@
                             "id": "d763fdb6-bfe0-4fd2-9b1f-0a12ead4098b",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19673.301618063546,
-                                    "y": 30980.2348844148
+                                    "x": 19658.61857295209,
+                                    "y": 30887.529786102317
                                 },
                                 "targetPosition": {
                                     "x": 19373.301618063546,
@@ -793,7 +937,9 @@
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     {
@@ -819,7 +965,9 @@
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     }
                                 ],
@@ -880,12 +1028,46 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Asset",
                                                     "name": "Bitcoin",
                                                     "id": "ac9cd2e1-566d-4bf9-83b2-a60403442302"
-                                                }
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
+                                                    ],
+                                                    [
+                                                        "Tested",
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "e3879d63-6f8f-41a3-8ac3-0349c4361722"
+                                                    ],
+                                                    [
+                                                        "Luno",
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "d4a66325-9be9-4855-8cf4-89a5795e30b6"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets",
+                                                        "Foundations",
+                                                        "ac60a01f-74b1-41f2-93f4-5b7d5cc2b2ad"
+                                                    ],
+                                                    [
+                                                        "Bitcoin",
+                                                        "Asset",
+                                                        "Foundations",
+                                                        "ac9cd2e1-566d-4bf9-83b2-a60403442302"
+                                                    ]
+                                                ]
                                             }
                                         },
                                         "quotedAsset": {
@@ -910,12 +1092,46 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Asset",
                                                     "name": "ZAR",
                                                     "id": "0aefdb7b-972c-4c98-90cd-23317f2bd51f"
-                                                }
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
+                                                    ],
+                                                    [
+                                                        "Tested",
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "e3879d63-6f8f-41a3-8ac3-0349c4361722"
+                                                    ],
+                                                    [
+                                                        "Luno",
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "d4a66325-9be9-4855-8cf4-89a5795e30b6"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets",
+                                                        "Foundations",
+                                                        "ac60a01f-74b1-41f2-93f4-5b7d5cc2b2ad"
+                                                    ],
+                                                    [
+                                                        "ZAR",
+                                                        "Asset",
+                                                        "Foundations",
+                                                        "0aefdb7b-972c-4c98-90cd-23317f2bd51f"
+                                                    ]
+                                                ]
                                             }
                                         },
                                         "id": "06796c17-169b-4815-969c-d33baca2b0ef",
@@ -968,8 +1184,8 @@
                             "id": "d4a66325-9be9-4855-8cf4-89a5795e30b6",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19585.43365241951,
-                                    "y": 31192.366918770764
+                                    "x": 19658.61857295209,
+                                    "y": 31072.939982727283
                                 },
                                 "targetPosition": {
                                     "x": 19373.301618063546,
@@ -986,6 +1202,305 @@
                                 "uiObject": {
                                     "isRunning": false,
                                     "shortcutKey": ""
+                                }
+                            }
+                        },
+                        {
+                            "type": "Crypto Exchange",
+                            "name": "Kucoin",
+                            "config": "{\n    \"codeName\": \"kucoin\"\n}",
+                            "project": "Foundations",
+                            "exchangeAssets": {
+                                "type": "Exchange Assets",
+                                "name": "New Exchange Assets",
+                                "config": "{ \n\"addMissingAssetsFilter\": { \"quotedAsset\": \"USDT\"} \n}",
+                                "project": "Foundations",
+                                "assets": [
+                                    {
+                                        "type": "Asset",
+                                        "name": "BTC",
+                                        "config": "{\n    \"codeName\": \"BTC\"\n}",
+                                        "project": "Foundations",
+                                        "id": "5ce98b3f-3ec1-412b-acde-186f9a92a5e0",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 19835.847296702923,
+                                                "y": 31268.271209698505
+                                            },
+                                            "targetPosition": {
+                                                "x": 19686.66901239768,
+                                                "y": 31283.950479188654
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "Asset",
+                                        "name": "Tether",
+                                        "config": "{\n    \"codeName\": \"USDT\"\n}",
+                                        "project": "Foundations",
+                                        "id": "b866944c-c23e-4718-9300-1b803b54be5f",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 19774.836800241552,
+                                                "y": 31405.303028344897
+                                            },
+                                            "targetPosition": {
+                                                "x": 19686.66901239768,
+                                                "y": 31283.950479188654
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    }
+                                ],
+                                "id": "747af60f-c8b9-4377-aa6c-172d4137ea23",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 19686.66901239768,
+                                        "y": 31283.950479188654
+                                    },
+                                    "targetPosition": {
+                                        "x": 19549.63719375129,
+                                        "y": 31222.939982727283
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            "exchangeMarkets": {
+                                "type": "Exchange Markets",
+                                "name": "New Exchange Markets",
+                                "project": "Foundations",
+                                "markets": [
+                                    {
+                                        "type": "Market",
+                                        "name": "BTC/USDT",
+                                        "config": "{\n    \"codeName\": \"BTC/USDT\"\n}",
+                                        "project": "Foundations",
+                                        "baseAsset": {
+                                            "type": "Market Base Asset",
+                                            "name": "BTC",
+                                            "project": "Foundations",
+                                            "id": "69a1674d-6260-4c65-95d5-fbba592737f9",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 19788.689847399626,
+                                                    "y": 32062.358218260728
+                                                },
+                                                "targetPosition": {
+                                                    "x": 19612.354271711883,
+                                                    "y": 31819.653119948245
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 2,
+                                                    "distanceToParent": 3,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
+                                                "referenceParent": {
+                                                    "type": "Asset",
+                                                    "name": "BTC",
+                                                    "id": "5ce98b3f-3ec1-412b-acde-186f9a92a5e0"
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
+                                                    ],
+                                                    [
+                                                        "Tested",
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "e3879d63-6f8f-41a3-8ac3-0349c4361722"
+                                                    ],
+                                                    [
+                                                        "Kucoin",
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "644efe9c-597a-4ddf-9e28-b33fb3b62d3e"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets",
+                                                        "Foundations",
+                                                        "747af60f-c8b9-4377-aa6c-172d4137ea23"
+                                                    ],
+                                                    [
+                                                        "BTC",
+                                                        "Asset",
+                                                        "Foundations",
+                                                        "5ce98b3f-3ec1-412b-acde-186f9a92a5e0"
+                                                    ]
+                                                ]
+                                            }
+                                        },
+                                        "quotedAsset": {
+                                            "type": "Market Quoted Asset",
+                                            "name": "Tether",
+                                            "project": "Foundations",
+                                            "id": "135835f5-a9be-4415-aeef-03500f24b4d1",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 19490.333278789145,
+                                                    "y": 32093.716757241025
+                                                },
+                                                "targetPosition": {
+                                                    "x": 19612.354271711883,
+                                                    "y": 31819.653119948245
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 2,
+                                                    "distanceToParent": 3,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
+                                                "referenceParent": {
+                                                    "type": "Asset",
+                                                    "name": "Tether",
+                                                    "id": "b866944c-c23e-4718-9300-1b803b54be5f"
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
+                                                    ],
+                                                    [
+                                                        "Tested",
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "e3879d63-6f8f-41a3-8ac3-0349c4361722"
+                                                    ],
+                                                    [
+                                                        "Kucoin",
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "644efe9c-597a-4ddf-9e28-b33fb3b62d3e"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets",
+                                                        "Foundations",
+                                                        "747af60f-c8b9-4377-aa6c-172d4137ea23"
+                                                    ],
+                                                    [
+                                                        "Tether",
+                                                        "Asset",
+                                                        "Foundations",
+                                                        "b866944c-c23e-4718-9300-1b803b54be5f"
+                                                    ]
+                                                ]
+                                            }
+                                        },
+                                        "id": "4b37ca8d-e4b2-49f4-b326-7bdf785ad482",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 19612.354271711883,
+                                                "y": 31819.653119948245
+                                            },
+                                            "targetPosition": {
+                                                "x": 19580.995732731586,
+                                                "y": 31521.296551337764
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    }
+                                ],
+                                "id": "c75f7d97-9dc2-4d3e-89eb-f8a3d5f16368",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 19580.995732731586,
+                                        "y": 31521.296551337764
+                                    },
+                                    "targetPosition": {
+                                        "x": 19549.63719375129,
+                                        "y": 31222.939982727283
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            "id": "644efe9c-597a-4ddf-9e28-b33fb3b62d3e",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 19549.63719375129,
+                                    "y": 31222.939982727283
+                                },
+                                "targetPosition": {
+                                    "x": 19373.301618063546,
+                                    "y": 30980.2348844148
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 2,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
                                 }
                             }
                         }
@@ -5302,7 +5817,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     {
@@ -5328,7 +5845,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     }
                                 ],
@@ -5387,12 +5906,46 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Asset",
                                                     "name": "Bitcoin",
                                                     "id": "fa6fb871-10ad-4b25-ba74-b37d6a9a3025"
-                                                }
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
+                                                    ],
+                                                    [
+                                                        "Trading Tests Pending",
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "fb5144e2-035a-4478-9a07-73f24e8193c9"
+                                                    ],
+                                                    [
+                                                        "Bitfinex",
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "6c076027-683d-4778-8a6a-e60984980fdf"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets",
+                                                        "Foundations",
+                                                        "33508b53-2769-4f3d-8c98-9fa37e5cbf5b"
+                                                    ],
+                                                    [
+                                                        "Bitcoin",
+                                                        "Asset",
+                                                        "Foundations",
+                                                        "fa6fb871-10ad-4b25-ba74-b37d6a9a3025"
+                                                    ]
+                                                ]
                                             }
                                         },
                                         "quotedAsset": {
@@ -5417,12 +5970,46 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Asset",
                                                     "name": "Tether",
                                                     "id": "2de2fe8f-a38b-4778-8e24-d318888c629f"
-                                                }
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
+                                                    ],
+                                                    [
+                                                        "Trading Tests Pending",
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "fb5144e2-035a-4478-9a07-73f24e8193c9"
+                                                    ],
+                                                    [
+                                                        "Bitfinex",
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "6c076027-683d-4778-8a6a-e60984980fdf"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets",
+                                                        "Foundations",
+                                                        "33508b53-2769-4f3d-8c98-9fa37e5cbf5b"
+                                                    ],
+                                                    [
+                                                        "Tether",
+                                                        "Asset",
+                                                        "Foundations",
+                                                        "2de2fe8f-a38b-4778-8e24-d318888c629f"
+                                                    ]
+                                                ]
                                             }
                                         },
                                         "id": "b0230cdf-6725-4d65-b633-390272cfb6c5",
@@ -5475,8 +6062,8 @@
                             "id": "6c076027-683d-4778-8a6a-e60984980fdf",
                             "savedPayload": {
                                 "position": {
-                                    "x": 18649.16825722781,
-                                    "y": 30487.599134830194
+                                    "x": 18665.26753446837,
+                                    "y": 30471.974481883037
                                 },
                                 "targetPosition": {
                                     "x": 18866.00671637603,
@@ -5529,7 +6116,9 @@
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     {
@@ -5555,7 +6144,9 @@
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     }
                                 ],
@@ -5614,12 +6205,46 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Asset",
                                                     "name": "BTC",
                                                     "id": "41164633-9a2a-4123-88f0-7f9acb42d68a"
-                                                }
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
+                                                    ],
+                                                    [
+                                                        "Trading Tests Pending",
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "fb5144e2-035a-4478-9a07-73f24e8193c9"
+                                                    ],
+                                                    [
+                                                        "Bittrex",
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "f598f002-8fc5-491f-888e-07d017ea83c6"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets",
+                                                        "Foundations",
+                                                        "88d4ef94-f030-42df-9115-69d9611317b1"
+                                                    ],
+                                                    [
+                                                        "BTC",
+                                                        "Asset",
+                                                        "Foundations",
+                                                        "41164633-9a2a-4123-88f0-7f9acb42d68a"
+                                                    ]
+                                                ]
                                             }
                                         },
                                         "quotedAsset": {
@@ -5644,12 +6269,46 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Asset",
                                                     "name": "USDT",
                                                     "id": "fab49590-9900-4352-a8dc-e464471f8def"
-                                                }
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
+                                                    ],
+                                                    [
+                                                        "Trading Tests Pending",
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "fb5144e2-035a-4478-9a07-73f24e8193c9"
+                                                    ],
+                                                    [
+                                                        "Bittrex",
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "f598f002-8fc5-491f-888e-07d017ea83c6"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets",
+                                                        "Foundations",
+                                                        "88d4ef94-f030-42df-9115-69d9611317b1"
+                                                    ],
+                                                    [
+                                                        "USDT",
+                                                        "Asset",
+                                                        "Foundations",
+                                                        "fab49590-9900-4352-a8dc-e464471f8def"
+                                                    ]
+                                                ]
                                             }
                                         },
                                         "id": "f1770733-f08a-4d8d-a64b-b569ee2a4d7b",
@@ -5702,8 +6361,8 @@
                             "id": "f598f002-8fc5-491f-888e-07d017ea83c6",
                             "savedPayload": {
                                 "position": {
-                                    "x": 18760.594269151625,
-                                    "y": 30414.047468334335
+                                    "x": 18803.6332091307,
+                                    "y": 30401.473649306114
                                 },
                                 "targetPosition": {
                                     "x": 18866.00671637603,
@@ -5756,7 +6415,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     {
@@ -5782,7 +6443,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     }
                                 ],
@@ -5841,12 +6504,46 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Asset",
                                                     "name": "BTC",
                                                     "id": "ee182378-a852-48d9-970a-d1741fa24003"
-                                                }
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
+                                                    ],
+                                                    [
+                                                        "Trading Tests Pending",
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "fb5144e2-035a-4478-9a07-73f24e8193c9"
+                                                    ],
+                                                    [
+                                                        "Coinbase Pro",
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "23ec7356-eed9-4a26-ace4-f21ae0d1e43e"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets",
+                                                        "Foundations",
+                                                        "5e970185-b876-4d70-af88-e4944e992801"
+                                                    ],
+                                                    [
+                                                        "BTC",
+                                                        "Asset",
+                                                        "Foundations",
+                                                        "ee182378-a852-48d9-970a-d1741fa24003"
+                                                    ]
+                                                ]
                                             }
                                         },
                                         "quotedAsset": {
@@ -5871,12 +6568,46 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Asset",
                                                     "name": "USDC",
                                                     "id": "a4229bf5-90b6-4590-90f4-fdec3cd60df9"
-                                                }
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
+                                                    ],
+                                                    [
+                                                        "Trading Tests Pending",
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "fb5144e2-035a-4478-9a07-73f24e8193c9"
+                                                    ],
+                                                    [
+                                                        "Coinbase Pro",
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "23ec7356-eed9-4a26-ace4-f21ae0d1e43e"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets",
+                                                        "Foundations",
+                                                        "5e970185-b876-4d70-af88-e4944e992801"
+                                                    ],
+                                                    [
+                                                        "USDC",
+                                                        "Asset",
+                                                        "Foundations",
+                                                        "a4229bf5-90b6-4590-90f4-fdec3cd60df9"
+                                                    ]
+                                                ]
                                             }
                                         },
                                         "id": "cbabed50-b6b1-4f1b-b750-0f802bd36f6e",
@@ -5929,8 +6660,8 @@
                             "id": "23ec7356-eed9-4a26-ace4-f21ae0d1e43e",
                             "savedPayload": {
                                 "position": {
-                                    "x": 18892.89850904706,
-                                    "y": 30396.125641327682
+                                    "x": 18958.71181468851,
+                                    "y": 30409.60097463771
                                 },
                                 "targetPosition": {
                                     "x": 18866.00671637603,
@@ -5983,7 +6714,9 @@
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     {
@@ -6009,7 +6742,9 @@
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     }
                                 ],
@@ -6070,12 +6805,46 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Asset",
                                                     "name": "Bitcoin",
                                                     "id": "51d196fb-b457-49f7-bae2-b0ef554154a3"
-                                                }
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
+                                                    ],
+                                                    [
+                                                        "Trading Tests Pending",
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "fb5144e2-035a-4478-9a07-73f24e8193c9"
+                                                    ],
+                                                    [
+                                                        "FTX",
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "b3e7f4de-1ca4-442f-8898-cb7397dc45d3"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets",
+                                                        "Foundations",
+                                                        "7c0b83f3-d4f6-457a-881f-9cd73f293d1c"
+                                                    ],
+                                                    [
+                                                        "Bitcoin",
+                                                        "Asset",
+                                                        "Foundations",
+                                                        "51d196fb-b457-49f7-bae2-b0ef554154a3"
+                                                    ]
+                                                ]
                                             }
                                         },
                                         "quotedAsset": {
@@ -6100,12 +6869,46 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Asset",
                                                     "name": "USD",
                                                     "id": "85b644de-4b78-486d-a689-5db24484bf33"
-                                                }
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
+                                                    ],
+                                                    [
+                                                        "Trading Tests Pending",
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "fb5144e2-035a-4478-9a07-73f24e8193c9"
+                                                    ],
+                                                    [
+                                                        "FTX",
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "b3e7f4de-1ca4-442f-8898-cb7397dc45d3"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets",
+                                                        "Foundations",
+                                                        "7c0b83f3-d4f6-457a-881f-9cd73f293d1c"
+                                                    ],
+                                                    [
+                                                        "USD",
+                                                        "Asset",
+                                                        "Foundations",
+                                                        "85b644de-4b78-486d-a689-5db24484bf33"
+                                                    ]
+                                                ]
                                             }
                                         },
                                         "id": "f4814fb1-d09a-45ad-8352-c0743b3a8558",
@@ -6158,8 +6961,8 @@
                             "id": "b3e7f4de-1ca4-442f-8898-cb7397dc45d3",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19019.8764995978,
-                                    "y": 30437.383291445694
+                                    "x": 19088.950164019247,
+                                    "y": 30494.178747618596
                                 },
                                 "targetPosition": {
                                     "x": 18866.00671637603,
@@ -6213,7 +7016,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     {
@@ -6239,7 +7044,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     }
                                 ],
@@ -6298,12 +7105,46 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Asset",
                                                     "name": "BTC",
                                                     "id": "a18c644d-3d51-413e-8abe-dd7698c2d03a"
-                                                }
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
+                                                    ],
+                                                    [
+                                                        "Trading Tests Pending",
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "fb5144e2-035a-4478-9a07-73f24e8193c9"
+                                                    ],
+                                                    [
+                                                        "Kraken",
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "793d2f4a-3315-4c18-abad-f4d74c83ac4f"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets",
+                                                        "Foundations",
+                                                        "2a7dfb85-9179-4c30-9b63-072adaa7b317"
+                                                    ],
+                                                    [
+                                                        "BTC",
+                                                        "Asset",
+                                                        "Foundations",
+                                                        "a18c644d-3d51-413e-8abe-dd7698c2d03a"
+                                                    ]
+                                                ]
                                             }
                                         },
                                         "quotedAsset": {
@@ -6328,12 +7169,46 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Asset",
                                                     "name": "USDT",
                                                     "id": "e45ae556-e162-4d1f-ac5e-f8245d3d7f70"
-                                                }
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
+                                                    ],
+                                                    [
+                                                        "Trading Tests Pending",
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "fb5144e2-035a-4478-9a07-73f24e8193c9"
+                                                    ],
+                                                    [
+                                                        "Kraken",
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "793d2f4a-3315-4c18-abad-f4d74c83ac4f"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets",
+                                                        "Foundations",
+                                                        "2a7dfb85-9179-4c30-9b63-072adaa7b317"
+                                                    ],
+                                                    [
+                                                        "USDT",
+                                                        "Asset",
+                                                        "Foundations",
+                                                        "e45ae556-e162-4d1f-ac5e-f8245d3d7f70"
+                                                    ]
+                                                ]
                                             }
                                         },
                                         "id": "71f99544-bf86-49e7-8896-5f96f875f262",
@@ -6386,235 +7261,8 @@
                             "id": "793d2f4a-3315-4c18-abad-f4d74c83ac4f",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19116.37869249242,
-                                    "y": 30529.648835090626
-                                },
-                                "targetPosition": {
-                                    "x": 18866.00671637603,
-                                    "y": 30694.917929526255
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": true,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        },
-                        {
-                            "type": "Crypto Exchange",
-                            "name": "Kucoin",
-                            "config": "{\n    \"codeName\": \"kucoin\"\n}",
-                            "project": "Foundations",
-                            "exchangeAssets": {
-                                "type": "Exchange Assets",
-                                "name": "New Exchange Assets",
-                                "config": "{ \n\"addMissingAssetsFilter\": { \"quotedAsset\": \"USDT\"} \n}",
-                                "project": "Foundations",
-                                "assets": [
-                                    {
-                                        "type": "Asset",
-                                        "name": "BTC",
-                                        "config": "{\n    \"codeName\": \"BTC\"\n}",
-                                        "project": "Foundations",
-                                        "id": "5ce98b3f-3ec1-412b-acde-186f9a92a5e0",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 19829.745532847643,
-                                                "y": 31102.003746373946
-                                            },
-                                            "targetPosition": {
-                                                "x": 19648.71103240014,
-                                                "y": 31235.613288127985
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 2,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {}
-                                        }
-                                    },
-                                    {
-                                        "type": "Asset",
-                                        "name": "Tether",
-                                        "config": "{\n    \"codeName\": \"USDT\"\n}",
-                                        "project": "Foundations",
-                                        "id": "b866944c-c23e-4718-9300-1b803b54be5f",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 19854.937539970884,
-                                                "y": 31325.588993599926
-                                            },
-                                            "targetPosition": {
-                                                "x": 19648.71103240014,
-                                                "y": 31235.613288127985
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 2,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {}
-                                        }
-                                    }
-                                ],
-                                "id": "747af60f-c8b9-4377-aa6c-172d4137ea23",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 19648.71103240014,
-                                        "y": 31235.613288127985
-                                    },
-                                    "targetPosition": {
-                                        "x": 19425.12578517416,
-                                        "y": 31260.80529525123
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 2,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            "exchangeMarkets": {
-                                "type": "Exchange Markets",
-                                "name": "New Exchange Markets",
-                                "project": "Foundations",
-                                "markets": [
-                                    {
-                                        "type": "Market",
-                                        "name": "BTC/USDT",
-                                        "config": "{\n    \"codeName\": \"BTC/USDT\"\n}",
-                                        "project": "Foundations",
-                                        "baseAsset": {
-                                            "type": "Market Base Asset",
-                                            "name": "BTC",
-                                            "project": "Foundations",
-                                            "id": "69a1674d-6260-4c65-95d5-fbba592737f9",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 20573.7479911967,
-                                                    "y": 31889.01513670337
-                                                },
-                                                "targetPosition": {
-                                                    "x": 20128.77411939539,
-                                                    "y": 31821.94611692409
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 2,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {},
-                                                "referenceParent": {
-                                                    "type": "Asset",
-                                                    "name": "BTC",
-                                                    "id": "5ce98b3f-3ec1-412b-acde-186f9a92a5e0"
-                                                }
-                                            }
-                                        },
-                                        "quotedAsset": {
-                                            "type": "Market Quoted Asset",
-                                            "name": "Tether",
-                                            "project": "Foundations",
-                                            "id": "135835f5-a9be-4415-aeef-03500f24b4d1",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 20293.17758036027,
-                                                    "y": 32240.83930381398
-                                                },
-                                                "targetPosition": {
-                                                    "x": 20128.77411939539,
-                                                    "y": 31821.94611692409
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 2,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {},
-                                                "referenceParent": {
-                                                    "type": "Asset",
-                                                    "name": "Tether",
-                                                    "id": "b866944c-c23e-4718-9300-1b803b54be5f"
-                                                }
-                                            }
-                                        },
-                                        "id": "4b37ca8d-e4b2-49f4-b326-7bdf785ad482",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 20128.77411939539,
-                                                "y": 31821.94611692409
-                                            },
-                                            "targetPosition": {
-                                                "x": 19776.949952284776,
-                                                "y": 31541.37570608766
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 2,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            }
-                                        }
-                                    }
-                                ],
-                                "id": "c75f7d97-9dc2-4d3e-89eb-f8a3d5f16368",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 19776.949952284776,
-                                        "y": 31541.37570608766
-                                    },
-                                    "targetPosition": {
-                                        "x": 19425.12578517416,
-                                        "y": 31260.80529525123
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            "id": "644efe9c-597a-4ddf-9e28-b33fb3b62d3e",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 19163.29164490641,
-                                    "y": 30654.647949780956
+                                    "x": 19159.45099659617,
+                                    "y": 30632.544422280927
                                 },
                                 "targetPosition": {
                                     "x": 18866.00671637603,
@@ -6672,7 +7320,7 @@
                 "floatingObject": {
                     "isPinned": true,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -6710,7 +7358,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {},
+                    "uiObject": {
+                        "isRunning": false
+                    },
                     "frame": {
                         "position": {
                             "x": -2189.197939162836,
@@ -7248,7 +7898,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "spaceSettings": {
@@ -7274,7 +7926,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "id": "f8485ce5-67f3-4476-b9e2-80994e49c318",
@@ -7333,7 +7987,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "spaces": {
@@ -7358,7 +8014,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "mines": {
@@ -7383,7 +8041,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "trading": {
@@ -7408,7 +8068,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "learning": {
@@ -7433,7 +8095,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "otherHierarchies": {
@@ -7458,7 +8122,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "id": "cf9f8b3b-77c6-43c6-b01f-95cf366a91f6",
@@ -7484,7 +8150,6 @@
                 }
             }
         },
-        null,
         {
             "type": "Trading System",
             "name": "New Trading System",
@@ -7535,7 +8200,9 @@
                                                         "distanceToParent": 3,
                                                         "arrangementStyle": 0
                                                     },
-                                                    "uiObject": {}
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    }
                                                 }
                                             },
                                             "id": "e21a0776-acd7-4cb2-9f5f-2bcbfa6e89e0",
@@ -7647,7 +8314,9 @@
                                                         "distanceToParent": 3,
                                                         "arrangementStyle": 0
                                                     },
-                                                    "uiObject": {}
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    }
                                                 }
                                             },
                                             "id": "7051b998-d100-48b2-90a4-d5e3f361e334",
@@ -7759,7 +8428,9 @@
                                                         "distanceToParent": 3,
                                                         "arrangementStyle": 0
                                                     },
-                                                    "uiObject": {}
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    }
                                                 }
                                             },
                                             "id": "3094206b-682a-481a-9b36-5d86eb621ef5",
@@ -7894,7 +8565,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {}
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
                                     }
                                 },
                                 "id": "5febb99a-093e-4ae2-afa8-e28743b302c3",
@@ -7947,7 +8620,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {}
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
                                     }
                                 },
                                 "id": "bba4131a-dd63-490c-97a7-819c484a9a6a",
@@ -8000,7 +8675,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {}
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
                                     }
                                 },
                                 "id": "19f04a50-0d33-4c0b-a723-1dd922de9b57",
@@ -8114,7 +8791,9 @@
                                                         "distanceToParent": 3,
                                                         "arrangementStyle": 0
                                                     },
-                                                    "uiObject": {}
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    }
                                                 }
                                             },
                                             "id": "da3fb954-8ee5-4537-98ef-7ae9a9d18ade",
@@ -8249,7 +8928,9 @@
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "moveToPhaseEvents": [],
@@ -8333,7 +9014,9 @@
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "moveToPhaseEvents": [],
@@ -8445,7 +9128,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {}
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
                                     }
                                 },
                                 "id": "0c4588ed-6aad-4e43-aea2-fd857cdde709",
@@ -8498,7 +9183,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {}
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
                                     }
                                 },
                                 "id": "888c1960-5e4e-40bf-86a5-0733ad54d2d4",
@@ -8551,7 +9238,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {}
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
                                     }
                                 },
                                 "id": "a8c951b1-9c11-4f6d-8461-fb935cf062d8",
@@ -8665,7 +9354,9 @@
                                                         "distanceToParent": 3,
                                                         "arrangementStyle": 0
                                                     },
-                                                    "uiObject": {}
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    }
                                                 }
                                             },
                                             "id": "8655ace0-0cba-4682-aa94-795a3d34ce9a",
@@ -8821,7 +9512,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         },
                         "id": "21cc000a-cdbd-4c02-b1e4-4c4560861792",

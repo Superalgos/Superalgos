@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "Charlie67j",
-    "config": "{\"signature\":{\"message\":\"Charlie67j\",\"messageHash\":\"0x70ba1e6420829ad20817ae9f7bc2fd214de06fa895fa85c26a6197e05bf1400c\",\"v\":\"0x1b\",\"r\":\"0x16090236c19017d88791a1c78ad97ace2b59db17bd367a43e7166415fa3f63f3\",\"s\":\"0x135bb4a1b5d9b2179c200ae621c753b49ce66fa6f8068dccbacbb1f165739923\",\"signature\":\"0x16090236c19017d88791a1c78ad97ace2b59db17bd367a43e7166415fa3f63f3135bb4a1b5d9b2179c200ae621c753b49ce66fa6f8068dccbacbb1f1657399231b\"},\"codeName\":\"Charlie67j\"}",
+    "config": "{\n    \"signature\": {\n        \"message\": \"Charlie67j\",\n        \"messageHash\": \"0x70ba1e6420829ad20817ae9f7bc2fd214de06fa895fa85c26a6197e05bf1400c\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x16090236c19017d88791a1c78ad97ace2b59db17bd367a43e7166415fa3f63f3\",\n        \"s\": \"0x135bb4a1b5d9b2179c200ae621c753b49ce66fa6f8068dccbacbb1f165739923\",\n        \"signature\": \"0x16090236c19017d88791a1c78ad97ace2b59db17bd367a43e7166415fa3f63f3135bb4a1b5d9b2179c200ae621c753b49ce66fa6f8068dccbacbb1f1657399231b\"\n    },\n    \"codeName\": \"Charlie67j\"\n}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -519,12 +519,12 @@
     "id": "112a25ef-bb94-47eb-9b8d-3899451c72ad",
     "savedPayload": {
         "position": {
-            "x": 13636.363636363636,
-            "y": 18250
+            "x": 20833.333333333336,
+            "y": 24250
         },
         "targetPosition": {
-            "x": 13636.363636363636,
-            "y": 18250
+            "x": 20833.333333333336,
+            "y": 24250
         },
         "floatingObject": {
             "isPinned": false,

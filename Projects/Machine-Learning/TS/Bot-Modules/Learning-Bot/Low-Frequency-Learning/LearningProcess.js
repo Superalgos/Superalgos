@@ -16,8 +16,9 @@
 
             let dataFiles = new Map()
             let multiTimeFrameDataFiles = new Map()
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).LEARNING_ENGINE_MODULE_OBJECT = TS.projects.foundations.botModules.learningEngine.newMachineLearningBotModulesLearningEngine(processIndex)
-            let learningOutputModuleObject = TS.projects.foundations.botModules.learningOutput.newMachineLearningBotModulesLearningOutput(processIndex)
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).LEARNING_ENGINE_MODULE_OBJECT =
+                TS.projects.machineLearning.botModules.learningEngine.newMachineLearningBotModulesLearningEngine(processIndex)
+            let learningOutputModuleObject = TS.projects.machineLearning.botModules.learningOutput.newMachineLearningBotModulesLearningOutput(processIndex)
 
             let currentTimeFrame = {}
 

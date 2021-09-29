@@ -33,10 +33,10 @@ exports.newMachineLearningBotModulesLearningSimulation = function (processIndex)
                 '[INFO] runSimulation -> finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime)
 
             /* These are the Modules we will need to run the Simulation */
-            let learningRecordsModuleObject = TS.projects.foundations.botModules.learningRecords.newMachineLearningBotModulesLearningRecords(processIndex)
+            let learningRecordsModuleObject = TS.projects.machineLearning.botModules.learningRecords.newMachineLearningBotModulesLearningRecords(processIndex)
             learningRecordsModuleObject.initialize(outputDatasetsMap)
 
-            let learningSystemModuleObject = TS.projects.foundations.botModules.learningSystem.newMachineLearningBotModulesLearningSystem(processIndex)
+            let learningSystemModuleObject = TS.projects.machineLearning.botModules.learningSystem.newMachineLearningBotModulesLearningSystem(processIndex)
             learningSystemModuleObject.initialize()
 
             /*
@@ -77,7 +77,7 @@ exports.newMachineLearningBotModulesLearningSimulation = function (processIndex)
                 }
             }
 
-            let learningEpisodeModuleObject = TS.projects.foundations.botModules.learningEpisode.newMachineLearningBotModulesLearningEpisode(processIndex)
+            let learningEpisodeModuleObject = TS.projects.machineLearning.botModules.learningEpisode.newMachineLearningBotModulesLearningEpisode(processIndex)
             learningEpisodeModuleObject.initialize()
 
             /* Setting up the candles array: The whole simulation is based on the array of candles at the time-frame defined at the session parameters. */

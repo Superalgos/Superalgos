@@ -314,7 +314,7 @@ exports.newFoundationsBotModulesSnapshots = function(processIndex) {
         let qouteProfit = ((quoteClose / quoteOpen * 100) - 100)
         let baseProfit = ((baseClose / baseOpen * 100) - 100)
 
-        let closeHeaders = ['Trade Number', 'Open Datetime', 'Close Datetime', 'Strategy Name', 'Trigger On Situation', 'Take Position Situation', 'Open Position in Base Asset', 'Close Position in Base Asset', 'Open Position in Quoted Asset', 'Close Position in Quoted Asset', 'Result In Base Asset', 'Result In Quoted Asset', 'ROI in Base Asset', '% P/L Base Asset', 'P/L Type Base Asset', 'ROI in Quoted Asset', '% P/L Quoted Asset', 'P/L Type Quoted Asset', 'Exit Type']
+        let closeHeaders = ['Trade Number', 'Open Datetime', 'Close Datetime', 'Strategy Name', 'Trigger On Situation', 'Take Position Situation', 'Open Position in Base Asset', 'Close Position in Base Asset', 'Open Position in Quoted Asset', 'Close Position in Quoted Asset', 'Result In Base Asset', 'Result In Quoted Asset', 'ROI in Base Asset', '% P/L Base Asset', 'P/L Type Base Asset', 'ROI in Quoted Asset', '% P/L Quoted Asset', 'P/L Type Quoted Asset', 'Exit Type', '# Periods']
         closeValues = [
             tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value, // Position Number
             (new Date(openDatetime)).toISOString(), // Open Datetime
@@ -335,7 +335,8 @@ exports.newFoundationsBotModulesSnapshots = function(processIndex) {
             tradingEngine.tradingCurrent.position.positionQuotedAsset.ROI.value, // ROI in Quoted Asset <- not sure this works as intended
             qouteProfit + '%', // % profit loss in quoted Asset
             qouteProfit === 0 ? 'Even' : (qouteProfit > 0 ? "Profit" : "Loss"),
-            tradingEngine.tradingCurrent.position.exitType.value // Exit Type
+            tradingEngine.tradingCurrent.position.exitType.value, // Exit Type
+            tradingEngine.tradingCurrent.position.positionCounters.periods.value // periods counter
         ]
 
         if (createCloseHeaders === true) {
@@ -394,7 +395,7 @@ exports.newFoundationsBotModulesSnapshots = function(processIndex) {
 
                 function parseRecord(record) {
                     // if we have undefined values, we need to extract the previous stored values for this trade and append them to the new record for completion
-                    if (record[record.length - 1] === undefined) {
+                    if (record[record.length - 1] === undefined && contentArray.length > 0) {
 
                         let rowToMutateArray = contentArray[contentArray.length - 1].split(',')
                             // check if are for sure on the same tradenumber and merge the data and remove previous line incl separator

@@ -101,7 +101,7 @@ function newFoundationsActionSwitch() {
                 break
             case 'Add UI Object':
                 {
-                    UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(action.node, action.relatedNodeType, action.rootNodes)
+                    UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(action.node, action.relatedNodeType, action.rootNodes, action.project)
                 }
                 break
             case 'Add Missing Children':

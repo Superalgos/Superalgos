@@ -21,6 +21,7 @@
             "action": "Add UI Object",
             "label": "Add Plotter",
             "relatedUiObject": "Plotter",
+            "relatedUiObjectProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "actionProject": "Foundations"
         },
@@ -56,7 +57,7 @@
             "name": "plotters",
             "type": "array",
             "childType": "Plotter",
-            "project": "Algorithmic-Trading"
+            "project": "Foundations"
         }
     ]
 }

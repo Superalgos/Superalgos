@@ -125,7 +125,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Learning-Mines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Learning-Mines', 'Learning Mine', 'Foundations')
+            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Learning-Mines', 'Learning Mine', 'Machine-Learning')
         }
     }
 
@@ -141,7 +141,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Learning-Systems', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Learning-Systems', 'Learning System', 'Foundations')
+            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Learning-Systems', 'Learning System', 'Machine-Learning')
         }
     }
 
@@ -157,7 +157,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Learning-Engines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Learning-Engines', 'Learning Engine', 'Foundations')
+            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Learning-Engines', 'Learning Engine', 'Machine-Learning')
         }
     }
 

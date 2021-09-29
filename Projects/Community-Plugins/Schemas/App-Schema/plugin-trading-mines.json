@@ -10,7 +10,8 @@
             "iconPathOn": "trading-mine",
             "iconPathOff": "trading-mine",
             "iconProject": "Algorithmic-Trading",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Community-Plugins"
         },
         {
             "action": "Delete UI Object",

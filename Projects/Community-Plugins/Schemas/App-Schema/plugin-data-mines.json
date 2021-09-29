@@ -10,7 +10,8 @@
             "iconPathOn": "data-mine",
             "iconPathOff": "data-mine",
             "iconProject": "Data-Mining",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Community-Plugins"
         },
         {
             "action": "Delete UI Object",

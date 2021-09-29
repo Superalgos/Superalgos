@@ -84,9 +84,6 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                             totalPlugin = totalPlugin + project.pluginTradingEngines.pluginFiles.length
                             pluginAllTheseFiles(project.pluginTradingEngines.pluginFiles, 'Trading-Engines')
                         }
-                        /*
-                        Foundations Plugin Types
-                        */
                         if (project.pluginLearningMines !== undefined) {
                             totalPlugin = totalPlugin + project.pluginLearningMines.pluginFiles.length
                             pluginAllTheseFiles(project.pluginLearningMines.pluginFiles, 'Learning-Mines')
@@ -99,6 +96,9 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                             totalPlugin = totalPlugin + project.pluginLearningEngines.pluginFiles.length
                             pluginAllTheseFiles(project.pluginLearningEngines.pluginFiles, 'Learning-Engines')
                         }
+                        /*
+                        Foundations Plugin Types
+                        */
                         if (project.pluginTutorials !== undefined) {
                             totalPlugin = totalPlugin + project.pluginTutorials.pluginFiles.length
                             pluginAllTheseFiles(project.pluginTutorials.pluginFiles, 'Tutorials')

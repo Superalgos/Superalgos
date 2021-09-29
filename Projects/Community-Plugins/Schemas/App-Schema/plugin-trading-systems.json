@@ -10,7 +10,8 @@
             "iconPathOn": "trading-system",
             "iconPathOff": "trading-system",
             "iconProject": "Algorithmic-Trading",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Community-Plugins"
         },
         {
             "action": "Delete UI Object",

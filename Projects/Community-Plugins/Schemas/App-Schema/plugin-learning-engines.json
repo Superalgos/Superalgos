@@ -10,7 +10,8 @@
             "iconPathOn": "learning-engine",
             "iconPathOff": "learning-engine",
             "iconProject": "Machine-Learning",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Community-Plugins"
         },
         {
             "action": "Delete UI Object",

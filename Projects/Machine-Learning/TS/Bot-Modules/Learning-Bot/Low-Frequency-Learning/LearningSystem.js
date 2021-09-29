@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesLearningSystem = function (processIndex) {
+exports.newMachineLearningBotModulesLearningSystem = function (processIndex) {
     /*
     The Learning System is the user defined set of rules compliant with the Learning Protocol that
     defines the learning logic to be applied during each cycle of the Simulation.

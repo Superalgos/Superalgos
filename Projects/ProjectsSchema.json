@@ -152,6 +152,95 @@
         ]
     },
     {
+        "name": "Machine-Learning",
+        "propertyName": "machineLearning",
+        "UI": {
+            "functionLibraries": [
+                {
+                    "name": "Learning Session Functions",
+                    "propertyName": "learningSessionFunctions",
+                    "functionName": "newMachineLearningFunctionLibraryLearningSessionFunctions"
+                }
+            ]
+        },
+        "TS": {
+            "botModules": [
+                {
+                    "name": "Single Market Learning Bot",
+                    "propertyName": "singleMarketLearningBot",
+                    "functionName": "newMachineLearningBotModulesSingleMarketLearningBot",
+                    "fileName": "SingleMarketLearningBot.js",
+                    "folderName": "Learning-Bot",
+                    "botType": "Learning Bot"
+                },
+                {
+                    "name": "Learning Session",
+                    "propertyName": "learningSession",
+                    "functionName": "newMachineLearningBotModulesLearningSession",
+                    "fileName": "LearningSession.js",
+                    "folderName": "Learning-Bot"
+                },
+                {
+                    "name": "Learning Process",
+                    "propertyName": "learningProcess",
+                    "functionName": "newMachineLearningBotModulesLearningProcess",
+                    "fileName": "LearningProcess.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "Learning Engine",
+                    "propertyName": "learningEngine",
+                    "functionName": "newMachineLearningBotModulesLearningEngine",
+                    "fileName": "LearningEngine.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "Learning Output",
+                    "propertyName": "learningOutput",
+                    "functionName": "newMachineLearningBotModulesLearningOutput",
+                    "fileName": "LearningOutput.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "Learning Simulation",
+                    "propertyName": "learningSimulation",
+                    "functionName": "newMachineLearningBotModulesLearningSimulation",
+                    "fileName": "LearningSimulation.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "Learning Episode",
+                    "propertyName": "learningEpisode",
+                    "functionName": "newMachineLearningBotModulesLearningEpisode",
+                    "fileName": "LearningEpisode.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "Learning Records",
+                    "propertyName": "learningRecords",
+                    "functionName": "newMachineLearningBotModulesLearningRecords",
+                    "fileName": "LearningRecords.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "Learning System",
+                    "propertyName": "learningSystem",
+                    "functionName": "newMachineLearningBotModulesLearningSystem",
+                    "fileName": "LearningSystem.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                }
+            ]
+        },
+        "plugins": [
+            "Learning Mines",
+            "Learning Systems",
+            "Learning Engines"
+        ],
+        "tasks": [
+            "Learning Tasks"
+        ]
+    },
+    {
         "name": "Foundations",
         "propertyName": "foundations",
         "UI": {
@@ -222,11 +311,6 @@
                     "name": "Task Functions",
                     "propertyName": "taskFunctions",
                     "functionName": "newFoundationsFunctionLibraryTaskFunctions"
-                },
-                {
-                    "name": "Learning Session Functions",
-                    "propertyName": "learningSessionFunctions",
-                    "functionName": "newFoundationsFunctionLibraryLearningSessionFunctions"
                 },
                 {
                     "name": "Crypto Ecosystem Functions",
@@ -690,70 +774,6 @@
                     "functionName": "newFoundationsBotModulesSlackBot",
                     "fileName": "SlackBot.js",
                     "folderName": "Trading-Bot/Announcements"
-                },
-                {
-                    "name": "Single Market Learning Bot",
-                    "propertyName": "singleMarketLearningBot",
-                    "functionName": "newFoundationsBotModulesSingleMarketLearningBot",
-                    "fileName": "SingleMarketLearningBot.js",
-                    "folderName": "Learning-Bot",
-                    "botType": "Learning Bot"
-                },
-                {
-                    "name": "Learning Session",
-                    "propertyName": "learningSession",
-                    "functionName": "newFoundationsBotModulesLearningSession",
-                    "fileName": "LearningSession.js",
-                    "folderName": "Learning-Bot"
-                },
-                {
-                    "name": "Learning Process",
-                    "propertyName": "learningProcess",
-                    "functionName": "newFoundationsBotModulesLearningProcess",
-                    "fileName": "LearningProcess.js",
-                    "folderName": "Learning-Bot/Low-Frequency-Learning"
-                },
-                {
-                    "name": "Learning Engine",
-                    "propertyName": "learningEngine",
-                    "functionName": "newFoundationsBotModulesLearningEngine",
-                    "fileName": "LearningEngine.js",
-                    "folderName": "Learning-Bot/Low-Frequency-Learning"
-                },
-                {
-                    "name": "Learning Output",
-                    "propertyName": "learningOutput",
-                    "functionName": "newFoundationsBotModulesLearningOutput",
-                    "fileName": "LearningOutput.js",
-                    "folderName": "Learning-Bot/Low-Frequency-Learning"
-                },
-                {
-                    "name": "Learning Simulation",
-                    "propertyName": "learningSimulation",
-                    "functionName": "newFoundationsBotModulesLearningSimulation",
-                    "fileName": "LearningSimulation.js",
-                    "folderName": "Learning-Bot/Low-Frequency-Learning"
-                },
-                {
-                    "name": "Learning Episode",
-                    "propertyName": "learningEpisode",
-                    "functionName": "newFoundationsBotModulesLearningEpisode",
-                    "fileName": "LearningEpisode.js",
-                    "folderName": "Learning-Bot/Low-Frequency-Learning"
-                },
-                {
-                    "name": "Learning Records",
-                    "propertyName": "learningRecords",
-                    "functionName": "newFoundationsBotModulesLearningRecords",
-                    "fileName": "LearningRecords.js",
-                    "folderName": "Learning-Bot/Low-Frequency-Learning"
-                },
-                {
-                    "name": "Learning System",
-                    "propertyName": "learningSystem",
-                    "functionName": "newFoundationsBotModulesLearningSystem",
-                    "fileName": "LearningSystem.js",
-                    "folderName": "Learning-Bot/Low-Frequency-Learning"
                 }
             ]
         },
@@ -810,14 +830,8 @@
             ]
         },
         "plugins": [
-            "Learning Mines",
-            "Learning Systems",
-            "Learning Engines",
             "Tutorials",
             "API Maps"
-        ],
-        "tasks": [
-            "Learning Tasks"
         ]
     },
     {

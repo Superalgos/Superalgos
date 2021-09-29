@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesLearningOutput = function (processIndex) {
+exports.newMachineLearningBotModulesLearningOutput = function (processIndex) {
     /*
     This module will load if necesary all the data outputs so that they can be appended with new
     records if needed. After running the simulation, it will save all the data outputs.
@@ -29,7 +29,7 @@ exports.newFoundationsBotModulesLearningOutput = function (processIndex) {
             }
 
             /* Preparing everything for the Simulation */
-            let learningSimulationModuleObject = TS.projects.foundations.botModules.learningSimulation.newFoundationsBotModulesLearningSimulation(processIndex)
+            let learningSimulationModuleObject = TS.projects.foundations.botModules.learningSimulation.newMachineLearningBotModulesLearningSimulation(processIndex)
 
             let outputDatasets = TS.projects.foundations.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
             let outputDatasetsMap = new Map()

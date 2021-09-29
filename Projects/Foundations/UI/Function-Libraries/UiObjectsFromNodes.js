@@ -278,7 +278,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
     function syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd() {
         for (let i = 0; i < learningSessionsFoundAtWorkspace.length; i++) {
             let node = learningSessionsFoundAtWorkspace[i]
-            UI.projects.algorithmicTrading.functionLibraries.tradingSessionFunctions.syncronizeSessionWithBackEnd(node)
+            UI.projects.machineLearning.functionLibraries.learningSessionFunctions.syncronizeSessionWithBackEnd(node)
         }
         learningSessionsFoundAtWorkspace = undefined
     }

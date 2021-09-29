@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesLearningSimulation = function (processIndex) {
+exports.newMachineLearningBotModulesLearningSimulation = function (processIndex) {
     /*
     This Module represents the learning simulation. Essentially a loop through a set of candles and 
     the execution at each loop cycle of the Learning System Protocol.
@@ -33,10 +33,10 @@ exports.newFoundationsBotModulesLearningSimulation = function (processIndex) {
                 '[INFO] runSimulation -> finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime)
 
             /* These are the Modules we will need to run the Simulation */
-            let learningRecordsModuleObject = TS.projects.foundations.botModules.learningRecords.newFoundationsBotModulesLearningRecords(processIndex)
+            let learningRecordsModuleObject = TS.projects.foundations.botModules.learningRecords.newMachineLearningBotModulesLearningRecords(processIndex)
             learningRecordsModuleObject.initialize(outputDatasetsMap)
 
-            let learningSystemModuleObject = TS.projects.foundations.botModules.learningSystem.newFoundationsBotModulesLearningSystem(processIndex)
+            let learningSystemModuleObject = TS.projects.foundations.botModules.learningSystem.newMachineLearningBotModulesLearningSystem(processIndex)
             learningSystemModuleObject.initialize()
 
             /*
@@ -77,7 +77,7 @@ exports.newFoundationsBotModulesLearningSimulation = function (processIndex) {
                 }
             }
 
-            let learningEpisodeModuleObject = TS.projects.foundations.botModules.learningEpisode.newFoundationsBotModulesLearningEpisode(processIndex)
+            let learningEpisodeModuleObject = TS.projects.foundations.botModules.learningEpisode.newMachineLearningBotModulesLearningEpisode(processIndex)
             learningEpisodeModuleObject.initialize()
 
             /* Setting up the candles array: The whole simulation is based on the array of candles at the time-frame defined at the session parameters. */

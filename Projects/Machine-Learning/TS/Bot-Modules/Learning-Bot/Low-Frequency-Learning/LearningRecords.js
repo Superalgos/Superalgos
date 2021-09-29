@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesLearningRecords = function (processIndex) {
+exports.newMachineLearningBotModulesLearningRecords = function (processIndex) {
     /*
     This module facilitates the appending of records to the output of the process.
     */

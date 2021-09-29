@@ -590,22 +590,22 @@ function newFoundationsActionSwitch() {
                 break
             case 'Stop Trading Session':
                 {
-                    UI.projects.foundations.functionLibraries.tradingSessionFunctions.stopSession(action.node, action.callBackFunction)
+                    UI.projects.algorithmicTrading.functionLibraries.tradingSessionFunctions.stopSession(action.node, action.callBackFunction)
                 }
                 break
             case 'Run Learning Session':
                 {
-                    UI.projects.foundations.functionLibraries.learningSessionFunctions.runSession(action.node, false, action.callBackFunction)
+                    UI.projects.machineLearning.functionLibraries.learningSessionFunctions.runSession(action.node, false, action.callBackFunction)
                 }
                 break
             case 'Resume Learning Session':
                 {
-                    UI.projects.foundations.functionLibraries.learningSessionFunctions.runSession(action.node, true, action.callBackFunction)
+                    UI.projects.machineLearning.functionLibraries.learningSessionFunctions.runSession(action.node, true, action.callBackFunction)
                 }
                 break
             case 'Stop Learning Session':
                 {
-                    UI.projects.foundations.functionLibraries.learningSessionFunctions.stopSession(action.node, action.callBackFunction)
+                    UI.projects.machineLearning.functionLibraries.learningSessionFunctions.stopSession(action.node, action.callBackFunction)
                 }
                 break
             case 'Run Super Action':

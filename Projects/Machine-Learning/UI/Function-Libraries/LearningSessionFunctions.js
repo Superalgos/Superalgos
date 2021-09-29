@@ -1,4 +1,4 @@
-function newFoundationsFunctionLibraryLearningSessionFunctions() {
+function newMachineLearningFunctionLibraryLearningSessionFunctions() {
     let thisObject = {
         syncronizeSessionWithBackEnd: syncronizeSessionWithBackEnd,
         runSession: runSession,

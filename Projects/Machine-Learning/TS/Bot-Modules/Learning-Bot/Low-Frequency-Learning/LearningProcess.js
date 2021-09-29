@@ -1,4 +1,4 @@
-﻿exports.newFoundationsBotModulesLearningProcess = function (processIndex) {
+﻿exports.newMachineLearningBotModulesLearningProcess = function (processIndex) {
     /*
     This Module will load all the process data dependencies from files and send them downstream.
     After execution, will save the time range and status report of the process.
@@ -16,8 +16,8 @@
 
             let dataFiles = new Map()
             let multiTimeFrameDataFiles = new Map()
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).LEARNING_ENGINE_MODULE_OBJECT = TS.projects.foundations.botModules.learningEngine.newFoundationsBotModulesLearningEngine(processIndex)
-            let learningOutputModuleObject = TS.projects.foundations.botModules.learningOutput.newFoundationsBotModulesLearningOutput(processIndex)
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).LEARNING_ENGINE_MODULE_OBJECT = TS.projects.foundations.botModules.learningEngine.newMachineLearningBotModulesLearningEngine(processIndex)
+            let learningOutputModuleObject = TS.projects.foundations.botModules.learningOutput.newMachineLearningBotModulesLearningOutput(processIndex)
 
             let currentTimeFrame = {}
 

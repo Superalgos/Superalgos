@@ -1,8 +1,8 @@
-﻿exports.newFoundationsBotModulesSingleMarketLearningBot = function (processIndex) {
+﻿exports.newMachineLearningBotModulesSingleMarketLearningBot = function (processIndex) {
 
     const MODULE_NAME = "Single Market Learning Bot";
 
-    let session = TS.projects.foundations.botModules.learningSession.newFoundationsBotModulesLearningSession(processIndex)
+    let session = TS.projects.foundations.botModules.learningSession.newMachineLearningBotModulesLearningSession(processIndex)
     let nextLoopTimeoutHandle;
 
     let thisObject = {
@@ -282,7 +282,7 @@
                                                 "[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well.")
                                             switch (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.name) {
                                                 case 'Low-Frequency-Learning-Process': {
-                                                    processFramework = TS.projects.foundations.botModules.learningProcess.newFoundationsBotModulesLearningProcess(processIndex);
+                                                    processFramework = TS.projects.foundations.botModules.learningProcess.newMachineLearningBotModulesLearningProcess(processIndex);
                                                     startProcessFramework();
                                                     break;
                                                 }

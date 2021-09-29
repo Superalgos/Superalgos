@@ -1,4 +1,4 @@
-﻿exports.newFoundationsBotModulesLearningSession = function (processIndex) {
+﻿exports.newMachineLearningBotModulesLearningSession = function (processIndex) {
 
     const MODULE_NAME = "Learning Session"
 

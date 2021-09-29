@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesLearningEpisode = function (processIndex) {
+exports.newMachineLearningBotModulesLearningEpisode = function (processIndex) {
     /*
     This module packages all functions related to Episodes.
     */

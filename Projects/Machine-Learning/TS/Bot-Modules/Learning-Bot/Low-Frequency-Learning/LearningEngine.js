@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesLearningEngine = function (processIndex) {
+exports.newMachineLearningBotModulesLearningEngine = function (processIndex) {
     /*
     We call the Learning Engine to the data structure that is needed in order to exevute the
     learning protocol with the specific rules defined at the Learning System.

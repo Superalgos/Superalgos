@@ -7,7 +7,8 @@ RUN apk add --no-cache --virtual .build-deps make g++ \
     && mkdir -p Data-Storage Log-Files My-Workspaces \
     && addgroup -S superalgos \
     && adduser -S superalgos -G superalgos \
-    && chown -R superalgos:superalgos /app
+    && chown -R superalgos:superalgos /app \
+    && apk del .build-deps
 USER superalgos
 EXPOSE 34248
 EXPOSE 18041

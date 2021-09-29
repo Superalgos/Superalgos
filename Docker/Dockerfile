@@ -1,7 +1,7 @@
 FROM node:current-alpine
+RUN apk add --no-cache git
 WORKDIR /app
-COPY package*.json ./
-RUN npm install && mkdir -p Data-Storage Log-Files My-Workspaces \
+RUN mkdir -p Data-Storage Log-Files My-Workspaces \
     && addgroup -S superalgos \
     && adduser -S superalgos -G superalgos \
     && chown -R superalgos:superalgos /app

@@ -4,15 +4,15 @@ services:
     build: 
       context: ..
       dockerfile: ./Docker/Dockerfile
-    image: ghcr.io/martin-b78/superalgos:develop
+    image: ghcr.io/superalgos/superalgos:latest
     command: ["minMemo"]
     ports:
       - '34248:34248'
       - '18041:18041'
     volumes:
-      - volume1/docker/Superalgos/mARTin-B78-Superalgos/Data-Storage:/app/Data-Storage
-      - volume1/docker/Superalgos/mARTin-B78-Superalgos/Log-Files:/app/Log-Files
-      - volume1/docker/Superalgos/mARTin-B78-Superalgos/My-Workspaces:/app/My-Workspaces
+      - ../Data-Storage:/app/Data-Storage
+      - ../Log-Files:/app/Log-Files
+      - ../My-Workspaces:/app/My-Workspaces
     environment:
       PUID: '1000'
       PGID: '1000'

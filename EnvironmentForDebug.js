@@ -8,7 +8,6 @@ exports.newEnvironment = function () {
         DESKTOP_WEB_SOCKETS_INTERFACE_HOST: 'localhost',
         CLIENT_HTTP_INTERFACE_PORT: 34248,
         DESKTOP_HTTP_INTERFACE_PORT: 34249,
-        PATH_TO_TASK_SERVER: './TaskServer',
         PATH_TO_DATA_STORAGE: './Data-Storage',
         PATH_TO_PROJECTS: './Projects',
         PATH_TO_LOG_FILES: './Log-Files',

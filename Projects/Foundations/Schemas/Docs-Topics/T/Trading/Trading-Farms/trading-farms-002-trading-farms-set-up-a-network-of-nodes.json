@@ -46,7 +46,7 @@
         },
         {
             "style": "Subtitle",
-            "text": "At the Network Hierarchy"
+            "text": "At the LAN Network Hierarchy"
         },
         {
             "style": "Text",
@@ -68,7 +68,7 @@
         },
         {
             "style": "Text",
-            "text": "Here this procedure will add Time Machine s with Timeline Chart s inside of them. Deeper inside this branch, you will find Layer s node, which references the Data Products at the Network Hierarchy. That reference is crucial for the system to know when you turn on a Layer at the charts, where the data needs to be fetched from (which Client).",
+            "text": "Here this procedure will add Time Machine s with Timeline Chart s inside of them. Deeper inside this branch, you will find Layer s node, which references the Data Products at the LAN Network Hierarchy. That reference is crucial for the system to know when you turn on a Layer at the charts, where the data needs to be fetched from (which Client).",
             "updated": 1617263990004
         },
         {
@@ -176,7 +176,7 @@
         },
         {
             "style": "Text",
-            "text": "To add a network node, select Add Network Node on the Superalgos Network node menu. A network node is added along with the basic structure of nodes to set up a node."
+            "text": "To add a network node, select Add LAN Network Node on the Superalgos Network node menu. A network node is added along with the basic structure of nodes to set up a node."
         },
         {
             "style": "Subtitle",

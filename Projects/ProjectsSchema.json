@@ -341,12 +341,6 @@
                     "fileName": "StandardResponses.js"
                 },
                 {
-                    "name": "Time Constants",
-                    "propertyName": "timeConstants",
-                    "functionName": "newFoundationsGlobalsTimeConstants",
-                    "fileName": "TimeConstants.js"
-                },
-                {
                     "name": "Process Variables",
                     "propertyName": "processVariables",
                     "functionName": "newFoundationsGlobalsProcessVariables",
@@ -866,7 +860,7 @@
                 }
             ]
         },
-        "CL": {
+        "PL": {
             "utilities": [
                 {
                     "name": "Async Functions",
@@ -883,6 +877,14 @@
             ]
         },
         "SA": {
+            "globals":[
+                {
+                    "name": "Time Constants",
+                    "propertyName": "timeConstants",
+                    "functionName": "newFoundationsGlobalsTimeConstants",
+                    "fileName": "TimeConstants.js"
+                }
+            ],
             "utilities": [
                 {
                     "name": "Plugins",
@@ -983,7 +985,7 @@
             ]
         },
         "TS": {},
-        "CL": {}
+        "PL": {}
     },
     {
         "name": "TensorFlow",
@@ -1091,7 +1093,7 @@
             "processModules": [],
             "botModules": []
         },
-        "CL": {}
+        "PL": {}
     },
     {
         "name": "Governance",
@@ -1283,7 +1285,7 @@
             ]
         },
         "TS": {},
-        "CL": {},
+        "PL": {},
         "plugins": [
             "User Profiles",
             "Pools",
@@ -1440,6 +1442,12 @@
                     "propertyName": "peerInterface",
                     "functionName": "newSocialTradingModulesPeerInterface",
                     "fileName": "PeerInterface.js"
+                },
+                {
+                    "name": "Storage",
+                    "propertyName": "storage",
+                    "functionName": "newSocialTradingModulesStorage",
+                    "fileName": "Storage.js"
                 }
             ],
             "utilities": [

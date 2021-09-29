@@ -232,7 +232,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
 
             for (let i = 0; i < rootNodes.length; i++) {
                 let rootNode = rootNodes[i]
-                if (rootNode.type === 'Network') {
+                if (rootNode.type === 'LAN Network') {
                     installInNetwork(rootNode)
                 }
             }
@@ -248,12 +248,12 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
 
             function installInNetwork(network) {
 
-                for (let j = 0; j < network.networkNodes.length; j++) {
-                    let networkNode = network.networkNodes[j]
-                    installInNetworkNode(networkNode)
+                for (let j = 0; j < network.lanNetworkNodes.length; j++) {
+                    let lanNetworkNode = network.lanNetworkNodes[j]
+                    installInNetworkNode(lanNetworkNode)
                 }
 
-                function installInNetworkNode(networkNode) {
+                function installInNetworkNode(lanNetworkNode) {
 
                     let tradingSessionsCreatedArray = []
                     let learningSessionsCreatedArray = []
@@ -270,9 +270,9 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         /*
                         Here we complete the missing stuff at Data Tasks
                         */
-                        let dataTasks = UI.projects.foundations.utilities.branches.findInBranch(networkNode, 'Data Tasks', node, true)
+                        let dataTasks = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Data Tasks', node, true)
                         if (dataTasks === undefined) {
-                            dataTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(networkNode, 'Data Tasks')
+                            dataTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Tasks')
                         }
                         /*
                         We will make ourserves sure that the Project Data Tasks nodes are there.
@@ -303,9 +303,9 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         /*
                         Here we complete the missing stuff at Learning Tasks
                         */
-                        let learningTasks = UI.projects.foundations.utilities.branches.findInBranch(networkNode, 'Learning Tasks', node, true)
+                        let learningTasks = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Learning Tasks', node, true)
                         if (learningTasks === undefined) {
-                            learningTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(networkNode, 'Learning Tasks')
+                            learningTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Learning Tasks')
                         }
                         /*
                         We will make ourserves sure that the Project Learning Tasks nodes are there.
@@ -339,7 +339,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
 
                             learningSessionsCreatedArray = learningSessionsCreatedArray.concat(allSessionsArray)
 
-                            dashboardsArray.push({ environmentNode: learningTasks, networkNode: networkNode, sessionsArray: allSessionsArray })
+                            dashboardsArray.push({ environmentNode: learningTasks, lanNetworkNode: lanNetworkNode, sessionsArray: allSessionsArray })
                         }
                     }
 
@@ -357,9 +357,9 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             /*
                             Now we install the environmnet at the current Network Node
                             */
-                            let tradingTasks = UI.projects.foundations.utilities.branches.findInBranch(networkNode, environmentType, node, true)
+                            let tradingTasks = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, environmentType, node, true)
                             if (tradingTasks === undefined) {
-                                tradingTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(networkNode, environmentType)
+                                tradingTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, environmentType)
                             }
                             /*
                              We will make ourserves sure that the Project Trading Tasks nodes are there.
@@ -395,7 +395,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                                     .concat(forwardSessionsArray)
                                 tradingSessionsCreatedArray = tradingSessionsCreatedArray.concat(allSessionsArray)
 
-                                dashboardsArray.push({ environmentNode: tradingTasks, networkNode: networkNode, sessionsArray: allSessionsArray })
+                                dashboardsArray.push({ environmentNode: tradingTasks, lanNetworkNode: lanNetworkNode, sessionsArray: allSessionsArray })
                             }
                         }
                     }
@@ -404,9 +404,9 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         /*
                         Here we complete the missing stuff at Data Mines Data
                         */
-                        let dataStorage = UI.projects.foundations.utilities.branches.findInBranch(networkNode, 'Data Storage', node, true)
+                        let dataStorage = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
-                            dataStorage = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(networkNode, 'Data Storage')
+                            dataStorage = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
                         }
                         let dataMinesData = UI.projects.foundations.utilities.branches.findInBranch(dataStorage, 'Data Mines Data', node, true)
                         if (dataMinesData === undefined) {
@@ -443,9 +443,9 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         /*
                         Here we complete the missing stuff at Data Mines Data
                         */
-                        let dataStorage = UI.projects.foundations.utilities.branches.findInBranch(networkNode, 'Data Storage', node, true)
+                        let dataStorage = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
-                            dataStorage = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(networkNode, 'Data Storage')
+                            dataStorage = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
                         }
                         let learningMinesData = UI.projects.foundations.utilities.branches.findInBranch(dataStorage, 'Learning Mines Data', node, true)
                         if (learningMinesData === undefined) {
@@ -498,9 +498,9 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         /*
                         Here we complete the missing stuff at Data Mines Data
                         */
-                        let dataStorage = UI.projects.foundations.utilities.branches.findInBranch(networkNode, 'Data Storage', node, true)
+                        let dataStorage = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
-                            dataStorage = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(networkNode, 'Data Storage')
+                            dataStorage = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
                         }
                         let tradingMinesData = UI.projects.foundations.utilities.branches.findInBranch(dataStorage, 'Trading Mines Data', node, true)
                         if (tradingMinesData === undefined) {
@@ -575,7 +575,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         */
                         let arrayItem = dashboardsArray[i]
                         let dashboard = UI.projects.foundations.utilities.nodeChildren.findOrCreateChildWithReference(projectDashboards, 'Dashboard', arrayItem.environmentNode)
-                        dashboard.name = arrayItem.environmentNode.type + ' ' + arrayItem.networkNode.name
+                        dashboard.name = arrayItem.environmentNode.type + ' ' + arrayItem.lanNetworkNode.name
                         /*
                         We delete all the existing Time Machines related to the market we are currently installing. 
                         For that, we make a new array with the existing Time Machines so that the deleting
@@ -611,7 +611,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         */
                         for (let j = 0; j < arrayItem.sessionsArray.length; j++) {
                             let session = arrayItem.sessionsArray[j]
-                            UI.projects.foundations.functionLibraries.chartingSpaceFunctions.createTimeMachine(dashboard, session, node, arrayItem.networkNode, rootNodes)
+                            UI.projects.foundations.functionLibraries.chartingSpaceFunctions.createTimeMachine(dashboard, session, node, arrayItem.lanNetworkNode, rootNodes)
                         }
                     }
                 }
@@ -678,7 +678,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                 /* Scan Networks for the market being unistalled to delete it. */
                 for (let i = 0; i < rootNodes.length; i++) {
                     let rootNode = rootNodes[i]
-                    if (rootNode.type === 'Network') {
+                    if (rootNode.type === 'LAN Network') {
                         uninstallInNetwork(rootNode)
                     }
                 }

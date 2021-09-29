@@ -130,6 +130,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
             event.initialize(eventReceived)
             NT.projects.socialTrading.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
+            NT.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
 
             let response = {
                 result: 'Ok',
@@ -207,11 +208,16 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             let query = NT.projects.socialTrading.modules.query.newSocialTradingModulesQuery()
             query.initialize(queryReceived)
 
+            // console.log((new Date()).toISOString(), '- Client Interface', '- Query Message Received', queryMessage)
+
             let response = {
                 result: 'Ok',
                 message: 'Client Interface Query Processed.',
                 data: query.execute()
             }
+
+            // console.log((new Date()).toISOString(), '- Client Interface', '- Query Respose Sent', JSON.stringify(response))
+
             return response
 
         } catch (err) {

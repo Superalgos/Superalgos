@@ -4,7 +4,14 @@
     "type": "Governance Programs",
     "definition": {
         "text": "The Community may participate in multiple Governance Programs, each designed to fulfill a specific goal. Programs are grouped in the following domains: Onboarding Programs, Community Building Programs, Votes and Claims Programs, and Financial Programs.",
-        "updated": 1630425525513
+        "updated": 1630425525513,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "The Community puede participar en múltiples Governance Programs, cada uno diseñado para cumplir un objetivo específico. Los programas se agrupan en los siguientes dominios: Onboarding Programs, Community Building Programs, Votes and Claims Programs, y Financial Programs.",
+                "updated": 1631678191412
+            }
+        ]
     },
     "paragraphs": [
         {

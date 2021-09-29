@@ -62,6 +62,11 @@ exports.newFoundationsBotModulesSnapshots = function(processIndex) {
     }
 
     function finalize() {
+        //trigger exits added for extra save moment for datapreserve
+        if (tradingEngine.tradingCurrent.strategy.begin.value > 0) {
+            strategyExit()
+            positionExit()
+        }
         writeSnapshotFiles()
         tradingEngine = undefined
         tradingSystem = undefined
@@ -220,8 +225,8 @@ exports.newFoundationsBotModulesSnapshots = function(processIndex) {
                 instruction = instruction.replace(/!==/g, '')
                 instruction = instruction.replace(/==/g, '')
                 instruction = instruction.replace(/===/g, '')
-                instruction = instruction.replace(/{/g, '') //this wrecks something in JS markup?
-                instruction = instruction.replace(/}/g, '') //this wrecks something in JS markup?
+                instruction = instruction.replace(/{/g, '')
+                instruction = instruction.replace(/}/g, '')
                 if (instruction.indexOf('chart') >= 0) {
                     let parts = instruction.split('.')
                     let timeFrame = parts[1]
@@ -243,7 +248,6 @@ exports.newFoundationsBotModulesSnapshots = function(processIndex) {
                     }
                     let key = timeFrame + '-' + product + '-' + property
                     let existingKey
-
                     if (addToStrategyValues === true) {
                         addValues(strategyKeys, strategyValues)
                     }
@@ -303,7 +307,14 @@ exports.newFoundationsBotModulesSnapshots = function(processIndex) {
 
     function getResults(openDatetime, closeDatetime) {
 
-        let closeHeaders = ['Trade Number', 'Open Datetime', 'Close Datetime', 'Strategy Name', 'Trigger On Situation', 'Take Position Situation', 'Result In Base Asset', 'Result In Quoted Asset', 'ROI in Base Asset', 'ROI in Quoted Asset', 'Exit Type']
+        let baseOpen = tradingEngine.tradingCurrent.strategyCloseStage.stageBaseAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyCloseStage.stageBaseAsset.feesPaid.value
+        let baseClose = tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.feesPaid.value
+        let quoteOpen = tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.feesPaid.value
+        let quoteClose = tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.feesPaid.value
+        let qouteProfit = ((quoteClose / quoteOpen * 100) - 100)
+        let baseProfit = ((baseClose / baseOpen * 100) - 100)
+
+        let closeHeaders = ['Trade Number', 'Open Datetime', 'Close Datetime', 'Strategy Name', 'Trigger On Situation', 'Take Position Situation', 'Open Position in Base Asset', 'Close Position in Base Asset', 'Open Position in Quoted Asset', 'Close Position in Quoted Asset', 'Result In Base Asset', 'Result In Quoted Asset', 'ROI in Base Asset', '% P/L Base Asset', 'P/L Type Base Asset', 'ROI in Quoted Asset', '% P/L Quoted Asset', 'P/L Type Quoted Asset', 'Exit Type', '# Periods']
         closeValues = [
             tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value, // Position Number
             (new Date(openDatetime)).toISOString(), // Open Datetime
@@ -311,11 +322,21 @@ exports.newFoundationsBotModulesSnapshots = function(processIndex) {
             tradingEngine.tradingCurrent.strategy.strategyName.value, // Strategy Name
             tradingEngine.tradingCurrent.strategy.situationName.value, // Trigger On Situation
             tradingEngine.tradingCurrent.position.situationName.value, // Take Position Situation
+            baseOpen, // open position in base asset
+            baseClose, // close position in base asset
+            quoteOpen, //open quote in base asset
+            quoteClose, // close quote in base asset
             tradingEngine.tradingCurrent.position.positionBaseAsset.hitFail.value, // Result in Base Asset
             tradingEngine.tradingCurrent.position.positionQuotedAsset.hitFail.value, // Result in Base Asset
-            tradingEngine.tradingCurrent.position.positionBaseAsset.ROI.value, // ROI in Base Asseet
-            tradingEngine.tradingCurrent.position.positionQuotedAsset.ROI.value, // ROI in Quoted Asset
-            tradingEngine.tradingCurrent.position.exitType.value // Exit Type
+            tradingEngine.tradingCurrent.position.positionBaseAsset.ROI.value, // ROI in Base Asset <- not sure this works as intended
+            baseProfit + '%', // % profit / loss in base Asset
+            baseProfit === 0 ? 'Even' : (baseProfit > 0 ? "Profit" : "Loss"),
+
+            tradingEngine.tradingCurrent.position.positionQuotedAsset.ROI.value, // ROI in Quoted Asset <- not sure this works as intended
+            qouteProfit + '%', // % profit loss in quoted Asset
+            qouteProfit === 0 ? 'Even' : (qouteProfit > 0 ? "Profit" : "Loss"),
+            tradingEngine.tradingCurrent.position.exitType.value, // Exit Type
+            tradingEngine.tradingCurrent.position.positionCounters.periods.value // periods counter
         ]
 
         if (createCloseHeaders === true) {
@@ -357,15 +378,35 @@ exports.newFoundationsBotModulesSnapshots = function(processIndex) {
 
             function writeOutput(fileContent) {
                 let separator = '\r\n';
+                let contentArray = [];
+
+                // if we have file content extract rows
+                if (fileContent != '') {
+                    contentArray = fileContent.split(separator)
+                }
 
                 parseRecord(snapshots.headers)
-
                 for (let i = 0; i < snapshotArray.length; i++) {
                     let record = snapshotArray[i];
-                    parseRecord(record)
+                    if (record.length > 0) {
+                        parseRecord(record)
+                    }
                 }
 
                 function parseRecord(record) {
+                    // if we have undefined values, we need to extract the previous stored values for this trade and append them to the new record for completion
+                    if (record[record.length - 1] === undefined && contentArray.length > 0) {
+
+                        let rowToMutateArray = contentArray[contentArray.length - 1].split(',')
+                            // check if are for sure on the same tradenumber and merge the data and remove previous line incl separator
+                        if (rowToMutateArray[0] == record[0]) {
+                            record.pop()
+                            rowToMutateArray.splice(0, record.length)
+                            record = record.concat(rowToMutateArray)
+                            fileContent = fileContent.replace(contentArray[contentArray.length - 1], '')
+                            fileContent = fileContent.replace(/\r\n$/, '')
+                        }
+                    }
                     for (let j = 0; j < record.length; j++) {
                         let property = record[j]
 
@@ -410,6 +451,9 @@ exports.newFoundationsBotModulesSnapshots = function(processIndex) {
                 function onFileReceived(err, text) {
                     if (err.result === TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                         try {
+                            // remove the last linebreak and seperator which is introduced extra during save
+                            text = text.replace(/\n$/, '')
+                            text = text.replace(/\r\n$/, '')
                             writeOutput(text)
                         } catch (err) {
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> fileName = ' + filePath);

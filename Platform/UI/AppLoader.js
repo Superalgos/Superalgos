@@ -1,7 +1,6 @@
 let postLoader
 
 function newAppLoader() {
-    const MODULE_NAME = 'App Loader'
     const INFO_LOG = false
     const ERROR_LOG = true
     const logger = newWebDebugLog()
@@ -65,8 +64,8 @@ function newAppLoader() {
                     for (let i = 0; i < fileArray.length; i++) {
                         let item = fileArray[i]
 
-                        project = item[0]
-                        fileName = item[1]
+                        let project = item[0]
+                        let fileName = item[1]
                         urlArray.push('Projects' + '/' + project + '/' + 'UI' + '/' + 'Function-Libraries' + '/' + fileName)
                     }
 
@@ -85,8 +84,8 @@ function newAppLoader() {
                     for (let i = 0; i < fileArray.length; i++) {
                         let item = fileArray[i]
 
-                        project = item[0]
-                        fileName = item[1]
+                        let project = item[0]
+                        let fileName = item[1]
                         urlArray.push('Projects' + '/' + project + '/' + 'UI' + '/' + 'Utilities' + '/' + fileName)
                     }
 
@@ -105,8 +104,8 @@ function newAppLoader() {
                     for (let i = 0; i < fileArray.length; i++) {
                         let item = fileArray[i]
 
-                        project = item[0]
-                        fileName = item[1]
+                        let project = item[0]
+                        let fileName = item[1]
                         urlArray.push('Projects' + '/' + project + '/' + 'UI' + '/' + 'Globals' + '/' + fileName)
                     }
 
@@ -138,7 +137,7 @@ function newAppLoader() {
 
                 for (let i = 0; i < modulesArray.length; i++) {
                     let path = modulesArray[i]
-                    console.log(path)
+              
                     REQUIREJS([path], onRequired)
 
                     if (INFO_LOG === true) { logger.write('[INFO] loadModules -> Module Requested.') }

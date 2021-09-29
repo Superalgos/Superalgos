@@ -1,5 +1,5 @@
 {
-    "type": "Network Node",
+    "type": "LAN Network Node",
     "definition": {
         "text": "A network node represents a machine running Superalgos, on which processes run and data is stored.",
         "translations": [

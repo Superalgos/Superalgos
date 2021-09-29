@@ -89,7 +89,7 @@
                         thisReport.beginingOfMarket.days + " " +
                         thisReport.beginingOfMarket.hours + ":" +
                         thisReport.beginingOfMarket.minutes +
-                        TS.projects.foundations.globals.timeConstants.GMT_SECONDS)
+                        SA.projects.foundations.globals.timeConstants.GMT_SECONDS)
 
                     /* Second, we get the report from Exchange Raw Data, to know when the marted ends. */
                     statusReport = statusDependenciesModule.reportsByMainUtility.get('Market Ending Point')
@@ -125,7 +125,7 @@
                         thisReport.lastFile.year + "-" +
                         thisReport.lastFile.month + "-" +
                         thisReport.lastFile.days + " " + "00:00" +
-                        TS.projects.foundations.globals.timeConstants.GMT_SECONDS)
+                        SA.projects.foundations.globals.timeConstants.GMT_SECONDS)
 
                     /* Finally we get our own Status Report. */
                     statusReport = statusDependenciesModule.reportsByMainUtility.get('Self Reference')
@@ -150,15 +150,15 @@
                         beginingOfMarket = new Date(thisReport.beginingOfMarket)
                         if (beginingOfMarket.valueOf() !== contextVariables.datetimeBeginingOfMarketFile.valueOf()) { // Reset Mechanism for Begining of the Market
 
-                            beginingOfMarket = new Date(contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" + (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" + contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" + TS.projects.foundations.globals.timeConstants.GMT_SECONDS);
+                            beginingOfMarket = new Date(contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" + (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" + contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" + SA.projects.foundations.globals.timeConstants.GMT_SECONDS);
                             contextVariables.datetimeLastProducedFile = new Date(
                                 contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
                                 (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
                                 contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
-                                TS.projects.foundations.globals.timeConstants.GMT_SECONDS)
+                                SA.projects.foundations.globals.timeConstants.GMT_SECONDS)
                             contextVariables.datetimeLastProducedFile = new Date(
                                 contextVariables.datetimeLastProducedFile.valueOf() -
-                                TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) // Go back one day to start well.
+                                SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) // Go back one day to start well.
 
                             buildCandles()
                             return
@@ -171,7 +171,7 @@
                         For that reason we go back one day, the partial information is discarded 
                         and added again with whatever new info is available.
                         */
-                        contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() - TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                        contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() - SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
                         buildCandles()
                         return
 
@@ -180,13 +180,13 @@
                             contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
                             (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
                             contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
-                            TS.projects.foundations.globals.timeConstants.GMT_SECONDS)
+                            SA.projects.foundations.globals.timeConstants.GMT_SECONDS)
                         contextVariables.datetimeLastProducedFile = new Date(
                             contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
                             (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
                             contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
-                            TS.projects.foundations.globals.timeConstants.GMT_SECONDS)
-                        contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() - TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS); // Go back one day to start well.
+                            SA.projects.foundations.globals.timeConstants.GMT_SECONDS)
+                        contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() - SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS); // Go back one day to start well.
 
                         buildCandles()
                         return
@@ -216,7 +216,7 @@
                     advanceTime()
 
                     function advanceTime() {
-                        contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() + TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS);
+                        contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() + SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS);
 
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[INFO] start -> buildCandles -> advanceTime -> New processing time @ " + contextVariables.datetimeLastProducedFile.getUTCFullYear() + "/" + (contextVariables.datetimeLastProducedFile.getUTCMonth() + 1) + "/" + contextVariables.datetimeLastProducedFile.getUTCDate() + ".")
@@ -665,7 +665,7 @@
                 try {
                     let dataRange = {
                         begin: pBegin.valueOf(),
-                        end: pEnd.valueOf() + TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+                        end: pEnd.valueOf() + SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
                     }
 
                     let fileContent = JSON.stringify(dataRange);

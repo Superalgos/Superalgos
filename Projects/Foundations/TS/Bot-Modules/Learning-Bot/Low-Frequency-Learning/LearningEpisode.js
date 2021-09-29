@@ -101,7 +101,7 @@ exports.newFoundationsBotModulesLearningEpisode = function (processIndex) {
         learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.days.value =
             learningEngine.learningCurrent.learningEpisode.learningEpisodeCounters.periods.value *
             sessionParameters.timeFrame.config.value /
-            TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+            SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
     }
 
     function cycleBasedStatistics() {

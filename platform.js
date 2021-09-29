@@ -1,3 +1,10 @@
+#!/usr/bin/env node
+/*
+The Superalgos Platform is a software for algo-traders:
+
+This module represents the Nodejs command that users have to start the Platform App..
+
+*/
 
 if (
     process.argv.includes("help") ||
@@ -19,7 +26,7 @@ if (
     console.log('')
     console.log('TELEGRAM COMMUNITY:    https://t.me/superalgoscommunity')
     console.log('')
-    console.log('USAGE:                 node runPlatform [help] [noBrowser] [minMemo]')
+    console.log('USAGE:                 node platform [help] [noBrowser] [minMemo]')
     console.log('')
     console.log('OPTIONS:')
     console.log('')
@@ -79,12 +86,12 @@ console.log('')
 console.log('')
 
 const fs = require('fs')
-const path = './Platform/node_modules'
+const path = './node_modules'
 if ( fs.existsSync(path) ) {
 
     try {
         const { fork } = require('child_process')
-        fork('./Platform/PlatformApp.js', process.argv, options)
+        fork('./PlatformRoot.js', process.argv, options)
     } catch (err) {
         console.log('')
         console.log('Fail to create Superalgos Platform Client Process.')
@@ -94,7 +101,7 @@ if ( fs.existsSync(path) ) {
     }
 } else {
     console.log('')
-    console.log('ERROR: node_modules does not exist. Try running node setup to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.')
+    console.log('ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.')
     console.log('')
 }
 
@@ -106,5 +113,5 @@ function fatalErrorHelp() {
     console.log('')
     console.log('If you continue having trouble to start the Superalgos Platform Client try:')
     console.log('')
-    console.log('node runPlatform minMemo noBrowser')
+    console.log('node platform minMemo noBrowser')
 }

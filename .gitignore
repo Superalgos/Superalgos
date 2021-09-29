@@ -2,6 +2,8 @@ Data-Storage
 Log-Files
 My-Workspaces
 My-Social-Trading-Data
+My-Network-Nodes-Data
+My-Secrets
 debug.log
 .DS_Store
 *.db

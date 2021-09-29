@@ -1,5 +1,5 @@
 
-function newEventsServerClient(networkNode) {
+function newEventsServerClient(lanNetworkNode) {
     /* Web Sockets Connection */
 
     const MODULE_NAME = 'System Event Handler'
@@ -192,19 +192,19 @@ function newEventsServerClient(networkNode) {
 
         if (thisObject.isConnected() !== true) {
             if (lastTryToReconnectDatetime !== undefined) {
-                if (networkNode !== undefined) {
-                    if (networkNode.payload !== undefined) {
-                        if (networkNode.payload.uiObject !== undefined) {
-                            networkNode.payload.uiObject.setErrorMessage('Failed to Connect to Superalgos Client via WebSockets. Retrying in 1 minute. Check at this node config if the host property has the IP address of the computer running Superalgos Client.')
+                if (lanNetworkNode !== undefined) {
+                    if (lanNetworkNode.payload !== undefined) {
+                        if (lanNetworkNode.payload.uiObject !== undefined) {
+                            lanNetworkNode.payload.uiObject.setErrorMessage('Failed to Connect to Superalgos Platform Client via WebSockets. Retrying in 1 minute. Check at this node config if the host property has the IP address of the computer running Superalgos Platform Client.')
                         }
                     }
                 }
             }
         } else {
-            if (networkNode !== undefined) {
-                if (networkNode.payload !== undefined) {
-                    if (networkNode.payload.uiObject !== undefined) {
-                        networkNode.payload.uiObject.setStatus('Connected to Superalgos Client via WebSockets.')
+            if (lanNetworkNode !== undefined) {
+                if (lanNetworkNode.payload !== undefined) {
+                    if (lanNetworkNode.payload.uiObject !== undefined) {
+                        lanNetworkNode.payload.uiObject.setStatus('Connected to Superalgos Platform Client via WebSockets.')
                         retryCommandsPhysics()
                     }
                 }
@@ -220,14 +220,14 @@ function newEventsServerClient(networkNode) {
             let port
             /* At this point the node does not have the payload property yet, that is why we have to do this manually */
             try {
-                let config = JSON.parse(networkNode.config)
+                let config = JSON.parse(lanNetworkNode.config)
                 host = config.host
                 port = config.webSocketsPort
 
                 /* Check if we really have to stablish the connection. */
                 if (config.autoConnect === false) { return }
             } catch (err) {
-                networkNode.payload.uiObject.setErrorMessage(
+                lanNetworkNode.payload.uiObject.setErrorMessage(
                     'Bad configuration. Invalid JSON Format.',
                     undefined,
                     {
@@ -241,7 +241,7 @@ function newEventsServerClient(networkNode) {
             }
 
             if (host === undefined) {
-                networkNode.payload.uiObject.setErrorMessage(
+                lanNetworkNode.payload.uiObject.setErrorMessage(
                     'Bad configuration. Host Property Not Found.',
                     undefined,
                     {
@@ -255,7 +255,7 @@ function newEventsServerClient(networkNode) {
             }
 
             if (port === undefined) {
-                networkNode.payload.uiObject.setErrorMessage(
+                lanNetworkNode.payload.uiObject.setErrorMessage(
                     'Bad configuration. WebSocketsPort Property Not Found.',
                     undefined,
                     {

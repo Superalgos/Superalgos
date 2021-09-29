@@ -4,6 +4,7 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
         getDirectories: getDirectories,
         getAllFilesInDirectoryAndSubdirectories: getAllFilesInDirectoryAndSubdirectories,
         pathFromDate: pathFromDate,
+        pathFromDatetime: pathFromDatetime, 
         mkDirByPathSync: mkDirByPathSync
     }
 
@@ -21,8 +22,8 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
     }
 
     function getAllFilesInDirectoryAndSubdirectories(dir, callback) {
-        const { promisify } = require('util');
-        const { resolve } = require('path');
+        const { promisify } = SA.nodeModules.util
+        const { resolve } = SA.nodeModules.path;
         const fs = SA.nodeModules.fs;
         const readdir = promisify(fs.readdir);
         const stat = promisify(fs.stat);
@@ -55,18 +56,38 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
     }
 
     function pathFromDate(timestamp) {
+        
         let file = { date: new Date(timestamp) }
+        
         file.year = file.date.getUTCFullYear()
         file.month = file.date.getUTCMonth() + 1
         file.day = file.date.getUTCDate()
+        
         return file.year + '/' +
             SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.month, 2) + '/' +
             SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.day, 2)
     }
 
+    function pathFromDatetime(timestamp) {
+        
+        let file = { date: new Date(timestamp) }
+        
+        file.year = file.date.getUTCFullYear()
+        file.month = file.date.getUTCMonth() + 1
+        file.day = file.date.getUTCDate()
+        file.hour = file.date.getUTCHours()
+        file.minute = file.date.getMinutes()
+
+        return file.year + '/' +
+            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.month, 2) + '/' +
+            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.day, 2) + '/' +
+            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.hour, 2) + '/' +
+            SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.minute, 2)
+    }
+
     /* Function to create folders of missing folders at any path. */
     function mkDirByPathSync(targetDir, { isRelativeToScript = false } = {}) {
-        const path = require('path')
+        const path = SA.nodeModules.path
 
         targetDir = targetDir.substring(0, targetDir.lastIndexOf('/') + 1);
 
@@ -77,7 +98,7 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
         return targetDir.split(sep).reduce((parentDir, childDir) => {
             const curDir = path.resolve(baseDir, parentDir, childDir);
             try {
-                const fs = require('fs')
+                const fs = SA.nodeModules.fs
                 fs.mkdirSync(curDir);
             } catch (err) {
                 if (err.code === 'EEXIST') { // curDir already exists!

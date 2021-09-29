@@ -98,6 +98,9 @@ function newUniqueId () {
 
 function splitTextIntoPhrases (text, wordsPerLine) {
   try {
+    if (text.split === undefined) {
+      return []
+    }
     let splittedLabel = text.split(' ')
     let phrases = []
     let phrase = ''

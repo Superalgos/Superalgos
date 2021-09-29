@@ -1,6 +1,6 @@
 exports.newFileStorage = function newFileStorage(processIndex, host, port) {
 
-    const ip = require("ip");
+    const ip = SA.nodeModules.ip
     const MODULE_NAME = 'FileStorage'
     const MAX_RETRY = 10
     const FAST_RETRY_TIME_IN_MILISECONDS = 500
@@ -97,7 +97,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
                 /* Here we actually reaad the file. */
                 if (host === undefined || host === 'localhost' || host === ip.address() || host === '127.0.0.1') {
                     /* We read the file from the local file system. */
-                    const fs = require('fs')
+                    const fs = SA.nodeModules.fs
                     fs.readFile(fileLocation, onFileRead)
                 } else {
                     /* We read the file via a web server over http */
@@ -169,7 +169,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
 
                             if (host === undefined || host === 'localhost' || host === ip.address() || host === '127.0.0.1') {
                                 /* We read the file from the local file system. */
-                                const fs = require('fs')
+                                const fs = SA.nodeModules.fs
                                 fs.readFile(fileLocation + '.Previous.json', onPreviousFileRead)
                             } else {
                                 /* We read the file via a web server over http */
@@ -258,7 +258,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
                 Here we write the file with a temporary name so as to avoid dirty read from other processes.
                 Then we delete the original file, if exists, and finally we rename the temporary into the original name.
                 */
-                const fs = require('fs')
+                const fs = SA.nodeModules.fs
                 if (noTemp === true) {
                     fs.writeFile(fileLocation, fileContent, onFileWriten)
                 } else {
@@ -408,7 +408,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
 
                 logger.write(MODULE_NAME, '[INFO] FileStorage -> deleteTextFile -> fileLocation: ' + fileLocation)
 
-                const fs = require('fs')
+                const fs = SA.nodeModules.fs
                 fs.unlink(fileLocation, onUnlinked)
 
                 function onUnlinked(err) {
@@ -455,7 +455,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
             /* The filePath received is the one that is needed to fetch data from with fs. To do it via http we need to remove the prefix that includes this: ./Data-Storage/  */
             filePath = filePath.substring(15, filePath.length)
 
-            let http = require('http');
+            let http = SA.nodeModules.http
             let url = 'http://' + host +
                 ':' + port +
                 '/Storage/' +

@@ -8,7 +8,8 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "isHierarchyHead": true,
@@ -18,7 +19,8 @@
         {
             "name": "machineLearningLibrary",
             "type": "node",
-            "childType": "TensorFlow Library"
+            "childType": "TensorFlow Library",
+            "project": "Foundations"
         }
     ]
 }

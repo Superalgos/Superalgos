@@ -7,25 +7,29 @@
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "dontShowAtFullscreen": true,
-            "actionFunction": "uiObject.configEditor.activate"
+            "actionFunction": "uiObject.configEditor.activate",
+            "actionProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add Process Definition",
             "relatedUiObject": "Process Definition",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add Product Definition",
             "relatedUiObject": "Product Definition",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add Product Definition Folder",
             "relatedUiObject": "Product Definition Folder",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
@@ -34,7 +38,8 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "isTitleAllwaysVisible": true,
@@ -54,19 +59,22 @@
             "name": "processes",
             "type": "array",
             "childType": "Process Definition",
-            "autoAdd": true
+            "autoAdd": true,
+            "project": "Foundations"
         },
         {
             "name": "products",
             "type": "array",
             "childType": "Product Definition",
-            "autoAdd": true
+            "autoAdd": true,
+            "project": "Foundations"
         },
         {
             "name": "productDefinitionFolders",
             "type": "array",
             "childType": "Product Definition Folder",
-            "autoAdd": true
+            "autoAdd": true,
+            "project": "Foundations"
         }
     ],
     "propertyNameAtParent": "learningBots"

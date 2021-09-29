@@ -7,19 +7,22 @@
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "dontShowAtFullscreen": true,
-            "actionFunction": "uiObject.configEditor.activate"
+            "actionFunction": "uiObject.configEditor.activate",
+            "actionProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add Learning Bot",
             "relatedUiObject": "Learning Bot",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add Plotter",
             "relatedUiObject": "Plotter",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
@@ -28,7 +31,8 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "isTitleAllwaysVisible": true,
@@ -45,12 +49,14 @@
         {
             "name": "learningBots",
             "type": "array",
-            "childType": "Learning Bot"
+            "childType": "Learning Bot",
+            "project": "Algorithmic-Trading"
         },
         {
             "name": "plotters",
             "type": "array",
-            "childType": "Plotter"
+            "childType": "Plotter",
+            "project": "Algorithmic-Trading"
         }
     ]
 }

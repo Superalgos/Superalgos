@@ -7,7 +7,9 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
-            "relatedUiObject": "Learning Mine",
+            "iconPathOn": "learning-mine",
+            "iconPathOff": "learning-mine",
+            "iconProject": "Machine-Learning",
             "actionFunction": "payload.executeAction"
         },
         {

@@ -464,6 +464,15 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
         }
 
         if (
+            node.type === 'Learning Engine' ||
+            node.type === 'Learning Mine' ||
+            node.type === 'Learning System' ||
+            node.type === 'Learning Bot'
+        ) {
+            node.project = "Machine-Learning"
+        }
+
+        if (
             node.type === 'Plugins' ||
             node.type === 'Plugin Tutorials' ||
             node.type === 'Plugin Trading Systems' ||

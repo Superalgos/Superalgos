@@ -4,57 +4,161 @@
     "type": "Fundamental Superalgos Concepts",
     "definition": {
         "text": "Superalgos breaks up complexity and describes the fundamental concepts that make up trading intelligence in hierarchies of nodes. Nodes may reference other nodes to access information in other hierarchies.",
-        "updated": 1609943915544
+        "updated": 1609943915544,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Superalgos, karmaşıklığı ortadan kaldırır ve düğüm hiyerarşilerinde ticaret zekasını oluşturan temel kavramları tanımlar. Düğümler, diğer hiyerarşilerdeki bilgilere erişmek için diğer düğümlere başvurabilir.",
+                "updated": 1632834307298,
+                "style": "Definition"
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Algorithmic trading is a data-driven application. It is the superior ability to derive intelligence from data—above all—that gives automated trading an edge over trading manually.",
-            "updated": 1609943931550
+            "updated": 1609943931550,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Algoritmik ticaret, veriye dayalı bir uygulamadır. Otomatik ticarete manuel ticarete göre avantaj sağlayan şey, her şeyden önce verilerden bilgi elde etme üstün yeteneğidir.",
+                    "updated": 1632837168074,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "However, it would be simplistic to assume that trading intelligence emerges from data alone."
+            "text": "However, it would be simplistic to assume that trading intelligence emerges from data alone.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ancak, akıllı ticaretin yalnızca verilerden ortaya çıktığını varsaymak basit olacaktır.",
+                    "updated": 1632837201591,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Trading intelligence emerges from harnessing the interactions of multiple complex concepts."
+            "text": "Trading intelligence emerges from harnessing the interactions of multiple complex concepts.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticaret zekası, birden fazla karmaşık kavramın etkileşimlerinden yararlanarak ortaya çıkar.",
+                    "updated": 1632834496248,
+                    "style": "Callout"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos is a software infrastructure that contributes to harnessing those concepts and interactions by breaking complexity into small units of information called nodes and arranging them into larger data structures called hierarchies."
+            "text": "Superalgos is a software infrastructure that contributes to harnessing those concepts and interactions by breaking complexity into small units of information called nodes and arranging them into larger data structures called hierarchies.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Superalgos, karmaşıklığı düğüm adı verilen küçük bilgi birimlerine bölerek ve bunları hiyerarşi adı verilen daha büyük veri yapılarında düzenleyerek bu kavramlardan ve etkileşimlerden yararlanmaya katkıda bulunan bir yazılım altyapısıdır.",
+                    "updated": 1632834523192,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A hierarchy is a data structure representing an overarching, top-level concept, resulting in a long chain of nodes, usually with many ramifications. The system manages different types of hierarchies, each of them with a specific focus. For example, crypto ecosystem, data mines, or charting space."
+            "text": "A hierarchy is a data structure representing an overarching, top-level concept, resulting in a long chain of nodes, usually with many ramifications. The system manages different types of hierarchies, each of them with a specific focus. For example, crypto ecosystem, data mines, or charting space.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bir hiyerarşi, genellikle birçok dallanma ve uzun bir düğüm zinciri ile sonuçlanan, kapsamlı, üst düzey bir kavramı temsil eden bir veri yapısıdır. Sistem, her biri belirli bir odak noktası olan farklı hiyerarşi türlerini yönetir. Örneğin, kripto ekosistemi, veri madenleri veya grafik alanı.",
+                    "updated": 1632834574654,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A node is a small data structure containing information that may be related to market information, trading intelligence, the operation of the system, or other concepts. They are visually represented by icons in the design space."
+            "text": "A node is a small data structure containing information that may be related to market information, trading intelligence, the operation of the system, or other concepts. They are visually represented by icons in the design space.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düğüm, piyasa bilgileri, ticaret zekası, sistemin işleyişi veya diğer kavramlarla ilgili olabilecek bilgileri içeren küçük bir veri yapısıdır. Tasarım alanındaki simgelerle görsel olarak temsil edilirler.",
+                    "updated": 1632834601973,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The design space is the visual environment that hosts all system and user definitions. In practical terms, it is the black space below the slider that splits the screen horizontally, separating the design space in the bottom from the charting space on top. As a hierarchy, it features nodes that enable user-control over certain aspects of the look, feel, and behavior of the space."
+            "text": "The design space is the visual environment that hosts all system and user definitions. In practical terms, it is the black space below the slider that splits the screen horizontally, separating the design space in the bottom from the charting space on top. As a hierarchy, it features nodes that enable user-control over certain aspects of the look, feel, and behavior of the space.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tasarım alanı, tüm sistem ve kullanıcı tanımlarını barındıran görsel ortamdır. Pratik anlamda, ekranı yatay olarak bölen, alttaki tasarım alanını üstteki grafik alanından ayıran kaydırıcının altındaki siyah boşluktur. Bir hiyerarşi olarak, alanın görünümü, hissi ve davranışının belirli yönleri üzerinde kullanıcı kontrolü sağlayan düğümler içerir.",
+                    "updated": 1632834641794,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "In other words, nodes arranged in hierarchical data structures describe the top-level concepts that make up trading intelligence in a way that helps users visualize and better understand them."
+            "text": "In other words, nodes arranged in hierarchical data structures describe the top-level concepts that make up trading intelligence in a way that helps users visualize and better understand them.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Başka bir deyişle, hiyerarşik veri yapılarında düzenlenen düğümler, kullanıcıların görselleştirmelerine ve daha iyi anlamalarına yardımcı olacak şekilde ticaret zekasını oluşturan en üst düzey kavramları tanımlar.",
+                    "updated": 1632834669016,
+                    "style": "Callout"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "These top-level concepts described as hierarchies interact with other concepts, that is, with other hierarchies. Interactions among hierarchies are called references."
+            "text": "These top-level concepts described as hierarchies interact with other concepts, that is, with other hierarchies. Interactions among hierarchies are called references.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşiler olarak tanımlanan bu üst düzey kavramlar, diğer kavramlarla yani diğer hiyerarşilerle etkileşime girer. Hiyerarşiler arasındaki etkileşimlere referanslar denir.",
+                    "updated": 1632834688449,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A reference is a mechanism by which information in a node is related to, or accessed by, other nodes. The ability of a node to establish a reference with another node enables the first to access the information or features entailed in the second one."
+            "text": "A reference is a mechanism by which information in a node is related to, or accessed by, other nodes. The ability of a node to establish a reference with another node enables the first to access the information or features entailed in the second one.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Referans, bir düğümdeki bilgilerin diğer düğümlerle ilişkili olduğu veya bu düğümler tarafından erişildiği bir mekanizmadır. Bir düğümün başka bir düğümle referans oluşturma yeteneği, ilkinin ikincisinde yer alan bilgilere veya özelliklere erişmesini sağlar.",
+                    "updated": 1632834719031,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To organize all of this information, Superalgos manages the concept of workspaces. A workspace is an entity storing all system and user-generated information, excluding the state and contents of plugins. In technical terms, a workspace is a JSON file."
+            "text": "To organize all of this information, Superalgos manages the concept of workspaces. A workspace is an entity storing all system and user-generated information, excluding the state and contents of plugins. In technical terms, a workspace is a JSON file.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tüm bu bilgileri düzenlemek için Superalgos, çalışma alanları kavramını yönetir. Çalışma alanı, eklentilerin durumu ve içeriği hariç, tüm sistem ve kullanıcı tarafından oluşturulan bilgileri depolayan bir varlıktır. Teknik açıdan, çalışma alanı bir JSON dosyasıdır.",
+                    "updated": 1632834744079,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": " Note: The Bots page brings these conceptual definitions down to earth and offers an overview of how what these top-level concepts are and how they interact with each other."
+            "text": " Note: The Bots page brings these conceptual definitions down to earth and offers an overview of how what these top-level concepts are and how they interact with each other.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Not: Botlar sayfası, bu kavramsal tanımları gerçeğe dönüştürür ve bu üst düzey kavramların ne olduğuna ve birbirleriyle nasıl etkileşime girdiğine dair bir genel bakış sunar.",
+                    "updated": 1632834787161,
+                    "style": "Note"
+                }
+            ]
         }
     ]
 }

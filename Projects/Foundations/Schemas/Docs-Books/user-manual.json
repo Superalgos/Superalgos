@@ -2,7 +2,14 @@
     "type": "User Manual",
     "definition": {
         "text": "The User Manual covers Superalgos from A to Z, starting with a comprehensive conceptual introduction. The book covers functionality and features, along with the description of each hierarchy. It is organized for continuous reading and will take you from the starter to the advanced Superalgos user level.",
-        "updated": 1610309402992
+        "updated": 1610309402992,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Kullanım Kılavuzu, kapsamlı bir kavramsal girişle başlayarak A'dan Z'ye Superalgos'u kapsar. Kitap, her bir hiyerarşinin açıklamasıyla birlikte işlevsellik ve özellikleri de anlatır. Sürekli okuma için düzenlenmiştir ve sizi başlangıç seviyesinden ileri Superalgos kullanıcı seviyesine götürecektir.",
+                "updated": 1632834135576
+            }
+        ]
     },
     "paragraphs": [
         {

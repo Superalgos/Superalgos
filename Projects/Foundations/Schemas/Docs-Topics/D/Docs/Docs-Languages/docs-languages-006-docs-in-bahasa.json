@@ -25,6 +25,11 @@
                     "text": "Bahasa Inggris dianggap sebagai bahasa default. Saat anda beralih ke bahasa lain, sistem mencoba menampilkan konten dalam bahasa baru. Namun, jika terjemahan belum tersedia, maka yang tampil hanya versi bahasa Inggris saja.",
                     "updated": 1613857511193,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "İngilizce varsayılan dil olarak kabul edilir. Farklı bir dile geçtiğinizde, sistem içeriği yeni dilde göstermeye çalışır. Ancak, çeviri henüz mevcut değilse, bunun yerine İngilizce sürümü gösterir.",
+                    "updated": 1632830906950
                 }
             ]
         },

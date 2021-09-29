@@ -15,7 +15,13 @@
             {
                 "language": "ES",
                 "text": "Este tutorial le presenta el universo Superalgos.Lo guía a través de las áreas principales del sistema, le enseña el funcionamiento básico, lo guía a través del proceso de backtesting de una demostración Trading System, e incluso te configura con tu primer Live Trading Session.",
-                "updated": 1628897237327
+                "updated": 1628897237327,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Bu eğitim size Superalgos evrenini tanıtıyor. Sistemin ana alanlarında size yol gösterir, size temel işlemleri öğretir, bir demo Alım Satım Sistemini geriye dönük test etme sürecinde size yol gösterir ve hatta ilk Canlı Alım Satım Oturumunuzu ayarlar.",
+                "updated": 1632833281769
             }
         ]
     },
@@ -30,6 +36,11 @@
                     "text": "À propos de ce tutoriel :",
                     "updated": 1623946884414,
                     "style": "Title"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu eğitim hakkında",
+                    "updated": 1632833321085
                 }
             ]
         },
@@ -43,6 +54,11 @@
                     "text": "Espace de travail: Getting Started Tutorials Plugin Workspace.",
                     "updated": 1623949967730,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma Alanı: Getting Started Tutorials Plugin Workspace.",
+                    "updated": 1632833381068
                 }
             ]
         },
@@ -55,6 +71,11 @@
                     "text": "Responsable: @julianmolina (Telegram).",
                     "updated": 1623947189422,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetici: @julianmolina (Telegram).",
+                    "updated": 1632833350640
                 }
             ]
         }

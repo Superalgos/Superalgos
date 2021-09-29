@@ -4,21 +4,49 @@
     "type": "Bots In Superalgos",
     "definition": {
         "text": "Bots are a crucial concept in Superalgos, and a good thread to explain how hierarchies interact with each other.",
-        "updated": 1609944023850
+        "updated": 1609944023850,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Botlar, Superalgos'ta çok önemli bir kavramdır ve hiyerarşilerin birbirleriyle nasıl etkileşime girdiğini açıklamak için iyi bir iş parçacığıdır.",
+                "updated": 1632834905123
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "While sometimes people use the terms trading bot, trading strategy, and trading system interchangeably, in Superalgos the distinction is sharp and unequivocal. Let’s start by offering three fundamental definitions:",
-            "updated": 1609944046617
+            "updated": 1609944046617,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bazen insanlar, ticaret botu, ticaret stratejisi ve ticaret sistemi terimlerini birbirinin yerine kullansa da, Superalgos'ta ayrım keskin ve nettir. Üç temel tanım sunarak başlayalım:",
+                    "updated": 1632834943021
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Trading System: A trading system is a framework handling the low-level logic that serves to structure the processes and methods used to implement and deploy trading strategies."
+            "text": "Trading System: A trading system is a framework handling the low-level logic that serves to structure the processes and methods used to implement and deploy trading strategies.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticaret Sistemi: Bir ticaret sistemi, ticaret stratejilerini uygulamak ve dağıtmak için kullanılan süreçleri ve yöntemleri yapılandırmaya hizmet eden düşük seviyeli mantığı işleyen bir çerçevedir.",
+                    "updated": 1632834969535
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Trading Strategy: A trading strategy is the description of a set of actions or events run in stages. Events are triggered upon the validation of precise conditions describing specific market situations. Trading strategies are designed to achieve a specific goal within the broader plan of a trading system via taking and managing positions."
+            "text": "Trading Strategy: A trading strategy is the description of a set of actions or events run in stages. Events are triggered upon the validation of precise conditions describing specific market situations. Trading strategies are designed to achieve a specific goal within the broader plan of a trading system via taking and managing positions.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticaret Stratejisi: Bir ticaret stratejisi, aşamalar halinde yürütülen bir dizi eylem veya olayın açıklamasıdır. Olaylar, belirli piyasa durumlarını tanımlayan kesin koşulların doğrulanması üzerine tetiklenir. Ticaret stratejileri, pozisyon alma ve yönetme yoluyla bir ticaret sisteminin daha geniş planı içinde belirli bir hedefe ulaşmak için tasarlanmıştır.",
+                    "updated": 1632835000684
+                }
+            ]
         },
         {
             "style": "List",
@@ -26,12 +54,26 @@
         },
         {
             "style": "Callout",
-            "text": "In Superalgos, trading systems and trading strategies are definitions describing trading logic, while the trading bot is the computer program that uses the trading logic to test strategies, produce simulations, and trade."
+            "text": "In Superalgos, trading systems and trading strategies are definitions describing trading logic, while the trading bot is the computer program that uses the trading logic to test strategies, produce simulations, and trade.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Superalgos'ta ticaret sistemleri ve ticaret stratejileri, ticaret mantığını tanımlarken, ticaret botu, stratejileri test etmek, simülasyonlar üretmek ve ticaret yapmak için ticaret mantığını kullanan bir bilgisayar programıdır.",
+                    "updated": 1632835361265
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "This documentation expands extensively on these three concepts. For the time being, the above distinction is sufficient to continue.",
-            "updated": 1609944079526
+            "updated": 1609944079526,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu dokümantasyon, bu üç kavram üzerinde kapsamlı bir şekilde anlatır. Şimdilik, yukarıdaki ayrım devam etmek için yeterlidir.",
+                    "updated": 1632835442421
+                }
+            ]
         },
         {
             "style": "Text",
@@ -39,7 +81,14 @@
         },
         {
             "style": "Title",
-            "text": "Bot Definitions"
+            "text": "Bot Definitions",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bot Tanımlamaları",
+                    "updated": 1632835579887
+                }
+            ]
         },
         {
             "style": "Text",

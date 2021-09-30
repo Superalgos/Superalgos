@@ -258,7 +258,7 @@ function newUiObjectConstructor() {
         )
         menuItemsInitialValues.push(
             {
-                action: 'Change Distance to Paarent',
+                action: 'Change Distance to Parent',
                 actionFunction: floatingObject.distanceToParentToggle,
                 actionStatus: floatingObject.getDistanceToParent,
                 currentStatus: true,

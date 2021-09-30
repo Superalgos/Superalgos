@@ -86,13 +86,12 @@ console.log('')
 console.log('')
 
 const fs = require('fs')
-const path = require('path');
-const nodePath = './node_modules'
-if ( fs.existsSync(nodePath) ) {
+const path = './node_modules'
+if ( fs.existsSync(path) ) {
 
     try {
         const { fork } = require('child_process')
-        fork(getPath() + './PlatformRoot.js', process.argv, options)
+        fork('./PlatformRoot.js', process.argv, options)
     } catch (err) {
         console.log('')
         console.log('Fail to create Superalgos Platform Client Process.')
@@ -116,11 +115,3 @@ function fatalErrorHelp() {
     console.log('')
     console.log('node platform minMemo noBrowser')
 }
-
-function getPath() {
-    if (process.pkg) {
-      return path.resolve(process.execPath + "/..");
-    } else {
-      return path.join(require.main ? require.main.path : process.cwd());
-    }
-  }

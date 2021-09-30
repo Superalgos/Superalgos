@@ -18,9 +18,21 @@ function newEducationActionSwitch() {
 
     async function executeAction(action) {
         switch (action.name) {
-            case 'Action Name': {
-                // Example: return UI.projects.foundations.functionLibraries.onFocus.getNodeThatIsOnFocus(action.node)
-            }
+            case 'Run Trading Session':
+                {
+                    UI.projects.algorithmicTrading.functionLibraries.tradingSessionFunctions.runSession(action.node, false, action.callBackFunction)
+                }
+                break
+            case 'Resume Trading Session':
+                {
+                    UI.projects.algorithmicTrading.functionLibraries.tradingSessionFunctions.runSession(action.node, true, action.callBackFunction)
+                }
+                break
+            case 'Stop Trading Session':
+                {
+                    UI.projects.algorithmicTrading.functionLibraries.tradingSessionFunctions.stopSession(action.node, action.callBackFunction)
+                }
+                break
         }
     }
 }

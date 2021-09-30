@@ -418,11 +418,6 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.cryptoEcosystemFunctions.uninstallMarket(action.node, action.rootNodes)
                 }
                 break
-            case 'Add All Output Datasets':
-                {
-                    UI.projects.dataMining.functionLibraries.mineFunctions.addAllOutputDatasets(action.node)
-                }
-                break
             case 'Add All Data Products':
                 {
                     UI.projects.foundations.functionLibraries.dataStorageFunctions.addAllDataProducts(action.node)
@@ -498,16 +493,6 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.dataStorageFunctions.addMissingProjectDataProducts(action.node, action.rootNodes)
                 }
                 break
-            case 'Add All Data Dependencies':
-                {
-                    UI.projects.dataMining.functionLibraries.mineFunctions.addAllDataDependencies(action.node)
-                }
-                break
-            case 'Add All Data Mine Dependencies':
-                {
-                    UI.projects.dataMining.functionLibraries.mineFunctions.addAllDataMineDataDependencies(action.node, action.rootNodes)
-                }
-                break
             case 'Add All Layer Panels':
                 {
                     UI.projects.foundations.functionLibraries.chartingSpaceFunctions.addAllLayerPanels(action.node)
@@ -542,21 +527,6 @@ function newFoundationsActionSwitch() {
             case 'Send Webhook Test Message':
                 {
                     UI.projects.foundations.functionLibraries.webhookFunctions.sendTestMessage(action.node, action.callBackFunction)
-                }
-                break
-            case 'Run Trading Session':
-                {
-                    UI.projects.algorithmicTrading.functionLibraries.tradingSessionFunctions.runSession(action.node, false, action.callBackFunction)
-                }
-                break
-            case 'Resume Trading Session':
-                {
-                    UI.projects.algorithmicTrading.functionLibraries.tradingSessionFunctions.runSession(action.node, true, action.callBackFunction)
-                }
-                break
-            case 'Stop Trading Session':
-                {
-                    UI.projects.algorithmicTrading.functionLibraries.tradingSessionFunctions.stopSession(action.node, action.callBackFunction)
                 }
                 break
             case 'Run Super Action':

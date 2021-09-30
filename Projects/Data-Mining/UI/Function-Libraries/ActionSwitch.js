@@ -18,9 +18,21 @@ function newEducationActionSwitch() {
 
     async function executeAction(action) {
         switch (action.name) {
-            case 'Action Name': {
-                // Example: return UI.projects.foundations.functionLibraries.onFocus.getNodeThatIsOnFocus(action.node)
-            }
+            case 'Add All Output Datasets':
+                {
+                    UI.projects.dataMining.functionLibraries.mineFunctions.addAllOutputDatasets(action.node)
+                }
+                break
+            case 'Add All Data Dependencies':
+                {
+                    UI.projects.dataMining.functionLibraries.mineFunctions.addAllDataDependencies(action.node)
+                }
+                break
+            case 'Add All Data Mine Dependencies':
+                {
+                    UI.projects.dataMining.functionLibraries.mineFunctions.addAllDataMineDataDependencies(action.node, action.rootNodes)
+                }
+                break
         }
     }
 }

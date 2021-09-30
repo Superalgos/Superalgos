@@ -18,9 +18,21 @@ function newEducationActionSwitch() {
 
     async function executeAction(action) {
         switch (action.name) {
-            case 'Action Name': {
-                // Example: return UI.projects.foundations.functionLibraries.onFocus.getNodeThatIsOnFocus(action.node)
-            }
+            case 'Run Learning Session':
+                {
+                    UI.projects.machineLearning.functionLibraries.learningSessionFunctions.runSession(action.node, false, action.callBackFunction)
+                }
+                break
+            case 'Resume Learning Session':
+                {
+                    UI.projects.machineLearning.functionLibraries.learningSessionFunctions.runSession(action.node, true, action.callBackFunction)
+                }
+                break
+            case 'Stop Learning Session':
+                {
+                    UI.projects.machineLearning.functionLibraries.learningSessionFunctions.stopSession(action.node, action.callBackFunction)
+                }
+                break
         }
     }
 }

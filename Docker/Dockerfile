@@ -1,13 +1,15 @@
-FROM node:current-alpine
-RUN apk add --no-cache git
+FROM node:16-alpine
 WORKDIR /app
-RUN mkdir -p Data-Storage Log-Files My-Workspaces \
+COPY . .
+RUN apk add --no-cache --virtual .build-deps make g++ \
+    && apk add --no-cache python3 \
+    && if [ "$(uname -m)" = "x86_64" ]; then node setup noShortcuts tensorflow; else node setup noShortcuts; fi \
+    && mkdir -p Data-Storage Log-Files My-Workspaces \
     && addgroup superalgos \
     && adduser --disable-password --no-create-home --in-group superalgos superalgos \
-    && chown -R superalgos:superalgos /app
+    && chown -R superalgos:superalgos /app \
+    && apk del .build-deps
 USER superalgos
-COPY . .
-RUN node setup noShortcuts
 EXPOSE 34248
 EXPOSE 18041
 VOLUME ["/app/Data-Storage", "/app/Log-Files", "/app/My-Workspaces"]

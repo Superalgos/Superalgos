@@ -358,7 +358,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "harrellbm",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "3af73d3b-7c0e-4de7-a1e1-a72238081740"
                                 ]
                             ]
                         }
@@ -517,17 +519,17 @@
     "id": "f2ba562b-9032-4fb4-8b97-0b58d8542905",
     "savedPayload": {
         "position": {
-            "x": 27272.72727272727,
-            "y": 21251
+            "x": 16666.666666666668,
+            "y": 24250
         },
         "targetPosition": {
-            "x": 27272.72727272727,
-            "y": 21251
+            "x": 16666.666666666668,
+            "y": 24250
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

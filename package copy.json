@@ -1,0 +1,75 @@
+{
+  "name": "superalgos",
+  "version": "0.0.11",
+  "description": "Superalgos",
+  "author": {
+    "name": "Luis-Fernando-Molina"
+  },
+  "dependencies": {
+    "@octokit/rest": "^18.10.0",
+    "ccxt": "^1.56.41",
+    "child_process": "^1.0.2",
+    "ethereumjs-common": "^1.5.2",
+    "ethereumjs-tx": "^2.1.2",
+    "ethers": "^5.4.6",
+    "http": "0.0.1-security",
+    "https": "^1.0.0",
+    "ip": "^1.1.5",
+    "lookpath": "^1.2.2",
+    "node-fetch": "^2.6.1",
+    "open": "^8.2.1",
+    "path": "^0.12.7",
+    "simple-git": "^2.45.1",
+    "telegraf": "^4.4.2",
+    "util": "^0.12.4",
+    "web3": "^1.5.2",
+    "ws": "^8.2.1"
+  },
+  "bin": "platform.js",
+  "pkg": {
+    "targets": [
+     "node14"
+    ],
+   "outputPath": "dist",
+   "assets": [
+     "Platform/Webserver/css/*.css",
+     "Platform/Webserver/Fonts/*.ttf",
+     "Platform/Webserver/Fonts/*.woff",
+     "Platform/Webserver/Fonts/*.woff2",
+     "Platform/Webserver/Images/**/*.png",
+     "Platform/Webserver/Images/**/*.ico",
+     "Platform/Webserver/Images/Tutorial/**/*.gif",
+     "Platform/Governance/Icons/**/*.png",
+     "Platform/Governance/Icons-SVG-Sources/**/*.svg",
+     "Projects/Governance/PNGs/Docs/**/*.png",
+     "Projects/Foundations/**/*.jpg",
+     "Projects/Foundations/**/*.png",
+     "Projects/Foundations/**/*.gif",
+     "Projects/Network/*.png",
+     "Projects/Tensorflow/Icons/*.png",
+     "Projects/Tensorflow/Icons-SVG-Sources/*.svg"
+   ],
+   "scripts": [
+     "./Platform/PlatformApp.js",
+     "Platform/Governance/Plugins/**/*.json",
+     "Platform/Webserver/externalScripts/*",
+     "Platform/Webserver/*",
+     "Platform/Webserver/*.html",
+     "Platform/Client/**/*",
+     "Platform/UI/**/*",
+     "Platform/Governance/Schemas/**/*.json",
+     "Platform/Governance/UI/**/*",
+     "Projects/Network/{NT|SA}/**/*",
+     "Projects/Network/Schemas/**/*.json",
+     "Projects/Social-Trading/**/*",
+     "Projects/Tensorflow/Schemas/**/*.json",
+     "Projects/Tensorflow/**/*.ts",
+     "Projects/Tensorflow/**/*.map",
+     "TaskServer/*",
+     "./Environment.js",
+     "./PlatformRoot.js",
+     "./MultiProject.js",
+     "node-modules/**/*"
+   ]
+   } 
+}

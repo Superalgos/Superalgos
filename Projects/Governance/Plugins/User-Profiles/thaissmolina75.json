@@ -12,7 +12,7 @@
         "onboardingPrograms": {
             "type": "Onboarding Programs",
             "name": "New Onboarding Programs",
-            "config": "{\n   \"percentage\": 0\n }",
+            "config": "{\n    \"percentage\": 0\n}",
             "project": "Governance",
             "airdropProgram": {
                 "type": "Airdrop Program",
@@ -26,12 +26,12 @@
                     "id": "9bd3bb6c-ebd5-4a75-84bf-c3cd36694d8c",
                     "savedPayload": {
                         "position": {
-                            "x": 14012,
-                            "y": 9880.077136594007
+                            "x": 7779.253245925037,
+                            "y": 19186.39610306789
                         },
                         "targetPosition": {
-                            "x": 13862,
-                            "y": 10139.884757729338
+                            "x": 7567.121211569072,
+                            "y": 18974.264068711927
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -49,18 +49,18 @@
                 "id": "3aa7fc47-5cd6-4621-9463-c7c7166f4f3f",
                 "savedPayload": {
                     "position": {
-                        "x": 13862,
-                        "y": 10139.884757729338
+                        "x": 7567.121211569072,
+                        "y": 18974.264068711927
                     },
                     "targetPosition": {
-                        "x": 13712,
-                        "y": 10399.692378864669
+                        "x": 7354.989177213108,
+                        "y": 18762.132034355964
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
                         "isCollapsed": false,
-                        "angleToParent": 1,
+                        "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
@@ -72,18 +72,18 @@
             "id": "c6fed7c5-3b7b-4c9e-ac1f-a947f15e3f23",
             "savedPayload": {
                 "position": {
-                    "x": 13712,
-                    "y": 10399.692378864669
+                    "x": 7354.989177213108,
+                    "y": 18762.132034355964
                 },
                 "targetPosition": {
-                    "x": 13562,
-                    "y": 10659.5
+                    "x": 7142.857142857143,
+                    "y": 18550
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
                     "isCollapsed": false,
-                    "angleToParent": 1,
+                    "angleToParent": 2,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
@@ -95,7 +95,7 @@
         "communityBuildingPrograms": {
             "type": "Community Building Programs",
             "name": "New Community Building Programs",
-            "config": "{}",
+            "config": "{\n    \"percentage\": 0\n}",
             "project": "Governance",
             "referralProgram": {
                 "type": "Referral Program",
@@ -111,18 +111,18 @@
                         "id": "614a3303-edcf-4d5a-b7b5-a9a357095a80",
                         "savedPayload": {
                             "position": {
-                                "x": 14121.807621135331,
-                                "y": 11029.115242270662
+                                "x": 7354.989177213108,
+                                "y": 19362.132034355964
                             },
                             "targetPosition": {
-                                "x": 13862,
-                                "y": 11179.115242270662
+                                "x": 7142.857142857143,
+                                "y": 19150
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
                                 "isCollapsed": false,
-                                "angleToParent": 1,
+                                "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
@@ -139,18 +139,18 @@
                     "id": "9e190ebe-4571-4efa-9063-d56479ef7210",
                     "savedPayload": {
                         "position": {
-                            "x": 14012,
-                            "y": 11438.922863405993
+                            "x": 7142.857142857143,
+                            "y": 19450
                         },
                         "targetPosition": {
-                            "x": 13862,
-                            "y": 11179.115242270662
+                            "x": 7142.857142857143,
+                            "y": 19150
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": false,
-                            "angleToParent": 1,
+                            "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
@@ -166,18 +166,18 @@
                     "id": "44de116a-d281-4e3d-82fb-90beb7a3fb05",
                     "savedPayload": {
                         "position": {
-                            "x": 13602.192378864669,
-                            "y": 11329.115242270662
+                            "x": 7028.052113147616,
+                            "y": 19427.163859753386
                         },
                         "targetPosition": {
-                            "x": 13862,
-                            "y": 11179.115242270662
+                            "x": 7142.857142857143,
+                            "y": 19150
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": false,
-                            "angleToParent": 1,
+                            "angleToParent": 3,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
@@ -189,18 +189,18 @@
                 "id": "a1271a5f-df64-4478-82ee-0536e7630d95",
                 "savedPayload": {
                     "position": {
-                        "x": 13862,
-                        "y": 11179.115242270662
+                        "x": 7142.857142857143,
+                        "y": 19150
                     },
                     "targetPosition": {
-                        "x": 13712,
-                        "y": 10919.307621135331
+                        "x": 7142.857142857143,
+                        "y": 18850
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
                         "isCollapsed": false,
-                        "angleToParent": 1,
+                        "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
@@ -212,18 +212,383 @@
             "id": "12e1c5dc-8efa-496f-beac-db816ca7f6fb",
             "savedPayload": {
                 "position": {
-                    "x": 13712,
-                    "y": 10919.307621135331
+                    "x": 7142.857142857143,
+                    "y": 18850
                 },
                 "targetPosition": {
-                    "x": 13562,
-                    "y": 10659.5
+                    "x": 7142.857142857143,
+                    "y": 18550
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
                     "isCollapsed": false,
-                    "angleToParent": 1,
+                    "angleToParent": 2,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "votesAndClaimsPrograms": {
+            "type": "Votes And Claims Programs",
+            "name": "New Votes And Claims Programs",
+            "config": "{}",
+            "project": "Governance",
+            "votingProgram": {
+                "type": "Voting Program",
+                "name": "New Voting Program",
+                "config": "{}",
+                "project": "Governance",
+                "votesSwitch": [
+                    {
+                        "type": "Votes Switch",
+                        "name": "New Votes Switch",
+                        "config": "{}",
+                        "project": "Governance",
+                        "votesSwitch": [],
+                        "claimVotesSwitch": [
+                            {
+                                "type": "Claim Votes Switch",
+                                "name": "New Claim Votes Switch",
+                                "config": "{}",
+                                "project": "Governance",
+                                "claimVotesSwitch": [],
+                                "positionClaimVotes": [],
+                                "assetClaimVotes": [
+                                    {
+                                        "type": "Asset Claim Vote",
+                                        "name": "thaissmolina75 Foundations-Project-Docs Spanish Translations thaissmolina75 Translations",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "76d40425-1ca8-45af-b45f-2ccabd9c78d9",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 7086.016535562691,
+                                                "y": 19921.243025902848
+                                            },
+                                            "targetPosition": {
+                                                "x": 7008.370822031935,
+                                                "y": 19631.465278016127
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset Contribution Claim",
+                                                "name": "Foundations-Project-Docs Spanish Translations thaissmolina75 Translations",
+                                                "id": "de19cc5d-59f6-4c86-9f16-803ff61858d8"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "thaissmolina75",
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "45c60ab4-3c57-4692-9764-2cd073128e16"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "bc52611a-43d8-4c15-9b3c-bc09d3912ab2"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "a4a75652-b0e6-4b48-8fe8-a941724ab1b4"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "331d5acb-30c6-499a-9b37-3a51d8e3bee1"
+                                                ],
+                                                [
+                                                    "New Asset Claims Folder",
+                                                    "Asset Claims Folder",
+                                                    "Governance",
+                                                    "7f98ecaa-6c64-40e3-ae28-864f510acac9"
+                                                ],
+                                                [
+                                                    "Foundations-Project-Docs Spanish Translations thaissmolina75 Translations",
+                                                    "Asset Contribution Claim",
+                                                    "Governance",
+                                                    "de19cc5d-59f6-4c86-9f16-803ff61858d8"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "featureClaimVotes": [],
+                                "id": "0bf60361-1385-49b6-8d90-dce973cf88fc",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 7008.370822031935,
+                                        "y": 19631.465278016127
+                                    },
+                                    "targetPosition": {
+                                        "x": 6930.7251085011785,
+                                        "y": 19341.687530129406
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
+                        "weightVotesSwitch": [],
+                        "userProfileVotesSwitch": [],
+                        "id": "d0132ff7-d89f-4a6b-b199-0e39fd1b28c5",
+                        "savedPayload": {
+                            "position": {
+                                "x": 6930.7251085011785,
+                                "y": 19341.687530129406
+                            },
+                            "targetPosition": {
+                                "x": 6853.079394970422,
+                                "y": 19051.909782242685
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "tokensBonus": {
+                    "type": "Tokens Bonus",
+                    "name": "New Tokens Bonus",
+                    "project": "Governance",
+                    "id": "a394b780-9983-44ea-9efd-be1cb1cd8741",
+                    "savedPayload": {
+                        "position": {
+                            "x": 6640.9473606144575,
+                            "y": 19264.04181659865
+                        },
+                        "targetPosition": {
+                            "x": 6853.079394970422,
+                            "y": 19051.909782242685
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "89ad151f-bed3-43ac-bc1a-5bae86a7b124",
+                "savedPayload": {
+                    "position": {
+                        "x": 6853.079394970422,
+                        "y": 19051.909782242685
+                    },
+                    "targetPosition": {
+                        "x": 6930.7251085011785,
+                        "y": 18762.132034355964
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "claimsProgram": {
+                "type": "Claims Program",
+                "name": "New Claims Program",
+                "config": "{}",
+                "project": "Governance",
+                "assetClaimsFolders": [
+                    {
+                        "type": "Asset Claims Folder",
+                        "name": "New Asset Claims Folder",
+                        "config": "{}",
+                        "project": "Governance",
+                        "assetClaimsFolders": [],
+                        "assetContributionClaims": [
+                            {
+                                "type": "Asset Contribution Claim",
+                                "name": "Foundations-Project-Docs Spanish Translations thaissmolina75 Translations",
+                                "config": "{\n  \"description\": \"\"\n}",
+                                "project": "Governance",
+                                "id": "de19cc5d-59f6-4c86-9f16-803ff61858d8",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 6216.683291902529,
+                                        "y": 19264.04181659865
+                                    },
+                                    "targetPosition": {
+                                        "x": 6428.815326258494,
+                                        "y": 19051.909782242685
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Asset",
+                                        "name": "thaissmolina75 Translations",
+                                        "id": "bbb1d507-9764-440e-b0cd-28f3575d66a7"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Foundations-Project-Docs",
+                                            "Assets",
+                                            "Governance",
+                                            "43831bbf-5672-4899-a3d8-b2609018512d"
+                                        ],
+                                        [
+                                            "Spanish Translations",
+                                            "Asset Class",
+                                            "Governance",
+                                            "090f5a1a-b48e-4596-aea1-12f86fdaa55a"
+                                        ],
+                                        [
+                                            "thaissmolina75 Translations",
+                                            "Asset",
+                                            "Governance",
+                                            "bbb1d507-9764-440e-b0cd-28f3575d66a7"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "id": "7f98ecaa-6c64-40e3-ae28-864f510acac9",
+                        "savedPayload": {
+                            "position": {
+                                "x": 6428.815326258494,
+                                "y": 19051.909782242685
+                            },
+                            "targetPosition": {
+                                "x": 6640.947360614458,
+                                "y": 18839.77774788672
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "featureClaimsFolders": [],
+                "positionClaimsFolders": [],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "1ea93204-8b75-4890-ac42-75db86dc423c",
+                    "savedPayload": {
+                        "position": {
+                            "x": 6351.169612727738,
+                            "y": 18762.132034355964
+                        },
+                        "targetPosition": {
+                            "x": 6640.947360614458,
+                            "y": 18839.77774788672
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "331d5acb-30c6-499a-9b37-3a51d8e3bee1",
+                "savedPayload": {
+                    "position": {
+                        "x": 6640.947360614458,
+                        "y": 18839.77774788672
+                    },
+                    "targetPosition": {
+                        "x": 6930.7251085011785,
+                        "y": 18762.132034355964
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "a4a75652-b0e6-4b48-8fe8-a941724ab1b4",
+            "savedPayload": {
+                "position": {
+                    "x": 6930.7251085011785,
+                    "y": 18762.132034355964
+                },
+                "targetPosition": {
+                    "x": 7142.857142857143,
+                    "y": 18550
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 2,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
@@ -235,18 +600,18 @@
         "id": "bc52611a-43d8-4c15-9b3c-bc09d3912ab2",
         "savedPayload": {
             "position": {
-                "x": 13562,
-                "y": 10659.5
+                "x": 7142.857142857143,
+                "y": 18550
             },
             "targetPosition": {
-                "x": 13262,
-                "y": 10659.5
+                "x": 7142.857142857143,
+                "y": 18250
             },
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
                 "isCollapsed": false,
-                "angleToParent": 1,
+                "angleToParent": 2,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
             },
@@ -262,18 +627,18 @@
         "id": "7cad707f-e862-405f-81e2-62dca37952ec",
         "savedPayload": {
             "position": {
-                "x": 12962,
-                "y": 10659.5
+                "x": 6842.857142857143,
+                "y": 18250
             },
             "targetPosition": {
-                "x": 13262,
-                "y": 10659.5
+                "x": 7142.857142857143,
+                "y": 18250
             },
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
                 "isCollapsed": false,
-                "angleToParent": 1,
+                "angleToParent": 2,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
             },
@@ -285,18 +650,18 @@
     "id": "45c60ab4-3c57-4692-9764-2cd073128e16",
     "savedPayload": {
         "position": {
-            "x": 9090.90909090909,
+            "x": 6122.448979591837,
             "y": 21251
         },
         "targetPosition": {
-            "x": 9090.90909090909,
+            "x": 6122.448979591837,
             "y": 21251
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
             "isCollapsed": true,
-            "angleToParent": 1,
+            "angleToParent": 2,
             "distanceToParent": 3,
             "arrangementStyle": 0
         },

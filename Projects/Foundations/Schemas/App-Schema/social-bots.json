@@ -20,6 +20,12 @@
             "actionFunction": "payload.executeAction"
         },
         {
+            "action": "Add UI Object",
+            "label": "Add Twitter Bot",
+            "relatedUiObject": "Twitter Bot",
+            "actionFunction": "payload.executeAction"
+        },
+        {
             "action": "Delete UI Object",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
@@ -51,6 +57,12 @@
             "name": "slackBots",
             "type": "array",
             "childType": "Slack Bot",
+            "autoAdd": true
+        },
+        {
+            "name": "twitterBots",
+            "type": "array",
+            "childType": "Twitter Bot",
             "autoAdd": true
         }
     ],

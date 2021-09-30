@@ -9225,6 +9225,36 @@
                 },
                 {
                     "type": "Asset",
+                    "name": "twitter-bot.json",
+                    "config": "{\"codeName\":\"twitter-bot.json\"}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [],
+                    "id": "4cd4da1b-52a1-40f5-a003-a6e72e61e3a0",
+                    "savedPayload": {
+                        "position": {
+                            "x": 36086.17551466609,
+                            "y": 46807.38279050288
+                        },
+                        "targetPosition": {
+                            "x": 36301.75,
+                            "y": 46598.75
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset",
                     "name": "slippage.json",
                     "config": "{\"codeName\":\"slippage.json\"}",
                     "project": "Governance",

@@ -27,8 +27,8 @@
                             "id": "98b5642a-faba-4a04-bf72-6efec86de56a",
                             "savedPayload": {
                                 "position": {
-                                    "x": 36158.76873560527,
-                                    "y": 38290.814582765
+                                    "x": 36170.022053201035,
+                                    "y": 38320.130477375256
                                 },
                                 "targetPosition": {
                                     "x": 35884.70509831249,
@@ -57,8 +57,8 @@
                             "id": "5ac7a46b-f462-4dc4-a627-2c7588a67e7a",
                             "savedPayload": {
                                 "position": {
-                                    "x": 36183.06166692297,
-                                    "y": 38444.19411466804
+                                    "x": 36170.022053201035,
+                                    "y": 38505.54067400023
                                 },
                                 "targetPosition": {
                                     "x": 35884.70509831249,
@@ -87,38 +87,8 @@
                             "id": "402b540e-4e1f-4756-9cb8-8445a672b36d",
                             "savedPayload": {
                                 "position": {
-                                    "x": 36127.41019662497,
-                                    "y": 38589.171151375485
-                                },
-                                "targetPosition": {
-                                    "x": 35884.70509831249,
-                                    "y": 38412.83557568774
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "name": "Tentacule23 - UX/UI Improvements",
-                            "config": "{}",
-                            "project": "Governance",
-                            "featureClasses": [],
-                            "features": [],
-                            "id": "6a1938bb-7fdf-4d90-b158-13425711fe40",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 36006.72609123523,
-                                    "y": 38686.89921298053
+                                    "x": 36061.04067400023,
+                                    "y": 38655.54067400023
                                 },
                                 "targetPosition": {
                                     "x": 35884.70509831249,
@@ -147,8 +117,8 @@
                             "id": "ee651c97-c3c7-4e91-9336-5f870fdfcd1e",
                             "savedPayload": {
                                 "position": {
-                                    "x": 35853.34655933219,
-                                    "y": 38711.19214429823
+                                    "x": 35884.70509831249,
+                                    "y": 38712.83557568774
                                 },
                                 "targetPosition": {
                                     "x": 35884.70509831249,

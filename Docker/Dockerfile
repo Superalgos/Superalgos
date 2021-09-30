@@ -6,7 +6,7 @@ RUN apk add --no-cache --virtual .build-deps make g++ \
     && if [ "$(uname -m)" = "x86_64" ]; then node setup noShortcuts tensorflow; else node setup noShortcuts; fi \
     && mkdir -p Data-Storage Log-Files My-Workspaces \
     && addgroup superalgos \
-    && adduser --disabled-password --no-create-home --in-group superalgos superalgos \
+    && adduser --disabled-password --no-create-home --ingroup superalgos superalgos \
     && chown -R superalgos:superalgos /app \
     && apk del .build-deps
 USER superalgos

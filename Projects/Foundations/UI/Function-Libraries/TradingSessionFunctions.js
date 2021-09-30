@@ -2,7 +2,9 @@ function newFoundationsFunctionLibraryTradingSessionFunctions() {
     let thisObject = {
         syncronizeSessionWithBackEnd: syncronizeSessionWithBackEnd,
         runSession: runSession,
-        stopSession: stopSession
+        stopSession: stopSession,
+        remoteRunSession: remoteRunSession,
+        changeFormulaInNode: changeFormulaInNode,
     }
 
     return thisObject
@@ -16,7 +18,7 @@ function newFoundationsFunctionLibraryTradingSessionFunctions() {
         let lanNetworkNode = validationsResult.lanNetworkNode
         if (lanNetworkNode === undefined) {
             /* Nodes that do not belong to a network can not get ready. */
-            return
+            // return
         }
 
         let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
@@ -40,6 +42,8 @@ function newFoundationsFunctionLibraryTradingSessionFunctions() {
         /* Second we ask the Task Server if this Session is Running. */
         eventsServerClient.raiseEvent(key, 'Trading Session Status')
     }
+
+
 
     function runSession(node, resume, callBackFunction) {
         let validationsResult = validations(node)
@@ -163,8 +167,8 @@ function newFoundationsFunctionLibraryTradingSessionFunctions() {
 
         let defaultExchange = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.exchange.payload, 'codeName')
         let defaultMarket =
-            UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.market.baseAsset.payload.referenceParent.payload, 'codeName')
-            + '-' + 
+            UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.market.baseAsset.payload.referenceParent.payload, 'codeName') +
+            '-' +
             UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.market.quotedAsset.payload.referenceParent.payload, 'codeName')
 
         let dependencyFilter = UI.projects.foundations.functionLibraries.dependenciesFilter.createDependencyFilter(
@@ -328,5 +332,42 @@ function newFoundationsFunctionLibraryTradingSessionFunctions() {
         result.exchange = result.market.payload.parentNode.payload.parentNode
 
         return result
+    }
+
+    function remoteRunSession(nodeId) {
+
+        let node = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.getNodeById(nodeId)
+
+        runSession(node, false, callback)
+
+        function callback(result, event) {
+            // result handler?
+            if (event !== undefined) {
+                if (event.type === 'Secondary Action Already Executed') {
+                    stopSession(node)
+                }
+                // function finishFunction(result, event) {
+                // console.log(result)
+                // console.log(event)
+                // if (result === "Ok") {
+                //     console.log("backtest finished successfully")
+                // }
+
+            }
+        }
+    }
+
+    function changeFormulaInNode(nodeId, NewFormula) {
+
+
+        let node = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.getNodeById(nodeId)
+
+        node.code = NewFormula
+        UI.projects.foundations.spaces.designSpace.workspace.save()
+
+        let result = "succes"
+
+        return result
+
     }
 }

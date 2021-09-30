@@ -24,5 +24,31 @@
     "util": "^0.12.4",
     "web3": "^1.5.2",
     "ws": "^8.2.1"
+  },
+  "pkg": {
+    "outputPath": "dist",
+    "assets": [
+      "./Environment.js",
+      "./MultiProject.js",
+      "./PlatformRoot.js",
+      "Platform/Webserver/css/*.css",
+      "Platform/Webserver/Fonts/*.ttf",
+      "Platform/Webserver/Fonts/*.woff",
+      "Platform/Webserver/Fonts/*.woff2",
+      "Platform/Webserver/Images/**/*.png",
+      "Platform/Webserver/Images/**/*.ico",
+      "Platform/Webserver/Images/Tutorial/**/*.gif",
+      "Platform/Governance/Icons/**/*.png",
+      "Platform/Governance/Icons-SVG-Sources/**/*.svg",
+      "Projects/Governance/PNGs/Docs/**/*.png",
+      "Projects/Foundations/**/*.jpg",
+      "Projects/Foundations/**/*.png",
+      "Projects/Foundations/**/*.gif",
+      "Projects/Network/*.png",
+      "Projects/Tensorflow/Icons/*.png",
+      "Projects/Tensorflow/Icons-SVG-Sources/*.svg",
+      "Projects/*.json",
+      "Projects/**/*.json"
+    ]
   }
 }

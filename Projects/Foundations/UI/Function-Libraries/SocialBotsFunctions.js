@@ -2,7 +2,8 @@ function newFoundationsFunctionLibrarySocialBotsFunctions() {
     let thisObject = {
         sendTelegramTestMessage: sendTelegramTestMessage,
         sendDiscordTestMessage: sendDiscordTestMessage,
-        sendSlackTestMessage: sendSlackTestMessage
+        sendSlackTestMessage: sendSlackTestMessage,
+        sendTwitterTestMessage: sendTwitterTestMessage
     }
 
     return thisObject
@@ -182,5 +183,44 @@ function newFoundationsFunctionLibrarySocialBotsFunctions() {
                 }
             }
         }
+    }
+
+    function sendTwitterTestMessage(node, callBackFunction) {
+        var Twitter = SA.nodeModules.twitter
+
+        let consumer_key = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'consumer_key')
+        let consumer_secret = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'consumer_secret')
+        let access_token_key = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'access_token_key')
+        let access_token_secret = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'access_token_secret')
+
+        if (process.env.TWITTER_CONSUMER_KEY) {
+            consumer_key = process.env.TWITTER_CONSUMER_KEY
+        }
+        if (process.env.TWITTER_CONSUMER_SECRET) {
+            consumer_secret = process.env.TWITTER_CONSUMER_SECRET
+        }
+        if (process.env.TWITTER_ACCESS_TOKEN_KEY) {
+            access_token_key = process.env.TWITTER_ACCESS_TOKEN_KEY
+        }
+        if (process.env.TWITTER_ACCESS_TOKEN_SECRET) {
+            access_token_secret = process.env.TWITTER_ACCESS_TOKEN_SECRET
+        }
+        
+        var twitterclient = new Twitter({
+            consumer_key: consumer_key,
+            consumer_secret: consumer_secret,
+            access_token_key: access_token_key,
+            access_token_secret: access_token_secret
+        });
+        
+        let message = JSON.stringify({status: "Test message from Superalgos!"})
+
+        twitterclient.post('statuses/update', message,  function(error, tweet, response) {
+            if(error) {
+                callBackFunction({ result: "Fail", message: error })
+            }
+            console.log(tweet);  // Tweet body.
+            console.log(response);  // Raw response object.
+        });
     }
 }

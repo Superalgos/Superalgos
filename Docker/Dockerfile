@@ -2,8 +2,8 @@ FROM node:current-alpine
 RUN apk add --no-cache git
 WORKDIR /app
 RUN mkdir -p Data-Storage Log-Files My-Workspaces \
-    && addgroup -S superalgos \
-    && adduser -S superalgos -G superalgos \
+    && addgroup superalgos \
+    && adduser --disable-password --no-create-home --in-group superalgos superalgos \
     && chown -R superalgos:superalgos /app
 USER superalgos
 COPY . .

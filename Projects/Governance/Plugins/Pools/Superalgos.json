@@ -1410,14 +1410,12 @@
                         "referenceParent": {
                             "type": "Assets",
                             "name": "Superalgos-Marketing",
-                            "id": "eeeed37c-a0e5-4d6c-a57f-01fdd8622f0f"
+                            "id": "0a490128-61c8-49aa-96aa-769cc5513951"
                         },
                         "referenceParentCombinedNodePath": [
                             [
                                 "Superalgos-Marketing",
-                                "Assets",
-                                "Governance",
-                                "eeeed37c-a0e5-4d6c-a57f-01fdd8622f0f"
+                                "Assets"
                             ]
                         ]
                     }
@@ -1607,12 +1605,12 @@
                                 },
                                 "referenceParent": {
                                     "type": "Positions",
-                                    "name": "Foundations-Project",
+                                    "name": "Superalgos",
                                     "id": "50c68665-5da2-48a8-b229-7a1563ae82d2"
                                 },
                                 "referenceParentCombinedNodePath": [
                                     [
-                                        "Foundations-Project",
+                                        "Superalgos",
                                         "Positions",
                                         "Governance",
                                         "50c68665-5da2-48a8-b229-7a1563ae82d2"
@@ -1761,7 +1759,9 @@
                                 "referenceParentCombinedNodePath": [
                                     [
                                         "Superalgos",
-                                        "Features"
+                                        "Features",
+                                        "Governance",
+                                        "7c27de79-0ac7-4d48-81f0-5d7b6a4d93c6"
                                     ]
                                 ]
                             }

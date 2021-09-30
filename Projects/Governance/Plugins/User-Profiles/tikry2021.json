@@ -150,7 +150,7 @@
         "communityBuildingPrograms": {
             "type": "Community Building Programs",
             "name": "New Community Building Programs",
-            "config": "{}",
+            "config": "{\"percentage\": 10}",
             "project": "Governance",
             "referralProgram": {
                 "type": "Referral Program",
@@ -301,7 +301,7 @@
         "votesAndClaimsPrograms": {
             "type": "Votes And Claims Programs",
             "name": "New Votes And Claims Programs",
-            "config": "{}",
+            "config": "{\"percentage\": 90}",
             "project": "Governance",
             "claimsProgram": {
                 "type": "Claims Program",
@@ -350,7 +350,7 @@
                             {
                                 "type": "Asset Contribution Claim",
                                 "name": "",
-                                "config": "{\n    \"description\": \"I added the German translation of some tutorials Tutorial - Trading Bot Layers\nTutorial - Hello World Tutorial\n\"\n}",
+                                "config": "{\n    \"description\": \"I added the german translation of some tutorials in beta 10,  Tutorial - Trading Bot Layers, Tutorial - Hello World Tutorial\"\n}",
                                 "project": "Governance",
                                 "id": "e810826d-f139-464c-8de2-6392cd080647",
                                 "savedPayload": {

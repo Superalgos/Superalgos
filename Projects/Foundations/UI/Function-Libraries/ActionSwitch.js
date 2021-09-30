@@ -523,7 +523,6 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.chartingSpaceFunctions.addMissingProjectDashboards(action.node, action.rootNodes)
                 }
                 break
-
             case 'Send Webhook Test Message':
                 {
                     UI.projects.foundations.functionLibraries.webhookFunctions.sendTestMessage(action.node, action.callBackFunction)

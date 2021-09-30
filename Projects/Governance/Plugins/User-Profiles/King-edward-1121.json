@@ -1,0 +1,84 @@
+{
+    "type": "User Profile",
+    "name": "King-edward-1121",
+    "config": "{\n    \"signature\": {\n        \"message\": \"King-edward-1121\",\n        \"messageHash\": \"0xfad37eefb61b8316c95ef1ab3b1cfed0790ff0a50f1182b1c943b9293d3c2088\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xa16710c96ac2bb5c269fc3e5b5f042e59cb71bdcba543c70d81f4d93d5f7fdd1\",\n        \"s\": \"0x16a88114e007b2b2167e3b8a6f6fb35f6fd86bc18a462db265ec4f9bc991f919\",\n        \"signature\": \"0xa16710c96ac2bb5c269fc3e5b5f042e59cb71bdcba543c70d81f4d93d5f7fdd116a88114e007b2b2167e3b8a6f6fb35f6fd86bc18a462db265ec4f9bc991f9191c\"\n    }\n}",
+    "project": "Governance",
+    "tokenPowerSwitch": {
+        "type": "Token Power Switch",
+        "name": "New Token Power Switch",
+        "config": "{}",
+        "project": "Governance",
+        "tokenPowerSwitch": [],
+        "id": "4658affc-7fef-4208-bc02-806fddead059",
+        "savedPayload": {
+            "position": {
+                "x": 13068,
+                "y": 10984.5
+            },
+            "targetPosition": {
+                "x": 13036,
+                "y": 10931.5
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "tokensMined": {
+        "type": "Tokens Mined",
+        "name": "New Tokens Mined",
+        "project": "Governance",
+        "id": "9b375fb3-8715-44d2-87ab-dfcb4cad5eed",
+        "savedPayload": {
+            "position": {
+                "x": 13031,
+                "y": 10935.5
+            },
+            "targetPosition": {
+                "x": 13036,
+                "y": 10931.5
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "id": "3ef5d070-3287-436a-b2b8-34b0e205aa3c",
+    "savedPayload": {
+        "position": {
+            "x": 13036,
+            "y": 10931.5
+        },
+        "targetPosition": {
+            "x": 13063,
+            "y": 10971.5
+        },
+        "floatingObject": {
+            "isPinned": false,
+            "isFrozen": false,
+            "isCollapsed": false,
+            "angleToParent": 1,
+            "distanceToParent": 3,
+            "arrangementStyle": 0
+        },
+        "uiObject": {
+            "isRunning": false
+        }
+    }
+}

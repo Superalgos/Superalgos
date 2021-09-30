@@ -20150,6 +20150,36 @@
                                 },
                                 {
                                     "type": "Asset",
+                                    "name": "twitter-bot.svg",
+                                    "config": "{\"codeName\":\"twitter-bot.svg\"}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "8eb55d2d-6f7b-41e9-a550-05eef663e12a",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 24465.935573766892,
+                                            "y": 46352.57737036275
+                                        },
+                                        "targetPosition": {
+                                            "x": 24580.73569292408,
+                                            "y": 46629.74326408255
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset",
                                     "name": "slippage.svg",
                                     "config": "{\"codeName\":\"slippage.svg\"}",
                                     "project": "Governance",

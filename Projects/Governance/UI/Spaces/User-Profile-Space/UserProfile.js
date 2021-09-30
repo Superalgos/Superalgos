@@ -43,16 +43,18 @@ function newGovernanceUserProfileSpace() {
         thisObject.container.initialize(MODULE_NAME)
         thisObject.container.isDraggeable = false
 
-        let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
         /*
-        We are going to collapse all User Profiles to save processing resources at the UI
+        We are going to collapse all User rootNodes to save processing resources at the UI
         */
-        for (let i = 0; i < userProfiles.length; i++) {
-            let userProfile = userProfiles[i]
-            if (userProfile.payload.floatingObject.isCollapsed !== true) {
-                userProfile.payload.floatingObject.collapseToggle()
+        let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+
+        for (let i = 0; i < rootNodes.length; i++) {
+            let rootNode = rootNodes[i]
+            if (rootNode.payload.floatingObject.isCollapsed !== true) {
+                rootNode.payload.floatingObject.collapseToggle()
             }
         }
+        let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
         /*
         Here we will change the Y position of all profiles so that they are all at the same level.
         */

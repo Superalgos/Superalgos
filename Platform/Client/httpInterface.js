@@ -900,6 +900,28 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     async function runNodeSetup () {
                                         console.log( "lets run node setup" )
+                                        const path = require("path");
+                                        const process = require("process");
+                                        const { exec } = require("child_process");
+
+                                        let dir = path.join( process.cwd(), "..", ".." )
+                                        let command = "node setup";
+                                        exec( command,
+                                        {
+                                            cwd: dir 
+                                        },
+                                        function ( error, stdout ){
+                                            if (error) {
+                                                console.log('');
+                                                console.log("There was an error updating dependencies for this branch: ");
+                                                console.log('');
+                                                console.log( error );
+                                                return;
+                                            }                
+
+                                            console.log('');
+                                            console.log( stdout );
+                                        });
                                     }
 
                                 } catch (err) {

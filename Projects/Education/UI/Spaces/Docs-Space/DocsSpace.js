@@ -254,8 +254,6 @@ function newEducationDocSpace() {
 
                 if (doNotNavigate === true) { return }
 
-                // Run Node Setup to Update dependencies upon branch switch
-
                 UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Current Branch Changed')
 
             } else {

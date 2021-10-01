@@ -7,7 +7,7 @@
             "name": "tutorial",
             "project": "Education"
         },
-        "text": "I'm an interactive tutorial, the first in a series designed to facilitate your onboarding and teach you all the basics!",
+        "text": "Ben etkileşimli bir öğreticiyim. İşe başlamanızı kolaylaştırmak ve size tüm temel bilgileri öğretmek için tasarlanmış bir serinin eğitim serisinin ilk dersiyim.\n\n",
         "translations": [
             {
                 "language": "ID",
@@ -33,12 +33,13 @@
                 "updated": 1623946542352,
                 "style": "Definition"
             }
-        ]
+        ],
+        "updated": 1633116741367
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "I will get you started, show you the tools that will help you move around comfortably, and help you discover all the cool things that Superalgos may do for you.",
+            "text": "Başlamanıza yardımcı olacağım, rahatça hareket etmenize yardımcı olacak araçları göstereceğim ve Superalgos'un sizin için yapabileceği tüm harika şeyleri keşfetmenize yardımcı olacağım.",
             "translations": [
                 {
                     "language": "ID",
@@ -64,11 +65,12 @@
                     "updated": 1623945805888,
                     "style": "Text"
                 }
-            ]
+            ],
+            "updated": 1633116873870
         },
         {
             "style": "Callout",
-            "text": "Tutorials are the ultimate Superalgos onboarding tool! Starting with Superalgos in any other way is a mistake, as no other resource will get you up to speed faster. You should do all tutorials before trying to implement your own ideas!",
+            "text": "Öğreticiler, Superalgos'un alıştırma aracıdır! Superalgos ile çalışmaya başka bir şekilde başlamak bir hatadır, çünkü başka hiçbir kaynak sizi bu kadar hızlandıramaz. Kendi fikirlerinizi uygulamaya çalışmadan önce tüm dersleri yapmalısınız!",
             "translations": [
                 {
                     "language": "ID",
@@ -95,7 +97,7 @@
                     "style": "Callout"
                 }
             ],
-            "updated": 1616410377766
+            "updated": 1633116932266
         },
         {
             "style": "Success",

@@ -18,9 +18,11 @@ function newEducationActionSwitch() {
 
     async function executeAction(action) {
         switch (action.name) {
-            case 'Action Name': {
-                // Example: return UI.projects.foundations.functionLibraries.onFocus.getNodeThatIsOnFocus(action.node)
-            }
+            case 'Launch Shell Command':
+                {
+                    UI.projects.education.functionLibraries.launchshellcommand.launchshellcommand(action.node)
+                }
+                break
         }
     }
 }

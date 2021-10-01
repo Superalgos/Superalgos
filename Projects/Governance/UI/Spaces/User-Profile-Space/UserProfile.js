@@ -417,17 +417,17 @@ function newGovernanceUserProfileSpace() {
         }
 
         function getBlockchainTokens(userProfile, blockchainAccount) {
-            console.log('User Profile Name: ', userProfile.name, 'blockchainAccount: ', blockchainAccount)
+            console.log('[INFO] Loading Blockachain Balance for User Profile: ', userProfile.name, 'blockchainAccount: ', blockchainAccount)
             const url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=" + UI.projects.governance.globals.saToken.SA_TOKEN_BSC_CONTRACT_ADDRESS + "&address=" + blockchainAccount + "&tag=latest&apikey=YourApiKeyToken"
 
             fetch(url).then(function (response) {
                 return response.json();
             }).then(function (data) {
-                console.log(data)
+                //console.log(data)
                 if (data.result === "Max rate limit reached, please use API Key for higher rate limit") {
                     userProfile.payload.blockchainTokens = undefined // This enables this profile to query the blockchain again.
                 } else {
-                    userProfile.payload.uiObject.setInfoMessage(data,
+                    userProfile.payload.uiObject.setInfoMessage('Blockchan Balance Succesfully Loaded.',
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
                     )
                     userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000

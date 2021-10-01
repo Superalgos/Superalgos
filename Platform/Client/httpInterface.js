@@ -865,8 +865,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                             if (error === undefined) {
                                                 // Run node setup to prepare instance for branch change
-                                                await runNodeSetup()
-                                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                                runNodeSetup().then( SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse) )
                                             } else {
                                                 let docs = {
                                                     project: 'Foundations',
@@ -904,8 +903,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         const process = require("process");
                                         const { exec } = require("child_process");
 
-                                        let dir = path.join( process.cwd() )
-                                        console.log("this is where we are running the command", dir)
+                                        let dir = process.cwd()
                                         let command = "node setup";
                                         exec( command,
                                         {

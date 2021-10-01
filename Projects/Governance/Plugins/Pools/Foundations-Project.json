@@ -195,12 +195,12 @@
                                 },
                                 "referenceParent": {
                                     "type": "Positions",
-                                    "name": "Superalgos",
+                                    "name": "Foundations-Project",
                                     "id": "50c68665-5da2-48a8-b229-7a1563ae82d2"
                                 },
                                 "referenceParentCombinedNodePath": [
                                     [
-                                        "Superalgos",
+                                        "Foundations-Project",
                                         "Positions",
                                         "Governance",
                                         "50c68665-5da2-48a8-b229-7a1563ae82d2"
@@ -363,7 +363,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

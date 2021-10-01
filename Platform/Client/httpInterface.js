@@ -904,7 +904,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         const process = require("process");
                                         const { exec } = require("child_process");
 
-                                        let dir = path.join( process.cwd(), "..", ".." )
+                                        let dir = path.join( process.cwd() )
                                         console.log("this is where we are running the command", dir)
                                         let command = "node setup";
                                         exec( command,

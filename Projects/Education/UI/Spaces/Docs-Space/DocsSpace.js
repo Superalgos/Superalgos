@@ -244,9 +244,6 @@ function newEducationDocSpace() {
             UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Changing Current Branch')
         }
 
-        const path = require("path");
-        const process = require("process");
-        const { exec } = require("child_process");
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */
             data = JSON.parse(data)
@@ -258,24 +255,9 @@ function newEducationDocSpace() {
                 if (doNotNavigate === true) { return }
 
                 // Run Node Setup to Update dependencies upon branch switch
-                let dir = path.join( process.cwd(), "..", "..", "..", "..", ".." )
-                let command = "node setup";
-                exec( command,
-                    {
-                        cwd: dir 
-                    },
-                    function ( error, stdout ){
-                    if (error) {
-                    console.log('');
-                    console.log("There was an error updating dependencies for this branch: ");
-                    console.log('');
-                    console.log( error );
-                    return;
-                }                
+
                 UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Current Branch Changed')
-                console.log('');
-                console.log( stdout );
-            });
+
             } else {
                 UI.projects.education.spaces.docsSpace.navigateTo(
                     data.docs.project,

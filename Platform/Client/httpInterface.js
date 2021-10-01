@@ -864,6 +864,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                             await doGit()
 
                                             if (error === undefined) {
+                                                // Run node setup to prepare instance for branch change
+                                                await runNodeSetup()
                                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                             } else {
                                                 let docs = {
@@ -894,6 +896,10 @@ exports.newHttpInterface = function newHttpInterface() {
                                             console.log(err.stack)
                                             error = err
                                         }
+                                    }
+
+                                    async function runNodeSetup () {
+                                        console.log( "lets run node setup" )
                                     }
 
                                 } catch (err) {

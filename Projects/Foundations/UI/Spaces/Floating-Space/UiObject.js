@@ -1683,6 +1683,13 @@ function newUiObject() {
 
         if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) {
             position = UI.projects.foundations.spaces.floatingSpace.transformPointToMap(position)
+
+            let schemaDocument = getSchemaDocument(thisObject.payload.node)
+            if (schemaDocument.inMapMode !== undefined) {
+                if (schemaDocument.inMapMode.showNodeType === false) {
+                    return
+                }
+            }
         }
 
         let radius = thisObject.payload.floatingObject.container.frame.radius
@@ -2392,6 +2399,14 @@ function newUiObject() {
 
                 if (thisObject.isShowing === true) {
                     totalImageSize = 50
+                }
+
+                if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) {
+                    if (schemaDocument.inMapMode !== undefined) {
+                        if (schemaDocument.inMapMode.smallIcon === true) {
+                            totalImageSize = totalImageSize / 2
+                        }
+                    }
                 }
 
                 browserCanvasContext.drawImage(

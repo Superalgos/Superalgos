@@ -63,25 +63,30 @@ function newGovernanceUserProfileSpace() {
         const SPACE_WIDTH = UI.projects.foundations.spaces.floatingSpace.container.frame.width
         const SPACE_HEIGHT = UI.projects.foundations.spaces.floatingSpace.container.frame.height
 
-        arrangeNodes(userProfiles, SPACE_HEIGHT * 0.425, 3000)
-        arrangeNodes(pools, SPACE_HEIGHT * 0.595, 0)
-        arrangeNodes(features, SPACE_HEIGHT * 0.635, 0)
-        arrangeNodes(positions, SPACE_HEIGHT * 0.675, 0)
-        arrangeNodes(assets, SPACE_HEIGHT * 0.835, 3000)
+        arrangeNodes(userProfiles, SPACE_HEIGHT * 0.345, 3000, 4)
+        arrangeNodes(pools, SPACE_HEIGHT * 0.590, 0, 1)
+        arrangeNodes(features, SPACE_HEIGHT * 0.620, 0, 1)
+        arrangeNodes(positions, SPACE_HEIGHT * 0.670, 0, 1)
+        arrangeNodes(assets, SPACE_HEIGHT * 0.755, 3000, 4)
 
 
-        function arrangeNodes(nodes, yLevel, yStep) {
+        function arrangeNodes(nodes, yLevel, yStep, rows) {
             /*
             Here we will change the Y position of all profiles so that they are all at the same level.
             */
-            const X_STEP = SPACE_WIDTH / (nodes.length + 1)
+            const X_STEP = SPACE_WIDTH / (nodes.length + 1 + 1 * rows) * rows
 
             let xOffset = X_STEP
             let yOffset = 0
 
+            let xStepCount = 0
             for (let i = 0; i < nodes.length; i++) {
                 nodes[i].payload.floatingObject.container.frame.position.x = xOffset
-                xOffset = xOffset + X_STEP
+                xStepCount++
+                if (xStepCount === rows) {
+                    xOffset = xOffset + X_STEP
+                    xStepCount = 0
+                }
             }
             for (let i = 0; i < nodes.length; i++) {
                 switch (true) {
@@ -94,18 +99,10 @@ function newGovernanceUserProfileSpace() {
                         break
                     }
                     case (yOffset === yStep * 2): {
-                        yOffset = yStep * 1 + 1
+                        yOffset = yStep * 3
                         break
                     }
-                    case (yOffset === yStep * 1 + 1): {
-                        yOffset = yStep * 0 + 1
-                        break
-                    }
-                    case (yOffset === yStep * 0 + 1): {
-                        yOffset = -yStep
-                        break
-                    }
-                    case (yOffset === -yStep): {
+                    case (yOffset === yStep * 3): {
                         yOffset = 0
                         break
                     }

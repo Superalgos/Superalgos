@@ -129,15 +129,12 @@ function newGovernanceUserProfileSpace() {
                     if (transfer.contractAddress !== UI.projects.governance.globals.saToken.SA_TOKEN_BSC_CONTRACT_ADDRESS) { continue }
                     if (transfer.from !== UI.projects.governance.globals.saToken.SA_TOKEN_BSC_TREASURY_ACCOUNT_ADDRESS) { continue }
 
-                    if (transfer.to === '0x9F25cc5f3e70b907269CebbB45D812313b3e9143'.toLowerCase()) {
-                        console.log(JSON.stringify(transfer))
-                    }
                     let currentReputation = Number(transfer.value) / UI.projects.governance.globals.saToken.SA_TOKEN_BSC_DECIMAL_FACTOR
                     let previousReputation = reputationByAddress.get(transfer.to.toLowerCase())
                     let newReputation = previousReputation | 0 + currentReputation
                     reputationByAddress.set(transfer.to.toLowerCase(), newReputation)
                 }
-                console.log('[INFO] tokenTransfers = ' + JSON.stringify(tokenTransfers))
+                //console.log('[INFO] tokenTransfers = ' + JSON.stringify(tokenTransfers))
                 if (tokenTransfers.length > 9000) {
                     console.log('[WARN] The total amount of BSC SA Token transfers is above 9000. After 10k this method will need pagination or otherwise users will not get their reputation calculated correctly.')
                 } else {

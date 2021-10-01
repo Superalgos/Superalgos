@@ -80,6 +80,7 @@
     "inMapMode": {
         "showNodeType": false,
         "showHierarchyHeadRing": false,
-        "smallIcon": true
+        "smallIcon": true,
+        "smallText": true
     }
 }

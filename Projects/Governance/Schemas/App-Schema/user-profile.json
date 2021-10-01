@@ -76,5 +76,8 @@
             "childType": "Signing Accounts",
             "autoAdd": false
         }
-    ]
+    ],
+    "inMapMode": {
+        "showNodeType": false
+    }
 }

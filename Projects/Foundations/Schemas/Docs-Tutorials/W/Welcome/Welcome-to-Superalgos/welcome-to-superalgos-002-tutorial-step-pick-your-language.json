@@ -94,6 +94,11 @@
                     "text": "¡Solo se pueden traducir los documentos y los tutoriales, no la interfaz ni los títulos!",
                     "updated": 1625928204688,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Arayüz veya başlıklar değil, yalnızca Dokümanlar ve öğreticiler çevrilebilir!",
+                    "updated": 1633121237275
                 }
             ]
         }

@@ -126,6 +126,11 @@
                     "text": "S'il vous plaît, cliquez toujours sur Suivant pour continuer !",
                     "updated": 1623950092303,
                     "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Lütfen devam etmek için her zaman NEXT'e tıklayın!",
+                    "updated": 1633121186582
                 }
             ]
         }

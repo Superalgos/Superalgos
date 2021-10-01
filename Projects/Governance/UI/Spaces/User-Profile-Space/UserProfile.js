@@ -55,59 +55,62 @@ function newGovernanceUserProfileSpace() {
             }
         }
         let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
-        /*
-        Here we will change the Y position of all profiles so that they are all at the same level.
-        */
+        let pools = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Pools')
+        let assets = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Assets')
+        let features = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Features')
+        let positions = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Positions')
+
         const SPACE_WIDTH = UI.projects.foundations.spaces.floatingSpace.container.frame.width
         const SPACE_HEIGHT = UI.projects.foundations.spaces.floatingSpace.container.frame.height
 
-        const X_STEP = SPACE_WIDTH / (userProfiles.length + 1)
-        const Y_STEP = 3000
+        arrangeNodes(userProfiles, SPACE_HEIGHT * 0.345, 3000, 4)
+        arrangeNodes(pools, SPACE_HEIGHT * 0.590, 0, 1)
+        arrangeNodes(features, SPACE_HEIGHT * 0.620, 0, 1)
+        arrangeNodes(positions, SPACE_HEIGHT * 0.670, 0, 1)
+        arrangeNodes(assets, SPACE_HEIGHT * 0.755, 3000, 4)
 
-        const Y_LEVEL = SPACE_HEIGHT * 0.425
-        let xOffset = X_STEP
-        let yOffset = 0
 
-        for (let i = 0; i < userProfiles.length; i++) {
-            userProfiles[i].payload.floatingObject.container.frame.position.x = xOffset
-            xOffset = xOffset + X_STEP
-        }
-        for (let i = 0; i < userProfiles.length; i++) {
-            switch (true) {
-                case (yOffset === 0): {
-                    yOffset = Y_STEP
-                    break
-                }
-                case (yOffset === Y_STEP): {
-                    yOffset = Y_STEP * 2
-                    break
-                }
-                case (yOffset === Y_STEP * 2): {
-                    yOffset = Y_STEP * 1 + 1
-                    break
-                }
-                case (yOffset ===  Y_STEP * 1 + 1): {
-                    yOffset = Y_STEP * 0 + 1
-                    break
-                }
-                case (yOffset === Y_STEP * 0 + 1): {
-                    yOffset = -Y_STEP
-                    break
-                }
-                case (yOffset === -Y_STEP): {
-                    yOffset = 0
-                    break
+        function arrangeNodes(nodes, yLevel, yStep, rows) {
+            /*
+            Here we will change the Y position of all profiles so that they are all at the same level.
+            */
+            const X_STEP = SPACE_WIDTH / (nodes.length + 1 + 1 * rows) * rows
+
+            let xOffset = X_STEP
+            let yOffset = 0
+
+            let xStepCount = 0
+            for (let i = 0; i < nodes.length; i++) {
+                nodes[i].payload.floatingObject.container.frame.position.x = xOffset
+                xStepCount++
+                if (xStepCount === rows) {
+                    xOffset = xOffset + X_STEP
+                    xStepCount = 0
                 }
             }
-            userProfiles[i].payload.floatingObject.container.frame.position.y = Y_LEVEL + yOffset
-        }
-
-        for (let i = 0; i < userProfiles.length; i++) {
-            let userProfile = userProfiles[i]
-            if (userProfile.payload.floatingObject.isCollapsed !== true) {
-                userProfile.payload.floatingObject.collapseToggle()
+            for (let i = 0; i < nodes.length; i++) {
+                switch (true) {
+                    case (yOffset === 0): {
+                        yOffset = yStep
+                        break
+                    }
+                    case (yOffset === yStep): {
+                        yOffset = yStep * 2
+                        break
+                    }
+                    case (yOffset === yStep * 2): {
+                        yOffset = yStep * 3
+                        break
+                    }
+                    case (yOffset === yStep * 3): {
+                        yOffset = 0
+                        break
+                    }
+                }
+                nodes[i].payload.floatingObject.container.frame.position.y = yLevel + yOffset
             }
         }
+
         /*
         Here we will setup the Reputation for each profile. 
         */
@@ -129,15 +132,12 @@ function newGovernanceUserProfileSpace() {
                     if (transfer.contractAddress !== UI.projects.governance.globals.saToken.SA_TOKEN_BSC_CONTRACT_ADDRESS) { continue }
                     if (transfer.from !== UI.projects.governance.globals.saToken.SA_TOKEN_BSC_TREASURY_ACCOUNT_ADDRESS) { continue }
 
-                    if (transfer.to === '0x9F25cc5f3e70b907269CebbB45D812313b3e9143'.toLowerCase()) {
-                        console.log(JSON.stringify(transfer))
-                    }
                     let currentReputation = Number(transfer.value) / UI.projects.governance.globals.saToken.SA_TOKEN_BSC_DECIMAL_FACTOR
                     let previousReputation = reputationByAddress.get(transfer.to.toLowerCase())
                     let newReputation = previousReputation | 0 + currentReputation
                     reputationByAddress.set(transfer.to.toLowerCase(), newReputation)
                 }
-                console.log('[INFO] tokenTransfers = ' + JSON.stringify(tokenTransfers))
+                //console.log('[INFO] tokenTransfers = ' + JSON.stringify(tokenTransfers))
                 if (tokenTransfers.length > 9000) {
                     console.log('[WARN] The total amount of BSC SA Token transfers is above 9000. After 10k this method will need pagination or otherwise users will not get their reputation calculated correctly.')
                 } else {
@@ -420,17 +420,17 @@ function newGovernanceUserProfileSpace() {
         }
 
         function getBlockchainTokens(userProfile, blockchainAccount) {
-            console.log('User Profile Name: ', userProfile.name, 'blockchainAccount: ', blockchainAccount)
+            console.log('[INFO] Loading Blockachain Balance for User Profile: ', userProfile.name, 'blockchainAccount: ', blockchainAccount)
             const url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=" + UI.projects.governance.globals.saToken.SA_TOKEN_BSC_CONTRACT_ADDRESS + "&address=" + blockchainAccount + "&tag=latest&apikey=YourApiKeyToken"
 
             fetch(url).then(function (response) {
                 return response.json();
             }).then(function (data) {
-                console.log(data)
+                //console.log(data)
                 if (data.result === "Max rate limit reached, please use API Key for higher rate limit") {
                     userProfile.payload.blockchainTokens = undefined // This enables this profile to query the blockchain again.
                 } else {
-                    userProfile.payload.uiObject.setInfoMessage(data,
+                    userProfile.payload.uiObject.setInfoMessage('Blockchan Balance Succesfully Loaded.',
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
                     )
                     userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000

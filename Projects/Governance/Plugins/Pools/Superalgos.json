@@ -1,7 +1,7 @@
 {
     "type": "Pools",
     "name": "Superalgos",
-    "config": "{\"tokens\":\"66000000\",\"codeName\":\"Superalgos\"}",
+    "config": "{\n    \"tokens\": \"53806083\",\n    \"codeName\": \"Superalgos\"\n}",
     "project": "Governance",
     "poolClasses": [
         {
@@ -817,7 +817,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -1060,7 +1060,15 @@
                             "type": "Assets",
                             "name": "Foundations-Project Plugins Data-Mines Rewards",
                             "id": "cfc85fed-e63c-4a02-9d25-f7bacec173d4"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Foundations-Project Plugins Data-Mines Rewards",
+                                "Assets",
+                                "Governance",
+                                "cfc85fed-e63c-4a02-9d25-f7bacec173d4"
+                            ]
+                        ]
                     }
                 },
                 {
@@ -1095,7 +1103,15 @@
                             "type": "Assets",
                             "name": "Foundations-Project Plugins Trading-Systems Rewards",
                             "id": "519d2386-ccef-4e6c-af91-9169fc2a4a6f"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Foundations-Project Plugins Trading-Systems Rewards",
+                                "Assets",
+                                "Governance",
+                                "519d2386-ccef-4e6c-af91-9169fc2a4a6f"
+                            ]
+                        ]
                     }
                 },
                 {
@@ -1130,7 +1146,15 @@
                             "type": "Assets",
                             "name": "Foundations-Project Plugins API-Data-Mines Rewards",
                             "id": "4e1ff7bb-dc41-42c7-8ca6-552a9521d4f4"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Foundations-Project Plugins API-Data-Mines Rewards",
+                                "Assets",
+                                "Governance",
+                                "4e1ff7bb-dc41-42c7-8ca6-552a9521d4f4"
+                            ]
+                        ]
                     }
                 }
             ],
@@ -1239,7 +1263,15 @@
                             "type": "Assets",
                             "name": "TensorFlow-Project-Docs",
                             "id": "92c7a808-dc9d-469b-b486-841ec7eee4e2"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "TensorFlow-Project-Docs",
+                                "Assets",
+                                "Governance",
+                                "92c7a808-dc9d-469b-b486-841ec7eee4e2"
+                            ]
+                        ]
                     }
                 },
                 {
@@ -1274,7 +1306,15 @@
                             "type": "Assets",
                             "name": "Governance-Project-Docs",
                             "id": "daa76791-2fed-434d-973e-5e7c58ca91a4"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Governance-Project-Docs",
+                                "Assets",
+                                "Governance",
+                                "daa76791-2fed-434d-973e-5e7c58ca91a4"
+                            ]
+                        ]
                     }
                 },
                 {
@@ -1309,7 +1349,15 @@
                             "type": "Assets",
                             "name": "Education-Project-Docs",
                             "id": "5d8db042-b165-480e-a11e-6c16c7acdfd7"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Education-Project-Docs",
+                                "Assets",
+                                "Governance",
+                                "5d8db042-b165-480e-a11e-6c16c7acdfd7"
+                            ]
+                        ]
                     }
                 },
                 {
@@ -1344,7 +1392,15 @@
                             "type": "Assets",
                             "name": "Ethereum-Project-Docs",
                             "id": "3479b6ab-1b95-4c09-a96a-ed5c690ed485"
-                        }
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Ethereum-Project-Docs",
+                                "Assets",
+                                "Governance",
+                                "3479b6ab-1b95-4c09-a96a-ed5c690ed485"
+                            ]
+                        ]
                     }
                 }
             ],
@@ -1361,7 +1417,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -1410,14 +1466,14 @@
                         "referenceParent": {
                             "type": "Assets",
                             "name": "Superalgos-Marketing",
-                            "id": "eeeed37c-a0e5-4d6c-a57f-01fdd8622f0f"
+                            "id": "0a490128-61c8-49aa-96aa-769cc5513951"
                         },
                         "referenceParentCombinedNodePath": [
                             [
                                 "Superalgos-Marketing",
                                 "Assets",
                                 "Governance",
-                                "eeeed37c-a0e5-4d6c-a57f-01fdd8622f0f"
+                                "0a490128-61c8-49aa-96aa-769cc5513951"
                             ]
                         ]
                     }
@@ -1761,7 +1817,9 @@
                                 "referenceParentCombinedNodePath": [
                                     [
                                         "Superalgos",
-                                        "Features"
+                                        "Features",
+                                        "Governance",
+                                        "7c27de79-0ac7-4d48-81f0-5d7b6a4d93c6"
                                     ]
                                 ]
                             }
@@ -1805,7 +1863,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -1830,7 +1888,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

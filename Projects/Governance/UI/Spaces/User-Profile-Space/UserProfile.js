@@ -79,10 +79,18 @@ function newGovernanceUserProfileSpace() {
                     break
                 }
                 case (yOffset === Y_STEP): {
-                    yOffset = 1
+                    yOffset = Y_STEP * 2
                     break
                 }
-                case (yOffset === 1): {
+                case (yOffset === Y_STEP * 2): {
+                    yOffset = Y_STEP * 1 + 1
+                    break
+                }
+                case (yOffset ===  Y_STEP * 1 + 1): {
+                    yOffset = Y_STEP * 0 + 1
+                    break
+                }
+                case (yOffset === Y_STEP * 0 + 1): {
                     yOffset = -Y_STEP
                     break
                 }

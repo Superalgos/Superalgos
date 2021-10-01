@@ -899,13 +899,12 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     async function runNodeSetup () {
                                         console.log( "Running Node setup to adjust for new Branch" )
-                                        const path = require("path");
                                         const process = require("process");
-                                        const { exec } = require("child_process");
+                                        const { execSync } = require("child_process");
 
                                         let dir = process.cwd()
                                         let command = "node setup";
-                                        exec( command,
+                                        execSync( command,
                                         {
                                             cwd: dir 
                                         },

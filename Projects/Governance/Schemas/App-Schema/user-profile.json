@@ -78,6 +78,7 @@
         }
     ],
     "inMapMode": {
-        "showNodeType": false
+        "showNodeType": false,
+        "smallIcon": true
     }
 }

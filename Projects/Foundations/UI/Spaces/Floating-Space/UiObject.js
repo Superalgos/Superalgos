@@ -2401,6 +2401,14 @@ function newUiObject() {
                     totalImageSize = 50
                 }
 
+                if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) {
+                    if (schemaDocument.inMapMode !== undefined) {
+                        if (schemaDocument.inMapMode.smallIcon === true) {
+                            totalImageSize = totalImageSize / 2
+                        }
+                    }
+                }
+
                 browserCanvasContext.drawImage(
                     icon, position.x - totalImageSize / 2,
                     position.y - totalImageSize / 2,

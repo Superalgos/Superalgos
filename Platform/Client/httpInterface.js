@@ -865,7 +865,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                             if (error === undefined) {
                                                 // Run node setup to prepare instance for branch change
-                                                runNodeSetup().then( SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse) )
+                                                runNodeSetup()
                                             } else {
                                                 let docs = {
                                                     project: 'Foundations',
@@ -915,10 +915,13 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 console.log('');
                                                 console.log( error );
                                                 return;
-                                            }                
-
+                                            }   
+                                            
                                             console.log('');
-                                            console.log( stdout );
+                                            console.log( stdout );              
+                                            // Return to UI that Branch is suggessfully changed 
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                           
                                         });
                                     }
 

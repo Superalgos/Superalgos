@@ -865,7 +865,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                             if (error === undefined) {
                                                 // Run node setup to prepare instance for branch change
-                                                runNodeSetup()
+                                                await runNodeSetup()
                                             } else {
                                                 let docs = {
                                                     project: 'Foundations',

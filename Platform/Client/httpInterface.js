@@ -916,13 +916,12 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 console.log( error );
                                                 return;
                                             }   
-                                            
                                             console.log('');
-                                            console.log( stdout );              
-                                            // Return to UI that Branch is suggessfully changed 
-                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
-                                           
+                                            console.log( stdout );                
                                         });
+                                        // Return to UI that Branch is suggessfully changed 
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                           
                                     }
 
                                 } catch (err) {

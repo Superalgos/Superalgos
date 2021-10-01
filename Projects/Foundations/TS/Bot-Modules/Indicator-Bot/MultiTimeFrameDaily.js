@@ -583,9 +583,9 @@
                             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.dailyTimeFrames.includes(timeFrameLabel) === true) {
                                 timeFramesArray.push(timeFrameLabel)
                             }
-                        } else {
+                        } /*else {
                             timeFramesArray.push(timeFrameLabel)
-                        }
+                        }*/
                     } else {
                         timeFramesArray.push(timeFrameLabel)
                     }

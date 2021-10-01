@@ -60,6 +60,7 @@
                         if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.marketTimeFrames !== undefined) {
                             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.marketTimeFrames.includes(timeFrameLabel) === false) {
                                 /* We are not going to process this Time Frame */
+                                console.log(timeFrameLabel + "excluded in Time Frames Filter.")
                                 timeFramesControlLoop()
                                 return
                             }

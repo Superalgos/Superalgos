@@ -7,7 +7,7 @@
             "name": "tutorial",
             "project": "Education"
         },
-        "text": "Ben etkileşimli bir öğreticiyim. İşe başlamanızı kolaylaştırmak ve size tüm temel bilgileri öğretmek için tasarlanmış bir serinin eğitim serisinin ilk dersiyim.\n\n",
+        "text": "I'm an interactive tutorial, the first in a series designed to facilitate your onboarding and teach you all the basics!",
         "translations": [
             {
                 "language": "ID",
@@ -34,12 +34,12 @@
                 "style": "Definition"
             }
         ],
-        "updated": 1633116741367
+        "updated": 1633159917192
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Başlamanıza yardımcı olacağım, rahatça hareket etmenize yardımcı olacak araçları göstereceğim ve Superalgos'un sizin için yapabileceği tüm harika şeyleri keşfetmenize yardımcı olacağım.",
+            "text": "I will get you started, show you the tools that will help you move around comfortably, and help you discover all the cool things that Superalgos may do for you.",
             "translations": [
                 {
                     "language": "ID",
@@ -66,11 +66,11 @@
                     "style": "Text"
                 }
             ],
-            "updated": 1633116873870
+            "updated": 1633159949363
         },
         {
             "style": "Callout",
-            "text": "Öğreticiler, Superalgos'un alıştırma aracıdır! Superalgos ile çalışmaya başka bir şekilde başlamak bir hatadır, çünkü başka hiçbir kaynak sizi bu kadar hızlandıramaz. Kendi fikirlerinizi uygulamaya çalışmadan önce tüm dersleri yapmalısınız!",
+            "text": "Tutorials are the ultimate Superalgos onboarding tool! Starting with Superalgos in any other way is a mistake, as no other resource will get you up to speed faster. You should do all tutorials before trying to implement your own ideas!",
             "translations": [
                 {
                     "language": "ID",
@@ -97,7 +97,7 @@
                     "style": "Callout"
                 }
             ],
-            "updated": 1633116932266
+            "updated": 1633159975051
         },
         {
             "style": "Success",
@@ -130,7 +130,8 @@
                 {
                     "language": "TR",
                     "text": "Lütfen devam etmek için her zaman NEXT'e tıklayın!",
-                    "updated": 1633121186582
+                    "updated": 1633121186582,
+                    "style": "Success"
                 }
             ]
         }

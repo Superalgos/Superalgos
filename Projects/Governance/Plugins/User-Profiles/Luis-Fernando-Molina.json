@@ -539,7 +539,7 @@
         "votesAndClaimsPrograms": {
             "type": "Votes And Claims Programs",
             "name": "New Votes And Claims Programs",
-            "config": "{\n    \"percentage\": 30\n}",
+            "config": "{\n    \"percentage\": 5\n}",
             "project": "Governance",
             "votingProgram": {
                 "type": "Voting Program",
@@ -608,27 +608,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "PLuv",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "142f5de2-3762-4f55-a839-22eac5c03c8f"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "9b72df20-a4f0-4023-ae17-c46a64920716"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "704ea112-7592-4d37-b300-9227448bfe9f"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "647eddb0-6989-49ca-9288-8aaade078bec"
                                                                 ],
                                                                 [
                                                                     "Pluvtech Data Mine",
-                                                                    "Asset Claims Folder"
+                                                                    "Asset Claims Folder",
+                                                                    "Governance",
+                                                                    "dc382aa3-fb73-4770-817d-2d69da57fd26"
                                                                 ],
                                                                 [
                                                                     "Plugins Rewards Data-Mines Pluvtech.json",
-                                                                    "Asset Contribution Claim"
+                                                                    "Asset Contribution Claim",
+                                                                    "Governance",
+                                                                    "e0f84f5a-a3fc-4fc2-8c82-9116b20ea4d5"
                                                                 ]
                                                             ]
                                                         }
@@ -808,27 +820,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "PLuv",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "142f5de2-3762-4f55-a839-22eac5c03c8f"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "9b72df20-a4f0-4023-ae17-c46a64920716"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "704ea112-7592-4d37-b300-9227448bfe9f"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "647eddb0-6989-49ca-9288-8aaade078bec"
                                                                 ],
                                                                 [
                                                                     "Low-Frequency-Learning Asset Class",
-                                                                    "Asset Claims Folder"
+                                                                    "Asset Claims Folder",
+                                                                    "Governance",
+                                                                    "d64547b8-fa87-4ea3-a53a-90d55b325d14"
                                                                 ],
                                                                 [
                                                                     "Learning-Bot Low-Frequency-Learning TensorFlowLibrary.js",
-                                                                    "Asset Contribution Claim"
+                                                                    "Asset Contribution Claim",
+                                                                    "Governance",
+                                                                    "7a943c21-0e4d-4ca2-ad65-2cee16923774"
                                                                 ]
                                                             ]
                                                         }
@@ -938,27 +962,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "PLuv",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "142f5de2-3762-4f55-a839-22eac5c03c8f"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "9b72df20-a4f0-4023-ae17-c46a64920716"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "704ea112-7592-4d37-b300-9227448bfe9f"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "647eddb0-6989-49ca-9288-8aaade078bec"
                                                                 ],
                                                                 [
                                                                     "New Feature Claims Folder",
-                                                                    "Feature Claims Folder"
+                                                                    "Feature Claims Folder",
+                                                                    "Governance",
+                                                                    "7f8f1fec-5a45-41c1-a297-a92a22b3e524"
                                                                 ],
                                                                 [
                                                                     "Tensor Flow Integration New Features",
-                                                                    "Feature Contribution Claim"
+                                                                    "Feature Contribution Claim",
+                                                                    "Governance",
+                                                                    "b79c3adb-f641-42a9-bba9-312afb225a7b"
                                                                 ]
                                                             ]
                                                         }
@@ -997,27 +1033,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "PLuv",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "142f5de2-3762-4f55-a839-22eac5c03c8f"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "9b72df20-a4f0-4023-ae17-c46a64920716"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "704ea112-7592-4d37-b300-9227448bfe9f"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "647eddb0-6989-49ca-9288-8aaade078bec"
                                                                 ],
                                                                 [
                                                                     "New Feature Claims Folder",
-                                                                    "Feature Claims Folder"
+                                                                    "Feature Claims Folder",
+                                                                    "Governance",
+                                                                    "7f8f1fec-5a45-41c1-a297-a92a22b3e524"
                                                                 ],
                                                                 [
                                                                     "User Defined Variables and Code New Features",
-                                                                    "Feature Contribution Claim"
+                                                                    "Feature Contribution Claim",
+                                                                    "Governance",
+                                                                    "9d526dfa-522d-463f-9569-383be672d116"
                                                                 ]
                                                             ]
                                                         }
@@ -1124,27 +1172,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "PLuv",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "142f5de2-3762-4f55-a839-22eac5c03c8f"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "9b72df20-a4f0-4023-ae17-c46a64920716"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "704ea112-7592-4d37-b300-9227448bfe9f"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "647eddb0-6989-49ca-9288-8aaade078bec"
                                                                 ],
                                                                 [
                                                                     "New Position Claims Folder",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "5cbec4c5-0432-4cf9-b105-34342ca701db"
                                                                 ],
                                                                 [
                                                                     "Lead Developer TensorFlow-Project",
-                                                                    "Position Contribution Claim"
+                                                                    "Position Contribution Claim",
+                                                                    "Governance",
+                                                                    "ffeb7ead-1cfd-4c0f-802a-64ab3d0ca55b"
                                                                 ]
                                                             ]
                                                         }
@@ -1183,27 +1243,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "PLuv",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "142f5de2-3762-4f55-a839-22eac5c03c8f"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "9b72df20-a4f0-4023-ae17-c46a64920716"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "704ea112-7592-4d37-b300-9227448bfe9f"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "647eddb0-6989-49ca-9288-8aaade078bec"
                                                                 ],
                                                                 [
                                                                     "New Position Claims Folder",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "5cbec4c5-0432-4cf9-b105-34342ca701db"
                                                                 ],
                                                                 [
                                                                     "",
-                                                                    "Position Contribution Claim"
+                                                                    "Position Contribution Claim",
+                                                                    "Governance",
+                                                                    "9aafb0d5-3526-4307-9f8c-211228e4413c"
                                                                 ]
                                                             ]
                                                         }
@@ -1309,23 +1381,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "PLuv",
-                                                            "User Profile"
+                                                            "User Profile",
+                                                            "Governance",
+                                                            "142f5de2-3762-4f55-a839-22eac5c03c8f"
                                                         ],
                                                         [
                                                             "New Token Power Switch",
-                                                            "Token Power Switch"
+                                                            "Token Power Switch",
+                                                            "Governance",
+                                                            "9b72df20-a4f0-4023-ae17-c46a64920716"
                                                         ],
                                                         [
                                                             "New Votes And Claims Programs",
-                                                            "Votes And Claims Programs"
+                                                            "Votes And Claims Programs",
+                                                            "Governance",
+                                                            "704ea112-7592-4d37-b300-9227448bfe9f"
                                                         ],
                                                         [
                                                             "New Claims Program",
-                                                            "Claims Program"
+                                                            "Claims Program",
+                                                            "Governance",
+                                                            "647eddb0-6989-49ca-9288-8aaade078bec"
                                                         ],
                                                         [
                                                             "DCA Bot Workspace",
-                                                            "Asset Claims Folder"
+                                                            "Asset Claims Folder",
+                                                            "Governance",
+                                                            "92357d7c-8034-4cd8-9723-646317a49252"
                                                         ]
                                                     ]
                                                 }
@@ -12529,27 +12611,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Raplh2502",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "f24a8160-5264-4818-938f-4a132402f4c3"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "2646d59e-2da9-4507-ac23-32fb6f13c098"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "d0c2842d-d141-42d5-8b0c-655150c53106"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "4c87ca5c-c02f-47ff-adc4-a7244f08e387"
                                                                 ],
                                                                 [
                                                                     "New Position Claims Folder",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "494210e1-d75f-4c4a-8431-0876d9e4221f"
                                                                 ],
                                                                 [
                                                                     "Moderator Community Management",
-                                                                    "Position Contribution Claim"
+                                                                    "Position Contribution Claim",
+                                                                    "Governance",
+                                                                    "d4718c87-93a2-4a1e-9c28-42f421cc70bc"
                                                                 ]
                                                             ]
                                                         }
@@ -12588,27 +12682,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Raplh2502",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "f24a8160-5264-4818-938f-4a132402f4c3"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "2646d59e-2da9-4507-ac23-32fb6f13c098"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "d0c2842d-d141-42d5-8b0c-655150c53106"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "4c87ca5c-c02f-47ff-adc4-a7244f08e387"
                                                                 ],
                                                                 [
                                                                     "New Position Claims Folder",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "494210e1-d75f-4c4a-8431-0876d9e4221f"
                                                                 ],
                                                                 [
                                                                     "Project Lead Rewarded Positions",
-                                                                    "Position Contribution Claim"
+                                                                    "Position Contribution Claim",
+                                                                    "Governance",
+                                                                    "1311443c-2760-4649-bb2c-b95c402ef1fd"
                                                                 ]
                                                             ]
                                                         }
@@ -12645,23 +12751,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Raplh2502",
-                                                            "User Profile"
+                                                            "User Profile",
+                                                            "Governance",
+                                                            "f24a8160-5264-4818-938f-4a132402f4c3"
                                                         ],
                                                         [
                                                             "New Token Power Switch",
-                                                            "Token Power Switch"
+                                                            "Token Power Switch",
+                                                            "Governance",
+                                                            "2646d59e-2da9-4507-ac23-32fb6f13c098"
                                                         ],
                                                         [
                                                             "New Votes And Claims Programs",
-                                                            "Votes And Claims Programs"
+                                                            "Votes And Claims Programs",
+                                                            "Governance",
+                                                            "d0c2842d-d141-42d5-8b0c-655150c53106"
                                                         ],
                                                         [
                                                             "New Claims Program",
-                                                            "Claims Program"
+                                                            "Claims Program",
+                                                            "Governance",
+                                                            "4c87ca5c-c02f-47ff-adc4-a7244f08e387"
                                                         ],
                                                         [
                                                             "New Position Claims Folder",
-                                                            "Position Claims Folder"
+                                                            "Position Claims Folder",
+                                                            "Governance",
+                                                            "494210e1-d75f-4c4a-8431-0876d9e4221f"
                                                         ]
                                                     ]
                                                 }
@@ -12709,27 +12825,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Raplh2502",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "f24a8160-5264-4818-938f-4a132402f4c3"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "2646d59e-2da9-4507-ac23-32fb6f13c098"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "d0c2842d-d141-42d5-8b0c-655150c53106"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "4c87ca5c-c02f-47ff-adc4-a7244f08e387"
                                                                 ],
                                                                 [
                                                                     "New Feature Claims Folder",
-                                                                    "Feature Claims Folder"
+                                                                    "Feature Claims Folder",
+                                                                    "Governance",
+                                                                    "c8a86971-aa29-4ea0-953f-b53f74fc046f"
                                                                 ],
                                                                 [
                                                                     "Data Mining Existing Features",
-                                                                    "Feature Contribution Claim"
+                                                                    "Feature Contribution Claim",
+                                                                    "Governance",
+                                                                    "20b9e435-1067-488c-ad90-62a9f3cacda4"
                                                                 ]
                                                             ]
                                                         }
@@ -12768,27 +12896,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Raplh2502",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "f24a8160-5264-4818-938f-4a132402f4c3"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "2646d59e-2da9-4507-ac23-32fb6f13c098"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "d0c2842d-d141-42d5-8b0c-655150c53106"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "4c87ca5c-c02f-47ff-adc4-a7244f08e387"
                                                                 ],
                                                                 [
                                                                     "New Feature Claims Folder",
-                                                                    "Feature Claims Folder"
+                                                                    "Feature Claims Folder",
+                                                                    "Governance",
+                                                                    "c8a86971-aa29-4ea0-953f-b53f74fc046f"
                                                                 ],
                                                                 [
                                                                     "User Defined Variables and Code New Features",
-                                                                    "Feature Contribution Claim"
+                                                                    "Feature Contribution Claim",
+                                                                    "Governance",
+                                                                    "1f111795-0dae-4db9-838c-877e0b47be2c"
                                                                 ]
                                                             ]
                                                         }
@@ -12823,23 +12963,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Raplh2502",
-                                                            "User Profile"
+                                                            "User Profile",
+                                                            "Governance",
+                                                            "f24a8160-5264-4818-938f-4a132402f4c3"
                                                         ],
                                                         [
                                                             "New Token Power Switch",
-                                                            "Token Power Switch"
+                                                            "Token Power Switch",
+                                                            "Governance",
+                                                            "2646d59e-2da9-4507-ac23-32fb6f13c098"
                                                         ],
                                                         [
                                                             "New Votes And Claims Programs",
-                                                            "Votes And Claims Programs"
+                                                            "Votes And Claims Programs",
+                                                            "Governance",
+                                                            "d0c2842d-d141-42d5-8b0c-655150c53106"
                                                         ],
                                                         [
                                                             "New Claims Program",
-                                                            "Claims Program"
+                                                            "Claims Program",
+                                                            "Governance",
+                                                            "4c87ca5c-c02f-47ff-adc4-a7244f08e387"
                                                         ],
                                                         [
                                                             "New Feature Claims Folder",
-                                                            "Feature Claims Folder"
+                                                            "Feature Claims Folder",
+                                                            "Governance",
+                                                            "c8a86971-aa29-4ea0-953f-b53f74fc046f"
                                                         ]
                                                     ]
                                                 }
@@ -12892,31 +13042,45 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Raplh2502",
-                                                                            "User Profile"
+                                                                            "User Profile",
+                                                                            "Governance",
+                                                                            "f24a8160-5264-4818-938f-4a132402f4c3"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
-                                                                            "Token Power Switch"
+                                                                            "Token Power Switch",
+                                                                            "Governance",
+                                                                            "2646d59e-2da9-4507-ac23-32fb6f13c098"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
-                                                                            "Votes And Claims Programs"
+                                                                            "Votes And Claims Programs",
+                                                                            "Governance",
+                                                                            "d0c2842d-d141-42d5-8b0c-655150c53106"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
-                                                                            "Claims Program"
+                                                                            "Claims Program",
+                                                                            "Governance",
+                                                                            "4c87ca5c-c02f-47ff-adc4-a7244f08e387"
                                                                         ],
                                                                         [
                                                                             "New Asset Claims Folder",
-                                                                            "Asset Claims Folder"
+                                                                            "Asset Claims Folder",
+                                                                            "Governance",
+                                                                            "10106594-7220-43d9-959f-14d589ef3c7c"
                                                                         ],
                                                                         [
                                                                             "Articles Asset Class",
-                                                                            "Asset Claims Folder"
+                                                                            "Asset Claims Folder",
+                                                                            "Governance",
+                                                                            "568edaf0-34d1-4ea4-9077-5ca52490474c"
                                                                         ],
                                                                         [
                                                                             "Superalgos Medium Blog Articles Superalgos Beta 11 : Taking the Data Mining Infrastructure to the Next Level",
-                                                                            "Asset Contribution Claim"
+                                                                            "Asset Contribution Claim",
+                                                                            "Governance",
+                                                                            "e8fba6f3-76f8-487e-84a5-627b457b2c87"
                                                                         ]
                                                                     ]
                                                                 }
@@ -12955,31 +13119,45 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Raplh2502",
-                                                                            "User Profile"
+                                                                            "User Profile",
+                                                                            "Governance",
+                                                                            "f24a8160-5264-4818-938f-4a132402f4c3"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
-                                                                            "Token Power Switch"
+                                                                            "Token Power Switch",
+                                                                            "Governance",
+                                                                            "2646d59e-2da9-4507-ac23-32fb6f13c098"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
-                                                                            "Votes And Claims Programs"
+                                                                            "Votes And Claims Programs",
+                                                                            "Governance",
+                                                                            "d0c2842d-d141-42d5-8b0c-655150c53106"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
-                                                                            "Claims Program"
+                                                                            "Claims Program",
+                                                                            "Governance",
+                                                                            "4c87ca5c-c02f-47ff-adc4-a7244f08e387"
                                                                         ],
                                                                         [
                                                                             "New Asset Claims Folder",
-                                                                            "Asset Claims Folder"
+                                                                            "Asset Claims Folder",
+                                                                            "Governance",
+                                                                            "10106594-7220-43d9-959f-14d589ef3c7c"
                                                                         ],
                                                                         [
                                                                             "Articles Asset Class",
-                                                                            "Asset Claims Folder"
+                                                                            "Asset Claims Folder",
+                                                                            "Governance",
+                                                                            "568edaf0-34d1-4ea4-9077-5ca52490474c"
                                                                         ],
                                                                         [
                                                                             "Superalgos Medium Blog Articles Entropy as a Calculation Basis for Market Trends: The Advanced Trend Indicator in Superalgos",
-                                                                            "Asset Contribution Claim"
+                                                                            "Asset Contribution Claim",
+                                                                            "Governance",
+                                                                            "4247e29a-826e-4252-ba7f-3efc53b29a25"
                                                                         ]
                                                                     ]
                                                                 }
@@ -13018,31 +13196,45 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Raplh2502",
-                                                                            "User Profile"
+                                                                            "User Profile",
+                                                                            "Governance",
+                                                                            "f24a8160-5264-4818-938f-4a132402f4c3"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
-                                                                            "Token Power Switch"
+                                                                            "Token Power Switch",
+                                                                            "Governance",
+                                                                            "2646d59e-2da9-4507-ac23-32fb6f13c098"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
-                                                                            "Votes And Claims Programs"
+                                                                            "Votes And Claims Programs",
+                                                                            "Governance",
+                                                                            "d0c2842d-d141-42d5-8b0c-655150c53106"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
-                                                                            "Claims Program"
+                                                                            "Claims Program",
+                                                                            "Governance",
+                                                                            "4c87ca5c-c02f-47ff-adc4-a7244f08e387"
                                                                         ],
                                                                         [
                                                                             "New Asset Claims Folder",
-                                                                            "Asset Claims Folder"
+                                                                            "Asset Claims Folder",
+                                                                            "Governance",
+                                                                            "10106594-7220-43d9-959f-14d589ef3c7c"
                                                                         ],
                                                                         [
                                                                             "Articles Asset Class",
-                                                                            "Asset Claims Folder"
+                                                                            "Asset Claims Folder",
+                                                                            "Governance",
+                                                                            "568edaf0-34d1-4ea4-9077-5ca52490474c"
                                                                         ],
                                                                         [
                                                                             "Superalgos Medium Blog Articles Implementing a Monte-Carlo Forecast of the Next Period of an Asset in Superalgos",
-                                                                            "Asset Contribution Claim"
+                                                                            "Asset Contribution Claim",
+                                                                            "Governance",
+                                                                            "ae057fd7-f6f7-4763-8db4-ae4e699efa91"
                                                                         ]
                                                                     ]
                                                                 }
@@ -13081,31 +13273,45 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Raplh2502",
-                                                                            "User Profile"
+                                                                            "User Profile",
+                                                                            "Governance",
+                                                                            "f24a8160-5264-4818-938f-4a132402f4c3"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
-                                                                            "Token Power Switch"
+                                                                            "Token Power Switch",
+                                                                            "Governance",
+                                                                            "2646d59e-2da9-4507-ac23-32fb6f13c098"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
-                                                                            "Votes And Claims Programs"
+                                                                            "Votes And Claims Programs",
+                                                                            "Governance",
+                                                                            "d0c2842d-d141-42d5-8b0c-655150c53106"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
-                                                                            "Claims Program"
+                                                                            "Claims Program",
+                                                                            "Governance",
+                                                                            "4c87ca5c-c02f-47ff-adc4-a7244f08e387"
                                                                         ],
                                                                         [
                                                                             "New Asset Claims Folder",
-                                                                            "Asset Claims Folder"
+                                                                            "Asset Claims Folder",
+                                                                            "Governance",
+                                                                            "10106594-7220-43d9-959f-14d589ef3c7c"
                                                                         ],
                                                                         [
                                                                             "Articles Asset Class",
-                                                                            "Asset Claims Folder"
+                                                                            "Asset Claims Folder",
+                                                                            "Governance",
+                                                                            "568edaf0-34d1-4ea4-9077-5ca52490474c"
                                                                         ],
                                                                         [
                                                                             "Superalgos Medium Blog Articles NewNew high quality indicators for Superalgos Beta 11Asset",
-                                                                            "Asset Contribution Claim"
+                                                                            "Asset Contribution Claim",
+                                                                            "Governance",
+                                                                            "08dce64f-1e2e-44b9-82c0-f93c1e95ed6c"
                                                                         ]
                                                                     ]
                                                                 }
@@ -13144,31 +13350,45 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Raplh2502",
-                                                                            "User Profile"
+                                                                            "User Profile",
+                                                                            "Governance",
+                                                                            "f24a8160-5264-4818-938f-4a132402f4c3"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
-                                                                            "Token Power Switch"
+                                                                            "Token Power Switch",
+                                                                            "Governance",
+                                                                            "2646d59e-2da9-4507-ac23-32fb6f13c098"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
-                                                                            "Votes And Claims Programs"
+                                                                            "Votes And Claims Programs",
+                                                                            "Governance",
+                                                                            "d0c2842d-d141-42d5-8b0c-655150c53106"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
-                                                                            "Claims Program"
+                                                                            "Claims Program",
+                                                                            "Governance",
+                                                                            "4c87ca5c-c02f-47ff-adc4-a7244f08e387"
                                                                         ],
                                                                         [
                                                                             "New Asset Claims Folder",
-                                                                            "Asset Claims Folder"
+                                                                            "Asset Claims Folder",
+                                                                            "Governance",
+                                                                            "10106594-7220-43d9-959f-14d589ef3c7c"
                                                                         ],
                                                                         [
                                                                             "Articles Asset Class",
-                                                                            "Asset Claims Folder"
+                                                                            "Asset Claims Folder",
+                                                                            "Governance",
+                                                                            "568edaf0-34d1-4ea4-9077-5ca52490474c"
                                                                         ],
                                                                         [
-                                                                            "Plugins Data-Mines Quasar.json",
-                                                                            "Asset Contribution Claim"
+                                                                            "Plugins Rewards Data-Mines Quasar.json",
+                                                                            "Asset Contribution Claim",
+                                                                            "Governance",
+                                                                            "c3945fdb-d5bd-4a9b-a621-f990e2a4031c"
                                                                         ]
                                                                     ]
                                                                 }
@@ -13207,31 +13427,45 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Raplh2502",
-                                                                            "User Profile"
+                                                                            "User Profile",
+                                                                            "Governance",
+                                                                            "f24a8160-5264-4818-938f-4a132402f4c3"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
-                                                                            "Token Power Switch"
+                                                                            "Token Power Switch",
+                                                                            "Governance",
+                                                                            "2646d59e-2da9-4507-ac23-32fb6f13c098"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
-                                                                            "Votes And Claims Programs"
+                                                                            "Votes And Claims Programs",
+                                                                            "Governance",
+                                                                            "d0c2842d-d141-42d5-8b0c-655150c53106"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
-                                                                            "Claims Program"
+                                                                            "Claims Program",
+                                                                            "Governance",
+                                                                            "4c87ca5c-c02f-47ff-adc4-a7244f08e387"
                                                                         ],
                                                                         [
                                                                             "New Asset Claims Folder",
-                                                                            "Asset Claims Folder"
+                                                                            "Asset Claims Folder",
+                                                                            "Governance",
+                                                                            "10106594-7220-43d9-959f-14d589ef3c7c"
                                                                         ],
                                                                         [
                                                                             "Articles Asset Class",
-                                                                            "Asset Claims Folder"
+                                                                            "Asset Claims Folder",
+                                                                            "Governance",
+                                                                            "568edaf0-34d1-4ea4-9077-5ca52490474c"
                                                                         ],
                                                                         [
-                                                                            "Plugins Data-Mines Heikin.json",
-                                                                            "Asset Contribution Claim"
+                                                                            "Plugins Rewards Data-Mines Heikin.json",
+                                                                            "Asset Contribution Claim",
+                                                                            "Governance",
+                                                                            "67ea36b2-3144-4635-9cda-c1c179e53845"
                                                                         ]
                                                                     ]
                                                                 }
@@ -13267,27 +13501,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Raplh2502",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "f24a8160-5264-4818-938f-4a132402f4c3"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "2646d59e-2da9-4507-ac23-32fb6f13c098"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "d0c2842d-d141-42d5-8b0c-655150c53106"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "4c87ca5c-c02f-47ff-adc4-a7244f08e387"
                                                                 ],
                                                                 [
                                                                     "New Asset Claims Folder",
-                                                                    "Asset Claims Folder"
+                                                                    "Asset Claims Folder",
+                                                                    "Governance",
+                                                                    "10106594-7220-43d9-959f-14d589ef3c7c"
                                                                 ],
                                                                 [
                                                                     "Articles Asset Class",
-                                                                    "Asset Claims Folder"
+                                                                    "Asset Claims Folder",
+                                                                    "Governance",
+                                                                    "568edaf0-34d1-4ea4-9077-5ca52490474c"
                                                                 ]
                                                             ]
                                                         }
@@ -13325,23 +13571,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Raplh2502",
-                                                            "User Profile"
+                                                            "User Profile",
+                                                            "Governance",
+                                                            "f24a8160-5264-4818-938f-4a132402f4c3"
                                                         ],
                                                         [
                                                             "New Token Power Switch",
-                                                            "Token Power Switch"
+                                                            "Token Power Switch",
+                                                            "Governance",
+                                                            "2646d59e-2da9-4507-ac23-32fb6f13c098"
                                                         ],
                                                         [
                                                             "New Votes And Claims Programs",
-                                                            "Votes And Claims Programs"
+                                                            "Votes And Claims Programs",
+                                                            "Governance",
+                                                            "d0c2842d-d141-42d5-8b0c-655150c53106"
                                                         ],
                                                         [
                                                             "New Claims Program",
-                                                            "Claims Program"
+                                                            "Claims Program",
+                                                            "Governance",
+                                                            "4c87ca5c-c02f-47ff-adc4-a7244f08e387"
                                                         ],
                                                         [
                                                             "New Asset Claims Folder",
-                                                            "Asset Claims Folder"
+                                                            "Asset Claims Folder",
+                                                            "Governance",
+                                                            "10106594-7220-43d9-959f-14d589ef3c7c"
                                                         ]
                                                     ]
                                                 }
@@ -35950,20 +36206,28 @@
                                                             },
                                                             "referenceParentCombinedNodePath": [
                                                                 [
-                                                                    "Foundations-Project-Plugins",
-                                                                    "Assets"
+                                                                    "Foundations-Project Plugins Data-Mines Rewards",
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "cfc85fed-e63c-4a02-9d25-f7bacec173d4"
                                                                 ],
                                                                 [
-                                                                    "Plugins",
-                                                                    "Asset Class"
+                                                                    "Plugins Rewards",
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "8742112d-7227-4678-a435-bf11956c0b54"
                                                                 ],
                                                                 [
                                                                     "Data-Mines",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "66203ad1-2b30-434f-ab05-697070d6bce7"
                                                                 ],
                                                                 [
                                                                     "CoinGecko.json",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "e49df7d9-ee09-4f47-8f71-abf29d588420"
                                                                 ]
                                                             ]
                                                         }
@@ -36001,20 +36265,28 @@
                                                             },
                                                             "referenceParentCombinedNodePath": [
                                                                 [
-                                                                    "Foundations-Project-Plugins",
-                                                                    "Assets"
+                                                                    "Foundations-Project Plugins Data-Mines Rewards",
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "cfc85fed-e63c-4a02-9d25-f7bacec173d4"
                                                                 ],
                                                                 [
-                                                                    "Plugins",
-                                                                    "Asset Class"
+                                                                    "Plugins Rewards",
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "8742112d-7227-4678-a435-bf11956c0b54"
                                                                 ],
                                                                 [
                                                                     "Data-Mines",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "66203ad1-2b30-434f-ab05-697070d6bce7"
                                                                 ],
                                                                 [
                                                                     "Delta.json",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "c1574672-0a07-4821-8a6e-642d39d20d11"
                                                                 ]
                                                             ]
                                                         }
@@ -36052,20 +36324,28 @@
                                                             },
                                                             "referenceParentCombinedNodePath": [
                                                                 [
-                                                                    "Foundations-Project-Plugins",
-                                                                    "Assets"
+                                                                    "Foundations-Project Plugins Data-Mines Rewards",
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "cfc85fed-e63c-4a02-9d25-f7bacec173d4"
                                                                 ],
                                                                 [
-                                                                    "Plugins",
-                                                                    "Asset Class"
+                                                                    "Plugins Rewards",
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "8742112d-7227-4678-a435-bf11956c0b54"
                                                                 ],
                                                                 [
                                                                     "Data-Mines",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "66203ad1-2b30-434f-ab05-697070d6bce7"
                                                                 ],
                                                                 [
                                                                     "Messari.json",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "e70ea49a-419b-4838-a82a-af934368d53e"
                                                                 ]
                                                             ]
                                                         }
@@ -36103,20 +36383,28 @@
                                                             },
                                                             "referenceParentCombinedNodePath": [
                                                                 [
-                                                                    "Foundations-Project-Plugins",
-                                                                    "Assets"
+                                                                    "Foundations-Project Plugins Data-Mines Rewards",
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "cfc85fed-e63c-4a02-9d25-f7bacec173d4"
                                                                 ],
                                                                 [
-                                                                    "Plugins",
-                                                                    "Asset Class"
+                                                                    "Plugins Rewards",
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "8742112d-7227-4678-a435-bf11956c0b54"
                                                                 ],
                                                                 [
                                                                     "Data-Mines",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "66203ad1-2b30-434f-ab05-697070d6bce7"
                                                                 ],
                                                                 [
                                                                     "Omega-One.json",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "f3e6edf8-b21a-4489-923c-b7b3efa77620"
                                                                 ]
                                                             ]
                                                         }
@@ -36154,20 +36442,28 @@
                                                             },
                                                             "referenceParentCombinedNodePath": [
                                                                 [
-                                                                    "Foundations-Project-Plugins",
-                                                                    "Assets"
+                                                                    "Foundations-Project Plugins Data-Mines Rewards",
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "cfc85fed-e63c-4a02-9d25-f7bacec173d4"
                                                                 ],
                                                                 [
-                                                                    "Plugins",
-                                                                    "Asset Class"
+                                                                    "Plugins Rewards",
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "8742112d-7227-4678-a435-bf11956c0b54"
                                                                 ],
                                                                 [
                                                                     "Data-Mines",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "66203ad1-2b30-434f-ab05-697070d6bce7"
                                                                 ],
                                                                 [
                                                                     "Pluvtech.json",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "f99ac562-4315-46f7-9466-6a2578925bea"
                                                                 ]
                                                             ]
                                                         }
@@ -36205,20 +36501,28 @@
                                                             },
                                                             "referenceParentCombinedNodePath": [
                                                                 [
-                                                                    "Foundations-Project-Plugins",
-                                                                    "Assets"
+                                                                    "Foundations-Project Plugins Data-Mines Rewards",
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "cfc85fed-e63c-4a02-9d25-f7bacec173d4"
                                                                 ],
                                                                 [
-                                                                    "Plugins",
-                                                                    "Asset Class"
+                                                                    "Plugins Rewards",
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "8742112d-7227-4678-a435-bf11956c0b54"
                                                                 ],
                                                                 [
                                                                     "Data-Mines",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "66203ad1-2b30-434f-ab05-697070d6bce7"
                                                                 ],
                                                                 [
                                                                     "Turtles.json",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "b92aa988-21d0-4a01-996a-5e3aa4fe24b4"
                                                                 ]
                                                             ]
                                                         }
@@ -36256,20 +36560,28 @@
                                                             },
                                                             "referenceParentCombinedNodePath": [
                                                                 [
-                                                                    "Foundations-Project-Plugins",
-                                                                    "Assets"
+                                                                    "Foundations-Project Plugins Data-Mines Rewards",
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "cfc85fed-e63c-4a02-9d25-f7bacec173d4"
                                                                 ],
                                                                 [
-                                                                    "Plugins",
-                                                                    "Asset Class"
+                                                                    "Plugins Rewards",
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "8742112d-7227-4678-a435-bf11956c0b54"
                                                                 ],
                                                                 [
                                                                     "Data-Mines",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "66203ad1-2b30-434f-ab05-697070d6bce7"
                                                                 ],
                                                                 [
                                                                     "Barcelona.json",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "469377ea-5761-4b65-bb43-6e286832f53e"
                                                                 ]
                                                             ]
                                                         }
@@ -36307,20 +36619,28 @@
                                                             },
                                                             "referenceParentCombinedNodePath": [
                                                                 [
-                                                                    "Foundations-Project-Plugins",
-                                                                    "Assets"
+                                                                    "Foundations-Project Plugins Data-Mines Rewards",
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "cfc85fed-e63c-4a02-9d25-f7bacec173d4"
                                                                 ],
                                                                 [
-                                                                    "Plugins",
-                                                                    "Asset Class"
+                                                                    "Plugins Rewards",
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "8742112d-7227-4678-a435-bf11956c0b54"
                                                                 ],
                                                                 [
                                                                     "Data-Mines",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "66203ad1-2b30-434f-ab05-697070d6bce7"
                                                                 ],
                                                                 [
                                                                     "Heikin.json",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "1fff7f0d-be90-4d8b-9b69-7784d15c60c2"
                                                                 ]
                                                             ]
                                                         }
@@ -36358,20 +36678,28 @@
                                                             },
                                                             "referenceParentCombinedNodePath": [
                                                                 [
-                                                                    "Foundations-Project-Plugins",
-                                                                    "Assets"
+                                                                    "Foundations-Project Plugins Data-Mines Rewards",
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "cfc85fed-e63c-4a02-9d25-f7bacec173d4"
                                                                 ],
                                                                 [
-                                                                    "Plugins",
-                                                                    "Asset Class"
+                                                                    "Plugins Rewards",
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "8742112d-7227-4678-a435-bf11956c0b54"
                                                                 ],
                                                                 [
                                                                     "Data-Mines",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "66203ad1-2b30-434f-ab05-697070d6bce7"
                                                                 ],
                                                                 [
                                                                     "Indicator-Add-ons.json",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "57bafbea-3fed-4081-a8e9-76ec9f8cbf04"
                                                                 ]
                                                             ]
                                                         }
@@ -36409,20 +36737,28 @@
                                                             },
                                                             "referenceParentCombinedNodePath": [
                                                                 [
-                                                                    "Foundations-Project-Plugins",
-                                                                    "Assets"
+                                                                    "Foundations-Project Plugins Data-Mines Rewards",
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "cfc85fed-e63c-4a02-9d25-f7bacec173d4"
                                                                 ],
                                                                 [
-                                                                    "Plugins",
-                                                                    "Asset Class"
+                                                                    "Plugins Rewards",
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "8742112d-7227-4678-a435-bf11956c0b54"
                                                                 ],
                                                                 [
                                                                     "Data-Mines",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "66203ad1-2b30-434f-ab05-697070d6bce7"
                                                                 ],
                                                                 [
                                                                     "Quasar.json",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "f0b452b5-45fb-487a-a725-705325d075e3"
                                                                 ]
                                                             ]
                                                         }
@@ -36458,16 +36794,22 @@
                                                     },
                                                     "referenceParentCombinedNodePath": [
                                                         [
-                                                            "Foundations-Project-Plugins",
-                                                            "Assets"
+                                                            "Foundations-Project Plugins Data-Mines Rewards",
+                                                            "Assets",
+                                                            "Governance",
+                                                            "cfc85fed-e63c-4a02-9d25-f7bacec173d4"
                                                         ],
                                                         [
-                                                            "Plugins",
-                                                            "Asset Class"
+                                                            "Plugins Rewards",
+                                                            "Asset Class",
+                                                            "Governance",
+                                                            "8742112d-7227-4678-a435-bf11956c0b54"
                                                         ],
                                                         [
                                                             "Data-Mines",
-                                                            "Asset Class"
+                                                            "Asset Class",
+                                                            "Governance",
+                                                            "66203ad1-2b30-434f-ab05-697070d6bce7"
                                                         ]
                                                     ]
                                                 }
@@ -36628,7 +36970,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -36672,12 +37014,12 @@
                                                 "id": "92f0f22e-f631-482d-88b1-c16596bf951d",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 44697.59136551631,
-                                                        "y": 22072.524464342107
+                                                        "x": 5288.724370442424,
+                                                        "y": 17071.52446434211
                                                     },
                                                     "targetPosition": {
-                                                        "x": 44398.002505089935,
-                                                        "y": 22056.823677469223
+                                                        "x": 4989.135510016052,
+                                                        "y": 17055.823677469227
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -36737,12 +37079,12 @@
                                                 "id": "81c477e0-c9bf-4b25-a875-d265011a6136",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 44534.1996550118,
-                                                        "y": 22324.125634725733
+                                                        "x": 5125.332659937916,
+                                                        "y": 17323.125634725737
                                                     },
                                                     "targetPosition": {
-                                                        "x": 44398.002505089935,
-                                                        "y": 22056.823677469223
+                                                        "x": 4989.135510016052,
+                                                        "y": 17055.823677469227
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -36798,12 +37140,12 @@
                                         "id": "c4815ebe-d3a8-47fd-b204-936242bd8f40",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 44398.002505089935,
-                                                "y": 22056.823677469223
+                                                "x": 4989.135510016052,
+                                                "y": 17055.823677469227
                                             },
                                             "targetPosition": {
-                                                "x": 44146.40133470631,
-                                                "y": 21893.431966964716
+                                                "x": 4737.534339632424,
+                                                "y": 16892.43196696472
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -36854,12 +37196,12 @@
                                 "id": "ba6b4ff8-396b-4a9d-95ba-a52d096ec9eb",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 44146.40133470631,
-                                        "y": 21893.431966964716
+                                        "x": 4737.534339632424,
+                                        "y": 16892.43196696472
                                     },
                                     "targetPosition": {
-                                        "x": 43894.80016432268,
-                                        "y": 21730.04025646021
+                                        "x": 4485.933169248797,
+                                        "y": 16729.040256460212
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -36904,12 +37246,12 @@
                         "id": "f8a482c4-dee0-475a-831b-7514fd255ba6",
                         "savedPayload": {
                             "position": {
-                                "x": 43894.80016432268,
-                                "y": 21730.04025646021
+                                "x": 4485.933169248797,
+                                "y": 16729.040256460212
                             },
                             "targetPosition": {
-                                "x": 43643.198993939055,
-                                "y": 21566.6485459557
+                                "x": 4234.331998865169,
+                                "y": 16565.648545955704
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -36952,12 +37294,12 @@
                     "id": "5011109c-3f87-471a-b786-5fd371f53853",
                     "savedPayload": {
                         "position": {
-                            "x": 43779.39614386092,
-                            "y": 21833.95050321221
+                            "x": 4370.529148787034,
+                            "y": 16832.950503212214
                         },
                         "targetPosition": {
-                            "x": 43643.198993939055,
-                            "y": 21566.6485459557
+                            "x": 4234.331998865169,
+                            "y": 16565.648545955704
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -36985,7 +37327,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -37021,7 +37363,7 @@
         "financialPrograms": {
             "type": "Financial Programs",
             "name": "New Financial Programs",
-            "config": "{\n    \"percentage\": 70\n}",
+            "config": "{\n    \"percentage\": 95\n}",
             "project": "Governance",
             "stakingProgram": {
                 "type": "Staking Program",
@@ -37035,12 +37377,12 @@
                     "id": "928e9ccb-1e90-48a9-af77-b3089225fc4f",
                     "savedPayload": {
                         "position": {
-                            "x": 19892.38737857519,
-                            "y": 26736.74708415796
+                            "x": 4472.738712342268,
+                            "y": 16736.74708415796
                         },
                         "targetPosition": {
-                            "x": 19618.32374128241,
-                            "y": 26614.72609123522
+                            "x": 4198.6750750494875,
+                            "y": 16614.72609123522
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -37058,12 +37400,12 @@
                 "id": "b046f4e4-40b1-4e47-8fed-75a6a5c6029d",
                 "savedPayload": {
                     "position": {
-                        "x": 19618.32374128241,
-                        "y": 26614.72609123522
+                        "x": 4198.6750750494875,
+                        "y": 16614.72609123522
                     },
                     "targetPosition": {
-                        "x": 19344.26010398963,
-                        "y": 26492.705098312483
+                        "x": 3924.6114377567073,
+                        "y": 16492.705098312483
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -37105,12 +37447,12 @@
                                         "id": "a2bbd553-e24c-44b8-a199-83114476ce24",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 22358.300339939757,
-                                                "y": 27774.080178503016
+                                                "x": 5398.412936702585,
+                                                "y": 16774.080178503016
                                             },
                                             "targetPosition": {
-                                                "x": 21813.414435644707,
-                                                "y": 28025.276021025475
+                                                "x": 4853.527032407536,
+                                                "y": 17025.276021025475
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -37142,12 +37484,12 @@
                                 "id": "27358f54-1bf7-49df-9610-754b5aff1868",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21813.414435644707,
-                                        "y": 28025.276021025475
+                                        "x": 4853.527032407536,
+                                        "y": 17025.276021025475
                                     },
                                     "targetPosition": {
-                                        "x": 21268.528531349657,
-                                        "y": 28276.471863547933
+                                        "x": 4308.641128112487,
+                                        "y": 17276.471863547933
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -37177,12 +37519,12 @@
                                         "id": "2c79cd42-28a7-4a4b-ad3b-a8a29e993697",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 22435.372435826866,
-                                                "y": 27996.337426920847
+                                                "x": 5475.485032589699,
+                                                "y": 16996.337426920847
                                             },
                                             "targetPosition": {
-                                                "x": 21851.95048358826,
-                                                "y": 28136.40464523439
+                                                "x": 4892.063080351093,
+                                                "y": 17136.40464523439
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -37214,12 +37556,12 @@
                                 "id": "7d24ee91-92dc-4982-b482-4512bd3abe73",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21851.95048358826,
-                                        "y": 28136.40464523439
+                                        "x": 4892.063080351093,
+                                        "y": 17136.40464523439
                                     },
                                     "targetPosition": {
-                                        "x": 21268.528531349657,
-                                        "y": 28276.471863547933
+                                        "x": 4308.641128112487,
+                                        "y": 17276.471863547933
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -37249,12 +37591,12 @@
                                         "id": "94f99114-fc01-450e-9d9d-0b62c8ea393f",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 22467.603374838523,
-                                                "y": 28229.36008463705
+                                                "x": 5507.715971601354,
+                                                "y": 17229.36008463705
                                             },
                                             "targetPosition": {
-                                                "x": 21868.06595309409,
-                                                "y": 28252.91597409249
+                                                "x": 4908.178549856921,
+                                                "y": 17252.91597409249
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -37275,7 +37617,9 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Raplh2502",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "f24a8160-5264-4818-938f-4a132402f4c3"
                                                 ]
                                             ]
                                         }
@@ -37284,12 +37628,12 @@
                                 "id": "e48cbc3c-cd76-4a35-8673-2579e20e09fc",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21868.06595309409,
-                                        "y": 28252.91597409249
+                                        "x": 4908.178549856921,
+                                        "y": 17252.91597409249
                                     },
                                     "targetPosition": {
-                                        "x": 21268.528531349657,
-                                        "y": 28276.471863547933
+                                        "x": 4308.641128112487,
+                                        "y": 17276.471863547933
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -37319,12 +37663,12 @@
                                         "id": "ee1b374b-d4af-494c-93b8-3f83849d85f2",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 22453.75454006382,
-                                                "y": 28464.19322159621
+                                                "x": 5493.867136826653,
+                                                "y": 17464.19322159621
                                             },
                                             "targetPosition": {
-                                                "x": 21861.141535706738,
-                                                "y": 28370.332542572072
+                                                "x": 4901.25413246957,
+                                                "y": 17370.332542572072
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -37356,12 +37700,12 @@
                                 "id": "7edd2cfb-0e46-4d2a-8899-0e7193c85815",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21861.141535706738,
-                                        "y": 28370.332542572072
+                                        "x": 4901.25413246957,
+                                        "y": 17370.332542572072
                                     },
                                     "targetPosition": {
-                                        "x": 21268.528531349657,
-                                        "y": 28276.471863547933
+                                        "x": 4308.641128112487,
+                                        "y": 17276.471863547933
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -37391,12 +37735,12 @@
                                         "id": "6a843bed-6392-4981-9e27-eff22f0f9fb1",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 22394.35813445664,
-                                                "y": 28691.812332040925
+                                                "x": 5434.470731219468,
+                                                "y": 17691.812332040925
                                             },
                                             "targetPosition": {
-                                                "x": 21831.44333290315,
-                                                "y": 28484.14209779443
+                                                "x": 4871.555929665978,
+                                                "y": 17484.14209779443
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -37428,12 +37772,12 @@
                                 "id": "ac6e1011-7ce3-4ff9-bc32-04b84b3f3abe",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21831.44333290315,
-                                        "y": 28484.14209779443
+                                        "x": 4871.555929665978,
+                                        "y": 17484.14209779443
                                     },
                                     "targetPosition": {
-                                        "x": 21268.528531349657,
-                                        "y": 28276.471863547933
+                                        "x": 4308.641128112487,
+                                        "y": 17276.471863547933
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -37463,12 +37807,12 @@
                                         "id": "b053ef35-1efe-46f4-81b2-d0c2e8ad0732",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 22291.69672857457,
-                                                "y": 28903.470141207068
+                                                "x": 5331.809325337397,
+                                                "y": 17903.470141207068
                                             },
                                             "targetPosition": {
-                                                "x": 21780.112629962114,
-                                                "y": 28589.9710023775
+                                                "x": 4820.225226724942,
+                                                "y": 17589.9710023775
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -37500,12 +37844,12 @@
                                 "id": "3bb3c6f2-4b7a-4605-a4f8-41bc39ad8268",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21780.112629962114,
-                                        "y": 28589.9710023775
+                                        "x": 4820.225226724942,
+                                        "y": 17589.9710023775
                                     },
                                     "targetPosition": {
-                                        "x": 21268.528531349657,
-                                        "y": 28276.471863547933
+                                        "x": 4308.641128112487,
+                                        "y": 17276.471863547933
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -37535,12 +37879,12 @@
                                         "id": "e2c6a1ec-b387-44df-af40-77f2c08938ef",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 22149.71554267248,
-                                                "y": 29091.032758187463
+                                                "x": 5189.828139435311,
+                                                "y": 18091.032758187463
                                             },
                                             "targetPosition": {
-                                                "x": 21709.122037011068,
-                                                "y": 28683.752310867698
+                                                "x": 4749.234633773899,
+                                                "y": 17683.752310867698
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -37572,12 +37916,12 @@
                                 "id": "7350e265-ab09-4ee2-8f9a-c51b6766cddb",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21709.122037011068,
-                                        "y": 28683.752310867698
+                                        "x": 4749.234633773899,
+                                        "y": 17683.752310867698
                                     },
                                     "targetPosition": {
-                                        "x": 21268.528531349657,
-                                        "y": 28276.471863547933
+                                        "x": 4308.641128112487,
+                                        "y": 17276.471863547933
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -37607,12 +37951,12 @@
                                         "id": "a3642284-2218-42a0-9d93-e52970df4a80",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 21973.870834100628,
-                                                "y": 29247.29225679787
+                                                "x": 5013.9834308634545,
+                                                "y": 18247.29225679787
                                             },
                                             "targetPosition": {
-                                                "x": 21621.199682725142,
-                                                "y": 28761.882060172902
+                                                "x": 4661.312279487971,
+                                                "y": 17761.882060172902
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -37644,12 +37988,12 @@
                                 "id": "a6d40196-de93-40bb-9844-720e82536ca7",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21621.199682725142,
-                                        "y": 28761.882060172902
+                                        "x": 4661.312279487971,
+                                        "y": 17761.882060172902
                                     },
                                     "targetPosition": {
-                                        "x": 21268.528531349657,
-                                        "y": 28276.471863547933
+                                        "x": 4308.641128112487,
+                                        "y": 17276.471863547933
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -37679,12 +38023,12 @@
                                         "id": "66b7f1dc-6734-40f5-8a0a-71a66d2716a1",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 21770.920216394574,
-                                                "y": 29366.243672138033
+                                                "x": 4811.032813157401,
+                                                "y": 18366.243672138033
                                             },
                                             "targetPosition": {
-                                                "x": 21519.724373872115,
-                                                "y": 28821.357767842983
+                                                "x": 4559.836970634944,
+                                                "y": 17821.357767842983
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -37716,12 +38060,12 @@
                                 "id": "ac6e0c72-9c08-4636-b60c-072a26decf93",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21519.724373872115,
-                                        "y": 28821.357767842983
+                                        "x": 4559.836970634944,
+                                        "y": 17821.357767842983
                                     },
                                     "targetPosition": {
-                                        "x": 21268.528531349657,
-                                        "y": 28276.471863547933
+                                        "x": 4308.641128112487,
+                                        "y": 17276.471863547933
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -37751,12 +38095,12 @@
                                         "id": "32df5506-3c02-4fe5-9902-fd160bbec515",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 21548.662967976743,
-                                                "y": 29443.315768025142
+                                                "x": 4588.775564739573,
+                                                "y": 18443.315768025142
                                             },
                                             "targetPosition": {
-                                                "x": 21408.5957496632,
-                                                "y": 28859.893815786538
+                                                "x": 4448.70834642603,
+                                                "y": 17859.893815786538
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -37788,12 +38132,12 @@
                                 "id": "8761b7cf-0837-4818-9ab8-94b3bc8a9956",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21408.5957496632,
-                                        "y": 28859.893815786538
+                                        "x": 4448.70834642603,
+                                        "y": 17859.893815786538
                                     },
                                     "targetPosition": {
-                                        "x": 21268.528531349657,
-                                        "y": 28276.471863547933
+                                        "x": 4308.641128112487,
+                                        "y": 17276.471863547933
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -37823,12 +38167,12 @@
                                         "id": "d38e956f-10b1-4838-8af7-a4f27f60d10a",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 21315.64031026054,
-                                                "y": 29475.5467070368
+                                                "x": 4355.75290702337,
+                                                "y": 18475.5467070368
                                             },
                                             "targetPosition": {
-                                                "x": 21292.0844208051,
-                                                "y": 28876.009285292366
+                                                "x": 4332.197017567929,
+                                                "y": 17876.009285292366
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -37860,12 +38204,12 @@
                                 "id": "9bc1e596-7997-42f4-82f4-d1249ac1012d",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21292.0844208051,
-                                        "y": 28876.009285292366
+                                        "x": 4332.197017567929,
+                                        "y": 17876.009285292366
                                     },
                                     "targetPosition": {
-                                        "x": 21268.528531349657,
-                                        "y": 28276.471863547933
+                                        "x": 4308.641128112487,
+                                        "y": 17276.471863547933
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -37895,12 +38239,12 @@
                                         "id": "e13010c7-d9e2-4b5a-9b62-398e0b9103d2",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 21080.80717330138,
-                                                "y": 29461.697872262095
+                                                "x": 4120.919770064211,
+                                                "y": 18461.697872262095
                                             },
                                             "targetPosition": {
-                                                "x": 21174.667852325518,
-                                                "y": 28869.084867905014
+                                                "x": 4214.780449088349,
+                                                "y": 17869.084867905014
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -37932,12 +38276,12 @@
                                 "id": "f16dbb5e-9295-49d0-af86-c5ebd0343a82",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21174.667852325518,
-                                        "y": 28869.084867905014
+                                        "x": 4214.780449088349,
+                                        "y": 17869.084867905014
                                     },
                                     "targetPosition": {
-                                        "x": 21268.528531349657,
-                                        "y": 28276.471863547933
+                                        "x": 4308.641128112487,
+                                        "y": 17276.471863547933
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -37967,12 +38311,12 @@
                                         "id": "62571f3d-bbd0-4f07-8eac-db45283cb420",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 20853.188062856665,
-                                                "y": 29402.301466654917
+                                                "x": 3893.3006596194955,
+                                                "y": 18402.301466654917
                                             },
                                             "targetPosition": {
-                                                "x": 21060.85829710316,
-                                                "y": 28839.386665101425
+                                                "x": 4100.9708938659915,
+                                                "y": 17839.386665101425
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -38004,12 +38348,12 @@
                                 "id": "bc75fd1a-310b-44cb-881c-22ab84c29b80",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21060.85829710316,
-                                        "y": 28839.386665101425
+                                        "x": 4100.9708938659915,
+                                        "y": 17839.386665101425
                                     },
                                     "targetPosition": {
-                                        "x": 21268.528531349657,
-                                        "y": 28276.471863547933
+                                        "x": 4308.641128112487,
+                                        "y": 17276.471863547933
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -38039,12 +38383,12 @@
                                         "id": "45d90cf3-d0c3-46f4-a09a-bd367b0887c4",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 20641.530253690522,
-                                                "y": 29299.640060772846
+                                                "x": 3681.6428504533487,
+                                                "y": 18299.640060772846
                                             },
                                             "targetPosition": {
-                                                "x": 20955.02939252009,
-                                                "y": 28788.05596216039
+                                                "x": 3995.141989282918,
+                                                "y": 17788.05596216039
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -38076,12 +38420,12 @@
                                 "id": "d111727a-7f0c-43c6-b2f7-49316d616e31",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 20955.02939252009,
-                                        "y": 28788.05596216039
+                                        "x": 3995.141989282918,
+                                        "y": 17788.05596216039
                                     },
                                     "targetPosition": {
-                                        "x": 21268.528531349657,
-                                        "y": 28276.471863547933
+                                        "x": 4308.641128112487,
+                                        "y": 17276.471863547933
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -38927,12 +39271,12 @@
                                 "id": "be823539-8844-4e69-9600-447ecb23c733",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 20861.248084029892,
-                                        "y": 28717.065369209344
+                                        "x": 3901.360680792722,
+                                        "y": 17717.065369209344
                                     },
                                     "targetPosition": {
-                                        "x": 21268.528531349657,
-                                        "y": 28276.471863547933
+                                        "x": 4308.641128112487,
+                                        "y": 17276.471863547933
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -38952,17 +39296,17 @@
                         "id": "681ff42a-d5af-4fed-971e-935398dac2aa",
                         "savedPayload": {
                             "position": {
-                                "x": 19728.28979434541,
-                                "y": 27276.471863547933
+                                "x": 4308.641128112487,
+                                "y": 17276.471863547933
                             },
                             "targetPosition": {
-                                "x": 19375.618642969926,
-                                "y": 26791.061666922964
+                                "x": 3955.9699767370034,
+                                "y": 16791.061666922964
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": true,
+                                "isCollapsed": false,
                                 "angleToParent": 2,
                                 "distanceToParent": 5,
                                 "arrangementStyle": 0
@@ -38980,12 +39324,12 @@
                     "id": "e4be3ce4-3569-4d97-8d54-95bb4cfcb0c5",
                     "savedPayload": {
                         "position": {
-                            "x": 19253.597650047188,
-                            "y": 27065.125304215744
+                            "x": 3833.9489838142636,
+                            "y": 17065.125304215744
                         },
                         "targetPosition": {
-                            "x": 19375.618642969926,
-                            "y": 26791.061666922964
+                            "x": 3955.9699767370034,
+                            "y": 16791.061666922964
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -39003,12 +39347,12 @@
                 "id": "3ff7f410-911d-4cb8-9094-d816dee4dccb",
                 "savedPayload": {
                     "position": {
-                        "x": 19375.618642969926,
-                        "y": 26791.061666922964
+                        "x": 3955.9699767370034,
+                        "y": 16791.061666922964
                     },
                     "targetPosition": {
-                        "x": 19344.26010398963,
-                        "y": 26492.705098312483
+                        "x": 3924.6114377567073,
+                        "y": 16492.705098312483
                     },
                     "floatingObject": {
                         "isPinned": false,

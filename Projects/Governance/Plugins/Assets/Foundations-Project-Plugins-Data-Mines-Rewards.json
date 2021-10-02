@@ -703,11 +703,11 @@
     "savedPayload": {
         "position": {
             "x": 25531.91489361702,
-            "y": 46750
+            "y": 40750
         },
         "targetPosition": {
             "x": 25531.91489361702,
-            "y": 46750
+            "y": 40750
         },
         "floatingObject": {
             "isPinned": false,

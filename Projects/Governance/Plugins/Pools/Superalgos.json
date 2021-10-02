@@ -1669,7 +1669,9 @@
                                 "referenceParentCombinedNodePath": [
                                     [
                                         "Superalgos",
-                                        "Positions"
+                                        "Positions",
+                                        "Governance",
+                                        "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                     ]
                                 ]
                             }
@@ -1876,17 +1878,17 @@
     "id": "6f0aed87-db13-4818-bfe6-68abc463ebec",
     "savedPayload": {
         "position": {
-            "x": 4545.454545454545,
-            "y": 29500
+            "x": 3846.153846153846,
+            "y": 28499.999999999996
         },
         "targetPosition": {
-            "x": 4545.454545454545,
-            "y": 29500
+            "x": 3846.153846153846,
+            "y": 28499.999999999996
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

@@ -539,7 +539,7 @@
         "votesAndClaimsPrograms": {
             "type": "Votes And Claims Programs",
             "name": "New Votes And Claims Programs",
-            "config": "{\n    \"percentage\": 5\n}",
+            "config": "{\n    \"percentage\": 3\n}",
             "project": "Governance",
             "votingProgram": {
                 "type": "Voting Program",
@@ -37184,15 +37184,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Assets"
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
                                                                 ],
                                                                 [
                                                                     "Root",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "1e82e5c7-9420-4205-a2c4-aab3f0f96565"
                                                                 ],
                                                                 [
                                                                     ".dockerignore",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "2ef8163d-7ff6-4f5c-8b0a-a20d882a2eb6"
                                                                 ]
                                                             ]
                                                         }
@@ -37231,15 +37237,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Assets"
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
                                                                 ],
                                                                 [
                                                                     "Root",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "1e82e5c7-9420-4205-a2c4-aab3f0f96565"
                                                                 ],
                                                                 [
                                                                     ".gitignore",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "367ce04e-3a6e-4bce-830b-2d35cbd36c1a"
                                                                 ]
                                                             ]
                                                         }
@@ -37278,15 +37290,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Assets"
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
                                                                 ],
                                                                 [
                                                                     "Root",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "1e82e5c7-9420-4205-a2c4-aab3f0f96565"
                                                                 ],
                                                                 [
                                                                     "CODE_OF_CONDUCT.md",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "916b967d-8709-44ed-bac7-3adcd7587b52"
                                                                 ]
                                                             ]
                                                         }
@@ -37325,15 +37343,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Assets"
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
                                                                 ],
                                                                 [
                                                                     "Root",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "1e82e5c7-9420-4205-a2c4-aab3f0f96565"
                                                                 ],
                                                                 [
                                                                     "CONTRIBUTING.md",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "51cfe99a-9d6f-4aea-8260-0893539cb685"
                                                                 ]
                                                             ]
                                                         }
@@ -37372,15 +37396,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Assets"
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
                                                                 ],
                                                                 [
                                                                     "Root",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "1e82e5c7-9420-4205-a2c4-aab3f0f96565"
                                                                 ],
                                                                 [
                                                                     "Environment.js",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "edc37ed3-4424-4c5b-bd9d-fb4960cab53d"
                                                                 ]
                                                             ]
                                                         }
@@ -37419,15 +37449,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Assets"
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
                                                                 ],
                                                                 [
                                                                     "Root",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "1e82e5c7-9420-4205-a2c4-aab3f0f96565"
                                                                 ],
                                                                 [
                                                                     "LICENSE",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "10a2315a-80a2-451b-b959-56f22e5bfb5e"
                                                                 ]
                                                             ]
                                                         }
@@ -37466,15 +37502,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Assets"
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
                                                                 ],
                                                                 [
                                                                     "Root",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "1e82e5c7-9420-4205-a2c4-aab3f0f96565"
                                                                 ],
                                                                 [
                                                                     "README.md",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "a5ee087a-9889-41fc-b0c5-13a0e40cb7e8"
                                                                 ]
                                                             ]
                                                         }
@@ -37513,15 +37555,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Assets"
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
                                                                 ],
                                                                 [
                                                                     "Root",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "1e82e5c7-9420-4205-a2c4-aab3f0f96565"
                                                                 ],
                                                                 [
                                                                     "run.js",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "2ec5a110-3ecc-45ad-b410-9333ebc1840e"
                                                                 ]
                                                             ]
                                                         }
@@ -37560,15 +37608,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Assets"
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
                                                                 ],
                                                                 [
                                                                     "Root",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "1e82e5c7-9420-4205-a2c4-aab3f0f96565"
                                                                 ],
                                                                 [
                                                                     "setup.js",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "9c99e3f4-4e00-403b-9ead-8bdee7aa6566"
                                                                 ]
                                                             ]
                                                         }
@@ -37607,15 +37661,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Assets"
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
                                                                 ],
                                                                 [
                                                                     "Root",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "1e82e5c7-9420-4205-a2c4-aab3f0f96565"
                                                                 ],
                                                                 [
                                                                     "uninstall.js",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "bce89a4d-9098-4b36-aafc-33b7ff58e030"
                                                                 ]
                                                             ]
                                                         }
@@ -37654,15 +37714,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Assets"
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
                                                                 ],
                                                                 [
                                                                     "Root",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "1e82e5c7-9420-4205-a2c4-aab3f0f96565"
                                                                 ],
                                                                 [
                                                                     "Dockerfile",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "c106ff98-190a-4209-b325-074f8f16d9dc"
                                                                 ]
                                                             ]
                                                         }
@@ -37701,15 +37767,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Assets"
+                                                                    "Assets",
+                                                                    "Governance",
+                                                                    "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
                                                                 ],
                                                                 [
                                                                     "Root",
-                                                                    "Asset Class"
+                                                                    "Asset Class",
+                                                                    "Governance",
+                                                                    "1e82e5c7-9420-4205-a2c4-aab3f0f96565"
                                                                 ],
                                                                 [
                                                                     "docker-compose.yml",
-                                                                    "Asset"
+                                                                    "Asset",
+                                                                    "Governance",
+                                                                    "8b11af37-04c0-4932-93a4-538c96e90393"
                                                                 ]
                                                             ]
                                                         }
@@ -37746,11 +37818,15 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Assets"
+                                                            "Assets",
+                                                            "Governance",
+                                                            "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
                                                         ],
                                                         [
                                                             "Root",
-                                                            "Asset Class"
+                                                            "Asset Class",
+                                                            "Governance",
+                                                            "1e82e5c7-9420-4205-a2c4-aab3f0f96565"
                                                         ]
                                                     ]
                                                 }
@@ -37878,7 +37954,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -38235,7 +38311,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -38258,7 +38334,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 2,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -38271,7 +38347,7 @@
         "financialPrograms": {
             "type": "Financial Programs",
             "name": "New Financial Programs",
-            "config": "{\n    \"percentage\": 95\n}",
+            "config": "{\n    \"percentage\": 97\n}",
             "project": "Governance",
             "stakingProgram": {
                 "type": "Staking Program",

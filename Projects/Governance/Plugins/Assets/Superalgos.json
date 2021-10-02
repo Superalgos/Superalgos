@@ -400,12 +400,12 @@
     "id": "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc",
     "savedPayload": {
         "position": {
-            "x": 42553.1914893617,
-            "y": 40750
+            "x": 38297.87234042553,
+            "y": 43750
         },
         "targetPosition": {
-            "x": 42553.1914893617,
-            "y": 40750
+            "x": 38297.87234042553,
+            "y": 43750
         },
         "floatingObject": {
             "isPinned": false,

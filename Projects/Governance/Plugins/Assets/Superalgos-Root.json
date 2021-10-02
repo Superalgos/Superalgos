@@ -70,17 +70,17 @@
     "id": "b5e57605-639d-467b-85ab-c1540d744b33",
     "savedPayload": {
         "position": {
-            "x": 42553.1914893617,
-            "y": 37750
+            "x": 46808.51063829787,
+            "y": 40750
         },
         "targetPosition": {
-            "x": 42553.1914893617,
-            "y": 37750
+            "x": 46808.51063829787,
+            "y": 40750
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 2,
             "distanceToParent": 3,
             "arrangementStyle": 0

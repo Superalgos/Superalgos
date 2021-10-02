@@ -166,12 +166,12 @@
                         "id": "120a12ff-a26b-4b0e-b03e-36240e9f1abb",
                         "savedPayload": {
                             "position": {
-                                "x": 14337.677849970794,
-                                "y": 16014.282044887015
+                                "x": 14760.290544514195,
+                                "y": 15838.09545593917
                             },
                             "targetPosition": {
-                                "x": 14459.322033898305,
-                                "y": 15825
+                                "x": 14943.322033898305,
+                                "y": 15427
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -207,12 +207,12 @@
                         "id": "3a7fc9a7-7939-433d-bbef-6bfc0af1fe37",
                         "savedPayload": {
                             "position": {
-                                "x": 14254.654834943538,
-                                "y": 15918.468377925425
+                                "x": 14608.906862433478,
+                                "y": 15728.108772861486
                             },
                             "targetPosition": {
-                                "x": 14459.322033898305,
-                                "y": 15825
+                                "x": 14943.322033898305,
+                                "y": 15427
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -248,12 +248,12 @@
                         "id": "e11390b6-be65-4642-abdf-df82d1a2b571",
                         "savedPayload": {
                             "position": {
-                                "x": 14236.612209475095,
-                                "y": 15792.97916138851
+                                "x": 14515.346601565485,
+                                "y": 15566.057647468726
                             },
                             "targetPosition": {
-                                "x": 14459.322033898305,
-                                "y": 15825
+                                "x": 14943.322033898305,
+                                "y": 15427
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -289,12 +289,12 @@
                         "id": "7b36cafa-d057-4ad5-bfb8-90821cc78e05",
                         "savedPayload": {
                             "position": {
-                                "x": 14289.278379668596,
-                                "y": 15677.656334862311
+                                "x": 14495.787180982581,
+                                "y": 15379.962191529556
                             },
                             "targetPosition": {
-                                "x": 14459.322033898305,
-                                "y": 15825
+                                "x": 14943.322033898305,
+                                "y": 15427
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -330,12 +330,12 @@
                         "id": "e05b3ded-641d-461d-8d2d-d5cf177646d0",
                         "savedPayload": {
                             "position": {
-                                "x": 14395.932208608983,
-                                "y": 15609.114080936739
+                                "x": 14553.610602195307,
+                                "y": 15202
                             },
                             "targetPosition": {
-                                "x": 14459.322033898305,
-                                "y": 15825
+                                "x": 14943.322033898305,
+                                "y": 15427
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -371,12 +371,12 @@
                         "id": "2bdb5962-8275-4587-925a-998314f3695e",
                         "savedPayload": {
                             "position": {
-                                "x": 14522.711859187626,
-                                "y": 15609.114080936739
+                                "x": 14678.818670366692,
+                                "y": 15062.942352531274
                             },
                             "targetPosition": {
-                                "x": 14459.322033898305,
-                                "y": 15825
+                                "x": 14943.322033898305,
+                                "y": 15427
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -412,12 +412,12 @@
                         "id": "3b6314db-a759-4036-867e-c63ebf5a504b",
                         "savedPayload": {
                             "position": {
-                                "x": 14629.365688128013,
-                                "y": 15677.656334862311
+                                "x": 14849.761773030314,
+                                "y": 14986.833579669787
                             },
                             "targetPosition": {
-                                "x": 14459.322033898305,
-                                "y": 15825
+                                "x": 14943.322033898305,
+                                "y": 15427
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -453,12 +453,12 @@
                         "id": "2f214dce-915b-47ac-91a4-8d49ce4aba89",
                         "savedPayload": {
                             "position": {
-                                "x": 14682.031858321514,
-                                "y": 15792.97916138851
+                                "x": 15036.882294766296,
+                                "y": 14986.833579669787
                             },
                             "targetPosition": {
-                                "x": 14459.322033898305,
-                                "y": 15825
+                                "x": 14943.322033898305,
+                                "y": 15427
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -485,6 +485,162 @@
                                 ]
                             ]
                         }
+                    },
+                    {
+                        "type": "User Referrer",
+                        "name": "cozed-gh",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "80795122-36cd-4ac2-b354-28391c59b8ab",
+                        "savedPayload": {
+                            "position": {
+                                "x": 15207.825397429917,
+                                "y": 15062.942352531274
+                            },
+                            "targetPosition": {
+                                "x": 14943.322033898305,
+                                "y": 15427
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "cozed-gh",
+                                "id": "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "cozed-gh",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        "type": "User Referrer",
+                        "name": "rominastabile",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "f986839a-68be-4a93-901d-987eeca14776",
+                        "savedPayload": {
+                            "position": {
+                                "x": 15333.033465601302,
+                                "y": 15202
+                            },
+                            "targetPosition": {
+                                "x": 14943.322033898305,
+                                "y": 15427
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "rominastabile",
+                                "id": "9acd8b87-e7d9-4593-829a-3b0bfd982f34"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "rominastabile",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        "type": "User Referrer",
+                        "name": "gustavojuri",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "43d2d1a1-c9f1-4b84-869c-e0d5f278d470",
+                        "savedPayload": {
+                            "position": {
+                                "x": 15390.856886814028,
+                                "y": 15379.962191529556
+                            },
+                            "targetPosition": {
+                                "x": 14943.322033898305,
+                                "y": 15427
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "gustavojuri",
+                                "id": "98a14261-e132-414b-b5ce-4141ad9c9971"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "gustavojuri",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        "type": "User Referrer",
+                        "name": "Smidy13",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "76efb7f3-a36e-42c9-8bba-f0ed95a23a53",
+                        "savedPayload": {
+                            "position": {
+                                "x": 15371.297466231124,
+                                "y": 15566.057647468726
+                            },
+                            "targetPosition": {
+                                "x": 14943.322033898305,
+                                "y": 15427
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "Smidy13",
+                                "id": "4b5eca40-4d97-454d-91f3-8627a98ef682"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "Smidy13",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
                     }
                 ],
                 "tokensAwarded": {
@@ -494,12 +650,12 @@
                     "id": "bef02b17-5cbc-4861-8121-29bddc448905",
                     "savedPayload": {
                         "position": {
-                            "x": 14663.989232853071,
-                            "y": 15918.468377925425
+                            "x": 15277.737205363132,
+                            "y": 15728.108772861486
                         },
                         "targetPosition": {
-                            "x": 14459.322033898305,
-                            "y": 15825
+                            "x": 14943.322033898305,
+                            "y": 15427
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -521,12 +677,12 @@
                     "id": "15637f0c-dd96-40e8-a997-0a5af0f91d35",
                     "savedPayload": {
                         "position": {
-                            "x": 14580.966217825815,
-                            "y": 16014.282044887015
+                            "x": 15126.353523282414,
+                            "y": 15838.09545593917
                         },
                         "targetPosition": {
-                            "x": 14459.322033898305,
-                            "y": 15825
+                            "x": 14943.322033898305,
+                            "y": 15427
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -544,19 +700,19 @@
                 "id": "b573ee60-8430-41a2-a952-6deac320aee1",
                 "savedPayload": {
                     "position": {
-                        "x": 14459.322033898305,
-                        "y": 15825
+                        "x": 14943.322033898305,
+                        "y": 15427
                     },
                     "targetPosition": {
                         "x": 14459.322033898305,
                         "y": 16050
                     },
                     "floatingObject": {
-                        "isPinned": false,
+                        "isPinned": true,
                         "isFrozen": false,
                         "isCollapsed": false,
                         "angleToParent": 1,
-                        "distanceToParent": 2,
+                        "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
                     "uiObject": {

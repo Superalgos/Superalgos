@@ -64,7 +64,7 @@ function newGovernanceUserProfileSpace() {
         const SPACE_HEIGHT = UI.projects.foundations.spaces.floatingSpace.container.frame.height
 
         arrangeNodes(userProfiles, SPACE_HEIGHT * 0.245, 4000, 4)
-        arrangeNodes(pools, SPACE_HEIGHT * 0.590, 0, 1)
+        arrangeNodes(pools, SPACE_HEIGHT * 0.570, 0, 1)
         arrangeNodes(features, SPACE_HEIGHT * 0.620, 0, 1)
         arrangeNodes(positions, SPACE_HEIGHT * 0.670, 0, 1)
         arrangeNodes(assets, SPACE_HEIGHT * 0.755, 3000, 4)

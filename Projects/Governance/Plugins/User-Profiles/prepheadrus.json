@@ -934,7 +934,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "piyanthak",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "b1ce221b-2752-4419-ae53-8410e8a93798"
                                 ]
                             ]
                         }
@@ -973,7 +975,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "ssplatt",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "56600855-7a91-49e8-8a58-2fa28d07efd1"
                                 ]
                             ]
                         }
@@ -1547,17 +1551,17 @@
     "id": "501b09ca-778e-479b-98ff-7d2e6e8f2bb8",
     "savedPayload": {
         "position": {
-            "x": 19559.8431372549,
-            "y": 27224
+            "x": 7272.727272727273,
+            "y": 20250
         },
         "targetPosition": {
-            "x": 19559.8431372549,
-            "y": 27224
+            "x": 7272.727272727273,
+            "y": 20250
         },
         "floatingObject": {
             "isPinned": true,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

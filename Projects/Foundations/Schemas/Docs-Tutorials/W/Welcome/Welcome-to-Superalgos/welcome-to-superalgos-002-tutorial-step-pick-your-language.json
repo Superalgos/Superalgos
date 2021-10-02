@@ -24,8 +24,13 @@
             },
             {
                 "language": "TR",
+<<<<<<< HEAD
                 "text": "Kullanıcılar, tercih ettiğiniz dili seçebilmeniz için çevirilere katkıda bulunuyor! Bu Topluluk harika! Bu Community harika!",
                 "updated": 1633155349606
+=======
+                "text": "Kullanıcılar, tercih ettiğiniz dili seçebilmeniz için çevirilere katkıda bulunuyor! Bu Topluluk harika!",
+                "updated": 1633120577362
+>>>>>>> e6b4445fef7a71964bd3002bbeade7411fa20408
             }
         ]
     },
@@ -49,8 +54,13 @@
                 },
                 {
                     "language": "TR",
+<<<<<<< HEAD
                     "text": "Nasıl çalışır? Varsayılan dil İngilizce'dir. Başka bir dil seçtiğinizde eğer çeviri varsa seçitiğiniz dilde görüntülersiniz. Aksi takdirde, İngilizce olarak görürsünüz!",
                     "updated": 1633155684902
+=======
+                    "text": "Bu nasıl çalışır? Varsayılan dil İngilizce'dir. Başka bir dil seçerseniz ve mevcut sayfa için bir herhangi bir dilde çeviri varsa, onu sayfanın aşağısındaki bayraklara tıklaarak seçtiğiniz dilde görüntülersiniz. Eğer çeviri yoksa,İngilizce olarak görürsünüz1",
+                    "updated": 1633120762865
+>>>>>>> e6b4445fef7a71964bd3002bbeade7411fa20408
                 }
             ]
         },
@@ -73,8 +83,13 @@
                 },
                 {
                     "language": "TR",
+<<<<<<< HEAD
                     "text": "Sayfayı sağ aşağı kaydırmak için fare tekerleğini kullanın. Dilerseniz tercih ettiğiniz dili değiştirmek için sayfanın altındaki bayrakları tıklayın!",
                     "updated": 1633155736705
+=======
+                    "text": "Sayfayı aşağı kaydırmak için fare tekerleğini kullanın. Dilerseniz tercih ettiğiniz dili değiştirmek için bir bayrağa tıklayın!",
+                    "updated": 1633120795496
+>>>>>>> e6b4445fef7a71964bd3002bbeade7411fa20408
                 }
             ]
         },
@@ -98,7 +113,11 @@
                 {
                     "language": "TR",
                     "text": "Arayüz veya başlıklar değil, yalnızca Dokümanlar ve öğreticiler çevrilebilir!",
+<<<<<<< HEAD
                     "updated": 1633155785657
+=======
+                    "updated": 1633121237275
+>>>>>>> e6b4445fef7a71964bd3002bbeade7411fa20408
                 }
             ]
         }

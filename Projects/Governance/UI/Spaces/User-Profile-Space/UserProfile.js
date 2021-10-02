@@ -435,6 +435,7 @@ function newGovernanceUserProfileSpace() {
                     )
                     userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000
                     userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens)
+                    console.log('Reputation of ' + userProfile.name + ' is ' , userProfile.payload.reputation)
                 }
                 waitingForResponses--
             }).catch(function (err) {

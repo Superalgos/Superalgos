@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "superharoun",
-    "config": "{\n    \"signature\": {\n        \"message\": \"superharoun\",\n        \"messageHash\": \"0xfe17a5150602c2032ef61af74812e7d55a5d4464887f91be65fd24d2d518956d\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x50fe6a061b19796a538b461eb1ba0ac3cd418aca53d56d0364e7e71efbfe65b9\",\n        \"s\": \"0x6b0f2e14468504e89eef3a7c99f52febc2b7094f1b1f062271e4b03568cb7968\",\n        \"signature\": \"0x50fe6a061b19796a538b461eb1ba0ac3cd418aca53d56d0364e7e71efbfe65b96b0f2e14468504e89eef3a7c99f52febc2b7094f1b1f062271e4b03568cb79681c\"\n    },\n    \"codeName\": \"superharoun\"\n}",
+    "config": "{\"signature\":{\"message\":\"superharoun\",\"messageHash\":\"0xfe17a5150602c2032ef61af74812e7d55a5d4464887f91be65fd24d2d518956d\",\"v\":\"0x1c\",\"r\":\"0x50fe6a061b19796a538b461eb1ba0ac3cd418aca53d56d0364e7e71efbfe65b9\",\"s\":\"0x6b0f2e14468504e89eef3a7c99f52febc2b7094f1b1f062271e4b03568cb7968\",\"signature\":\"0x50fe6a061b19796a538b461eb1ba0ac3cd418aca53d56d0364e7e71efbfe65b96b0f2e14468504e89eef3a7c99f52febc2b7094f1b1f062271e4b03568cb79681c\"},\"codeName\":\"superharoun\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -310,14 +310,12 @@
                             "referenceParent": {
                                 "type": "User Profile",
                                 "name": "Raplh2502",
-                                "id": "c538f02f-9a2c-47e2-bf92-f6e97ede4031"
+                                "id": "f24a8160-5264-4818-938f-4a132402f4c3"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Raplh2502",
-                                    "User Profile",
-                                    "Governance",
-                                    "c538f02f-9a2c-47e2-bf92-f6e97ede4031"
+                                    "User Profile"
                                 ]
                             ]
                         }
@@ -438,7 +436,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "harrellbm",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "3af73d3b-7c0e-4de7-a1e1-a72238081740"
                                 ]
                             ]
                         }
@@ -477,7 +477,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "PLuv",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "142f5de2-3762-4f55-a839-22eac5c03c8f"
                                 ]
                             ]
                         }
@@ -677,14 +679,12 @@
                             "referenceParent": {
                                 "type": "User Profile",
                                 "name": "Raplh2502",
-                                "id": "c538f02f-9a2c-47e2-bf92-f6e97ede4031"
+                                "id": "f24a8160-5264-4818-938f-4a132402f4c3"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Raplh2502",
-                                    "User Profile",
-                                    "Governance",
-                                    "c538f02f-9a2c-47e2-bf92-f6e97ede4031"
+                                    "User Profile"
                                 ]
                             ]
                         }
@@ -764,7 +764,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "PLuv",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "142f5de2-3762-4f55-a839-22eac5c03c8f"
                                 ]
                             ]
                         }
@@ -803,7 +805,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "harrellbm",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "3af73d3b-7c0e-4de7-a1e1-a72238081740"
                                 ]
                             ]
                         }
@@ -842,7 +846,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Luis-Fernando-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                 ]
                             ]
                         }
@@ -881,7 +887,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "1fd95e41-4b22-48d5-be3a-904c37afcb11"
                                 ]
                             ]
                         }
@@ -1004,7 +1012,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Luis-Fernando-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                 ]
                             ]
                         }
@@ -1043,7 +1053,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "1fd95e41-4b22-48d5-be3a-904c37afcb11"
                                 ]
                             ]
                         }
@@ -1202,17 +1214,17 @@
     "id": "47c64eac-831d-4277-b9ce-4bd3d7e803c1",
     "savedPayload": {
         "position": {
-            "x": 22727.272727272724,
-            "y": 24250
+            "x": 13333.333333333334,
+            "y": 17250
         },
         "targetPosition": {
-            "x": 22727.272727272724,
-            "y": 24250
+            "x": 13333.333333333334,
+            "y": 17250
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

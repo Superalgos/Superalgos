@@ -9,7 +9,8 @@
             {
                 "language": "ES",
                 "text": "Este comando te permite contribuir con trabajo al proyecto. El aporte va al repositorio de Superalgos a través de un Pull Request de tu fork de Superalgos.",
-                "updated": 1628205171216
+                "updated": 1628205171216,
+                "style": "Definition"
             }
         ]
     },
@@ -17,31 +18,73 @@
         {
             "style": "Text",
             "text": "This command will send all changes you have made in Docs pages but also on any file within the Superalgos folder (except for My-Workspaces, Data-Storage, and My-Logs folders) to your fork at Github.com. It will also send them from your fork to the main Superalgos Repository. It will do it specifically from the Current Branch to the Contributions Branch mentioned at the footer of this page.",
-            "updated": 1622028842412
+            "updated": 1622028842412,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Este comando envia todos los cambios que hayas hecho en las paginas de documentos pero también de but also en cualquier archivo  de la carpeta de Superalgos (a excepción de  My-Workspaces, Data-Storage, (Archivo de datos de mi espacio de trabajo) y My-Logs folders (mis carpetas de registros) a tu bifurcación en Github.com. También serán enviados desde tu bifurcación al  repositorio principal de Superalgos  Lo hará específicamente  desde la rama actual a la rama de las contribuciones mencionados al final de ésta página.",
+                    "updated": 1633175695567
+                }
+            ]
         },
         {
             "style": "Warning",
             "text": "Never use your Superalgos folder to store personal files, as the whole folder but the few exceptions mentioned above are subject to be sent over the Internet to a public site.",
-            "updated": 1622029162278
+            "updated": 1622029162278,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Nunca utilice su carpeta de Superalgos para almacenar archivos personales, ya que toda la carpeta, salvo las pocas excepciones mencionadas arriba, están sujetas a ser enviadas a través de internet a un sitio público.",
+                    "updated": 1633175880707
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "In most cases, contributions must go from the develop branch to the develop branch, or from the plugins-docs branch to the plugins-docs branch, unless you have previously agreed with team members that you will send a contribution from master to master.",
-            "updated": 1622028905753
+            "updated": 1622028905753,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En la mayoría de los casos,, las contribuciones deben ir desde la rama de desarrollo a la rama de desarrollo, o desde la rama de plugins-docs (documentos complementarios) a la rama de plugins-docs, salvo que previamente haya acordado con los miembros del equipo que enviará una contribución de master a master.",
+                    "updated": 1633176160361
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Master is our stable branch and it is very unlikely that we are going to merge contributions there. Instead, all contributions are expected to go to the develop or the plugins-docs branches, where many users are testing that branch every day. Contributions of plugins and Docs may reach the master branch often. Contributions to the develop branch will reach the master branch on the next release.",
-            "updated": 1622029260459
+            "updated": 1622029260459,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Master ( Maestra) es una rama estable y es muy poco porbable que vayamos a emerger contribuciones allí. En cambio todas las contribuciones se espera que vayan a as ramas de desarrollo o de documentos complementarios, donde muchos usuarios están chequeando esa rama cada día. Las contribuciones de enchufes o documentos puede alcanzar a maenudo la rama maestra. Contribuciones a la rama de desarrollo llegará a la rama maestra en la siguiente liberación.",
+                    "updated": 1633176639433
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "It is also very unlikely that contributions coming from the master branch will be merged into the develop branch, since that can usually lead to merging conflicts.",
-            "updated": 1622029116935
+            "updated": 1622029116935,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Es también muy poco probable que las contribuciones  provenientes de la rama maestra será traída en la rama de desarrollo, ya que ello puede provocar que emergan conflictos.",
+                    "updated": 1633176834093
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Check the footer of the Docs to verify what branches you are operating with before submitting your contributions!"
+            "text": "Check the footer of the Docs to verify what branches you are operating with before submitting your contributions!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Chequear el pie de los documentos par qverificar que en que ramas está operando antes de enviar su contribución",
+                    "updated": 1633176955159
+                }
+            ]
         },
         {
             "style": "Title",

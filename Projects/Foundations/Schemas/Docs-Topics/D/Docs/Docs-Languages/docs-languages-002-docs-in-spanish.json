@@ -8,8 +8,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Si bien la documentación esta originalmente escrita en Inglés, el sistema permite a cualquier usuario buscar contenido en su idioma nativo, siempre y cuando otros usuarios hayan contribuído traducciones de los artículos existentes escritos en el idioma por defecto que es el idioma Inglés.",
-                "updated": 1609831843644,
+                "text": "Si bien la documentación esta originalmente escrita en Inglés, el sistema permite a cualquier usuario buscar contenido en su idioma nativo, siempre y cuando otros usuarios hayan contribuído traducciones de los artículos existentes escritos en el idioma por defecto que es el idioma Inglés. Advertencia!!! Los documentos de Superalgos y de otros proyectos integrados están escritos originariamente en Inglés. El sistema permite a los usuarios buscar y navegar en páginas en toros idiomas también , siempre que algunos usuarios hayan contribuido con las correspondientes traduccciones. Por favor actualice esta traucción.",
+                "updated": 1633180141328,
                 "style": "Definition"
             }
         ]

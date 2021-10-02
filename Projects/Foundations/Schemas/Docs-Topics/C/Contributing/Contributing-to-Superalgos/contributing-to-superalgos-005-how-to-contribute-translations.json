@@ -4,23 +4,51 @@
     "type": "How to Contribute Translations",
     "definition": {
         "text": "The Docs are originally written in English. Making Superalgos more accessible is a key endeavor to grow the Community and the user base. Translating tutorials and software documentation into languages other than English is of huge value!",
-        "updated": 1613822257340
+        "updated": 1613822257340,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Los Docs (documentos) son originalmente escritos en Ingles. Hacer a Superalgos más accesible es un esfuerzo clave para el crecimiento de la comunidad y la base de usuarios. Traducir tutoriales y documentación del software a otros idiomas que no sean el Inglés es un aporte muy valioso!",
+                "updated": 1633170996967
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Read About Contributing to the Docs",
-            "updated": 1613822300139
+            "updated": 1613822300139,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Read About Contributing to the Docs  (Leer sobre como contribuir a los Docs)",
+                    "updated": 1633171160951
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Translations are a particular case of contributing to the Docs. Please read the How to Contribute to the Docs page first, and come back here for the details about how we deal with translations in particular.",
-            "updated": 1613822394353
+            "updated": 1613822394353,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Las traducciones son un caso particular de contribuir con los documentos. Por favor leer primero la página de como contribuir con los documentos, y regresar aqui para los detalles de como nosotros nos manejamos particularmente con las traducciones.",
+                    "updated": 1633171406067
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "About Translations",
-            "updated": 1613822457097
+            "updated": 1613822457097,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "About Translations    ( Acerca de las traducciones)",
+                    "updated": 1633171444432
+                }
+            ]
         },
         {
             "style": "Include",
@@ -30,22 +58,50 @@
         {
             "style": "Text",
             "text": "The system stores the content of each Docs Page in a single file, regardless of how many translations may exist for each page.",
-            "updated": 1613822896070
+            "updated": 1613822896070,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El sistema guarda el contenido de cada pagina de los Documentos en un solo archivo, independientemente de cuantas traducciones existan por cada página.",
+                    "updated": 1633171834036
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Actually, translations exist at the level of each paragraph. This means that, for each paragraph in a page, there may be as many translations as there are supported languages.",
-            "updated": 1613825539396
+            "updated": 1613825539396,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Actualmente, existen al nivel de cada párrafo.  Esto significa que, por cada párrafo de la página, puede haber tantas traducciones como lenguages de soporte hayan.",
+                    "updated": 1633171706597
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "The above doesn't affect your work directly, but it is worth noting because it means that many contributors may be working on the same page at any point in time. Hence the need to constantly update and to  submit contributions frequently.",
-            "updated": 1613823174025
+            "updated": 1613823174025,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Lo mencionado no afecta su trabajo directamente,pero es bueno tenerlo en cuenta ya que significa que muchos contribuyentes pueden estar trabajando la misma página al mismo tiempo. He aqui la necesidad de actualizar constantemente y de solicitar la contribución a menudo.",
+                    "updated": 1633172414535
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Best Practices",
-            "updated": 1613824072677
+            "updated": 1613824072677,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Best Practices  (Las mejores prácticas)",
+                    "updated": 1633172460565
+                }
+            ]
         },
         {
             "style": "List",

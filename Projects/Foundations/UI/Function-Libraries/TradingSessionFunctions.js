@@ -13,13 +13,13 @@ function newFoundationsFunctionLibraryTradingSessionFunctions() {
             /* If something fails at validations we just quit. */
             return
         }
-        let networkNode = validationsResult.networkNode
-        if (networkNode === undefined) {
+        let lanNetworkNode = validationsResult.lanNetworkNode
+        if (lanNetworkNode === undefined) {
             /* Nodes that do not belong to a network can not get ready. */
             return
         }
 
-        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(networkNode.id)
+        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         /* First we setup everything so as to listen to the response from the Task Server */
         let eventSubscriptionIdOnStatus
@@ -47,14 +47,14 @@ function newFoundationsFunctionLibraryTradingSessionFunctions() {
             /* If something fails at validations we just quit. */
             return
         }
-        let networkNode = validationsResult.networkNode
-        if (networkNode === undefined) {
+        let lanNetworkNode = validationsResult.lanNetworkNode
+        if (lanNetworkNode === undefined) {
             /* This means that the validations failed. */
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             return
         }
 
-        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(networkNode.id)
+        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         let key = node.name + '-' + node.type + '-' + node.id
 
@@ -155,7 +155,7 @@ function newFoundationsFunctionLibraryTradingSessionFunctions() {
             'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
             'Trading Parameters->' +
             'Session Base Asset->Session Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->Snapshots->Heartbeats->User Defined Parameters->' +
-            'Social Bots->Telegram Bot->Discord Bot->Slack Bot->' +
+            'Social Bots->Telegram Bot->Discord Bot->Slack Bot->Twitter Bot->' +
             'Social Bot Command->Formula->' +
             'Exchange Account Asset->Asset->'
 
@@ -200,14 +200,14 @@ function newFoundationsFunctionLibraryTradingSessionFunctions() {
             /* If something fails at validations we just quit. */
             return
         }
-        let networkNode = validationsResult.networkNode
-        if (networkNode === undefined) {
+        let lanNetworkNode = validationsResult.lanNetworkNode
+        if (lanNetworkNode === undefined) {
             /* This means that the validations failed. */
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             return
         }
 
-        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(networkNode.id)
+        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         let key = node.name + '-' + node.type + '-' + node.id
         eventsServerClient.raiseEvent(key, 'Stop Trading Session')
@@ -266,7 +266,7 @@ function newFoundationsFunctionLibraryTradingSessionFunctions() {
             return
         }
 
-        result.networkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(result.taskManager, 'Network Node', undefined, true, false, true, false)
+        result.lanNetworkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(result.taskManager, 'LAN Network Node', undefined, true, false, true, false)
 
         if (node.tradingSystemReference === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs a child Trading System Reference.')

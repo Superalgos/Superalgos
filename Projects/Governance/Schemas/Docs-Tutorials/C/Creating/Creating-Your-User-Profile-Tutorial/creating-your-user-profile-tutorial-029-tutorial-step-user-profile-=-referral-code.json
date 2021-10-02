@@ -8,40 +8,96 @@
             "name": "copy-type",
             "project": "Foundations"
         },
-        "updated": 1630927021542
+        "updated": 1630927021542,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¡Esto es importante para cuando salgas a promocionar Superalgos! ¡Asegúrate de que la gente sepa cómo encontrarte!",
+                "updated": 1632025337077
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "Let me say it again! Let people know your User Profile name so that they may easily find you!",
-            "updated": 1630927535381
+            "updated": 1630927535381,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Deja que las personas sepan tu nombre de User Profile para que puedan encontrarte fácilmente!",
+                    "updated": 1632025446729
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "What if no specific person referred you to Superalgos? Well... you found us somehow, right? These are a few common scenarios and the profile that referred you:",
-            "updated": 1630927760340
+            "updated": 1630927760340,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¿Qué pasa si ninguna persona te refirió a Superalgos? Nos encontraste de alguna manera, ¿verdad? Estos son algunos escenarios comunes y el perfil que lo refirió:",
+                    "updated": 1632025548369
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The Superalgos.org Webiste: Julian-Molina",
-            "updated": 1630927577105
+            "text": "The Superalgos.org Website: Julian-Molina",
+            "updated": 1630927577105,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El sitio web de Superalgos.org: Julian-Molina",
+                    "updated": 1632025569175
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The Github.com Repo: Luis-Fernando-Molina"
+            "text": "The Github.com Repo: Luis-Fernando-Molina",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El repositorio de Github.com: Luis-Fernando-Molina",
+                    "updated": 1632025589933
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Most YouTube Videos: Julian-Molina"
+            "text": "Most YouTube Videos: Julian-Molina",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La mayoría de los videos de YouTube: Julian-Molina",
+                    "updated": 1632025607190
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Blog Articles: Some by Julian-Molina, Luis-Fernando-Molina,... please check the author!",
-            "updated": 1630927812445
+            "updated": 1630927812445,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Artículos de Blog: Some by Julian-Molina, Luis-Fernando-Molina,... Por favor, comprueba el autor!",
+                    "updated": 1632025647858
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Official Social Media Posts: Julian-Molina"
+            "text": "Official Social Media Posts: Julian-Molina",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Redes sociales: Julian-Molina",
+                    "updated": 1632025677568
+                }
+            ]
         }
     ]
 }

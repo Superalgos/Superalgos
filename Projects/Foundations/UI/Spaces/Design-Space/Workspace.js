@@ -18,6 +18,7 @@ function newWorkspace() {
         share: shareWorkspace,
         getNodesByTypeAndHierarchyHeadsType: getNodesByTypeAndHierarchyHeadsType,
         getProjectsHeads: getProjectsHeads,
+        getProjectHeadByNodeType: getProjectHeadByNodeType, 
         getHierarchyHeads: getHierarchyHeads,
         getHierarchyHeadsById: getHierarchyHeadsById,
         getHierarchyHeadsByCodeNameAndNodeType: getHierarchyHeadsByCodeNameAndNodeType,
@@ -143,15 +144,15 @@ function newWorkspace() {
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
 
-            if (rootNode.type === 'Network') {
-                if (rootNode.networkNodes === undefined) { continue }
-                for (let j = 0; j < rootNode.networkNodes.length; j++) {
-                    let networkNode = rootNode.networkNodes[j]
+            if (rootNode.type === 'LAN Network') {
+                if (rootNode.lanNetworkNodes === undefined) { continue }
+                for (let j = 0; j < rootNode.lanNetworkNodes.length; j++) {
+                    let lanNetworkNode = rootNode.lanNetworkNodes[j]
 
-                    let eventsServerClient = newEventsServerClient(networkNode)
+                    let eventsServerClient = newEventsServerClient(lanNetworkNode)
                     eventsServerClient.initialize()
 
-                    thisObject.eventsServerClients.set(networkNode.id, eventsServerClient)
+                    thisObject.eventsServerClients.set(lanNetworkNode.id, eventsServerClient)
                 }
             }
         }
@@ -473,25 +474,25 @@ function newWorkspace() {
     function stopAllRunningTasks() {
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
-            if (rootNode.type === 'Network') {
-                if (rootNode.networkNodes !== undefined) {
-                    for (let j = 0; j < rootNode.networkNodes.length; j++) {
-                        let networkNode = rootNode.networkNodes[j]
-                        if (networkNode.dataTasks !== undefined && networkNode.dataTasks.payload !== undefined) {
-                            networkNode.dataTasks.payload.uiObject.menu.internalClick('Stop All Exchange Data Tasks')
-                            networkNode.dataTasks.payload.uiObject.menu.internalClick('Stop All Exchange Data Tasks')
+            if (rootNode.type === 'LAN Network') {
+                if (rootNode.lanNetworkNodes !== undefined) {
+                    for (let j = 0; j < rootNode.lanNetworkNodes.length; j++) {
+                        let lanNetworkNode = rootNode.lanNetworkNodes[j]
+                        if (lanNetworkNode.dataTasks !== undefined && lanNetworkNode.dataTasks.payload !== undefined) {
+                            lanNetworkNode.dataTasks.payload.uiObject.menu.internalClick('Stop All Exchange Data Tasks')
+                            lanNetworkNode.dataTasks.payload.uiObject.menu.internalClick('Stop All Exchange Data Tasks')
                         }
-                        if (networkNode.learningTasks !== undefined && networkNode.learningTasks.payload !== undefined) {
-                            networkNode.learningTasks.payload.uiObject.menu.internalClick('Stop All Exchange Learning Tasks')
-                            networkNode.learningTasks.payload.uiObject.menu.internalClick('Stop All Exchange Learning Tasks')
+                        if (lanNetworkNode.learningTasks !== undefined && lanNetworkNode.learningTasks.payload !== undefined) {
+                            lanNetworkNode.learningTasks.payload.uiObject.menu.internalClick('Stop All Exchange Learning Tasks')
+                            lanNetworkNode.learningTasks.payload.uiObject.menu.internalClick('Stop All Exchange Learning Tasks')
                         }
-                        if (networkNode.testingTradingTasks !== undefined && networkNode.testingTradingTasks.payload !== undefined) {
-                            networkNode.testingTradingTasks.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
-                            networkNode.testingTradingTasks.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
+                        if (lanNetworkNode.testingTradingTasks !== undefined && lanNetworkNode.testingTradingTasks.payload !== undefined) {
+                            lanNetworkNode.testingTradingTasks.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
+                            lanNetworkNode.testingTradingTasks.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
                         }
-                        if (networkNode.productionTradingTasks !== undefined && networkNode.productionTradingTasks.payload !== undefined) {
-                            networkNode.productionTradingTasks.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
-                            networkNode.productionTradingTasks.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
+                        if (lanNetworkNode.productionTradingTasks !== undefined && lanNetworkNode.productionTradingTasks.payload !== undefined) {
+                            lanNetworkNode.productionTradingTasks.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
+                            lanNetworkNode.productionTradingTasks.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
                         }
                     }
                 }
@@ -545,6 +546,17 @@ function newWorkspace() {
             }
         }
         return nodes
+    }
+
+    function getProjectHeadByNodeType(nodeType) {
+        let projectHeads = getProjectsHeads()
+        if (projectHeads === undefined) { return }
+        for (let i = 0; i < projectHeads.length; i++) {
+            let hierarchyHead = projectHeads[i]
+            if (hierarchyHead.type === nodeType) {
+                return hierarchyHead
+            }
+        }
     }
 
     function getHierarchyHeadsById(nodeId) {

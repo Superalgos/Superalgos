@@ -9,7 +9,8 @@
             {
                 "language": "ES",
                 "text": "Utilice esta guía si alguna vez desea cargar un User Profile en cualquiera de los Governance Workspaces.",
-                "updated": 1630895973316
+                "updated": 1630895973316,
+                "style": "Definition"
             }
         ]
     },
@@ -17,16 +18,37 @@
         {
             "style": "Text",
             "text": "Let's say you wish to declare your referrer in the Referral Program, or maybe you wish to support the Contribution Claims of a fellow developer. ",
-            "updated": 1630681643918
+            "updated": 1630681643918,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Supongamos que deseas declarar tu referente en el Referral Program, o tal vez desees apoyar el Contribution Claims de un compañero desarrollador.",
+                    "updated": 1632025791877
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "In either case, you will need to load the User Profile of the person in question so that you may establish the appropriate references."
+            "text": "In either case, you will need to load the User Profile of the person in question so that you may establish the appropriate references.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En cualquier caso, deberás cargar el User Profile de la persona en cuestión para que pueda establecer las referencias adecuadas.",
+                    "updated": 1632025827657
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Or maybe you wish to load your own User Profile in one of the Other Governance Workspaces. It's the same process after all!",
-            "updated": 1630677919945
+            "updated": 1630677919945,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "O tal vez quieras cargar tu propio User Profile en uno de los Other Governance Workspaces. ¡Es el mismo proceso después de todo!",
+                    "updated": 1632025920310
+                }
+            ]
         },
         {
             "style": "Title",

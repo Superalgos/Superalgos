@@ -42,6 +42,12 @@
             "actionFunction": "uiObject.configEditor.activate"
         },
         {
+            "action": "Add UI Object",
+            "label": "Add Social Bots",
+            "relatedUiObject": "Social Bots",
+            "actionFunction": "payload.executeAction"
+        },
+        {
             "action": "Add Missing Children",
             "label": "Add Missing Children",
             "relatedUiObject": "Trading Parameters",

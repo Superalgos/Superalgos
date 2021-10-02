@@ -38,7 +38,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Network Node->"
+        "compatibleTypes": "->LAN Network Node->"
     },
     "propertyNameAtParent": "dataStorage",
     "childrenNodesProperties": [

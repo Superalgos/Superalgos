@@ -110,6 +110,10 @@ function newCircularMenuItem() {
 
         iconPhysics()
 
+        if (thisObject.icon === undefined) {
+            console.log('[ERROR] newCircularMenuItem -> initialize -> err = Icon not found, Action: "' + thisObject.action + '", relatedUiObject: "' + thisObject.relatedUiObject +'", label: "' + thisObject.label + '"')
+        }
+
         selfMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
         selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
         selfMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
@@ -263,7 +267,6 @@ function newCircularMenuItem() {
             thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
             thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
         } else {
-            if (thisObject.label === "Add Dependency Product Folder") { console.log ("Test") }
             if (thisObject.relatedUiObject !== undefined && thisObject.iconProject !== undefined) {
                 thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.iconProject, thisObject.relatedUiObject)
                 thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.iconProject, thisObject.relatedUiObject)
@@ -301,6 +304,13 @@ function newCircularMenuItem() {
 
     function onMouseOver(point) {
         if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {
+            let text = thisObject.action
+
+            if(thisObject.payload.uiObject.payload.referenceParent !== undefined && thisObject.action === 'Reference Detach'){
+                text = text + ' -> [Existing Reference] Type : [' + thisObject.payload.uiObject.payload.referenceParent.type + '] , Name : [' + thisObject.payload.uiObject.payload.referenceParent.name + ']'
+            }
+
+            thisObject.payload.uiObject.setInfoMessage(text)
             isMouseOver = true
         } else {
             isMouseOver = false
@@ -478,7 +488,9 @@ function newCircularMenuItem() {
             iconSize = UI.projects.foundations.spaces.floatingSpace.style.node.menuItem.imageSize
         }
 
-        if (thisObject.icon === undefined) { return }
+        if (thisObject.icon === undefined) {
+            thisObject.icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', 'missing-image')
+        }
         if (thisObject.icon.canDrawIcon === true && thisObject.currentRadius > 1 && thisObject.isDeployed === true) {
             browserCanvasContext.drawImage(thisObject.icon, menuPosition.x - iconSize, menuPosition.y - iconSize, iconSize * 2, iconSize * 2)
 

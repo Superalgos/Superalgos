@@ -164,6 +164,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                         if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
                             console.log('[WARN] Cannot load plugin ' + pluginFolder + ' ' + name + '. The Workspace will be loaded with this plugin file missing.')
                         } else {
+
                             let receivedNode
 
                             try {
@@ -174,6 +175,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                                 console.log('[ERROR] pluginAllTheseFiles -> err.stack = ' + err.stack)
                                 return
                             }
+
                             /* 
                             If the workspace already contains a root node with the id of the head of the hirierchy
                             we are loading, we remove it because the plugin file has precedende.
@@ -181,6 +183,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                             for (let i = 0; i < node.rootNodes.length; i++) {
                                 let rootNode = node.rootNodes[i]
                                 if (rootNode.id === receivedNode.id) {
+                                    console.log('[WARN] The node with name "' + rootNode.name + '" and type "' + rootNode.type + '" will be replaced by the node with name "' + receivedNode.name + '" and type "' + receivedNode.type +'" because they both have the same node.id')
                                     node.rootNodes.splice(i, 1)
                                     break
                                 }
@@ -365,7 +368,6 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                                             if (node[property.name] !== undefined) {
                                                 if (node[property.name].name === pathName && node[property.name].type === pathType) {
                                                     nextNode = node[property.name]
-                                                    console.log("we have a match!", nextNode)
                                                     return nextNode
                                                 }
                                             }
@@ -425,6 +427,21 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
             node.project === 'Superalgos'
         ) {
             node.project = 'Foundations'
+        }
+        /* Migration code from beta 11 to beta 12 */
+        if (
+            node.type === 'Network'
+        ) {
+            node.type = "LAN Network"
+            if (node.lanNetworkNodes === undefined && node.networkNodes !== undefined) {
+                node.lanNetworkNodes = node.networkNodes
+            }
+        }
+
+        if (
+            node.type === 'Network Node'
+        ) {
+            node.type = "LAN Network Node"
         }
         /* 
         This function can be called with a positionOffset to change the node

@@ -15,12 +15,12 @@
 
     const MAX_OHLCVs_PER_EXECUTION = 10000000
     const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-    const ccxt = require('ccxt')
+    const ccxt = SA.nodeModules.ccxt
     /*
     This next is required when using an exchange that uses fetchTrades in place of fetchOHLCVs
     in order to be able to access the method that builds the OHLCVs, and this method is inside the CCTX library.
     */
-    const ccxtMisc = require('./node_modules/ccxt/js/base/functions/misc')
+    const ccxtMisc = SA.nodeModules.ccxtMisc
 
     let fetchType = "by Time"
     let lastId
@@ -217,8 +217,8 @@
                     thisReport = statusDependencies.statusReports.get(reportKey)
 
                     if (thisReport.file.beginingOfMarket !== undefined) { // This means this is not the first time this process has run.
-                        beginingOfMarket = new Date(thisReport.file.beginingOfMarket.year + "-" + thisReport.file.beginingOfMarket.month + "-" + thisReport.file.beginingOfMarket.days + " " + thisReport.file.beginingOfMarket.hours + ":" + thisReport.file.beginingOfMarket.minutes + TS.projects.foundations.globals.timeConstants.GMT_SECONDS);
-                        lastFile = new Date(thisReport.file.lastFile.year + "-" + thisReport.file.lastFile.month + "-" + thisReport.file.lastFile.days + " " + thisReport.file.lastFile.hours + ":" + thisReport.file.lastFile.minutes + TS.projects.foundations.globals.timeConstants.GMT_SECONDS);
+                        beginingOfMarket = new Date(thisReport.file.beginingOfMarket.year + "-" + thisReport.file.beginingOfMarket.month + "-" + thisReport.file.beginingOfMarket.days + " " + thisReport.file.beginingOfMarket.hours + ":" + thisReport.file.beginingOfMarket.minutes + SA.projects.foundations.globals.timeConstants.GMT_SECONDS);
+                        lastFile = new Date(thisReport.file.lastFile.year + "-" + thisReport.file.lastFile.month + "-" + thisReport.file.lastFile.days + " " + thisReport.file.lastFile.hours + ":" + thisReport.file.lastFile.minutes + SA.projects.foundations.globals.timeConstants.GMT_SECONDS);
                         lastId = thisReport.file.lastId
                         lastCandleOfTheDay = thisReport.file.lastCandleOfTheDay
                     } else {  // This means this is the first time this process has run.
@@ -258,8 +258,8 @@
                             let fileName = "Data.json"
                             let datetime = new Date(lastFile.valueOf())
                             let dateForPath = datetime.getUTCFullYear() + '/' +
-                                TS.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
-                                TS.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
+                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
+                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
                             let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + OHLCVS_FOLDER_NAME + '/' + dateForPath;
                             let fullFileName = filePath + '/' + fileName
                             fileStorage.getTextFile(fullFileName, onFileReceived)
@@ -368,7 +368,7 @@
                         /* Reporting we are doing well */
                         function heartBeat(noNewInternalLoop) {
                             let processingDate = new Date(since)
-                            processingDate = processingDate.getUTCFullYear() + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
+                            processingDate = processingDate.getUTCFullYear() + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ " + processingDate + "-> exchange = " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit)
                             let heartBeatText = "Fetching " + rawDataArray.length.toFixed(0) + " OHLCVs from " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate
@@ -449,7 +449,7 @@
                                     await exchange.fetchOHLCV(symbol, '1d', earliestMarketSince, searchSize, params)
 
                                 if (earlyOHLCVs.length === searchSize && previousMarketSince !== earlyOHLCVs[0][0]) { // If array is full, and the date returned isn't the same then we are still working in valid data, search further back
-                                    earliestMarketSince = (earlyOHLCVs[0][0] - (TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS * searchSize))
+                                    earliestMarketSince = (earlyOHLCVs[0][0] - (SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS * searchSize))
                                     previousMarketSince = earlyOHLCVs[0][0]
 
                                 } else if (earlyOHLCVs.length === searchSize && previousMarketSince === earlyOHLCVs[0][0]) { // If array is full, but the first OHLCV date is the same as last time then we've found our Market Start
@@ -463,7 +463,7 @@
                                     return earlyOHLCVs[0][0]
 
                                 } else if ((earlyOHLCVs.length === 0 && searchSize !== 1)) { // If array is empty, we've gone too far, half the search size and retry
-                                    earliestMarketSince = (earliestMarketSince + (TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS * searchSize))
+                                    earliestMarketSince = (earliestMarketSince + (SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS * searchSize))
                                     if (searchSize > 1) {
                                         searchSize = Math.floor(searchSize / 2)
                                     }
@@ -476,7 +476,7 @@
                                 }
 
                                 let processingDate = new Date(earliestMarketSince)
-                                processingDate = processingDate.getUTCFullYear() + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
+                                processingDate = processingDate.getUTCFullYear() + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
                                 TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, "Invalid or No Start Date. Finding Market Start @ " + processingDate, 0)
                             }
                         }
@@ -494,13 +494,17 @@
 
                             while (foundDate !== true) {
 
+                                if (new Date(since).valueOf() >= (new Date).setSeconds(0,0)) {
+                                    return OHLCVs
+                                }
+
                                 await new Promise(resolve => setTimeout(resolve, rateLimit)) // rate limit
                                 const nextValidOHLCVs = useFetchTradesForFetchOHLCVs ?
                                     await fetchTradesForOHLCV(symbol, '1m', since, limit, params) :
                                     await exchange.fetchOHLCV(symbol, '1m', since, limit, params)
 
                                 if (nextValidOHLCVs.length === 0) {
-                                    since = (since + (TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * limit))
+                                    since = (since + (SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * limit))
 
                                 } else {
                                     foundDate = true
@@ -509,7 +513,7 @@
                                 }
 
                                 let processingDate = new Date(since)
-                                processingDate = processingDate.getUTCFullYear() + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
+                                processingDate = processingDate.getUTCFullYear() + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
                                 TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, "No Data Found. Fast-Forwarding to Next Data @ " + processingDate, 0)
                             }
                         }
@@ -545,7 +549,7 @@
                                 let OHLCV = OHLCVs[0]
 
                                 initialProcessTimestamp = OHLCV[0]  // 'timestamp'
-                                beginingOfMarket = new Date(Math.trunc(OHLCV[0] / TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) * TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)  // 'timestamp'
+                                beginingOfMarket = new Date(Math.trunc(OHLCV[0] / SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)  // 'timestamp'
                                 fromDate = new Date(beginingOfMarket.valueOf())
                                 firstTimeThisProcessRun = false
                             }
@@ -623,11 +627,11 @@
                 let startOfFetchTrades = since
                 let endOfFetchTrades
                 if (lastFile === undefined) {
-                    endOfFetchTrades = (Math.trunc(since / TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) * TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                    endOfFetchTrades = (Math.trunc(since / SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
                 } else {
                     endOfFetchTrades = lastFile.valueOf()
                 }
-                endOfFetchTrades += TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+                endOfFetchTrades += SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
                 while (TS.projects.foundations.globals.taskVariables.IS_TASK_STOPPING !== true) {
                     var trades = await exchange.fetchTrades(symbol, startOfFetchTrades, limit, params)
                     if (trades.length > 0) {
@@ -676,7 +680,7 @@
                     let heartBeatCounter = 0
                     let savingProcedureFinished = false
                     let endOfTheOHLCVArrayReached = false
-                    let currentDay = Math.trunc((initialProcessTimestamp - TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) / TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                    let currentDay = Math.trunc((initialProcessTimestamp - SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) / SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
 
                     let lastCandle = {
                         begin: 0,
@@ -738,8 +742,8 @@
                             hold at least the last know value.
                             */
                             let candle = {
-                                begin: currentDay * TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS + TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * minuteOfTheDay,
-                                end: currentDay * TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS + TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * minuteOfTheDay + TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1,
+                                begin: currentDay * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS + SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * minuteOfTheDay,
+                                end: currentDay * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS + SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * minuteOfTheDay + SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1,
                                 open: lastCandle.close,
                                 close: lastCandle.close,
                                 min: lastCandle.close,
@@ -747,8 +751,8 @@
                             }
 
                             let volume = {
-                                begin: currentDay * TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS + TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * minuteOfTheDay,
-                                end: currentDay * TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS + TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * minuteOfTheDay + TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1,
+                                begin: currentDay * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS + SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * minuteOfTheDay,
+                                end: currentDay * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS + SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS * minuteOfTheDay + SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1,
                                 buy: lastVolume.buy,
                                 sell: lastVolume.sell
                             }
@@ -792,7 +796,7 @@
                              timestamp in order to calculate OHLCVMinute.
                             */
                             let OHLCV = {
-                                timestamp: (new Date()).valueOf() + TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS,
+                                timestamp: (new Date()).valueOf() + SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS,
                                 open: 0,
                                 hight: 0,
                                 low: 0,
@@ -820,7 +824,7 @@
                                 }
                             }
 
-                            let candleMinute = Math.trunc(candle.begin / TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
+                            let candleMinute = Math.trunc(candle.begin / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
                             let OHLCVMinute
                             /*
                             Some exchanges return inconsistent data. It is not guaranteed 
@@ -829,7 +833,7 @@
                             between timestamps will be the same. To fix this, we will do this.
                             */
 
-                            OHLCVMinute = Math.trunc(OHLCV.timestamp / TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
+                            OHLCVMinute = Math.trunc(OHLCV.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
 
                             /*
                             If the minute of the record item received from the exchange is
@@ -869,7 +873,7 @@
                                 }
 
                                 /* Recalculate this to see if we need to break the loop*/
-                                OHLCVMinute = Math.trunc(OHLCV.timestamp / TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
+                                OHLCVMinute = Math.trunc(OHLCV.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
                             }
 
                             /*
@@ -945,8 +949,8 @@
                                 let processingDate = new Date(candle.begin)
                                 processingDate =
                                     processingDate.getUTCFullYear() + '-' +
-                                    TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' +
-                                    TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
+                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' +
+                                    SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
 
                                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                     "[INFO] start -> saveOHLCVs -> Before Fetch -> Saving OHLCVs  @ " + processingDate + " -> ohlcvArrayIndex = " + ohlcvArrayIndex + " -> total = " + rawDataArray.length)
@@ -977,14 +981,14 @@
                             let fileName = 'Data.json'
 
                             filesToCreate++
-                            fileStorage.createTextFile(getFilePath(day * TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, CANDLES_FOLDER_NAME) + '/' + fileName, candlesFileContent + '\n', onFileCreated);
+                            fileStorage.createTextFile(getFilePath(day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, CANDLES_FOLDER_NAME) + '/' + fileName, candlesFileContent + '\n', onFileCreated);
 
                             filesToCreate++
-                            fileStorage.createTextFile(getFilePath(day * TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, VOLUMES_FOLDER_NAME) + '/' + fileName, volumesFileContent + '\n', onFileCreated);
+                            fileStorage.createTextFile(getFilePath(day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, VOLUMES_FOLDER_NAME) + '/' + fileName, volumesFileContent + '\n', onFileCreated);
 
                             if (ohlcvsFileContent !== undefined) {
                                 filesToCreate++
-                                fileStorage.createTextFile(getFilePath(day * TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, OHLCVS_FOLDER_NAME) + '/' + fileName, ohlcvsFileContent + '\n', onFileCreated);
+                                fileStorage.createTextFile(getFilePath(day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, OHLCVS_FOLDER_NAME) + '/' + fileName, ohlcvsFileContent + '\n', onFileCreated);
                                 mustLoadRawData = true
                             } else {
                                 mustLoadRawData = false
@@ -1006,11 +1010,11 @@
                             let dataLength = rawDataArray.length
                             if (dataLength > 0) {
                                 // first get the start of the day after this day we are checking
-                                let timestamp = (day * TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) +
-                                    TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+                                let timestamp = (day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) +
+                                    SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
                                 if (rawDataArray[dataLength - 1][0] < timestamp) {
                                     // there is no data for the next day, so now trim this day's data to remove anything before it
-                                    timestamp -= TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+                                    timestamp -= SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
                                     let dataIndex = 0
                                     while (dataIndex < dataLength - 1) {
                                         if (rawDataArray[dataIndex][0] < timestamp) {  // this data is from a previous day
@@ -1039,7 +1043,7 @@
                                 return;
                             }
                             filesCreated++
-                            lastFile = new Date((currentDay * TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS))
+                            lastFile = new Date((currentDay * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS))
                             if (filesCreated === filesToCreate) {
                                 controlLoop()
                             }
@@ -1048,8 +1052,8 @@
                         function getFilePath(timestamp, folderName) {
                             let datetime = new Date(timestamp)
                             let dateForPath = datetime.getUTCFullYear() + '/' +
-                                TS.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
-                                TS.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
+                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
+                                SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
                             let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + folderName + '/' + dateForPath;
                             return filePath
                         }

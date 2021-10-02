@@ -39,13 +39,13 @@
         },
         {
             "style": "Text",
-            "text": "If you want to link an address you already own, type the twelve word mnemonic associated with your address under the mnemonic property. If not, leave the property blank and the system will make a new one for you!",
-            "updated": 1629706491511,
+            "text": "If you want to link an existing address, type its twelve-word mnemonic in the mnemonic property. Leave the property blank to generate a new address! You will delete this sensitive info later on. The info will not leave your computer and will not be saved to disk.",
+            "updated": 1631547921782,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Para vincular una dirección que ya posees, escribe el mnemónico de doce palabras asociado con tu dirección en la propiedad mnemónico. De lo contrario, deja la propiedad en blanco y el sistema creará una nueva.",
-                    "updated": 1630888231106,
+                    "text": "Escribe tu mnemónico de doce palabras en la propiedad mnemotécnica. ¡Deja la propiedad en blanco para generar una nueva dirección! Eliminarás esta información confidencial más adelante, no saldrá de tu computadora y no se guardará en el disco.",
+                    "updated": 1632012849405,
                     "style": "Text"
                 }
             ]

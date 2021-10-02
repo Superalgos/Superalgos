@@ -4,7 +4,7 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
     */
     let thisObject = {
         profilesValidations: profilesValidations,
-        postValidations: postValidations, 
+        postValidations: postValidations,
         arrayValidations: arrayValidations
     }
 
@@ -14,13 +14,20 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
         /*
         Validate User Profile
         */
-        if (queryReceived.targetUserProfileId !== undefined) {
-            thisObject.profile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
+        if (queryReceived.emitterUserProfileId !== undefined) {
+            thisObject.profile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.emitterUserProfileId)
+            if (thisObject.profile === undefined) {
+                throw ('Emitter User Profile Not Found.')
+            }
         }
 
-        if (thisObject.profile === undefined) {
-            throw ('Target User Profile Not Found.')
+        if (queryReceived.targetUserProfileId !== undefined) {
+            thisObject.profile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
+            if (thisObject.profile === undefined) {
+                throw ('Target User Profile Not Found.')
+            }
         }
+
         /*
         Validate Bot Profile
         */
@@ -91,7 +98,12 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
             throw ('Direction Undefined.')
         }
 
-        if (queryReceived.direction !== SA.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE && queryReceived.direction !== SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST) {
+        if (
+            queryReceived.direction !== SA.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE &&
+            queryReceived.direction !== SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST &&
+            queryReceived.direction !== SA.projects.socialTrading.globals.queryConstants.DIRECTION_UP &&
+            queryReceived.direction !== SA.projects.socialTrading.globals.queryConstants.DIRECTION_DOWN
+        ) {
             throw ('Direction Not Supported.')
         }
 

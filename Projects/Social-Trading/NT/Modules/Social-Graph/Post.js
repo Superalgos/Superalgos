@@ -51,6 +51,8 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         REACTION_CARE: 6
     }
 
+    thisObject.replies = new Map()
+
     thisObject.reactions = new Map()
     thisObject.reactions.set(REACTION_TYPES.REACTION_LIKE, 0)
     thisObject.reactions.set(REACTION_TYPES.REACTION_LOVE, 0)

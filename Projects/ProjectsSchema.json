@@ -12,9 +12,9 @@
             ],
             "functionLibraries": [
                 {
-                    "name": "Attach Detach",
+                    "name": "Reference Attach Detach",
                     "propertyName": "attachDetach",
-                    "functionName": "newFoundationsFunctionLibraryAttachDetach"
+                    "functionName": "newFoundationsFunctionLibraryReferenceAttachDetach"
                 },
                 {
                     "name": "Chain Attach Detach",
@@ -50,11 +50,6 @@
                     "name": "On Focus",
                     "propertyName": "onFocus",
                     "functionName": "newFoundationsFunctionLibraryOnFocus"
-                },
-                {
-                    "name": "Super Scripts Functions",
-                    "propertyName": "superScriptsFunctions",
-                    "functionName": "newFoundationsFunctionLibrarySuperScriptsFunctions"
                 },
                 {
                     "name": "Webhook Functions",
@@ -184,8 +179,8 @@
                     "functionName": "newFoundationsUtilitiesMeshes"
                 },
                 {
-                    "name": "Children",
-                    "propertyName": "children",
+                    "name": "Node Children",
+                    "propertyName": "nodeChildren",
                     "functionName": "newFoundationsUtilitiesNodeChildren"
                 },
                 {
@@ -344,12 +339,6 @@
                     "propertyName": "standardResponses",
                     "functionName": "newFoundationsGlobalsStandardResponses",
                     "fileName": "StandardResponses.js"
-                },
-                {
-                    "name": "Time Constants",
-                    "propertyName": "timeConstants",
-                    "functionName": "newFoundationsGlobalsTimeConstants",
-                    "fileName": "TimeConstants.js"
                 },
                 {
                     "name": "Process Variables",
@@ -687,6 +676,13 @@
                     "folderName": "Trading-Bot/Announcements"
                 },
                 {
+                    "name": "Twitter Bot",
+                    "propertyName": "twitterBot",
+                    "functionName": "newFoundationsBotModulesTwitterBot",
+                    "fileName": "TwitterBot.js",
+                    "folderName": "Trading-Bot/Announcements"
+                },
+                {
                     "name": "Trading Process",
                     "propertyName": "tradingProcess",
                     "functionName": "newFoundationsBotModulesTradingProcess",
@@ -871,7 +867,7 @@
                 }
             ]
         },
-        "CL": {
+        "PL": {
             "utilities": [
                 {
                     "name": "Async Functions",
@@ -888,6 +884,14 @@
             ]
         },
         "SA": {
+            "globals":[
+                {
+                    "name": "Time Constants",
+                    "propertyName": "timeConstants",
+                    "functionName": "newFoundationsGlobalsTimeConstants",
+                    "fileName": "TimeConstants.js"
+                }
+            ],
             "utilities": [
                 {
                     "name": "Plugins",
@@ -988,7 +992,7 @@
             ]
         },
         "TS": {},
-        "CL": {}
+        "PL": {}
     },
     {
         "name": "TensorFlow",
@@ -1096,7 +1100,7 @@
             "processModules": [],
             "botModules": []
         },
-        "CL": {}
+        "PL": {}
     },
     {
         "name": "Governance",
@@ -1238,7 +1242,7 @@
                     "functionName": "newGovernanceUtilitiesTables"
                 },
                 {
-                    "name": "Decendent Tables",
+                    "name": "Descendent Tables",
                     "propertyName": "decendentTables",
                     "functionName": "newGovernanceUtilitiesDecendentTables"
                 },
@@ -1288,7 +1292,7 @@
             ]
         },
         "TS": {},
-        "CL": {},
+        "PL": {},
         "plugins": [
             "User Profiles",
             "Pools",
@@ -1344,6 +1348,12 @@
                     "functionName": "newSocialTradingModulesQueriesUserProfiles",
                     "fileName": "Queries/UserProfiles.js"
                 },
+                {
+                    "name": "Unfollowed User Profiles",
+                    "propertyName": "queriesUnfollowedUserProfiles",
+                    "functionName": "newSocialTradingModulesQueriesUnfollowedUserProfiles",
+                    "fileName": "Queries/UnfollowedUserProfiles.js"
+                },                
                 {
                     "name": "Bot Profile Stats",
                     "propertyName": "queriesBotProfileStats",
@@ -1439,6 +1449,12 @@
                     "propertyName": "peerInterface",
                     "functionName": "newSocialTradingModulesPeerInterface",
                     "fileName": "PeerInterface.js"
+                },
+                {
+                    "name": "Storage",
+                    "propertyName": "storage",
+                    "functionName": "newSocialTradingModulesStorage",
+                    "fileName": "Storage.js"
                 }
             ],
             "utilities": [
@@ -1469,6 +1485,46 @@
                     "propertyName": "eventTypes",
                     "functionName": "newSocialTradingGlobalsEventTypes",
                     "fileName": "EventTypes.js"
+                }
+            ]
+        },
+        "DK": {
+            "globals": [],
+            "modules": [
+                {
+                    "name": "Http Interface",
+                    "propertyName": "httpInterface",
+                    "functionName": "newDesktopModulesHttpInterface",
+                    "fileName": "httpInterface.js"
+                },
+                {
+                    "name": "Web Sockets Interface",
+                    "propertyName": "webSocketsInterface",
+                    "functionName": "newDesktopModulesWebSocketsInterface",
+                    "fileName": "WebSocketsInterface.js"
+                },
+                {
+                    "name": "Web App Interface",
+                    "propertyName": "webAppInterface",
+                    "functionName": "newSocialTradingModulesWebAppInterface",
+                    "fileName": "WebAppInterface.js"
+                },
+                {
+                    "name": "Social Graph",
+                    "propertyName": "socialGraph",
+                    "functionName": "newSocialTradingModulesSocialGraph",
+                    "fileName": "SocialGraph.js"
+                }
+            ],
+            "utilities": []
+        },
+        "UI":{
+            "modules":[
+                {
+                    "name": "Web Sockets Client",
+                    "propertyName": "webSocketsClient",
+                    "functionName": "newSocialTradingModulesWebSocketsClient",
+                    "fileName": "WebSocketsClient.js"
                 }
             ]
         }

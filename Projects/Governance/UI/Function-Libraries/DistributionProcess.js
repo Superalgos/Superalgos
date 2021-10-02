@@ -1,10 +1,24 @@
 function newGovernanceFunctionLibraryDistributionProcess() {
     let thisObject = {
-        calculate: calculate
+        calculate: calculate,
+        finalize: finalize,
+        initialize: initialize
     }
 
+    const DISTRIBUTION_PROCESS_RECALCULATION_DELAY = 5000
+    let loop  
+    
     return thisObject
 
+    function initialize() {
+        loop = true
+        calculate()
+    }
+
+    function finalize() {
+        loop = false
+    }
+ 
     function calculate() {
 
         let pools = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Pools')
@@ -125,5 +139,9 @@ function newGovernanceFunctionLibraryDistributionProcess() {
         UI.projects.governance.functionLibraries.tokenMining.calculate(
             userProfiles
         )
+
+        if (loop === true) {
+            setTimeout(calculate, DISTRIBUTION_PROCESS_RECALCULATION_DELAY)
+        }
     }
 }

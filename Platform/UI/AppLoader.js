@@ -1,11 +1,10 @@
 let postLoader
 
 function newAppLoader() {
-    const MODULE_NAME = 'App Loader'
     const INFO_LOG = false
     const ERROR_LOG = true
     const logger = newWebDebugLog()
-    
+
 
     let thisObject = {
         loadModules: loadModules
@@ -64,16 +63,16 @@ function newAppLoader() {
                     let fileArray = JSON.parse(fileList)
                     for (let i = 0; i < fileArray.length; i++) {
                         let item = fileArray[i]
-                        
-                        project = item[0]
-                        fileName = item[1]
-                        urlArray.push('Projects' + '/' + project + '/'  + 'UI'  + '/' + 'Function-Libraries' + '/' +  fileName)
+
+                        let project = item[0]
+                        let fileName = item[1]
+                        urlArray.push('Projects' + '/' + project + '/' + 'UI' + '/' + 'Function-Libraries' + '/' + fileName)
                     }
 
                     modulesArray = modulesArray.concat(urlArray)
                     utilities()
                 }
-            }    
+            }
 
             function utilities() {
                 let url = 'ListUtilitiesFiles'
@@ -84,16 +83,16 @@ function newAppLoader() {
                     let fileArray = JSON.parse(fileList)
                     for (let i = 0; i < fileArray.length; i++) {
                         let item = fileArray[i]
-                        
-                        project = item[0]
-                        fileName = item[1]
-                        urlArray.push('Projects' + '/' + project + '/'  + 'UI' + '/' + 'Utilities' + '/' +  fileName)
+
+                        let project = item[0]
+                        let fileName = item[1]
+                        urlArray.push('Projects' + '/' + project + '/' + 'UI' + '/' + 'Utilities' + '/' + fileName)
                     }
 
                     modulesArray = modulesArray.concat(urlArray)
                     globals()
                 }
-            } 
+            }
 
             function globals() {
                 let url = 'ListGlobalFiles'
@@ -104,16 +103,16 @@ function newAppLoader() {
                     let fileArray = JSON.parse(fileList)
                     for (let i = 0; i < fileArray.length; i++) {
                         let item = fileArray[i]
-                        
-                        project = item[0]
-                        fileName = item[1]
-                        urlArray.push('Projects' + '/' + project + '/'  + 'UI' + '/' + 'Globals' + '/' +  fileName)
+
+                        let project = item[0]
+                        let fileName = item[1]
+                        urlArray.push('Projects' + '/' + project + '/' + 'UI' + '/' + 'Globals' + '/' + fileName)
                     }
 
                     modulesArray = modulesArray.concat(urlArray)
                     spaces()
                 }
-            } 
+            }
 
             function spaces() {
                 let url = 'ListSpaceFiles'
@@ -138,7 +137,7 @@ function newAppLoader() {
 
                 for (let i = 0; i < modulesArray.length; i++) {
                     let path = modulesArray[i]
-
+              
                     REQUIREJS([path], onRequired)
 
                     if (INFO_LOG === true) { logger.write('[INFO] loadModules -> Module Requested.') }

@@ -6,26 +6,27 @@
     "assetClasses": [
         {
             "type": "Asset Class",
-            "name": "Software",
-            "config": "{\n\"folderPath\": \"\"\n}",
+            "name": "Root",
+            "config": "{\"codeName\":\"Root\"}",
             "project": "Governance",
-            "assetClasses": [
+            "assetClasses": [],
+            "assets": [
                 {
-                    "type": "Asset Class",
-                    "name": "Superalgos-CL",
-                    "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}",
+                    "type": "Asset",
+                    "name": ".dockerignore",
+                    "config": "{\"codeName\":\".dockerignore\"}",
                     "project": "Governance",
                     "assetClasses": [],
                     "assets": [],
-                    "id": "5d13e350-4267-4d2f-a3fa-a1fabd5df10d",
+                    "id": "2ef8163d-7ff6-4f5c-8b0a-a20d882a2eb6",
                     "savedPayload": {
                         "position": {
-                            "x": 25230.290660370727,
-                            "y": 38200.41512173527
+                            "x": 42344.598799916756,
+                            "y": 41173.75217932406
                         },
                         "targetPosition": {
-                            "x": 24960,
-                            "y": 38070.25
+                            "x": 42282.900828990976,
+                            "y": 40880.16512173527
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -37,38 +38,25 @@
                         },
                         "uiObject": {
                             "isRunning": false
-                        },
-                        "referenceParent": {
-                            "type": "Assets",
-                            "name": "Superalgos-CL",
-                            "id": "4a693d1b-c9cc-4ab6-aa56-e1e1e1e18854"
-                        },
-                        "referenceParentCombinedNodePath": [
-                            [
-                                "Superalgos-CL",
-                                "Assets",
-                                "Governance",
-                                "4a693d1b-c9cc-4ab6-aa56-e1e1e1e18854"
-                            ]
-                        ]
+                        }
                     }
                 },
                 {
-                    "type": "Asset Class",
-                    "name": "Superalgos-UI",
-                    "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}",
+                    "type": "Asset",
+                    "name": ".gitignore",
+                    "config": "{\"codeName\":\".gitignore\"}",
                     "project": "Governance",
                     "assetClasses": [],
                     "assets": [],
-                    "id": "43d8d45d-71ea-4155-8cb7-e0125efb12d5",
+                    "id": "367ce04e-3a6e-4bce-830b-2d35cbd36c1a",
                     "savedPayload": {
                         "position": {
-                            "x": 25147.04694055762,
-                            "y": 38304.79944474041
+                            "x": 42272.545987300065,
+                            "y": 41179.98636390059
                         },
                         "targetPosition": {
-                            "x": 24960,
-                            "y": 38070.25
+                            "x": 42282.900828990976,
+                            "y": 40880.16512173527
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -80,38 +68,25 @@
                         },
                         "uiObject": {
                             "isRunning": false
-                        },
-                        "referenceParent": {
-                            "type": "Assets",
-                            "name": "Superalgos-UI",
-                            "id": "c482443e-7a10-4624-ad10-2185dd503202"
-                        },
-                        "referenceParentCombinedNodePath": [
-                            [
-                                "Superalgos-UI",
-                                "Assets",
-                                "Governance",
-                                "c482443e-7a10-4624-ad10-2185dd503202"
-                            ]
-                        ]
+                        }
                     }
                 },
                 {
-                    "type": "Asset Class",
-                    "name": "Superalgos-TS",
-                    "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}",
+                    "type": "Asset",
+                    "name": "CODE_OF_CONDUCT.md",
+                    "config": "{\"codeName\":\"CODE_OF_CONDUCT.md\"}",
                     "project": "Governance",
                     "assetClasses": [],
                     "assets": [],
-                    "id": "c621a524-ca7f-43f7-a449-df053ae5f817",
+                    "id": "916b967d-8709-44ed-bac7-3adcd7587b52",
                     "savedPayload": {
                         "position": {
-                            "x": 25026.756280186895,
-                            "y": 38362.72837365455
+                            "x": 42201.09496044413,
+                            "y": 41168.79602768835
                         },
                         "targetPosition": {
-                            "x": 24960,
-                            "y": 38070.25
+                            "x": 42282.900828990976,
+                            "y": 40880.16512173527
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -123,38 +98,25 @@
                         },
                         "uiObject": {
                             "isRunning": false
-                        },
-                        "referenceParent": {
-                            "type": "Assets",
-                            "name": "Superalgos-TS",
-                            "id": "e535de78-ab80-4192-a9a9-9ecfd904a5e7"
-                        },
-                        "referenceParentCombinedNodePath": [
-                            [
-                                "Superalgos-TS",
-                                "Assets",
-                                "Governance",
-                                "e535de78-ab80-4192-a9a9-9ecfd904a5e7"
-                            ]
-                        ]
+                        }
                     }
                 },
                 {
-                    "type": "Asset Class",
-                    "name": "Superalgos-Docker",
-                    "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}",
+                    "type": "Asset",
+                    "name": "CONTRIBUTING.md",
+                    "config": "{\"codeName\":\"CONTRIBUTING.md\"}",
                     "project": "Governance",
                     "assetClasses": [],
                     "assets": [],
-                    "id": "d21a28b9-46aa-42ff-87b1-2bd61a83d550",
+                    "id": "51cfe99a-9d6f-4aea-8260-0893539cb685",
                     "savedPayload": {
                         "position": {
-                            "x": 24893.243719813105,
-                            "y": 38362.72837365455
+                            "x": 42134.3981933159,
+                            "y": 41140.83151235277
                         },
                         "targetPosition": {
-                            "x": 24960,
-                            "y": 38070.25
+                            "x": 42282.900828990976,
+                            "y": 40880.16512173527
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -166,38 +128,25 @@
                         },
                         "uiObject": {
                             "isRunning": false
-                        },
-                        "referenceParent": {
-                            "type": "Assets",
-                            "name": "Superalgos-Docker",
-                            "id": "f92d7a00-be08-4f44-b000-e0f8c4658f14"
-                        },
-                        "referenceParentCombinedNodePath": [
-                            [
-                                "Superalgos-Docker",
-                                "Assets",
-                                "Governance",
-                                "f92d7a00-be08-4f44-b000-e0f8c4658f14"
-                            ]
-                        ]
+                        }
                     }
                 },
                 {
-                    "type": "Asset Class",
-                    "name": "Superalgos-Launch-Scripts",
-                    "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}",
+                    "type": "Asset",
+                    "name": "Environment.js",
+                    "config": "{\"codeName\":\"Environment.js\"}",
                     "project": "Governance",
                     "assetClasses": [],
                     "assets": [],
-                    "id": "8c924af1-c6c6-45b5-871b-ee015f22bc89",
+                    "id": "edc37ed3-4424-4c5b-bd9d-fb4960cab53d",
                     "savedPayload": {
                         "position": {
-                            "x": 24772.95305944238,
-                            "y": 38304.79944474041
+                            "x": 42076.33185958799,
+                            "y": 41097.718013878286
                         },
                         "targetPosition": {
-                            "x": 24960,
-                            "y": 38070.25
+                            "x": 42282.900828990976,
+                            "y": 40880.16512173527
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -209,38 +158,25 @@
                         },
                         "uiObject": {
                             "isRunning": false
-                        },
-                        "referenceParent": {
-                            "type": "Assets",
-                            "name": "Superalgos-Launch-Scripts",
-                            "id": "1861d67e-8345-4ddc-beb3-2e6fa4b3dcc5"
-                        },
-                        "referenceParentCombinedNodePath": [
-                            [
-                                "Superalgos-Launch-Scripts",
-                                "Assets",
-                                "Governance",
-                                "1861d67e-8345-4ddc-beb3-2e6fa4b3dcc5"
-                            ]
-                        ]
+                        }
                     }
                 },
                 {
-                    "type": "Asset Class",
-                    "name": "Superalgos-Root",
-                    "config": "{\n\"folderPath\": \"\"\n}",
+                    "type": "Asset",
+                    "name": "LICENSE",
+                    "config": "{\"codeName\":\"LICENSE\"}",
                     "project": "Governance",
                     "assetClasses": [],
                     "assets": [],
-                    "id": "336380f9-5e0e-41bb-afe1-3c6c1b6a8f5b",
+                    "id": "10a2315a-80a2-451b-b959-56f22e5bfb5e",
                     "savedPayload": {
                         "position": {
-                            "x": 24689.709339629273,
-                            "y": 38200.41512173527
+                            "x": 42030.27056351413,
+                            "y": 41041.96113208503
                         },
                         "targetPosition": {
-                            "x": 24960,
-                            "y": 38070.25
+                            "x": 42282.900828990976,
+                            "y": 40880.16512173527
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -252,39 +188,205 @@
                         },
                         "uiObject": {
                             "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset",
+                    "name": "README.md",
+                    "config": "{\"codeName\":\"README.md\"}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [],
+                    "id": "a5ee087a-9889-41fc-b0c5-13a0e40cb7e8",
+                    "savedPayload": {
+                        "position": {
+                            "x": 41998.891220196136,
+                            "y": 40976.80125427482
                         },
-                        "referenceParent": {
-                            "type": "Assets",
-                            "name": "Superalgos-Root",
-                            "id": "b5e57605-639d-467b-85ab-c1540d744b33"
+                        "targetPosition": {
+                            "x": 42282.900828990976,
+                            "y": 40880.16512173527
                         },
-                        "referenceParentCombinedNodePath": [
-                            [
-                                "Superalgos-Root",
-                                "Assets",
-                                "Governance",
-                                "b5e57605-639d-467b-85ab-c1540d744b33"
-                            ]
-                        ]
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset",
+                    "name": "run.js",
+                    "config": "{\"codeName\":\"run.js\"}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [],
+                    "id": "2ec5a110-3ecc-45ad-b410-9333ebc1840e",
+                    "savedPayload": {
+                        "position": {
+                            "x": 41984.01748300837,
+                            "y": 40906.02523569945
+                        },
+                        "targetPosition": {
+                            "x": 42282.900828990976,
+                            "y": 40880.16512173527
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset",
+                    "name": "setup.js",
+                    "config": "{\"codeName\":\"setup.js\"}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [],
+                    "id": "9c99e3f4-4e00-403b-9ead-8bdee7aa6566",
+                    "savedPayload": {
+                        "position": {
+                            "x": 41986.51375949235,
+                            "y": 40833.74632129819
+                        },
+                        "targetPosition": {
+                            "x": 42282.900828990976,
+                            "y": 40880.16512173527
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset",
+                    "name": "uninstall.js",
+                    "config": "{\"codeName\":\"uninstall.js\"}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [],
+                    "id": "bce89a4d-9098-4b36-aafc-33b7ff58e030",
+                    "savedPayload": {
+                        "position": {
+                            "x": 42006.23497513244,
+                            "y": 40764.16509885284
+                        },
+                        "targetPosition": {
+                            "x": 42282.900828990976,
+                            "y": 40880.16512173527
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset",
+                    "name": "Dockerfile",
+                    "config": "{\"codeName\":\"Dockerfile\"}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [],
+                    "id": "c106ff98-190a-4209-b325-074f8f16d9dc",
+                    "savedPayload": {
+                        "position": {
+                            "x": 42042.035004559315,
+                            "y": 40701.3253760945
+                        },
+                        "targetPosition": {
+                            "x": 42282.900828990976,
+                            "y": 40880.16512173527
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Asset",
+                    "name": "docker-compose.yml",
+                    "config": "{\"codeName\":\"docker-compose.yml\"}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [],
+                    "id": "8b11af37-04c0-4932-93a4-538c96e90393",
+                    "savedPayload": {
+                        "position": {
+                            "x": 42091.83328019051,
+                            "y": 40648.87916929678
+                        },
+                        "targetPosition": {
+                            "x": 42282.900828990976,
+                            "y": 40880.16512173527
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 }
             ],
-            "assets": [],
-            "id": "d6e22645-35ee-443e-9349-01d2e8362d79",
+            "id": "1e82e5c7-9420-4205-a2c4-aab3f0f96565",
             "savedPayload": {
                 "position": {
-                    "x": 24960,
-                    "y": 38070.25
+                    "x": 42282.900828990976,
+                    "y": 40880.16512173527
                 },
                 "targetPosition": {
-                    "x": 24960,
-                    "y": 37770.25
+                    "x": 42553.1914893617,
+                    "y": 40750
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
                     "isCollapsed": false,
-                    "angleToParent": 2,
+                    "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
@@ -298,12 +400,12 @@
     "id": "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc",
     "savedPayload": {
         "position": {
-            "x": 24960,
-            "y": 37770.25
+            "x": 38297.87234042553,
+            "y": 43750
         },
         "targetPosition": {
-            "x": 24960,
-            "y": 37770.25
+            "x": 38297.87234042553,
+            "y": 43750
         },
         "floatingObject": {
             "isPinned": false,

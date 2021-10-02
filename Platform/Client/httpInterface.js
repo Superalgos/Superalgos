@@ -24,13 +24,13 @@ exports.newHttpInterface = function newHttpInterface() {
         /*
         We will create an HTTP Server and leave it running forever.
         */
-       SA.nodeModules.http.createServer(onHttpRequest).listen(global.env.CLIENT_HTTP_INTERFACE_PORT)
-       /* Starting the browser now is optional */
-       if (process.argv.includes("noBrowser")) {
-           //Running Client only with no UI.
-       } else {
-           SA.nodeModules.open('http://localhost:' + global.env.CLIENT_HTTP_INTERFACE_PORT)
-       }
+        SA.nodeModules.http.createServer(onHttpRequest).listen(global.env.CLIENT_HTTP_INTERFACE_PORT)
+        /* Starting the browser now is optional */
+        if (process.argv.includes("noBrowser")) {
+            //Running Client only with no UI.
+        } else {
+            SA.nodeModules.open('http://localhost:' + global.env.CLIENT_HTTP_INTERFACE_PORT)
+        }
     }
 
     function onHttpRequest(httpRequest, httpResponse) {
@@ -43,16 +43,17 @@ exports.newHttpInterface = function newHttpInterface() {
 
                 case 'WEB3':
                     {
-                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                         async function processRequest(body) {
                             try {
+                                if (body === undefined) { return }
                                 let params = JSON.parse(body)
 
                                 switch (params.method) {
                                     case 'getNetworkClientStatus': {
 
-                                        let serverResponse = await CL.servers.WEB3_SERVER.getNetworkClientStatus(
+                                        let serverResponse = await PL.servers.WEB3_SERVER.getNetworkClientStatus(
                                             params.host,
                                             params.port,
                                             params.interface
@@ -63,7 +64,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     case 'createWalletAccount': {
 
-                                        let serverResponse = await CL.servers.WEB3_SERVER.createWalletAccount(
+                                        let serverResponse = await PL.servers.WEB3_SERVER.createWalletAccount(
                                             params.entropy
                                         )
 
@@ -72,7 +73,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     case 'getWalletBalances': {
 
-                                        let serverResponse = await CL.servers.WEB3_SERVER.getWalletBalances(
+                                        let serverResponse = await PL.servers.WEB3_SERVER.getWalletBalances(
                                             params.host,
                                             params.port,
                                             params.interface,
@@ -84,8 +85,17 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     case 'signData': {
 
-                                        let serverResponse = await CL.servers.WEB3_SERVER.signData(
+                                        let serverResponse = await PL.servers.WEB3_SERVER.signData(
                                             params.privateKey,
+                                            params.data
+                                        )
+
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                        return
+                                    }
+                                    case 'hashData': {
+
+                                        let serverResponse = await PL.servers.WEB3_SERVER.hashData(
                                             params.data
                                         )
 
@@ -94,7 +104,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     case 'recoverAddress': {
 
-                                        let serverResponse = await CL.servers.WEB3_SERVER.recoverAddress(
+                                        let serverResponse = await PL.servers.WEB3_SERVER.recoverAddress(
                                             params.signature
                                         )
 
@@ -103,7 +113,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     case 'mnemonicToPrivateKey': {
 
-                                        let serverResponse = await CL.servers.WEB3_SERVER.mnemonicToPrivateKey(
+                                        let serverResponse = await PL.servers.WEB3_SERVER.mnemonicToPrivateKey(
                                             params.mnemonic
                                         )
 
@@ -131,10 +141,11 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'CCXT':
                     {
-                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                         async function processRequest(body) {
                             try {
+                                if (body === undefined) { return }
                                 let params = JSON.parse(body)
 
                                 switch (params.method) {
@@ -242,9 +253,11 @@ exports.newHttpInterface = function newHttpInterface() {
                                 break
                             }
                             case 'New-Message': {
-                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                                 function processRequest(messageReceived) {
+                                    if (messageReceived === undefined) { return }
+
                                     let timestamp = (new Date()).valueOf()
                                     let source = requestPath[3]
                                     let exchange = requestPath[4]
@@ -291,10 +304,12 @@ exports.newHttpInterface = function newHttpInterface() {
                     {
                         switch (requestPath[2]) { // switch by command
                             case 'Save-Node-Schema': {
-                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                                 async function processRequest(body) {
                                     try {
+                                        if (body === undefined) { return }
+
                                         let docsSchema = JSON.parse(body)
                                         let project = requestPath[3]
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Nodes'
@@ -322,10 +337,12 @@ exports.newHttpInterface = function newHttpInterface() {
                             }
 
                             case 'Save-Concept-Schema': {
-                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                                 async function processRequest(body) {
                                     try {
+                                        if (body === undefined) { return }
+
                                         let docsSchema = JSON.parse(body)
                                         let project = requestPath[3]
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Concepts'
@@ -353,10 +370,12 @@ exports.newHttpInterface = function newHttpInterface() {
                             }
 
                             case 'Save-Topic-Schema': {
-                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                                 async function processRequest(body) {
                                     try {
+                                        if (body === undefined) { return }
+
                                         let docsSchema = JSON.parse(body)
                                         let project = requestPath[3]
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Topics'
@@ -384,10 +403,12 @@ exports.newHttpInterface = function newHttpInterface() {
                             }
 
                             case 'Save-Tutorial-Schema': {
-                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                                 async function processRequest(body) {
                                     try {
+                                        if (body === undefined) { return }
+
                                         let docsSchema = JSON.parse(body)
                                         let project = requestPath[3]
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Tutorials'
@@ -415,10 +436,12 @@ exports.newHttpInterface = function newHttpInterface() {
                             }
 
                             case 'Save-Review-Schema': {
-                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                                 async function processRequest(body) {
                                     try {
+                                        if (body === undefined) { return }
+
                                         let docsSchema = JSON.parse(body)
                                         let project = requestPath[3]
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Reviews'
@@ -446,10 +469,12 @@ exports.newHttpInterface = function newHttpInterface() {
                             }
 
                             case 'Save-Book-Schema': {
-                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                                SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                                 async function processRequest(body) {
                                     try {
+                                        if (body === undefined) { return }
+
                                         let docsSchema = JSON.parse(body)
                                         let project = requestPath[3]
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Books'
@@ -625,8 +650,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                     contribute()
 
                                     async function contribute() {
-                                        const { lookpath } = require('lookpath');
-                                        const gitpath = await lookpath('git');
+                                        const { lookpath } = SA.nodeModules.lookpath
+                                        const gitpath = await lookpath('git')
                                         if (gitpath === undefined) {
                                             console.log('[ERROR] `git` not installed.')
                                         } else {
@@ -665,7 +690,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
 
                                     async function doGit() {
-                                        const simpleGit = require('simple-git');
+                                        const simpleGit = SA.nodeModules.simpleGit
                                         const options = {
                                             baseDir: process.cwd(),
                                             binary: 'git',
@@ -696,7 +721,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     async function doGithub() {
 
-                                        const { Octokit } = require("@octokit/rest")
+                                        const { Octokit } = SA.nodeModules.octokit
 
                                         const octokit = new Octokit({
                                             auth: token,
@@ -760,7 +785,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     update()
 
                                     async function update() {
-                                        const { lookpath } = require('lookpath');
+                                        const { lookpath } = SA.nodeModules.lookpath
                                         const gitpath = await lookpath('git');
                                         if (gitpath === undefined) {
                                             console.log('[ERROR] `git` not installed.')
@@ -790,7 +815,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
 
                                     async function doGit() {
-                                        const simpleGit = require('simple-git');
+                                        const simpleGit = SA.nodeModules.simpleGit
                                         const options = {
                                             baseDir: process.cwd(),
                                             binary: 'git',
@@ -831,7 +856,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     checkout()
 
                                     async function checkout() {
-                                        const { lookpath } = require('lookpath');
+                                        const { lookpath } = SA.nodeModules.lookpath
                                         const gitpath = await lookpath('git');
                                         if (gitpath === undefined) {
                                             console.log('[ERROR] `git` not installed.')
@@ -855,7 +880,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
 
                                     async function doGit() {
-                                        const simpleGit = require('simple-git');
+                                        const simpleGit = SA.nodeModules.simpleGit
                                         const options = {
                                             baseDir: process.cwd(),
                                             binary: 'git',
@@ -890,7 +915,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     branch()
 
                                     async function branch() {
-                                        const { lookpath } = require('lookpath');
+                                        const { lookpath } = SA.nodeModules.lookpath
                                         const gitpath = await lookpath('git');
                                         if (gitpath === undefined) {
                                             console.log('[ERROR] `git` not installed.')
@@ -918,7 +943,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
 
                                     async function doGit() {
-                                        const simpleGit = require('simple-git');
+                                        const simpleGit = SA.nodeModules.simpleGit
                                         const options = {
                                             baseDir: process.cwd(),
                                             binary: 'git',
@@ -991,16 +1016,18 @@ exports.newHttpInterface = function newHttpInterface() {
                         related to the Governance System are implemented here and routed
                         to the backend Servers that can process them. 
                         */
-                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                         async function processRequest(body) {
                             try {
+                                if (body === undefined) { return }
+
                                 let params = JSON.parse(body)
 
                                 switch (params.method) {
                                     case 'getGithubStars': {
 
-                                        let serverResponse = await CL.servers.GITHUB_SERVER.getGithubStars(
+                                        let serverResponse = await PL.servers.GITHUB_SERVER.getGithubStars(
                                             params.repository,
                                             params.username,
                                             params.token
@@ -1011,7 +1038,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     case 'getGithubWatchers': {
 
-                                        let serverResponse = await CL.servers.GITHUB_SERVER.getGithubWatchers(
+                                        let serverResponse = await PL.servers.GITHUB_SERVER.getGithubWatchers(
                                             params.repository,
                                             params.username,
                                             params.token
@@ -1022,7 +1049,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     case 'getGithubForks': {
 
-                                        let serverResponse = await CL.servers.GITHUB_SERVER.getGithubForks(
+                                        let serverResponse = await PL.servers.GITHUB_SERVER.getGithubForks(
                                             params.repository,
                                             params.username,
                                             params.token
@@ -1033,18 +1060,27 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     case 'mergePullRequests': {
 
-                                        let serverResponse = await CL.servers.GITHUB_SERVER.mergePullRequests(
+                                        let serverResponse = await PL.servers.GITHUB_SERVER.mergePullRequests(
                                             params.commitMessage,
                                             params.username,
                                             params.token
                                         )
 
                                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                        
+                                        setInterval(
+                                            PL.servers.GITHUB_SERVER.mergePullRequests,
+                                            60000,
+                                            params.commitMessage,
+                                            params.username,
+                                            params.token
+                                        )
+                                        
                                         return
                                     }
                                     case 'payContributors': {
 
-                                        let serverResponse = await CL.servers.WEB3_SERVER.payContributors(
+                                        let serverResponse = await PL.servers.WEB3_SERVER.payContributors(
                                             params.contractAddress,
                                             params.contractAbi,
                                             params.paymentsArray,
@@ -1068,7 +1104,11 @@ exports.newHttpInterface = function newHttpInterface() {
                                     message: err.message,
                                     stack: err.stack
                                 }
-                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                                try {
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                                } catch(err) {
+                                    // we just try to reponnd to the web app, but maybe the response has already been sent.
+                                }
                             }
                         }
                     }
@@ -1375,6 +1415,11 @@ exports.newHttpInterface = function newHttpInterface() {
                                 let folder = unescape(requestPath[3])
                                 let fileName = unescape(requestPath[4])
 
+                                /*Beta 12 Refactoring Code: Remove this before realeasing beta 12.*/
+                                if (fileName === 'Superalgos-CL.json') {
+                                    fileName = 'Superalgos-PL.json'
+                                }
+
                                 let response = await SA.projects.foundations.utilities.plugins.getPluginFileContent(
                                     project,
                                     folder,
@@ -1407,10 +1452,12 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'SavePlugin':
                     {
-                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                         async function processRequest(body) {
                             try {
+                                if (body === undefined) { return }
+
                                 let plugin = JSON.parse(body)
                                 let project = requestPath[2]
                                 let folder = requestPath[3]
@@ -1541,9 +1588,11 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'SaveWorkspace':
                     {
-                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, processRequest)
+                        SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                         async function processRequest(body) {
+
+                            if (body === undefined) { return }
 
                             let fileContent = body
                             let fileName = unescape(requestPath[2])
@@ -1693,11 +1742,16 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 default:
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithWebFile(httpResponse, endpointOrFile,  global.env.PATH_TO_CLIENT)
+                        SA.projects.foundations.utilities.httpResponses.respondWithWebFile(httpResponse, endpointOrFile, global.env.PATH_TO_CLIENT)
                     }
             }
         } catch (err) {
-            console.log(err.stack)
+            if (err.stack !== undefined) {
+                console.log(err.stack)
+            }
+            if (err.message !== undefined) {
+                console.log('[ERROR] onHttpRequest -> err.message = ' + err.message)
+            }
         }
     }
 }

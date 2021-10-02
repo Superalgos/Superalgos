@@ -14,12 +14,6 @@
             "actionFunction": "payload.executeAction"
         },
         {
-            "action": "Add UI Object",
-            "label": "Add Docs Space",
-            "relatedUiObject": "Docs Space",
-            "actionFunction": "payload.executeAction"
-        },
-        {
             "action": "Delete UI Object",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",

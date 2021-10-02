@@ -4,14 +4,16 @@
         "**/Documentation": true,
         "**/Log-Files": true,
         "**/node_modules": true,
-        "**/Deprecated-Code": true
+        "**/Deprecated-Code": true,
+        "**/My-Social-Trading-Data": true,
     },
     "search.exclude": {
         "**/Data-Storage": true,
         "**/Documentation": true,
         "**/Log-Files": true,
         "**/node_modules": true,
-        "**/Deprecated-Code": true
+        "**/Deprecated-Code": true,
+        "**/My-Social-Trading-Data": true
     },
     "search.maintainFileSearchCache": true
 }

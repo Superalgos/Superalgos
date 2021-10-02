@@ -1,0 +1,34 @@
+{
+    "type": "Docs Space Settings",
+    "level": 4,
+    "propertyNameAtParent": "docsSpaceSettings",
+    "attachingRules": {
+        "compatibleTypes": "Docs Space->"
+    },
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\"indexContent\": true \n }"
+    },
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true
+}

@@ -258,7 +258,7 @@ function newUiObjectConstructor() {
         )
         menuItemsInitialValues.push(
             {
-                action: 'Change Distance to Paarent',
+                action: 'Change Distance to Parent',
                 actionFunction: floatingObject.distanceToParentToggle,
                 actionStatus: floatingObject.getDistanceToParent,
                 currentStatus: true,
@@ -365,6 +365,38 @@ function newUiObjectConstructor() {
                 }
             )
         }
+        menuItemsInitialValues.push(
+            {
+                action: 'Save node to be moved',
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Foundations',
+                label: undefined,
+                visible: true,
+                //placeholder icon : https://www.iconpacks.net/free-icon/pin-48.html
+                iconPathOn: 'copy-position',
+                iconPathOff: 'copy-position',
+                rawRadius: 12,
+                targetRadius: 0,
+                currentRadius: 0,
+                ring: 2
+            }
+        )
+        menuItemsInitialValues.push(
+            {
+                action: 'Snap saved node to position',
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Foundations',
+                label: undefined,
+                visible: true,
+                //placeholder icon: https://www.iconpacks.net/free-icon/pins-53.html
+                iconPathOn: 'snap-position',
+                iconPathOff: 'snap-position',
+                rawRadius: 12,
+                targetRadius: 0,
+                currentRadius: 0,
+                ring: 2
+            }
+        )
         menuItemsInitialValues.push(
             {
                 action: 'Parent Detach',

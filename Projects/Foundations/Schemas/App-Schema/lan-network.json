@@ -1,0 +1,30 @@
+{
+    "type": "LAN Network",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add LAN Network Node",
+            "relatedUiObject": "LAN Network Node",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "lanNetworkNodes",
+            "type": "array",
+            "childType": "LAN Network Node"
+        }
+    ]
+}

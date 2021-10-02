@@ -104,13 +104,13 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
     }
 
     function addMissingTradingSessionReferences(node, rootNodes) {
-        let networkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(node, 'Network Node', undefined, true, false, true, false)
-        if (networkNode === undefined) { return }
+        let lanNetworkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(node, 'LAN Network Node', undefined, true, false, true, false)
+        if (lanNetworkNode === undefined) { return }
 
-        let backtestingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Backtesting Session')
-        let fordwardTestingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Forward Testing Session')
-        let paperTradingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Paper Trading Session')
-        let liveTradingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Live Trading Session')
+        let backtestingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Backtesting Session')
+        let fordwardTestingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Forward Testing Session')
+        let paperTradingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Paper Trading Session')
+        let liveTradingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Live Trading Session')
 
         addMissingSession(backtestingSessionsArray)
         addMissingSession(fordwardTestingSessionsArray)
@@ -123,7 +123,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
                 /* We will filter out all the sessions that does not belong to the market we are in */
                 let marketTradingTasks = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                 if (node.payload.referenceParent.id !== marketTradingTasks.payload.referenceParent.id) { continue }
-                if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, session, true) === true) {
+                if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, session, true) === true) {
                     createSessionReference(node, session, 'Trading Session Reference')
                 }
             }
@@ -131,11 +131,11 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
     }
 
     function addMissingLearningSessionReferences(node, rootNodes) {
-        let networkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(node, 'Network Node', undefined, true, false, true, false)
-        if (networkNode === undefined) { return }
+        let lanNetworkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(node, 'LAN Network Node', undefined, true, false, true, false)
+        if (lanNetworkNode === undefined) { return }
 
-        let backLearningSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Back Learning Session')
-        let liveLearningSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(networkNode, 'Live Learning Session')
+        let backLearningSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Back Learning Session')
+        let liveLearningSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Live Learning Session')
 
         addMissingSession(backLearningSessionsArray)
         addMissingSession(liveLearningSessionsArray)
@@ -146,7 +146,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
                 /* We will filter out all the sessions that does not belong to the market we are in */
                 let marketLearningTasks = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(session, 'Market Learning Tasks', undefined, true, false, true, false)
                 if (node.payload.referenceParent.id !== marketLearningTasks.payload.referenceParent.id) { continue }
-                if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, session, true) === true) {
+                if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, session, true) === true) {
                     createSessionReference(node, session, 'Learning Session Reference')
                 }
             }
@@ -177,7 +177,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
 
         for (let i = 0; i < marketsArray.length; i++) {
             let market = marketsArray[i]
-            if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, market, true) === true) {
+            if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, market, true) === true) {
                 let marketDataProducts = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
                 UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(marketDataProducts, market)
             }
@@ -205,7 +205,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
                     let cryptoExchanges = cryptoEcosystem.cryptoExchanges[j]
                     for (let k = 0; k < cryptoExchanges.exchanges.length; k++) {
                         let cryptoExchange = cryptoExchanges.exchanges[k]
-                        if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, cryptoExchange, true) === true) {
+                        if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, cryptoExchange, true) === true) {
                             let exchange = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
                             UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(exchange, cryptoExchange)
                         }
@@ -238,7 +238,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
                 if (rootNode.type === project + ' Project') {
                     let projectDefinition = rootNode.projectDefinition
                     if (projectDefinition !== undefined) {
-                        if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, projectDefinition, true) === true) {
+                        if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, projectDefinition, true) === true) {
                             let projectTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType, undefined, project)
                             UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
                         }

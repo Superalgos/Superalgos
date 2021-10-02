@@ -16,18 +16,20 @@ function newGovernanceUserProfileSpace() {
 
     let waitingForResponses = 0
     const BSC_SCAN_RATE_LIMIT_DELAY = 6000
-    const DISTRIBUTION_PROCESS_RECALCULATION_DELAY = 5000
-    let intervalId
     let reputationByAddress = new Map()
 
     return thisObject
 
     function initialize() {
         /*
+        If the workspace is not related to governance, then we exit the Intialize Function
+        */
+        let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
+        if (governanceProject === undefined) { return }
+        /*
         Here we will run the distribution process, that in turn will run all the programs.
         */
-        intervalId = setInterval(UI.projects.governance.functionLibraries.distributionProcess.calculate, DISTRIBUTION_PROCESS_RECALCULATION_DELAY)
-
+        UI.projects.governance.functionLibraries.distributionProcess.initialize()
         /*
         Here we will get a list of all github usernames who have a star or fork and are watching the
         Superalgos Repository. This will later be used to know which user profiles are participating
@@ -40,65 +42,75 @@ function newGovernanceUserProfileSpace() {
         thisObject.container = newContainer()
         thisObject.container.initialize(MODULE_NAME)
         thisObject.container.isDraggeable = false
+
         /*
-        If the workspace is not related to governance, then we exit the Intialize Function
+        We are going to collapse all User rootNodes to save processing resources at the UI
         */
-        let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
-        if (userProfiles.length === 0) { return }
-        /*
-        We are going to collapse all User Profiles to save processing resources at the UI
-        */
-        for (let i = 0; i < userProfiles.length; i++) {
-            let userProfile = userProfiles[i]
-            if (userProfile.payload.floatingObject.isCollapsed !== true) {
-                userProfile.payload.floatingObject.collapseToggle()
+        let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+
+        for (let i = 0; i < rootNodes.length; i++) {
+            let rootNode = rootNodes[i]
+            if (rootNode.payload.floatingObject.isCollapsed !== true) {
+                rootNode.payload.floatingObject.collapseToggle()
             }
         }
-        /*
-        Here we will change the Y position of all profiles so that they are all at the same level.
-        */
+        let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+        let pools = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Pools')
+        let assets = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Assets')
+        let features = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Features')
+        let positions = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Positions')
+
         const SPACE_WIDTH = UI.projects.foundations.spaces.floatingSpace.container.frame.width
         const SPACE_HEIGHT = UI.projects.foundations.spaces.floatingSpace.container.frame.height
 
-        const X_STEP = SPACE_WIDTH / (userProfiles.length + 1)
-        const Y_STEP = 3000
+        arrangeNodes(userProfiles, SPACE_HEIGHT * 0.245, 4000, 4)
+        arrangeNodes(pools, SPACE_HEIGHT * 0.570, 0, 1)
+        arrangeNodes(features, SPACE_HEIGHT * 0.620, 0, 1)
+        arrangeNodes(positions, SPACE_HEIGHT * 0.670, 0, 1)
+        arrangeNodes(assets, SPACE_HEIGHT * 0.755, 3000, 4)
 
-        const Y_LEVEL = SPACE_HEIGHT * 0.425
-        let xOffset = X_STEP
-        let yOffset = 0
 
-        for (let i = 0; i < userProfiles.length; i++) {
-            userProfiles[i].payload.floatingObject.container.frame.position.x = xOffset
-            xOffset = xOffset + X_STEP
-        }
-        for (let i = 0; i < userProfiles.length; i++) {
-            switch (true) {
-                case (yOffset === 0): {
-                    yOffset = Y_STEP
-                    break
-                }
-                case (yOffset === Y_STEP): {
-                    yOffset = 1
-                    break
-                }
-                case (yOffset === 1): {
-                    yOffset = -Y_STEP
-                    break
-                }
-                case (yOffset === -Y_STEP): {
-                    yOffset = 0
-                    break
+        function arrangeNodes(nodes, yLevel, yStep, rows) {
+            /*
+            Here we will change the Y position of all profiles so that they are all at the same level.
+            */
+            const X_STEP = SPACE_WIDTH / (nodes.length + 1 + 1 * rows) * rows
+
+            let xOffset = X_STEP
+            let yOffset = 0
+
+            let xStepCount = 0
+            for (let i = 0; i < nodes.length; i++) {
+                nodes[i].payload.floatingObject.container.frame.position.x = xOffset
+                xStepCount++
+                if (xStepCount === rows) {
+                    xOffset = xOffset + X_STEP
+                    xStepCount = 0
                 }
             }
-            userProfiles[i].payload.floatingObject.container.frame.position.y = Y_LEVEL + yOffset
-        }
-
-        for (let i = 0; i < userProfiles.length; i++) {
-            let userProfile = userProfiles[i]
-            if (userProfile.payload.floatingObject.isCollapsed !== true) {
-                userProfile.payload.floatingObject.collapseToggle()
+            for (let i = 0; i < nodes.length; i++) {
+                switch (true) {
+                    case (yOffset === 0): {
+                        yOffset = yStep
+                        break
+                    }
+                    case (yOffset === yStep): {
+                        yOffset = yStep * 2
+                        break
+                    }
+                    case (yOffset === yStep * 2): {
+                        yOffset = yStep * 3
+                        break
+                    }
+                    case (yOffset === yStep * 3): {
+                        yOffset = 0
+                        break
+                    }
+                }
+                nodes[i].payload.floatingObject.container.frame.position.y = yLevel + yOffset
             }
         }
+
         /*
         Here we will setup the Reputation for each profile. 
         */
@@ -121,10 +133,11 @@ function newGovernanceUserProfileSpace() {
                     if (transfer.from !== UI.projects.governance.globals.saToken.SA_TOKEN_BSC_TREASURY_ACCOUNT_ADDRESS) { continue }
 
                     let currentReputation = Number(transfer.value) / UI.projects.governance.globals.saToken.SA_TOKEN_BSC_DECIMAL_FACTOR
-                    let previousReputation = reputationByAddress.get(transfer.to)
+                    let previousReputation = reputationByAddress.get(transfer.to.toLowerCase())
                     let newReputation = previousReputation | 0 + currentReputation
-                    reputationByAddress.set(transfer.to, newReputation)
+                    reputationByAddress.set(transfer.to.toLowerCase(), newReputation)
                 }
+                //console.log('[INFO] tokenTransfers = ' + JSON.stringify(tokenTransfers))
                 if (tokenTransfers.length > 9000) {
                     console.log('[WARN] The total amount of BSC SA Token transfers is above 9000. After 10k this method will need pagination or otherwise users will not get their reputation calculated correctly.')
                 } else {
@@ -299,15 +312,17 @@ function newGovernanceUserProfileSpace() {
     }
 
     function finalize() {
-        clearInterval(intervalId)
-        intervalId = undefined
+
+        UI.projects.governance.functionLibraries.distributionProcess.finalize()
 
         thisObject.githubStars = undefined
         thisObject.githubWatchers = undefined
         thisObject.githubForks = undefined
 
-        thisObject.container.finalize()
-        thisObject.container = undefined
+        if (thisObject.container !== undefined) {
+            thisObject.container.finalize()
+            thisObject.container = undefined
+        }
     }
 
     function reset() {
@@ -328,7 +343,13 @@ function newGovernanceUserProfileSpace() {
     }
 
     function physics() {
+
         if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
+        /*
+        If the workspace is not related to governance, then we exit the Intialize Function
+        */
+        let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
+        if (governanceProject === undefined) { return }
         /*
         Load the user profiles with Token Power.
         */
@@ -368,7 +389,7 @@ function newGovernanceUserProfileSpace() {
                     userProfile.payload.uiObject.setErrorMessage(
                         'Call via HTTP Interface failed.',
                         UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                        )
+                    )
                     return
                 }
 
@@ -379,7 +400,7 @@ function newGovernanceUserProfileSpace() {
                     userProfile.payload.uiObject.setErrorMessage(
                         'Call to WEB3 Server failed. ' + response.error,
                         UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                        )
+                    )
                     console.log('Call to WEB3 Server failed. ' + response.error)
                     return
                 }
@@ -399,21 +420,22 @@ function newGovernanceUserProfileSpace() {
         }
 
         function getBlockchainTokens(userProfile, blockchainAccount) {
-            console.log('blockchainAccount ', blockchainAccount)
+            console.log('[INFO] Loading Blockachain Balance for User Profile: ', userProfile.name, 'blockchainAccount: ', blockchainAccount)
             const url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=" + UI.projects.governance.globals.saToken.SA_TOKEN_BSC_CONTRACT_ADDRESS + "&address=" + blockchainAccount + "&tag=latest&apikey=YourApiKeyToken"
 
             fetch(url).then(function (response) {
                 return response.json();
             }).then(function (data) {
-                console.log(data)
+                //console.log(data)
                 if (data.result === "Max rate limit reached, please use API Key for higher rate limit") {
                     userProfile.payload.blockchainTokens = undefined // This enables this profile to query the blockchain again.
                 } else {
-                    userProfile.payload.uiObject.setInfoMessage(data,
+                    userProfile.payload.uiObject.setInfoMessage('Blockchan Balance Succesfully Loaded.',
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
-                        )
+                    )
                     userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000
                     userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens)
+                    console.log('Reputation of ' + userProfile.name + ' is ' , userProfile.payload.reputation)
                 }
                 waitingForResponses--
             }).catch(function (err) {
@@ -422,7 +444,7 @@ function newGovernanceUserProfileSpace() {
                 if (userProfile.payload !== undefined) {
                     userProfile.payload.uiObject.setErrorMessage(message,
                         UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                        )
+                    )
                 }
                 waitingForResponses--
             });

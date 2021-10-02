@@ -62,7 +62,7 @@
         },
         {
             "style": "Javascript",
-            "text": "dataStorage = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(networkNode, 'Data Storage')",
+            "text": "dataStorage = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')",
             "updated": 1614943544233
         },
         {

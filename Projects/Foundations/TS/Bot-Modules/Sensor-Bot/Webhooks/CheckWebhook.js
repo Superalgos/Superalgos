@@ -88,7 +88,7 @@ exports.newFoundationsBotModulesCheckWebhook = function (processIndex) {
 
             function saveMessages() {
                 try {
-                    let http = require('http');
+                    let http = SA.nodeModules.http
                     let url = 'http://' + global.env.WEB_SERVER_URL +
                         ':' + global.env.CLIENT_HTTP_INTERFACE_PORT +
                         '/Webhook/Fetch-Messages/' +

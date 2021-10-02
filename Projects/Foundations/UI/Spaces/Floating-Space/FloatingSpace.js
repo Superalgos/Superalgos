@@ -16,6 +16,7 @@ function newFoundationsFloatingSpace() {
         drawChainLines: true,
         style: undefined,
         settings: undefined,
+        floatingObjetSaved: undefined,
         toggleDrawChainLines: toggleDrawChainLines,
         toggleDrawReferenceLines: toggleDrawReferenceLines,
         toggleMapMode: toggleMapMode,
@@ -38,7 +39,10 @@ function newFoundationsFloatingSpace() {
         physics: physics,
         getContainer: getContainer,
         initialize: initialize,
-        finalize: finalize
+        finalize: finalize,
+        saveFloatingObjectToBeMoved: saveFloatingObjectToBeMoved,
+        moveSavedFloatingObjectToMouse: moveSavedFloatingObjectToMouse,
+        moveFloatingObject: moveFloatingObject
     }
 
     thisObject.container = newContainer()
@@ -106,7 +110,9 @@ function newFoundationsFloatingSpace() {
             toggleDrawRelationshipLines: "R",
             toggleDrawParentLines: "C",
             saveWorkspace: "S",
-            adjustAspectRatio: "A"
+            adjustAspectRatio: "A",
+            saveFloatingObjectToBeMoved: "Z",
+            moveSavedFloatingObjectToMouse: "X"
         }
     }
 
@@ -266,7 +272,7 @@ function newFoundationsFloatingSpace() {
             payload.node.type === 'Learning System' ||
             payload.node.type === 'Trading Engine' ||
             payload.node.type === 'Learning Engine' ||
-            payload.node.type === 'Network' ||
+            payload.node.type === 'LAN Network' ||
             payload.node.type === 'Crypto Ecosystem' ||
             payload.node.type === 'Charting Space' ||
             payload.node.type === 'Data Mine' ||
@@ -564,6 +570,13 @@ function newFoundationsFloatingSpace() {
             if (configSettings.shortcuts.adjustAspectRatio !== undefined) {
                 thisObject.settings.shortcuts.adjustAspectRatio = configSettings.shortcuts.adjustAspectRatio
             }
+            if (configSettings.shortcuts.saveFloatingObjectToBeMoved !== undefined) {
+                thisObject.settings.shortcuts.saveFloatingObjectToBeMoved = configSettings.shortcuts.saveFloatingObjectToBeMoved
+            }
+            if (configSettings.shortcuts.moveSavedFloatingObjectToMouse !== undefined) {
+                thisObject.settings.shortcuts.moveSavedFloatingObjectToMouse = configSettings.shortcuts.moveSavedFloatingObjectToMouse
+            }
+
         }
     }
 
@@ -607,4 +620,61 @@ function newFoundationsFloatingSpace() {
         browserCanvasContext.closePath()
         browserCanvasContext.fill()
     }
+
+    function saveFloatingObjectToBeMoved() {
+
+        thisObject.floatingObjetSaved = undefined
+
+        if(floatingObjetOnFocus.isOnFocus === true){
+            thisObject.floatingObjetSaved = floatingObjetOnFocus
+        }
+        if(thisObject.floatingObjetSaved === undefined){
+            UI.projects.foundations.spaces.cockpitSpace.setStatus('No node on focus', 100, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
+        }else{
+            UI.projects.foundations.spaces.cockpitSpace.setStatus('Type : [' + thisObject.floatingObjetSaved.payload.node.type + '] , Name : [' +  thisObject.floatingObjetSaved.payload.node.name + '] -> Node saved and ready to be moved', 100, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
+        }
+
+    }
+
+    function moveSavedFloatingObjectToMouse(mousePosition) {
+
+        mousePosition.y = mousePosition.y + CURRENT_TOP_MARGIN
+        let positionConv
+        positionConv = thisObject.container.frame.frameThisPoint(mousePosition)
+        positionConv.x = (2 * mousePosition.x) - positionConv.x
+        positionConv.y = (2 * mousePosition.y) - positionConv.y
+
+        moveFloatingObject(positionConv)
+
+    }
+
+    function moveFloatingObject(position){
+
+        if(thisObject.floatingObjetSaved === undefined){
+            UI.projects.foundations.spaces.cockpitSpace.setStatus('No node saved, unable to move.', 100, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
+        }else{
+
+            let newPosition = {
+                x: 0,
+                y: 0
+            }
+            let newVector = {
+                x: 0,
+                y: 0
+            }
+            newPosition.x = position.x
+            newPosition.y = position.y
+
+            newVector.x = newPosition.x - thisObject.floatingObjetSaved.payload.position.x
+            newVector.y = newPosition.y - thisObject.floatingObjetSaved.payload.position.y
+
+            thisObject.floatingObjetSaved.payload.position = {}
+            thisObject.floatingObjetSaved.payload.position.x = position.x
+            thisObject.floatingObjetSaved.payload.position.y = position.y
+
+            thisObject.floatingObjetSaved.container.displace(newVector)
+            UI.projects.foundations.spaces.cockpitSpace.setStatus('Type : [' + UI.projects.foundations.spaces.floatingSpace.floatingObjetSaved.payload.node.type + '] , Name : [' + UI.projects.foundations.spaces.floatingSpace.floatingObjetSaved.payload.node.name + '] -> Snapped to new position', 100, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
+        }
+    }
+
 }

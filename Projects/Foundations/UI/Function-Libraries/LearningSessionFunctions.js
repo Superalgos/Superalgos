@@ -13,13 +13,13 @@ function newFoundationsFunctionLibraryLearningSessionFunctions() {
             /* If something fails at validations we just quit. */
             return
         }
-        let networkNode = validationsResult.networkNode
-        if (networkNode === undefined) {
+        let lanNetworkNode = validationsResult.lanNetworkNode
+        if (lanNetworkNode === undefined) {
             /* Nodes that do not belong to a network can not get ready. */
             return
         }
 
-        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(networkNode.id)
+        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         /* First we setup everything so as to listen to the response from the Task Server */
         let eventSubscriptionIdOnStatus
@@ -47,14 +47,14 @@ function newFoundationsFunctionLibraryLearningSessionFunctions() {
             /* If something fails at validations we just quit. */
             return
         }
-        let networkNode = validationsResult.networkNode
-        if (networkNode === undefined) {
+        let lanNetworkNode = validationsResult.lanNetworkNode
+        if (lanNetworkNode === undefined) {
             /* This means that the validations failed. */
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             return
         }
 
-        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(networkNode.id)
+        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         node.payload.uiObject.run(eventsServerClient, callBackFunction)
 
@@ -131,7 +131,7 @@ function newFoundationsFunctionLibraryLearningSessionFunctions() {
             'Back Learning Session->Live Learning Session->' +
             'Learning Parameters->' +
             'Learning Algorithm->Time Range->Time Frame->Heartbeats->User Defined Parameters->' +
-            'Social Bots->Telegram Bot->Discord Bot->Slack Bot->'
+            'Social Bots->Telegram Bot->Discord Bot->Slack Bot->Twitter Bot ->'
 
         let session = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
 
@@ -174,14 +174,14 @@ function newFoundationsFunctionLibraryLearningSessionFunctions() {
             /* If something fails at validations we just quit. */
             return
         }
-        let networkNode = validationsResult.networkNode
-        if (networkNode === undefined) {
+        let lanNetworkNode = validationsResult.lanNetworkNode
+        if (lanNetworkNode === undefined) {
             /* This means that the validations failed. */
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             return
         }
 
-        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(networkNode.id)
+        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         let key = node.name + '-' + node.type + '-' + node.id
         eventsServerClient.raiseEvent(key, 'Stop Learning Session')
@@ -240,7 +240,7 @@ function newFoundationsFunctionLibraryLearningSessionFunctions() {
             return
         }
 
-        result.networkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(result.taskManager, 'Network Node', undefined, true, false, true, false)
+        result.lanNetworkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(result.taskManager, 'LAN Network Node', undefined, true, false, true, false)
 
         if (node.learningSystemReference === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs a child Learning System Reference.')

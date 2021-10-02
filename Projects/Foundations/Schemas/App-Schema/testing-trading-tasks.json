@@ -49,7 +49,7 @@
     "addLeftIcons": true,
     "level": 0,
     "attachingRules": {
-        "compatibleTypes": "->Network Node->"
+        "compatibleTypes": "->LAN Network Node->"
     },
     "propertyNameAtParent": "testingTradingTasks",
     "childrenNodesProperties": [

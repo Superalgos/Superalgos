@@ -1,0 +1,84 @@
+{
+    "type": "User Profile",
+    "name": "bayaderos",
+    "config": "{\n    \"signature\": {\n        \"message\": \"bayaderos\",\n        \"messageHash\": \"0x119be871a5ca45cd6b8a82c23f3f8db15a960836a8f6874b0e468bde386dc02a\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x7d44f758bf979eb333018a3aa2101fb06c07584da379bc5368ef9f1798a2e53f\",\n        \"s\": \"0x08f934aed28a9e4faf5274b8342e125f1164a584abc1e951ec2b9f139c37ab8c\",\n        \"signature\": \"0x7d44f758bf979eb333018a3aa2101fb06c07584da379bc5368ef9f1798a2e53f08f934aed28a9e4faf5274b8342e125f1164a584abc1e951ec2b9f139c37ab8c1b\"\n    }\n}",
+    "project": "Governance",
+    "tokenPowerSwitch": {
+        "type": "Token Power Switch",
+        "name": "New Token Power Switch",
+        "config": "{}",
+        "project": "Governance",
+        "tokenPowerSwitch": [],
+        "id": "e7b8c30b-64b6-43cf-95d5-9463d900ca6c",
+        "savedPayload": {
+            "position": {
+                "x": 14499,
+                "y": 11012.5
+            },
+            "targetPosition": {
+                "x": 14199,
+                "y": 11012.5
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "tokensMined": {
+        "type": "Tokens Mined",
+        "name": "New Tokens Mined",
+        "project": "Governance",
+        "id": "b314a9f7-01f0-40ec-bde2-2064dd826987",
+        "savedPayload": {
+            "position": {
+                "x": 13899,
+                "y": 11012.5
+            },
+            "targetPosition": {
+                "x": 14199,
+                "y": 11012.5
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "id": "4ed986a2-cf77-4145-8356-b10a75f1e124",
+    "savedPayload": {
+        "position": {
+            "x": 14199,
+            "y": 11012.5
+        },
+        "targetPosition": {
+            "x": 14199,
+            "y": 11012.5
+        },
+        "floatingObject": {
+            "isPinned": false,
+            "isFrozen": false,
+            "isCollapsed": false,
+            "angleToParent": 1,
+            "distanceToParent": 3,
+            "arrangementStyle": 0
+        },
+        "uiObject": {
+            "isRunning": false
+        }
+    }
+}

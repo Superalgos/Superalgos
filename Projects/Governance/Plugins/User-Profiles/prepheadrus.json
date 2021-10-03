@@ -2372,8 +2372,8 @@
                                 "id": "14e9baab-ed22-49a1-82c8-6db7396c5ead",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 14376.555870537759,
-                                        "y": 12754.265714851932
+                                        "x": 14372.307437025052,
+                                        "y": 12773.42916002494
                                     },
                                     "targetPosition": {
                                         "x": 14593.8891814528,
@@ -2416,8 +2416,8 @@
                                 "id": "80742283-b1fb-4566-90c3-c4365f9c23b4",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 14481.3891814528,
-                                        "y": 12617.6442841485
+                                        "x": 14449.261969273328,
+                                        "y": 12640.14000029823
                                     },
                                     "targetPosition": {
                                         "x": 14593.8891814528,
@@ -2460,8 +2460,8 @@
                                 "id": "246c8600-a0df-4f28-b7b7-104fdf9f0c76",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 14652.123466600866,
-                                        "y": 12595.16668908496
+                                        "x": 14593.8891814528,
+                                        "y": 12587.5
                                     },
                                     "targetPosition": {
                                         "x": 14593.8891814528,
@@ -2504,8 +2504,8 @@
                                 "id": "906192e8-d61f-4bf1-9758-464b4baa10b7",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 14788.7448973043,
-                                        "y": 12700
+                                        "x": 14738.516393632272,
+                                        "y": 12640.14000029823
                                     },
                                     "targetPosition": {
                                         "x": 14593.8891814528,
@@ -2548,8 +2548,8 @@
                                 "id": "c7bb32f8-2988-4806-92c4-5568392c05ef",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 14811.22249236784,
-                                        "y": 12870.734285148066
+                                        "x": 14815.470925880547,
+                                        "y": 12773.42916002494
                                     },
                                     "targetPosition": {
                                         "x": 14593.8891814528,
@@ -2592,8 +2592,8 @@
                                 "id": "dd937dd0-353d-494d-9881-f12c8b011ae3",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 14706.3891814528,
-                                        "y": 13007.3557158515
+                                        "x": 14788.7448973043,
+                                        "y": 12925
                                     },
                                     "targetPosition": {
                                         "x": 14593.8891814528,
@@ -2636,8 +2636,8 @@
                                 "id": "341f4c15-8b92-40e3-81f0-629152cc3d37",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 14535.654896304733,
-                                        "y": 13029.83331091504
+                                        "x": 14670.843713701075,
+                                        "y": 13023.93083967683
                                     },
                                     "targetPosition": {
                                         "x": 14593.8891814528,
@@ -2666,6 +2666,50 @@
                                         ]
                                     ]
                                 }
+                            },
+                            {
+                                "type": "Weight Votes Switch",
+                                "name": "New Weight Votes Switch",
+                                "config": "{}",
+                                "project": "Governance",
+                                "weightVotesSwitch": [],
+                                "poolWeightVotes": [],
+                                "assetWeightVotes": [],
+                                "featureWeightVotes": [],
+                                "positionWeightVotes": [],
+                                "id": "c13c3fb5-8dd6-4747-aebd-a3b9b983a2e3",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 14516.934649204524,
+                                        "y": 13023.93083967683
+                                    },
+                                    "targetPosition": {
+                                        "x": 14593.8891814528,
+                                        "y": 12812.5
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Positions",
+                                        "name": "Superalgos",
+                                        "id": "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ]
+                                    ]
+                                }
                             }
                         ],
                         "userProfileVotesSwitch": [],
@@ -2682,7 +2726,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 1,
                                 "distanceToParent": 2,
                                 "arrangementStyle": 0
@@ -2733,7 +2777,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 1,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -2819,7 +2863,59 @@
                         "config": "{}",
                         "project": "Governance",
                         "positionClaimsFolders": [],
-                        "positionContributionClaims": [],
+                        "positionContributionClaims": [
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Moderator Community Management",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "6256b271-1c14-4072-bfd1-6433eb28fc6d",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 12724.54089636386,
+                                        "y": 12830.924383059111
+                                    },
+                                    "targetPosition": {
+                                        "x": 13172.075749279584,
+                                        "y": 12877.962191529556
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Moderator",
+                                        "id": "6e141ab6-cc79-44b6-a58a-60b6480f706e"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Rewarded Positions",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Community Management",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Moderator",
+                                            "Position"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
                         "id": "3ccd160a-0463-49fc-a05b-47ac1abd9a69",
                         "savedPayload": {
                             "position": {

@@ -33,7 +33,8 @@
                 "updated": 1623946542352,
                 "style": "Definition"
             }
-        ]
+        ],
+        "updated": 1633159917192
     },
     "paragraphs": [
         {
@@ -64,7 +65,8 @@
                     "updated": 1623945805888,
                     "style": "Text"
                 }
-            ]
+            ],
+            "updated": 1633159949363
         },
         {
             "style": "Callout",
@@ -95,7 +97,7 @@
                     "style": "Callout"
                 }
             ],
-            "updated": 1616410377766
+            "updated": 1633159975051
         },
         {
             "style": "Success",
@@ -123,6 +125,12 @@
                     "language": "FR",
                     "text": "S'il vous plaît, cliquez toujours sur Suivant pour continuer !",
                     "updated": 1623950092303,
+                    "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Lütfen devam etmek için her zaman NEXT'e tıklayın!",
+                    "updated": 1633121186582,
                     "style": "Success"
                 }
             ]

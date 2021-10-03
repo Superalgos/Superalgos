@@ -188,10 +188,12 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                     node.payload.votingProgram.votes > 0 &&
                     node.payload.referenceParent !== undefined &&
                     node.payload.referenceParent.payload !== undefined &&
+                    node.payload.referenceParent.payload.votingProgram !== undefined &&
                     node.payload.referenceParent.payload.votingProgram.votes !== undefined &&
                     node.payload.referenceParent.payload.votingProgram.votes > 0 &&
                     node.payload.referenceParent.payload.weight !== undefined &&
                     node.payload.referenceParent.payload.weight > 0 &&
+                    node.payload.referenceParent.payload.claimsProgram !== undefined &&
                     node.payload.referenceParent.payload.claimsProgram.count !== undefined &&
                     node.payload.referenceParent.payload.claimsProgram.votes !== undefined
                 ) {
@@ -262,10 +264,12 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                     node.payload.votingProgram.votes > 0 &&
                     node.payload.referenceParent !== undefined &&
                     node.payload.referenceParent.payload !== undefined &&
+                    node.payload.referenceParent.payload.votingProgram !== undefined &&                    
                     node.payload.referenceParent.payload.votingProgram.votes !== undefined &&
                     node.payload.referenceParent.payload.votingProgram.votes > 0 &&
                     node.payload.referenceParent.payload.weight !== undefined &&
                     node.payload.referenceParent.payload.weight > 0 &&
+                    node.payload.referenceParent.payload.claimsProgram !== undefined &&
                     node.payload.referenceParent.payload.claimsProgram.count !== undefined &&
                     node.payload.referenceParent.payload.claimsProgram.votes !== undefined
                 ) {

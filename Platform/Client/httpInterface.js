@@ -1067,7 +1067,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         )
 
                                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
-                                        
+
                                         setInterval(
                                             PL.servers.GITHUB_SERVER.mergePullRequests,
                                             60000,
@@ -1075,19 +1075,24 @@ exports.newHttpInterface = function newHttpInterface() {
                                             params.username,
                                             params.token
                                         )
-                                        
+
                                         return
                                     }
                                     case 'payContributors': {
+                                        console.log('----------------------------------------------------------------------------------------------')
+                                        console.log('DISTRIBUTION PROCESS STARTED')
+                                        console.log('----------------------------------------------------------------------------------------------')
 
-                                        let serverResponse = await PL.servers.WEB3_SERVER.payContributors(
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+
+
+                                        await PL.servers.WEB3_SERVER.payContributors(
                                             params.contractAddress,
                                             params.contractAbi,
                                             params.paymentsArray,
                                             params.mnemonic
                                         )
 
-                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                         return
                                     }
                                     default: {
@@ -1106,7 +1111,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 }
                                 try {
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
-                                } catch(err) {
+                                } catch (err) {
                                     // we just try to reponnd to the web app, but maybe the response has already been sent.
                                 }
                             }

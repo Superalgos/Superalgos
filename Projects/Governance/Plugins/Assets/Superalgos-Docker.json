@@ -3,171 +3,17 @@
     "name": "Superalgos-Docker",
     "config": "{\"codeName\":\"Superalgos-Docker\"}",
     "project": "Governance",
-    "assetClasses": [
-        {
-            "type": "Asset Class",
-            "name": "Docker",
-            "config": "{\n    \"folderPath\": \"Root/Docker\"\n}",
-            "project": "Governance",
-            "assetClasses": [
-                {
-                    "type": "Asset Class",
-                    "name": "Superalgos",
-                    "config": "{\"codeName\":\"Superalgos\"}",
-                    "project": "Governance",
-                    "assetClasses": [
-                        {
-                            "type": "Asset Class",
-                            "name": "Docker",
-                            "config": "{\"codeName\":\"Docker\"}",
-                            "project": "Governance",
-                            "assetClasses": [],
-                            "assets": [
-                                {
-                                    "type": "Asset",
-                                    "name": "docker-compose.yml",
-                                    "config": "{\"codeName\":\"docker-compose.yml\"}",
-                                    "project": "Governance",
-                                    "assetClasses": [],
-                                    "assets": [],
-                                    "id": "8b11af37-04c0-4932-93a4-538c96e90393",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 18906.75,
-                                            "y": 47439.05762113533
-                                        },
-                                        "targetPosition": {
-                                            "x": 18756.75,
-                                            "y": 47179.25
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Asset",
-                                    "name": "Dockerfile",
-                                    "config": "{\"codeName\":\"Dockerfile\"}",
-                                    "project": "Governance",
-                                    "assetClasses": [],
-                                    "assets": [],
-                                    "id": "c106ff98-190a-4209-b325-074f8f16d9dc",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 18606.75,
-                                            "y": 47439.05762113533
-                                        },
-                                        "targetPosition": {
-                                            "x": 18756.75,
-                                            "y": 47179.25
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                }
-                            ],
-                            "id": "f279ee42-d52b-46a4-8070-3354efe82dbf",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 18756.75,
-                                    "y": 47179.25
-                                },
-                                "targetPosition": {
-                                    "x": 18756.75,
-                                    "y": 46879.25
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        }
-                    ],
-                    "assets": [],
-                    "id": "d1ec3e31-62ba-443c-b765-63cb7eaf2cc9",
-                    "savedPayload": {
-                        "position": {
-                            "x": 18756.75,
-                            "y": 46879.25
-                        },
-                        "targetPosition": {
-                            "x": 18756.75,
-                            "y": 46579.25
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": false,
-                            "angleToParent": 2,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                }
-            ],
-            "assets": [],
-            "id": "a56c295d-b3ea-4c29-917d-a05654851232",
-            "savedPayload": {
-                "position": {
-                    "x": 18756.75,
-                    "y": 46579.25
-                },
-                "targetPosition": {
-                    "x": 18756.75,
-                    "y": 46279.25
-                },
-                "floatingObject": {
-                    "isPinned": false,
-                    "isFrozen": false,
-                    "isCollapsed": false,
-                    "angleToParent": 2,
-                    "distanceToParent": 3,
-                    "arrangementStyle": 0
-                },
-                "uiObject": {
-                    "isRunning": false
-                }
-            }
-        }
-    ],
+    "assetClasses": [],
     "assets": [],
     "id": "f92d7a00-be08-4f44-b000-e0f8c4658f14",
     "savedPayload": {
         "position": {
-            "x": 18756.75,
-            "y": 46279.25
+            "x": 46808.51063829787,
+            "y": 43750
         },
         "targetPosition": {
-            "x": 18756.75,
-            "y": 46279.25
+            "x": 46808.51063829787,
+            "y": 43750
         },
         "floatingObject": {
             "isPinned": false,

@@ -32,6 +32,11 @@
                 "text": "Avant de vous montrer le reste du menu, jetons un coup d'œil à une autre hiérarchie : le réseau.",
                 "updated": 1623951418764,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Menünün geri kalanını göstermeden önce, başka bir hiyerarşiye bir göz atalım: \"Ağ.\"(Lan Network)",
+                "updated": 1633268337360
             }
         ]
     },
@@ -63,6 +68,11 @@
                     "text": "Le Network hiérarchie réseau est la salle de contrôle du système. C'est là que vous contrôlez vos Data Tasks, les Testing Trading Tasks, et les Production Trading Tasks.",
                     "updated": 1623952138963,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağ hiyerarşisi, sistemin kontrol odasıdır. Burası Veri Görevlerinizi (Data Task), Ticaret Görevlerini Test Etme (Testing Trading Tasks) ve Ticaret Görevlerinizi (Production Trading Tasks) kontrol ettiğiniz yerdir. ",
+                    "updated": 1633268272360
                 }
             ]
         },
@@ -93,6 +103,11 @@
                     "text": "Élargissez la hiérarchie et jetez un coup d'œil à l'intérieur !",
                     "updated": 1623952177269,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümü genişletin ve içeriye bir göz atın!",
+                    "updated": 1633268461684
                 }
             ]
         },
@@ -124,6 +139,11 @@
                     "text": "Voyez les nœuds que j'ai mentionnés plus tôt ? Cool ! Nous sommes ici pour commencer votre toute première opération de minage d'informations.",
                     "updated": 1623952241074,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha önce bahsettiğim düğümleri görüyor musunuz? Güzel! İlk veri madenciliği operasyonunuzu başlatmak için buradayız.",
+                    "updated": 1633268493855
                 }
             ]
         },
@@ -154,6 +174,11 @@
                     "text": "Mais avant de commencer, j'ai une petite question pour vous : accédez-vous au Client a distance?",
                     "updated": 1623952297046,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak başlamadan önce size kısa bir sorum var: İstemciye uzaktan erişiyor musunuz?",
+                    "updated": 1633268516400
                 }
             ]
         }

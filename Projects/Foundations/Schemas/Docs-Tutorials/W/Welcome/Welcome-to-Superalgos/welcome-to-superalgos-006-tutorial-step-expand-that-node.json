@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Expand That Node!",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "expand-structure-of-nodes"
         },
         "text": "Each node features a menu. The button on the bottom-left expands and collapses the structure of nodes below the current node.",
@@ -30,7 +30,13 @@
             {
                 "language": "FR",
                 "text": "Chaque nœud dispose d'un menu. Le bouton situé en bas à gauche permet de développer et de réduire la structure des nœuds situés sous le nœud actuel.",
-                "updated": 1623951244249
+                "updated": 1623951244249,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Her düğümde bir menü bulunur. Sol altta üzerinde \"+\" simgesinin bulunduğu buton, mevcut düğümü genişletir ya da daraltır. Böylece düğümün altındaki öğelere ulaşabilirsiniz.",
+                "updated": 1633267521331
             }
         ]
     },
@@ -60,7 +66,13 @@
                 {
                     "language": "FR",
                     "text": "Allez-y et cliquez sur le bouton d'expansion !",
-                    "updated": 1623951533708
+                    "updated": 1623951533708,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Devam edin ve genişlet düğmesine tıklayın!",
+                    "updated": 1633267545525
                 }
             ]
         },
@@ -89,7 +101,13 @@
                 {
                     "language": "FR",
                     "text": "Le noeud Tutorial contient plusieurs ramifications, et celles-ci possedent a leur tour plusieurs autres ramifications. C'est pourquoi il s'agit d'une hiérarchie !",
-                    "updated": 1623951690741
+                    "updated": 1623951690741,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğretici (Tutorial) düğümün birkaç çocuğu vardır ve bunların birkaç çocuğu daha vardır.",
+                    "updated": 1633267652469
                 }
             ]
         },
@@ -118,7 +136,13 @@
                 {
                     "language": "FR",
                     "text": "Les représentations visuelles structurées de l'information sont au cœur de la manière dont Superalgos gère la complexité qui sous-tend les opérations de trading flexibles et évolutives.",
-                    "updated": 1623951745486
+                    "updated": 1623951745486,
+                    "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bilginin yapılandırılmış görsel temsilleri, Superalgos'un esnek ve ölçeklenebilir ticaret operasyonlarının arkasındaki karmaşıklığı nasıl yönettiğinin merkezinde yer alır.",
+                    "updated": 1633267689476
                 }
             ]
         }

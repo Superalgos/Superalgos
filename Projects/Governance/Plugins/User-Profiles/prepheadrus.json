@@ -2307,7 +2307,7 @@
                     "floatingObject": {
                         "isPinned": true,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 1,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -2330,7 +2330,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 3,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -2357,139 +2357,27 @@
                         "config": "{}",
                         "project": "Governance",
                         "votesSwitch": [],
-                        "claimVotesSwitch": [
+                        "claimVotesSwitch": [],
+                        "weightVotesSwitch": [
                             {
-                                "type": "Claim Votes Switch",
-                                "name": "New Claim Votes Switch",
+                                "type": "Weight Votes Switch",
+                                "name": "New Weight Votes Switch",
                                 "config": "{}",
                                 "project": "Governance",
-                                "claimVotesSwitch": [],
-                                "positionClaimVotes": [
-                                    {
-                                        "type": "Position Claim Vote",
-                                        "name": "",
-                                        "config": "{}",
-                                        "project": "Governance",
-                                        "id": "1a2e0634-4d33-481d-8f0a-072b538f1877",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 8064.380140593316,
-                                                "y": 12173.891227138514
-                                            },
-                                            "targetPosition": {
-                                                "x": 8398.795312058144,
-                                                "y": 12475
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 1,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "type": "Position Claim Vote",
-                                        "name": "",
-                                        "config": "{}",
-                                        "project": "Governance",
-                                        "id": "4654ddc4-c745-4d52-9e7e-76a791f57feb",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 8581.826801442254,
-                                                "y": 12063.90454406083
-                                            },
-                                            "targetPosition": {
-                                                "x": 8398.795312058144,
-                                                "y": 12475
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 1,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            }
-                                        }
-                                    }
-                                ],
-                                "assetClaimVotes": [
-                                    {
-                                        "type": "Asset Claim Vote",
-                                        "name": "",
-                                        "config": "{}",
-                                        "project": "Governance",
-                                        "id": "67c4fdc2-936e-43a9-91cf-2a42a00513ad",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 8846.330164973868,
-                                                "y": 12522.037808470444
-                                            },
-                                            "targetPosition": {
-                                                "x": 8398.795312058144,
-                                                "y": 12475
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 1,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "type": "Asset Claim Vote",
-                                        "name": "",
-                                        "config": "{}",
-                                        "project": "Governance",
-                                        "id": "233af7bb-8a47-4a37-ba4f-0c8f7927795b",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 8492.355572926135,
-                                                "y": 12915.166420330213
-                                            },
-                                            "targetPosition": {
-                                                "x": 8398.795312058144,
-                                                "y": 12475
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 1,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            }
-                                        }
-                                    }
-                                ],
-                                "featureClaimVotes": [],
-                                "id": "6cd12a81-54d2-432e-89b4-bdd935efd456",
+                                "weightVotesSwitch": [],
+                                "poolWeightVotes": [],
+                                "assetWeightVotes": [],
+                                "featureWeightVotes": [],
+                                "positionWeightVotes": [],
+                                "id": "14e9baab-ed22-49a1-82c8-6db7396c5ead",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 8398.795312058144,
-                                        "y": 12475
+                                        "x": 14372.307437025052,
+                                        "y": 12773.42916002494
                                     },
                                     "targetPosition": {
-                                        "x": 8009.083880355147,
-                                        "y": 12700
+                                        "x": 14593.8891814528,
+                                        "y": 12812.5
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -2501,28 +2389,346 @@
                                     },
                                     "uiObject": {
                                         "isRunning": false
-                                    }
+                                    },
+                                    "referenceParent": {
+                                        "type": "Assets",
+                                        "name": "Superalgos-Marketing",
+                                        "id": "0a490128-61c8-49aa-96aa-769cc5513951"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos-Marketing",
+                                            "Assets"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Weight Votes Switch",
+                                "name": "New Weight Votes Switch",
+                                "config": "{}",
+                                "project": "Governance",
+                                "weightVotesSwitch": [],
+                                "poolWeightVotes": [],
+                                "assetWeightVotes": [],
+                                "featureWeightVotes": [],
+                                "positionWeightVotes": [],
+                                "id": "80742283-b1fb-4566-90c3-c4365f9c23b4",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 14449.261969273328,
+                                        "y": 12640.14000029823
+                                    },
+                                    "targetPosition": {
+                                        "x": 14593.8891814528,
+                                        "y": 12812.5
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Assets",
+                                        "name": "Superalgos-Root",
+                                        "id": "b5e57605-639d-467b-85ab-c1540d744b33"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos-Root",
+                                            "Assets"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Weight Votes Switch",
+                                "name": "New Weight Votes Switch",
+                                "config": "{}",
+                                "project": "Governance",
+                                "weightVotesSwitch": [],
+                                "poolWeightVotes": [],
+                                "assetWeightVotes": [],
+                                "featureWeightVotes": [],
+                                "positionWeightVotes": [],
+                                "id": "246c8600-a0df-4f28-b7b7-104fdf9f0c76",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 14593.8891814528,
+                                        "y": 12587.5
+                                    },
+                                    "targetPosition": {
+                                        "x": 14593.8891814528,
+                                        "y": 12812.5
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Assets",
+                                        "name": "Superalgos-Exchanges",
+                                        "id": "2cefeb95-9fde-418b-a35b-6178a97cac9d"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos-Exchanges",
+                                            "Assets"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Weight Votes Switch",
+                                "name": "New Weight Votes Switch",
+                                "config": "{}",
+                                "project": "Governance",
+                                "weightVotesSwitch": [],
+                                "poolWeightVotes": [],
+                                "assetWeightVotes": [],
+                                "featureWeightVotes": [],
+                                "positionWeightVotes": [],
+                                "id": "906192e8-d61f-4bf1-9758-464b4baa10b7",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 14738.516393632272,
+                                        "y": 12640.14000029823
+                                    },
+                                    "targetPosition": {
+                                        "x": 14593.8891814528,
+                                        "y": 12812.5
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Assets",
+                                        "name": "Superalgos",
+                                        "id": "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Assets"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Weight Votes Switch",
+                                "name": "New Weight Votes Switch",
+                                "config": "{}",
+                                "project": "Governance",
+                                "weightVotesSwitch": [],
+                                "poolWeightVotes": [],
+                                "assetWeightVotes": [],
+                                "featureWeightVotes": [],
+                                "positionWeightVotes": [],
+                                "id": "c7bb32f8-2988-4806-92c4-5568392c05ef",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 14815.470925880547,
+                                        "y": 12773.42916002494
+                                    },
+                                    "targetPosition": {
+                                        "x": 14593.8891814528,
+                                        "y": 12812.5
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Pools",
+                                        "name": "Superalgos",
+                                        "id": "6f0aed87-db13-4818-bfe6-68abc463ebec"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Pools"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Weight Votes Switch",
+                                "name": "New Weight Votes Switch",
+                                "config": "{}",
+                                "project": "Governance",
+                                "weightVotesSwitch": [],
+                                "poolWeightVotes": [],
+                                "assetWeightVotes": [],
+                                "featureWeightVotes": [],
+                                "positionWeightVotes": [],
+                                "id": "dd937dd0-353d-494d-9881-f12c8b011ae3",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 14788.7448973043,
+                                        "y": 12925
+                                    },
+                                    "targetPosition": {
+                                        "x": 14593.8891814528,
+                                        "y": 12812.5
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Features",
+                                        "name": "Superalgos",
+                                        "id": "7c27de79-0ac7-4d48-81f0-5d7b6a4d93c6"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Features"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Weight Votes Switch",
+                                "name": "New Weight Votes Switch",
+                                "config": "{}",
+                                "project": "Governance",
+                                "weightVotesSwitch": [],
+                                "poolWeightVotes": [],
+                                "assetWeightVotes": [],
+                                "featureWeightVotes": [],
+                                "positionWeightVotes": [],
+                                "id": "341f4c15-8b92-40e3-81f0-629152cc3d37",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 14670.843713701075,
+                                        "y": 13023.93083967683
+                                    },
+                                    "targetPosition": {
+                                        "x": 14593.8891814528,
+                                        "y": 12812.5
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Features",
+                                        "name": "Superalgos",
+                                        "id": "7c27de79-0ac7-4d48-81f0-5d7b6a4d93c6"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Features"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Weight Votes Switch",
+                                "name": "New Weight Votes Switch",
+                                "config": "{}",
+                                "project": "Governance",
+                                "weightVotesSwitch": [],
+                                "poolWeightVotes": [],
+                                "assetWeightVotes": [],
+                                "featureWeightVotes": [],
+                                "positionWeightVotes": [],
+                                "id": "c13c3fb5-8dd6-4747-aebd-a3b9b983a2e3",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 14516.934649204524,
+                                        "y": 13023.93083967683
+                                    },
+                                    "targetPosition": {
+                                        "x": 14593.8891814528,
+                                        "y": 12812.5
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Positions",
+                                        "name": "Superalgos",
+                                        "id": "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ]
+                                    ]
                                 }
                             }
                         ],
-                        "weightVotesSwitch": [],
                         "userProfileVotesSwitch": [],
                         "id": "7547a0a2-7d39-42de-ad34-654607699a08",
                         "savedPayload": {
                             "position": {
-                                "x": 8009.083880355147,
-                                "y": 12700
+                                "x": 14593.8891814528,
+                                "y": 12812.5
                             },
                             "targetPosition": {
-                                "x": 7619.37244865215,
+                                "x": 14399.033465601302,
                                 "y": 12925
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 1,
-                                "distanceToParent": 3,
+                                "distanceToParent": 2,
                                 "arrangementStyle": 0
                             },
                             "uiObject": {
@@ -2538,11 +2744,11 @@
                     "id": "a3638201-6e21-4597-b32b-a383e56b2061",
                     "savedPayload": {
                         "position": {
-                            "x": 7619.37244865215,
+                            "x": 14399.033465601302,
                             "y": 13375
                         },
                         "targetPosition": {
-                            "x": 7619.37244865215,
+                            "x": 14399.033465601302,
                             "y": 12925
                         },
                         "floatingObject": {
@@ -2561,17 +2767,17 @@
                 "id": "e1c97e30-7fca-46e3-bc12-f88bf6bdade2",
                 "savedPayload": {
                     "position": {
-                        "x": 7619.37244865215,
+                        "x": 14399.033465601302,
                         "y": 12925
                     },
                     "targetPosition": {
-                        "x": 7229.661016949152,
+                        "x": 14009.322033898305,
                         "y": 12700
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 1,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -2597,11 +2803,11 @@
                         "id": "194a15ba-445e-4380-98d7-d5ecc25bd008",
                         "savedPayload": {
                             "position": {
-                                "x": 7174.364756710983,
+                                "x": 13954.025773660134,
                                 "y": 13226.108772861486
                             },
                             "targetPosition": {
-                                "x": 6839.949585246155,
+                                "x": 13619.610602195307,
                                 "y": 12925
                             },
                             "floatingObject": {
@@ -2629,11 +2835,11 @@
                         "id": "b2d05aa7-cbea-4e07-8a56-77aaf761b3eb",
                         "savedPayload": {
                             "position": {
-                                "x": 6656.9180958620445,
+                                "x": 13436.579112811198,
                                 "y": 13336.09545593917
                             },
                             "targetPosition": {
-                                "x": 6839.949585246155,
+                                "x": 13619.610602195307,
                                 "y": 12925
                             },
                             "floatingObject": {
@@ -2657,15 +2863,67 @@
                         "config": "{}",
                         "project": "Governance",
                         "positionClaimsFolders": [],
-                        "positionContributionClaims": [],
+                        "positionContributionClaims": [
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Moderator Community Management",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "6256b271-1c14-4072-bfd1-6433eb28fc6d",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 12724.54089636386,
+                                        "y": 12830.924383059111
+                                    },
+                                    "targetPosition": {
+                                        "x": 13172.075749279584,
+                                        "y": 12877.962191529556
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Moderator",
+                                        "id": "6e141ab6-cc79-44b6-a58a-60b6480f706e"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Rewarded Positions",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Community Management",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Moderator",
+                                            "Position"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
                         "id": "3ccd160a-0463-49fc-a05b-47ac1abd9a69",
                         "savedPayload": {
                             "position": {
-                                "x": 6392.414732330432,
+                                "x": 13172.075749279584,
                                 "y": 12877.962191529556
                             },
                             "targetPosition": {
-                                "x": 6839.949585246155,
+                                "x": 13619.610602195307,
                                 "y": 12925
                             },
                             "floatingObject": {
@@ -2689,11 +2947,11 @@
                     "id": "78429ced-c906-4a40-9c84-f3021d1e9d7a",
                     "savedPayload": {
                         "position": {
-                            "x": 6746.389324378163,
+                            "x": 13526.050341327316,
                             "y": 12484.833579669787
                         },
                         "targetPosition": {
-                            "x": 6839.949585246155,
+                            "x": 13619.610602195307,
                             "y": 12925
                         },
                         "floatingObject": {
@@ -2712,11 +2970,11 @@
                 "id": "c4a134bd-cb94-4104-b48d-fd7f5601eb37",
                 "savedPayload": {
                     "position": {
-                        "x": 6839.949585246155,
+                        "x": 13619.610602195307,
                         "y": 12925
                     },
                     "targetPosition": {
-                        "x": 7229.661016949152,
+                        "x": 14009.322033898305,
                         "y": 12700
                     },
                     "floatingObject": {
@@ -2745,7 +3003,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

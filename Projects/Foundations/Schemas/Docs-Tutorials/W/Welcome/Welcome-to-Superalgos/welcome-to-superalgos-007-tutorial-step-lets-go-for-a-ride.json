@@ -71,8 +71,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Ağ hiyerarşisi, sistemin kontrol odasıdır. Burası Veri Görevlerinizi (Data Task), Ticaret Görevlerini Test Etme (Testing Trading Tasks) ve Ticaret Görevlerinizi (Production Trading Tasks) kontrol ettiğiniz yerdir. ",
-                    "updated": 1633268272360
+                    "text": "Ağ hiyerarşisi, sistemin kontrol odasıdır.Burası Veri Görevlerinizi ( Data Task ), Ticaret Görevlerini Test Etme           ( Testing Trading Tasks ) ve Ticaret Görevlerinizi ( Production Trading Tasks ) kontrol ettiğiniz yerdir.",
+                    "updated": 1633268830564
                 }
             ]
         },

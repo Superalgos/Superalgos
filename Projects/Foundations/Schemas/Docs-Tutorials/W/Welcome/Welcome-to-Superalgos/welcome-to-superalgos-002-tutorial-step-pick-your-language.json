@@ -21,6 +21,11 @@
                 "text": "¡Los usuarios están contribuyendo con traducciones para que puedas elegir tu idioma preferido! ¡Esta comunidad es increíble!",
                 "updated": 1625927584664,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Kullanıcılar, tercih ettiğiniz dili seçebilmeniz için çevirilere katkıda bulunuyor! Bu Topluluk harika!",
+                "updated": 1633120577362
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Así es como funciona: el idioma predeterminado es el inglés. Si eliges cualquier otro idioma y hay una traducción para la página actual, la obtendrás en el idioma seleccionado. De lo contrario en inglés.",
                     "updated": 1627240786626,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu nasıl çalışır? Varsayılan dil İngilizce'dir. Başka bir dil seçerseniz ve mevcut sayfa için bir herhangi bir dilde çeviri varsa, onu sayfanın aşağısındaki bayraklara tıklaarak seçtiğiniz dilde görüntülersiniz. Eğer çeviri yoksa,İngilizce olarak görürsünüz1",
+                    "updated": 1633120762865
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "Utiliza la rueda del mouse para desplazarte por la página de la derecha hacia abajo. Haz clic en una bandera para cambiar el idioma preferido, si así lo deseas.",
                     "updated": 1627241034008,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfayı aşağı kaydırmak için fare tekerleğini kullanın. Dilerseniz tercih ettiğiniz dili değiştirmek için bir bayrağa tıklayın!",
+                    "updated": 1633120795496
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "text": "¡Solo se pueden traducir los documentos y los tutoriales, no la interfaz ni los títulos!",
                     "updated": 1625928204688,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Arayüz veya başlıklar değil, yalnızca Dokümanlar ve öğreticiler çevrilebilir!",
+                    "updated": 1633121237275
                 }
             ]
         }

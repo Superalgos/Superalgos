@@ -788,7 +788,7 @@
                     "floatingObject": {
                         "isPinned": true,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 1,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -812,12 +812,12 @@
                         "id": "bbb25bb9-b04a-4c65-96c8-7530f3fdfcc8",
                         "savedPayload": {
                             "position": {
-                                "x": 20317.445444564815,
-                                "y": 27490.353117677405
+                                "x": 15047.264386429579,
+                                "y": 15941.496636468388
                             },
                             "targetPosition": {
-                                "x": 20207.8431372549,
-                                "y": 27769.615242270665
+                                "x": 15411.322033898305,
+                                "y": 16206
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -853,12 +853,12 @@
                         "id": "491aa3f4-2325-4912-a69d-783a2c1822f6",
                         "savedPayload": {
                             "position": {
-                                "x": 20494.51497899074,
-                                "y": 27681.188689947394
+                                "x": 15272.264386429579,
+                                "y": 15778.02456766718
                             },
                             "targetPosition": {
-                                "x": 20207.8431372549,
-                                "y": 27769.615242270665
+                                "x": 15411.322033898305,
+                                "y": 16206
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -894,12 +894,12 @@
                         "id": "7c6897be-a186-4db2-b4d2-156c74d56884",
                         "savedPayload": {
                             "position": {
-                                "x": 20455.714769549697,
-                                "y": 27938.61125968975
+                                "x": 15550.37968136703,
+                                "y": 15778.02456766718
                             },
                             "targetPosition": {
-                                "x": 20207.8431372549,
-                                "y": 27769.615242270665
+                                "x": 15411.322033898305,
+                                "y": 16206
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -935,12 +935,12 @@
                         "id": "152d9a23-6810-4372-9bfd-ac70d217bf3f",
                         "savedPayload": {
                             "position": {
-                                "x": 20230.262165330827,
-                                "y": 28068.77638142502
+                                "x": 15775.37968136703,
+                                "y": 15941.496636468388
                             },
                             "targetPosition": {
-                                "x": 20207.8431372549,
-                                "y": 27769.615242270665
+                                "x": 15411.322033898305,
+                                "y": 16206
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -967,6 +967,112 @@
                                 ]
                             ]
                         }
+                    },
+                    {
+                        "type": "User Supporter",
+                        "name": "PLuv",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "4891dd13-3a0d-4133-acef-557c9bca09e7",
+                        "savedPayload": {
+                            "position": {
+                                "x": 15861.322033898305,
+                                "y": 16206
+                            },
+                            "targetPosition": {
+                                "x": 15411.322033898305,
+                                "y": 16206
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "PLuv",
+                                "id": "142f5de2-3762-4f55-a839-22eac5c03c8f"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "PLuv",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        "type": "User Supporter",
+                        "name": "cozed-gh",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "f03c8864-88db-455e-a32c-bf2c4d031972",
+                        "savedPayload": {
+                            "position": {
+                                "x": 15775.37968136703,
+                                "y": 16470.503363531614
+                            },
+                            "targetPosition": {
+                                "x": 15411.322033898305,
+                                "y": 16206
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "cozed-gh",
+                                "id": "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "cozed-gh",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        "type": "User Supporter",
+                        "name": "",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "f5349c74-eaa7-46b6-b889-38bdcfc50d1e",
+                        "savedPayload": {
+                            "position": {
+                                "x": 53092.379681367034,
+                                "y": 16031.47543233282
+                            },
+                            "targetPosition": {
+                                "x": 15411.322033898305,
+                                "y": 16206
+                            },
+                            "floatingObject": {
+                                "isPinned": true,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
                     }
                 ],
                 "tokensAwarded": {
@@ -976,12 +1082,12 @@
                     "id": "cc178821-4f6b-44b1-82af-7a4173f9bf2c",
                     "savedPayload": {
                         "position": {
-                            "x": 19987.92757570595,
-                            "y": 27973.66706360194
+                            "x": 15272.264386429579,
+                            "y": 16633.97543233282
                         },
                         "targetPosition": {
-                            "x": 20207.8431372549,
-                            "y": 27769.615242270665
+                            "x": 15411.322033898305,
+                            "y": 16206
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -1003,12 +1109,12 @@
                     "id": "f5059354-dd55-4ae3-863c-b9e5a0fbb827",
                     "savedPayload": {
                         "position": {
-                            "x": 19911.19388938736,
-                            "y": 27724.902562417814
+                            "x": 15047.264386429579,
+                            "y": 16470.503363531614
                         },
                         "targetPosition": {
-                            "x": 20207.8431372549,
-                            "y": 27769.615242270665
+                            "x": 15411.322033898305,
+                            "y": 16206
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -1026,17 +1132,17 @@
                 "id": "73623eba-8a71-4876-8b17-c71b19f2f47a",
                 "savedPayload": {
                     "position": {
-                        "x": 14909.322033898305,
-                        "y": 16050
+                        "x": 15411.322033898305,
+                        "y": 16206
                     },
                     "targetPosition": {
                         "x": 14459.322033898305,
                         "y": 16050
                     },
                     "floatingObject": {
-                        "isPinned": false,
+                        "isPinned": true,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 1,
                         "distanceToParent": 3,
                         "arrangementStyle": 0

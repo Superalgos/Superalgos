@@ -3,7 +3,7 @@
     "pageNumber": 2,
     "type": "Binance Test Status",
     "definition": {
-        "text": "Binance Exchange, Spot market is fully tested for data mining and trading. Margin account trading under review & testing phase and prioritized on users\' requirement.",
+        "text": "Binance Exchange, Spot market is fully tested for data mining and trading. Margin account trading under review & testing phase and prioritized on users requirement.",
         "updated": 1615141847424
     },
     "paragraphs": [
@@ -34,7 +34,7 @@
         },
         {
             "style": "Success",
-            "text": "In order to be \'exchange friendly\' a utility has been provided to pre-download symbol ticker data, thus saving time & net download bandwidth usage. Please refer to the documentations provided.\n\thttps://github.com/PLuv/Exchange-Raw-Data-Superalgos"
+            "text": "In order to be exchange friendly a utility has been provided to pre-download symbol ticker data, thus saving time & net download bandwidth usage. Please refer to the documentations provided.\n\thttps://github.com/PLuv/Exchange-Raw-Data-Superalgos"
         },
         {
             "style": "Json",

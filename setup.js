@@ -1,4 +1,5 @@
 const path = require("path");
+const fs = require("fs");
 const process = require("process");
 const { exec } = require("child_process");
 const systemCheck = require('./Launch-Scripts/system-check')
@@ -76,21 +77,24 @@ for (let dir of nodeModulesDirs) {
         removeCommand = "echo Removing old Node_Modules at "+ dir + " & rm -rf node_modules/";
     }
 
-    exec( removeCommand,
-        {
-            cwd: dir 
-        },
-        function ( error, stdout ){
-            if (error) {
+    let node_dir = path.join(dir, "node_modules")
+    if (fs.existsSync(node_dir)) {
+        exec( removeCommand,
+            {
+                cwd: dir 
+            },
+            function ( error, stdout ){
+                if (error) {
+                    console.log('');
+                    console.log("There was an error installing some dependencies error: ");
+                    console.log('');
+                    console.log( error );
+                    return;
+                }
                 console.log('');
-                console.log("There was an error installing some dependencies error: ");
-                console.log('');
-                console.log( error );
-                return;
-            }
-            console.log('');
-            console.log( stdout );
-        });
+                console.log( stdout );
+            });
+    }
 };
 
 // Install Node_Modules to Main Superalgos Directory

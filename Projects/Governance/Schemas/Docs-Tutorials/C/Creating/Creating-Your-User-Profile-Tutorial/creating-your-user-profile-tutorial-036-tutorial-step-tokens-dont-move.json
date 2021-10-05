@@ -8,18 +8,39 @@
         "icon": {
             "name": "stop",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Cuando decimos Token Power Flows, es importante aclarar que los tokens no van a ninguna parte! Es el Token Power el que fluye!",
+                "updated": 1633296750160
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Important",
             "text": "Tokens in your Governance Address never leave your address! There is zero cost for participating in governance! The balance in your address confers Token Power to your User Profile, and it is this abstraction that flows down the hierarchy, not actual tokens.",
-            "updated": 1630929379130
+            "updated": 1630929379130,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Tokens en su Governance Address nunca se van de su dirección! Hay cero costo por participar en la gobernancia! El balance en su dirección le confiere Token Power a su User Profile, y es esta abstracción lo que fluye  hacia abajo en la jerarquia, no tokens reales.",
+                    "updated": 1633297162024
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Remind me to show you how to play with Token Power Flows before we wrap up the tutorial! But let's get back to Community Building Programs before we lose our way!",
-            "updated": 1630933419243
+            "updated": 1630933419243,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Recuérdame que te muestre icomo jugar con Token Power Flows antes de que embalemos el tutorial! Pero regresemos a Community Building Programs antes de que perdamos el rumbo!",
+                    "updated": 1633296908255
+                }
+            ]
         }
     ]
 }

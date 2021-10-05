@@ -1,0 +1,49 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 7,
+    "type": "Kucoin Test Status",
+    "definition": {
+        "text": "Kucoin is tested for data mining and for live trading.",
+        "updated": 1632650068116
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1615143100216
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
+            "updated": 1632650093003
+        },
+        {
+            "style": "List",
+            "text": "Market History: 1 day",
+            "updated": 1615211188110
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability: Yes. The ability to run strategies in live-trading mode has been verified.",
+            "updated": 1632650205665
+        },
+        {
+            "style": "List",
+            "text": "Comments: This exchange has not yet fully tested but I'm currently live trading on SHIB-USDT pair. I will update this section when I will have had the opportunity to do a more in-depth test",
+            "updated": 1632650423168
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"kucoin\"\n}",
+            "updated": 1615211313657
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

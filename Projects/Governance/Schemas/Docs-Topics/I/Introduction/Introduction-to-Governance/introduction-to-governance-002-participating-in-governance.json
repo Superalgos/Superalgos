@@ -4,22 +4,50 @@
     "type": "Participating in Governance",
     "definition": {
         "text": "To participate in governance, you must set up your User Profile — a hierarchy that defines how you intend to use the Token Power conferred by your token holdings.",
-        "updated": 1624698139967
+        "updated": 1624698139967,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Para participar en la gobernanza, debes configurar tu User Profile — una jerarquía que define  cómo puede usar el the Token Power conferido por tu tenencia de token.",
+                "updated": 1633531879183
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "How you use your Token Power is defined in several programs within the hierarchy. For instance, the Claims Program lets you present claims for the work you’ve done. We’ll cover all programs in detail.",
-            "updated": 1624698150117
+            "updated": 1624698150117,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cómo use su Token Power está definido por diferentes programas incluídos en la jerarquía. Por ejemplo, los Claims Program le permite presentar declaraciones por el trabajo qe haya realizado. Cubriremos todos los programas en detalle.",
+                    "updated": 1633532034348
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Your User Profile points to a Superalgos SA Token address you create from within Superalgos. You validate your address by signing a cryptographic proof, also from within Superalgos, so that the system becomes aware of the number of tokens in the address, and assigns your profile an equivalent amount of Token Power."
+            "text": "Your User Profile points to a Superalgos SA Token address you create from within Superalgos. You validate your address by signing a cryptographic proof, also from within Superalgos, so that the system becomes aware of the number of tokens in the address, and assigns your profile an equivalent amount of Token Power.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Sus puntos del User Profile marcan una dirección de Superalgos SA Token que usted crea desde dentro de Superalgos. Valida su dirección confirmando una prueba de firma criptográfica, también desde Superalgos, entonces el sistema se da cuenta de la cantidad de tokens en su dirección, y le asigna a su profile el monto equivalente de Token Power.",
+                    "updated": 1633532428398
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "The address you generate is also the address to which the project will send the tokens you earn for your contributions. We call it you Governance Address.",
-            "updated": 1629993655810
+            "updated": 1629993655810,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "TLa dirección que genere es también la dirección donde el proyecto le envie los tokens que haya ganado por sus contribuciones. Nosotros la llamamos su Governance Address  ( dirección de gobernanza).",
+                    "updated": 1633532569964
+                }
+            ]
         }
     ]
 }

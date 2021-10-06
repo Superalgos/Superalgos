@@ -3,7 +3,7 @@ exports.newAlgorithmicTradingBotModulesTradingEngine = function (processIndex) {
     We call the Trading Engine to the data structure that is needed in order to exevute the
     trading protocol with the specific rules defined at the Trading System.
     */
-    const MODULE_NAME = 'Trading Engine'
+
     let thisObject = {
         mantain: mantain,
         reset: reset,

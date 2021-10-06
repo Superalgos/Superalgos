@@ -2,7 +2,6 @@ exports.newMachineLearningBotModulesLearningEpisode = function (processIndex) {
     /*
     This module packages all functions related to Episodes.
     */
-    const MODULE_NAME = 'Learning Episode'
     let thisObject = {
         mantain: mantain,
         reset: reset,

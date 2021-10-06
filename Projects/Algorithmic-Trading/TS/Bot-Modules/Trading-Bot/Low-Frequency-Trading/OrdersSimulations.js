@@ -2,7 +2,6 @@ exports.newAlgorithmicTradingBotModulesOrdersSimulations = function (processInde
     /*
     When we are backtesting or paper trading, we need to simulate what would have happened at the exchange.
     */
-    const MODULE_NAME = 'Orders Simulations'
 
     let thisObject = {
         actualSizeSimulation: actualSizeSimulation,

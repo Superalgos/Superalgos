@@ -774,6 +774,13 @@
                     "functionName": "newFoundationsBotModulesSlackBot",
                     "fileName": "SlackBot.js",
                     "folderName": "Trading-Bot/Announcements"
+                },
+                {
+                    "name": "Twitter Bot",
+                    "propertyName": "twitterBot",
+                    "functionName": "newFoundationsBotModulesTwitterBot",
+                    "fileName": "TwitterBot.js",
+                    "folderName": "Trading-Bot/Announcements"
                 }
             ]
         },

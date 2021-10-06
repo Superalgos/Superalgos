@@ -155,7 +155,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
             'Trading Parameters->' +
             'Session Base Asset->Session Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->Snapshots->Heartbeats->User Defined Parameters->' +
-            'Social Bots->Telegram Bot->Discord Bot->Slack Bot->' +
+            'Social Bots->Telegram Bot->Discord Bot->Slack Bot->Twitter Bot->' +
             'Social Bot Command->Formula->' +
             'Exchange Account Asset->Asset->'
 

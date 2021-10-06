@@ -131,7 +131,7 @@ function newMachineLearningFunctionLibraryLearningSessionFunctions() {
             'Back Learning Session->Live Learning Session->' +
             'Learning Parameters->' +
             'Learning Algorithm->Time Range->Time Frame->Heartbeats->User Defined Parameters->' +
-            'Social Bots->Telegram Bot->Discord Bot->Slack Bot->'
+            'Social Bots->Telegram Bot->Discord Bot->Slack Bot->Twitter Bot ->'
 
         let session = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
 

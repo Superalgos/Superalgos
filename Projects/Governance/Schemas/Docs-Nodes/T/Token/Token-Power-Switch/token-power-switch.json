@@ -2,7 +2,14 @@
     "type": "Token Power Switch",
     "definition": {
         "text": "The concept of a switch may be used throughout the different programs in the User Profile hierarchy. A switch is a device used to distribute the flow of Token Power to offspring nodes. In the case of the Token Power Switch, it is the sole offspring node of the User Profile hierarchy used to distribute Token Power to the different programs.",
-        "updated": 1630094625909
+        "updated": 1630094625909,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El concepto de un interruptor puede usarse a través de diferentes programas en la jearquía en el User Profile. Un interruptor es un dispsitivo usado para contribuir en el flujo del Token Power a los nodos de la descendencia. En el caso del Token Power Switch, es el único nodo descendiente de la jerarquía del User Profile usada para distribuir Token Power a los diferentes programas.",
+                "updated": 1633513107006
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,7 +20,14 @@
         {
             "style": "Note",
             "text": "Most nodes in the hierarchy act as switches, even when their name does not include the word switch!",
-            "updated": 1630094810003
+            "updated": 1630094810003,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La mayoría de los nodos de la jerarquía actúan como interruptores, aún cuando su nombre no incluya la palabra interruptor!",
+                    "updated": 1633513212883
+                }
+            ]
         },
         {
             "style": "Block",

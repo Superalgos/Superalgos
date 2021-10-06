@@ -9,7 +9,8 @@
             {
                 "language": "ES",
                 "text": "Para establecer la referencia, click derecho en el primer nodo y arrástrelo cerca del nodo de destino. Entonces remueva la referencia, use el boton delink en el menú.",
-                "updated": 1633296472626
+                "updated": 1633296472626,
+                "style": "Definition"
             }
         ]
     },
@@ -25,8 +26,9 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Cuando esteé estableciendo una referencia, anilos grises muestran con cuales nodos puede establecer la referencia. En caso de que haya muchos nodos que aceptarían la referencia, el nodo que esté más cerca de donde se origina la referencia está destacado con un anillo dorado. Liberando el botón del mouse establece a referencia con el nodo destacado.",
-                    "updated": 1633296500174
+                    "text": "Cuando esté estableciendo una referencia, anilsos grises muestran con cuales nodos puede establecer la referencia. En caso de que haya muchos nodos que aceptarían la referencia, el nodo que esté más cerca de donde se origina la referencia está destacado con un anillo dorado. Liberando el botón del mouse establece a referencia con el nodo destacado.",
+                    "updated": 1633521217701,
+                    "style": "Text"
                 }
             ]
         },
@@ -41,8 +43,9 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "La referencia es visualmente representada por una leve linea de puntos grises. Esta linea es vicible solo cuando ambos extremos de la referencia son visibles.",
-                    "updated": 1633295706095
+                    "text": "La referencia es visualmente representada por una leve linea de puntos grises. Esta linea es visible solo cuando ambos extremos de la referencia son visibles.",
+                    "updated": 1633521251780,
+                    "style": "Text"
                 }
             ]
         },
@@ -53,8 +56,9 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Para remover una referencia o deslinkear dos nodos, use el botón delink button del nodo dondela referencia se origina.",
-                    "updated": 1633295798732
+                    "text": "Para remover una referencia o deslinkear dos nodos, use el botón delink button del nodo donde la referencia se origina.",
+                    "updated": 1633521278527,
+                    "style": "Text"
                 }
             ]
         },
@@ -79,7 +83,8 @@
                 {
                     "language": "ES",
                     "text": "El proceso es exactamente el mismo. Todo lo que necesita es manejar unos pocos trucos  para que pueda arrastrar uno de los nodos todo el recorrido hasta donde el segundo nodo está.",
-                    "updated": 1633295934654
+                    "updated": 1633295934654,
+                    "style": "Text"
                 }
             ]
         },
@@ -96,7 +101,8 @@
                 {
                     "language": "ES",
                     "text": "Estos UI trucos pueden hacer tu vida más fácil:",
-                    "updated": 1633295979755
+                    "updated": 1633295979755,
+                    "style": "Text"
                 }
             ]
         },
@@ -108,7 +114,8 @@
                 {
                     "language": "ES",
                     "text": "Use el design space map tantas veces como sea necesario para encontrar el camino desde una jeraquía a la otra.",
-                    "updated": 1633296062866
+                    "updated": 1633296062866,
+                    "style": "List"
                 }
             ]
         },
@@ -119,7 +126,8 @@
                 {
                     "language": "ES",
                     "text": "Fije el nodo que va a mover a través del espacio de diseño, para que pueda soltarlo en cualquier punto para chequear las direcciones en el mapa del espacio de diseño.",
-                    "updated": 1633296213030
+                    "updated": 1633296213030,
+                    "style": "List"
                 }
             ]
         },
@@ -130,7 +138,8 @@
                 {
                     "language": "ES",
                     "text": "Use Ctrl / Command + arteclas de flechas para arrastrar el nodo a través dela pantalla despues de clickear en el con el mouse. Mantenga las teclas presionadas y el nodo vuela!",
-                    "updated": 1633296325908
+                    "updated": 1633296325908,
+                    "style": "List"
                 }
             ]
         },
@@ -140,8 +149,9 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Remueva el ijado ona vez que la referencia sea establecida para que el nodo vuelva a su lugar.",
-                    "updated": 1633296417854
+                    "text": "Remueve el fijado ona vez que la referencia sea establecida para que el nodo vuelva a su lugar.",
+                    "updated": 1633521325505,
+                    "style": "List"
                 }
             ]
         }

@@ -725,7 +725,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                         const octokit = new Octokit({
                                             auth: token,
-                                            userAgent: 'Superalgos Beta 11'
+                                            userAgent: 'Superalgos Beta 12'
                                         })
 
                                         const repo = 'Superalgos'

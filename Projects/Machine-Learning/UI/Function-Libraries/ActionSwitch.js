@@ -1,4 +1,4 @@
-function newEducationActionSwitch() {
+function newMachineLearningActionSwitch() {
 
     let thisObject = {
         executeAction: executeAction,

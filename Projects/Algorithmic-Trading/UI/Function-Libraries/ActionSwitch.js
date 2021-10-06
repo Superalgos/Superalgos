@@ -1,4 +1,4 @@
-function newEducationActionSwitch() {
+function newAlgorithmicTradingActionSwitch() {
 
     let thisObject = {
         executeAction: executeAction,

@@ -1,4 +1,4 @@
-function newEducationActionSwitch() {
+function newDataMiningActionSwitch() {
 
     let thisObject = {
         executeAction: executeAction,

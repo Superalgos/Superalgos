@@ -536,3 +536,771 @@ Torubleshooting Tips:
 2. Make sure you are running the latest version of Git available for your OS.
 3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.
 4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.
+[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.
+[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = Error: Pushing to https://github.com/NumbersXXX/Superalgos
+fatal: could not read Username for 'https://github.com': No such device or address
+
+    at Object.action (/home/numbers/Superalgos/Platform/node_modules/simple-git/src/lib/plugins/error-detection.plugin.js:30:33)
+    at PluginStore.exec (/home/numbers/Superalgos/Platform/node_modules/simple-git/src/lib/plugins/plugin-store.js:21:33)
+    at /home/numbers/Superalgos/Platform/node_modules/simple-git/src/lib/runners/git-executor-chain.js:95:45
+    at new Promise (<anonymous>)
+    at GitExecutorChain.handleTaskData (/home/numbers/Superalgos/Platform/node_modules/simple-git/src/lib/runners/git-executor-chain.js:93:16)
+    at GitExecutorChain.<anonymous> (/home/numbers/Superalgos/Platform/node_modules/simple-git/src/lib/runners/git-executor-chain.js:77:46)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/numbers/Superalgos/Platform/node_modules/simple-git/src/lib/runners/git-executor-chain.js:5:58)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = This is my contribution to Superalgos
+[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = plugins-docs
+[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = develop
+
+Torubleshooting Tips:
+
+1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.
+2. Make sure you are running the latest version of Git available for your OS.
+3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.
+4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+
+ERROR: node_modules does not exist. Try running "node setup" to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.
+
+
+Total RAM istalled in this system is ........................ 11.62 GB
+Total RAM available for Superalgos is ....................... 9.88 GB
+
+If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.
+
+OPTIONS ACCEPTED:
+
+none ........................................................ Running without any command line options.
+
+
+SUPERALGOS PLATFORM CLIENT SERVERS:
+
+Web Server .................................................. Started
+UI File Server .............................................. Started
+Project File Server ......................................... Started
+Plugin Server ............................................... Started
+Data File Server ............................................ Started
+Events Server ............................................... Started
+Task Manager Server ......................................... Started
+CCXT Server ................................................. Started
+WEB3 Server ................................................. Started
+Github Server ............................................... Started
+
+SUPERALGOS PLATFORM CLIENT INTERFACES:
+
+Web Sockets Interface ....................................... Listening at port 18041
+Http Interface .............................................. Listening at port 34248
+
+You are running Superalgos Beta 11
+
+What's new? These are the main new features in this version:
+
+Governance System ........................................... Automates the distribution of SA Tokens and allow users to vote on the direction of the project.
+TensorFlow Integration ...................................... Allows creating and training ML models and use them in trading strategies.
+
+What's next? This is the current development pipeline:
+
+Superalgos P2P Network ...................................... Will allow algo-traders to share trading signals with Superalgos users consuming these signals via a mobile app.
+Real-time Trading Signals ................................... Will allow users to emit trading signals and be rewarded with SA Tokens.
+Superalgos Mobile ........................................... Will allow users to consume trading signals for free and autonomously execute trades from their mobile phones.
+Ethereum Integration ........................................ Will allow mining data from an Ethereum network node, and bring it into the Superalgos workflow. [Looking for an Ethereum dev that would like to continue this line of development.]
+
+Superalgos Platform App is Running!

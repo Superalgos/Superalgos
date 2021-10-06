@@ -105,8 +105,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si el archivo aparece y suponiendo que ya se encuentre en el espacio del workspace con el que desea trabajar, vaya a la jerarquía de Plugins y encuentre el muñeco Plugin File debajo de Plugin User Profiles > Governance Plugin Project.",
-                    "updated": 1633517833894
+                    "text": "Si el archivo aparece y suponiendo que ya se encuentre en el espacio del workspace con el que desea trabajar, vaya a la jerarquía de Plugins y encuentre el Dummy Plugin File debajo de Plugin User Profiles > Governance Plugin Project.",
+                    "updated": 1633520923071
                 }
             ]
         },
@@ -116,8 +116,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Acceda a la configuración del muñeco del profile y modifique la propiedad del fileName usando el nombre apropriado (Github.com username). Reemplace el nombre del nodo también, para evitar confusiones más tarde.",
-                    "updated": 1633518000717
+                    "text": "Acceda a la configuración del Dummy  profile y modifique la propiedad del fileName usando el nombre apropriado (Github.com username). Reemplace el nombre del nodo también, para evitar confusiones más tarde.",
+                    "updated": 1633521011506
                 }
             ]
         },

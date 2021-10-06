@@ -868,7 +868,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                         Building the current key...
                                         */
                                         let key = ""
-                                        for (j = 0; j < primaryKeys.length; j++) {
+                                        for (let j = 0; j < primaryKeys.length; j++) {
                                             let keyValue = record.map.get(primaryKeys[j])
                                             key = key + '->' + keyValue
                                         }
@@ -887,7 +887,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                             let record = getRecord(dataReceivedArray[i])
 
                                             let key = ""
-                                            for (j = 0; j < primaryKeys.length; j++) {
+                                            for (let j = 0; j < primaryKeys.length; j++) {
                                                 let keyValue = record.map.get(primaryKeys[j])
                                                 key = key + '->' + keyValue
                                             }

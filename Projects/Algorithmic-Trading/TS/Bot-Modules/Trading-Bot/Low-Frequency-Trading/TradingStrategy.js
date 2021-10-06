@@ -2,7 +2,7 @@ exports.newAlgorithmicTradingBotModulesTradingStrategy = function (processIndex)
     /*
     This module packages all functions related to Strategies.
     */
-    const MODULE_NAME = 'Trading Strategy'
+
     let thisObject = {
         mantain: mantain,
         reset: reset,

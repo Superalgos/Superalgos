@@ -74,7 +74,6 @@
                 let outputData                      // Data built as a result of applying user defined code and formulas at the Data Building Procedure
                 let singularVariableName            // Name of the variable for this product
                 let recordDefinition                // Record as defined by the user at the UI
-                let fileContent                     // Here we store the contents of the new data built just before writing it to a file.
                 let resultsWithIrregularPeriods     // A product will have irregular periods when the User Code inserts new result records at will, in contrast with normal procedure where the platform insert one record per loop execution.
 
                 /*

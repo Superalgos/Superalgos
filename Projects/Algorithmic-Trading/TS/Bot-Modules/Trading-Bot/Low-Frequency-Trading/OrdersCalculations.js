@@ -2,7 +2,6 @@ exports.newAlgorithmicTradingBotModulesOrdersCalculations = function (processInd
     /*
     When we are live trading, we need to syncronize with the exchange.
     */
-    const MODULE_NAME = 'Orders Calculations'
 
     let thisObject = {
         actualSizeCalculation: actualSizeCalculation,

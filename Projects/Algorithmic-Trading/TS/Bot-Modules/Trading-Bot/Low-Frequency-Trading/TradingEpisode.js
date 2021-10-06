@@ -2,7 +2,6 @@ exports.newAlgorithmicTradingBotModulesTradingEpisode = function (processIndex) 
     /*
     This module packages all functions related to Episodes.
     */
-    const MODULE_NAME = 'Trading Episode'
     let thisObject = {
         mantain: mantain,
         reset: reset,

@@ -677,7 +677,6 @@
                                             callBackFunction(err);
                                             return;
                                         }
-                                        const inputVolumesPerdiod = 60 * 1000;              // 1 min
                                         const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
 
                                         let totalOutputVolumes = inputFilePeriod / outputPeriod; // this should be 2 in this case.
@@ -813,7 +812,6 @@
                         let fileContent = "";
 
                         for (let i = 0; i < volumes.length; i++) {
-                            let candle = volumes[i];
                             fileContent = fileContent + separator + '[' + volumes[i].buy + "," + volumes[i].sell + "," + volumes[i].begin + "," + volumes[i].end + "]";
                             if (separator === "") { separator = ","; }
                             fileRecordCounter++

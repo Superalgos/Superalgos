@@ -2,7 +2,14 @@
     "type": "Referral Program",
     "definition": {
         "text": "The referral program incentivizes the promotion of the project, either by word-of-mouth or “en masse” through articles, social media posts, videos, and other forms of influencer marketing.",
-        "updated": 1630227795694
+        "updated": 1630227795694,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El referral program incentiva la promoción del proyecto, ya sea de boca en boca  o en masa  a través de artículos, posteos en redes sociales, videos y otras formas de influencias en marketing .",
+                "updated": 1633524918233
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -17,11 +24,25 @@
         },
         {
             "style": "Text",
-            "text": "With this program, you may earn Superalgos SA Tokens for every user you refer to the project, and also for the users they refer!"
+            "text": "With this program, you may earn Superalgos SA Tokens for every user you refer to the project, and also for the users they refer!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Con este programa, puede ganar Superalgos SA Tokens por cada usuario que usted refiera al proyecto, y tambien por los usuarios que ellos referencien!",
+                    "updated": 1633525009280
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "To participate, you must spawn the Referral Program and declare your referrer. To do that, add a User Referrer node and use it to establish a reference to the User Profile of the person that referred you to Superalgos. If you have more than one referrer, simply add more User Referrer nodes."
+            "text": "To participate, you must spawn the Referral Program and declare your referrer. To do that, add a User Referrer node and use it to establish a reference to the User Profile of the person that referred you to Superalgos. If you have more than one referrer, simply add more User Referrer nodes.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para participar, debe extender el programa Referral Program y declarar su referido. Para hacer esto, agregue un nodo al User Referrer y úselo para establecer el User Profile de la persona que lo refirió a Superalgos. Si tiene más de un referido, simplemente agregue más nodos al User Referrer.",
+                    "updated": 1633530224609
+                }
+            ]
         },
         {
             "style": "Text",
@@ -29,7 +50,14 @@
         },
         {
             "style": "Text",
-            "text": "Declaring your referrers is the best way to thank the people that may have written that article or tweet, produced that video, maintained the website, or told you about Superalgos! Without them, you probably wouldn’t be here yet!"
+            "text": "Declaring your referrers is the best way to thank the people that may have written that article or tweet, produced that video, maintained the website, or told you about Superalgos! Without them, you probably wouldn’t be here yet!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Declarar sus referidos es el mejor modo de agradecerle a la gente que escribió el artículo o tweeteo, produjo ese video, realizó el mantenimiento de la web, o te habló a cerca de Superalgos! Sin ellos, probablemente no estaría aquí todavía!",
+                    "updated": 1633530419731
+                }
+            ]
         },
         {
             "style": "Include",

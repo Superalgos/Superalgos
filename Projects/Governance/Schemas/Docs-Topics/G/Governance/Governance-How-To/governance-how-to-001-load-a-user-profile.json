@@ -23,7 +23,8 @@
                 {
                     "language": "ES",
                     "text": "Supongamos que deseas declarar tu referente en el Referral Program, o tal vez desees apoyar el Contribution Claims de un compañero desarrollador.",
-                    "updated": 1632025791877
+                    "updated": 1632025791877,
+                    "style": "Text"
                 }
             ]
         },
@@ -34,7 +35,8 @@
                 {
                     "language": "ES",
                     "text": "En cualquier caso, deberás cargar el User Profile de la persona en cuestión para que pueda establecer las referencias adecuadas.",
-                    "updated": 1632025827657
+                    "updated": 1632025827657,
+                    "style": "Callout"
                 }
             ]
         },
@@ -46,7 +48,8 @@
                 {
                     "language": "ES",
                     "text": "O tal vez quieras cargar tu propio User Profile en uno de los Other Governance Workspaces. ¡Es el mismo proceso después de todo!",
-                    "updated": 1632025920310
+                    "updated": 1632025920310,
+                    "style": "Note"
                 }
             ]
         },
@@ -58,12 +61,26 @@
         {
             "style": "List",
             "text": "Find out the person's User Profile name. If you know the person's identity on Github.com, then that's all you need to know. If you don't, then you may need to contact the person and ask! If it's your profile, then no need to do much in this regard!",
-            "updated": 1630681681124
+            "updated": 1630681681124,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Encuentre el nombre del User Profile de la persona. Si conoce como se identifica la persona en Github.com, entonces eso es todo lo que necesita saber. Si no, puede necesitar contactar a la persona y preguntárselo! Si es su profile, entonces no es necesario hacer demaciado al respecto!",
+                    "updated": 1633517388693
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Verify that a file with the same name exists in the following path within the Superalgos folder in your hard drive...",
-            "updated": 1630597624699
+            "updated": 1630597624699,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Verifiqueque un archivo con el mismo nombre exista en la siguiente ruta dentro de Superalgos folder en su disco duro...",
+                    "updated": 1633517151535
+                }
+            ]
         },
         {
             "style": "Json",
@@ -72,24 +89,59 @@
         {
             "style": "List",
             "text": "If the file doesn't exist, make sure you have the latest version of the app. If it's still missing after updating, let the person know and wait for the profile to be submitted.",
-            "updated": 1630597643975
+            "updated": 1630597643975,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si el archivo no existe, asegúrese que tiene a última versión de la app. Si falta aún después de hacer la actualización, permite que la persona sepa y espere que el profile sea incluído.",
+                    "updated": 1633517577195
+                }
+            ]
         },
         {
             "style": "List",
             "text": "If the file is there and assuming you already are in the workspace you wish to work with, go to the Plugins hierarchy and find the Dummy Plugin File under Plugin User Profiles > Governance Plugin Project.",
-            "updated": 1630597669225
+            "updated": 1630597669225,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si el archivo aparece y suponiendo que ya se encuentre en el espacio del workspace con el que desea trabajar, vaya a la jerarquía de Plugins y encuentre el Dummy Plugin File debajo de Plugin User Profiles > Governance Plugin Project.",
+                    "updated": 1633520923071
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Access the configuration of the Dummy profile and change the fileName property using the appropriate name (Github.com username). Replace the name of the node too, to avoid confusion later on."
+            "text": "Access the configuration of the Dummy profile and change the fileName property using the appropriate name (Github.com username). Replace the name of the node too, to avoid confusion later on.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Acceda a la configuración del Dummy  profile y modifique la propiedad del fileName usando el nombre apropriado (Github.com username). Reemplace el nombre del nodo también, para evitar confusiones más tarde.",
+                    "updated": 1633521011506
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Save the Current Workspace with Ctrl + Alt + Shift + Key-S and refresh the page."
+            "text": "Save the Current Workspace with Ctrl + Alt + Shift + Key-S and refresh the page.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Guarde el Current Workspace con Ctrl + Alt + Shift + Key-S y refresque la página.",
+                    "updated": 1633518088269
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Once the page reloads, you should see the new profile along with the rest! That's it!"
+            "text": "Once the page reloads, you should see the new profile along with the rest! That's it!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Una vez que la página se recargue, debería ver el profile nuevojunto con el resto de ellos! Eso es!",
+                    "updated": 1633518182330
+                }
+            ]
         }
     ]
 }

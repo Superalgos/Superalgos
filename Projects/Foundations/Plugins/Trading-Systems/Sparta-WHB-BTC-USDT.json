@@ -46,7 +46,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "427da1e1-cc4a-4c78-88f6-c254d87cc88f",
@@ -98,7 +100,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "55bf7721-7fb2-42f0-8a3c-c2b97e278a29",
@@ -150,7 +154,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "11e00b31-e7eb-4fe9-b006-dcd640dbbd3b",
@@ -202,7 +208,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "dd938286-61b3-41e4-bfbb-db34971ffa47",
@@ -254,7 +262,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "8f94ab97-1574-4136-9404-b66dfc1e3b9f",
@@ -306,7 +316,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "0b2efc27-4aa5-472c-bb7a-73fc3796cc0e",
@@ -358,7 +370,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "0ff24392-a128-4d59-8049-301e99ce941e",
@@ -410,7 +424,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "da235bf3-976c-4832-a565-98a6bb13236d",
@@ -520,7 +536,9 @@
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "e5fbd2ee-9cef-4887-a270-8fb307dff36d",
@@ -630,7 +648,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "946e10ee-70f9-4489-8ac9-c523116f997d",
@@ -682,7 +702,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "299cc453-ffa7-4bcc-84be-fcf9187e0188",
@@ -734,7 +756,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "74da641c-243d-4e2c-86e7-b215d804796d",
@@ -786,7 +810,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "98acfea3-5f57-4dd2-ad9b-f13643c04b3a",
@@ -838,7 +864,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "4219ab16-929b-4489-80f8-2e2970e170dd",
@@ -890,7 +918,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "7bacba88-87bc-491a-95fa-4024d49438f5",
@@ -942,7 +972,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "63558a06-3dab-46c6-b361-2d55aca38eea",
@@ -994,7 +1026,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "d900ad86-c048-45d3-9b26-dc8665b8aba8",
@@ -1047,7 +1081,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "182deaef-3884-4ddd-b08b-2a554a130832",
@@ -1100,7 +1136,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "eb6577c9-7823-490c-9a25-81165b4d4f6b",
@@ -1235,7 +1273,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         },
                         "id": "9f6351ce-0ca2-44f2-9e85-e9365265131b",
@@ -1288,7 +1328,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         },
                         "id": "df940eb5-ea9b-485d-a03a-27491d496fc3",
@@ -1391,7 +1433,9 @@
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
-                                                                "uiObject": {}
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                }
                                                             }
                                                         },
                                                         "id": "be9e2b59-adac-4ec8-8b16-73c9c1367eff",
@@ -1491,7 +1535,33 @@
                                             "type": "Market Order",
                                             "name": "Market Sell Order #1",
                                             "id": "8e404329-d41f-41e0-ad5a-c84ee1fa2604"
-                                        }
+                                        },
+                                        "referenceParentCombinedNodePath": [
+                                            [
+                                                "Low-Frequency",
+                                                "Trading Engine",
+                                                "Foundations",
+                                                "eb20f622-71bf-4479-a574-d2320e1d4bd1"
+                                            ],
+                                            [
+                                                "New Exchange Orders",
+                                                "Exchange Orders",
+                                                "Foundations",
+                                                "07f9794a-dea7-4075-bdea-00e4b90960a6"
+                                            ],
+                                            [
+                                                "New Market Sell Orders",
+                                                "Market Sell Orders",
+                                                "Foundations",
+                                                "0cb8959b-8c1b-45f2-aa32-11c1efa63cc1"
+                                            ],
+                                            [
+                                                "Market Sell Order #1",
+                                                "Market Order",
+                                                "Foundations",
+                                                "8e404329-d41f-41e0-ad5a-c84ee1fa2604"
+                                            ]
+                                        ]
                                     }
                                 }
                             ],
@@ -1605,6 +1675,7 @@
                                         "arrangementStyle": 0
                                     },
                                     "uiObject": {
+                                        "isRunning": false,
                                         "shortcutKey": "q"
                                     }
                                 }
@@ -1645,7 +1716,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "c48e62b6-cdf5-4ee0-9872-6487a99d1861",
@@ -1771,7 +1844,9 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {}
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
                                 }
                             },
                             "moveToPhaseEvents": [],
@@ -1855,7 +1930,9 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {}
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
                                 }
                             },
                             "nextPhaseEvent": {
@@ -1893,7 +1970,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "553fde3a-dcb6-41b2-89c8-ba278a2fd4e0",
@@ -1974,7 +2053,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "d85e95b6-4108-40d6-9ed0-a382f8d5015a",
@@ -2026,7 +2107,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "f3a53caf-c1d2-4786-869d-3e4ed1c9b71b",
@@ -2153,7 +2236,9 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {}
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
                                 }
                             },
                             "nextPhaseEvent": {
@@ -2191,7 +2276,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "b855a2c5-d616-4379-a31a-5e187f36bfc4",
@@ -2244,7 +2331,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "3dbea2ad-06be-4a8e-ba8e-7718704e1dbe",
@@ -2297,7 +2386,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "a8ac6da5-2f72-4c53-953a-4135624d6230",
@@ -2378,7 +2469,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "eef8d507-fcf6-4efa-9fcb-9e58ccc0af36",
@@ -2431,7 +2524,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "f75a18be-7ac8-4276-89bd-b3ff8ea5c69f",
@@ -2484,7 +2579,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "a8762e6c-04a8-49dc-a6e7-de73f24bb295",
@@ -2536,7 +2633,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "8137faa0-d59a-4eab-ad95-ca8d2250bbf6",
@@ -2663,7 +2762,9 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {}
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
                                 }
                             },
                             "nextPhaseEvent": {
@@ -2701,7 +2802,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "d1d9d786-da85-4a7b-b5b5-3278dcdccfa8",
@@ -2754,7 +2857,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "1e09d719-39f0-4e66-afe9-e46f816c0b8a",
@@ -2807,7 +2912,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "a3cf6274-a828-41f0-a293-8e79ecfe4e39",
@@ -2888,7 +2995,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "9bb204df-4376-4a7d-996f-8e41d75f49c3",
@@ -2941,7 +3050,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "b9ddf58a-89b4-4fec-899a-ab905e97234a",
@@ -2994,7 +3105,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "ee9eaf68-0a23-45a3-8aaf-42b97ebf4584",
@@ -3047,7 +3160,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "5ca55797-a76b-4be7-921d-bdd84773a407",
@@ -3174,7 +3289,9 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {}
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
                                 }
                             },
                             "nextPhaseEvent": {
@@ -3213,7 +3330,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "13f09ae8-9b15-4e6a-be3c-d0745b7252a3",
@@ -3266,7 +3385,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "5a58f7e1-75da-4e8f-a4c5-185a59e8c938",
@@ -3319,7 +3440,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "e01c18f1-b9f7-4cc7-91be-6d18c3168f13",
@@ -3372,7 +3495,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "4262c963-84df-44ba-ac06-7ecb331ba24d",
@@ -3453,7 +3578,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "750174f5-0953-4204-bb06-9f68030e9185",
@@ -3506,7 +3633,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "f42f3843-bf81-4782-b129-f06e98f354d8",
@@ -3559,7 +3688,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "0fdfb277-cfa0-4fc6-aee9-db2cc997b208",
@@ -3611,7 +3742,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "ef2973eb-d707-41cc-b492-96dbf5215de1",
@@ -3693,7 +3826,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "b841c21b-789a-49bf-b959-f91613e089a8",
@@ -3820,7 +3955,9 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {}
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
                                 }
                             },
                             "nextPhaseEvent": {
@@ -3858,7 +3995,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "ecaa9841-49d1-45da-8249-17e373c7d662",
@@ -3911,7 +4050,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "9fb9d04e-da7e-45a8-af44-e87d65e5650f",
@@ -3964,7 +4105,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "1dcf89ef-e3e3-4d6e-bbfb-16ccdeeec348",
@@ -4017,7 +4160,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "8a062525-23e1-48dc-83c1-c0cec0e30907",
@@ -4098,7 +4243,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "d0ff1bab-8072-4dab-97b8-69d3cb9d0d48",
@@ -4150,7 +4297,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "5435a45d-891a-4456-8521-6587003fb171",
@@ -4203,7 +4352,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "a94adefc-e6c3-4531-ab91-84d23096900a",
@@ -4256,7 +4407,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "fe46196d-b481-4b9f-8908-43b5e7094d7f",
@@ -4338,7 +4491,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "f27c3841-bbe5-40a0-81e1-031db8512b53",
@@ -4465,7 +4620,9 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {}
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
                                 }
                             },
                             "moveToPhaseEvents": [],
@@ -4576,7 +4733,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         },
                         "id": "93fa6d49-ec93-4df0-aa39-0e41982a794a",
@@ -4629,7 +4788,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         },
                         "id": "85c5712b-61bc-4eaf-92a9-4fdacd110f85",
@@ -4730,7 +4891,9 @@
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
-                                                                "uiObject": {}
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                }
                                                             }
                                                         },
                                                         "id": "2e4205ca-82db-4481-a5f9-8bd3d3619eac",
@@ -4830,7 +4993,33 @@
                                             "type": "Market Order",
                                             "name": "Market Buy Order #1",
                                             "id": "7d6c3ac9-4869-4ff3-a9f2-2a6f8a31ccf3"
-                                        }
+                                        },
+                                        "referenceParentCombinedNodePath": [
+                                            [
+                                                "Low-Frequency",
+                                                "Trading Engine",
+                                                "Foundations",
+                                                "eb20f622-71bf-4479-a574-d2320e1d4bd1"
+                                            ],
+                                            [
+                                                "New Exchange Orders",
+                                                "Exchange Orders",
+                                                "Foundations",
+                                                "07f9794a-dea7-4075-bdea-00e4b90960a6"
+                                            ],
+                                            [
+                                                "New Market Buy Orders",
+                                                "Market Buy Orders",
+                                                "Foundations",
+                                                "a5823c2e-46a8-4824-a267-5606466e19db"
+                                            ],
+                                            [
+                                                "Market Buy Order #1",
+                                                "Market Order",
+                                                "Foundations",
+                                                "7d6c3ac9-4869-4ff3-a9f2-2a6f8a31ccf3"
+                                            ]
+                                        ]
                                     }
                                 }
                             ],
@@ -4973,7 +5162,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "0f055de8-0eb0-4a8c-aea8-0acc7480ac6c",
@@ -5025,7 +5216,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "4ccae6ab-5911-4e5b-aa69-57e157a5acf9",
@@ -5077,7 +5270,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "bfed975b-1086-4648-b900-2c493bcd2278",
@@ -5129,7 +5324,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "ca52539f-eab7-4867-80a9-4c03295df977",
@@ -5181,7 +5378,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "04132e51-a148-4e3b-a41a-d47deaa5113d",
@@ -5233,7 +5432,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "206f98c9-6ebc-47bf-97f9-7a2369cf2a20",
@@ -5285,7 +5486,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "e5cc491c-ca57-4138-8c28-9b0f3aa706d7",
@@ -5337,7 +5540,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "f9dbefdb-09bf-4d90-964f-35b02cde3ce4",
@@ -5389,7 +5594,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "d4c531a6-e637-4fd8-a2b8-b8b248bf4a0a",
@@ -5442,7 +5649,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "445f4ffc-bac0-44f2-9441-cf01424fd36e",
@@ -5552,7 +5761,9 @@
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "20b59f4c-8ec5-4be8-9d06-f1b223045e83",
@@ -5662,7 +5873,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "fc0bf247-86a1-4352-a85b-a0515a158629",
@@ -5714,7 +5927,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "449a1458-781c-4214-9ddc-4e268891db36",
@@ -5766,7 +5981,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "b9a2cd43-d129-444e-9684-04ba93aa939e",
@@ -5818,7 +6035,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "2d429ceb-6816-4f9d-b211-4034080d39a3",
@@ -5870,7 +6089,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "0b3dba7b-79a2-425e-be41-0368ea2f005d",
@@ -5922,7 +6143,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "c27245cb-4562-4e8b-8cd2-171427de3d04",
@@ -5974,7 +6197,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "72c0840a-0162-4fb5-8fe0-1043a3500942",
@@ -6026,7 +6251,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "27abcda3-5917-4345-b070-f506dd03d511",
@@ -6078,7 +6305,9 @@
                                                 "distanceToParent": 2,
                                                 "arrangementStyle": 0
                                             },
-                                            "uiObject": {}
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
                                         }
                                     },
                                     "id": "055aec39-19b4-4001-8c7e-4e9d0b46a41d",
@@ -6213,7 +6442,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         },
                         "id": "e2d8b919-87fd-4d37-86b7-7c1e7d6268ff",
@@ -6266,7 +6497,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         },
                         "id": "1f3a30b8-30b5-46e9-b8b7-1ceb4bf80aae",
@@ -6369,7 +6602,9 @@
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
-                                                                "uiObject": {}
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                }
                                                             }
                                                         },
                                                         "id": "f2f65162-a972-4815-885c-a82298951d0b",
@@ -6469,7 +6704,33 @@
                                             "type": "Market Order",
                                             "name": "Market Sell Order #1",
                                             "id": "8e404329-d41f-41e0-ad5a-c84ee1fa2604"
-                                        }
+                                        },
+                                        "referenceParentCombinedNodePath": [
+                                            [
+                                                "Low-Frequency",
+                                                "Trading Engine",
+                                                "Foundations",
+                                                "eb20f622-71bf-4479-a574-d2320e1d4bd1"
+                                            ],
+                                            [
+                                                "New Exchange Orders",
+                                                "Exchange Orders",
+                                                "Foundations",
+                                                "07f9794a-dea7-4075-bdea-00e4b90960a6"
+                                            ],
+                                            [
+                                                "New Market Sell Orders",
+                                                "Market Sell Orders",
+                                                "Foundations",
+                                                "0cb8959b-8c1b-45f2-aa32-11c1efa63cc1"
+                                            ],
+                                            [
+                                                "Market Sell Order #1",
+                                                "Market Order",
+                                                "Foundations",
+                                                "8e404329-d41f-41e0-ad5a-c84ee1fa2604"
+                                            ]
+                                        ]
                                     }
                                 }
                             ],
@@ -6583,6 +6844,7 @@
                                         "arrangementStyle": 0
                                     },
                                     "uiObject": {
+                                        "isRunning": false,
                                         "shortcutKey": "q"
                                     }
                                 }
@@ -6623,7 +6885,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "ac91438d-54f6-4de5-bd93-2414037fd447",
@@ -6750,7 +7014,9 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {}
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
                                 }
                             },
                             "moveToPhaseEvents": [],
@@ -6834,7 +7100,9 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {}
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
                                 }
                             },
                             "nextPhaseEvent": {
@@ -6872,7 +7140,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "8d0ee4a2-12bc-4397-88eb-0336f5727cc5",
@@ -6953,7 +7223,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "b49b85e8-3e0f-4690-81aa-63bcc653bf61",
@@ -7005,7 +7277,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "c7e3d21c-8c14-4803-baf0-993d5ea14115",
@@ -7132,7 +7406,9 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {}
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
                                 }
                             },
                             "nextPhaseEvent": {
@@ -7170,7 +7446,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "02fdb9bc-e3fe-4133-9992-33c81371e710",
@@ -7251,7 +7529,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "a9031b3b-9d32-42c7-929d-7d83f7fa0fac",
@@ -7303,7 +7583,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "4f96a644-8447-4406-94c9-d466e0d4d7f9",
@@ -7430,7 +7712,9 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {}
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
                                 }
                             },
                             "nextPhaseEvent": {
@@ -7468,7 +7752,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "d0a8b6d2-862f-4dc8-894f-98a147328521",
@@ -7549,7 +7835,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "8beb8b51-1353-4670-b392-b4e6c9c2cdf0",
@@ -7601,7 +7889,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "b2b584bd-42c3-4a54-94d1-afcc2e676afc",
@@ -7728,7 +8018,9 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {}
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
                                 }
                             },
                             "nextPhaseEvent": {
@@ -7766,7 +8058,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "a3c4a2c7-bb79-4d9d-9a6f-bd56fc231211",
@@ -7847,7 +8141,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "d8553226-ae92-4b87-ae86-5b53607d3bd3",
@@ -7899,7 +8195,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "c80b06ad-0f63-41c0-a485-0bc97313fd48",
@@ -8026,7 +8324,9 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {}
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
                                 }
                             },
                             "nextPhaseEvent": {
@@ -8064,7 +8364,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "60ecd582-0e23-4c8a-8077-7201d263cca2",
@@ -8145,7 +8447,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "2bf45ba3-ea96-40d1-a8eb-1f5b58eb97e3",
@@ -8197,7 +8501,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "658ac695-5997-4780-9d05-8ca8cdd9cd6a",
@@ -8324,7 +8630,9 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {}
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
                                 }
                             },
                             "nextPhaseEvent": {
@@ -8362,7 +8670,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "c57b02c1-e38e-4c24-8ca0-5d5790f8c475",
@@ -8443,7 +8753,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "0b79e13b-e44f-41bb-9450-47881760fb81",
@@ -8495,7 +8807,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "ce4d9250-7aee-432f-b0f7-a25a0d3739d1",
@@ -8622,7 +8936,9 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {}
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
                                 }
                             },
                             "nextPhaseEvent": {
@@ -8660,7 +8976,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "29cd95e8-e310-4279-8fc6-a886eaeb939d",
@@ -8741,7 +9059,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "b4307590-5fe4-4997-a25c-3221fcaea5ea",
@@ -8793,7 +9113,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {}
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
                                                     }
                                                 },
                                                 "id": "7a79c0f2-514b-441a-ae08-5e1c1d815095",
@@ -8920,7 +9242,9 @@
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
-                                    "uiObject": {}
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
                                 }
                             },
                             "moveToPhaseEvents": [],
@@ -9031,7 +9355,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         },
                         "id": "62dec497-f190-41dc-b7a6-430ffb78fa3c",
@@ -9084,7 +9410,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         },
                         "id": "e4a38608-0a48-4e4c-b291-36ee1a1b85c5",
@@ -9185,7 +9513,9 @@
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
-                                                                "uiObject": {}
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                }
                                                             }
                                                         },
                                                         "id": "7ce28ab2-846f-44e3-8d42-66e702d7cf6f",
@@ -9285,7 +9615,33 @@
                                             "type": "Market Order",
                                             "name": "Market Buy Order #1",
                                             "id": "7d6c3ac9-4869-4ff3-a9f2-2a6f8a31ccf3"
-                                        }
+                                        },
+                                        "referenceParentCombinedNodePath": [
+                                            [
+                                                "Low-Frequency",
+                                                "Trading Engine",
+                                                "Foundations",
+                                                "eb20f622-71bf-4479-a574-d2320e1d4bd1"
+                                            ],
+                                            [
+                                                "New Exchange Orders",
+                                                "Exchange Orders",
+                                                "Foundations",
+                                                "07f9794a-dea7-4075-bdea-00e4b90960a6"
+                                            ],
+                                            [
+                                                "New Market Buy Orders",
+                                                "Market Buy Orders",
+                                                "Foundations",
+                                                "a5823c2e-46a8-4824-a267-5606466e19db"
+                                            ],
+                                            [
+                                                "Market Buy Order #1",
+                                                "Market Order",
+                                                "Foundations",
+                                                "7d6c3ac9-4869-4ff3-a9f2-2a6f8a31ccf3"
+                                            ]
+                                        ]
                                     }
                                 }
                             ],

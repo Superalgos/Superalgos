@@ -1,0 +1,20 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 30,
+    "type": "Superalgos Review - NumbersXXX",
+    "definition": {
+        "text": "In Breaking Up The Command within the third tutorial (advanced tutorial), you need to change the fourth bullet point from \"Superalgos\" to \"Foundations\" as that is the command we are given:\n\ndocs.add Review to Foundations: Superalgos Project Review->Superalgos Review - Your Title Here",
+        "updated": 1633549180524
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In Breaking Up The Command within the third tutorial (advanced tutorial), you need to change the fourth bullet point from \"Superalgos\" to \"Foundations\" as that is the command we are given:",
+            "updated": 1633549640656
+        },
+        {
+            "style": "Text",
+            "text": "docs.add Review to Foundations: Superalgos Project Review->Superalgos Review - Your Title Here"
+        }
+    ]
+}

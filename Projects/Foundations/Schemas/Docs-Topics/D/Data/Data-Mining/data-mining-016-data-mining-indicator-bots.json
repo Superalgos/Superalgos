@@ -9,12 +9,12 @@
     "paragraphs": [
         {
             "style": "Include",
-            "text": "Foundations->Node->Indicator Bot->Definition",
+            "text": "Data-Mining->Node->Indicator Bot->Definition",
             "updated": 1611408242603
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Indicator Bot->Content",
+            "text": "Data-Mining->Node->Indicator Bot->Content",
             "updated": 1611408247595
         },
         {
@@ -23,7 +23,7 @@
         },
         {
             "style": "Hierarchy",
-            "text": "Foundations->Indicator Bot->2",
+            "text": "Data-Mining->Indicator Bot->2",
             "updated": 1611408262027
         }
     ]

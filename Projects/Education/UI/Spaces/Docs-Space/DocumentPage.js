@@ -854,7 +854,7 @@ function newFoundationsDocsDocumentPage() {
                     if (appSchemaDocument === undefined || appSchemaDocument.menuItems === undefined) { return }
                     for (let i = 0; i < appSchemaDocument.menuItems.length; i++) {
                         let menuItem = appSchemaDocument.menuItems[i]
-                        let collectionImage = getIcon()
+                        let collectionImage = getIcon(appSchemaDocument.menuItems[i].relatedUiObjectProject, appSchemaDocument.menuItems[i].actionProject)
                         if (collectionImage === undefined) {
                             continue
                         }
@@ -866,12 +866,23 @@ function newFoundationsDocsDocumentPage() {
                         let dummyImage = parentElement.childNodes[0]
                         parentElement.replaceChild(imageElement, dummyImage)
 
-                        function getIcon() {
+                        function getIcon(relatedUiObjectProject, actionProject) {
+                            let project 
                             if (menuItem.relatedUiObject !== undefined) {
-                                return UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, menuItem.relatedUiObject)
+                                if (relatedUiObjectProject !== undefined) {
+                                    project = relatedUiObjectProject
+                                } else {
+                                    project = UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project
+                                }
+                                return UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(project, menuItem.relatedUiObject)
                             } else {
+                                if (actionProject !== undefined) {
+                                    project = actionProject
+                                } else {
+                                    project = UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project
+                                }
                                 if (menuItem.iconPathOn !== undefined) {
-                                    return UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, menuItem.iconPathOn)
+                                    return UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(project, menuItem.iconPathOn)
                                 } else {
                                     return UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', 'bitcoin')
                                 }

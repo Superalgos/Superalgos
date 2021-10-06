@@ -18,7 +18,7 @@ exports.newBootstrap = function newBootstrap() {
 
     async function initialize() {
 
-        let pluginFileNames = await SA.projects.foundations.utilities.plugins.getPluginFileNames(
+        let pluginFileNames = await SA.projects.communityPlugins.utilities.plugins.getPluginFileNames(
             'Governance',
             'User-Profiles'
         )
@@ -26,7 +26,7 @@ exports.newBootstrap = function newBootstrap() {
         for (let i = 0; i < pluginFileNames.length; i++) {
             let pluginFileName = pluginFileNames[i]
 
-            let pluginFileContent = await SA.projects.foundations.utilities.plugins.getPluginFileContent(
+            let pluginFileContent = await SA.projects.communityPlugins.utilities.plugins.getPluginFileContent(
                 'Governance',
                 'User-Profiles',
                 pluginFileName

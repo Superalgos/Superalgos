@@ -340,7 +340,7 @@ exports.newGithubServer = function newGithubServer() {
                                                 owner: owner,
                                                 repo: repo,
                                                 issue_number: pullRequest.number,
-                                                body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that a User Profile file... \n\n' + fileContentUrl + '\n\n...was submitted together with  ' + (filesChanged.length - 1) + ' other file/s. User Profiles files as per the Governance System rules, must be the only file present at a Pull Request in order to pass all the validations and be automatically merged.'
+                                                body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because it was detected that a User Profile file... \n\n' + fileContentUrl + '\n\n...was submitted together with  ' + (filesChanged.length - 1) + ' other file/s. User Profiles files as per the Governance System rules, must be the only file present at a Pull Request in order to pass all the validations and be automatically merged. \n\n If you intentionally submitted the extra files, the way to get your work merged is by first removing your User Profile file from the Plugins folder at your local installation and executing an app.contribute again. Then wait until the PR is merged (manually reviewed) and after that you put your User Profile file again and create a new PR only with that file with an app.contribute. That last PR should be merged automatically.'
                                             });
 
                                             await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
@@ -508,14 +508,14 @@ exports.newGithubServer = function newGithubServer() {
                                 unless the existing one belongs to the same Github username.
                                 */
                                 let userProfileIdMap = new Map()
-                                let pluginFileNames = await SA.projects.foundations.utilities.plugins.getPluginFileNames(
+                                let pluginFileNames = await SA.projects.communityPlugins.utilities.plugins.getPluginFileNames(
                                     'Governance',
                                     'User-Profiles'
                                 )
                                 for (let i = 0; i < pluginFileNames.length; i++) {
                                     let pluginFileName = pluginFileNames[i]
 
-                                    let pluginFileContent = await SA.projects.foundations.utilities.plugins.getPluginFileContent(
+                                    let pluginFileContent = await SA.projects.communityPlugins.utilities.plugins.getPluginFileContent(
                                         'Governance',
                                         'User-Profiles',
                                         pluginFileName
@@ -558,13 +558,13 @@ exports.newGithubServer = function newGithubServer() {
                                     unless the existing one belongs to the same Github username.
                                     */
                                     let userProfileIdMap = new Map()
-                                    let pluginFileNames = await SA.projects.foundations.utilities.plugins.getPluginFileNames(
+                                    let pluginFileNames = await SA.projects.communityPlugins.utilities.plugins.getPluginFileNames(
                                         'Governance',
                                         'User-Profiles'
                                     )
                                     for (let i = 0; i < pluginFileNames.length; i++) {
                                         let pluginFileName = pluginFileNames[i]
-                                        let pluginFileContent = await SA.projects.foundations.utilities.plugins.getPluginFileContent(
+                                        let pluginFileContent = await SA.projects.communityPlugins.utilities.plugins.getPluginFileContent(
                                             'Governance',
                                             'User-Profiles',
                                             pluginFileName

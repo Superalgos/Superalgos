@@ -101,7 +101,7 @@ function newFoundationsActionSwitch() {
                 break
             case 'Add UI Object':
                 {
-                    UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(action.node, action.relatedNodeType, action.rootNodes)
+                    UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(action.node, action.relatedNodeType, action.rootNodes, action.project)
                 }
                 break
             case 'Add Missing Children':
@@ -112,11 +112,6 @@ function newFoundationsActionSwitch() {
             case 'Delete UI Object':
                 {
                     UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(action.node, action.rootNodes)
-                }
-                break
-            case 'Install as Plugin':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.installAsPlugin(action.node, action.rootNodes)
                 }
                 break
             case 'Edit Code':
@@ -423,11 +418,6 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.cryptoEcosystemFunctions.uninstallMarket(action.node, action.rootNodes)
                 }
                 break
-            case 'Add All Output Datasets':
-                {
-                    UI.projects.foundations.functionLibraries.mineFunctions.addAllOutputDatasets(action.node)
-                }
-                break
             case 'Add All Data Products':
                 {
                     UI.projects.foundations.functionLibraries.dataStorageFunctions.addAllDataProducts(action.node)
@@ -503,16 +493,6 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.dataStorageFunctions.addMissingProjectDataProducts(action.node, action.rootNodes)
                 }
                 break
-            case 'Add All Data Dependencies':
-                {
-                    UI.projects.foundations.functionLibraries.mineFunctions.addAllDataDependencies(action.node)
-                }
-                break
-            case 'Add All Data Mine Dependencies':
-                {
-                    UI.projects.foundations.functionLibraries.mineFunctions.addAllDataMineDataDependencies(action.node, action.rootNodes)
-                }
-                break
             case 'Add All Layer Panels':
                 {
                     UI.projects.foundations.functionLibraries.chartingSpaceFunctions.addAllLayerPanels(action.node)
@@ -543,74 +523,9 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.chartingSpaceFunctions.addMissingProjectDashboards(action.node, action.rootNodes)
                 }
                 break
-            case 'Play Tutorial':
-                {
-                    UI.projects.education.spaces.tutorialSpace.playTutorial(action.node)
-                }
-                break
-            case 'Play Tutorial Topic':
-                {
-                    UI.projects.education.spaces.tutorialSpace.playTutorialTopic(action.node)
-                }
-                break
-            case 'Play Tutorial Step':
-                {
-                    UI.projects.education.spaces.tutorialSpace.playTutorialStep(action.node)
-                }
-                break
-            case 'Resume Tutorial':
-                {
-                    UI.projects.education.spaces.tutorialSpace.resumeTutorial(action.node)
-                }
-                break
-            case 'Resume Tutorial Topic':
-                {
-                    UI.projects.education.spaces.tutorialSpace.resumeTutorialTopic(action.node)
-                }
-                break
-            case 'Resume Tutorial Step':
-                {
-                    UI.projects.education.spaces.tutorialSpace.resumeTutorialStep(action.node)
-                }
-                break
-            case 'Reset Tutorial Progress':
-                {
-                    UI.projects.education.spaces.tutorialSpace.resetTutorialProgress(action.node)
-                }
-                break
             case 'Send Webhook Test Message':
                 {
                     UI.projects.foundations.functionLibraries.webhookFunctions.sendTestMessage(action.node, action.callBackFunction)
-                }
-                break
-            case 'Run Trading Session':
-                {
-                    UI.projects.foundations.functionLibraries.tradingSessionFunctions.runSession(action.node, false, action.callBackFunction)
-                }
-                break
-            case 'Resume Trading Session':
-                {
-                    UI.projects.foundations.functionLibraries.tradingSessionFunctions.runSession(action.node, true, action.callBackFunction)
-                }
-                break
-            case 'Stop Trading Session':
-                {
-                    UI.projects.foundations.functionLibraries.tradingSessionFunctions.stopSession(action.node, action.callBackFunction)
-                }
-                break
-            case 'Run Learning Session':
-                {
-                    UI.projects.foundations.functionLibraries.learningSessionFunctions.runSession(action.node, false, action.callBackFunction)
-                }
-                break
-            case 'Resume Learning Session':
-                {
-                    UI.projects.foundations.functionLibraries.learningSessionFunctions.runSession(action.node, true, action.callBackFunction)
-                }
-                break
-            case 'Stop Learning Session':
-                {
-                    UI.projects.foundations.functionLibraries.learningSessionFunctions.stopSession(action.node, action.callBackFunction)
                 }
                 break
             case 'Run Super Action':
@@ -658,76 +573,6 @@ function newFoundationsActionSwitch() {
                     } else {
                         UI.projects.education.spaces.docsSpace.openSpaceAreaAndNavigateTo(docs.project, docs.category, docs.type, docs.anchor, docs.nodeId, docs.placeholder)
                     }
-                }
-                break
-            case 'Add Missing Plugin Projects':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginProjects(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Types':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginTypes(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Data Mines':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginDataMines(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Trading Mines':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginTradingMines(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Trading Systems':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginTradingSystems(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Trading Engines':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginTradingEngines(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Learning Mines':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginLearningMines(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Learning Systems':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginLearningSystems(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Learning Engines':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginLearningEngines(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Tutorials':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginTutorials(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin API Maps':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginApiMaps(action.node, action.rootNodes)
-                }
-                break
-            case 'Enable Saving With Workspace':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.enableSavingWithWorkspace(action.node, action.rootNodes)
-                }
-                break
-            case 'Disable Saving With Workspace':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.disableSavingWithWorkspace(action.node, action.rootNodes)
-                }
-                break
-            case 'Save Plugin':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.savePlugin(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Workspace Projects':

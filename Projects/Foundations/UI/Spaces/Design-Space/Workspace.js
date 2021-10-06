@@ -18,7 +18,7 @@ function newWorkspace() {
         share: shareWorkspace,
         getNodesByTypeAndHierarchyHeadsType: getNodesByTypeAndHierarchyHeadsType,
         getProjectsHeads: getProjectsHeads,
-        getProjectHeadByNodeType: getProjectHeadByNodeType, 
+        getProjectHeadByNodeType: getProjectHeadByNodeType,
         getHierarchyHeads: getHierarchyHeads,
         getHierarchyHeadsById: getHierarchyHeadsById,
         getHierarchyHeadsByCodeNameAndNodeType: getHierarchyHeadsByCodeNameAndNodeType,
@@ -72,7 +72,7 @@ function newWorkspace() {
                 for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
                     let project = PROJECTS_SCHEMA[i].name
                     try {
-                        let actionSwitch = eval('new' + project + 'ActionSwitch()')
+                        let actionSwitch = eval('new' + project.replaceAll('-', '') + 'ActionSwitch()')
                         actionSwitchesByProject.set(project, actionSwitch)
                     } catch (err) {
                         console.log('[WARN] Action Switch for project ' + project + ' not found.')
@@ -255,7 +255,7 @@ function newWorkspace() {
 
                                 let saveWithWorkspace = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'saveWithWorkspace')
                                 if (saveWithWorkspace === true) {
-                                    UI.projects.foundations.utilities.plugins.savePluginFile(pluginFile)
+                                    UI.projects.communityPlugins.utilities.plugins.savePluginFile(pluginFile)
                                 }
                             }
                         }
@@ -706,6 +706,10 @@ function newWorkspace() {
         action.rootNodes = thisObject.workspaceNode.rootNodes
 
         let actionSwitch = actionSwitchesByProject.get(action.project)
+        if (actionSwitch === undefined) {
+            console.log('[ERROR] Action Switch for project ' + action.project + ' could not be found.')
+            return
+        }
         return actionSwitch.executeAction(action)
 
     }

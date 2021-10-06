@@ -53,14 +53,14 @@
             defined with the same type at the property botType.
             */
             for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
-                let project = PROJECTS_SCHEMA[i]
-                if (project.name !== TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName) { continue }
-                for (let j = 0; j < project.TS.botModules.length; j++) {
-                    botModuleDefinition = project.TS.botModules[j]
+                let projectDefinition = PROJECTS_SCHEMA[i]
+                if (projectDefinition.name !== TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName) { continue }
+                for (let j = 0; j < projectDefinition.TS.botModules.length; j++) {
+                    botModuleDefinition = projectDefinition.TS.botModules[j]
                     if (botModuleDefinition.botType === TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type) {
                         try {
                             TS.projects.foundations.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
-                            let project = TS.projects[TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName.toLowerCase()]
+                            let project = TS.projects[projectDefinition.propertyName]
                             let botModule = project.botModules[botModuleDefinition.propertyName]
                             let moduleFunction = botModule[botModuleDefinition.functionName]
                             botModuleObject = moduleFunction(processIndex)

@@ -14,7 +14,7 @@
     "release-dev": "electron-builder --dir",
     "release-win": "electron-builder --win",
     "release-mac": "electron-builder --mac",
-    "start": "electron .",
+    "start": "electron . noBrowser",
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {

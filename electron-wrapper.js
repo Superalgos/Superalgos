@@ -36,9 +36,7 @@ run()
 function run() {
   userData()
   const { fork } = require('child_process')
-  fork(path.join(__dirname, './PlatformRoot.js'), {
-    execArgv: ['noBrowser']
-  })
+  fork(path.join(__dirname, './PlatformRoot.js'), process.argv)
 
   server_ready = true
   if (app_ready) open()

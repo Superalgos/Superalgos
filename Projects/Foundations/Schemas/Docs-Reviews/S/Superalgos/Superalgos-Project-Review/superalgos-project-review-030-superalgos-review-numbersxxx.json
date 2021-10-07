@@ -15,6 +15,10 @@
         {
             "style": "Text",
             "text": "docs.add Review to Foundations: Superalgos Project Review->Superalgos Review - Your Title Here"
+        },
+        {
+            "style": "Text",
+            "text": "Github: NumbersXXX"
         }
     ]
 }

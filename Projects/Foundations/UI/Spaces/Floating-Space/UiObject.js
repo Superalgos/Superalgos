@@ -2446,7 +2446,7 @@ function newUiObject() {
                 if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) {
                     if (schemaDocument.inMapMode !== undefined) {
                         if (schemaDocument.inMapMode.smallIcon === true) {
-                            totalImageSize = totalImageSize / 2
+                            totalImageSize = totalImageSize * 0.75
                         }
                     }
                 }

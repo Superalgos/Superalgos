@@ -152,7 +152,7 @@ function newGovernanceReportsCommmandInterface() {
                     "userProfile": userProfile.name,
                     "from": UI.projects.governance.globals.saToken.SA_TOKEN_BSC_TREASURY_ACCOUNT_ADDRESS,
                     "to": userProfile.payload.blockchainAccount,
-                    "amount": 1 * UI.projects.governance.globals.saToken.SA_TOKEN_BSC_DECIMAL_FACTOR //(userProfile.tokensMined.payload.tokensMined.total | 0) * UI.projects.governance.globals.saToken.SA_TOKEN_BSC_DECIMAL_FACTOR
+                    "amount": (userProfile.tokensMined.payload.tokensMined.total | 0) * UI.projects.governance.globals.saToken.SA_TOKEN_BSC_DECIMAL_FACTOR
                 }
 
                 paymentsArray.push(payment)

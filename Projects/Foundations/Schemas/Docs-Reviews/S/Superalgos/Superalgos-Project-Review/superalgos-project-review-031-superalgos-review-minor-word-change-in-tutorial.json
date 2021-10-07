@@ -1,0 +1,28 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 31,
+    "type": "Superalgos Review - Minor word change in Tutorial",
+    "definition": {
+        "text": "In Breaking Up The Command within the third tutorial (advanced tutorial), you need to change the fourth bullet point from \"Superalgos\" to \"Foundations\" as that is the command we are given:\n\ndocs.add Review to Foundations: Superalgos Project Review->Superalgos Review - Your Title Here\n\nGithub: NumbersXXX",
+        "updated": 1633636211321
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In Breaking Up The Command within the third tutorial (advanced tutorial), you need to change the fourth bullet point from \"Superalgos\" to \"Foundations\" as that is the command we are given:",
+            "updated": 1633636221224
+        },
+        {
+            "style": "List",
+            "text": "docs.add Review to Foundations: Superalgos Project Review->Superalgos Review - Your Title Here"
+        },
+        {
+            "style": "Text",
+            "text": "Github: NumbersXXX"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

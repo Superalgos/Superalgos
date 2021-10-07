@@ -19,7 +19,8 @@ jobs:
         node-version: 16
     - name: see directory
       run: ls
-build_on_win:
+
+  build_on_win:
     runs-on: windows-2016
     steps:
     - uses: actions/checkout@master

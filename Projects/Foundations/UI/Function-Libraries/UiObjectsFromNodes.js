@@ -66,7 +66,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                     for (let j = 0; j < plugins.pluginProjects.length; j++) {
                         let project = plugins.pluginProjects[j]
                         /*
-                        Foundations Plugin Types
+                        Miscelaneours Plugin Types
                         */
                         if (project.pluginDataMines !== undefined) {
                             totalPlugin = totalPlugin + project.pluginDataMines.pluginFiles.length
@@ -96,6 +96,9 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                             totalPlugin = totalPlugin + project.pluginLearningEngines.pluginFiles.length
                             pluginAllTheseFiles(project.pluginLearningEngines.pluginFiles, 'Learning-Engines')
                         }
+                        /*
+                        Foundations Plugin Types
+                        */
                         if (project.pluginTutorials !== undefined) {
                             totalPlugin = totalPlugin + project.pluginTutorials.pluginFiles.length
                             pluginAllTheseFiles(project.pluginTutorials.pluginFiles, 'Tutorials')
@@ -202,7 +205,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                             config.codeName = name
                             receivedNode.config = JSON.stringify(config)
 
-                            if (pluginFile.pluginFilePosition !== undefined) {
+                            if (pluginFile.pluginFilePosition !== undefined && receivedNode.savedPayload !== undefined) {
                                 let positionOffset = {
                                     x: pluginFile.pluginFilePosition.savedPayload.position.x - receivedNode.savedPayload.position.x,
                                     y: pluginFile.pluginFilePosition.savedPayload.position.y - receivedNode.savedPayload.position.y
@@ -270,7 +273,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
     function syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd() {
         for (let i = 0; i < tradingSessionsFoundAtWorkspace.length; i++) {
             let node = tradingSessionsFoundAtWorkspace[i]
-            UI.projects.foundations.functionLibraries.tradingSessionFunctions.syncronizeSessionWithBackEnd(node)
+            UI.projects.algorithmicTrading.functionLibraries.tradingSessionFunctions.syncronizeSessionWithBackEnd(node)
         }
         tradingSessionsFoundAtWorkspace = undefined
     }
@@ -278,7 +281,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
     function syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd() {
         for (let i = 0; i < learningSessionsFoundAtWorkspace.length; i++) {
             let node = learningSessionsFoundAtWorkspace[i]
-            UI.projects.foundations.functionLibraries.tradingSessionFunctions.syncronizeSessionWithBackEnd(node)
+            UI.projects.machineLearning.functionLibraries.learningSessionFunctions.syncronizeSessionWithBackEnd(node)
         }
         learningSessionsFoundAtWorkspace = undefined
     }
@@ -443,6 +446,52 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
         ) {
             node.type = "LAN Network Node"
         }
+
+        if (
+            node.type === 'Data Mine' ||
+            node.type === 'API Data Fetcher Bot' ||
+            node.type === 'Indicator Bot' ||
+            node.type === 'Sensor Bot'
+        ) {
+            node.project = "Data-Mining"
+        }
+
+        if (
+            node.type === 'Trading Engine' ||
+            node.type === 'Trading Mine' ||
+            node.type === 'Trading System' ||
+            node.type === 'Trading Bot'
+        ) {
+            node.project = "Algorithmic-Trading"
+        }
+
+        if (
+            node.type === 'Learning Engine' ||
+            node.type === 'Learning Mine' ||
+            node.type === 'Learning System' ||
+            node.type === 'Learning Bot'
+        ) {
+            node.project = "Machine-Learning"
+        }
+
+        if (
+            node.type === 'Plugins' ||
+            node.type === 'Plugin Tutorials' ||
+            node.type === 'Plugin Trading Systems' ||
+            node.type === 'Plugin Trading Mines' ||
+            node.type === 'Plugin Trading Engines' ||
+            node.type === 'Plugin Project' ||
+            node.type === 'Plugin Learning Systems' ||
+            node.type === 'Plugin Learning Mines' ||
+            node.type === 'Plugin Learning Engines' ||
+            node.type === 'Plugin File' ||
+            node.type === 'Plugin File Position' ||
+            node.type === 'Plugin Data Mines' ||
+            node.type === 'Plugin API Maps'
+        ) {
+            node.project = "Community-Plugins"
+        }
+
         /* 
         This function can be called with a positionOffset to change the node
         saved position and all of its descendants positions as well with an 
@@ -718,7 +767,11 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                 if (property.type === 'node') {
                     if (property.name !== previousPropertyName) {
                         if (node[property.name] === undefined) {
-                            addUIObject(node, property.childType, rootNodes)
+                            let currenAngleToParent = node.payload.floatingObject.angleToParent  
+                            node.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                            let uiObject = addUIObject(node, property.childType, rootNodes, property.project)
+                            node.payload.floatingObject.angleToParent = currenAngleToParent
+                            //uiObject.payload.floatingObject.angleToParent = currenAngleToParent
                             previousPropertyName = property.name
                         }
                     }

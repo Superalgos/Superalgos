@@ -1433,9 +1433,6 @@ function newUiObject() {
     function drawForeground() {
         if (thisObject.isOnFocus === false) {
             drawBodyAndPicture()
-            if (isDragging === false) {
-                thisObject.menu.drawForeground()
-            }
         }
 
         if (thisObject.circularProgressBar !== undefined) {

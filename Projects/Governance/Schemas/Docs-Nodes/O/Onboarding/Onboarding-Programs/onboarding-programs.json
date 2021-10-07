@@ -2,7 +2,14 @@
     "type": "Onboarding Programs",
     "definition": {
         "text": "These programs incentivize Superalgos users to take the first couple of steps to participate in governance and start giving back to the project. They make earning the first few tokens a breeze and allow everyone to become invested in the Superalgos SA Token! We are talking about the Airdrop Program and the Github Program.",
-        "updated": 1630216446725
+        "updated": 1630216446725,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Estos programas incentivan a los usuarios de Superalgos a realizar los primeros pasos para participar en la gorvernanza y comenzar a devolver al proyecto. Ellos hacen ganar los primeros pocos token como una brisa y permite que todos se involucren en los Superalgos SA Token! Estamos hablando del the Airdrop Program y el Github Program.",
+                "updated": 1633515446793
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,16 +20,37 @@
         {
             "style": "Success",
             "text": "Learn more about how Token Power Flows into these programs!",
-            "updated": 1630228322651
+            "updated": 1630228322651,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Aprende más a cerca de como fluye el Token Power Flows dentro de los programas!",
+                    "updated": 1633515500934
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "What these two programs have in common is that they don't require Token Power to function. That is, even if you have zero Superalgos SA Tokens and zero Delegated Power, you may still participate to earn your first few tokens!"
+            "text": "What these two programs have in common is that they don't require Token Power to function. That is, even if you have zero Superalgos SA Tokens and zero Delegated Power, you may still participate to earn your first few tokens!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Lo que tienen estos dos programas en común es que no requieren de Token Power para funcionar. Esto es, aún si tiene cero Superalgos SA Tokens y cero Delegated Power, aún puede participar para ganar los primeros pocos tokens!",
+                    "updated": 1633515674124
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "All you need to do to participate is spawn each of the program nodes and submit your User Profile!",
-            "updated": 1630228214813
+            "updated": 1630228214813,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Todo lo que necesita hacer para participar es generar cada uno cada uno de los nodos del programa y crear su User Profile!",
+                    "updated": 1633515800198
+                }
+            ]
         },
         {
             "style": "Block",

@@ -2,6 +2,13 @@
     "type": "TensorFlow Project",
     "menuItems": [
         {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Foundations Project",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
+        },
+        {
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "label": "Add Machine Learning",

@@ -129,6 +129,12 @@ function newFoundationsDocsFooter() {
         } 
         HTML = HTML + '"></a>'
 
+        HTML = HTML + '<a href="#" onClick="UI.projects.education.spaces.docsSpace.changeLanguage(\'NL\')"><img src="Images/Languages/NL.png" title="Dutch" class="docs-footer-language'
+        if (languageCode === 'NL') { 
+            HTML = HTML + '-selected'
+        } 
+        HTML = HTML + '"></a>'
+
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'

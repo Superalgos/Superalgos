@@ -18,9 +18,41 @@ function newEducationActionSwitch() {
 
     async function executeAction(action) {
         switch (action.name) {
-            case 'Action Name': {
-                // Example: return UI.projects.foundations.functionLibraries.onFocus.getNodeThatIsOnFocus(action.node)
-            }
+            case 'Play Tutorial':
+                {
+                    UI.projects.education.spaces.tutorialSpace.playTutorial(action.node)
+                }
+                break
+            case 'Play Tutorial Topic':
+                {
+                    UI.projects.education.spaces.tutorialSpace.playTutorialTopic(action.node)
+                }
+                break
+            case 'Play Tutorial Step':
+                {
+                    UI.projects.education.spaces.tutorialSpace.playTutorialStep(action.node)
+                }
+                break
+            case 'Resume Tutorial':
+                {
+                    UI.projects.education.spaces.tutorialSpace.resumeTutorial(action.node)
+                }
+                break
+            case 'Resume Tutorial Topic':
+                {
+                    UI.projects.education.spaces.tutorialSpace.resumeTutorialTopic(action.node)
+                }
+                break
+            case 'Resume Tutorial Step':
+                {
+                    UI.projects.education.spaces.tutorialSpace.resumeTutorialStep(action.node)
+                }
+                break
+            case 'Reset Tutorial Progress':
+                {
+                    UI.projects.education.spaces.tutorialSpace.resetTutorialProgress(action.node)
+                }
+                break
         }
     }
 }

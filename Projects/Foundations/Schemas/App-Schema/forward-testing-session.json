@@ -15,7 +15,8 @@
             "secondaryIcon": "stop",
             "iconPathOn": "run",
             "iconPathOff": "run",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Algorithmic-Trading"
         },
         {
             "action": "Resume Trading Session",
@@ -31,7 +32,8 @@
             "secondaryIcon": "stop",
             "iconPathOn": "resume",
             "iconPathOff": "resume",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Algorithmic-Trading"
         },
         {
             "action": "Configure",

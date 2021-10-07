@@ -1,0 +1,55 @@
+{
+    "type": "Learning Engine",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Learning Engine",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
+        }
+    ],
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "learningCurrent",
+            "type": "node",
+            "childType": "Learning Current",
+            "autoAdd": true,
+            "project": "Foundations"
+        },
+        {
+            "name": "features",
+            "type": "node",
+            "childType": "Features",
+            "autoAdd": true,
+            "project": "Foundations"
+        },
+        {
+            "name": "labels",
+            "type": "node",
+            "childType": "Labels",
+            "autoAdd": true,
+            "project": "Foundations"
+        },
+        {
+            "name": "predictions",
+            "type": "node",
+            "childType": "Predictions",
+            "autoAdd": true,
+            "project": "Foundations"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "type": "Plugin Data Mines",
+    "menuItems": [
+        {
+            "action": "Add Missing Plugin Data Mines",
+            "label": "Add Missing Data Mines",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "iconPathOn": "data-mine",
+            "iconPathOff": "data-mine",
+            "iconProject": "Data-Mining",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Community-Plugins"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 1,
+    "propertyNameAtParent": "pluginDataMines",
+    "attachingRules": {
+        "compatibleTypes": "->Plugin Project->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "pluginFiles",
+            "type": "array",
+            "childType": "Plugin File",
+            "autoAdd": false,
+            "project": "Foundations"
+        }
+    ]
+}

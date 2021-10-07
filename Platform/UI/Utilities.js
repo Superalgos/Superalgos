@@ -9,7 +9,7 @@ function getSchemaDocument (node, project) {
   if (APP_SCHEMA !== undefined) {
     return SCHEMAS_BY_PROJECT.get(project).map.appSchema.get(node.type)
   } else {
-    console.log('[ERROR] Could not get APP Scchema for project ' + node.project)
+    console.log('[ERROR] Could not get APP Schema for project ' + node.project)
   }
 }
 

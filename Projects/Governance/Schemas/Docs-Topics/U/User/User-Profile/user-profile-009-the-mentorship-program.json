@@ -4,7 +4,14 @@
     "type": "The Mentorship Program",
     "definition": {
         "text": "Helps us reward mentors so that they keep up the good work forming Contributors!",
-        "updated": 1630495605300
+        "updated": 1630495605300,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Ayudénos a premiar a los mentores así ellos continuan haciendo un buen trabajo formando a los contribuyentes!",
+                "updated": 1633543826508
+            }
+        ]
     },
     "paragraphs": [
         {

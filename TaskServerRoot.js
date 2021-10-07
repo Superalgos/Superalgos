@@ -23,6 +23,12 @@ global.env = ENVIRONMENT_MODULE
 First thing is to load the project schema file.
 */
 global.PROJECTS_SCHEMA = require(global.env.PATH_TO_PROJECT_SCHEMA)
+global.PROJECTS_SCHEMA_MAP = new Map()
+
+for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+    let projectDefinition = PROJECTS_SCHEMA[i]
+    PROJECTS_SCHEMA_MAP.set(projectDefinition.name, projectDefinition)
+}
 /* 
 Setting up the modules that will be available, defined at the Project Schema file. 
 */

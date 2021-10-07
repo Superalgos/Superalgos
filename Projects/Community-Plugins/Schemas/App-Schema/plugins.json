@@ -1,0 +1,36 @@
+{
+    "type": "Plugins",
+    "menuItems": [
+        {
+            "action": "Add Missing Plugin Projects",
+            "label": "Add Missing Projects",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Plugin Project",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Community-Plugins"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionProject": "Foundations"
+        }
+    ],
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "pluginProjects",
+            "type": "array",
+            "childType": "Plugin Project",
+            "autoAdd": false
+        }
+    ]
+}

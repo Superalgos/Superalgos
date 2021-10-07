@@ -57,8 +57,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Nuevos nodos Plugin File se crean para cada plugin in \\Plugins\\Trading-Systems. Puede eliminar los nodos Plugin File no necesitas y conserva los que necesites! Luego, puedes agregar y anclar el nodo Plugin File Position donde deseas colocar el plugin.",
-                    "updated": 1626643680169,
+                    "text": "Nuevos nodos Plugin File se crean para cada plugin in \\Foundations\\Plugins\\Trading-Systems. Puede eliminar los nodos Plugin File que no necesita y conservar los que necesite! Luego, puedes agregar y anclar el nodo Plugin File Position donde deseas colocar la jerarquía del plugin.  ",
+                    "updated": 1633282144023,
                     "style": "Text"
                 }
             ]

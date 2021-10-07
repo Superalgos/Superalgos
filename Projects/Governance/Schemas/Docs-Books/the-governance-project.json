@@ -2,7 +2,14 @@
     "type": "The Governance Project",
     "definition": {
         "text": "The Governance Project is designed as a flexible system that allows the Community to dynamically direct influence in arbitrary directions. It allows governance to evolve with the project. It also encourages permissionless innovation, as Contributors may propose new areas of development and rally the Community to incentivize expansion along new lines.",
-        "updated": 1624782493205
+        "updated": 1624782493205,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El proyecto de gobernanza está diseñado como un sistema flexible que permite a la comunidad dirigir influencias en direcciones arbitrarias en forma dinámica. Esto permite que la gobernanza evolucione con el proyecto. También promueve la innovación sin permiso, ya que los contribuyentes pueden proponer nuevas áreas de desarrollo y movilizar a la comunidad a incentivar la expansión a lo largo de nuevas lineas.",
+                "updated": 1633344584790
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -5,6 +5,10 @@
   "author": {
     "name": "Luis-Fernando-Molina"
   },
+  "scripts": {
+    "start": "node platform minMemo noBrowser",
+    "setup": "node setup noShortcuts"
+  },
   "dependencies": {
     "@octokit/rest": "^18.11.4",
     "ccxt": "^1.57.36",

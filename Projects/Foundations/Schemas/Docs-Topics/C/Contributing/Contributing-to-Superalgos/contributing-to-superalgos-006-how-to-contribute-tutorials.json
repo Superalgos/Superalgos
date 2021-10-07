@@ -4,13 +4,27 @@
     "type": "How to Contribute Tutorials",
     "definition": {
         "text": "Tutorials are the ultimate educational resource available in Superalgos, and they play a crucial role during the onboarding of new users. Contributing tutorials is a great way to help the project grow the user base and is highly appreciated!",
-        "updated": 1617710488028
+        "updated": 1617710488028,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Los tutoriales son la última fuente educativa disponible en Superalgos, y juegan un papel crucial durante la introducción de los usuarios nuevos. Contribuir con los tutoriales es un excelente modo de ayudar al proyecto para que su base de usuarios crezca y lo apreciamos muchísimo!",
+                "updated": 1633370243631
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "This page discusses best practices to build and contribute Superalgos tutorials. It doesn't cover the actual mechanics of building tutorials. Instead, it focuses on what is desirable.",
-            "updated": 1617732597782
+            "updated": 1617732597782,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Esta página habla a cerca de  las mejores prácticas para construir y contribuir tutoriales de Superalgos. No cubre la mecanica actual de construir tutoriales. en lugar de eso está enfocado en lo que sería deseable.",
+                    "updated": 1633364195196
+                }
+            ]
         },
         {
             "style": "Title",
@@ -20,17 +34,38 @@
         {
             "style": "Text",
             "text": "At Superalgos, we take pride in the quality of the product we are building. Documentation and tutorials are crucial parts of Superalgos.",
-            "updated": 1617732636344
+            "updated": 1617732636344,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En Superalgos, nosotros nos sentimos orgullosos de la cualidad del producto que estamos construyendo. La documentación y los tutoriales son una parte crucial de Superalgos.",
+                    "updated": 1633364296850
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "That said, we understand that it takes time and effort to get to a quality product, thus iterating on early prototypes and implementing early-stage feedback is a good way to achieve the desired quality standards.",
-            "updated": 1617732666027
+            "updated": 1617732666027,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Dicho esto, nosotros entendemos que se requiere de tiempo y esfuerzo para obtener un producto de cualidad por lo tanto, iteractuar sobre los primeros prototipos e implementar la retroalimentación en las primeras etapas es una buena manera de lograr el objetivo deseado de los estándares de cualidad.",
+                    "updated": 1633364481390
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "When you build a tutorial for Superalgos, you become the maintainer of the tutorial. It is your responsibility to keep the tutorial up to date with the system, and to implement the feedback users may share! Your tutorial must become the ultimate resource to learn the topics it covers. ",
-            "updated": 1620645983606
+            "updated": 1620645983606,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando construye un tutorial para Superalgos, se convierte en quien mantiene el tutorial. Es su reponsabilidad ,mantener el tutorial actualizado con el sistema, e implementar los comentarios que los usuarios pueden compartir! Su tutorial debe convertirse en la fuente fundamental para aprender el tópico con el cual está relacionado.",
+                    "updated": 1633364765692
+                }
+            ]
         },
         {
             "style": "Title",
@@ -40,7 +75,14 @@
         {
             "style": "Text",
             "text": "To deliver the best possible experience, a tutorial must be featured in a specific Workspace, and the workspace must be custom-tailored to serve the tutorial. The workspace must be clean and feature the assets required for the learning experience to be optimal. It is best to keep the workspace clean, light, and stripped of unnecessary resources.",
-            "updated": 1617732813825
+            "updated": 1617732813825,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para ofrecer a mejor experiencia posible, un tutorial debe aparecer en un Workspace, específico y el workspace debe ser personalizado para servir al tutorial. El workspace debe ser limpio y segurar los elementos necesarios para que la experiencia de aprendizaje sea óptima- Es lo mejor mantener el workspace limpio, ligero, y despojado de recursos innecesarios.",
+                    "updated": 1633365163709
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -50,16 +92,37 @@
         {
             "style": "Text",
             "text": "If your tutorial deals with data, it is best to use the same exchange, market, and date ranges already in use in the Getting Started Plugin Workspace tutorials. This way, users will already have the data and can go through the tutorial easier.",
-            "updated": 1621871223112
+            "updated": 1621871223112,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si el tutorial your tutorial trata con datos,es lo mejor utilizar el mismo exchange, market, y rango de datoss, ya en uso en los tutoriales de Getting Started Plugin Workspace. De este modo, los usuarios ya tendran los dtos y pueden ir a través del tutorial con mayor facilidad.",
+                    "updated": 1633365432578
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "If for whatever reason the tutorial must deal with other markets and/or exchanges to deliver the content, then go ahead and ignore the above.",
-            "updated": 1621871324929
+            "updated": 1621871324929,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si por cualquier razón el tutorial debiera tratar con otros mercados y/o exchanges para enviar el contenido, entonces siga adelante e ignore lo de aquí arriba.",
+                    "updated": 1633365546892
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Make sure you include a step allowing users to switch to BinanceUS, in case they need to, just like in the Welcome to Superalgos Tutorial."
+            "text": "Make sure you include a step allowing users to switch to BinanceUS, in case they need to, just like in the Welcome to Superalgos Tutorial.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Asegúrese de incluir un paso permitiendo a los usuarios enlazar con BinanceUS, en caso de que lo necesiten como en el caso del tutorial de Welcome to Superalgos.",
+                    "updated": 1633365690047
+                }
+            ]
         },
         {
             "style": "Title",
@@ -69,36 +132,85 @@
         {
             "style": "Text",
             "text": "Some topics are broad, have ramifications, or require a nuanced analysis to be covered thoroughly. In such cases, planning for a series of tutorials is ideal.",
-            "updated": 1617712578718
+            "updated": 1617712578718,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Algunos tópicos son amplios, tienen ramificaciones, o requieren un análisis mas profundo para ser cubiertos por completo. en estos casos, la planificación de una serie de tutoriales es lo ideal.",
+                    "updated": 1633365921291
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Take, for example, the series of tutorials in the Trading System Design Tutorials Plugin Workspace:",
-            "updated": 1617712745906
+            "updated": 1617712745906,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Tome, por ejemplo, las series de tutoriales en el Trading System Design Tutorials Plugin Workspace:",
+                    "updated": 1633365963577
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The first tutorial in the series gives a broad introduction to the topic, mostly in conceptual terms. This allows users to see the big picture and learn how the concepts are structured and why they are structured the way they are."
+            "text": "The first tutorial in the series gives a broad introduction to the topic, mostly in conceptual terms. This allows users to see the big picture and learn how the concepts are structured and why they are structured the way they are.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El primer tutorial en a serie da una introducción amplia del tópico, mayormente en términos conceptuales. Esto permite a los usuarios ver la  la idea completa y aprender a cerca de como los conceptos han sido estructurados y porque están estructurados así.",
+                    "updated": 1633366158719
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The second tutorial in the series proposes an exercise that takes several more tutorials to develop and implement. That is, the tutorial sets the basis for what the series will cover.",
-            "updated": 1617732839409
+            "updated": 1617732839409,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El segundo tutorial en la serie propone un ejercicio que incuye varios tutoriales para desarrollar e implementar. Esto es, el tutorial sienta las bases de lo que la serie cubrirá.",
+                    "updated": 1633366319793
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The remaining tutorials in the series dissect the exercise proposed earlier and cover with a fine level of detail the implementation. At the same time, they cover all the context and many lateral topics.",
-            "updated": 1617732881797
+            "updated": 1617732881797,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El tutorials siguiente en la serie disecciona el ejercicio propuesto anteriormente y cubre con un nivel fino de detalles la implementación. Al mism tiempo, ellos cubren todo el contexto y muchos temas laterales.",
+                    "updated": 1633366468389
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The whole series threads a common theme and develops it from the simplest to the most complex concepts, step by step. A tutorial series must be exhaustive and eventually, cover the whole topic. It must become the ultimate tool to learn about the subject matter!",
-            "updated": 1617732933799
+            "updated": 1617732933799,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Toda la serie enhebra un tema común y lo desarrolla desde lo más simplea los conceptos más complejos, paso a paso. Una serie de tutoriales debe ser exhaustiva y ocacionalmente cubrir el tópico completo. Debe convertirse en la herramienta  definitiva para aprender sobre el tema!",
+                    "updated": 1633366741272
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Consult with project maintainers what would be good names for each tutorial in the series. Naming tutorials with clear and descriptive names is important.",
-            "updated": 1621875606145
+            "updated": 1621875606145,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Consulte a los project maintainers cuúal serían buenos nombres para cada tutorial de la serie. Nombrar tutoriales con nombres claros y descriptivos es importante.",
+                    "updated": 1633366871577
+                }
+            ]
         },
         {
             "style": "Title",
@@ -108,22 +220,50 @@
         {
             "style": "Text",
             "text": "People are different. We all have slightly different wirings in our heads, and we all learn differently. In that sense, building tutorials is a bit of a challenge. Some people like tutorials that go straight to the point and show them how to solve a very specific issue. Others prefer tutorials that get to the bone, explain every detail, and properly cover the context.",
-            "updated": 1617733011186
+            "updated": 1617733011186,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La gente es diferente. todos tenemos un cableado ligeramente diferente en nuestras cabezas, y todos aprendemos  distinto. En ese sentido, construir tutoriales tiene un poco de desafío. A alguna gente le gustan los tutoriales que van derecho al punto y muestran como resolver un tema bien específico. otros prefieren tutoriales que van al hueso, explican cada detalle y cubre adecuadamente el contenido.",
+                    "updated": 1633367166012
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "At this early stage, we can't afford to duplicate efforts and build different tutorials for different kinds of learners. We have to choose the method that best serves the project.",
-            "updated": 1617714108723
+            "updated": 1617714108723,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Es en esta etapa temprana, que no podemos darnos el lujo de duplicar esfuerzos y construir tutorials diferentes para distintas clases de aprendices. Tenemos que elegir el método que mejor sirva al projecto.",
+                    "updated": 1633367412845
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "We choose to focus on building comprehensive tutorials that everyone can follow and that leave no one behind. We believe that a tutorial that goes slow, covering every detail, and taking the time to explain the nuance is the right approach at this stage. By building tutorials in a such manner, we guarantee that those who are willing to invest the time to learn the system have adequate material to quickly become power users.",
-            "updated": 1621870335450
+            "updated": 1621870335450,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Elegimos enfocarnos en construirtutoriales comprensibles que todos puedan seguir y que no deje a nadie atrás. Creemos que un tutorial que va lento, cubriendo cada detalle, y tomándose el tiempo de explicar los matices es el enfoque correcto en esta etapa. Al construir tutoriales de esta manera, garantizamos que aquellos que están dispuestos a invertir tiempo en aprender el sistema tengan el material adecuado para convertirse rápidamente en usuarios poderosos.",
+                    "updated": 1633437811992
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Such tutorials may be slightly annoying to fast-learners, or to people that just want a specific question answered. But such needs are already covered by the searchable knowledge base comprised in the Docs.",
-            "updated": 1617714293925
+            "updated": 1617714293925,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Estos tutoriales pueden resultar ligeramente molestos para los que aprenden rápido o para gente que solo busca respuesta a una pregunta específica. Pero esas necesidades ya son cubiertas en la base de conocimientos con capacidad de búsqueda  incluida en los Docs.",
+                    "updated": 1633368103703
+                }
+            ]
         },
         {
             "style": "Title",
@@ -133,12 +273,26 @@
         {
             "style": "Text",
             "text": "Let's get into some of the specifics on building tutorials for Superalgos!",
-            "updated": 1617720149756
+            "updated": 1617720149756,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Analicemos algunos de los detalles sobre la construcción de los tutorials para Superalgos!",
+                    "updated": 1633368160422
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Superalgos tutorials have evolved through several months worth of feedback from early adopters. We feel we have found a sweet spot, and have started to develop a style in the way we use the space available in each tutorial step. The following are some notes that will help you build tutorials that match the format of existing tutorials.",
-            "updated": 1617733117832
+            "updated": 1617733117832,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los tutoriales de Superalgos han evolucionado a lo largo de varios meses valiosos feedbacks de los primeros usuarios. Sentimos que hemos encontrado un modo propio, y hemos comenzado a desarrollar un estilo en el modo en que utilizamos el espacio disponible en cada paso de un tutorial. A continuaciòn algunas notas que le ayudará a construir tutoriales que combinen con el formato de los tutoriales existentes.",
+                    "updated": 1633437837617
+                }
+            ]
         },
         {
             "style": "Title",
@@ -148,16 +302,37 @@
         {
             "style": "Text",
             "text": "The ultimate goal of tutorials is to provide users with a hands-on learning experience covering topics in detail. In general terms, we know that a tutorial is good — or has reached a mature state — when users ask no questions about it in the Support Group.",
-            "updated": 1620645730740
+            "updated": 1620645730740,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La meta final de los tutoriales es proveer a los usuarios con una experiencia de aprendizaje práctica que cubra el tópico al detalle. En terminos generales, sabemos que un tutorial es bueno — o que ha alcanzado su estado maduro — cuando los usuarios no hacen preguntas a cerca de ellos en el Support Group.",
+                    "updated": 1633368718874
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Be precise and unequivocal with language. Read your writing over and over in search of phrases that may not be easily understood, or that may be interpreted in different ways. Improve the sentences to make them as clear as possible. Remember, the less clear your writing is, the more questions we have in the Support Group.",
-            "updated": 1620645812565
+            "updated": 1620645812565,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Se preciso exacto con el lenguaje. Lee lo que ha escrito una y otra vez en búsqueda de frases que pueden no ser entendidas facilmente, o que puedan ser interpretadas de diferentes maneras. Mejora las oraciones para acerlas lo mas claras posibles. Recuerde, mientras menos clara sea su escritura, más preguntas nosotros tendremos en el  Support Group.",
+                    "updated": 1633368994567
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Be prepared to iterate over and over until the tutorial stabilizes. That will happen when there are no more questions about the topic in the Support Group!"
+            "text": "Be prepared to iterate over and over until the tutorial stabilizes. That will happen when there are no more questions about the topic in the Support Group!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Esté preparado para itneractuar una y otra vez hasta que el tutorial se estabilice. Eso sucederá cuando no haya más preguntas  acerca de el tópico en el Support Group!",
+                    "updated": 1633369113576
+                }
+            ]
         },
         {
             "style": "Title",
@@ -165,7 +340,14 @@
         },
         {
             "style": "Text",
-            "text": "Use the different sections on the page and the different paragraph styles for consistent purposes. This helps users get accustomed to a certain format so that they know what to expect from each section of the page. Consistency in the way the information is delivered makes tutorials more usable!"
+            "text": "Use the different sections on the page and the different paragraph styles for consistent purposes. This helps users get accustomed to a certain format so that they know what to expect from each section of the page. Consistency in the way the information is delivered makes tutorials more usable!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Use las diferentes secciones de la página y los distintos estilos de párrafos para popósitos concretos. Esto a los usuarios a acostumbrarse a cierto formato  para que sepan que esperar en cada sección de la página. La consistencia en el modo en que la información es enviada hace que los tutoriales sean más útiles!",
+                    "updated": 1633369382341
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -174,12 +356,26 @@
         {
             "style": "Text",
             "text": "The definition box is the space to the right of the icon, below the title. Use this space to introduce what the step is about, that is, to set up the story the step will tell, or to provide some basic context. ",
-            "updated": 1617902992986
+            "updated": 1617902992986,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El box de definición es el espacio a la derecha del ícono, debajo el título. Use este espacio para introducir a cerca de qué es el paso, esto es, establecer la historia que el paso contrará, o proveer algún contexto básico.",
+                    "updated": 1633369713286
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "To use the definition box correctly, explain the context in four to five lines. Avoid one or two lines or anything over five.",
-            "updated": 1617903200520
+            "updated": 1617903200520,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para usar la box de definición correctamente, explique el contexto en cuatro o cinco lineas. Evite una o dos lineas o sobrepasar las cinco.",
+                    "updated": 1633369703258
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -188,25 +384,60 @@
         {
             "style": "Text",
             "text": "The most important section on any given step is the call for action, that is, the instruction that the user must follow to progress in the tutorial. Many times users redo tutorials or go back a few steps just to make sure they did everything right. ",
-            "updated": 1617904108044
+            "updated": 1617904108044,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La sección más importante de cualquier paso es el llamad a la acción, esto es, la instrucción que el usuario debe seguir para progresar en el tutorial. Mauchas veces los usuarios rehacen los tutoriales o vuelven atrás un par de pasos para asegurarse que hicieron todo correctamente.",
+                    "updated": 1633369877553
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Always use the callout style — the one applied to this paragraph — for the call for action! Similarly, try to avoid using this style for anything else. If the particular step doesn't have a call for action, then the step should not feature this style at all!"
+            "text": "Always use the callout style — the one applied to this paragraph — for the call for action! Similarly, try to avoid using this style for anything else. If the particular step doesn't have a call for action, then the step should not feature this style at all!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Siempre respete el estilo — el que está en este párrafo — para el llamado a la acción!  Al igual, trate de evitar usar este estilo para ninguna otra cosa- Si un paso en particular no tiene llamad a la acción, entonces este estilo no debería estar para nada!",
+                    "updated": 1633370216971
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Each tutorial step should have a single call for action, that is, a single instruction that the user must carry out. This is the ideal case scenario. There may be exceptions, for example, when we ask the user to read a page in the Docs and do something else as the main instruction.",
-            "updated": 1617904124728
+            "updated": 1617904124728,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cada paso del tutorial debería tener un solo llamado a la acción, esto es, una sola instrucciòn que el usuario debe llevar a cabo.  Puede haber excepciones, por ejemplo, cuando le solicitamos al usuario que lea una página en los docs y hacer algo más como la instrucción principal.",
+                    "updated": 1633438088497
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "In general terms and when possible, try to avoid giving the user more than one task on the same step. Instead, if you expect the user to perform several sequential actions, try to split the process into more than one step — as many as it takes.",
-            "updated": 1617904133804
+            "updated": 1617904133804,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En términos generales y cuando es posible, intente evitar darle al usuario más de una tarea en el mismo paso. En vez de eso, si espera que el usuario haga varias acciones secuencialmente, intente repartir el proceso en más de un paso — tantos como sean necesarios.",
+                    "updated": 1633438316138
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In some cases, you may need the user to take a very simple action so that the main call for action may be delivered. In such cases, you may use the definition box to tell the user how to get ready to execute the call for action delivered later in the page."
+            "text": "In some cases, you may need the user to take a very simple action so that the main call for action may be delivered. In such cases, you may use the definition box to tell the user how to get ready to execute the call for action delivered later in the page.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En algunos casos, puede necesitar que el usuario haga una acción muy simple para que el principal llamado a la acción pueda realizarse. En esos casos, puede utilizar la definition box para decirle al usuario como estar listo para ejecutar el llamado a la acción, que será entregado mas adelante en la ´pagina.",
+                    "updated": 1633438618455
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -216,25 +447,60 @@
         {
             "style": "Text",
             "text": "Colorful tutorial steps look great, while a white pages full of text feel too much like non-interactive documentation. Makes sure you break the monotony with the four different styles of boxes:",
-            "updated": 1617906625458
+            "updated": 1617906625458,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Pasos de tutoriales coloridos se ven muy bien, mientras que las páginas blancas llenas de texto se sienten como documentación muy poco interactiva. Asegúrese de romper la monotonía  con los cuatro estilos diferentes de boxes.",
+                    "updated": 1633438835567
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "This is great for additional tips."
+            "text": "This is great for additional tips.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Esto es genial para tips adicionales.",
+                    "updated": 1633438870414
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Use this every once in a while to break up otherwise large sections of plain text."
+            "text": "Use this every once in a while to break up otherwise large sections of plain text.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Use este cada tanto para romper secciones grandes de puro texto.",
+                    "updated": 1633439032601
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Leave this box for the truly important stuff. Things you don't want users to overlook or forget.",
-            "updated": 1617906591147
+            "updated": 1617906591147,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Deje esta box para cosas verdaderamente importantes. Cosas que no quiere que los usuarios se pasen por alto o se olviden.",
+                    "updated": 1633439143351
+                }
+            ]
         },
         {
             "style": "Warning",
             "text": "And this one, save it for real warnings. Things that may represent a threat or risk.",
-            "updated": 1617906578635
+            "updated": 1617906578635,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Y esta otra, guárdela para advertencias reales. Cosas que pueden representar una amenaza o un riesgo.",
+                    "updated": 1633439239739
+                }
+            ]
         },
         {
             "style": "Title",
@@ -243,17 +509,38 @@
         {
             "style": "Text",
             "text": "When you need the user to learn about a specific concept to get the proper context on the subject, do not replicate in the tutorial information that exists in the Docs. Duplicating information is not a good idea, as it makes it harder to maintain the Docs and tutorials.",
-            "updated": 1617730695174
+            "updated": 1617730695174,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando necesite que el usuario aprenda un concepto específico  para obtener un contexto adecuado del tema, no repita en el tutorial la información que ya existe en los Docs. Duplicar la información no es una buena idea, ya que hace mas difícil mantener los Docs y los tutoriales.",
+                    "updated": 1633439488393
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Asking the user to read a page or a section of a page in the Docs is the correct approach. This has the added benefit of making the user aware that the Docs cover the topic too.",
-            "updated": 1617724009821
+            "updated": 1617724009821,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Pedirle al usuario leer una página o una parte de la página en los  Docs es el acercamiento adecado. Esto tiene el beneficio adicional de hacer que el usuario se de cuenta  de que los Docs también cubren el tópico.",
+                    "updated": 1633439691786
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "If you find that the relevant page in the Docs is outdated, doesn't cover the topic with the appropriate depth, or maybe even doesn't exist, helping create, complete, and/or improve the delivery of the information in the Docs is just as valuable as building the tutorial! Long format explanations do not fit well in tutorials. They do fit well in the Docs!",
-            "updated": 1617733203373
+            "updated": 1617733203373,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si encuentra que la página relevante de los Docs está desactualizada, no cubre el tópico con la profundidad apropiada, o puede que no exista, ayudar a crearla, completar, y/o mejorar el envio de la información en los Docs es tan valioso como construir el tutorial! Explicaciones en formato largo no encajan bien con los tutoriales. Ellas van bien en los Docs!",
+                    "updated": 1633440056942
+                }
+            ]
         },
         {
             "style": "Title",
@@ -263,32 +550,74 @@
         {
             "style": "Text",
             "text": "The whole point of tutorials — and the main difference with the Docs as learning material — is that they offer the opportunity for hands-on learning. Tutorials are interactive while the Docs are less so!",
-            "updated": 1617730782624
+            "updated": 1617730782624,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El punto de los tutoriales — y la diferencia principal con los Docs como material de aprendizaje — es que ellos ofrecen la oportunidad  para el aprendizaje práctico Los tutoriales son interactivos mientras que los Docs no tanto!",
+                    "updated": 1633440286430
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Make sure you use this quality to the fullest, but also try to maintain a certain balance!",
-            "updated": 1617725782977
+            "updated": 1617725782977,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Asegúrese de usar esta cualidad a máximo, pero tambien intente mantener un cierto balance!",
+                    "updated": 1633440365877
+                }
+            ]
         },
         {
             "style": "List",
             "text": "If the tutorial is talking about a hierarchy, a group of nodes, or a particular node, make sure that the tutorial step takes you to that place in the Workspace. This adds a visual element to the explanation and helps the user get familiar with the data structures involved.",
-            "updated": 1617725808080
+            "updated": 1617725808080,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si el tutorial está hablando de jerarquías, un grupo de nodos en particular, asegúrese que el paso del tutorial lo lleve a ese lugar en el Workspace. Esto agrega un elemento visual a la explaicación y ayuda al usuario a familiarizarse con la estructura de datos involucrada.",
+                    "updated": 1633440573331
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Tutorials can affect the Workspace in many ways replicating actions the user may do. When you want the user to learn to do something, it's best to ask the user to do it, instead of having the tutorial do it for the user.",
-            "updated": 1617733271488
+            "updated": 1617733271488,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los tutoriales pueden afectar al Workspace de muchas maneras  replicando acciones que el usuario puede hacer. Cuando quiere que el usuario aprenda a hacer algo, lo mejor es pedirle al usuario que lo haga, en vez de que el tutorial lo haga por él.",
+                    "updated": 1633440813684
+                }
+            ]
         },
         {
             "style": "List",
             "text": "On the other hand, the tutorial should take care of doing certain things that are not conducive to learning something relevant to the context of the tutorial. Performing these actions directly may help keep the user focused on what matters most.",
-            "updated": 1617733297397
+            "updated": 1617733297397,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Por otro lado, el tutorial debería cuidar de no hacer cosas que no lleven a aprender nada reevante del contexto del tutorial. Realizar estas acciones directamente puede ayudar a mantener al usuario concentrado en lo que más importa.",
+                    "updated": 1633440988592
+                }
+            ]
         },
         {
             "style": "List",
             "text": "In some cases, the actions users take may have certain effects. Showing users the outcome of their actions immediately after completing a task has a great educational value. For example, if the user is setting up a new Time Machine in a tutorial about the Charting Space, show users how the time machine appears in the charting space immediately after creating it. If users then set up a Timeline Chart that references a particular Data Mine, show users how the new Timeline Chart appears within the Time Machine, and let them verify that the expected layer managers are there. Don't be afraid to go back and forth... that is the whole point after all!",
-            "updated": 1617905020985
+            "updated": 1617905020985,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En algunos casos, las acciones que los usuarios realizan tienene efectos determinados. Mostrales a los usuarios los resultados de sus acciones inmediatamente después de haber completado una tarea es de gran valor educativo. Por ejemplo, si el usuarioestá configurando una nueva Time Machine en un tutorial a cerca de el Charting Space, mostrale a a os usuarios como la  time machine aparece en el charting space inmediatamente después de crearla. Si los usuarios configuran una Timeline Chart que referencia a una particular Data Mine, mostrarles a los usuarios como la nueva  Timeline Chart aparece dentro de la Time Machine, y permitéles verificar que los administradores de capas esperados están allí. no tengas miedo de ir hacia atrás y hacia adelante... Ese es el punto después de todo!",
+                    "updated": 1633441873892
+                }
+            ]
         },
         {
             "style": "Title",

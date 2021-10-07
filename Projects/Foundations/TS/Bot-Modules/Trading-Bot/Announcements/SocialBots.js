@@ -27,6 +27,9 @@ exports.newFoundationsBotModulesSocialBots = function (processIndex) {
                         } else if (socialBot.type === "Slack Bot") {
                             socialBot.botInstance = TS.projects.foundations.botModules.slackBot.newFoundationsBotModulesSlackBot(processIndex)
                             socialBot.botInstance.initialize(config)
+                        } else if (socialBot.type === "Twitter Bot") {
+                            socialBot.botInstance = TS.projects.foundations.botModules.twitterBot.newFoundationsBotModulesTwitterBot(processIndex)
+                            socialBot.botInstance.initialize(config)
                         }
                     }
                 }
@@ -41,8 +44,8 @@ exports.newFoundationsBotModulesSocialBots = function (processIndex) {
                                 try {
                                     if (socialBot.type === "Telegram Bot") {
                                         socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, text).catch(err => TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> Telegram API error -> err = " + err))
-                                    } else if (socialBot.type === "Discord Bot" ||socialBot.type === "Slack Bot" ) {
-                                        socialBot.botInstance.sendMessage(text).catch(err => TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> Discord Bot error -> err = " + err))
+                                    } else if (socialBot.type === "Discord Bot" || socialBot.type === "Slack Bot" || socialBot.type === "Twitter Bot" ) {
+                                        socialBot.botInstance.sendMessage(text).catch(err => TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> " + socialBot.type + " error -> err = " + err))
                                     }
                                 } catch (err) {
                                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> announce -> err = " + err.stack);
@@ -64,7 +67,7 @@ exports.newFoundationsBotModulesSocialBots = function (processIndex) {
                 if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots[prop] !== undefined) {
                     for (let i = 0; i < TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots[prop].length; i++) {
                         let socialBot = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots[prop][i]
-                        if (socialBot.type === "Telegram Bot" || socialBot.type === "Discord Bot" || socialBot.type === "Slack Bot") {
+                        if (socialBot.type === "Telegram Bot" || socialBot.type === "Discord Bot" || socialBot.type === "Slack Bot" || socialBot.type === "Twitter Bot") {
                             socialBot.botInstance.finalize()
                         }
                     }
@@ -80,7 +83,7 @@ exports.newFoundationsBotModulesSocialBots = function (processIndex) {
                     if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots[prop] !== undefined) {
                         for (let i = 0; i < TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots[prop].length; i++) {
                             let socialBot = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots[prop][i]
-                            if (socialBot.type === "Telegram Bot" || socialBot.type === "Discord Bot" || socialBot.type === "Slack Bot") {
+                            if (socialBot.type === "Telegram Bot" || socialBot.type === "Discord Bot" || socialBot.type === "Slack Bot" || socialBot.type === "Twitter Bot") {
                                 socialBot.botInstance.sendMessage(message)
                             }
                         }

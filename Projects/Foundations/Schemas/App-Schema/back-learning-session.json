@@ -15,7 +15,8 @@
             "secondaryIcon": "stop",
             "iconPathOn": "run",
             "iconPathOff": "run",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Machine-Learning"
         },
         {
             "action": "Resume Learning Session",
@@ -31,7 +32,8 @@
             "secondaryIcon": "stop",
             "iconPathOn": "resume",
             "iconPathOff": "resume",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Machine-Learning"
         },
         {
             "action": "Configure",

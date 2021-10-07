@@ -1273,6 +1273,36 @@
                                         },
                                         {
                                             "type": "Asset",
+                                            "name": "TwitterBot.js",
+                                            "config": "{\"codeName\":\"TwitterBot.js\"}",
+                                            "project": "Governance",
+                                            "assetClasses": [],
+                                            "assets": [],
+                                            "id": "911b9b74-7af1-4865-a527-9f01539632fb",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 14288.376537238257,
+                                                    "y": 47370.32076269797
+                                                },
+                                                "targetPosition": {
+                                                    "x": 14074.663708152853,
+                                                    "y": 47159.781391832774
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 2,
+                                                    "distanceToParent": 3,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "Asset",
                                             "name": "SocialBots.js",
                                             "config": "{\"codeName\":\"SocialBots.js\"}",
                                             "project": "Governance",

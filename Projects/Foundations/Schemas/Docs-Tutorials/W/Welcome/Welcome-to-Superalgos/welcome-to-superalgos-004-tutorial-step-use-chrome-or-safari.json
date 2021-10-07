@@ -33,6 +33,11 @@
                 "text": "Lorsque vous exécutez le frontend, utilisez Chrome, ou Safari sur Mac, nous ne faisons pas de tests sur d'autres navigateurs !",
                 "updated": 1623950198517,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Ön ucu çalıştırırken Chrome'u veya Mac'te Safari'yi kullanın! Başka tarayıcılarda test yapmıyoruz!",
+                "updated": 1633119819656
             }
         ]
     },
@@ -64,6 +69,11 @@
                     "text": "Il est connu que les navigateurs se comportent différemment, et nous connaissons certaines fonctionnalités qui fonctionnent sur certains mais pas d'autres... Si vous êtes sur Chrome ou Safari, cliquez sur Suivant et continuez. Sinon, procédez comme suit :",
                     "updated": 1624490502941,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Tarayıcıların farklı davrandığı bilinen bir gerçektir ve diğer tarayıcılarda çalışmayan özellikleri biliyoruz. Chrome veya Safari kullanıyorsanız, İleri'yi tıklayın ve devam edin. Değilse, aşağıdakileri yapın:",
+                    "updated": 1633119849958
                 }
             ]
         },
@@ -95,6 +105,11 @@
                     "text": "copier le current URL",
                     "updated": 1623950336897,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut URL'yi kopyalayın;",
+                    "updated": 1633119896420
                 }
             ]
         },
@@ -126,6 +141,11 @@
                     "text": "fermer le present navigateur, sans user le tutoriel",
                     "updated": 1623950409166,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu tarayıcıyı olduğu gibi kapatın; öğreticiyi kapatmayın...",
+                    "updated": 1633119959684
                 }
             ]
         },
@@ -157,6 +177,11 @@
                     "text": "Ouvrez Chrome/Safari et coller l'URL ; le tutoriel devrait apparaître à cette étape une fois chargé !",
                     "updated": 1623950524635,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Chrome/Safari'yi açın ve URL'yi yapıştırın; Geri döndüğünüzde bu adımda öğretici açık olmalıdır!",
+                    "updated": 1633119977867
                 }
             ]
         },
@@ -187,6 +212,11 @@
                     "text": "Nous offrons une assistance en ligne, mais nous ne pouvons pas vous aider avec un autre navigateur !",
                     "updated": 1623950564757,
                     "style": "Warning"
+                },
+                {
+                    "language": "TR",
+                    "text": "Çevrimiçi destek sunuyoruz, ancak başka bir tarayıcıyla size yardımcı olamayız!",
+                    "updated": 1633120004286
                 }
             ]
         }

@@ -359,6 +359,15 @@ function newUiObjectTitle() {
             let fontSize = thisObject.payload.floatingObject.currentFontSize
             let label
 
+            let schemaDocument = getSchemaDocument(thisObject.payload.node)
+            if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) {
+                if (schemaDocument.inMapMode !== undefined) {
+                    if (schemaDocument.inMapMode.smallText === true) {
+                        fontSize = fontSize * 0.8
+                    }
+                }
+            }
+
             browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
             if (radius > 6 && (thisObject.isOnFocus === true || thisObject.allwaysVisible === true || thisObject.isDefault === false)) {
@@ -383,7 +392,6 @@ function newUiObjectTitle() {
                         labelPoint.x = labelPoint.x - getTextWidth(label) / 2,
                             labelPoint.y = labelPoint.y - 35
 
-                        let schemaDocument = getSchemaDocument(thisObject.payload.node)
                         if (schemaDocument !== undefined) {
                             if (schemaDocument.isHierarchyHead !== true && schemaDocument.isProjectHead !== true) {
                                 return

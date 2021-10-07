@@ -15,349 +15,17 @@
                     "name": "Superalgos",
                     "config": "{\"codeName\":\"Superalgos\"}",
                     "project": "Governance",
-                    "assetClasses": [
-                        {
-                            "type": "Asset Class",
-                            "name": "Root",
-                            "config": "{\"codeName\":\"Root\"}",
-                            "project": "Governance",
-                            "assetClasses": [],
-                            "assets": [
-                                {
-                                    "type": "Asset",
-                                    "name": ".dockerignore",
-                                    "config": "{\"codeName\":\".dockerignore\"}",
-                                    "project": "Governance",
-                                    "assetClasses": [],
-                                    "assets": [],
-                                    "id": "2ef8163d-7ff6-4f5c-8b0a-a20d882a2eb6",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 29582.597892084348,
-                                            "y": 47283.76976705243
-                                        },
-                                        "targetPosition": {
-                                            "x": 29294.75,
-                                            "y": 47199.25
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Asset",
-                                    "name": ".gitignore",
-                                    "config": "{\"codeName\":\".gitignore\"}",
-                                    "project": "Governance",
-                                    "assetClasses": [],
-                                    "assets": [],
-                                    "id": "367ce04e-3a6e-4bce-830b-2d35cbd36c1a",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 29547.126059849354,
-                                            "y": 47361.44224523668
-                                        },
-                                        "targetPosition": {
-                                            "x": 29294.75,
-                                            "y": 47199.25
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Asset",
-                                    "name": "CODE_OF_CONDUCT.md",
-                                    "config": "{\"codeName\":\"CODE_OF_CONDUCT.md\"}",
-                                    "project": "Governance",
-                                    "assetClasses": [],
-                                    "assets": [],
-                                    "id": "916b967d-8709-44ed-bac7-3adcd7587b52",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 29491.208220183584,
-                                            "y": 47425.97487230628
-                                        },
-                                        "targetPosition": {
-                                            "x": 29294.75,
-                                            "y": 47199.25
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Asset",
-                                    "name": "CONTRIBUTING.md",
-                                    "config": "{\"codeName\":\"CONTRIBUTING.md\"}",
-                                    "project": "Governance",
-                                    "assetClasses": [],
-                                    "assets": [],
-                                    "id": "51cfe99a-9d6f-4aea-8260-0893539cb685",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 29419.374503900566,
-                                            "y": 47472.13959860636
-                                        },
-                                        "targetPosition": {
-                                            "x": 29294.75,
-                                            "y": 47199.25
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Asset",
-                                    "name": "Environment.js",
-                                    "config": "{\"codeName\":\"Environment.js\"}",
-                                    "project": "Governance",
-                                    "assetClasses": [],
-                                    "assets": [],
-                                    "id": "edc37ed3-4424-4c5b-bd9d-fb4960cab53d",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 29337.444451481984,
-                                            "y": 47496.19643256428
-                                        },
-                                        "targetPosition": {
-                                            "x": 29294.75,
-                                            "y": 47199.25
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Asset",
-                                    "name": "LICENSE",
-                                    "config": "{\"codeName\":\"LICENSE\"}",
-                                    "project": "Governance",
-                                    "assetClasses": [],
-                                    "assets": [],
-                                    "id": "10a2315a-80a2-451b-b959-56f22e5bfb5e",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 29252.055548518016,
-                                            "y": 47496.19643256428
-                                        },
-                                        "targetPosition": {
-                                            "x": 29294.75,
-                                            "y": 47199.25
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Asset",
-                                    "name": "README.md",
-                                    "config": "{\"codeName\":\"README.md\"}",
-                                    "project": "Governance",
-                                    "assetClasses": [],
-                                    "assets": [],
-                                    "id": "a5ee087a-9889-41fc-b0c5-13a0e40cb7e8",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 29170.125496099434,
-                                            "y": 47472.13959860636
-                                        },
-                                        "targetPosition": {
-                                            "x": 29294.75,
-                                            "y": 47199.25
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Asset",
-                                    "name": "run.js",
-                                    "config": "{\"codeName\":\"run.js\"}",
-                                    "project": "Governance",
-                                    "assetClasses": [],
-                                    "assets": [],
-                                    "id": "2ec5a110-3ecc-45ad-b410-9333ebc1840e",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 29098.291779816416,
-                                            "y": 47425.97487230628
-                                        },
-                                        "targetPosition": {
-                                            "x": 29294.75,
-                                            "y": 47199.25
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Asset",
-                                    "name": "setup.js",
-                                    "config": "{\"codeName\":\"setup.js\"}",
-                                    "project": "Governance",
-                                    "assetClasses": [],
-                                    "assets": [],
-                                    "id": "9c99e3f4-4e00-403b-9ead-8bdee7aa6566",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 29042.373940150646,
-                                            "y": 47361.44224523668
-                                        },
-                                        "targetPosition": {
-                                            "x": 29294.75,
-                                            "y": 47199.25
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Asset",
-                                    "name": "uninstall.js",
-                                    "config": "{\"codeName\":\"uninstall.js\"}",
-                                    "project": "Governance",
-                                    "assetClasses": [],
-                                    "assets": [],
-                                    "id": "bce89a4d-9098-4b36-aafc-33b7ff58e030",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 29006.902107915652,
-                                            "y": 47283.76976705243
-                                        },
-                                        "targetPosition": {
-                                            "x": 29294.75,
-                                            "y": 47199.25
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                }
-                            ],
-                            "id": "1e82e5c7-9420-4205-a2c4-aab3f0f96565",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 29294.75,
-                                    "y": 47199.25
-                                },
-                                "targetPosition": {
-                                    "x": 29294.75,
-                                    "y": 46899.25
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        }
-                    ],
+                    "assetClasses": [],
                     "assets": [],
                     "id": "2201a417-cf22-47f4-b8df-8a16c63deb25",
                     "savedPayload": {
                         "position": {
-                            "x": 29294.75,
-                            "y": 46899.25
+                            "x": 42553.1914893617,
+                            "y": 38350
                         },
                         "targetPosition": {
-                            "x": 29294.75,
-                            "y": 46599.25
+                            "x": 42553.1914893617,
+                            "y": 38050
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -377,12 +45,12 @@
             "id": "b1ec362d-bfb5-4210-8edd-6ceb9ba52014",
             "savedPayload": {
                 "position": {
-                    "x": 29294.75,
-                    "y": 46599.25
+                    "x": 42553.1914893617,
+                    "y": 38050
                 },
                 "targetPosition": {
-                    "x": 29294.75,
-                    "y": 46299.25
+                    "x": 42553.1914893617,
+                    "y": 37750
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -402,12 +70,12 @@
     "id": "b5e57605-639d-467b-85ab-c1540d744b33",
     "savedPayload": {
         "position": {
-            "x": 29294.75,
-            "y": 46299.25
+            "x": 46808.51063829787,
+            "y": 40750
         },
         "targetPosition": {
-            "x": 29294.75,
-            "y": 46299.25
+            "x": 46808.51063829787,
+            "y": 40750
         },
         "floatingObject": {
             "isPinned": false,

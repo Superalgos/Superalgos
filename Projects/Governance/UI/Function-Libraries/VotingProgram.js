@@ -242,7 +242,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                 votes / 10,
                                 undefined,
                                 generation + 1,
-                                userProfile
+                                node.payload.referenceParent
                             )
                         }
                         return
@@ -337,7 +337,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                         node.payload.uiObject.setErrorMessage(
                             'Voting Power Switching Error. Total Percentage of children nodes is grater that 100.',
                             UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                            )
+                        )
                         return
                     }
                     let defaultPercentage = 0
@@ -410,7 +410,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
 
                     if (percentage !== undefined) {
                         node.payload.uiObject.setPercentage(percentage.toFixed(2),
-                        UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
+                            UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
                         )
                     }
                     return
@@ -466,7 +466,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
 
                 if (percentage !== undefined) {
                     node.payload.uiObject.setPercentage(percentage.toFixed(2),
-                    UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
+                        UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
                     )
                 }
             }
@@ -486,7 +486,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
 
                     node.payload.uiObject.setPercentage(percentage,
                         UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
-                        )
+                    )
 
                     if (node.payload.referenceParent !== undefined) {
                         node.payload.uiObject.statusAngleOffset = 0
@@ -522,7 +522,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
             node.payload.uiObject.setErrorMessage(
                 'To install votes you need a Reference Parent',
                 UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                )
+            )
             return
         }
         scanNodeBranch(node, node.payload.referenceParent)

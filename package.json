@@ -1,13 +1,21 @@
 {
   "name": "superalgos",
-  "version": "0.0.11",
-  "description": "Superalgos",
+  "version": "0.0.12-beta",
+  "description": "Superalgos is a free, open-source crypto trading bot",
+  "main": "electron-wrapper.js",
+  "license": "Apache License 2.0",
+  "homepage": "https://www.superalgos.org/",
   "author": {
     "name": "Luis-Fernando-Molina"
   },
   "scripts": {
-    "start": "node platform minMemo noBrowser",
-    "setup": "node setup noShortcuts"
+    "start-dev": "node platform minMemo noBrowser",
+    "setup": "node setup noShortcuts",
+    "release-dev": "electron-builder --dir",
+    "release-win": "electron-builder --win",
+    "release-mac": "electron-builder --mac",
+    "start": "electron . noBrowser",
+    "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
     "@octokit/rest": "^18.11.4",
@@ -29,5 +37,64 @@
     "util": "^0.12.4",
     "web3": "^1.6.0",
     "ws": "^8.2.3"
+  },
+  "devDependencies": {
+    "electron": "^15.1.0",
+    "electron-builder": "^22.11.7"
+  },
+  "build": {
+    "appId": "org.superalgos.platform",
+    "productName": "Superalgos",
+    "directories": {
+      "output": "build"
+    },
+    "files": [
+      "**/*",
+      "!.github${/*}",
+      "!.vscode${/*}",
+      "!.dockerignore${/*}",
+      "!Data-Storage/*",
+      "!Log-Files/*",
+      "!My-Workspaces/*",
+      "!build",
+      "!Docker",
+      "!Launch-Scripts",
+      "!run.js",
+      "!setup.js",
+      "!uninstall.js"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": "x64"
+        },
+        {
+          "target": "nsis",
+          "arch": "x64"
+        }
+      ],
+      "icon": "./Launch-Scripts/superalgos.ico",
+      "publish": "github"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "license": "./LICENSE",
+      "runAfterFinish": false
+    },
+    "mac": {
+      "category": "public.app-category.finance",
+      "target": "dmg",
+      "type": "development",
+      "publish": "github"
+    },
+    "linux": {
+      "maintainer": "na.amorim@gmail.com"
+    }
   }
 }

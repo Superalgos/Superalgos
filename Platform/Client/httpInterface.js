@@ -892,6 +892,10 @@ exports.newHttpInterface = function newHttpInterface() {
                                         const git = simpleGit(options)
                                         try {
                                             await git.checkout(currentBranch)
+                                            let postCheckoutCommands = ['git remote add upstream https://github.com/Superalgos/Superalgos', `git pull upstream ${currentBranch}`]
+                                            let result = await git.raw(postCheckoutCommands);
+                                            console.log(result)
+                                            
                                         } catch (err) {
                                             console.log('[ERROR] Error changing current branch to ' + currentBranch)
                                             console.log(err.stack)

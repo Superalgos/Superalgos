@@ -20,6 +20,7 @@ function newFoundationsFunctionLibraryReferenceAttachDetach() {
 
     // Store the path to the reference parent to make restoring it possible if the reference parent is updated and given a new id
     function storeAttachNodePath(node, attachToNode) {
+        if (node === undefined) { return }
         if (node.payload === undefined) { return }
         let attachNodePath = UI.projects.foundations.utilities.hierarchy.getNodeNameTypePath(attachToNode)
         // Remove unused node id, and project tag from stored path
@@ -33,11 +34,12 @@ function newFoundationsFunctionLibraryReferenceAttachDetach() {
 
     // Clear the path to reference parent when the reference is cleared
     function cleanAttachNodePath(node) {
-        if (node.payload !== undefined) {
-            node.payload.referenceParentCombinedNodePath = undefined
-            if (node.savedPayload !== undefined) {
-                node.savedPayload.referenceParentCombinedNodePath = undefined
-            }
+        if (node === undefined) { return }
+        if (node.payload === undefined) { return }
+
+        node.payload.referenceParentCombinedNodePath = undefined
+        if (node.savedPayload !== undefined) {
+            node.savedPayload.referenceParentCombinedNodePath = undefined
         }
     }
 

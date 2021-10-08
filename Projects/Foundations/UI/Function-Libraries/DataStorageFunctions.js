@@ -233,6 +233,9 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
             let projectDefinition = PROJECTS_SCHEMA[k]
             let project = projectDefinition.name
 
+            if (projectDefinition.products === undefined) { continue }
+            if (projectDefinition.products.includes(newNodeType.replace('Project ', '')) === false) { continue }
+
             for (let j = 0; j < rootNodes.length; j++) {
                 let rootNode = rootNodes[j]
                 if (rootNode.type === project + ' Project') {

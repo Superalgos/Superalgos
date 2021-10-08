@@ -839,6 +839,11 @@
         "plugins": [
             "Tutorials",
             "API Maps"
+        ],
+        "products": [
+            "Data Products",
+            "Trading Products",
+            "Learning Products"
         ]
     },
     {

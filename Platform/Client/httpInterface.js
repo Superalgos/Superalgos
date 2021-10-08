@@ -866,6 +866,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                             if (error === undefined) {
                                                 // Run node setup to prepare instance for branch change
                                                 await runNodeSetup()
+                                                // Return to UI that Branch is suggessfully changed 
+                                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                             } else {
                                                 let docs = {
                                                     project: 'Foundations',
@@ -904,6 +906,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                         let dir = process.cwd()
                                         let command = "node setup";
+                                        let test 
                                         execSync( command,
                                         {
                                             cwd: dir 
@@ -916,11 +919,13 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 console.log( error );
                                                 return;
                                             }   
+                                            console.log('this is error code', error.code)
                                             console.log('');
-                                            console.log( stdout );                
+                                            console.log( stdout ); 
+                                            test = "success"
+                                            return test               
                                         });
-                                        // Return to UI that Branch is suggessfully changed 
-                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                        console.log("we finished!", test)
                                            
                                     }
 

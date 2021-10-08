@@ -924,7 +924,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                             let test = "success"   
                                             return test             
                                         });
-                                        console.log("we finished!", test1)
+                                        let text = test1.toString()
+                                        console.log("we finished!", text)
                                            
                                     }
 

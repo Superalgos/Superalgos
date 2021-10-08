@@ -36,11 +36,10 @@ function newFoundationsFunctionLibraryReferenceAttachDetach() {
     function cleanAttachNodePath(node) {
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
-        if (node.payload !== undefined) {
-            node.payload.referenceParentCombinedNodePath = undefined
-            if (node.savedPayload !== undefined) {
-                node.savedPayload.referenceParentCombinedNodePath = undefined
-            }
+
+        node.payload.referenceParentCombinedNodePath = undefined
+        if (node.savedPayload !== undefined) {
+            node.savedPayload.referenceParentCombinedNodePath = undefined
         }
     }
 

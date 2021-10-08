@@ -906,8 +906,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                         let dir = process.cwd()
                                         let command = "node setup";
-                                        let test 
-                                        execSync( command,
+                                        let test1 = execSync( command,
                                         {
                                             cwd: dir 
                                         },
@@ -922,10 +921,10 @@ exports.newHttpInterface = function newHttpInterface() {
                                             console.log('this is error code', error.code)
                                             console.log('');
                                             console.log( stdout ); 
-                                            test = "success"
-                                            return test               
+                                            let test = "success"   
+                                            return test             
                                         });
-                                        console.log("we finished!", test)
+                                        console.log("we finished!", test1)
                                            
                                     }
 

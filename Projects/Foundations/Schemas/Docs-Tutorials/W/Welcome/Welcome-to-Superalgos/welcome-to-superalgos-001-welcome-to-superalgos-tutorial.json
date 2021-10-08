@@ -15,7 +15,13 @@
             {
                 "language": "ES",
                 "text": "Este tutorial le presenta el universo Superalgos.Lo guía a través de las áreas principales del sistema, le enseña el funcionamiento básico, lo guía a través del proceso de backtesting de una demostración Trading System, e incluso te configura con tu primer Live Trading Session.",
-                "updated": 1628897237327
+                "updated": 1628897237327,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Bu eğitim size Superalgos evrenini tanıtır. Sistemin ana alanlarında size yol gösterir, size temel işlemleri öğretir, bir demo alım satım sisteminin geriye dönük test etme sürecinde size yol gösterir ve hatta ilk Canlı alım satım oturumunuzu ayarlar.",
+                "updated": 1633120392075
             }
         ]
     },

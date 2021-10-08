@@ -121,7 +121,7 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Sensor Bot->Definition",
+            "text": "Data-Mining->Node->Sensor Bot->Definition",
             "updated": 1611407914247
         },
         {
@@ -131,7 +131,7 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Indicator Bot->Definition",
+            "text": "Data-Mining->Node->Indicator Bot->Definition",
             "updated": 1611407948292
         },
         {

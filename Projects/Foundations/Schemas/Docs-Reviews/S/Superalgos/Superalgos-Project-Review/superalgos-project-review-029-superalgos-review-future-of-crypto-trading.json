@@ -1,0 +1,142 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 29,
+    "type": "Superalgos Review - Future of Crypto Trading?",
+    "definition": {
+        "text": "Superalgos is an automation platform built for conducting trades and performing market research. The aim behind its creation was to integrate all those essential elements needed for reliable trading intelligence into a single platform. This can be downloaded and run locally. Users can build cryptocurrency trading bots with Superalgos. However, the system’s sheer size means it may take some time to master, for newcomers and more experienced traders. Users can build their own And the best part that IT'S FREE!",
+        "updated": 1632652017067
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": " Discover what features are available, what security measures are implemented, and more.",
+            "updated": 1632652104860
+        },
+        {
+            "style": "Subtitle",
+            "text": "    Features"
+        },
+        {
+            "style": "Subtitle",
+            "text": "    How Does it Work?"
+        },
+        {
+            "style": "Subtitle",
+            "text": "    Security"
+        },
+        {
+            "style": "Subtitle",
+            "text": "    How Much Does it Cost?"
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos is an automation platform built for conducting trades and performing market research. The aim behind its creation was to integrate all those essential elements needed for reliable trading intelligence into a single platform. This can be downloaded and run locally."
+        },
+        {
+            "style": "Text",
+            "text": "Users can build cryptocurrency trading bots with Superalgos. However, the system’s sheer size means it may take some time to master, for newcomers and more experienced traders."
+        },
+        {
+            "style": "Text",
+            "text": "But what can traders expect if they decide to use Superalgos?"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Features"
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos provides users with a highly visual interface, designed to help traders make sense of the relationships between the various concepts at play in cryptocurrency trading."
+        },
+        {
+            "style": "Text",
+            "text": "Average workflows will involve downloading data from multiple cryptocurrency exchanges and processing it to gather information. Traders may utilize these details for building and deploying automated bots."
+        },
+        {
+            "style": "Text",
+            "text": "OHLCV (Open, High, Low, Close, Volume) data may be downloaded from different exchanges and markets at the same time. Superalgos implements the CCXT library, supporting more than 120 exchanges.",
+            "updated": 1632652213100
+        },
+        {
+            "style": "Text",
+            "text": "Users can define date ranges and additional parameters. They may also convert OHLCV data into candles for any time frame supported, and transform raw market data into standard indicators."
+        },
+        {
+            "style": "Text",
+            "text": "The visual scripting solution facilitates the creation of custom indicators, with little coding knowledge required. Plotters can also be constructed without coding, and make graphics for custom data sets (including custom indicators). These can then be plotted over the charts."
+        },
+        {
+            "style": "Text",
+            "text": "In Superalgos, traders will have access to capabilities for training TensorFlow algorithms. Training data sets may be created with in-built capabilities for processing data, and resulting models could be utilized in trading strategies.",
+            "updated": 1632652235389
+        },
+        {
+            "style": "Text",
+            "text": "Users can build trading systems according to a professional framework and organize strategies in stages. The framework is based on rules, which may be written to trigger strategies, adopt and manage positions, and ultimately close them."
+        },
+        {
+            "style": "Text",
+            "text": "Traders may also utilize market and limit orders for configuring execution algorithms. Profit and stop-loss targets can be handled in phases, with rules to control how switching between formulas that describe targets occurs. Analysis can also be combined on various indicators and time frames."
+        },
+        {
+            "style": "Text",
+            "text": "Trading Farms are also implemented into Superalgos, and coordinated tasks can be deployed across numerous machines (virtual and physical). Traders can use different deployments as per their needs."
+        },
+        {
+            "style": "Subtitle",
+            "text": "How Does it Work?"
+        },
+        {
+            "style": "Text",
+            "text": "To install Superalgos, Node.js needs to be installed first (as the Superalgos Client is a Node.js application). The installation process is fairly simple. Users should fork/clone the Superalgos repository, and they will then be able to utilize it."
+        },
+        {
+            "style": "Text",
+            "text": "Once the app has been launched, an introductory tutorial will guide you through the system to learn how it functions. This includes downloading Binance data, processing it into indicators, backtesting, and running a live trading session if required. Other tutorials are available too."
+        },
+        {
+            "style": "Text",
+            "text": "As mentioned above, traders considering trying Superalgos will be required to invest time into it at the beginning. Particularly as it places no constraints on what a user may or may not do with it. The range of tutorials is designed to ease newcomers into the platform."
+        },
+        {
+            "style": "Text",
+            "text": "No restrictions are imposed on what you choose to do or not to do with Superalgos. Any limits come into effect as a result of the user’s hardware, based on what it’s technically capable of."
+        },
+        {
+            "style": "Text",
+            "text": "For instance, traders can load an endless amount of candles and visualize an unlimited number of indicators simultaneously. But their system will dictate the amount of information that can be presented and the frame rate at which the screen will be refreshed. Infinite data and trading tasks can be deployed too."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Security"
+        },
+        {
+            "style": "Text",
+            "text": "No specific security measures are implemented in Superalgos as it runs on the user’s premises only, and remains under their control."
+        },
+        {
+            "style": "Text",
+            "text": "No registration or login is required to start the download and installation process. This means that the platform is, essentially, as secure as the user’s machine is (or isn’t)."
+        },
+        {
+            "style": "Text",
+            "text": "As Superalgos is open-source, developers work on the code base frequently. This is maintained in a public Github repository, and any changes to the code will stay auditable for the foreseeable future."
+        },
+        {
+            "style": "Text",
+            "text": "Zero third parties are required for Superalgos’ network communications: a user’s bots deal with an exchange’s API directly, while traders conduct trades from inside their account on the relevant exchange."
+        },
+        {
+            "style": "Subtitle",
+            "text": "How Much Does it Cost?"
+        },
+        {
+            "style": "Text",
+            "text": "Traders can install and utilize Superalgos for free. They can also modify it and distribute it without charge. There is no restriction on accessing features."
+        },
+        {
+            "style": "Text",
+            "text": "~bybader"
+        }
+    ]
+}

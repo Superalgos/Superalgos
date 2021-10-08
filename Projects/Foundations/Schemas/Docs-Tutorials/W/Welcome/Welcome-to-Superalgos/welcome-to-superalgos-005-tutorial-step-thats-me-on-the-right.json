@@ -32,6 +32,11 @@
                 "text": "Les tutoriels sont définis a l'interieur du système, et vous pouvez en créer d'autres si vous le souhaitez ! Mais nous parlerons de ces facilitées plus tard. Concentrez-vous d'abord sur les bases !",
                 "updated": 1623950810074,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Öğreticiler sistem içinde tanımlanmıştır, böylece dilerseniz daha fazlasını oluşturabilirsiniz! Ama bu Tanrısal gücü daha sonra tartışacağız. Önce temellere odaklanalım!",
+                "updated": 1633121322983
             }
         ]
     },
@@ -63,6 +68,11 @@
                     "text": "Superalgos est par nature un outil visuel. Le système représente l'information dans des structures hiérarchiques de nœuds interconnectés, représentés par des icônes. Ce que vous voyez à votre droite est l'une de ces hiérarchies - en particulier, une hiérarchie Tutorial. Dans ce cas, \"tutoriel\" est le type de nœud et \"Bienvenue à Superalgos !\" est le nom du nœud.",
                     "updated": 1623951170653,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos doğası gereği görsel bir araçtır. Sistem, simgelerle temsil edilen, birbirine bağlı düğümlerin hiyerarşik yapılarındaki bilgileri temsil eder. Sağınızda gördüğünüz şey, bu hiyerarşilerden biridir - özellikle bir Öğretici hiyerarşisi. Bu durumda, \"öğretici\" düğüm türüdür ve \"Superalgos'a Hoş Geldiniz!\" düğümün adıdır.",
+                    "updated": 1633121451310
                 }
             ],
             "updated": 1616410534255

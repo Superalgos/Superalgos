@@ -725,7 +725,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                         const octokit = new Octokit({
                                             auth: token,
-                                            userAgent: 'Superalgos Beta 11'
+                                            userAgent: 'Superalgos Beta 12'
                                         })
 
                                         const repo = 'Superalgos'
@@ -1086,7 +1086,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         )
 
                                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
-                                        
+
                                         setInterval(
                                             PL.servers.GITHUB_SERVER.mergePullRequests,
                                             60000,
@@ -1094,19 +1094,24 @@ exports.newHttpInterface = function newHttpInterface() {
                                             params.username,
                                             params.token
                                         )
-                                        
+
                                         return
                                     }
                                     case 'payContributors': {
+                                        console.log('----------------------------------------------------------------------------------------------')
+                                        console.log('DISTRIBUTION PROCESS STARTED')
+                                        console.log('----------------------------------------------------------------------------------------------')
 
-                                        let serverResponse = await PL.servers.WEB3_SERVER.payContributors(
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+
+
+                                        await PL.servers.WEB3_SERVER.payContributors(
                                             params.contractAddress,
                                             params.contractAbi,
                                             params.paymentsArray,
                                             params.mnemonic
                                         )
 
-                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                         return
                                     }
                                     default: {
@@ -1125,7 +1130,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 }
                                 try {
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
-                                } catch(err) {
+                                } catch (err) {
                                     // we just try to reponnd to the web app, but maybe the response has already been sent.
                                 }
                             }
@@ -1401,11 +1406,13 @@ exports.newHttpInterface = function newHttpInterface() {
                             try {
                                 let project = unescape(requestPath[2])
                                 let folder = unescape(requestPath[3])
-
-                                let response = await SA.projects.foundations.utilities.plugins.getPluginFileNames(
+                                
+                                let response = await SA.projects.communityPlugins.utilities.plugins.getPluginFileNames(
                                     project,
                                     folder
-                                )
+                                ).catch(err =>  {
+                                    console.log('[ERROR] httpInterface -> PluginFileNames -> err.stack = ' + err.stack)
+                                }) 
 
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
 
@@ -1438,12 +1445,18 @@ exports.newHttpInterface = function newHttpInterface() {
                                 if (fileName === 'Superalgos-CL.json') {
                                     fileName = 'Superalgos-PL.json'
                                 }
-
-                                let response = await SA.projects.foundations.utilities.plugins.getPluginFileContent(
+                                
+                                await SA.projects.communityPlugins.utilities.plugins.getPluginFileContent(
                                     project,
                                     folder,
                                     fileName
-                                ).catch(err => {
+                                )
+                                .then( response => 
+                                    {
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(response, httpResponse)
+                                    }
+                                )
+                                .catch(err => {
                                     let error = {
                                         result: 'Fail Because',
                                         message: err
@@ -1451,8 +1464,6 @@ exports.newHttpInterface = function newHttpInterface() {
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                                     return
                                 })
-
-                                SA.projects.foundations.utilities.httpResponses.respondWithContent(response, httpResponse)
 
                             } catch (err) {
                                 console.log('[ERROR] httpInterface -> LoadPlugin -> Method call produced an error.')

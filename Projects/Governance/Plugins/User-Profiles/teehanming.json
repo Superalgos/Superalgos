@@ -12,7 +12,7 @@
         "onboardingPrograms": {
             "type": "Onboarding Programs",
             "name": "New Onboarding Programs",
-            "config": "{}",
+            "config": "{\n\"percentage\": 0\n}",
             "project": "Governance",
             "airdropProgram": {
                 "type": "Airdrop Program",
@@ -26,12 +26,12 @@
                     "id": "7a4d19ab-a348-4008-8de5-bcdf8504b754",
                     "savedPayload": {
                         "position": {
-                            "x": 25231.37056376053,
-                            "y": 84112.38129516781
+                            "x": 29923.9389693792,
+                            "y": 44710.47356813798
                         },
                         "targetPosition": {
-                            "x": 25168.997056515203,
-                            "y": 84405.82557538795
+                            "x": 29861.565462133873,
+                            "y": 45003.91784835813
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -49,12 +49,12 @@
                 "id": "52e06a59-6037-4c1a-8360-53c223929a69",
                 "savedPayload": {
                     "position": {
-                        "x": 25168.997056515203,
-                        "y": 84405.82557538795
+                        "x": 29861.565462133873,
+                        "y": 45003.91784835813
                     },
                     "targetPosition": {
-                        "x": 25106.623549269876,
-                        "y": 84699.26985560809
+                        "x": 29799.191954888545,
+                        "y": 45297.36212857827
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -81,12 +81,12 @@
                     "id": "1acf5d6f-ed4d-46cc-8ec8-5ffccf5c5980",
                     "savedPayload": {
                         "position": {
-                            "x": 25552.510444556312,
-                            "y": 85100.7482194234
+                            "x": 30245.07885017498,
+                            "y": 45698.84049239359
                         },
                         "targetPosition": {
-                            "x": 25329.566996913094,
-                            "y": 84900.00903751576
+                            "x": 30022.135402531763,
+                            "y": 45498.10131048593
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -104,12 +104,12 @@
                 "id": "3540ff93-ba7c-40a2-864d-fd3d29e117b7",
                 "savedPayload": {
                     "position": {
-                        "x": 25329.566996913094,
-                        "y": 84900.00903751576
+                        "x": 30022.135402531763,
+                        "y": 45498.10131048593
                     },
                     "targetPosition": {
-                        "x": 25106.623549269876,
-                        "y": 84699.26985560809
+                        "x": 29799.191954888545,
+                        "y": 45297.36212857827
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -127,17 +127,17 @@
             "id": "c76fba53-159e-4e8b-85e9-e88aae9848da",
             "savedPayload": {
                 "position": {
-                    "x": 34692.31695488855,
-                    "y": 46248.044901687506
+                    "x": 29799.191954888545,
+                    "y": 45297.36212857827
                 },
                 "targetPosition": {
-                    "x": 34407,
-                    "y": 46340.74999999999
+                    "x": 29513.875,
+                    "y": 45390.06722689076
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -150,246 +150,22 @@
         "communityBuildingPrograms": {
             "type": "Community Building Programs",
             "name": "New Community Building Programs",
-            "config": "{}",
+            "config": "{\n\"percentage\": 1\n}",
             "project": "Governance",
-            "referralProgram": {
-                "type": "Referral Program",
-                "name": "New Referral Program",
-                "config": "{}",
-                "project": "Governance",
-                "userReferrers": [
-                    {
-                        "type": "User Referrer",
-                        "name": "",
-                        "config": "{}",
-                        "project": "Governance",
-                        "id": "4cf153d6-9e37-4f9c-9627-dff3b22261cb",
-                        "savedPayload": {
-                            "position": {
-                                "x": 25427.640199699257,
-                                "y": 84285.96494464227
-                            },
-                            "targetPosition": {
-                                "x": 25458.998738679555,
-                                "y": 84584.32151325277
-                            },
-                            "floatingObject": {
-                                "isPinned": false,
-                                "isFrozen": false,
-                                "isCollapsed": false,
-                                "angleToParent": 1,
-                                "distanceToParent": 3,
-                                "arrangementStyle": 0
-                            },
-                            "uiObject": {
-                                "isRunning": false
-                            }
-                        }
-                    }
-                ],
-                "tokensAwarded": {
-                    "type": "Tokens Awarded",
-                    "name": "New Tokens Awarded",
-                    "project": "Governance",
-                    "id": "d90c0807-3f0f-413c-8f2c-6fa0486e43a8",
-                    "savedPayload": {
-                        "position": {
-                            "x": 25757.355307290036,
-                            "y": 84552.96297427246
-                        },
-                        "targetPosition": {
-                            "x": 25458.998738679555,
-                            "y": 84584.32151325277
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": false,
-                            "angleToParent": 1,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                "tokensBonus": {
-                    "type": "Tokens Bonus",
-                    "name": "New Tokens Bonus",
-                    "project": "Governance",
-                    "id": "13a893e6-4d28-4929-b008-ad07d0164d3c",
-                    "savedPayload": {
-                        "position": {
-                            "x": 25490.357277659852,
-                            "y": 84882.67808186324
-                        },
-                        "targetPosition": {
-                            "x": 25458.998738679555,
-                            "y": 84584.32151325277
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": false,
-                            "angleToParent": 1,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                "id": "fc5edf61-6fb0-43d7-af22-855dca8b5b87",
-                "savedPayload": {
-                    "position": {
-                        "x": 25458.998738679555,
-                        "y": 84584.32151325277
-                    },
-                    "targetPosition": {
-                        "x": 25160.642170069073,
-                        "y": 84615.68005223307
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 1,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    }
-                }
-            },
-            "influencerProgram": {
-                "type": "Influencer Program",
-                "name": "New Influencer Program",
-                "config": "{}",
-                "project": "Governance",
-                "userInfluencers": [
-                    {
-                        "type": "User Influencer",
-                        "name": "",
-                        "config": "{}",
-                        "project": "Governance",
-                        "id": "ab594eb5-95b1-43da-9623-8d749634cbc9",
-                        "savedPayload": {
-                            "position": {
-                                "x": 25312.684814439115,
-                                "y": 85011.76468244859
-                            },
-                            "targetPosition": {
-                                "x": 25038.621177146335,
-                                "y": 84889.74368952584
-                            },
-                            "floatingObject": {
-                                "isPinned": false,
-                                "isFrozen": false,
-                                "isCollapsed": false,
-                                "angleToParent": 1,
-                                "distanceToParent": 3,
-                                "arrangementStyle": 0
-                            },
-                            "uiObject": {
-                                "isRunning": false
-                            }
-                        }
-                    }
-                ],
-                "tokensAwarded": {
-                    "type": "Tokens Awarded",
-                    "name": "New Tokens Awarded",
-                    "project": "Governance",
-                    "id": "89dee90f-3280-4b6f-850a-2e75224cfc30",
-                    "savedPayload": {
-                        "position": {
-                            "x": 24916.600184223596,
-                            "y": 85163.80732681864
-                        },
-                        "targetPosition": {
-                            "x": 25038.621177146335,
-                            "y": 84889.74368952584
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": false,
-                            "angleToParent": 1,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                "tokensBonus": {
-                    "type": "Tokens Bonus",
-                    "name": "New Tokens Bonus",
-                    "project": "Governance",
-                    "id": "4fd69734-5917-4b87-a7ef-c3a183af81ea",
-                    "savedPayload": {
-                        "position": {
-                            "x": 24764.557539853555,
-                            "y": 84767.7226966031
-                        },
-                        "targetPosition": {
-                            "x": 25038.621177146335,
-                            "y": 84889.74368952584
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": false,
-                            "angleToParent": 1,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                "id": "1e4a9bd4-1c2f-4635-a3a0-b6e6e132b3c2",
-                "savedPayload": {
-                    "position": {
-                        "x": 25038.621177146335,
-                        "y": 84889.74368952584
-                    },
-                    "targetPosition": {
-                        "x": 25160.642170069073,
-                        "y": 84615.68005223307
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 1,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    }
-                }
-            },
             "id": "af613b46-16ce-4a14-bbfc-cbc1e1e7e97d",
             "savedPayload": {
                 "position": {
-                    "x": 34583.33557568774,
-                    "y": 46583.45509831248
+                    "x": 29690.210575687743,
+                    "y": 45632.772325203245
                 },
                 "targetPosition": {
-                    "x": 34407,
-                    "y": 46340.74999999999
+                    "x": 29513.875,
+                    "y": 45390.06722689076
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -417,12 +193,12 @@
                     "id": "c8f517f0-937a-4827-81c6-ec96e624ca8b",
                     "savedPayload": {
                         "position": {
-                            "x": 35112.706410157734,
-                            "y": 47781.58237289805
+                            "x": 29581.581410157734,
+                            "y": 46180.89959978881
                         },
                         "targetPosition": {
-                            "x": 34990.685417235,
-                            "y": 47507.51873560526
+                            "x": 29459.560417234996,
+                            "y": 45906.83596249603
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -440,12 +216,12 @@
                 "id": "873bf38c-63bf-4dd9-a272-038e91fa7243",
                 "savedPayload": {
                     "position": {
-                        "x": 34352.685417235,
-                        "y": 46857.51873560526
+                        "x": 29459.560417234996,
+                        "y": 45906.83596249603
                     },
                     "targetPosition": {
-                        "x": 34230.66442431226,
-                        "y": 46583.45509831248
+                        "x": 29337.539424312257,
+                        "y": 45632.772325203245
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -463,7 +239,7 @@
             "claimsProgram": {
                 "type": "Claims Program",
                 "name": "New Claims Program",
-                "config": "{}",
+                "config": "{\n    \"percentage\": 100\n}",
                 "project": "Governance",
                 "assetClaimsFolders": [
                     {
@@ -493,18 +269,18 @@
                                                 "assetContributionClaims": [
                                                     {
                                                         "type": "Asset Contribution Claim",
-                                                        "name": "Images Icons Beta 10 & Beta 11 Icons Package",
+                                                        "name": "",
                                                         "config": "{\n    \"description\": \"10 icons from #1395, #1425\"\n}",
                                                         "project": "Governance",
                                                         "id": "ec08ceac-b060-4a37-b57a-67e2024316e4",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 34934.486787932015,
-                                                                "y": 46959.08229347267
+                                                                "x": 28882.39016080029,
+                                                                "y": 47093.19662927537
                                                             },
                                                             "targetPosition": {
-                                                                "x": 34660.42315063923,
-                                                                "y": 47081.10328639541
+                                                                "x": 28913.748699780586,
+                                                                "y": 46794.84006066489
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -554,12 +330,12 @@
                                                 "id": "2a54225d-aeeb-453e-bd48-9366140d6dcc",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 34660.42315063923,
-                                                        "y": 47081.10328639541
+                                                        "x": 28913.748699780586,
+                                                        "y": 46794.84006066489
                                                     },
                                                     "targetPosition": {
-                                                        "x": 34386.35951334645,
-                                                        "y": 47203.12427931815
+                                                        "x": 28945.107238760884,
+                                                        "y": 46496.4834920544
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -572,704 +348,6 @@
                                                     "uiObject": {
                                                         "isRunning": false
                                                     }
-                                                }
-                                            },
-                                            {
-                                                "type": "Asset Claims Folder",
-                                                "name": "Sources",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "assetClaimsFolders": [
-                                                    {
-                                                        "type": "Asset Claims Folder",
-                                                        "name": "Asset Class",
-                                                        "config": "{}\n",
-                                                        "project": "Governance",
-                                                        "assetClaimsFolders": [],
-                                                        "assetContributionClaims": [
-                                                            {
-                                                                "type": "Asset Contribution Claim",
-                                                                "name": "Sources assets binance-coin.svg",
-                                                                "config": "{\n  \"description\": \"\"\n}",
-                                                                "project": "Governance",
-                                                                "id": "0ac764d5-566b-4149-a3ee-e425636218e5",
-                                                                "savedPayload": {
-                                                                    "position": {
-                                                                        "x": 33850.871599635546,
-                                                                        "y": 48848.22787841565
-                                                                    },
-                                                                    "targetPosition": {
-                                                                        "x": 33791.073145528935,
-                                                                        "y": 48402.21874747049
-                                                                    },
-                                                                    "floatingObject": {
-                                                                        "isPinned": false,
-                                                                        "isFrozen": false,
-                                                                        "isCollapsed": true,
-                                                                        "angleToParent": 2,
-                                                                        "distanceToParent": 3,
-                                                                        "arrangementStyle": 0
-                                                                    },
-                                                                    "uiObject": {
-                                                                        "isRunning": false
-                                                                    },
-                                                                    "referenceParent": {
-                                                                        "type": "Asset",
-                                                                        "name": "binance-coin.svg",
-                                                                        "id": "15659336-6e8f-4323-a260-2ea9f667bac4"
-                                                                    },
-                                                                    "referenceParentCombinedNodePath": [
-                                                                        [
-                                                                            "Foundations-Project-Images",
-                                                                            "Assets",
-                                                                            "Governance",
-                                                                            "f3d47370-5b7e-4e02-aa09-659f25354147"
-                                                                        ],
-                                                                        [
-                                                                            "Images",
-                                                                            "Asset Class",
-                                                                            "Governance",
-                                                                            "058c1cc8-d598-445d-9ed0-ed0a83467e60"
-                                                                        ],
-                                                                        [
-                                                                            "Sources",
-                                                                            "Asset Class",
-                                                                            "Governance",
-                                                                            "7df036f6-b654-455c-a800-b3e0df2953e7"
-                                                                        ],
-                                                                        [
-                                                                            "assets",
-                                                                            "Asset Class",
-                                                                            "Governance",
-                                                                            "2f0e8960-c5dc-4403-982d-e64b8d141ed2"
-                                                                        ],
-                                                                        [
-                                                                            "binance-coin.svg",
-                                                                            "Asset",
-                                                                            "Governance",
-                                                                            "15659336-6e8f-4323-a260-2ea9f667bac4"
-                                                                        ]
-                                                                    ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "type": "Asset Contribution Claim",
-                                                                "name": "",
-                                                                "config": "{\n  \"description\": \"\"\n}",
-                                                                "project": "Governance",
-                                                                "id": "a8c5add2-f0a3-4147-a573-ea96d8585a1f",
-                                                                "savedPayload": {
-                                                                    "position": {
-                                                                        "x": 33722.794049241435,
-                                                                        "y": 48847.00854615091
-                                                                    },
-                                                                    "targetPosition": {
-                                                                        "x": 33791.073145528935,
-                                                                        "y": 48402.21874747049
-                                                                    },
-                                                                    "floatingObject": {
-                                                                        "isPinned": false,
-                                                                        "isFrozen": false,
-                                                                        "isCollapsed": true,
-                                                                        "angleToParent": 2,
-                                                                        "distanceToParent": 3,
-                                                                        "arrangementStyle": 0
-                                                                    },
-                                                                    "uiObject": {
-                                                                        "isRunning": false
-                                                                    },
-                                                                    "referenceParent": {
-                                                                        "type": "Asset",
-                                                                        "name": "binance-usd.svg",
-                                                                        "id": "9c172b13-641a-48c3-a9b7-6876e9520575"
-                                                                    },
-                                                                    "referenceParentCombinedNodePath": [
-                                                                        [
-                                                                            "Foundations-Project-Images",
-                                                                            "Assets"
-                                                                        ],
-                                                                        [
-                                                                            "Images",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "Sources",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "assets",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "binance-usd.svg",
-                                                                            "Asset"
-                                                                        ]
-                                                                    ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "type": "Asset Contribution Claim",
-                                                                "name": "",
-                                                                "config": "{\n  \"description\": \"\"\n}",
-                                                                "project": "Governance",
-                                                                "id": "4735084a-e164-48b6-a601-2cd01c4b45d0",
-                                                                "savedPayload": {
-                                                                    "position": {
-                                                                        "x": 33600.24806515711,
-                                                                        "y": 48809.75498966385
-                                                                    },
-                                                                    "targetPosition": {
-                                                                        "x": 33791.073145528935,
-                                                                        "y": 48402.21874747049
-                                                                    },
-                                                                    "floatingObject": {
-                                                                        "isPinned": false,
-                                                                        "isFrozen": false,
-                                                                        "isCollapsed": true,
-                                                                        "angleToParent": 2,
-                                                                        "distanceToParent": 3,
-                                                                        "arrangementStyle": 0
-                                                                    },
-                                                                    "uiObject": {
-                                                                        "isRunning": false
-                                                                    },
-                                                                    "referenceParent": {
-                                                                        "type": "Asset",
-                                                                        "name": "chainlink.svg",
-                                                                        "id": "f49f5715-22b4-4bf9-91cd-576ecc2d7910"
-                                                                    },
-                                                                    "referenceParentCombinedNodePath": [
-                                                                        [
-                                                                            "Foundations-Project-Images",
-                                                                            "Assets"
-                                                                        ],
-                                                                        [
-                                                                            "Images",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "Sources",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "assets",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "chainlink.svg",
-                                                                            "Asset"
-                                                                        ]
-                                                                    ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "type": "Asset Contribution Claim",
-                                                                "name": "",
-                                                                "config": "{\n  \"description\": \"\"\n}",
-                                                                "project": "Governance",
-                                                                "id": "05e2ce97-2149-438e-b6de-11e2f2e63a66",
-                                                                "savedPayload": {
-                                                                    "position": {
-                                                                        "x": 33493.161594204066,
-                                                                        "y": 48739.48527054566
-                                                                    },
-                                                                    "targetPosition": {
-                                                                        "x": 33791.073145528935,
-                                                                        "y": 48402.21874747049
-                                                                    },
-                                                                    "floatingObject": {
-                                                                        "isPinned": false,
-                                                                        "isFrozen": false,
-                                                                        "isCollapsed": true,
-                                                                        "angleToParent": 2,
-                                                                        "distanceToParent": 3,
-                                                                        "arrangementStyle": 0
-                                                                    },
-                                                                    "uiObject": {
-                                                                        "isRunning": false
-                                                                    },
-                                                                    "referenceParent": {
-                                                                        "type": "Asset",
-                                                                        "name": "euro.svg",
-                                                                        "id": "c3d9cba2-d40c-4c28-af75-2ddfe4763bee"
-                                                                    },
-                                                                    "referenceParentCombinedNodePath": [
-                                                                        [
-                                                                            "Foundations-Project-Images",
-                                                                            "Assets"
-                                                                        ],
-                                                                        [
-                                                                            "Images",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "Sources",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "assets",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "euro.svg",
-                                                                            "Asset"
-                                                                        ]
-                                                                    ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "type": "Asset Contribution Claim",
-                                                                "name": "",
-                                                                "config": "{\n  \"description\": \"\"\n}",
-                                                                "project": "Governance",
-                                                                "id": "42a9300b-29f0-40b9-9f93-e00452c71d9b",
-                                                                "savedPayload": {
-                                                                    "position": {
-                                                                        "x": 33410.210145391145,
-                                                                        "y": 48641.892223529154
-                                                                    },
-                                                                    "targetPosition": {
-                                                                        "x": 33791.073145528935,
-                                                                        "y": 48402.21874747049
-                                                                    },
-                                                                    "floatingObject": {
-                                                                        "isPinned": false,
-                                                                        "isFrozen": false,
-                                                                        "isCollapsed": true,
-                                                                        "angleToParent": 2,
-                                                                        "distanceToParent": 3,
-                                                                        "arrangementStyle": 0
-                                                                    },
-                                                                    "uiObject": {
-                                                                        "isRunning": false
-                                                                    },
-                                                                    "referenceParent": {
-                                                                        "type": "Asset",
-                                                                        "name": "polkadot.svg",
-                                                                        "id": "d2d94e23-779d-4eeb-b2e7-1466b7f9dec1"
-                                                                    },
-                                                                    "referenceParentCombinedNodePath": [
-                                                                        [
-                                                                            "Foundations-Project-Images",
-                                                                            "Assets"
-                                                                        ],
-                                                                        [
-                                                                            "Images",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "Sources",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "assets",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "polkadot.svg",
-                                                                            "Asset"
-                                                                        ]
-                                                                    ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "type": "Asset Contribution Claim",
-                                                                "name": "",
-                                                                "config": "{\n  \"description\": \"\"\n}",
-                                                                "project": "Governance",
-                                                                "id": "38f26744-0320-4171-8464-e7b152716ac4",
-                                                                "savedPayload": {
-                                                                    "position": {
-                                                                        "x": 33358.113951769905,
-                                                                        "y": 48524.88225687542
-                                                                    },
-                                                                    "targetPosition": {
-                                                                        "x": 33791.073145528935,
-                                                                        "y": 48402.21874747049
-                                                                    },
-                                                                    "floatingObject": {
-                                                                        "isPinned": false,
-                                                                        "isFrozen": false,
-                                                                        "isCollapsed": true,
-                                                                        "angleToParent": 2,
-                                                                        "distanceToParent": 3,
-                                                                        "arrangementStyle": 0
-                                                                    },
-                                                                    "uiObject": {
-                                                                        "isRunning": false
-                                                                    },
-                                                                    "referenceParent": {
-                                                                        "type": "Asset",
-                                                                        "name": "solana.svg",
-                                                                        "id": "02e90304-2a45-462f-aa3c-3f36e28235fc"
-                                                                    },
-                                                                    "referenceParentCombinedNodePath": [
-                                                                        [
-                                                                            "Foundations-Project-Images",
-                                                                            "Assets"
-                                                                        ],
-                                                                        [
-                                                                            "Images",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "Sources",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "assets",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "solana.svg",
-                                                                            "Asset"
-                                                                        ]
-                                                                    ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "type": "Asset Contribution Claim",
-                                                                "name": "",
-                                                                "config": "{\n    \"description\": \"\"\n}",
-                                                                "project": "Governance",
-                                                                "id": "45f30b7c-c229-4b18-b86d-f89d3bd8b092",
-                                                                "savedPayload": {
-                                                                    "position": {
-                                                                        "x": 33341.09353711955,
-                                                                        "y": 48397.93482219768
-                                                                    },
-                                                                    "targetPosition": {
-                                                                        "x": 33791.073145528935,
-                                                                        "y": 48402.21874747049
-                                                                    },
-                                                                    "floatingObject": {
-                                                                        "isPinned": false,
-                                                                        "isFrozen": false,
-                                                                        "isCollapsed": true,
-                                                                        "angleToParent": 2,
-                                                                        "distanceToParent": 3,
-                                                                        "arrangementStyle": 0
-                                                                    },
-                                                                    "uiObject": {
-                                                                        "isRunning": false
-                                                                    },
-                                                                    "referenceParent": {
-                                                                        "type": "Asset",
-                                                                        "name": "swipe.svg",
-                                                                        "id": "bcfc79c8-d468-4a7d-9309-756e092e97aa"
-                                                                    },
-                                                                    "referenceParentCombinedNodePath": [
-                                                                        [
-                                                                            "Foundations-Project-Images",
-                                                                            "Assets"
-                                                                        ],
-                                                                        [
-                                                                            "Images",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "Sources",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "assets",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "swipe.svg",
-                                                                            "Asset"
-                                                                        ]
-                                                                    ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "type": "Asset Contribution Claim",
-                                                                "name": "",
-                                                                "config": "{\n  \"description\": \"\"\n}",
-                                                                "project": "Governance",
-                                                                "id": "c7ae0062-d734-4ff0-aa76-d3b5c32d2869",
-                                                                "savedPayload": {
-                                                                    "position": {
-                                                                        "x": 33360.52779421076,
-                                                                        "y": 48271.334445668064
-                                                                    },
-                                                                    "targetPosition": {
-                                                                        "x": 33791.073145528935,
-                                                                        "y": 48402.21874747049
-                                                                    },
-                                                                    "floatingObject": {
-                                                                        "isPinned": false,
-                                                                        "isFrozen": false,
-                                                                        "isCollapsed": true,
-                                                                        "angleToParent": 2,
-                                                                        "distanceToParent": 3,
-                                                                        "arrangementStyle": 0
-                                                                    },
-                                                                    "uiObject": {
-                                                                        "isRunning": false
-                                                                    },
-                                                                    "referenceParent": {
-                                                                        "type": "Asset",
-                                                                        "name": "uniswap.svg",
-                                                                        "id": "01a0a4d7-6bc3-4e87-9981-c59cc3fb82de"
-                                                                    },
-                                                                    "referenceParentCombinedNodePath": [
-                                                                        [
-                                                                            "Foundations-Project-Images",
-                                                                            "Assets"
-                                                                        ],
-                                                                        [
-                                                                            "Images",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "Sources",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "assets",
-                                                                            "Asset Class"
-                                                                        ],
-                                                                        [
-                                                                            "uniswap.svg",
-                                                                            "Asset"
-                                                                        ]
-                                                                    ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "type": "Asset Contribution Claim",
-                                                                "name": "Sources assets us-dollar.svg",
-                                                                "config": "{\n  \"description\": \"\"\n}",
-                                                                "project": "Governance",
-                                                                "id": "9d04a999-843a-44a2-a2f3-2c25b1b47755",
-                                                                "savedPayload": {
-                                                                    "position": {
-                                                                        "x": 33414.84227511396,
-                                                                        "y": 48155.33753687156
-                                                                    },
-                                                                    "targetPosition": {
-                                                                        "x": 33791.073145528935,
-                                                                        "y": 48402.21874747049
-                                                                    },
-                                                                    "floatingObject": {
-                                                                        "isPinned": false,
-                                                                        "isFrozen": false,
-                                                                        "isCollapsed": true,
-                                                                        "angleToParent": 2,
-                                                                        "distanceToParent": 3,
-                                                                        "arrangementStyle": 0
-                                                                    },
-                                                                    "uiObject": {
-                                                                        "isRunning": false
-                                                                    },
-                                                                    "referenceParent": {
-                                                                        "type": "Asset",
-                                                                        "name": "us-dollar.svg",
-                                                                        "id": "80f984fd-2ee3-404d-a912-436edc12cda5"
-                                                                    },
-                                                                    "referenceParentCombinedNodePath": [
-                                                                        [
-                                                                            "Foundations-Project-Images",
-                                                                            "Assets",
-                                                                            "Governance",
-                                                                            "f3d47370-5b7e-4e02-aa09-659f25354147"
-                                                                        ],
-                                                                        [
-                                                                            "Images",
-                                                                            "Asset Class",
-                                                                            "Governance",
-                                                                            "058c1cc8-d598-445d-9ed0-ed0a83467e60"
-                                                                        ],
-                                                                        [
-                                                                            "Sources",
-                                                                            "Asset Class",
-                                                                            "Governance",
-                                                                            "7df036f6-b654-455c-a800-b3e0df2953e7"
-                                                                        ],
-                                                                        [
-                                                                            "assets",
-                                                                            "Asset Class",
-                                                                            "Governance",
-                                                                            "2f0e8960-c5dc-4403-982d-e64b8d141ed2"
-                                                                        ],
-                                                                        [
-                                                                            "us-dollar.svg",
-                                                                            "Asset",
-                                                                            "Governance",
-                                                                            "80f984fd-2ee3-404d-a912-436edc12cda5"
-                                                                        ]
-                                                                    ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "type": "Asset Contribution Claim",
-                                                                "name": "Sources assets xrp.svg",
-                                                                "config": "{\n    \"description\": \"\"\n}",
-                                                                "project": "Governance",
-                                                                "id": "e00072f4-1294-4bfa-bc82-d7406e3e7084",
-                                                                "savedPayload": {
-                                                                    "position": {
-                                                                        "x": 33499.63674360704,
-                                                                        "y": 48059.34147549869
-                                                                    },
-                                                                    "targetPosition": {
-                                                                        "x": 33791.073145528935,
-                                                                        "y": 48402.21874747049
-                                                                    },
-                                                                    "floatingObject": {
-                                                                        "isPinned": false,
-                                                                        "isFrozen": false,
-                                                                        "isCollapsed": true,
-                                                                        "angleToParent": 2,
-                                                                        "distanceToParent": 3,
-                                                                        "arrangementStyle": 0
-                                                                    },
-                                                                    "uiObject": {
-                                                                        "isRunning": false
-                                                                    },
-                                                                    "referenceParent": {
-                                                                        "type": "Asset",
-                                                                        "name": "xrp.svg",
-                                                                        "id": "4aacd6ab-a257-408a-b8ae-257ce28c24b4"
-                                                                    },
-                                                                    "referenceParentCombinedNodePath": [
-                                                                        [
-                                                                            "Foundations-Project-Images",
-                                                                            "Assets",
-                                                                            "Governance",
-                                                                            "f3d47370-5b7e-4e02-aa09-659f25354147"
-                                                                        ],
-                                                                        [
-                                                                            "Images",
-                                                                            "Asset Class",
-                                                                            "Governance",
-                                                                            "058c1cc8-d598-445d-9ed0-ed0a83467e60"
-                                                                        ],
-                                                                        [
-                                                                            "Sources",
-                                                                            "Asset Class",
-                                                                            "Governance",
-                                                                            "7df036f6-b654-455c-a800-b3e0df2953e7"
-                                                                        ],
-                                                                        [
-                                                                            "assets",
-                                                                            "Asset Class",
-                                                                            "Governance",
-                                                                            "2f0e8960-c5dc-4403-982d-e64b8d141ed2"
-                                                                        ],
-                                                                        [
-                                                                            "xrp.svg",
-                                                                            "Asset",
-                                                                            "Governance",
-                                                                            "4aacd6ab-a257-408a-b8ae-257ce28c24b4"
-                                                                        ]
-                                                                    ]
-                                                                }
-                                                            }
-                                                        ],
-                                                        "id": "f97fbc03-501e-4c6d-af82-bacc7969e933",
-                                                        "savedPayload": {
-                                                            "position": {
-                                                                "x": 34307.96316589571,
-                                                                "y": 47949.01570084436
-                                                            },
-                                                            "targetPosition": {
-                                                                "x": 34355.00097436615,
-                                                                "y": 47501.48084792864
-                                                            },
-                                                            "floatingObject": {
-                                                                "isPinned": false,
-                                                                "isFrozen": false,
-                                                                "isCollapsed": true,
-                                                                "angleToParent": 2,
-                                                                "distanceToParent": 4,
-                                                                "arrangementStyle": 0
-                                                            },
-                                                            "uiObject": {
-                                                                "isRunning": false
-                                                            },
-                                                            "referenceParent": {
-                                                                "type": "Asset Class",
-                                                                "name": "assets",
-                                                                "id": "2f0e8960-c5dc-4403-982d-e64b8d141ed2"
-                                                            },
-                                                            "referenceParentCombinedNodePath": [
-                                                                [
-                                                                    "Foundations-Project-Images",
-                                                                    "Assets",
-                                                                    "Governance",
-                                                                    "f3d47370-5b7e-4e02-aa09-659f25354147"
-                                                                ],
-                                                                [
-                                                                    "Images",
-                                                                    "Asset Class",
-                                                                    "Governance",
-                                                                    "058c1cc8-d598-445d-9ed0-ed0a83467e60"
-                                                                ],
-                                                                [
-                                                                    "Sources",
-                                                                    "Asset Class",
-                                                                    "Governance",
-                                                                    "7df036f6-b654-455c-a800-b3e0df2953e7"
-                                                                ],
-                                                                [
-                                                                    "assets",
-                                                                    "Asset Class",
-                                                                    "Governance",
-                                                                    "2f0e8960-c5dc-4403-982d-e64b8d141ed2"
-                                                                ]
-                                                            ]
-                                                        }
-                                                    }
-                                                ],
-                                                "assetContributionClaims": [],
-                                                "id": "4cbb8537-b10c-4b56-a61b-71f5ad2b2b8a",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 34355.00097436615,
-                                                        "y": 47501.48084792864
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 34386.35951334645,
-                                                        "y": 47203.12427931815
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 1,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Asset Class",
-                                                        "name": "Sources",
-                                                        "id": "7df036f6-b654-455c-a800-b3e0df2953e7"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Foundations-Project-Images",
-                                                            "Assets",
-                                                            "Governance",
-                                                            "f3d47370-5b7e-4e02-aa09-659f25354147"
-                                                        ],
-                                                        [
-                                                            "Images",
-                                                            "Asset Class",
-                                                            "Governance",
-                                                            "058c1cc8-d598-445d-9ed0-ed0a83467e60"
-                                                        ],
-                                                        [
-                                                            "Sources",
-                                                            "Asset Class",
-                                                            "Governance",
-                                                            "7df036f6-b654-455c-a800-b3e0df2953e7"
-                                                        ]
-                                                    ]
                                                 }
                                             }
                                         ],
@@ -1277,12 +355,12 @@
                                         "id": "f08f2548-8892-48a8-a0d5-6a7be17e1987",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 34386.35951334645,
-                                                "y": 47203.12427931815
+                                                "x": 28945.107238760884,
+                                                "y": 46496.4834920544
                                             },
                                             "targetPosition": {
-                                                "x": 34143.65441503396,
-                                                "y": 47026.78870363041
+                                                "x": 28976.46577774118,
+                                                "y": 46198.12692344392
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -1321,12 +399,12 @@
                                 "id": "0d6d6e09-67b8-4022-b1cf-5f424e064e32",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34143.65441503396,
-                                        "y": 47026.78870363041
+                                        "x": 28976.46577774118,
+                                        "y": 46198.12692344392
                                     },
                                     "targetPosition": {
-                                        "x": 33900.949316721475,
-                                        "y": 46850.45312794267
+                                        "x": 29007.82431672148,
+                                        "y": 45899.77035483343
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1339,115 +417,6 @@
                                     "uiObject": {
                                         "isRunning": false
                                     }
-                                }
-                            },
-                            {
-                                "type": "Asset Claims Folder",
-                                "name": "Docs",
-                                "config": "{}",
-                                "project": "Governance",
-                                "assetClaimsFolders": [],
-                                "assetContributionClaims": [
-                                    {
-                                        "type": "Asset Contribution Claim",
-                                        "name": "App App-Commands app-commands-001-app-contribute-command.json",
-                                        "config": "{\n    \"description\": \"fix command #670\"\n}",
-                                        "project": "Governance",
-                                        "id": "a07a34a6-ad00-4730-8701-a85367982952",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 33352.82204213591,
-                                                "y": 47094.49511378815
-                                            },
-                                            "targetPosition": {
-                                                "x": 33626.88567942869,
-                                                "y": 46972.47412086541
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": true,
-                                                "angleToParent": 1,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            },
-                                            "referenceParent": {
-                                                "type": "Asset",
-                                                "name": "app-commands-001-app-contribute-command.json",
-                                                "id": "5a90f90a-f966-4ac4-b5da-87f697488805"
-                                            },
-                                            "referenceParentCombinedNodePath": [
-                                                [
-                                                    "Foundations-Project-Docs",
-                                                    "Assets"
-                                                ],
-                                                [
-                                                    "Docs",
-                                                    "Asset Class"
-                                                ],
-                                                [
-                                                    "Topics",
-                                                    "Asset Class"
-                                                ],
-                                                [
-                                                    "A",
-                                                    "Asset Class"
-                                                ],
-                                                [
-                                                    "App",
-                                                    "Asset Class"
-                                                ],
-                                                [
-                                                    "App-Commands",
-                                                    "Asset Class"
-                                                ],
-                                                [
-                                                    "app-commands-001-app-contribute-command.json",
-                                                    "Asset"
-                                                ]
-                                            ]
-                                        }
-                                    }
-                                ],
-                                "id": "fdd33b44-98a3-4d10-ab61-1da9dbbdf1b6",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 33626.88567942869,
-                                        "y": 46972.47412086541
-                                    },
-                                    "targetPosition": {
-                                        "x": 33900.949316721475,
-                                        "y": 46850.45312794267
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 1,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Asset Class",
-                                        "name": "Docs",
-                                        "id": "e4f9029f-db6b-4f27-b01f-4e217e4e9b62"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Foundations-Project-Docs",
-                                            "Assets"
-                                        ],
-                                        [
-                                            "Docs",
-                                            "Asset Class"
-                                        ]
-                                    ]
                                 }
                             }
                         ],
@@ -1455,12 +424,12 @@
                         "id": "ef110317-220e-499b-9ab3-77251287aeb1",
                         "savedPayload": {
                             "position": {
-                                "x": 33900.949316721475,
-                                "y": 46850.45312794267
+                                "x": 29007.82431672148,
+                                "y": 45899.77035483343
                             },
                             "targetPosition": {
-                                "x": 33932.30785570177,
-                                "y": 46552.09655933218
+                                "x": 29039.182855701776,
+                                "y": 45601.41378622295
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -1496,18 +465,18 @@
                                         "assetContributionClaims": [
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "",
+                                                "name": "Images Icons Beta 10 & Beta 11 Icons Package",
                                                 "config": "{\n    \"description\": \"21 new icons, 5 changed icon - #1551, #1672, #1535, #1449, #1430\"\n}",
                                                 "project": "Governance",
                                                 "id": "abbe0439-0132-4346-bd93-2dd069bc48e2",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32350.92356710533,
-                                                        "y": 47341.78967799656
+                                                        "x": 28089.79856710533,
+                                                        "y": 46024.106904887325
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32527.25914279307,
-                                                        "y": 47099.08457968407
+                                                        "x": 28266.13414279307,
+                                                        "y": 45781.40180657484
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -1528,19 +497,27 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Governance-Project-Images",
-                                                            "Assets"
+                                                            "Assets",
+                                                            "Governance",
+                                                            "1c0b8060-6427-4dc8-a40f-f9183545ee80"
                                                         ],
                                                         [
                                                             "Images",
-                                                            "Asset Class"
+                                                            "Asset Class",
+                                                            "Governance",
+                                                            "93f40cc3-794b-4c06-be4d-1059e4dfaeed"
                                                         ],
                                                         [
                                                             "Icons",
-                                                            "Asset Class"
+                                                            "Asset Class",
+                                                            "Governance",
+                                                            "88e4c021-476a-4020-8db1-c5502792572e"
                                                         ],
                                                         [
                                                             "Beta 10 & Beta 11 Icons Package",
-                                                            "Asset"
+                                                            "Asset",
+                                                            "Governance",
+                                                            "b63ee118-bb2d-4071-b25e-ee41b6b6fb8e"
                                                         ]
                                                     ]
                                                 }
@@ -1549,12 +526,12 @@
                                         "id": "3bff5ea8-88c7-4f61-924e-a7dcd1f0c4be",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 32527.25914279307,
-                                                "y": 47099.08457968407
+                                                "x": 28266.13414279307,
+                                                "y": 45781.40180657484
                                             },
                                             "targetPosition": {
-                                                "x": 32703.594718480814,
-                                                "y": 46856.37948137159
+                                                "x": 28442.469718480814,
+                                                "y": 45538.69670826235
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -1575,15 +552,21 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Governance-Project-Images",
-                                                    "Assets"
+                                                    "Assets",
+                                                    "Governance",
+                                                    "1c0b8060-6427-4dc8-a40f-f9183545ee80"
                                                 ],
                                                 [
                                                     "Images",
-                                                    "Asset Class"
+                                                    "Asset Class",
+                                                    "Governance",
+                                                    "93f40cc3-794b-4c06-be4d-1059e4dfaeed"
                                                 ],
                                                 [
                                                     "Icons",
-                                                    "Asset Class"
+                                                    "Asset Class",
+                                                    "Governance",
+                                                    "88e4c021-476a-4020-8db1-c5502792572e"
                                                 ]
                                             ]
                                         }
@@ -1603,12 +586,12 @@
                                                 "id": "e06e2e00-e1a9-423e-9c95-5b4dee2dd32d",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32614.328616848034,
-                                                        "y": 46948.232128505
+                                                        "x": 28493.203616848034,
+                                                        "y": 45656.549355395764
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -1649,17 +632,17 @@
                                             {
                                                 "type": "Asset Contribution Claim",
                                                 "name": "",
-                                                "config": "{\n  \"description\": \"\"\n}",
+                                                "config": "{\n    \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "e253db41-e07c-4b4c-af86-740f8daac3fa",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32502.800538419877,
-                                                        "y": 47011.21493098512
+                                                        "x": 28381.675538419877,
+                                                        "y": 45719.53215787589
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -1705,12 +688,12 @@
                                                 "id": "9f88dbf6-0ba6-413d-be09-4a7459234dd0",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32378.045824827565,
-                                                        "y": 47040.22539672819
+                                                        "x": 28256.920824827565,
+                                                        "y": 45748.54262361895
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -1756,12 +739,12 @@
                                                 "id": "fe3a09cd-1b11-469b-b342-dbb33a73813c",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32250.1713610215,
-                                                        "y": 47032.91327033155
+                                                        "x": 28129.0463610215,
+                                                        "y": 45741.230497222314
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -1807,12 +790,12 @@
                                                 "id": "ca95be67-4f7b-481a-85f8-d6819b41eec9",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32129.536775560533,
-                                                        "y": 46989.87093678899
+                                                        "x": 28008.411775560533,
+                                                        "y": 45698.188163679755
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -1858,12 +841,12 @@
                                                 "id": "55d64477-cd9a-44f8-82ec-5d36285419be",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32025.915165117207,
-                                                        "y": 46914.585429981504
+                                                        "x": 27904.790165117207,
+                                                        "y": 45622.90265687227
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -1909,12 +892,12 @@
                                                 "id": "f5bde0ba-f7e2-4bff-b207-3f8081a3d12b",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 31947.70133630819,
-                                                        "y": 46813.155933930495
+                                                        "x": 27826.57633630819,
+                                                        "y": 45521.47316082126
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -1960,12 +943,12 @@
                                                 "id": "b45cc62b-3b8a-42a7-a325-be408c0ea50d",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 31901.231708388037,
-                                                        "y": 46693.79966318157
+                                                        "x": 27780.106708388037,
+                                                        "y": 45402.116890072335
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2011,12 +994,12 @@
                                                 "id": "18752bfc-5bc1-422a-8596-9b46cb02c6cf",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 31890.270974245326,
-                                                        "y": 46566.18615295173
+                                                        "x": 27769.145974245326,
+                                                        "y": 45274.50337984249
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2062,12 +1045,12 @@
                                                 "id": "a13fd365-86a8-4d23-a685-3b707f5c19f9",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 31915.707107374303,
-                                                        "y": 46440.65389089303
+                                                        "x": 27794.582107374303,
+                                                        "y": 45148.971117783796
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2113,12 +1096,12 @@
                                                 "id": "7721fa2c-61e1-4689-a6e7-350431bc8cb5",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 31975.479423543362,
-                                                        "y": 46327.37275430836
+                                                        "x": 27854.354423543362,
+                                                        "y": 45035.689981199124
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2164,12 +1147,12 @@
                                                 "id": "7463a036-de39-4641-ad10-d22ea6c558ab",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32064.745525176142,
-                                                        "y": 46235.52010717495
+                                                        "x": 27943.620525176142,
+                                                        "y": 44943.83733406571
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2215,12 +1198,12 @@
                                                 "id": "69fa5f15-c5a0-4718-a473-d35ac18cfb07",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32176.2736036043,
-                                                        "y": 46172.53730469482
+                                                        "x": 28055.1486036043,
+                                                        "y": 44880.85453158559
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2266,12 +1249,12 @@
                                                 "id": "095b1fab-77c0-4b1a-92d6-a28edfa40580",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32301.02831719661,
-                                                        "y": 46143.52683895176
+                                                        "x": 28179.90331719661,
+                                                        "y": 44851.844065842524
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2312,17 +1295,17 @@
                                             {
                                                 "type": "Asset Contribution Claim",
                                                 "name": "",
-                                                "config": "{\n  \"description\": \"\"\n}",
+                                                "config": "{\n    \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "ff35f5cf-1f5d-4e5f-98c1-ab6bc14aac3c",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32428.902781002675,
-                                                        "y": 46150.8389653484
+                                                        "x": 28307.777781002675,
+                                                        "y": 44859.15619223916
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2368,12 +1351,12 @@
                                                 "id": "c0493e77-5ed6-4213-9aab-51ff65597aa7",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32549.53736646364,
-                                                        "y": 46193.881298890956
+                                                        "x": 28428.41236646364,
+                                                        "y": 44902.19852578172
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2419,12 +1402,12 @@
                                                 "id": "f1fc6ca3-3e0e-42bb-8184-85c619733fb6",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32653.15897690697,
-                                                        "y": 46269.16680569844
+                                                        "x": 28532.03397690697,
+                                                        "y": 44977.48403258921
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2470,12 +1453,12 @@
                                                 "id": "56035c9f-ddcc-479c-aa74-4b95f242088e",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32731.372805715986,
-                                                        "y": 46370.59630174945
+                                                        "x": 28610.247805715986,
+                                                        "y": 45078.913528640216
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2521,12 +1504,12 @@
                                                 "id": "969f4b12-2faf-4a37-9f47-0a763a976465",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32777.842433636135,
-                                                        "y": 46489.952572498376
+                                                        "x": 28656.71743363614,
+                                                        "y": 45198.26979938914
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2572,12 +1555,12 @@
                                                 "id": "3eb55249-0f1b-4497-ac5e-9a1a700698b0",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32788.80316777885,
-                                                        "y": 46617.56608272822
+                                                        "x": 28667.67816777885,
+                                                        "y": 45325.883309618985
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2623,12 +1606,12 @@
                                                 "id": "de774567-9530-49ac-9a04-f365e2e8873a",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32763.367034649873,
-                                                        "y": 46743.098344786915
+                                                        "x": 28642.242034649873,
+                                                        "y": 45451.41557167768
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32339.537071012088,
-                                                        "y": 46591.87611783997
+                                                        "x": 28218.412071012088,
+                                                        "y": 45300.19334473074
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2670,12 +1653,12 @@
                                         "id": "b0ce1353-4679-4e5a-8e6c-09a740a741c7",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 32339.537071012088,
-                                                "y": 46591.87611783997
+                                                "x": 28078.412071012088,
+                                                "y": 45274.19334473074
                                             },
                                             "targetPosition": {
-                                                "x": 32703.594718480814,
-                                                "y": 46856.37948137159
+                                                "x": 28442.469718480814,
+                                                "y": 45538.69670826235
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -2696,15 +1679,21 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Governance-Project-Images",
-                                                    "Assets"
+                                                    "Assets",
+                                                    "Governance",
+                                                    "1c0b8060-6427-4dc8-a40f-f9183545ee80"
                                                 ],
                                                 [
                                                     "Images",
-                                                    "Asset Class"
+                                                    "Asset Class",
+                                                    "Governance",
+                                                    "93f40cc3-794b-4c06-be4d-1059e4dfaeed"
                                                 ],
                                                 [
                                                     "Sources",
-                                                    "Asset Class"
+                                                    "Asset Class",
+                                                    "Governance",
+                                                    "e97681b3-75d1-4661-9ca3-b10a631ee5e2"
                                                 ]
                                             ]
                                         }
@@ -2714,17 +1703,17 @@
                                 "id": "262b9f21-e748-48e8-afc7-a15719b3c945",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 33335.5947184808,
-                                        "y": 46489.37948137159
+                                        "x": 28442.469718480814,
+                                        "y": 45538.69670826235
                                     },
                                     "targetPosition": {
-                                        "x": 33633.95128709129,
-                                        "y": 46520.738020351884
+                                        "x": 28740.826287091295,
+                                        "y": 45570.05524724265
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 1,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -2740,11 +1729,15 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Governance-Project-Images",
-                                            "Assets"
+                                            "Assets",
+                                            "Governance",
+                                            "1c0b8060-6427-4dc8-a40f-f9183545ee80"
                                         ],
                                         [
                                             "Images",
-                                            "Asset Class"
+                                            "Asset Class",
+                                            "Governance",
+                                            "93f40cc3-794b-4c06-be4d-1059e4dfaeed"
                                         ]
                                     ]
                                 }
@@ -2754,17 +1747,17 @@
                         "id": "252f5bb2-280d-45a1-9afb-f5b2ce822741",
                         "savedPayload": {
                             "position": {
-                                "x": 33633.95128709129,
-                                "y": 46520.738020351884
+                                "x": 28740.826287091295,
+                                "y": 45570.05524724265
                             },
                             "targetPosition": {
-                                "x": 33932.30785570177,
-                                "y": 46552.09655933218
+                                "x": 29039.182855701776,
+                                "y": 45601.41378622295
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": true,
+                                "isCollapsed": false,
                                 "angleToParent": 1,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -2784,12 +1777,12 @@
                     "id": "51b13562-19b3-4d25-bc9d-3b3bdfc60fd6",
                     "savedPayload": {
                         "position": {
-                            "x": 33963.66639468207,
-                            "y": 46253.7399907217
+                            "x": 29070.541394682074,
+                            "y": 45303.05721761246
                         },
                         "targetPosition": {
-                            "x": 33932.30785570177,
-                            "y": 46552.09655933218
+                            "x": 29039.182855701776,
+                            "y": 45601.41378622295
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -2807,12 +1800,12 @@
                 "id": "a853ab27-385c-4e77-ae22-135299f077ce",
                 "savedPayload": {
                     "position": {
-                        "x": 33932.30785570177,
-                        "y": 46552.09655933218
+                        "x": 29039.182855701776,
+                        "y": 45601.41378622295
                     },
                     "targetPosition": {
-                        "x": 34230.66442431226,
-                        "y": 46583.45509831248
+                        "x": 29337.539424312257,
+                        "y": 45632.772325203245
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -2830,12 +1823,12 @@
             "id": "f601efe9-ee86-44e6-8fdd-9b18447fae88",
             "savedPayload": {
                 "position": {
-                    "x": 34230.66442431226,
-                    "y": 46583.45509831248
+                    "x": 29337.539424312257,
+                    "y": 45632.772325203245
                 },
                 "targetPosition": {
-                    "x": 34407,
-                    "y": 46340.74999999999
+                    "x": 29513.875,
+                    "y": 45390.06722689076
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -2853,7 +1846,7 @@
         "financialPrograms": {
             "type": "Financial Programs",
             "name": "New Financial Programs",
-            "config": "{}",
+            "config": "{\n\"percentage\": 0\n}",
             "project": "Governance",
             "stakingProgram": {
                 "type": "Staking Program",
@@ -2867,12 +1860,12 @@
                     "id": "3cbfa843-8842-4588-ac0c-82b50c3c68c3",
                     "savedPayload": {
                         "position": {
-                            "x": 24128.355729715695,
-                            "y": 84094.85965898313
+                            "x": 19447.230729715695,
+                            "y": 83306.1768858739
                         },
                         "targetPosition": {
-                            "x": 24413.67268460424,
-                            "y": 84187.5647572956
+                            "x": 19732.54768460424,
+                            "y": 83398.88198418636
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -2890,12 +1883,12 @@
                 "id": "1aa38845-1204-42d0-b05e-d16552c37437",
                 "savedPayload": {
                     "position": {
-                        "x": 24413.67268460424,
-                        "y": 84187.5647572956
+                        "x": 19732.54768460424,
+                        "y": 83398.88198418636
                     },
                     "targetPosition": {
-                        "x": 24698.989639492785,
-                        "y": 84280.26985560809
+                        "x": 20017.864639492785,
+                        "y": 83491.58708249885
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -2913,12 +1906,12 @@
             "id": "cf337ae4-309e-4966-970b-116b136afc16",
             "savedPayload": {
                 "position": {
-                    "x": 34121.68304511145,
-                    "y": 46248.044901687506
+                    "x": 29228.558045111455,
+                    "y": 45297.36212857827
                 },
                 "targetPosition": {
-                    "x": 34407,
-                    "y": 46340.74999999999
+                    "x": 29513.875,
+                    "y": 45390.06722689076
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -2936,12 +1929,12 @@
         "id": "04e4dc7e-700c-4c95-b3e8-e962d7008659",
         "savedPayload": {
             "position": {
-                "x": 34407,
-                "y": 46340.74999999999
+                "x": 29513.875,
+                "y": 45390.06722689076
             },
             "targetPosition": {
-                "x": 34407,
-                "y": 46040.74999999999
+                "x": 29513.875,
+                "y": 45090.06722689076
             },
             "floatingObject": {
                 "isPinned": false,
@@ -2963,12 +1956,12 @@
         "id": "0f8748a2-d676-42d0-92c4-bc7118b8de97",
         "savedPayload": {
             "position": {
-                "x": 34107,
-                "y": 46040.74999999999
+                "x": 29213.875,
+                "y": 45090.06722689076
             },
             "targetPosition": {
-                "x": 34407,
-                "y": 46040.74999999999
+                "x": 29513.875,
+                "y": 45090.06722689076
             },
             "floatingObject": {
                 "isPinned": false,
@@ -2986,17 +1979,17 @@
     "id": "f002a0b0-9cad-496b-a5a3-f642ee06dd2b",
     "savedPayload": {
         "position": {
-            "x": 34407,
-            "y": 46040.74999999999
+            "x": 29513.875,
+            "y": 45090.06722689076
         },
         "targetPosition": {
-            "x": 34407,
-            "y": 46040.74999999999
+            "x": 29513.875,
+            "y": 45090.06722689076
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

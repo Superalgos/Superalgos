@@ -4,7 +4,14 @@
     "type": "The Referral Program",
     "definition": {
         "text": "Help us spread the word about Superalgos!",
-        "updated": 1630495118436
+        "updated": 1630495118436,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Ayúdanos a correr la voz a cerca de Superalgos!",
+                "updated": 1633543506732
+            }
+        ]
     },
     "paragraphs": [
         {

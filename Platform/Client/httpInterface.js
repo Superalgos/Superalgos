@@ -906,26 +906,12 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                         let dir = process.cwd()
                                         let command = "node setup";
-                                        let test1 = execSync( command,
+                                        let stdout = execSync( command,
                                         {
                                             cwd: dir 
-                                        },
-                                        function ( error, stdout ){
-                                            if (error) {
-                                                console.log('');
-                                                console.log("There was an error updating dependencies for this branch: ");
-                                                console.log('');
-                                                console.log( error );
-                                                return;
-                                            }   
-                                            console.log('this is error code', error.code)
-                                            console.log('');
-                                            console.log( stdout ); 
-                                            let test = "success"   
-                                            return test             
-                                        });
-                                        let text = test1.toString()
-                                        console.log("we finished!", text)
+                                        }).toString();
+                                    
+                                        console.log("Node Setup has completed with the following result:", stdout)
                                            
                                     }
 

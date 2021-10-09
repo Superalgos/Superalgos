@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesSocialBots = function (processIndex) {
+exports.newSocialBotsBotModulesSocialBots = function (processIndex) {
 
     const MODULE_NAME = 'Social Bots'
 
@@ -19,13 +19,13 @@ exports.newFoundationsBotModulesSocialBots = function (processIndex) {
                         let config = socialBot.config
                         let commands = socialBot.socialBotCommand
                         if (socialBot.type === "Telegram Bot") {
-                            socialBot.botInstance = TS.projects.foundations.botModules.telegramBot.newFoundationsBotModulesTelegramBot(processIndex)
+                            socialBot.botInstance = TS.projects.foundations.botModules.telegramBot.newSocialBotsBotModulesTelegramBot(processIndex)
                             socialBot.botInstance.initialize(config, commands)
                         } else if (socialBot.type === "Discord Bot") {
-                            socialBot.botInstance = TS.projects.foundations.botModules.discordBot.newFoundationsBotModulesDiscordBot(processIndex)
+                            socialBot.botInstance = TS.projects.foundations.botModules.discordBot.newSocialBotsBotModulesDiscordBot(processIndex)
                             socialBot.botInstance.initialize(config)
                         } else if (socialBot.type === "Slack Bot") {
-                            socialBot.botInstance = TS.projects.foundations.botModules.slackBot.newFoundationsBotModulesSlackBot(processIndex)
+                            socialBot.botInstance = TS.projects.foundations.botModules.slackBot.newSocialBotsBotModulesSlackBot(processIndex)
                             socialBot.botInstance.initialize(config)
                         }
                     }

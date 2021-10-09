@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesTelegramBot = function (processIndex) {
+exports.newSocialBotsBotModulesTelegramBot = function (processIndex) {
 
     const MODULE_NAME = 'Telegram Bot'
 

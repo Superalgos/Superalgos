@@ -1,6 +1,6 @@
-exports.newFoundationsBotModulesDiscordBot = function (processIndex) {
+exports.newSocialBotsBotModulesSlackBot = function (processIndex) {
 
-    const MODULE_NAME = 'Discord Bot'
+    const MODULE_NAME = 'Slack Bot'
 
     let thisObject = {
         webhookURL: undefined,
@@ -14,7 +14,7 @@ exports.newFoundationsBotModulesDiscordBot = function (processIndex) {
     return thisObject
 
     function initialize(config) {
-        /* Discord Bot Initialization */
+        /* Slack Bot Initialization */
         
         try {
             thisObject.webhookURL = config.webhookURL
@@ -42,9 +42,9 @@ exports.newFoundationsBotModulesDiscordBot = function (processIndex) {
 
         try {
             message = formatMessage(message)
-            message = JSON.stringify({content: message})
+            message = JSON.stringify({text: message})
         } catch (err) {
-            logError("announce -> Discord JSON message error -> err = " + err)
+            logError("announce -> Slack JSON message error -> err = " + err)
         }
 
         return new Promise((resolve, reject) => {
@@ -61,7 +61,7 @@ exports.newFoundationsBotModulesDiscordBot = function (processIndex) {
 
             req.on('error', (err) => {
                 reject(err)
-                logWarn("announce -> Discord request error -> err = " + err)
+                logWarn("announce -> Slack request error -> err = " + err)
             })
 
             req.write(message)

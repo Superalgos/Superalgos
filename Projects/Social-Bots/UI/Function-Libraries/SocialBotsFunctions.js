@@ -1,4 +1,4 @@
-function newFoundationsFunctionLibrarySocialBotsFunctions() {
+function newSocialBotsFunctionLibrarySocialBotsFunctions() {
     let thisObject = {
         sendTelegramTestMessage: sendTelegramTestMessage,
         sendDiscordTestMessage: sendDiscordTestMessage,

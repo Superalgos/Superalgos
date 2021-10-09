@@ -725,7 +725,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                         const octokit = new Octokit({
                                             auth: token,
-                                            userAgent: 'Superalgos Beta 11'
+                                            userAgent: 'Superalgos Beta 12'
                                         })
 
                                         const repo = 'Superalgos'
@@ -864,6 +864,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                             await doGit()
 
                                             if (error === undefined) {
+                                                // Run node setup to prepare instance for branch change
+                                                await runNodeSetup()
+                                                // Return to UI that Branch is suggessfully changed 
                                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                             } else {
                                                 let docs = {
@@ -894,6 +897,22 @@ exports.newHttpInterface = function newHttpInterface() {
                                             console.log(err.stack)
                                             error = err
                                         }
+                                    }
+
+                                    async function runNodeSetup () {
+                                        console.log( "Running Node setup to adjust for new Branch" )
+                                        const process = require("process");
+                                        const { execSync } = require("child_process");
+
+                                        let dir = process.cwd()
+                                        let command = "node setup";
+                                        let stdout = execSync( command,
+                                        {
+                                            cwd: dir 
+                                        }).toString();
+                                    
+                                        console.log("Node Setup has completed with the following result:", stdout)
+                                           
                                     }
 
                                 } catch (err) {
@@ -1387,11 +1406,13 @@ exports.newHttpInterface = function newHttpInterface() {
                             try {
                                 let project = unescape(requestPath[2])
                                 let folder = unescape(requestPath[3])
-
-                                let response = await SA.projects.foundations.utilities.plugins.getPluginFileNames(
+                                
+                                let response = await SA.projects.communityPlugins.utilities.plugins.getPluginFileNames(
                                     project,
                                     folder
-                                )
+                                ).catch(err =>  {
+                                    console.log('[ERROR] httpInterface -> PluginFileNames -> err.stack = ' + err.stack)
+                                }) 
 
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
 
@@ -1424,12 +1445,18 @@ exports.newHttpInterface = function newHttpInterface() {
                                 if (fileName === 'Superalgos-CL.json') {
                                     fileName = 'Superalgos-PL.json'
                                 }
-
-                                let response = await SA.projects.foundations.utilities.plugins.getPluginFileContent(
+                                
+                                await SA.projects.communityPlugins.utilities.plugins.getPluginFileContent(
                                     project,
                                     folder,
                                     fileName
-                                ).catch(err => {
+                                )
+                                .then( response => 
+                                    {
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(response, httpResponse)
+                                    }
+                                )
+                                .catch(err => {
                                     let error = {
                                         result: 'Fail Because',
                                         message: err
@@ -1437,8 +1464,6 @@ exports.newHttpInterface = function newHttpInterface() {
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                                     return
                                 })
-
-                                SA.projects.foundations.utilities.httpResponses.respondWithContent(response, httpResponse)
 
                             } catch (err) {
                                 console.log('[ERROR] httpInterface -> LoadPlugin -> Method call produced an error.')

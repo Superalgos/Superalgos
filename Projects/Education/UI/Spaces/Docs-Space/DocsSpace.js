@@ -253,7 +253,9 @@ function newEducationDocSpace() {
                 UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'currentBranch', branch)
 
                 if (doNotNavigate === true) { return }
+
                 UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Current Branch Changed')
+
             } else {
                 UI.projects.education.spaces.docsSpace.navigateTo(
                     data.docs.project,

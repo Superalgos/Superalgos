@@ -587,22 +587,25 @@ function newFoundationsFunctionLibraryTaskFunctions() {
     }
 
     function addMissingProjectDataTasks(node, rootNodes) {
-        addMissingProjectTasks(node, rootNodes, 'Project Data Tasks')
+        addMissingProjectTasks(node, rootNodes, 'Project Data Tasks', 'Data Tasks')
     }
 
     function addMissingProjectTradingTasks(node, rootNodes) {
-        addMissingProjectTasks(node, rootNodes, 'Project Trading Tasks')
+        addMissingProjectTasks(node, rootNodes, 'Project Trading Tasks', 'Trading Tasks')
     }
 
     function addMissingProjectLearningTasks(node, rootNodes) {
-        addMissingProjectTasks(node, rootNodes, 'Project Learning Tasks')
+        addMissingProjectTasks(node, rootNodes, 'Project Learning Tasks', 'Learning Tasks')
     }
 
-    function addMissingProjectTasks(node, rootNodes, newNodeType) {
+    function addMissingProjectTasks(node, rootNodes, newNodeType, taskType) {
 
         for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
             let projectDefinition = PROJECTS_SCHEMA[k]
             let project = projectDefinition.name
+
+            if (projectDefinition.tasks === undefined) { continue }
+            if (projectDefinition.tasks.includes(taskType) === false) { continue }
 
             for (let j = 0; j < rootNodes.length; j++) {
                 let rootNode = rootNodes[j]
@@ -610,7 +613,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                     let projectDefinition = rootNode.projectDefinition
                     if (projectDefinition !== undefined) {
                         if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, projectDefinition, true) === true) {
-                            let projectTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType, undefined, project)
+                            let projectTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType, undefined, node.project)
                             UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
                         }
                     }

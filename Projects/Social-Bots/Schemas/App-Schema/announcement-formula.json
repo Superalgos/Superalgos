@@ -7,7 +7,8 @@
             "iconPathOn": "javascript-code",
             "iconPathOff": "javascript-code",
             "dontShowAtFullscreen": true,
-            "actionFunction": "uiObject.formulaEditor.activate"
+            "actionFunction": "uiObject.formulaEditor.activate",
+            "actionProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
@@ -16,7 +17,8 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "addLeftIcons": true,

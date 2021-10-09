@@ -1,5 +1,5 @@
 {
-    "type": "Discord Bot",
+    "type": "Slack Bot",
     "editors": {
         "config": true
     },
@@ -9,11 +9,12 @@
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
             "iconPathOn": "configuration",
-            "iconPathOff": "configuration"
+            "iconPathOff": "configuration",
+            "actionProject": "Foundations"
         },
         {
-            "action": "Send Discord Test Message",
-            "label": "Send Discord Test Message",
+            "action": "Send Slack Test Message",
+            "label": "Send Slack Test Message",
             "iconPathOn": "test-entity",
             "iconPathOff": "test-entity",
             "actionFunction": "payload.executeAction"
@@ -25,11 +26,12 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "initialValues": {
-        "config": "{\n\"webhookURL\": \"Paste the webhook url obtained from Discord > Channel Settings > Integrations > Webhooks > New Webhook\"\n}"
+        "config": "{\n\"webhookURL\": \"https://hooks.slack.com/services/abc/abc/abc\"\n}"
     },
     "addLeftIcons": true,
     "level": 3,
@@ -37,5 +39,5 @@
         "compatibleTypes": "->Social Bots->"
     },
     "childrenNodesProperties": [],
-    "propertyNameAtParent": "discordBots"
+    "propertyNameAtParent": "slackBots"
 }

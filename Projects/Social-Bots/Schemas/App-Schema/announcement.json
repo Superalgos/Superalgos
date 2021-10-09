@@ -9,7 +9,8 @@
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
             "iconPathOn": "configuration",
-            "iconPathOff": "configuration"
+            "iconPathOff": "configuration",
+            "actionProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -17,7 +18,8 @@
             "propertyToCheckFor": "announcementFormula",
             "label": "Add Announcement Formula",
             "relatedUiObject": "Announcement Formula",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -25,7 +27,8 @@
             "propertyToCheckFor": "announcementCondition",
             "label": "Add Announcement Condition",
             "relatedUiObject": "Announcement Condition",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
@@ -34,7 +37,8 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "initialValues": {
@@ -50,13 +54,15 @@
             "name": "announcementFormula",
             "type": "node",
             "childType": "Announcement Formula",
-            "autoAdd": true
+            "autoAdd": true,
+            "project": "Social-Bots"
         },
         {
             "name": "announcementCondition",
             "type": "node",
             "childType": "Announcement Condition",
-            "autoAdd": true
+            "autoAdd": true,
+            "project": "Social-Bots"
         }
     ],
     "propertyNameAtParent": "announcements"

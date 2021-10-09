@@ -5,19 +5,22 @@
             "action": "Add UI Object",
             "label": "Add Telegram Bot",
             "relatedUiObject": "Telegram Bot",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add Discord Bot",
             "relatedUiObject": "Discord Bot",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add Slack Bot",
             "relatedUiObject": "Slack Bot",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
@@ -26,7 +29,8 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "addLeftIcons": true,
@@ -39,19 +43,22 @@
             "name": "telegramBots",
             "type": "array",
             "childType": "Telegram Bot",
-            "autoAdd": true
+            "autoAdd": true,
+            "project": "Social-Bots"
         },
         {
             "name": "discordBots",
             "type": "array",
             "childType": "Discord Bot",
-            "autoAdd": true
+            "autoAdd": true,
+            "project": "Social-Bots"
         },
         {
             "name": "slackBots",
             "type": "array",
             "childType": "Slack Bot",
-            "autoAdd": true
+            "autoAdd": true,
+            "project": "Social-Bots"
         }
     ],
     "propertyNameAtParent": "socialBots"

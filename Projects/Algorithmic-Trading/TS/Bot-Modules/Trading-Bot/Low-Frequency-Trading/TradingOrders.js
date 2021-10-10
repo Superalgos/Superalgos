@@ -17,7 +17,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
     let sessionParameters
 
     let exchangeAPIModuleObject = TS.projects.algorithmicTrading.botModules.exchangeAPI.newAlgorithmicTradingBotModulesExchangeAPI(processIndex)
-    let announcementsModuleObject = TS.projects.foundations.botModules.announcements.newSocialBotsBotModulesAnnouncements(processIndex)
+    let announcementsModuleObject = TS.projects.socialBots.botModules.announcements.newSocialBotsBotModulesAnnouncements(processIndex)
 
     return thisObject
 

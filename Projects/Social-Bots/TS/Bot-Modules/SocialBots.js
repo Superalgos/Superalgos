@@ -19,13 +19,16 @@ exports.newSocialBotsBotModulesSocialBots = function (processIndex) {
                         let config = socialBot.config
                         let commands = socialBot.socialBotCommand
                         if (socialBot.type === "Telegram Bot") {
-                            socialBot.botInstance = TS.projects.foundations.botModules.telegramBot.newSocialBotsBotModulesTelegramBot(processIndex)
+                            socialBot.botInstance = TS.projects.socialBots.botModules.telegramBot.newSocialBotsBotModulesTelegramBot(processIndex)
                             socialBot.botInstance.initialize(config, commands)
                         } else if (socialBot.type === "Discord Bot") {
-                            socialBot.botInstance = TS.projects.foundations.botModules.discordBot.newSocialBotsBotModulesDiscordBot(processIndex)
+                            socialBot.botInstance = TS.projects.socialBots.botModules.discordBot.newSocialBotsBotModulesDiscordBot(processIndex)
                             socialBot.botInstance.initialize(config)
                         } else if (socialBot.type === "Slack Bot") {
-                            socialBot.botInstance = TS.projects.foundations.botModules.slackBot.newSocialBotsBotModulesSlackBot(processIndex)
+                            socialBot.botInstance = TS.projects.socialBots.botModules.slackBot.newSocialBotsBotModulesSlackBot(processIndex)
+                            socialBot.botInstance.initialize(config)
+                        } else if (socialBot.type === "Twitter Bot") {
+                            socialBot.botInstance = TS.projects.socialBots.botModules.slackBot.newSocialBotsBotModulesTwitterBot(processIndex)
                             socialBot.botInstance.initialize(config)
                         }
                     }
@@ -41,7 +44,7 @@ exports.newSocialBotsBotModulesSocialBots = function (processIndex) {
                                 try {
                                     if (socialBot.type === "Telegram Bot") {
                                         socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, text).catch(err => TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> Telegram API error -> err = " + err))
-                                    } else if (socialBot.type === "Discord Bot" ||socialBot.type === "Slack Bot" ) {
+                                    } else if (socialBot.type === "Discord Bot" || socialBot.type === "Slack Bot") {
                                         socialBot.botInstance.sendMessage(text).catch(err => TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> Discord Bot error -> err = " + err))
                                     }
                                 } catch (err) {

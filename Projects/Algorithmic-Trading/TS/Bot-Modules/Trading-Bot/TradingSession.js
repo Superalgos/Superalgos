@@ -7,7 +7,7 @@
     }
 
     TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE =
-        TS.projects.foundations.botModules.socialBots.newSocialBotsBotModulesSocialBots(processIndex)
+        TS.projects.socialBots.botModules.socialBots.newSocialBotsBotModulesSocialBots(processIndex)
 
     return thisObject;
 

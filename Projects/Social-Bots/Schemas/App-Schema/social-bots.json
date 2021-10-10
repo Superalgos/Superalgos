@@ -23,6 +23,13 @@
             "actionProject": "Foundations"
         },
         {
+            "action": "Add UI Object",
+            "label": "Add Twitter Bot",
+            "relatedUiObject": "Twitter Bot",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
+        },
+        {
             "action": "Delete UI Object",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
@@ -57,6 +64,13 @@
             "name": "slackBots",
             "type": "array",
             "childType": "Slack Bot",
+            "autoAdd": true,
+            "project": "Social-Bots"
+        },
+        {
+            "name": "twitterkBots",
+            "type": "array",
+            "childType": "Twitter Bot",
             "autoAdd": true,
             "project": "Social-Bots"
         }

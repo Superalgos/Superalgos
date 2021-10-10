@@ -108,7 +108,8 @@
         {
             "name": "socialBots",
             "type": "node",
-            "childType": "Social Bots"
+            "childType": "Social Bots",
+            "project": "Social-Bots"
         }
     ],
     "propertyNameAtParent": "session"

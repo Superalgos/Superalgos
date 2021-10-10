@@ -39,6 +39,11 @@
                 "text": "Si un matériel reduit tel que le Raspberry Pi peut gérer le Client Superalgos pour exécuter des données et des tâches de négociation, il faut disposer de puissance pour effectuer un travail actif !",
                 "updated": 1623959646265,
                 "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Hoewel minimalistische hardware zoals de Raspberry Pi de Superalgos Client aankan voor zowel gegevens- als handelstaken, zijn sommige misschien te klein voor het werk!",
+                "updated": 1633885810600
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "text": "L'idée principale pour executer le Client dans un petit matériel physique ou virtuel est de maximiser la rentabilité pour un faible cout. Dans ce contexte, le UI est utilisée au minimum.",
                     "updated": 1623959843971,
                     "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Het idee achter het draaien van de client op minimalistische of virtuele hardware is om de kosten te reduceren bij live implementaties van het systeem. In dergelijke situaties wordt de UI tot een minimum beperkt.",
+                    "updated": 1633886121478
                 }
             ]
         },
@@ -108,6 +118,11 @@
                     "text": "Nous recommandons vivement d'apprendre Superalgos en l'exécutant dans une machine de puissance commune. Si vous remarquez que votre petite machine est trop lente pendant ce tutoriel, envisagez d'utiliser du matériel de meilleurs capacité, jusqu'à ce que vous appreniez le système, construisiez vos premières stratégies. et soyez prêt à vous déployer. Sinon, cela peut être frustrant.",
                     "updated": 1623960113019,
                     "style": "Success"
+                },
+                {
+                    "language": "NL",
+                    "text": "We raden aan om Superalgos te leren en verkennen op een volwaardige machine. Als je merkt dat de hardware te traag is tijdens deze tutorial, installeer Superalgos dan op gewone hardware totdat je bekend bent met het systeem, je eerste strategieën hebt gebouwd, en klaar bent om live te gaan, om frustraties te voorkomen.",
+                    "updated": 1633890998414
                 }
             ]
         }

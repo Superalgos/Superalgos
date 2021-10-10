@@ -609,21 +609,6 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
                 }
                 break
-            case 'Send Telegram Test Message':
-                {
-                    UI.projects.foundations.functionLibraries.socialBotsFunctions.sendTelegramTestMessage(action.node, action.callBackFunction)
-                }
-                break
-            case 'Send Discord Test Message':
-                {
-                    UI.projects.foundations.functionLibraries.socialBotsFunctions.sendDiscordTestMessage(action.node, action.callBackFunction)
-                }
-                break
-            case 'Send Slack Test Message':
-                {
-                    UI.projects.foundations.functionLibraries.socialBotsFunctions.sendSlackTestMessage(action.node, action.callBackFunction)
-                }
-                break
             case 'Save node to be moved':
             {
                 UI.projects.foundations.spaces.floatingSpace.saveFloatingObjectToBeMoved()

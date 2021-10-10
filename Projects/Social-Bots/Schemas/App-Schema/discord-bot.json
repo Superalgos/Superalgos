@@ -17,7 +17,8 @@
             "label": "Send Discord Test Message",
             "iconPathOn": "test-entity",
             "iconPathOff": "test-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "SocialBots"
         },
         {
             "action": "Delete UI Object",

@@ -2,7 +2,8 @@ function newSocialBotsFunctionLibrarySocialBotsFunctions() {
     let thisObject = {
         sendTelegramTestMessage: sendTelegramTestMessage,
         sendDiscordTestMessage: sendDiscordTestMessage,
-        sendSlackTestMessage: sendSlackTestMessage
+        sendSlackTestMessage: sendSlackTestMessage,
+        sendTwitterTestMessage: sendTwitterTestMessage
     }
 
     return thisObject
@@ -182,5 +183,9 @@ function newSocialBotsFunctionLibrarySocialBotsFunctions() {
                 }
             }
         }
+    }
+
+    function sendTwitterTestMessage(node, callBackFunction) {
+
     }
 }

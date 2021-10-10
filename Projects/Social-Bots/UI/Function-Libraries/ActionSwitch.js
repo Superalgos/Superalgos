@@ -18,19 +18,24 @@ function newSocialBotsActionSwitch() {
 
     async function executeAction(action) {
         switch (action.name) {
-            case 'Add All Output Datasets':
+            case 'Send Telegram Test Message':
                 {
-                    UI.projects.dataMining.functionLibraries.mineFunctions.addAllOutputDatasets(action.node)
+                    UI.projects.socialBots.functionLibraries.socialBotsFunctions.sendTelegramTestMessage(action.node, action.callBackFunction)
                 }
                 break
-            case 'Add All Data Dependencies':
+            case 'Send Discord Test Message':
                 {
-                    UI.projects.dataMining.functionLibraries.mineFunctions.addAllDataDependencies(action.node)
+                    UI.projects.socialBots.functionLibraries.socialBotsFunctions.sendDiscordTestMessage(action.node, action.callBackFunction)
                 }
                 break
-            case 'Add All Data Mine Dependencies':
+            case 'Send Slack Test Message':
                 {
-                    UI.projects.dataMining.functionLibraries.mineFunctions.addAllDataMineDataDependencies(action.node, action.rootNodes)
+                    UI.projects.socialBots.functionLibraries.socialBotsFunctions.sendSlackTestMessage(action.node, action.callBackFunction)
+                }
+                break
+            case 'Send Twitter Test Message':
+                {
+                    UI.projects.socialBots.functionLibraries.socialBotsFunctions.sendTwitterTestMessage(action.node, action.callBackFunction)
                 }
                 break
         }

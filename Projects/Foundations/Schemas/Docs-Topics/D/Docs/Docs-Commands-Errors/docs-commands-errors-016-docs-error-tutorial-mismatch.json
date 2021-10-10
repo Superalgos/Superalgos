@@ -4,7 +4,14 @@
     "type": "Docs Error - Tutorial Mismatch",
     "definition": {
         "text": "The Docs Tutorial Name provided does not match the Docs Tutorial Name found on the page you wish to delete.",
-        "updated": 1610999355066
+        "updated": 1610999355066,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der angegebene Name des Docs Tutorial Name stimmt nicht mit dem Namen des Docs Tutorial Name auf der Seite überein, die Sie löschen möchten.",
+                "updated": 1633900216275
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,16 +22,37 @@
         {
             "style": "Error",
             "text": "Tutorial Mismatch. The Docs Tutorial Name provided does not match the Docs Tutorial Name of the page to be deleted.",
-            "updated": 1610012998692
+            "updated": 1610012998692,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Tutorial stimmt nicht überein. Der angegebene Name des Docs Tutorial Name stimmt nicht mit dem Namen des Docs Tutorial Name auf der zu löschenden Seite überein.",
+                    "updated": 1633900430074
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Check the page you wish to delete and get the correct Docs Tutorial Name to use on the command.",
-            "updated": 1610999372592
+            "updated": 1610999372592,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie die Seite, die Sie löschen möchten, und geben Sie den korrekten Docs Tutorial Name ein, den Sie für den Befehl benötigen.",
+                    "updated": 1633900532083
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Applies to"
+            "text": "Applies to",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gilt für",
+                    "updated": 1633900538762
+                }
+            ]
         },
         {
             "style": "List",

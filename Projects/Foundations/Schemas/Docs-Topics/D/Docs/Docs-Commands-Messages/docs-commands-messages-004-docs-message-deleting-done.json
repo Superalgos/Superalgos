@@ -11,6 +11,11 @@
                 "text": "docs.delete command menghapus page yang diminta dari memori.",
                 "updated": 1616763338862,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Der Befehl docs.delete hat die von Ihnen angeforderte Seite aus dem Speicher gelöscht.",
+                "updated": 1633903299265
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "text": "Page ini ditandai untuk dihapus. Dan akan dihapus dari koleksi page dari memori setelah kamu menjalankan Docs Save Command yang mengintruksi Client untuk menghapus file dari disk. Untuk menghapus page dari index kamu harus menjalankan Docs Reindex Command.",
                     "updated": 1616763669131,
                     "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Seite wurde als zu löschen gekennzeichnet. Sie wird aus der speicherinternen Seitensammlung entfernt, sobald Sie den Befehl Docs Save Command ausführen. Der Docs Save Command weist den Client an, die Datei von der Festplatte zu löschen. Um die Seite aus dem Index zu entfernen, müssen Sie den Befehl Docs Reindex ausführen.",
+                    "updated": 1633903396975
                 }
             ]
         }

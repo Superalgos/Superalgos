@@ -11,6 +11,11 @@
                 "text": "docs.repaginate command akan menyelesaikan repaginasi.",
                 "updated": 1616763736459,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Der Befehl docs.repaginate hat die Neupaginierung abgeschlossen.",
+                "updated": 1633903500391
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "text": "Untuk menyelesaikan prosedur ini, kamu harus menghapus manual semua file dari topic / Tutorial yang direpaginasi dari disk , dan menjalankan Docs Save Command untuk menyimpan memori page yang sudah diupdate",
                     "updated": 1616763866864,
                     "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um diese Prozedur abzuschließen, müssen Sie alle Dateien des Topics / Tutorial, das Sie gerade repaginiert haben, manuell von der Festplatte löschen, und den Docs Save Command ausführen, um die aktualisierten Seiten im Speicher zu speichern.",
+                    "updated": 1633903656690
                 }
             ]
         }

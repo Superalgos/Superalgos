@@ -4,7 +4,14 @@
     "type": "Docs Error - Missing To",
     "definition": {
         "text": "The word \"to\" is part of the syntax of the command and you did not include it.",
-        "updated": 1609176884329
+        "updated": 1609176884329,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Das Wort \"to\" ist Teil der Syntax des Befehls, und Sie haben es nicht eingefügt.",
+                "updated": 1633897633449
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,16 +22,37 @@
         {
             "style": "Error",
             "text": "Syntax Error. Colon word \"to\" is missing. ",
-            "updated": 1609177715965
+            "updated": 1609177715965,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Syntax Error. Das Wort \"to\" im Befehl fehlt.",
+                    "updated": 1633897680133
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Check the syntax of the command and see where to place the word \"to\".",
-            "updated": 1610998959199
+            "updated": 1610998959199,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Prüfen Sie die Syntax des Befehls und sehen Sie nach, wo das Wort \"to\" stehen muss.",
+                    "updated": 1633897710144
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Applies to"
+            "text": "Applies to",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gilt für",
+                    "updated": 1633897718700
+                }
+            ]
         },
         {
             "style": "List",

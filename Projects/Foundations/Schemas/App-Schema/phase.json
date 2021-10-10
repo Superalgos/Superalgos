@@ -21,13 +21,15 @@
             "action": "Add UI Object",
             "label": "Add Move To Phase Event",
             "relatedUiObject": "Move To Phase Event",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Social-Bots"
         },
         {
             "action": "Add UI Object",
             "label": "Add Announcement",
             "relatedUiObject": "Announcement",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Social-Bots"
         },
         {
             "action": "Delete UI Object",
@@ -65,7 +67,8 @@
         {
             "name": "announcements",
             "type": "array",
-            "childType": "Announcement"
+            "childType": "Announcement",
+            "project": "Social-Bots"
         }
     ],
     "propertyNameAtParent": "phases"

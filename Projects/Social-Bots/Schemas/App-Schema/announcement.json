@@ -18,6 +18,7 @@
             "propertyToCheckFor": "announcementFormula",
             "label": "Add Announcement Formula",
             "relatedUiObject": "Announcement Formula",
+            "relatedUiObjectProject": "Social-Bots",
             "actionFunction": "payload.executeAction",
             "actionProject": "Foundations"
         },
@@ -27,6 +28,7 @@
             "propertyToCheckFor": "announcementCondition",
             "label": "Add Announcement Condition",
             "relatedUiObject": "Announcement Condition",
+            "relatedUiObjectProject": "Social-Bots",
             "actionFunction": "payload.executeAction",
             "actionProject": "Foundations"
         },

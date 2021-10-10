@@ -17,7 +17,8 @@
             "label": "Add Social Bot Command",
             "relatedUiObject": "Social Bot Command",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Foundations",
+            "relatedUiObjectProject": "Social-Bots"
         },
         {
             "action": "Send Telegram Test Message",

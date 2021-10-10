@@ -101,7 +101,12 @@ function newFoundationsActionSwitch() {
                 break
             case 'Add UI Object':
                 {
-                    UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(action.node, action.relatedNodeType, action.rootNodes, action.project)
+                    UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(
+                        action.node,
+                        action.relatedNodeType,
+                        action.rootNodes,
+                        action.relatedNodeProject
+                    )
                 }
                 break
             case 'Add Missing Children':
@@ -610,14 +615,14 @@ function newFoundationsActionSwitch() {
                 }
                 break
             case 'Save node to be moved':
-            {
-                UI.projects.foundations.spaces.floatingSpace.saveFloatingObjectToBeMoved()
-            }
+                {
+                    UI.projects.foundations.spaces.floatingSpace.saveFloatingObjectToBeMoved()
+                }
                 break
             case 'Snap saved node to position':
-            {
-                UI.projects.foundations.spaces.floatingSpace.moveFloatingObject(action.node.payload.position)
-            }
+                {
+                    UI.projects.foundations.spaces.floatingSpace.moveFloatingObject(action.node.payload.position)
+                }
                 break
         }
     }

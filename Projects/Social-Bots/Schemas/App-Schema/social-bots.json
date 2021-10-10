@@ -6,28 +6,32 @@
             "label": "Add Telegram Bot",
             "relatedUiObject": "Telegram Bot",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Foundations",
+            "relatedUiObjectProject": "Social-Bots"
         },
         {
             "action": "Add UI Object",
             "label": "Add Discord Bot",
             "relatedUiObject": "Discord Bot",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Foundations",
+            "relatedUiObjectProject": "Social-Bots"
         },
         {
             "action": "Add UI Object",
             "label": "Add Slack Bot",
             "relatedUiObject": "Slack Bot",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Foundations",
+            "relatedUiObjectProject": "Social-Bots"
         },
         {
             "action": "Add UI Object",
             "label": "Add Twitter Bot",
             "relatedUiObject": "Twitter Bot",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Foundations",
+            "relatedUiObjectProject": "Social-Bots"
         },
         {
             "action": "Delete UI Object",
@@ -68,7 +72,7 @@
             "project": "Social-Bots"
         },
         {
-            "name": "twitterkBots",
+            "name": "twitterBots",
             "type": "array",
             "childType": "Twitter Bot",
             "autoAdd": true,

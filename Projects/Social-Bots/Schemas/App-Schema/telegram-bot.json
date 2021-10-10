@@ -9,20 +9,24 @@
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
             "iconPathOn": "configuration",
-            "iconPathOff": "configuration"
+            "iconPathOff": "configuration",
+            "actionProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add Social Bot Command",
             "relatedUiObject": "Social Bot Command",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations",
+            "relatedUiObjectProject": "Social-Bots"
         },
         {
             "action": "Send Telegram Test Message",
             "label": "Send Telegram Test Message",
             "iconPathOn": "test-entity",
             "iconPathOff": "test-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "SocialBots"
         },
         {
             "action": "Delete UI Object",
@@ -31,7 +35,8 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "initialValues": {
@@ -47,7 +52,8 @@
             "name": "socialBotCommand",
             "type": "array",
             "childType": "Social Bot Command",
-            "autoAdd": false
+            "autoAdd": false,
+            "project": "Social-Bots"
         }
     ],
     "propertyNameAtParent": "telegramBots"

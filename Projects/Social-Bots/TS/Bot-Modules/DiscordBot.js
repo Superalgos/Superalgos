@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesDiscordBot = function (processIndex) {
+exports.newSocialBotsBotModulesDiscordBot = function (processIndex) {
 
     const MODULE_NAME = 'Discord Bot'
 

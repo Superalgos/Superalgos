@@ -1,4 +1,4 @@
-exports.newFoundationsBotModulesAnnouncements = function (processIndex) {
+exports.newSocialBotsBotModulesAnnouncements = function (processIndex) {
 
     const MODULE_NAME = 'Announcements'
 

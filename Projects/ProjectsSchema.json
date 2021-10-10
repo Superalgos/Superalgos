@@ -331,11 +331,6 @@
                     "name": "Workspace Functions",
                     "propertyName": "workspaceFunctions",
                     "functionName": "newFoundationsFunctionLibraryWorkspaceFunctions"
-                },
-                {
-                    "name": "Social Bots Functions",
-                    "propertyName": "socialBotsFunctions",
-                    "functionName": "newFoundationsFunctionLibrarySocialBotsFunctions"
                 }
             ],
             "utilities": [
@@ -739,50 +734,7 @@
                     "fileName": "ProcessOutput.js"
                 }
             ],
-            "botModules": [
-                {
-                    "name": "Announcements",
-                    "propertyName": "announcements",
-                    "functionName": "newFoundationsBotModulesAnnouncements",
-                    "fileName": "Announcements.js",
-                    "folderName": "Trading-Bot/Announcements"
-                },
-                {
-                    "name": "Social Bots",
-                    "propertyName": "socialBots",
-                    "functionName": "newFoundationsBotModulesSocialBots",
-                    "fileName": "SocialBots.js",
-                    "folderName": "Trading-Bot/Announcements"
-                },
-                {
-                    "name": "Telegram Bot",
-                    "propertyName": "telegramBot",
-                    "functionName": "newFoundationsBotModulesTelegramBot",
-                    "fileName": "TelegramBot.js",
-                    "folderName": "Trading-Bot/Announcements"
-                },
-                {
-                    "name": "Discord Bot",
-                    "propertyName": "discordBot",
-                    "functionName": "newFoundationsBotModulesDiscordBot",
-                    "fileName": "DiscordBot.js",
-                    "folderName": "Trading-Bot/Announcements"
-                },
-                {
-                    "name": "Slack Bot",
-                    "propertyName": "slackBot",
-                    "functionName": "newFoundationsBotModulesSlackBot",
-                    "fileName": "SlackBot.js",
-                    "folderName": "Trading-Bot/Announcements"
-                },
-                {
-                    "name": "Twitter Bot",
-                    "propertyName": "twitterBot",
-                    "functionName": "newFoundationsBotModulesTwitterBot",
-                    "fileName": "TwitterBot.js",
-                    "folderName": "Trading-Bot/Announcements"
-                }
-            ]
+            "botModules": []
         },
         "PL": {
             "utilities": [
@@ -1598,6 +1550,77 @@
                     "fileName": "WebSocketsClient.js"
                 }
             ]
+        }
+    },
+    {
+        "name": "Social-Bots",
+        "propertyName": "socialBots",
+        "UI": {
+            "functionLibraries": [
+                {
+                    "name": "Social Bots Functions",
+                    "propertyName": "socialBotsFunctions",
+                    "functionName": "newSocialBotsFunctionLibrarySocialBotsFunctions"
+                }
+            ],
+            "utilities": []
+        },
+        "TS": {
+            "botModules": [
+                {
+                    "name": "Announcements",
+                    "propertyName": "announcements",
+                    "functionName": "newSocialBotsBotModulesAnnouncements",
+                    "fileName": "Announcements.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Social Bots",
+                    "propertyName": "socialBots",
+                    "functionName": "newSocialBotsBotModulesSocialBots",
+                    "fileName": "SocialBots.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Telegram Bot",
+                    "propertyName": "telegramBot",
+                    "functionName": "newSocialBotsBotModulesTelegramBot",
+                    "fileName": "TelegramBot.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Discord Bot",
+                    "propertyName": "discordBot",
+                    "functionName": "newSocialBotsBotModulesDiscordBot",
+                    "fileName": "DiscordBot.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Slack Bot",
+                    "propertyName": "slackBot",
+                    "functionName": "newSocialBotsBotModulesSlackBot",
+                    "fileName": "SlackBot.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Twitter Bot",
+                    "propertyName": "twitterBot",
+                    "functionName": "newSocialBotsBotModulesTwitterBot",
+                    "fileName": "TwitterBot.js",
+                    "folderName": ""
+                }
+            ]
+        }
+    },
+    {
+        "name": "Visual-Scripting",
+        "propertyName": "visualScripting",
+        "UI": {
+            "functionLibraries": [],
+            "utilities": []
+        },
+        "TS": {
+            "botModules": []
         }
     }
 ]

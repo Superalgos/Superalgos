@@ -4,13 +4,27 @@
     "type": "Docs Search Engine Index",
     "definition": {
         "text": "The Docs Search Engine builds an in-memory index that contains all the phrases of all Docs Pages, plus the name, type, config, and code of all nodes of the current Workspace.",
-        "updated": 1611001817080
+        "updated": 1611001817080,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Docs Search Engine baut einen speicherinternen Index auf, der alle Phrasen aller Docs-Seiten inklusive der Namen, type, config und den Code aller nodes des aktuellen Workspace enthält.",
+                "updated": 1633863768061
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "This index is built when the UI is launched, and rebuilt when the user runs the docs.reindex command or loads a new Workspace.",
-            "updated": 1611001858537
+            "updated": 1611001858537,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dieser Index wird beim Start der Benutzeroberfläche (UI) erstellt und neu aufgebaut, wenn der Benutzer den Befehl docs.reindex ausführt oder einen neuen Workspace lädt.",
+                    "updated": 1633864030635
+                }
+            ]
         }
     ]
 }

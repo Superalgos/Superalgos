@@ -47,7 +47,8 @@
             "action": "Add UI Object",
             "label": "Add Social Bots",
             "relatedUiObject": "Social Bots",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Social-Bots"
         },
         {
             "action": "Add Missing Children",

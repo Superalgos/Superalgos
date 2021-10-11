@@ -21,7 +21,7 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -44,10 +44,10 @@
             "autoAdd": true
         },
         {
-          "name": "featurePreprocessing",
-          "type": "node",
-          "childType": "Feature Preprocessing",
-          "autoAdd": false
+            "name": "featurePreprocessing",
+            "type": "node",
+            "childType": "Feature Preprocessing",
+            "autoAdd": false
         }
     ],
     "icon": "tensorflow"

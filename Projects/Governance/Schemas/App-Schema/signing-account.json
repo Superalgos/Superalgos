@@ -44,7 +44,7 @@
             "label": "Add Social Trading Desktop App",
             "relatedUiObject": "Social Trading Desktop App",
             "actionFunction": "payload.executeAction"
-        },     
+        },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
@@ -53,10 +53,10 @@
             "label": "Add Social Trading Server App",
             "relatedUiObject": "Social Trading Server App",
             "actionFunction": "payload.executeAction"
-        },    
+        },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

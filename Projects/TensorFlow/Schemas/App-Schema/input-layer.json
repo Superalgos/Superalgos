@@ -39,7 +39,7 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -77,9 +77,9 @@
             "childType": "Batch Input Shape"
         },
         {
-          "name": "collectionCondition",
-          "type": "node",
-          "childType": "Collection Condition"
+            "name": "collectionCondition",
+            "type": "node",
+            "childType": "Collection Condition"
         }
     ],
     "icon": "tensorflow"

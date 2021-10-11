@@ -10,7 +10,7 @@
         },
         {
             "action": "Install Missing Assets",
-            "actionProject": "Governance", 
+            "actionProject": "Governance",
             "label": "Install Missing Assets",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
@@ -44,7 +44,7 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

@@ -19,7 +19,6 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset Claims Folder",
             "relatedUiObject": "Asset Claims Folder",
@@ -27,7 +26,6 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset Contribution Claim",
             "relatedUiObject": "Asset Contribution Claim",
@@ -35,7 +33,7 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

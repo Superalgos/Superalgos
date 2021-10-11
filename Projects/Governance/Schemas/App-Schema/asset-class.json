@@ -10,7 +10,7 @@
         },
         {
             "action": "Install Missing Assets",
-            "actionProject": "Governance", 
+            "actionProject": "Governance",
             "label": "Install Missing Assets",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
@@ -20,7 +20,6 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset Class",
             "relatedUiObject": "Asset Class",
@@ -28,7 +27,6 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset",
             "relatedUiObject": "Asset",
@@ -36,7 +34,7 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

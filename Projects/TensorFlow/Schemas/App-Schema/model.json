@@ -55,7 +55,7 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -98,10 +98,10 @@
             "childType": "Fit Dataset"
         },
         {
-          "name": "dataReporting",
-          "type": "node",
-          "childType": "Data Reporting",
-          "autoAdd": true
+            "name": "dataReporting",
+            "type": "node",
+            "childType": "Data Reporting",
+            "autoAdd": true
         }
     ]
 }

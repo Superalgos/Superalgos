@@ -42,7 +42,8 @@
             {
                 "language": "NL",
                 "text": "Elk knooppunt heeft een menu. De knop linksonder klapt de structuur van de knooppunten onder het huidige knooppunt uit en in.",
-                "updated": 1633852831708
+                "updated": 1633852831708,
+                "style": "Definition"
             }
         ]
     },
@@ -84,7 +85,8 @@
                 {
                     "language": "NL",
                     "text": "Klik maar op de \"expand\" knop en vouw het knooppunt uit!",
-                    "updated": 1633852949878
+                    "updated": 1633852949878,
+                    "style": "Callout"
                 }
             ]
         },
@@ -125,7 +127,8 @@
                 {
                     "language": "NL",
                     "text": "Het Tutorial knooppunt heeft meerdere sub knooppunten, en deze hebben weer meerdere knooppunten. Daarom is het een hiërarchie!",
-                    "updated": 1633853126300
+                    "updated": 1633853126300,
+                    "style": "Text"
                 }
             ]
         },
@@ -165,8 +168,9 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Gestructureerde visuele weergave van informatie vormen de kern van hoe Superalgos de complexiteit achter flexibele en schaalbare handelingen beheert.",
-                    "updated": 1633853202849
+                    "text": "Gestructureerde visuele weergave van informatie vormt de kern van hoe Superalgos de complexiteit achter flexibele en schaalbare handelingen beheert.",
+                    "updated": 1633890454389,
+                    "style": "Note"
                 }
             ]
         }

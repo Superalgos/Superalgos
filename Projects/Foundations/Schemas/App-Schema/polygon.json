@@ -38,7 +38,9 @@
             "propertyToCheckFor": "polygonCondition",
             "actionFunction": "payload.executeAction",
             "label": "Add Polygon Condition",
-            "relatedUiObject": "Polygon Condition"
+            "relatedUiObject": "Polygon Condition",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -46,7 +48,9 @@
             "propertyToCheckFor": "polygonBody",
             "actionFunction": "payload.executeAction",
             "label": "Add Polygon Body",
-            "relatedUiObject": "Polygon Body"
+            "relatedUiObject": "Polygon Body",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -54,16 +58,21 @@
             "propertyToCheckFor": "polygonBorder",
             "actionFunction": "payload.executeAction",
             "label": "Add Polygon Border",
-            "relatedUiObject": "Polygon Border"
+            "relatedUiObject": "Polygon Border",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Polygon Vertex",
-            "relatedUiObject": "Polygon Vertex"
+            "relatedUiObject": "Polygon Vertex",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",

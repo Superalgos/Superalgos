@@ -22,8 +22,8 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
             let projectDefinition = PROJECTS_SCHEMA[k]
             let project = projectDefinition.name
-            if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenByName(node, project) === true) {
-                let child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin Project')
+            if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenByName(node, project) === true) {
+                let child = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin Project')
                 child.name = project
                 let config = JSON.parse(child.config)
                 config.codeName = project
@@ -33,7 +33,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
     }
 
     function addMissingPluginTypes(node, rootNodes) {
-        let project = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'codeName')
+        let project = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'codeName')
         if (project === undefined || project === "") { return }
         for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
             let projectDefinition = PROJECTS_SCHEMA[k]
@@ -42,8 +42,8 @@ function newPluginsFunctionLibraryPluginsFunctions() {
             for (let i = 0; i < projectDefinition.plugins.length; i++) {
                 let pluginType = "Plugin" + " " + projectDefinition.plugins[i]
 
-                if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenByType(node, pluginType) === true) {
-                    UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, pluginType, undefined, 'Community-Plugins')
+                if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenByType(node, pluginType) === true) {
+                    UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, pluginType, undefined, 'Community-Plugins')
                 }
             }
         }
@@ -194,12 +194,12 @@ function newPluginsFunctionLibraryPluginsFunctions() {
     }
 
     function enableSavingWithWorkspace(node, rootNodes) {
-        UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'saveWithWorkspace', true)
+        UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'saveWithWorkspace', true)
         node.payload.uiObject.setInfoMessage('Saving with Workspace Enabled')
     }
 
     function disableSavingWithWorkspace(node, rootNodes) {
-        UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'saveWithWorkspace', false)
+        UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'saveWithWorkspace', false)
         node.payload.uiObject.setInfoMessage('Saving with Workspace Disabled')
     }
 
@@ -209,10 +209,10 @@ function newPluginsFunctionLibraryPluginsFunctions() {
 
     function installAsPlugin(node, rootNodes) {
         let plugins = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Plugins')
-        let pluginProject = UI.projects.foundations.utilities.nodeChildren.findChildByCodeName(plugins, node.project)
+        let pluginProject = UI.projects.visualScripting.utilities.nodeChildren.findChildByCodeName(plugins, node.project)
         let pluginFolderName = UI.projects.communityPlugins.utilities.plugins.getPluginFolderNamesByNodeType(node.type)
         let pluginForlderNodeType = 'Plugin ' + pluginFolderName.replaceAll('-', ' ')
-        let pluginFolderNode = UI.projects.foundations.utilities.nodeChildren.findChildByType(pluginProject, pluginForlderNodeType)
+        let pluginFolderNode = UI.projects.visualScripting.utilities.nodeChildren.findChildByType(pluginProject, pluginForlderNodeType)
         let pluginFile = UI.projects.communityPlugins.utilities.plugins.addMissingPluginFile(pluginFolderNode, node.name, pluginFolderName, node.type, node.project, true)
         node.isPlugin = true
 

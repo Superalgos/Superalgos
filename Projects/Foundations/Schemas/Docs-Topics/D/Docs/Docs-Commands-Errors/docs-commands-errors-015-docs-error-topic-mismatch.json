@@ -4,7 +4,14 @@
     "type": "Docs Error - Topic Mismatch",
     "definition": {
         "text": "The Docs Topic Name provided does not match the Docs Topic Name found on the page you wish to delete.",
-        "updated": 1610999291997
+        "updated": 1610999291997,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Docs Topic Name stimmt nicht mit dem Docs Topic Name auf der Seite überein, die Sie löschen möchten.",
+                "updated": 1633899923355
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,16 +22,37 @@
         {
             "style": "Error",
             "text": "Topic Number Mismatch. The Docs Topic Name provided does not match the Docs Topic Name of the page to be deleted.",
-            "updated": 1609181606847
+            "updated": 1609181606847,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der angegebene Name des Docs-Topics stimmt nicht mit dem Namen des Docs-Topics der zu löschenden Seite überein.",
+                    "updated": 1633899999761
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Check the page you wish to delete and get the correct Docs Topic Name to use on the command.",
-            "updated": 1610999316336
+            "updated": 1610999316336,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie die Seite, die Sie löschen möchten, und geben Sie den korrekten Namen des Docs Topic Name ein, um den Befehl zu verwenden.",
+                    "updated": 1633900074562
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Applies to"
+            "text": "Applies to",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gilt für",
+                    "updated": 1633900083785
+                }
+            ]
         },
         {
             "style": "List",

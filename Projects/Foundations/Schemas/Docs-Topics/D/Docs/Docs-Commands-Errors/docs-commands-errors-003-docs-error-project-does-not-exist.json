@@ -4,7 +4,14 @@
     "type": "Docs Error - Project Does Not Exist",
     "definition": {
         "text": "You may have misspelled the name of the project.",
-        "updated": 1610976884761
+        "updated": 1610976884761,
+        "translations": [
+            {
+                "language": "DE",
+                "text": " Möglicherweise haben Sie den Namen des project (Projekts) falsch geschrieben.",
+                "updated": 1633896066266
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -14,17 +21,38 @@
         {
             "style": "Error",
             "text": "The Project you have specified does not exist.",
-            "updated": 1610976906083
+            "updated": 1610976906083,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das von Ihnen angegebene / spezifizierte Projekt existiert nicht.",
+                    "updated": 1633896113865
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Verify the Project name you typed. Project names are case-sensitive.",
-            "updated": 1610977145287
+            "updated": 1610977145287,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie den von Ihnen eingegebenen Project Namen. Bei Project Namen wird zwischen Groß- und Kleinschreibung unterschieden.",
+                    "updated": 1633896187042
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Applies to",
-            "updated": 1609162883325
+            "updated": 1609162883325,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gilt für",
+                    "updated": 1633896218417
+                }
+            ]
         },
         {
             "style": "List",

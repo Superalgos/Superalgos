@@ -4,13 +4,27 @@
     "type": "Docs Concept Page",
     "definition": {
         "text": "Concepts are notions or ideas that are not represented as nodes in a hierarchy. Pages in the concept category cover notions or ideas that may be explained in a single page. That is, concepts are notions that may be covered exhaustively on a single page.",
-        "updated": 1613756750385
+        "updated": 1613756750385,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Concepts sind Begriffe oder Ideen, die nicht als Nodes in einer Hierarchie dargestellt werden. Die Seiten in der Kategorie concept behandeln Begriffe oder Ideen, die auf einer einzigen Seite erklärt werden können. Das heißt, concepts (Konzepte) sind Begriffe, die auf einer einzigen Seite ausreichend behandelt werden können.",
+                "updated": 1633862634123
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The page of a concept is self-contained.",
-            "updated": 1613756891822
+            "updated": 1613756891822,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Seite eines concept (Konzepts) ist in sich abgeschlossen.",
+                    "updated": 1633862726682
+                }
+            ]
         }
     ]
 }

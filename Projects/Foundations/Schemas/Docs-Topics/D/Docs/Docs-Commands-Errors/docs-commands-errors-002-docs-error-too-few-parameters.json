@@ -4,7 +4,14 @@
     "type": "Docs Error - Too Few Parameters",
     "definition": {
         "text": "The system expects more parameters. This may happen when you effectively missed a parameter or when a syntax error breaks the command.",
-        "updated": 1610976595172
+        "updated": 1610976595172,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Das System erwartet mehr Parameter. Dies kann passieren, wenn Sie tatsächlich einen Parameter übersehen haben oder wenn ein Syntaxfehler den Befehl unterbricht.",
+                "updated": 1633895808948
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -14,17 +21,38 @@
         {
             "style": "Error",
             "text": "Syntax error: Too few parameters.",
-            "updated": 1609160135644
+            "updated": 1609160135644,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Syntax error: Zu wenige Parameter.",
+                    "updated": 1633895826441
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "  Check the command syntax for a detailed list of parameters required.",
-            "updated": 1609160562426
+            "updated": 1609160562426,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Überprüfe die Befehlssyntax (command syntax) für eine detaillierte Liste der benötigten Parameter.",
+                    "updated": 1633895905977
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Applies to",
-            "updated": 1609162906747
+            "updated": 1609162906747,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gilt für",
+                    "updated": 1633895922294
+                }
+            ]
         },
         {
             "style": "List",

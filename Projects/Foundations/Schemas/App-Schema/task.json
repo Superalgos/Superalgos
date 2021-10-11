@@ -33,7 +33,9 @@
             "propertyToCheckFor": "bot",
             "label": "Add Sensor Bot Instance",
             "relatedUiObject": "Sensor Bot Instance",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -41,7 +43,9 @@
             "propertyToCheckFor": "bot",
             "label": "Add API Data Fetcher Bot",
             "relatedUiObject": "API Data Fetcher Bot Instance",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -49,7 +53,9 @@
             "propertyToCheckFor": "bot",
             "label": "Add Indicator Bot Instance",
             "relatedUiObject": "Indicator Bot Instance",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -57,7 +63,9 @@
             "propertyToCheckFor": "bot",
             "label": "Add Trading Bot Instance",
             "relatedUiObject": "Trading Bot Instance",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -65,7 +73,9 @@
             "propertyToCheckFor": "bot",
             "label": "Add Learning Bot Instance",
             "relatedUiObject": "Learning Bot Instance",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -73,10 +83,13 @@
             "propertyToCheckFor": "keyReference",
             "label": "Add Key Reference",
             "relatedUiObject": "Key Reference",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

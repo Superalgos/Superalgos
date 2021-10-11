@@ -3,12 +3,26 @@
     "pageNumber": 15,
     "type": "Docs Hierarchy Style",
     "definition": {
-        "text": "It is possible to inject into a docs page, a hierarchy of nodes, starting on a node specified and letting the system to figure out which are it's decendents."
+        "text": "It is possible to inject into a docs page, a hierarchy of nodes, starting on a node specified and letting the system to figure out which are it's decendents.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Es ist möglich, in eine Dokumentseite eine Hierarchie von nodes einzufügen, die mit einer bestimmten node beginnt und das System herausfinden lässt, welche seine decendents (Nachkommen) sind.",
+                "updated": 1633956472155
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "When you edit a paragraph of hierarchy style, the system expects you to follow this syntax:"
+            "text": "When you edit a paragraph of hierarchy style, the system expects you to follow this syntax:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie einen Absatz eines Hierarchiestils bearbeiten, erwartet das System, dass Sie dieser Syntax folgen:",
+                    "updated": 1633956491604
+                }
+            ]
         },
         {
             "style": "Json",
@@ -16,19 +30,47 @@
         },
         {
             "style": "List",
-            "text": "Project: refers to any of the projects already integrated into Superalgos, including Superalgos itself."
+            "text": "Project: refers to any of the projects already integrated into Superalgos, including Superalgos itself.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "project: bezieht sich auf jedes der bereits in Superalgos integrierten Projekte, einschließlich Superalgos selbst.",
+                    "updated": 1633956542609
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Node Type: any valid node type in the context of the project specified."
+            "text": "Node Type: any valid node type in the context of the project specified.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Node Type: jeder gültige node-Typ im Kontext des angegebenen Projekts.",
+                    "updated": 1633956576457
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Levels: the number of generations downstream, starting from the node type specified, that will be rendered at the docs page. The maximun number of levels is 8."
+            "text": "Levels: the number of generations downstream, starting from the node type specified, that will be rendered at the docs page. The maximun number of levels is 8.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Levels: die Anzahl der Generationen, die ab dem angegebenen node-typ auf der Dokumentseite dargestellt werden. Die maximale Anzahl von Levels ist 8.",
+                    "updated": 1633956653825
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Example:"
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1633956666963
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -36,7 +78,14 @@
         },
         {
             "style": "Text",
-            "text": "produces the following at the docs page:"
+            "text": "produces the following at the docs page:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "erzeugt das Folgende auf der Docs-Seite:",
+                    "updated": 1633956700379
+                }
+            ]
         },
         {
             "style": "Hierarchy",

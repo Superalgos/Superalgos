@@ -85,7 +85,7 @@ function newMachineLearningFunctionLibraryLearningSessionFunctions() {
             'Kernel Initializer->Kernel Constraint->Kernel Regularizer->' +
             'Bias Initializer->Bias Constraint->Bias Regularizer->'
 
-        let learningSystem = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node.learningSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
+        let learningSystem = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node.learningSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
         lightingPath = '' +
             'Learning Engine->' +
@@ -125,7 +125,7 @@ function newMachineLearningFunctionLibraryLearningSessionFunctions() {
             'Labels->Label->Begin->End->Label Value->'+
             'Predictions->Prediction->Begin->End->Prediction Value->'
 
-        let learningEngine = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node.learningEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
+        let learningEngine = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node.learningEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
         lightingPath = '' +
             'Back Learning Session->Live Learning Session->' +
@@ -133,13 +133,13 @@ function newMachineLearningFunctionLibraryLearningSessionFunctions() {
             'Learning Algorithm->Time Range->Time Frame->Heartbeats->User Defined Parameters->' +
             'Social Bots->Telegram Bot->Discord Bot->Slack Bot->Twitter Bot ->'
 
-        let session = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
+        let session = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
 
-        let defaultExchange = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.exchange.payload, 'codeName')
+        let defaultExchange = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.exchange.payload, 'codeName')
         let defaultMarket =
-            UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.market.baseAsset.payload.referenceParent.payload, 'codeName')
+            UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.market.baseAsset.payload.referenceParent.payload, 'codeName')
             + '-' +
-            UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.market.quotedAsset.payload.referenceParent.payload, 'codeName')
+            UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.market.quotedAsset.payload.referenceParent.payload, 'codeName')
 
         let dependencyFilter = UI.projects.foundations.functionLibraries.dependenciesFilter.createDependencyFilter(
             defaultExchange,
@@ -240,7 +240,7 @@ function newMachineLearningFunctionLibraryLearningSessionFunctions() {
             return
         }
 
-        result.lanNetworkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(result.taskManager, 'LAN Network Node', undefined, true, false, true, false)
+        result.lanNetworkNode = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(result.taskManager, 'LAN Network Node', undefined, true, false, true, false)
 
         if (node.learningSystemReference === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs a child Learning System Reference.')

@@ -15,7 +15,9 @@
             "propertyToCheckFor": "dataTasks",
             "label": "Add Data Tasks",
             "relatedUiObject": "Data Tasks",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -23,7 +25,9 @@
             "propertyToCheckFor": "learningTasks",
             "label": "Add Learning Tasks",
             "relatedUiObject": "Learning Tasks",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -31,7 +35,9 @@
             "propertyToCheckFor": "testingTradingTasks",
             "label": "Add Testing Trading Tasks",
             "relatedUiObject": "Testing Trading Tasks",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -39,7 +45,9 @@
             "propertyToCheckFor": "productionTradingTasks",
             "label": "Add Production Trading Tasks",
             "relatedUiObject": "Production Trading Tasks",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -47,10 +55,13 @@
             "propertyToCheckFor": "dataStorage",
             "label": "Add Data Storage",
             "relatedUiObject": "Data Storage",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

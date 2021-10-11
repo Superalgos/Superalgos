@@ -1,18 +1,24 @@
 {
   "name": "superalgos",
-  "version": "0.0.11",
-  "description": "Superalgos",
+  "version": "0.0.12-beta",
+  "description": "Superalgos is a free, open-source crypto trading bot",
+  "main": "electron-wrapper.js",
+  "license": "Apache License 2.0",
+  "homepage": "https://www.superalgos.org/",
   "author": {
     "name": "Luis-Fernando-Molina"
   },
   "scripts": {
     "start": "node platform minMemo noBrowser",
-    "setup": "node setup noShortcuts"
+    "setup": "node setup noShortcuts",
+    "release": "electron-builder -w",
+    "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
     "@octokit/rest": "^18.11.4",
     "ccxt": "^1.57.36",
     "child_process": "^1.0.2",
+    "electron-updater": "^4.3.9",
     "ethereumjs-common": "^1.5.2",
     "ethereumjs-tx": "^2.1.2",
     "ethers": "^5.4.7",
@@ -29,5 +35,47 @@
     "util": "^0.12.4",
     "web3": "^1.6.0",
     "ws": "^8.2.3"
+  },
+  "devDependencies": {
+    "electron": "^15.1.0",
+    "electron-builder": "^22.11.7"
+  },
+  "build": {
+    "appId": "org.superalgos.platform",
+    "productName": "Superalgos",
+    "asar": false,
+    "files": [
+      "**/*",
+      "!.github",
+      "!.vscode",
+      "!.dockerignore${/*}",
+      "!Platform/My-Data-Storage/*",
+      "!Platform/My-Log-Files/*",
+      "!Platform/My-Workspaces/*",
+      "!Docker",
+      "!Launch-Scripts",
+      "!run.js",
+      "!setup.js",
+      "!uninstall.js"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": "x64"
+        }
+      ],
+      "icon": "./build/superalgos.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "license": "./LICENSE",
+      "runAfterFinish": false
+    }
   }
 }

@@ -241,6 +241,105 @@
         ]
     },
     {
+        "name": "Visual-Scripting",
+        "propertyName": "visualScripting",
+        "UI": {
+            "functionLibraries": [
+                {
+                    "name": "Shortcut Keys",
+                    "propertyName": "shortcutKeys",
+                    "functionName": "newVisualScriptingFunctionLibraryShortcutKeys"
+                },
+                {
+                    "name": "Reference Attach Detach",
+                    "propertyName": "attachDetach",
+                    "functionName": "newVisualScriptingFunctionLibraryReferenceAttachDetach"
+                },
+                {
+                    "name": "Chain Attach Detach",
+                    "propertyName": "chainAttachDetach",
+                    "functionName": "newVisualScriptingFunctionLibraryChainAttachDetach"
+                },
+                {
+                    "name": "Node Deleter",
+                    "propertyName": "nodeDeleter",
+                    "functionName": "newVisualScriptingFunctionLibraryNodeDeleter"
+                },
+                {
+                    "name": "Node Children",
+                    "propertyName": "nodeChildren",
+                    "functionName": "newVisualScriptingFunctionLibraryNodeChildren"
+                },
+                {
+                    "name": "Ui Objects From Nodes",
+                    "propertyName": "uiObjectsFromNodes",
+                    "functionName": "newVisualScritingFunctionLibraryUiObjectsFromNodes"
+                },
+                {
+                    "name": "Protocol Node",
+                    "propertyName": "protocolNode",
+                    "functionName": "newVisualScriptingFunctionLibraryProtocolNode"
+                },
+                {
+                    "name": "Node Cloning",
+                    "propertyName": "nodeCloning",
+                    "functionName": "newVisualScriptingFunctionLibraryNodeCloning"
+                },
+                {
+                    "name": "On Focus",
+                    "propertyName": "onFocus",
+                    "functionName": "newVisualScriptingFunctionLibraryOnFocus"
+                },
+                {
+                    "name": "Node Path",
+                    "propertyName": "nodePath",
+                    "functionName": "newVisualScriptingFunctionLibraryNodePath"
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Branches",
+                    "propertyName": "branches",
+                    "functionName": "newVisualScriptingUtilitiesBranches"
+                },
+                {
+                    "name": "Hierarchy",
+                    "propertyName": "hierarchy",
+                    "functionName": "newVisualScriptingUtilitiesHierarchy"
+                },
+                {
+                    "name": "Load Save Frame",
+                    "propertyName": "loadSaveFrame",
+                    "functionName": "newVisualScriptingUtilitiesLoadSaveFrame"
+                },                {
+                    "name": "Meshes",
+                    "propertyName": "meshes",
+                    "functionName": "newVisualScriptingUtilitiesMeshes"
+                },
+                {
+                    "name": "Node Children",
+                    "propertyName": "nodeChildren",
+                    "functionName": "newVisualScriptingUtilitiesNodeChildren"
+                },
+                {
+                    "name": "Node Config",
+                    "propertyName": "nodeConfig",
+                    "functionName": "newVisualScriptingUtilitiesNodeConfig"
+                }
+            ]
+        },
+        "TS": {
+            "utilities": [
+                {
+                    "name": "Node Functions",
+                    "propertyName": "nodeFunctions",
+                    "functionName": "newVisualScriptingUtilitiesNodeFunctions",
+                    "fileName": "NodeFunctions.js"
+                }
+            ]
+        }
+    },
+    {
         "name": "Foundations",
         "propertyName": "foundations",
         "UI": {
@@ -253,46 +352,6 @@
             ],
             "functionLibraries": [
                 {
-                    "name": "Reference Attach Detach",
-                    "propertyName": "attachDetach",
-                    "functionName": "newFoundationsFunctionLibraryReferenceAttachDetach"
-                },
-                {
-                    "name": "Chain Attach Detach",
-                    "propertyName": "chainAttachDetach",
-                    "functionName": "newFoundationsFunctionLibraryChainAttachDetach"
-                },
-                {
-                    "name": "Node Deleter",
-                    "propertyName": "nodeDeleter",
-                    "functionName": "newFoundationsFunctionLibraryNodeDeleter"
-                },
-                {
-                    "name": "Ui Objects From Nodes",
-                    "propertyName": "uiObjectsFromNodes",
-                    "functionName": "newFoundationsFunctionLibraryUiObjectsFromNodes"
-                },
-                {
-                    "name": "Protocol Node",
-                    "propertyName": "protocolNode",
-                    "functionName": "newFoundationsFunctionLibraryProtocolNode"
-                },
-                {
-                    "name": "Node Cloning",
-                    "propertyName": "nodeCloning",
-                    "functionName": "newFoundationsFunctionLibraryNodeCloning"
-                },
-                {
-                    "name": "Shortcut Keys",
-                    "propertyName": "shortcutKeys",
-                    "functionName": "newFoundationsFunctionLibraryShortcutKeys"
-                },
-                {
-                    "name": "On Focus",
-                    "propertyName": "onFocus",
-                    "functionName": "newFoundationsFunctionLibraryOnFocus"
-                },
-                {
                     "name": "Webhook Functions",
                     "propertyName": "webhookFunctions",
                     "functionName": "newFoundationsFunctionLibraryWebhookFunctions"
@@ -301,11 +360,6 @@
                     "name": "Dependencies Filter",
                     "propertyName": "dependenciesFilter",
                     "functionName": "newFoundationsFunctionLibraryDependenciesFilter"
-                },
-                {
-                    "name": "Node Path",
-                    "propertyName": "nodePath",
-                    "functionName": "newFoundationsFunctionLibraryNodePath"
                 },
                 {
                     "name": "Task Functions",
@@ -331,19 +385,9 @@
                     "name": "Workspace Functions",
                     "propertyName": "workspaceFunctions",
                     "functionName": "newFoundationsFunctionLibraryWorkspaceFunctions"
-                },
-                {
-                    "name": "Social Bots Functions",
-                    "propertyName": "socialBotsFunctions",
-                    "functionName": "newFoundationsFunctionLibrarySocialBotsFunctions"
                 }
             ],
             "utilities": [
-                {
-                    "name": "Branches",
-                    "propertyName": "branches",
-                    "functionName": "newFoundationsUtilitiesBranches"
-                },
                 {
                     "name": "Clipboard",
                     "propertyName": "clipboard",
@@ -375,16 +419,6 @@
                     "functionName": "newFoundationsUtilitiesDrawPrint"
                 },
                 {
-                    "name": "Hierarchy",
-                    "propertyName": "hierarchy",
-                    "functionName": "newFoundationsUtilitiesHierarchy"
-                },
-                {
-                    "name": "Load Save Frame",
-                    "propertyName": "loadSaveFrame",
-                    "functionName": "newFoundationsUtilitiesLoadSaveFrame"
-                },
-                {
                     "name": "Tutorial",
                     "propertyName": "tutorial",
                     "functionName": "newFoundationsUtilitiesTutorial"
@@ -393,21 +427,6 @@
                     "name": "Menu",
                     "propertyName": "menu",
                     "functionName": "newFoundationsUtilitiesMenu"
-                },
-                {
-                    "name": "Meshes",
-                    "propertyName": "meshes",
-                    "functionName": "newFoundationsUtilitiesMeshes"
-                },
-                {
-                    "name": "Node Children",
-                    "propertyName": "nodeChildren",
-                    "functionName": "newFoundationsUtilitiesNodeChildren"
-                },
-                {
-                    "name": "Node Config",
-                    "propertyName": "nodeConfig",
-                    "functionName": "newFoundationsUtilitiesNodeConfig"
                 },
                 {
                     "name": "Folders",
@@ -657,12 +676,6 @@
             ],
             "utilities": [
                 {
-                    "name": "Node Functions",
-                    "propertyName": "nodeFunctions",
-                    "functionName": "newFoundationsUtilitiesNodeFunctions",
-                    "fileName": "NodeFunctions.js"
-                },
-                {
                     "name": "Date Time Functions",
                     "propertyName": "dateTimeFunctions",
                     "functionName": "newFoundationsUtilitiesDateTimeFunctions",
@@ -738,50 +751,6 @@
                     "functionName": "newFoundationsProcessModulesProcessOutput",
                     "fileName": "ProcessOutput.js"
                 }
-            ],
-            "botModules": [
-                {
-                    "name": "Announcements",
-                    "propertyName": "announcements",
-                    "functionName": "newFoundationsBotModulesAnnouncements",
-                    "fileName": "Announcements.js",
-                    "folderName": "Trading-Bot/Announcements"
-                },
-                {
-                    "name": "Social Bots",
-                    "propertyName": "socialBots",
-                    "functionName": "newFoundationsBotModulesSocialBots",
-                    "fileName": "SocialBots.js",
-                    "folderName": "Trading-Bot/Announcements"
-                },
-                {
-                    "name": "Telegram Bot",
-                    "propertyName": "telegramBot",
-                    "functionName": "newFoundationsBotModulesTelegramBot",
-                    "fileName": "TelegramBot.js",
-                    "folderName": "Trading-Bot/Announcements"
-                },
-                {
-                    "name": "Discord Bot",
-                    "propertyName": "discordBot",
-                    "functionName": "newFoundationsBotModulesDiscordBot",
-                    "fileName": "DiscordBot.js",
-                    "folderName": "Trading-Bot/Announcements"
-                },
-                {
-                    "name": "Slack Bot",
-                    "propertyName": "slackBot",
-                    "functionName": "newFoundationsBotModulesSlackBot",
-                    "fileName": "SlackBot.js",
-                    "folderName": "Trading-Bot/Announcements"
-                },
-                {
-                    "name": "Twitter Bot",
-                    "propertyName": "twitterBot",
-                    "functionName": "newFoundationsBotModulesTwitterBot",
-                    "fileName": "TwitterBot.js",
-                    "folderName": "Trading-Bot/Announcements"
-                }
             ]
         },
         "PL": {
@@ -839,6 +808,11 @@
         "plugins": [
             "Tutorials",
             "API Maps"
+        ],
+        "products": [
+            "Data Products",
+            "Trading Products",
+            "Learning Products"
         ]
     },
     {
@@ -1591,6 +1565,66 @@
                     "propertyName": "webSocketsClient",
                     "functionName": "newSocialTradingModulesWebSocketsClient",
                     "fileName": "WebSocketsClient.js"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Social-Bots",
+        "propertyName": "socialBots",
+        "UI": {
+            "functionLibraries": [
+                {
+                    "name": "Social Bots Functions",
+                    "propertyName": "socialBotsFunctions",
+                    "functionName": "newSocialBotsFunctionLibrarySocialBotsFunctions"
+                }
+            ],
+            "utilities": []
+        },
+        "TS": {
+            "botModules": [
+                {
+                    "name": "Announcements",
+                    "propertyName": "announcements",
+                    "functionName": "newSocialBotsBotModulesAnnouncements",
+                    "fileName": "Announcements.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Social Bots",
+                    "propertyName": "socialBots",
+                    "functionName": "newSocialBotsBotModulesSocialBots",
+                    "fileName": "SocialBots.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Telegram Bot",
+                    "propertyName": "telegramBot",
+                    "functionName": "newSocialBotsBotModulesTelegramBot",
+                    "fileName": "TelegramBot.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Discord Bot",
+                    "propertyName": "discordBot",
+                    "functionName": "newSocialBotsBotModulesDiscordBot",
+                    "fileName": "DiscordBot.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Slack Bot",
+                    "propertyName": "slackBot",
+                    "functionName": "newSocialBotsBotModulesSlackBot",
+                    "fileName": "SlackBot.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Twitter Bot",
+                    "propertyName": "twitterBot",
+                    "functionName": "newSocialBotsBotModulesTwitterBot",
+                    "fileName": "TwitterBot.js",
+                    "folderName": ""
                 }
             ]
         }

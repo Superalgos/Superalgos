@@ -539,7 +539,7 @@ function newFoundationsActionSwitch() {
                 }
                 break
             case 'Parent Attach': {
-                UI.projects.foundations.functionLibraries.chainAttachDetach.chainAttachNode(action.node, action.relatedNode, action.rootNodes)
+                UI.projects.visualScripting.functionLibraries.chainAttachDetach.chainAttachNode(action.node, action.relatedNode, action.rootNodes)
             }
                 break
             case 'Reference Attach': {

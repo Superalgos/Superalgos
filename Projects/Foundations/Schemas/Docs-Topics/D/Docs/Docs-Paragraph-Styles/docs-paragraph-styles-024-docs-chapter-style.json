@@ -4,7 +4,14 @@
     "type": "Docs Chapter Style",
     "definition": {
         "text": "This style is used in Docs Books to define a new chapeter for that book. The style renders in the book's page the index of the Docs Topics referenced.",
-        "updated": 1609771567815
+        "updated": 1609771567815,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dieser Stil wird in Docs Books (Bücher) verwendet, um ein neues Kapitel für dieses Buch zu definieren. Der Stil gibt auf der Buchseite den Index der referenzierten Docs-Themen wieder.",
+                "updated": 1633959799753
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -19,35 +26,85 @@
         },
         {
             "style": "Title",
-            "text": "Parameters"
+            "text": "Parameters",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Parameter",
+                    "updated": 1633959814572
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Chapter Number: Any string that represents the chapter number to be displayed.",
-            "updated": 1610015596538
+            "updated": 1610015596538,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Chapter Number: Eine beliebige Zeichenfolge, die die anzuzeigende Kapitelnummer darstellt.",
+                    "updated": 1633959840991
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Project : Is the project where the Docs Page belongs to."
+            "text": "Project : Is the project where the Docs Page belongs to.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Project: Ist das Projekt, zu dem die Docs Page gehört.",
+                    "updated": 1633959863406
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Docs Page Category : Topic or Tutorial.",
-            "updated": 1610015631058
+            "updated": 1610015631058,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Docs Page Category: Topic oder Tutorial.",
+                    "updated": 1633959871172
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Docs Category Name: For topics, the topic's name, for tutorials, is the tutorial's name.",
-            "updated": 1610015910027
+            "updated": 1610015910027,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Docs Category Name: Bei Themen ist dies der Name des Topic, bei Tutorials der Name des Tutorial.",
+                    "updated": 1633959900758
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Introduction Text: It is an introduction text to be displayed between the Chapter Title and the Chapter Index. This parameter is optional.",
-            "updated": 1610015785424
+            "updated": 1610015785424,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Introduction Text: Es handelt sich um einen Einleitungstext, der zwischen dem Kapiteltitel und dem Kapitelindex angezeigt wird. Dieser Parameter ist optional.",
+                    "updated": 1633959924482
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Examples"
+            "text": "Examples:",
+            "updated": 1633959990116,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1633960032251
+                }
+            ]
         },
         {
             "style": "Javascript",

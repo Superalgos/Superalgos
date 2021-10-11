@@ -14,8 +14,9 @@
             },
             {
                 "language": "DE",
-                "text": "Die Docs sind ein Bereich innerhalb des Superalgos-Projekts. Es ermöglicht den Nutzern, nach Informationen zu Knoten, Konzepten, Themen, Tutorials, Rezensionen und Büchern zu suchen.",
-                "updated": 1633804964470
+                "text": "Die Docs sind ein Bereich innerhalb des Superalgos-Projekts. Es ermöglicht den Nutzern, nach Informationen zu Knoten, Konzepten, Themen, Tutorials, Rezensionen und Büchern zu suchen.\nDie Docs wurden ins deutsche übersetzt durch gitforkgit .",
+                "updated": 1633966515041,
+                "style": "Definition"
             }
         ]
     },
@@ -34,7 +35,8 @@
                 {
                     "language": "DE",
                     "text": "Jedes in Superalgos integrierte Projekt kann seine eigene Sammlung von Seiten haben, die die Projektdokumentation bilden.",
-                    "updated": 1633805059356
+                    "updated": 1633805059356,
+                    "style": "Text"
                 }
             ]
         }

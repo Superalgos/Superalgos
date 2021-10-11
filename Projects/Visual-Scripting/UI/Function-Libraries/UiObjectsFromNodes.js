@@ -353,7 +353,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                                 }
                             }
                             if (pathNode !== undefined) {
-                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(node, pathNode)
+                                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(node, pathNode)
                             } else {
                                 //console.log("[WARN] ", node.name, ' ', node.type, "failed to fix reference.  Unable to find reference parent ", pathName, ' ', pathType  )
                             }

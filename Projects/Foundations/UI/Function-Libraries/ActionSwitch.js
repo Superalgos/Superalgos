@@ -543,17 +543,17 @@ function newFoundationsActionSwitch() {
             }
                 break
             case 'Reference Attach': {
-                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(action.node, action.relatedNode, action.rootNodes)
+                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(action.node, action.relatedNode, action.rootNodes)
             }
                 break
             case 'Parent Detach':
                 {
-                    UI.projects.foundations.functionLibraries.chainAttachDetach.chainDetachNode(action.node, action.rootNodes)
+                    UI.projects.visualScripting.functionLibraries.chainAttachDetach.chainDetachNode(action.node, action.rootNodes)
                 }
                 break
             case 'Reference Detach':
                 {
-                    UI.projects.foundations.functionLibraries.attachDetach.referenceDetachNode(action.node)
+                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceDetachNode(action.node)
                 }
                 break
             case 'Push Code to Javascript Code':

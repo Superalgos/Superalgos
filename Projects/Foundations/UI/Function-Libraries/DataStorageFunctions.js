@@ -76,7 +76,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
 
             if (rootNode.type === 'Data Mine') {
                 let dataMineProducts = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Data Mine Products')
-                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(dataMineProducts, rootNode)
+                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(dataMineProducts, rootNode)
             }
         }
     }
@@ -87,7 +87,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
 
             if (rootNode.type === 'Trading Mine') {
                 let tradingMineProducts = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Trading Mine Products')
-                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(tradingMineProducts, rootNode)
+                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(tradingMineProducts, rootNode)
             }
         }
     }
@@ -98,7 +98,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
 
             if (rootNode.type === 'Learning Mine') {
                 let learningMineProducts = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Learning Mine Products')
-                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(learningMineProducts, rootNode)
+                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(learningMineProducts, rootNode)
             }
         }
     }
@@ -155,7 +155,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
 
     function createSessionReference(node, session, nodeType) {
         let sessionReference = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, nodeType)
-        UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(sessionReference, session)
+        UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(sessionReference, session)
     }
 
     function addMissingMarketDataProducts(node, rootNodes) {
@@ -179,7 +179,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
             let market = marketsArray[i]
             if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, market, true) === true) {
                 let marketDataProducts = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
-                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(marketDataProducts, market)
+                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(marketDataProducts, market)
             }
         }
     }
@@ -207,7 +207,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
                         let cryptoExchange = cryptoExchanges.exchanges[k]
                         if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, cryptoExchange, true) === true) {
                             let exchange = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
-                            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(exchange, cryptoExchange)
+                            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(exchange, cryptoExchange)
                         }
                     }
                 }
@@ -243,7 +243,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
                     if (projectDefinition !== undefined) {
                         if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, projectDefinition, true) === true) {
                             let projectTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType, undefined, project)
-                            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
+                            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
                         }
                     }
                 }

@@ -93,7 +93,7 @@
         },
         {
             "style": "Javascript",
-            "text": "UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(timeMachine, session)",
+            "text": "UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(timeMachine, session)",
             "updated": 1628258141256
         },
         {

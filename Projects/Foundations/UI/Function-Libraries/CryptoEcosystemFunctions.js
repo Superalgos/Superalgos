@@ -199,8 +199,8 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         newMarket.quotedAsset.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
                         newMarket.baseAsset.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
                         newMarket.quotedAsset.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
-                        UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(newMarket.baseAsset, baseAsset)
-                        UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(newMarket.quotedAsset, quotedAsset)
+                        UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(newMarket.baseAsset, baseAsset)
+                        UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(newMarket.quotedAsset, quotedAsset)
 
                         currentMarkets.set(name, newMarket)
                     }

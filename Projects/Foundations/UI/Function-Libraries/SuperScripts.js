@@ -37,7 +37,7 @@ function newFoundationsFunctionLibrarySuperScriptsFunctions() {
                             }
                             if (targetExchange === undefined) {
                                 targetExchange = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(target, exchangeNodeType)
-                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(targetExchange, exchange)
+                                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(targetExchange, exchange)
                             }
                             let nodesArray = targetExchange[arrayPropertyName]
                             nodesArray.push(templateClone)

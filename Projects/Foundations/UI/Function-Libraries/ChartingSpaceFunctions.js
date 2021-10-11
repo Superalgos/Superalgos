@@ -141,7 +141,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
         let mineProducts
         let timeMachine = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(dashboard, 'Time Machine')
         let exchange = market.payload.parentNode.payload.parentNode
-        UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(timeMachine, session)
+        UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(timeMachine, session)
         timeMachine.name = session.name + ' ' + session.type + ' ' + lanNetworkNode.name + ' ' + exchange.name + ' ' + market.name
         timeMachine.payload.floatingObject.collapseToggle()
         timeMachine.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
@@ -170,7 +170,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             for (let k = 0; k < 3; k++) {
                 let timelineChart = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
 
-                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(timelineChart.layerManager, mineProduct)
+                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(timelineChart.layerManager, mineProduct)
                 timelineChart.payload.floatingObject.collapseToggle()
                 timelineChart.layerManager.payload.floatingObject.collapseToggle()
                 timelineChart.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
@@ -229,7 +229,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             for (let k = 0; k < 3; k++) {
                 let timelineChart = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
 
-                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(timelineChart.layerManager, mineProduct)
+                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(timelineChart.layerManager, mineProduct)
                 timelineChart.payload.floatingObject.collapseToggle()
                 timelineChart.layerManager.payload.floatingObject.collapseToggle()
                 timelineChart.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
@@ -287,7 +287,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             */
             mineProduct.payload.uiObject.invisiblePhysics()
             timelineChart.name = mineProduct.name + ' Data'
-            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(timelineChart.layerManager, mineProduct)
+            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(timelineChart.layerManager, mineProduct)
             timelineChart.payload.floatingObject.collapseToggle()
             timelineChart.layerManager.payload.floatingObject.collapseToggle()
             timelineChart.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
@@ -322,13 +322,13 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
 
                 if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, testingTradingTasks, true) === true) {
                     let dashboard = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
-                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(dashboard, testingTradingTasks)
+                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(dashboard, testingTradingTasks)
                     dashboard.name = testingTradingTasks.type + ' ' + lanNetworkNode.name
                 }
 
                 if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, productionTradingTasks, true) === true) {
                     let dashboard = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
-                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(dashboard, productionTradingTasks)
+                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(dashboard, productionTradingTasks)
                     dashboard.name = productionTradingTasks.type + ' ' + lanNetworkNode.name
                 }
             }
@@ -349,7 +349,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                     if (projectDefinition !== undefined) {
                         if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, projectDefinition, true) === true) {
                             let projectTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Project Dashboards', undefined, project)
-                            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
+                            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
                         }
                     }
                 }
@@ -365,7 +365,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
         for (let i = 0; i < plotterModule.panels.length; i++) {
             let plotterPanel = plotterModule.panels[i]
             let layerPanel = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Layer Panel')
-            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(layerPanel, plotterPanel)
+            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(layerPanel, plotterPanel)
         }
     }
 
@@ -383,7 +383,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
         for (let i = 0; i < plotterModule.shapes.polygons.length; i++) {
             let polygon = plotterModule.shapes.polygons[i]
             let layerPolygon = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Layer Polygon')
-            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(layerPolygon, polygon)
+            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(layerPolygon, polygon)
         }
     }
 

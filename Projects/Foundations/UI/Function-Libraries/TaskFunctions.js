@@ -614,7 +614,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                     if (projectDefinition !== undefined) {
                         if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, projectDefinition, true) === true) {
                             let projectTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType, undefined, node.project)
-                            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
+                            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
                         }
                     }
                 }
@@ -645,7 +645,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                         let cryptoExchange = cryptoExchanges.exchanges[k]
                         if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, cryptoExchange, true) === true) {
                             let exchangeTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
-                            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(exchangeTasks, cryptoExchange)
+                            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(exchangeTasks, cryptoExchange)
                         }
                     }
                 }
@@ -677,7 +677,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
 
             if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, market, true) === true) {
                 let marketDataTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
-                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(marketDataTasks, market)
+                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(marketDataTasks, market)
             }
         }
     }
@@ -702,7 +702,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
 
                 if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, mine, true) === true) {
                     let dataMineTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
-                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(dataMineTasks, mine)
+                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(dataMineTasks, mine)
                 }
             }
         }
@@ -849,12 +849,12 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                             switch (bot.type) {
                                 case 'Sensor Bot': {
                                     processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Sensor Process Instance')
-                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
+                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
                                     break
                                 }
                                 case 'API Data Fetcher Bot': {
                                     processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'API Data Fetcher Process Instance')
-                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
+                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
 
                                     /*
                                     We will locate and reference the API MAP that has the same codeName than the data mine.
@@ -866,7 +866,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                         let mineCodeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(mine.payload, 'codeName')
 
                                         if (apiMapCodeName === mineCodeName) {
-                                            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(processInstance.apiMapReference, apiMap)
+                                            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(processInstance.apiMapReference, apiMap)
                                             break
                                         }
                                     }
@@ -874,12 +874,12 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                 }
                                 case 'Indicator Bot': {
                                     processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Indicator Process Instance')
-                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
+                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
                                     break
                                 }
                                 case 'Trading Bot': {
                                     processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Trading Process Instance')
-                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
+                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
 
                                     if (node.payload.parentNode === undefined) { return }
                                     if (node.payload.parentNode.payload === undefined) { return }
@@ -914,15 +914,15 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                             let rootNode = rootNodes[m]
                                             if (rootNode.type === 'Trading Engine' && rootNode.isPlugin === true) {
                                                 let tradingEngine = rootNode
-                                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(session.tradingEngineReference, tradingEngine)
-                                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(session.tradingSystemReference, systemNode)
+                                                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(session.tradingEngineReference, tradingEngine)
+                                                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(session.tradingSystemReference, systemNode)
                                             }
                                         }
                                     }
                                 }
                                 case 'Learning Bot': {
                                     processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Learning Process Instance')
-                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
+                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
 
                                     let session
                                     addSession(sessionType)
@@ -939,8 +939,8 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                             let rootNode = rootNodes[m]
                                             if (rootNode.type === 'Learning Engine' && rootNode.isPlugin === true) {
                                                 let learningEngine = rootNode
-                                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(session.learningEngineReference, learningEngine)
-                                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(session.learningSystemReference, systemNode)
+                                                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(session.learningEngineReference, learningEngine)
+                                                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(session.learningSystemReference, systemNode)
                                             }
                                         }
                                     }

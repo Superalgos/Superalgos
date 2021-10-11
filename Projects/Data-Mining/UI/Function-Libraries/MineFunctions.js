@@ -96,7 +96,7 @@ function newDataMiningFunctionLibraryMineFunctions() {
             
             if (rootNode.type === 'Data Mine') {
                 let dataMineDataDependencies = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Data Mine Data Dependencies')
-                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(dataMineDataDependencies, rootNode)
+                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(dataMineDataDependencies, rootNode)
             }
         }
     }

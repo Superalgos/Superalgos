@@ -26,6 +26,11 @@
                 "text": "Antes de comenzar la mineria de datos, tengo una pequeña pregunta para ti: ¿operas en binance.com, binance.us o en ninguno de los dos?",
                 "updated": 1627302684720,
                 "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Voor we met data mining beginnen, heb ik een vraag voor je: handel je op binance.com, binance.us, of geen van beide?",
+                "updated": 1633889925479
             }
         ],
         "updated": 1622189667210
@@ -52,6 +57,11 @@
                     "text": "Si operas en binance.com o nisiquiera operas con Binance, entonces puedes saltarte este paso y el siguiente.",
                     "updated": 1624490979638,
                     "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Handel je op binance.com of helemaal niet op Binance, dan kan je deze stap overslaan en op \"Next\" klikken.",
+                    "updated": 1633890006155
                 }
             ]
         },
@@ -77,6 +87,11 @@
                     "text": "¡Si utilizas binance.us necesitarás configurar el nodo de Binance a la derecha! ¡El video en el siguiente paso le muestra cómo!",
                     "updated": 1624491042411,
                     "style": "Callout"
+                },
+                {
+                    "language": "NL",
+                    "text": "Handel je op binance.us dan moet je nu het Binance knooppunt aan de rechterkant configureren. De video in de volgende stap laat je zien hoe dit moet!",
+                    "updated": 1633890111836
                 }
             ]
         },
@@ -102,6 +117,11 @@
                     "text": "Accede a la configuración y cambia el codeName a \"binanceus\". Mueve el puntero del mouse fuera de la burbuja de configuración y se cerrará y guardará automáticamente",
                     "updated": 1627302546798,
                     "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Verander in de configuratie de \"codeName\" in \"binanceus\". Beweeg de muis uit de configuratiecirkel en het zal automatisch de configuratie opslaan en afsluiten.",
+                    "updated": 1633890351655
                 }
             ]
         },
@@ -127,6 +147,11 @@
                     "text": "Edita la etiqueta del nodo para que diga \"Binanceus\".",
                     "updated": 1624491148099,
                     "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Verander het naamlabel van het knooppunt in \"Binanceus\".",
+                    "updated": 1633890370268
                 }
             ]
         }

@@ -1,4 +1,4 @@
-function newFoundationsFunctionLibraryChainAttachDetach() {
+function newVisualScriptingFunctionLibraryChainAttachDetach() {
     let thisObject = {
         chainDetachNode: chainDetachNode,
         chainAttachNode: chainAttachNode

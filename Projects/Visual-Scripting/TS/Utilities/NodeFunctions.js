@@ -1,4 +1,4 @@
-exports.newFoundationsUtilitiesNodeFunctions = function () {
+exports.newVisualScriptingUtilitiesNodeFunctions = function () {
 
     let thisObject = {
         nodeBranchToArray: nodeBranchToArray,

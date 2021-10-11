@@ -4,13 +4,27 @@
     "type": "Docs Repaginate Command",
     "definition": {
         "text": "When you add a Docs Topic Page or a Docs Tutorial Page, you may define a page number. The number defines the position of the page within the table of contents. To add a page in-between other pages you may use decimal values. Use the Repaginate command to recalculate all page numbers and leave the whole set in integers.",
-        "updated": 1610976158171
+        "updated": 1610976158171,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Wenn Sie eine Docs Topic Page oder eine Docs Tutorial Page hinzufügen, können Sie eine Seitenzahl definieren. Die Nummer bestimmt die Position der Seite im Inhaltsverzeichnis. Um eine Seite zwischen anderen Seiten einzufügen, können Sie Dezimalwerte verwenden. Verwenden Sie den Befehl Repaginate, um alle Seitenzahlen neu zu berechnen und den gesamten Satz in ganzen Zahlen zu belassen.",
+                "updated": 1633895007044
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Warning",
             "text": "Make sure you consult with the Superalgos Documentation Group before using the Docs Repaginate Command on existing topics or tutorials. The repagination changes all files in the collection. For that reason, the command may be prone to creating conflicts with other users that may be working on those files too.",
-            "updated": 1616705086396
+            "updated": 1616705086396,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie sicher, dass Sie sich mit der Superalgos Documentation  Gruppe beraten, bevor Sie den Befehl Docs Repaginate für bestehende Themen oder Tutorials verwenden. Die Repaginierung ändert alle Dateien in der Sammlung. Aus diesem Grund kann der Befehl zu Konflikten mit anderen Benutzern führen, die ebenfalls an diesen Dateien arbeiten.",
+                    "updated": 1633895079781
+                }
+            ]
         },
         {
             "style": "Title",
@@ -26,20 +40,48 @@
         },
         {
             "style": "List",
-            "text": "Category: It must be either Topic or Tutorial."
+            "text": "Category: It must be either Topic or Tutorial.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Category: Es muss entweder ein Topic oder Tutorial sein.",
+                    "updated": 1633895143925
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Project: Any existing already integrated project."
+            "text": "Project: Any existing already integrated project.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Project:  Jedes bestehende, bereits integrierte project.",
+                    "updated": 1633895168329
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Topic or Tutorial name: The name given to the Topic or Tutorial that you want to repaginate.",
-            "updated": 1620006152656
+            "updated": 1620006152656,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Topic or Tutorial name: Der Name des Topic oder Tutorial, das Sie neu veröffentlichen möchten.",
+                    "updated": 1633895204521
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Example"
+            "text": "Example",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele",
+                    "updated": 1633895096256
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -47,21 +89,49 @@
         },
         {
             "style": "Title",
-            "text": "Usage"
+            "text": "Usage",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Benutzung",
+                    "updated": 1633895223510
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "After you repaginate a Topic or Tutorial, the best way to proceed is to manually delete from disk all the files associated with that Topic / Tutorial. After you delete them, you execute the repaginate command and then the docs.save command.",
-            "updated": 1630500489007
+            "updated": 1630500489007,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nachdem Sie ein Thema oder ein Tutorial repaginiert haben, löschen Sie am besten alle Dateien, die mit diesem Thema / Tutorial verbunden sind, manuell von der Festplatte. Nachdem Sie sie gelöscht haben, führen Sie den Befehl repaginate und anschließend den Befehl docs.save aus.",
+                    "updated": 1633895303843
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The repagination flags all of the files of that Topic / Tutorial as changed, so you don't need to worry about the deleted files since they will be all recreated.",
-            "updated": 1614942454596
+            "updated": 1614942454596,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Neuverteilung kennzeichnet alle Dateien dieses Topic / Tutorial als geändert, so dass Sie sich nicht um die gelöschten Dateien kümmern müssen, da sie alle neu erstellt werden.",
+                    "updated": 1633895347236
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "After repagination, reload the UI to get into memory only the repaginated version."
+            "text": "After repagination, reload the UI to get into memory only the repaginated version.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nach der Neuverteilung laden Sie die Benutzeroberfläche / UI neu, damit nur die neu verteilte Version gespeichert wird.",
+                    "updated": 1633895375600
+                }
+            ]
         }
     ]
 }

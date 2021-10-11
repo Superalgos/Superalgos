@@ -25,7 +25,8 @@
             "action": "Add UI Object",
             "label": "Add Project Learning Tasks",
             "relatedUiObject": "Project Learning Tasks",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add Missing Project Learning Tasks",
@@ -38,6 +39,7 @@
         },
         {
             "action": "Delete UI Object",
+"actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

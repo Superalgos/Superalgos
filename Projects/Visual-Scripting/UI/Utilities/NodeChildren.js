@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesNodeChildren() {
+function newVisualScriptingUtilitiesNodeChildren() {
     let thisObject = {
         isMissingChildrenById: isMissingChildrenById,
         isMissingChildrenByType: isMissingChildrenByType,
@@ -281,7 +281,7 @@ function newFoundationsUtilitiesNodeChildren() {
                         let child = startingNode[property.name]
                         if (child === undefined) { continue }
                         if (child.payload !== undefined) {
-                            let codeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(child.payload, 'codeName')
+                            let codeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(child.payload, 'codeName')
                             if (codeName !== undefined) {
                                 if (codeName === checkCodeName) {
                                     return child
@@ -297,7 +297,7 @@ function newFoundationsUtilitiesNodeChildren() {
                                 let arrayItem = startingNodePropertyArray[m]
 
                                 if (arrayItem.payload !== undefined) {
-                                    let codeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(arrayItem.payload, 'codeName')
+                                    let codeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(arrayItem.payload, 'codeName')
                                     if (codeName !== undefined) {
                                         if (codeName === checkCodeName) {
                                             return arrayItem
@@ -321,8 +321,8 @@ function newFoundationsUtilitiesNodeChildren() {
         */
         let child
         if (isMissingChildrenById(startingNode, referencedNode, true) === true) {
-            child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(startingNode, childType)
-            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(child, referencedNode)
+            child = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(startingNode, childType)
+            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(child, referencedNode)
         } else {
             child = findChildReferencingThisNode(startingNode, referencedNode)
         }
@@ -338,10 +338,10 @@ function newFoundationsUtilitiesNodeChildren() {
         let child
         child = findChildReferencingThisNode(startingNode, referencedNode)
         if (child !== undefined) {
-            UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(child, rootNodes)
+            UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(child, rootNodes)
         }
-        child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(startingNode, childType)
-        UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(child, referencedNode)
+        child = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(startingNode, childType)
+        UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(child, referencedNode)
         return child
     }
 

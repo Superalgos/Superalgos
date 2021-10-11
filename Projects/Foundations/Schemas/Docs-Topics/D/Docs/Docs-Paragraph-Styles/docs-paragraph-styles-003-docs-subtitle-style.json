@@ -3,20 +3,48 @@
     "pageNumber": 3,
     "type": "Docs Subtitle Style",
     "definition": {
-        "text": "This is simply the way to show subtitles within a docs page."
+        "text": "This is simply the way to show subtitles within a docs page.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dies ist einfach die Art und Weise, wie Untertitel auf einer docs-Seite angezeigt werden können.",
+                "updated": 1633952612954
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "In edit mode, type whatever you want to be rendered as a subtitle at the docs page."
+            "text": "In edit mode, type whatever you want to be rendered as a subtitle at the docs page.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Geben Sie im Bearbeitungsmodus ein, was als Untertitel auf der docs-Seite angezeigt werden soll.",
+                    "updated": 1633952646354
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Example:"
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1633952653809
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The previous is a paragraph in subtitle style."
+            "text": "The previous is a paragraph in subtitle style.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der vorherige ist ein Absatz im Stil eines Untertitels. (Beispiel steht im Untertiel Stil im Absatz vor diesem)",
+                    "updated": 1633952699925
+                }
+            ]
         }
     ]
 }

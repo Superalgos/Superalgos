@@ -4,7 +4,14 @@
     "type": "Docs Reindex Command",
     "definition": {
         "text": "Use this command to re-index all the pages of the Docs, together with all the nodes in the current workspace. Changes you made to the content become available through search after running the command.",
-        "updated": 1613767645758
+        "updated": 1613767645758,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diesen Befehl, um alle Seiten der Docs sowie alle Knoten im aktuellen Arbeitsbereich neu zu indizieren (re-index). Änderungen, die Sie am Inhalt vorgenommen haben, werden nach Ausführung des Befehls über die Suche verfügbar.",
+                "updated": 1633894480507
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -19,8 +26,15 @@
         },
         {
             "style": "Note",
-            "text": "The reindexing of all the pages and workspace node might take a minute or two. If you workspace is very big, expect it to take even more than that.",
-            "updated": 1613767567798
+            "text": "The reindexing of all the pages and workspace node might take a minute or two. If your workspace is very big, expect it to take even more than that.",
+            "updated": 1633894579365,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hinweis: Die Neuindizierung aller Seiten und Arbeitsbereichsknoten kann ein oder zwei Minuten dauern. Wenn Ihr Arbeitsbereich sehr groß ist, kann es sogar noch länger dauern.",
+                    "updated": 1633894701501
+                }
+            ]
         }
     ]
 }

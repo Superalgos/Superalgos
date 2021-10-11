@@ -76,7 +76,15 @@ In order to run Superalgos on your computer, you will need the latest versions o
 
 ### Windows Install
 
-Follow the install wizards to install the latest NodeJS and Github Desktop applications.
+You can use the windows installer (Setup file) which will install all the necessary dependencies and files for you to run the platform. Also the shortcuts are placed. This application will notify you and update as new releases come (to be released).
+
+ **IMPORTANT:**
+ The single executable and the installer do not have Tensorflow active yet.
+
+> **NOTE**
+> There's a known issue where the screen stays white. In this case, go to "View/Reload" and it should work. 
+
+The manual installation option, tailored for users who are experienced and who want to contribute to the project (highly appreciated and rewarded with SA tokens). Follow the install wizards to install the latest NodeJS and Github Desktop applications.
 
 - [Node.js download page](https://nodejs.org/en/download/). Select "Current" then "Windows Installer", then follow the wizard to install after the download completes.
 - [GitHub Desktop downloat page](https://desktop.github.com/). Click the "Download for Windows" button and follow the wizard to install after the download completes.

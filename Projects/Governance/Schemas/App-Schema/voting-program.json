@@ -10,23 +10,25 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Votes Switch",
-            "relatedUiObject": "Votes Switch"
+            "relatedUiObject": "Votes Switch",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "tokensBonus",
             "actionFunction": "payload.executeAction",
             "label": "Add Tokens Bonus",
-            "relatedUiObject": "Tokens Bonus"
+            "relatedUiObject": "Tokens Bonus",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

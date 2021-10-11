@@ -15,7 +15,9 @@
             "propertyToCheckFor": "recordFormula",
             "label": "Add Formula",
             "relatedUiObject": "Record Formula",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -23,10 +25,13 @@
             "propertyToCheckFor": "apiResponseFieldReference",
             "label": "Add Field Reference",
             "relatedUiObject": "API Response Field Reference",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

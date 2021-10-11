@@ -4,7 +4,14 @@
     "type": "Docs Include Style",
     "definition": {
         "text": "Include paragraphs are used to include into a Docs Page paragraphs that belong to other Docs Pages. In order to do that, you need to reference a Docs Block Style paragraph located in some other Docs Page.",
-        "updated": 1609259112766
+        "updated": 1609259112766,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Einschließende Absätze werden verwendet, um in eine Docs Page (Seite) Absätze einzuschließen, die zu anderen Docs-Pages gehören. Dazu müssen Sie auf einen Docs Block Style Absatz verweisen, der sich in einer anderen Docs Page befindet.",
+                "updated": 1633958486374
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -19,30 +26,73 @@
         },
         {
             "style": "Title",
-            "text": "Parameters"
+            "text": "Parameters",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Parameter",
+                    "updated": 1633958563420
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Project : Is the project where the Docs Page belongs to.",
-            "updated": 1609259672503
+            "updated": 1609259672503,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Project:  Ist das Projekt, zu dem die Docs-Seite gehört.",
+                    "updated": 1633958586988
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Page Category : Node, Concept or Topic."
+            "text": "Docs Page Category : Node, Concept or Topic.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Docs Page Category (Kategorie): Node, Concept oder Topic.",
+                    "updated": 1633958615123
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Docs Page Name: For Nodes it is the type of node, for Concepts, the concept name, for topics, the topic's page name.",
-            "updated": 1609259701956
+            "updated": 1609259701956,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Docs Page Name:  Für Nodes ist es: the type of node, for Concepts, the concept name, for topics, the topic's page name.",
+                    "updated": 1633958814766
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Page Block: This is the Block name of the block of paragraphs you want to include. You need to have a paragraphs with a Docs Block Style on the target page, with the name you are specifying here.",
-            "updated": 1609259783532
+            "text": "Docs Page Block: This is the Block name of the block of paragraphs you want to include. You need to have a paragraph with a Docs Block Style on the target page, with the name you are specifying here.",
+            "updated": 1633958979710,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Docs Page Block: Dies ist der Blockname des Absatzblocks, den Sie einschließen möchten. Auf der Zielseite muss ein Absatz mit einem Docs Block Style vorhanden sein, der den Namen trägt den sie hier angeben.",
+                    "updated": 1633959116403
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Examples"
+            "text": "Examples:",
+            "updated": 1633959157980,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1633959201029
+                }
+            ]
         },
         {
             "style": "Javascript",

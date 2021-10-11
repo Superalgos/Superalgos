@@ -16,7 +16,8 @@
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
             "relatedUiObject": "Asset",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
@@ -31,7 +32,8 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Asset",
             "relatedUiObject": "Asset",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",

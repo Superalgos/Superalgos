@@ -21,7 +21,8 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset",
-            "relatedUiObject": "Asset"
+            "relatedUiObject": "Asset",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",

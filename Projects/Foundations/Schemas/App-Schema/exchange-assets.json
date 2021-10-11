@@ -12,6 +12,7 @@
             "action": "Add UI Object",
             "label": "Add Asset",
             "relatedUiObject": "Asset",
+            "relatedUiObjectProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting"
         },
@@ -22,11 +23,12 @@
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
             "relatedUiObject": "Asset",
+            "relatedUiObjectProject": "Foundations",
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Delete UI Object",
-"actionProject": "Visual-Scripting",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

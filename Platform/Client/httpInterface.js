@@ -1015,6 +1015,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 let directoryCount = 0
                                 let allAppSchemas = []
                                 let allAppSchemasFilePaths = []
+                                let allAppSchemasFileProjects = []
 
                                 for (let i = 0; i < projects.length; i++) {
                                     let project = projects[i]
@@ -1050,6 +1051,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                     SCHEMA_MAP.set(schemaDocument.type, schemaDocument)
                                                     allAppSchemas.push(schemaDocument)
                                                     allAppSchemasFilePaths.push(fileToRead)
+                                                    allAppSchemasFileProjects.push(project)
                                                 } catch (err) {
                                                     console.log('[ERROR] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
                                                     return
@@ -1094,6 +1096,14 @@ exports.newHttpInterface = function newHttpInterface() {
                                                             hits++
                                                             foundProject = project
                                                             multiProject = multiProject + ' -> ' + project
+
+                                                            let fileProject = allAppSchemasFileProjects[i]
+                                                            //console.log(fileProject, project)
+                                                            if (fileProject === project) {
+                                                                /* If the projec of the file is the same as the project found, then we consider this a match*/
+                                                                hits = 1
+                                                                continue
+                                                            }
                                                         }
                                                     }
 

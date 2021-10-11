@@ -22,14 +22,16 @@
             "actionProject": "Visual-Scripting",
             "label": "Add Features",
             "relatedUiObject": "Features",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "label": "Add Positions",
             "relatedUiObject": "Positions",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",

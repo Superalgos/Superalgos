@@ -36,28 +36,37 @@
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Chart Points",
-            "relatedUiObject": "Chart Points"
+            "relatedUiObject": "Chart Points",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Polygon",
-            "relatedUiObject": "Polygon"
+            "relatedUiObject": "Polygon",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Image",
-            "relatedUiObject": "Image"
+            "relatedUiObject": "Image",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Text",
-            "relatedUiObject": "Text"
+            "relatedUiObject": "Text",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",

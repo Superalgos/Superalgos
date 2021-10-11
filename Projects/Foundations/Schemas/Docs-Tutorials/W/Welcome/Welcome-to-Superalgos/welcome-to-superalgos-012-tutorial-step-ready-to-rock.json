@@ -26,6 +26,11 @@
                 "text": "El nodo de Data Tasks controla todas las data mining tasks definidas para este Network Node.",
                 "updated": 1618433799425,
                 "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Het Data Tasks knooppunt beheerd alle data mining taken die in dit \"Network Node\" knooppunt zijn gedefinieerd.",
+                "updated": 1633887556106
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "text": "Estas a punto de empezar las siguientes actividades, que cubriremos en los proximos minutos",
                     "updated": 1618433837116,
                     "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "De komende minuten gaan we beginnen met de onderstaande activiteiten:",
+                    "updated": 1633887618880
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "text": "Ejecutar una operación de data mining para obtener datos del mercado BTC/USDT de Binance.",
                     "updated": 1618433865098,
                     "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Een data mining operatie starten om data te ontvangen van de BTC/USDT Market van Binance.",
+                    "updated": 1633887723752
                 }
             ],
             "updated": 1616414602356
@@ -100,6 +115,11 @@
                     "text": "Ejecutar una Backtesting session con una estrategia de código abierto existente.",
                     "updated": 1618433902156,
                     "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Een Backtesting Session draaien met een bestaande open-source strategie.",
+                    "updated": 1633887785573
                 }
             ],
             "updated": 1616414607531
@@ -125,6 +145,11 @@
                     "text": "Ejecutar una Live trading session con fondos mínimos, para descubrir aspectos críticos del sistema.",
                     "updated": 1618433958316,
                     "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Een Live Trading Session met minimale middelen, om de kritieke aspecten van het systeem te testen.",
+                    "updated": 1633887854645
                 }
             ],
             "updated": 1616414612909
@@ -150,6 +175,11 @@
                     "text": "¿Estas de acuerdo con esto? ¿Empezamos?",
                     "updated": 1624282652190,
                     "style": "Callout"
+                },
+                {
+                    "language": "NL",
+                    "text": "Ben je hier oké mee? Zullen we dan beginnen?",
+                    "updated": 1633887896463
                 }
             ]
         }

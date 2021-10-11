@@ -36,7 +36,14 @@
             {
                 "language": "TR",
                 "text": "Menünün geri kalanını göstermeden önce, başka bir hiyerarşiye bir göz atalım: \"Ağ.\"(Lan Network)",
-                "updated": 1633268337360
+                "updated": 1633268337360,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Voor ik je de rest van het menu laat zien, laten we eerst een andere hiërarchie bekijken: het Netwerk.",
+                "updated": 1633853332041,
+                "style": "Definition"
             }
         ]
     },
@@ -72,7 +79,14 @@
                 {
                     "language": "TR",
                     "text": "Ağ hiyerarşisi, sistemin kontrol odasıdır.Burası Veri Görevlerinizi ( Data Task ), Ticaret Görevlerini Test Etme           ( Testing Trading Tasks ) ve Ticaret Görevlerinizi ( Production Trading Tasks ) kontrol ettiğiniz yerdir.",
-                    "updated": 1633268830564
+                    "updated": 1633268830564,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "De Netwerk hiërarchie is de controlekamer van het systeem. Dit is waar je jouw Data Tasks, Test Trading Tasks en Production Trading Tasks beheert.",
+                    "updated": 1633853559028,
+                    "style": "Text"
                 }
             ]
         },
@@ -107,7 +121,14 @@
                 {
                     "language": "TR",
                     "text": "Düğümü genişletin ve içeriye bir göz atın!",
-                    "updated": 1633268461684
+                    "updated": 1633268461684,
+                    "style": "Callout"
+                },
+                {
+                    "language": "NL",
+                    "text": "Vouw de hiërarchie uit en laten we eens binnenin kijken!",
+                    "updated": 1633853650994,
+                    "style": "Callout"
                 }
             ]
         },
@@ -143,7 +164,14 @@
                 {
                     "language": "TR",
                     "text": "Daha önce bahsettiğim düğümleri görüyor musunuz? Güzel! İlk veri madenciliği operasyonunuzu başlatmak için buradayız.",
-                    "updated": 1633268493855
+                    "updated": 1633268493855,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Zie je de eerder genoemde (sub)knooppunten? Cool! Wij zijn hier om jouw allereerste datamining operatie op te starten.",
+                    "updated": 1633890622350,
+                    "style": "Text"
                 }
             ]
         },
@@ -178,7 +206,14 @@
                 {
                     "language": "TR",
                     "text": "Ancak başlamadan önce size kısa bir sorum var: İstemciye uzaktan erişiyor musunuz?",
-                    "updated": 1633268516400
+                    "updated": 1633268516400,
+                    "style": "Note"
+                },
+                {
+                    "language": "NL",
+                    "text": "Voor we beginnen, heb ik de volgende vraag voor je: benader je de Client op afstand?",
+                    "updated": 1633853800893,
+                    "style": "Note"
                 }
             ]
         }

@@ -73,7 +73,7 @@ function newDataMiningFunctionLibraryMineFunctions() {
         function scanBotArray(botArray) {
             for (let i = 0; i < botArray.length; i++) {
                 let bot = botArray[i]
-                let botProducts = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Bot Data Dependencies')
+                let botProducts = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Bot Data Dependencies')
                 botProducts.name = bot.name
 
                 UI.projects.foundations.utilities.folders.asymetricalFolderStructureCloning(
@@ -95,8 +95,8 @@ function newDataMiningFunctionLibraryMineFunctions() {
             let rootNode = rootNodes[i]
             
             if (rootNode.type === 'Data Mine') {
-                let dataMineDataDependencies = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Data Mine Data Dependencies')
-                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(dataMineDataDependencies, rootNode)
+                let dataMineDataDependencies = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Data Mine Data Dependencies')
+                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(dataMineDataDependencies, rootNode)
             }
         }
     }

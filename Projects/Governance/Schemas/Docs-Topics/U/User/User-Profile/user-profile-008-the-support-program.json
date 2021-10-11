@@ -4,7 +4,14 @@
     "type": "The Support Program",
     "definition": {
         "text": "Let's reward Community Mods so that they keep up the good work, and so that more people want to join the team!",
-        "updated": 1630495305649
+        "updated": 1630495305649,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Premiemos a los Community Mods  para que ellos continúen haciendo un buen trabajo, y por eso más gente querrá sumarse al equipo!",
+                "updated": 1633543661376
+            }
+        ]
     },
     "paragraphs": [
         {

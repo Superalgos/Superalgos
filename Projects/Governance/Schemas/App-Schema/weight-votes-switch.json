@@ -15,46 +15,52 @@
             "label": "Install Missing Votes",
             "relatedUiObject": "Weight Votes Switch",
             "askConfirmation": true,
-            "confirmationLabel": "Confirm to Install"
+            "confirmationLabel": "Confirm to Install",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Weight Votes Switch",
-            "relatedUiObject": "Weight Votes Switch"
+            "relatedUiObject": "Weight Votes Switch",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Pool Weight Vote",
-            "relatedUiObject": "Pool Weight Vote"
+            "relatedUiObject": "Pool Weight Vote",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Position Weight Vote",
-            "relatedUiObject": "Position Weight Vote"
+            "relatedUiObject": "Position Weight Vote",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset Weight Vote",
-            "relatedUiObject": "Asset Weight Vote"
+            "relatedUiObject": "Asset Weight Vote",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Feature Weight Vote",
-            "relatedUiObject": "Feature Weight Vote"
+            "relatedUiObject": "Feature Weight Vote",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

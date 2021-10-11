@@ -36,7 +36,14 @@
             {
                 "language": "TR",
                 "text": "Her düğümde bir menü bulunur. Sol altta üzerinde \"+\" simgesinin bulunduğu buton, mevcut düğümü genişletir ya da daraltır. Böylece düğümün altındaki öğelere ulaşabilirsiniz.",
-                "updated": 1633267521331
+                "updated": 1633267521331,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Elk knooppunt heeft een menu. De knop linksonder klapt de structuur van de knooppunten onder het huidige knooppunt uit en in.",
+                "updated": 1633852831708,
+                "style": "Definition"
             }
         ]
     },
@@ -72,7 +79,14 @@
                 {
                     "language": "TR",
                     "text": "Devam edin ve genişlet düğmesine tıklayın!",
-                    "updated": 1633267545525
+                    "updated": 1633267545525,
+                    "style": "Callout"
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik maar op de \"expand\" knop en vouw het knooppunt uit!",
+                    "updated": 1633852949878,
+                    "style": "Callout"
                 }
             ]
         },
@@ -107,7 +121,14 @@
                 {
                     "language": "TR",
                     "text": "Öğretici (Tutorial) düğümün birkaç çocuğu vardır ve bunların birkaç çocuğu daha vardır.",
-                    "updated": 1633267652469
+                    "updated": 1633267652469,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Het Tutorial knooppunt heeft meerdere sub knooppunten, en deze hebben weer meerdere knooppunten. Daarom is het een hiërarchie!",
+                    "updated": 1633853126300,
+                    "style": "Text"
                 }
             ]
         },
@@ -142,7 +163,14 @@
                 {
                     "language": "TR",
                     "text": "Bilginin yapılandırılmış görsel temsilleri, Superalgos'un esnek ve ölçeklenebilir ticaret operasyonlarının arkasındaki karmaşıklığı nasıl yönettiğinin merkezinde yer alır.",
-                    "updated": 1633267689476
+                    "updated": 1633267689476,
+                    "style": "Note"
+                },
+                {
+                    "language": "NL",
+                    "text": "Gestructureerde visuele weergave van informatie vormt de kern van hoe Superalgos de complexiteit achter flexibele en schaalbare handelingen beheert.",
+                    "updated": 1633890454389,
+                    "style": "Note"
                 }
             ]
         }

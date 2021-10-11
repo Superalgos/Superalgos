@@ -11,7 +11,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "assignedTo",
             "label": "Add P2P Network Node",
@@ -20,43 +20,47 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "assignedTo",
             "label": "Add Algo Traders Platform",
             "relatedUiObject": "Algo Traders Platform",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "assignedTo",
             "label": "Add Social Trading Mobile App",
             "relatedUiObject": "Social Trading Mobile App",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "assignedTo",
             "label": "Add Social Trading Desktop App",
             "relatedUiObject": "Social Trading Desktop App",
-            "actionFunction": "payload.executeAction"
-        },     
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
+        },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "assignedTo",
             "label": "Add Social Trading Server App",
             "relatedUiObject": "Social Trading Server App",
-            "actionFunction": "payload.executeAction"
-        },    
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
+        },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

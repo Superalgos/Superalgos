@@ -31,6 +31,7 @@ function newFloatingObject() {
         collapsedManually: false,
         typeStrokeStyle: undefined,
         nameStrokeStyle: undefined,
+        isVisibleFunction: isVisibleFunction,
         forceFocus: forceFocus,
         removeForceFocus: removeForceFocus,
         setFocus: setFocus,
@@ -74,6 +75,7 @@ function newFloatingObject() {
     thisObject.container.isClickeable = true
     thisObject.container.isDraggeable = true
     thisObject.container.detectMouseOver = true
+    thisObject.container.isVisibleFunction = thisObject.isVisibleFunction
     thisObject.container.frame.radius = 0
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
@@ -357,7 +359,7 @@ function newFloatingObject() {
                 if (parent.payload === undefined) { return }
                 if (parent.payload.position === undefined) { return }
                 distanceToParent = Math.sqrt(Math.pow(parent.payload.position.x - thisObject.container.frame.position.x, 2) + Math.pow(parent.payload.position.y - thisObject.container.frame.position.y, 2))  // ... we calculate the distance ...
-                parentChildren = UI.projects.foundations.spaces.designSpace.workspace.nodeChildren.childrenCount(parent, thisObject.payload.node)
+                parentChildren = UI.projects.visualScripting.functionLibraries.nodeChildren.childrenCount(parent, thisObject.payload.node)
                 parentDistanceToGarndParent = parent.payload.distance
             }
 
@@ -825,5 +827,16 @@ function newFloatingObject() {
     }
 
     function updateRadius() {
+    }
+
+    function isVisibleFunction(point){
+        if(point.x <= UI.projects.foundations.spaces.floatingSpace.container.frame.width + (browserCanvas.width / 2) && point.x >= 0
+            && point.y <= UI.projects.foundations.spaces.floatingSpace.container.frame.height + (browserCanvas.height / 2) && point.y >= 0) {
+
+            return true
+        }
+        else{
+            return false
+        }
     }
 }

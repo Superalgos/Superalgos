@@ -4,18 +4,39 @@
     "type": "Docs Page Name",
     "definition": {
         "text": "The Docs Page Name is not only the visible name of a page displayed as the main title at the top but also the unique identifier of a page within a Project.",
-        "updated": 1613755348083
+        "updated": 1613755348083,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Name der Dokumentseite ist nicht nur der sichtbare Name einer Seite, der oben als Haupttitel angezeigt wird, sondern auch der eindeutige Bezeichner einer Seite innerhalb eines Project.",
+                "updated": 1633859779373
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The page name is always featured as the main title of the page and no two pages may have the same name.",
-            "updated": 1613755273710
+            "updated": 1613755273710,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Seitenname wird immer als Haupttitel der Seite angezeigt, und keine zwei Seiten dürfen denselben Namen haben.",
+                    "updated": 1633859841437
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "It is important to remember the above at the time of naming a page. You should always use an unambiguous descriptive name as the name of a page.",
-            "updated": 1613755338171
+            "updated": 1613755338171,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es ist wichtig, bei der Benennung einer Seite an die oben genannten Punkte zu denken. Sie sollten immer einen eindeutigen Namen für die Bezeichnung einer Seite verwenden.",
+                    "updated": 1633859935042
+                }
+            ]
         },
         {
             "style": "Text",
@@ -24,7 +45,14 @@
         {
             "style": "Important",
             "text": "At this point, the name of the page may not be changed from within the Docs interface. To change the name of the page you need to manually modify the corresponding file, editing the type field and properly mapping the name of the page in the name of the file.",
-            "updated": 1613755498049
+            "updated": 1613755498049,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zu diesem Zeitpunkt kann die Seitennummer nicht innerhalb des Docs-Interface geändert werden. Um die Seitennummer zu ändern, müssen Sie die entsprechende Datei manuell ändern, das Feld Seitennummer bearbeiten und die Seitennummer der Seite im Namen der Datei richtig zuordnen.",
+                    "updated": 1633860025392
+                }
+            ]
         },
         {
             "style": "Text",

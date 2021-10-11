@@ -4,7 +4,14 @@
     "type": "Docs Error - Page Not Found",
     "definition": {
         "text": "The page does not exist in the category specified.",
-        "updated": 1610977264289
+        "updated": 1610977264289,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Seite existiert nicht in der angegebenen Kategorie.",
+                "updated": 1633896537697
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -14,17 +21,38 @@
         {
             "style": "Error",
             "text": "The Docs Page Name you specified can not be found in the collection of pages of the Docs Page Category you provided.",
-            "updated": 1610977238380
+            "updated": 1610977238380,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Docs Page Name den sie angegeben haben, kann nicht in der Sammlung der Seiten der angegebenen Kategorie gefunden werden.",
+                    "updated": 1633896616360
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Double check that the Docs Page Name is spelled correctly and that it belongs to the Docs Page Category provided. ",
-            "updated": 1609161473688
+            "updated": 1609161473688,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Vergewissern Sie sich mehrfach, dass der Docs Page Name richtig geschrieben ist und dass sie zur angegebenen Docs Page Category gehört",
+                    "updated": 1633896799038
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Applies to",
-            "updated": 1609162829457
+            "updated": 1609162829457,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gilt für",
+                    "updated": 1633896647563
+                }
+            ]
         },
         {
             "style": "List",

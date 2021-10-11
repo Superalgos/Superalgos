@@ -12,7 +12,7 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -33,7 +33,6 @@
     "attachingRules": {
         "compatibleTypes": "->P2P Network->"
     },
-    "childrenNodesProperties": [
-    ],
+    "childrenNodesProperties": [],
     "propertyNameAtParent": "p2pNetworkNodes"
 }

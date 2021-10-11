@@ -895,8 +895,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                             
                                             // Check to see it main repo has been set as upstream
                                             let remotes = await git.getRemotes();
+                                            let isUpstreamSet
                                             for(let remote in remotes) {
-                                                let isUpstreamSet
                                                 if (remotes[remote].name === 'upstream') {
                                                     isUpstreamSet = true
                                                 } else {

@@ -9,18 +9,16 @@
     "name": "Luis-Fernando-Molina"
   },
   "scripts": {
-    "start-dev": "node platform minMemo noBrowser",
+    "start": "node platform minMemo noBrowser",
     "setup": "node setup noShortcuts",
-    "release-dev": "electron-builder --dir",
-    "release-win": "electron-builder --win",
-    "release-mac": "electron-builder --mac",
-    "start": "electron . noBrowser",
+    "release": "electron-builder -w",
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
     "@octokit/rest": "^18.11.4",
     "ccxt": "^1.57.36",
     "child_process": "^1.0.2",
+    "electron-updater": "^4.3.9",
     "ethereumjs-common": "^1.5.2",
     "ethereumjs-tx": "^2.1.2",
     "ethers": "^5.4.7",
@@ -45,18 +43,15 @@
   "build": {
     "appId": "org.superalgos.platform",
     "productName": "Superalgos",
-    "directories": {
-      "output": "build"
-    },
+    "asar": false,
     "files": [
       "**/*",
-      "!.github${/*}",
-      "!.vscode${/*}",
+      "!.github",
+      "!.vscode",
       "!.dockerignore${/*}",
-      "!Data-Storage/*",
-      "!Log-Files/*",
-      "!My-Workspaces/*",
-      "!build",
+      "!Platform/My-Data-Storage/*",
+      "!Platform/My-Log-Files/*",
+      "!Platform/My-Workspaces/*",
       "!Docker",
       "!Launch-Scripts",
       "!run.js",
@@ -66,16 +61,11 @@
     "win": {
       "target": [
         {
-          "target": "portable",
-          "arch": "x64"
-        },
-        {
           "target": "nsis",
           "arch": "x64"
         }
       ],
-      "icon": "./Launch-Scripts/superalgos.ico",
-      "publish": "github"
+      "icon": "./build/superalgos.ico"
     },
     "nsis": {
       "oneClick": false,
@@ -86,15 +76,6 @@
       "createStartMenuShortcut": true,
       "license": "./LICENSE",
       "runAfterFinish": false
-    },
-    "mac": {
-      "category": "public.app-category.finance",
-      "target": "dmg",
-      "type": "development",
-      "publish": "github"
-    },
-    "linux": {
-      "maintainer": "na.amorim@gmail.com"
     }
   }
 }

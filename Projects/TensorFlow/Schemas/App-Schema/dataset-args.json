@@ -3,25 +3,27 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "batchesPerGradientUpdate",
             "label": "Add Batch Size Per Gradient Update",
             "relatedUiObject": "Batches Per Gradient Update",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "shuffle",
             "label": "Add Shuffle",
             "relatedUiObject": "Shuffle",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -37,16 +39,16 @@
     },
     "propertyNameAtParent": "datasetArgs",
     "childrenNodesProperties": [
-      {
-        "name": "batchesPerGradientUpdate",
-        "type": "node",
-        "childType": "Batches Per Gradient Update"
-      },
-      {
-        "name": "shuffle",
-        "type": "node",
-        "childType": "Shuffle"
-      }
+        {
+            "name": "batchesPerGradientUpdate",
+            "type": "node",
+            "childType": "Batches Per Gradient Update"
+        },
+        {
+            "name": "shuffle",
+            "type": "node",
+            "childType": "Shuffle"
+        }
     ],
     "icon": "tensorflow"
 }

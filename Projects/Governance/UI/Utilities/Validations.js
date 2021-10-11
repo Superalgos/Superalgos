@@ -9,7 +9,7 @@ function newGovernanceUtilitiesValidations () {
         /*
          Find all the nodes representing the current program.
          */
-        let programs = UI.projects.foundations.utilities.branches.nodeBranchToArray(userProfile, programNodeType)
+        let programs = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile, programNodeType)
         if (programs !== undefined) {
             if (programs.length > 1) {
                 userProfile.payload.uiObject.setErrorMessage(

@@ -1,4 +1,4 @@
-function newFoundationsFunctionLibraryShortcutKeys() {
+function newVisualScriptingFunctionLibraryShortcutKeys() {
     let thisObject = {
         getNodeByShortcutKey: getNodeByShortcutKey
     }

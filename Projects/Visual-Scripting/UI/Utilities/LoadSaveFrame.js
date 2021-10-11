@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesLoadSaveFrame() {
+function newVisualScriptingUtilitiesLoadSaveFrame() {
     let thisObject = {
         saveFrame: saveFrame,
         loadFrame: loadFrame

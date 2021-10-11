@@ -1,4 +1,4 @@
-function newFoundationsFunctionLibraryNodePath() {
+function newVisualScriptingFunctionLibraryNodePath() {
     let thisObject = {
         getNodePath: getNodePath
     }

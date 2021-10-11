@@ -145,9 +145,9 @@ function newPlottersManager() {
             A layer can be referencing a Data Product in 3 different branches of the Network hiriatchy.
             Two of those branches have sessions.
             */
-            let sessionReference = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(layer.definition, 'Trading Session Reference', undefined, false, true, true, true)
+            let sessionReference = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(layer.definition, 'Trading Session Reference', undefined, false, true, true, true)
             if (sessionReference === undefined) {
-                sessionReference = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(layer.definition, 'Learning Session Reference', undefined, false, true, true, true)
+                sessionReference = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(layer.definition, 'Learning Session Reference', undefined, false, true, true, true)
             }
 
             if (sessionReference !== undefined) {

@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesNodeConfig() {
+function newVisualScriptingUtilitiesNodeConfig() {
     let thisObject = {
         saveConfigProperty: saveConfigProperty,
         loadConfigProperty: loadConfigProperty

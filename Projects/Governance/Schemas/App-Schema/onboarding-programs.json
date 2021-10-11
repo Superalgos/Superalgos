@@ -10,25 +10,27 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "airdropProgram",
             "label": "Add Airdrop Program",
-            "relatedUiObject": "Airdrop Program"
+            "relatedUiObject": "Airdrop Program",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "githubProgram",
             "label": "Add Github Program",
-            "relatedUiObject": "Github Program"
+            "relatedUiObject": "Github Program",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

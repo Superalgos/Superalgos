@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesHierarchy() {
+function newVisualScriptingUtilitiesHierarchy() {
     let thisObject = {
         getHiriarchyMap: getHiriarchyMap,
         getHiriarchyHead: getHiriarchyHead,

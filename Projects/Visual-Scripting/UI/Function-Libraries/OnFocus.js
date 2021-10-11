@@ -1,4 +1,4 @@
-function newFoundationsFunctionLibraryOnFocus() {
+function newVisualScriptingFunctionLibraryOnFocus() {
     let thisObject = {
         getNodeThatIsOnFocus: getNodeThatIsOnFocus
     }

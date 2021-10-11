@@ -702,7 +702,7 @@ function newFoundationsFloatingSpace() {
 
         for (let i = 0; i < UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes.length; i++) {
             let map = new Map()
-            map = UI.projects.foundations.utilities.hierarchy.getHiriarchyMap(UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes[i])
+            map = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyMap(UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes[i])
             let iterator1 = map.values();
             for (let k = 0; k < map.size; k++) {
                 let floatingObject1 = iterator1.next().value.payload.floatingObject

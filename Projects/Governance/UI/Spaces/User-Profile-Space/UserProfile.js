@@ -370,7 +370,7 @@ function newGovernanceUserProfileSpace() {
         }
 
         function getBlockchainAccount(userProfile) {
-            let signature = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'signature')
+            let signature = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'signature')
             if (signature === undefined || signature === "") { return }
 
             let request = {

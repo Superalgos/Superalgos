@@ -98,7 +98,7 @@ exports.newTaskServer = function newTaskServer() {
                 setupTaskHeartbeats()
 
                 function initializeProjectDefinitionNode() {
-                    TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE = TS.projects.foundations.utilities.nodeFunctions.findNodeInNodeMesh(TS.projects.foundations.globals.taskConstants.TASK_NODE, 'Project Definition')
+                    TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(TS.projects.foundations.globals.taskConstants.TASK_NODE, 'Project Definition')
                     if (TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE === undefined) {
                         console.log("[ERROR] Task Server -> Task -> bootingProcess -> Project Definition not found. ")
                         TS.projects.foundations.globals.taskVariables.FATAL_ERROR_MESSAGE = 'Project Definition not found. Fatal Error, can not continue. Fix the problem and try again.'

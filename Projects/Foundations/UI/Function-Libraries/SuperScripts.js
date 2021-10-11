@@ -7,7 +7,7 @@ function newFoundationsFunctionLibrarySuperScriptsFunctions() {
 
     function runSuperScript(node, rootNodes) {
         try {
-            let clone = UI.projects.foundations.functionLibraries.nodeCloning.getNodeClone
+            let clone = UI.projects.visualScripting.functionLibraries.nodeCloning.getNodeClone
             let executionResult = true
             let superAction = node
 
@@ -16,7 +16,7 @@ function newFoundationsFunctionLibrarySuperScriptsFunctions() {
                 spawnPosition.y = target.payload.position.y
 
                 if (exchange === undefined) {
-                    UI.projects.foundations.functionLibraries.uiObjectsFromNodes.createUiObjectFromNode(templateClone, target, target)
+                    UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.createUiObjectFromNode(templateClone, target, target)
                 } else {
                     let definition = getSchemaDocument(target)
                     for (let i = 0; i < definition.childrenNodesProperties.length; i++) {
@@ -36,19 +36,19 @@ function newFoundationsFunctionLibrarySuperScriptsFunctions() {
                                 }
                             }
                             if (targetExchange === undefined) {
-                                targetExchange = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(target, exchangeNodeType)
-                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(targetExchange, exchange)
+                                targetExchange = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(target, exchangeNodeType)
+                                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(targetExchange, exchange)
                             }
                             let nodesArray = targetExchange[arrayPropertyName]
                             nodesArray.push(templateClone)
-                            UI.projects.foundations.functionLibraries.uiObjectsFromNodes.createUiObjectFromNode(templateClone, targetExchange, targetExchange)
+                            UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.createUiObjectFromNode(templateClone, targetExchange, targetExchange)
                         }
                     }
                 }
             }
 
             function deleteNode(node) {
-                UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(node, rootNodes)
+                UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(node, rootNodes)
             }
 
             /* Validations */

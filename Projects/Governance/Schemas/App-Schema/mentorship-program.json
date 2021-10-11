@@ -10,32 +10,35 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add User Mentor",
-            "relatedUiObject": "User Mentor"
+            "relatedUiObject": "User Mentor",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "tokensAwarded",
             "actionFunction": "payload.executeAction",
             "label": "Add Tokens Awarded",
-            "relatedUiObject": "Tokens Awarded"
+            "relatedUiObject": "Tokens Awarded",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "tokensBonus",
             "actionFunction": "payload.executeAction",
             "label": "Add Tokens Bonus",
-            "relatedUiObject": "Tokens Bonus"
+            "relatedUiObject": "Tokens Bonus",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

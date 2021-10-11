@@ -4,7 +4,14 @@
     "type": "Docs Error - Page With No Paragraphs",
     "definition": {
         "text": "The page exists but it's empty.",
-        "updated": 1610977367224
+        "updated": 1610977367224,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "\nDie Seite existiert, ist aber leer.",
+                "updated": 1633896898784
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -14,17 +21,38 @@
         {
             "style": "Error",
             "text": "The Docs Page Name you specified was found, but it has no paragraphs in it.",
-            "updated": 1610977343685
+            "updated": 1610977343685,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der von Ihnen angegebene Docs Page Name wurde gefunden,  enthält jedoch keine Absätze. Die Seite existiert, ist aber leer.",
+                    "updated": 1633896994091
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Please, help us fix this page!",
-            "updated": 1610977394319
+            "updated": 1610977394319,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bitte helfen Sie uns, diese Seite zu reparieren!",
+                    "updated": 1633897014155
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Applies to",
-            "updated": 1609162829457
+            "updated": 1609162829457,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gilt für",
+                    "updated": 1633897024464
+                }
+            ]
         },
         {
             "style": "List",

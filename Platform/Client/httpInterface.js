@@ -1112,7 +1112,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 let filePath = allAppSchemasFilePaths[i]
                                                 console.log('Saving File at ' + filePath)
                                                 console.log(fileContent)
-                                                fs.readFileSync(filePath, fileContent)
+                                                fs.writeFileSync(filePath, fileContent)
                                             }
                                         }
                                     } catch (err) {

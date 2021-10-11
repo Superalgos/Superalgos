@@ -893,19 +893,25 @@ exports.newHttpInterface = function newHttpInterface() {
                                         try {
                                             await git.checkout(currentBranch)
                                             
+                                            // Check to see it main repo has been set as upstream
                                             let remotes = await git.getRemotes();
                                             for(let remote in remotes) {
-                                                console.log(remotes[remote].name)
+                                                let isUpstreamSet
+                                                if (remotes[remote].name === upstream) {
+                                                    isUpstreamSet = true
+                                                } else {
+                                                    isUpstreamSet = false
+                                                }
                                             }
-                                            if (true){
-                                                //console.log(remotes)
-                                                let setUpstream = ['remote', 'add', 'upstream', 'https://github.com/Superalgos/Superalgos']
-                                                //await git.getRemotes(setUpstream);
+                                            // If upstream has not been set. Set it now
+                                            if (isUpstreamSet === false){
+                                                await git.addRemote('upstream', 'https://github.com/Superalgos/Superalgos');
                                             }
-                                            let pullMainRepo = ['pull', 'upstream', `${currentBranch}`]
-                                            //await git.raw(pullMainRepo);
-                                            let updateToMainRepo = ['reset', '--hard', `upstream/${currentBranch}`]
-                                            //await git.raw(updateToMainRepo);
+                                            // Pull branch from main repo
+                                            await git.pull('upstream', currentBranch);
+                                            // Reset branch to match main repo
+                                            let upstreamLocation = `upstream/${currentBranch}`
+                                            await git.reset('hard', [upstreamLocation])
                                             
                                         } catch (err) {
                                             console.log('[ERROR] Error changing current branch to ' + currentBranch)

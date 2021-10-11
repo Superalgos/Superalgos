@@ -897,7 +897,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             let remotes = await git.getRemotes();
                                             for(let remote in remotes) {
                                                 let isUpstreamSet
-                                                if (remotes[remote].name === upstream) {
+                                                if (remotes[remote].name === 'upstream') {
                                                     isUpstreamSet = true
                                                 } else {
                                                     isUpstreamSet = false

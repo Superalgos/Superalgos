@@ -415,7 +415,7 @@ function newLayersPanel() {
         function syncWithDesignerLayers() {
             if (thisObject.payload.node === undefined) { return }
             let layerManager = thisObject.payload.node
-            let layers = UI.projects.foundations.utilities.branches.nodeBranchToArray(layerManager, 'Layer')
+            let layers = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(layerManager, 'Layer')
             for (let p = 0; p < layers.length; p++) {
                 let layerNode = layers[p]
 

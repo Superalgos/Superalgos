@@ -54,7 +54,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                 that do not have a plotter module. Since our previous action created all layers no matter
                 what, we need now to delete all the ones that do not have a plotter module.
                 */
-                let allLayers = UI.projects.foundations.utilities.branches.nodeBranchToArray(botLayers, 'Layer')
+                let allLayers = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(botLayers, 'Layer')
                 for (let j = 0; j < allLayers.length; j++) {
                     let layer = allLayers[j]
                     layer.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
@@ -67,7 +67,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                 /*
                 For each of the layers we will not create the Layer Panels and Layer Polygons.
                 */
-                allLayers = UI.projects.foundations.utilities.branches.nodeBranchToArray(botLayers, 'Layer')
+                allLayers = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(botLayers, 'Layer')
                 for (let j = 0; j < allLayers.length; j++) {
                     let layer = allLayers[j]
                     let menu = layer.payload.uiObject.menu
@@ -107,12 +107,12 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
         function scanNetworkNode(lanNetworkNode) {
             if (lanNetworkNode === undefined) { return }
 
-            let backtestingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Backtesting Session')
-            let fordwardTestingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Forward Testing Session')
-            let paperTradingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Paper Trading Session')
-            let liveTradingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Live Trading Session')
-            let backLearningSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Back Learning Session')
-            let liveLearningSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Live Learning Session')
+            let backtestingSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Backtesting Session')
+            let fordwardTestingSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Forward Testing Session')
+            let paperTradingSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Paper Trading Session')
+            let liveTradingSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Live Trading Session')
+            let backLearningSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Back Learning Session')
+            let liveLearningSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Live Learning Session')
 
             scanSessionArray(backtestingSessionsArray)
             scanSessionArray(fordwardTestingSessionsArray)
@@ -151,7 +151,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
         /*
         We will create 3 Time Line Charts for the Trading Mine Products
         */
-        mineProducts = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Trading Mine Products')
+        mineProducts = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Trading Mine Products')
         for (let j = 0; j < mineProducts.length; j++) {
             let mineProduct = mineProducts[j]
             /*
@@ -210,7 +210,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
         /*
         We will create 3 Time Line Charts for the Learning Mine Products
         */
-        mineProducts = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Learning Mine Products')
+        mineProducts = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Learning Mine Products')
         for (let j = 0; j < mineProducts.length; j++) {
             let mineProduct = mineProducts[j]
             /*
@@ -269,7 +269,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
         /*
         We need to create a Timeline Chart for each Data Mine Products.
         */
-        mineProducts = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Data Mine Products')
+        mineProducts = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Data Mine Products')
         for (let j = 0; j < mineProducts.length; j++) {
             let mineProduct = mineProducts[j]
             /*
@@ -317,8 +317,8 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             }
 
             function scanNetworkNode(lanNetworkNode) {
-                let testingTradingTasks = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Testing Trading Tasks', node, true)
-                let productionTradingTasks = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Production Trading Tasks', node, true)
+                let testingTradingTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Testing Trading Tasks', node, true)
+                let productionTradingTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Production Trading Tasks', node, true)
 
                 if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, testingTradingTasks, true) === true) {
                     let dashboard = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')

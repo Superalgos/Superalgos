@@ -614,7 +614,7 @@ function newWorkspace() {
             let hierarchyHead = hierarchyHeads[i]
             if (hierarchyHead.type === hierarchyHeadsType) {
 
-                let nodeArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(hierarchyHead, nodeType)
+                let nodeArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(hierarchyHead, nodeType)
                 resultArray = resultArray.concat(nodeArray)
             }
         }

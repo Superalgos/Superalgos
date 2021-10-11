@@ -280,7 +280,7 @@ function newFoundationsDocsSearchEngine() {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             if (rootNode !== null) {
-                let nodeArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(rootNode)
+                let nodeArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(rootNode)
                 allNodesFound = allNodesFound.concat(nodeArray)
             }
         }

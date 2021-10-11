@@ -293,6 +293,11 @@
             ],
             "utilities": [
                 {
+                    "name": "Branches",
+                    "propertyName": "branches",
+                    "functionName": "newVisualScriptingUtilitiesBranches"
+                },
+                {
                     "name": "Hierarchy",
                     "propertyName": "hierarchy",
                     "functionName": "newVisualScriptingUtilitiesHierarchy"
@@ -383,11 +388,6 @@
                 }
             ],
             "utilities": [
-                {
-                    "name": "Branches",
-                    "propertyName": "branches",
-                    "functionName": "newFoundationsUtilitiesBranches"
-                },
                 {
                     "name": "Clipboard",
                     "propertyName": "clipboard",

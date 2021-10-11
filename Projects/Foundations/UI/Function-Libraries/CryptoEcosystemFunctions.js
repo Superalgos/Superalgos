@@ -270,7 +270,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         /*
                         Here we complete the missing stuff at Data Tasks
                         */
-                        let dataTasks = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Data Tasks', node, true)
+                        let dataTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Tasks', node, true)
                         if (dataTasks === undefined) {
                             dataTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Tasks')
                         }
@@ -303,7 +303,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         /*
                         Here we complete the missing stuff at Learning Tasks
                         */
-                        let learningTasks = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Learning Tasks', node, true)
+                        let learningTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Learning Tasks', node, true)
                         if (learningTasks === undefined) {
                             learningTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Learning Tasks')
                         }
@@ -331,8 +331,8 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             UI.projects.foundations.utilities.menu.menuClickOfNodeArray(marketLearningTask.learningMineTasks, 'Add All Tasks', true)
 
                             /* This will be needed at the charting space, for creating Dashboards */
-                            let backLearningSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(marketLearningTask, 'Back Learning Session')
-                            let liveLearningSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(marketLearningTask, 'Live Learning Session')
+                            let backLearningSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketLearningTask, 'Back Learning Session')
+                            let liveLearningSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketLearningTask, 'Live Learning Session')
 
                             let allSessionsArray = backLearningSessionsArray
                                 .concat(liveLearningSessionsArray)
@@ -357,7 +357,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             /*
                             Now we install the environmnet at the current Network Node
                             */
-                            let tradingTasks = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, environmentType, node, true)
+                            let tradingTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, environmentType, node, true)
                             if (tradingTasks === undefined) {
                                 tradingTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, environmentType)
                             }
@@ -385,10 +385,10 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                                 UI.projects.foundations.utilities.menu.menuClickOfNodeArray(marketTradingTask.tradingMineTasks, 'Add All Tasks', true)
 
                                 /* This will be needed at the charting space, for creating Dashboards */
-                                let backtestingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(marketTradingTask, 'Backtesting Session')
-                                let liveTradingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(marketTradingTask, 'Live Trading Session')
-                                let paperTradingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(marketTradingTask, 'Paper Trading Session')
-                                let forwardSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(marketTradingTask, 'Forward Testing Session')
+                                let backtestingSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketTradingTask, 'Backtesting Session')
+                                let liveTradingSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketTradingTask, 'Live Trading Session')
+                                let paperTradingSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketTradingTask, 'Paper Trading Session')
+                                let forwardSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketTradingTask, 'Forward Testing Session')
                                 let allSessionsArray = backtestingSessionsArray
                                     .concat(liveTradingSessionsArray)
                                     .concat(paperTradingSessionsArray)
@@ -404,11 +404,11 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         /*
                         Here we complete the missing stuff at Data Mines Data
                         */
-                        let dataStorage = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
+                        let dataStorage = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
                             dataStorage = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
                         }
-                        let dataMinesData = UI.projects.foundations.utilities.branches.findInBranch(dataStorage, 'Data Mines Data', node, true)
+                        let dataMinesData = UI.projects.visualScripting.utilities.branches.findInBranch(dataStorage, 'Data Mines Data', node, true)
                         if (dataMinesData === undefined) {
                             dataMinesData = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataStorage, 'Data Mines Data')
                         }
@@ -443,11 +443,11 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         /*
                         Here we complete the missing stuff at Data Mines Data
                         */
-                        let dataStorage = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
+                        let dataStorage = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
                             dataStorage = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
                         }
-                        let learningMinesData = UI.projects.foundations.utilities.branches.findInBranch(dataStorage, 'Learning Mines Data', node, true)
+                        let learningMinesData = UI.projects.visualScripting.utilities.branches.findInBranch(dataStorage, 'Learning Mines Data', node, true)
                         if (learningMinesData === undefined) {
                             learningMinesData = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataStorage, 'Learning Mines Data')
                         }
@@ -498,11 +498,11 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         /*
                         Here we complete the missing stuff at Data Mines Data
                         */
-                        let dataStorage = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
+                        let dataStorage = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
                             dataStorage = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
                         }
-                        let tradingMinesData = UI.projects.foundations.utilities.branches.findInBranch(dataStorage, 'Trading Mines Data', node, true)
+                        let tradingMinesData = UI.projects.visualScripting.utilities.branches.findInBranch(dataStorage, 'Trading Mines Data', node, true)
                         if (tradingMinesData === undefined) {
                             tradingMinesData = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataStorage, 'Trading Mines Data')
                         }
@@ -639,7 +639,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
             function uninstallInChartingSpace(chartingSpace) {
 
                 /* Delete all time machines which are referencing sessions inside the market being unistalled. */
-                let timeMachines = UI.projects.foundations.utilities.branches.nodeBranchToArray(chartingSpace, 'Time Machine')
+                let timeMachines = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(chartingSpace, 'Time Machine')
                 for (let i = 0; i < timeMachines.length; i++) {
                     let timeMachine = timeMachines[i]
                     let session = timeMachine.payload.referenceParent
@@ -654,7 +654,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                 }
 
                 /* Delete all Dashboards that does not have time machines inside. */
-                let dashboardArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(chartingSpace, 'Dashboard')
+                let dashboardArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(chartingSpace, 'Dashboard')
                 for (let i = 0; i < dashboardArray.length; i++) {
                     let dashboard = dashboardArray[i]
                     if (dashboard.timeMachines.length === 0) {
@@ -686,12 +686,12 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
 
             function uninstallInNetwork(network) {
 
-                let marketDataTasksArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(network, 'Market Data Tasks')
-                let marketTradingTasksArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(network, 'Market Trading Tasks')
-                let marketLearningTasksArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(network, 'Market Learning Tasks')
-                let marketDataProductsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(network, 'Market Data Products')
-                let marketTradingProductsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(network, 'Market Trading Products')
-                let marketLearningProductsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(network, 'Market Learning Products')
+                let marketDataTasksArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Data Tasks')
+                let marketTradingTasksArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Trading Tasks')
+                let marketLearningTasksArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Learning Tasks')
+                let marketDataProductsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Data Products')
+                let marketTradingProductsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Trading Products')
+                let marketLearningProductsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Learning Products')
 
                 uninstalMarketArray(marketDataTasksArray)
                 uninstalMarketArray(marketTradingTasksArray)

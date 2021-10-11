@@ -892,8 +892,13 @@ exports.newHttpInterface = function newHttpInterface() {
                                         const git = simpleGit(options)
                                         try {
                                             await git.checkout(currentBranch)
-                                            let setUpstream = ['remote', 'add', 'upstream', 'https://github.com/Superalgos/Superalgos']
-                                            await git.raw(setUpstream);
+                                            
+                                            let remotes = await git.getRemotes();
+                                            if (true){
+                                                console.log(remotes)
+                                                let setUpstream = ['remote', 'add', 'upstream', 'https://github.com/Superalgos/Superalgos']
+                                                //await git.getRemotes(setUpstream);
+                                            }
                                             let pullMainRepo = ['pull', 'upstream', `${currentBranch}`]
                                             await git.raw(pullMainRepo);
                                             let updateToMainRepo = ['reset', '--hard', `upstream/${currentBranch}`]

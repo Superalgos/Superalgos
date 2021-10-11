@@ -52,13 +52,13 @@
             }
 
             /* The first phase here is about checking that we have everything we need at the definition level. */
-            let dataDependencies = TS.projects.foundations.utilities.nodeFunctions.nodeBranchToArray(
+            let dataDependencies = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(
                 TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency'
             )
 
             if (TS.projects.foundations.functionLibraries.singleMarketFunctions.validateDataDependencies(processIndex, dataDependencies, callBackFunction) !== true) { return }
 
-            let outputDatasets = TS.projects.foundations.utilities.nodeFunctions.nodeBranchToArray(
+            let outputDatasets = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(
                 TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset'
             )
             if (TS.projects.foundations.functionLibraries.singleMarketFunctions.validateOutputDatasets(processIndex, outputDatasets, callBackFunction) !== true) { return }

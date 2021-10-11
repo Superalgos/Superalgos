@@ -18,7 +18,7 @@
             /* We will reaise the events for the datasets impacted by the process that just finished. */
 
             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput !== undefined) {
-                let outputDatasets = TS.projects.foundations.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
+                let outputDatasets = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
 
                 for (let j = 0; j < outputDatasets.length; j++) {
                     let outputDataset = outputDatasets[j]
@@ -112,7 +112,7 @@
     function asyncRaiseEvents(lastFile, timeFrames) {
 
         if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput !== undefined) {
-            let outputDatasets = TS.projects.foundations.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
+            let outputDatasets = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
 
             for (let j = 0; j < outputDatasets.length; j++) {
                 let outputDataset = outputDatasets[j]

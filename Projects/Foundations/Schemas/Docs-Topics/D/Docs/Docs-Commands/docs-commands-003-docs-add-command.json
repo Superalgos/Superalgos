@@ -4,7 +4,14 @@
     "type": "Docs Add Command",
     "definition": {
         "text": "Use this command to add a new page to the Docs.",
-        "updated": 1609151813687
+        "updated": 1609151813687,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diesen command (Befehl), um eine neue Seite zu den Docs hinzuzufügen.",
+                "updated": 1633893255504
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -20,7 +27,14 @@
         {
             "style": "Subtitle",
             "text": "Examples",
-            "updated": 1613766032848
+            "updated": 1613766032848,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele",
+                    "updated": 1633893266139
+                }
+            ]
         },
         {
             "style": "Json",
@@ -50,7 +64,14 @@
         {
             "style": "Subtitle",
             "text": "Examples",
-            "updated": 1613766391018
+            "updated": 1613766391018,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele",
+                    "updated": 1633893277348
+                }
+            ]
         },
         {
             "style": "Json",
@@ -69,32 +90,74 @@
         },
         {
             "style": "Title",
-            "text": "Parameters"
+            "text": "Parameters",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Parameter",
+                    "updated": 1633893281975
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Project: It's the project where the page is defined.",
-            "updated": 1613764802872
+            "updated": 1613764802872,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Project: Es ist das Projekt, in dem die Seite definiert ist.",
+                    "updated": 1633893301146
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Docs Page Category: One of the available categories.",
-            "updated": 1613764813920
+            "updated": 1613764813920,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": " Docs Page Category: Eine der verfügbaren Kategorien.",
+                    "updated": 1633893321559
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Docs topic / tutorial / review name: The name of the topic / tutorial / review the new page will belong to.",
-            "updated": 1613767524694
+            "updated": 1613767524694,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Docs topic / tutorial / review name: Der Name des topic / tutorial / review, zu dem die neue Seite gehören soll.",
+                    "updated": 1633893492100
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Docs Page Name: The name of the page.",
-            "updated": 1613764889322
+            "updated": 1613764889322,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Docs Page Name: Der Name der Seite.",
+                    "updated": 1633893510369
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Page Numer: Optional. The number affects the position in the corresponding table of contents only. If a Docs Page Number is not provided, the systems assigns one.",
-            "updated": 1613764928993
+            "text": "Docs Page Number: Optional. The number affects the position in the corresponding table of contents only. If a Docs Page Number is not provided, the systems assigns one.",
+            "updated": 1633893655425,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Docs Page Number: Optional. Die Nummer wirkt sich nur auf die Position im entsprechenden Inhaltsverzeichnis aus. Wenn keine Dokumentseitennummer angegeben ist, wird vom System eine zugewiesen.",
+                    "updated": 1633893792768
+                }
+            ]
         }
     ]
 }

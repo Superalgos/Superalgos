@@ -4,12 +4,26 @@
     "type": "Docs Action Copy To Clipboard",
     "definition": {
         "text": "This allows you to easily copy the text of any paragraph into your computer's clipboard. It is specially useful for pagragraphs of Docs Anchor Style or of Docs Block Style to get the string needed to execute the Docs Goto Command in the first case or to use it at a Docs Include Style in the second case.",
-        "updated": 1609262148454
+        "updated": 1609262148454,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Damit können Sie den Text eines beliebigen Absatzes einfach in die Zwischenablage Ihres Computers kopieren. Es ist besonders nützlich für Abschnitte des Docs Anchor Style oder des Docs Block Style um die Zeichenkette zu erhalten, die benötigt wird, um den Docs Goto Command im ersten Fall auszuführen oder um ihn in einem Docs Include Style im zweiten Fall zu verwenden.",
+                "updated": 1633966321272
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Edit\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Die Docs wurden ins deutsche übersetzt durch gitforkgit.",
+                    "updated": 1633968084023
+                }
+            ]
         }
     ]
 }

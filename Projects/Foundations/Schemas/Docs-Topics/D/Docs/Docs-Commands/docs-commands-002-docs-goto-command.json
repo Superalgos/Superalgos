@@ -4,7 +4,14 @@
     "type": "Docs Goto Command",
     "definition": {
         "text": "This command provides a mechanism to navigate to a Docs page or an anchor within the page.",
-        "updated": 1610975620919
+        "updated": 1610975620919,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dieser command bietet einen Mechanismus, um zu einer Docs-Seite oder einem anchor innerhalb der Seite zu navigieren.",
+                "updated": 1633892921614
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -20,32 +27,74 @@
         {
             "style": "Title",
             "text": "Parameters",
-            "updated": 1609150455663
+            "updated": 1609150455663,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Parameter",
+                    "updated": 1633892931320
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Project: It's the project where the page is defined.",
-            "updated": 1613764369592
+            "updated": 1613764369592,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Project: Es ist das Projekt, in dem die Seite definiert ist.",
+                    "updated": 1633893005929
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Docs Page Category: One of the available categories.",
-            "updated": 1613764395658
+            "updated": 1613764395658,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Docs Page Category: Eine der verfügbaren Kategorien.",
+                    "updated": 1633893023879
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Docs Page Name: The name of the page.",
-            "updated": 1613764542342
+            "updated": 1613764542342,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Docs Page Name: Der Name der Seite.",
+                    "updated": 1633893042591
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Docs Page Anchor: This parameter is optional. When present, it refers to a Docs Paragraph with the Docs Anchor Style within the page.",
-            "updated": 1613764614157
+            "updated": 1613764614157,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Docs Page Anchor: Dieser Parameter ist optional. Wenn er vorhanden ist, verweist er auf einen Docs Paragraph mit dem Docs Anchor Style innerhalb der Seite.",
+                    "updated": 1633893112576
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Examples",
-            "updated": 1609150465738
+            "updated": 1609150465738,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele",
+                    "updated": 1633893131581
+                }
+            ]
         },
         {
             "style": "Json",

@@ -4,17 +4,38 @@
     "type": "Docs Page Number",
     "definition": {
         "text": "Each topic or tutorial page has a sequential page number. The page number is used to build the corresponding table of content.",
-        "updated": 1611000559709
+        "updated": 1611000559709,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Jedes Topic oder jede Tutorial-Seite hat eine fortlaufende Seitenzahl. Die Seitenzahl wird zur Erstellung des entsprechenden Inhaltsverzeichnisses verwendet.",
+                "updated": 1633859109353
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Important",
-            "text": "At this point, the number of the page may not be changed from within the Docs interface. To change the number of the page you need to manually modify the corresponding file, editing the pageNumeber field and properly mapping the page number of the page in the name of the file.",
-            "updated": 1613755941767
+            "text": "At this point, the number of the page may not be changed from within the Docs interface. To change the number of the page you need to manually modify the corresponding file, editing the page number field and properly mapping the page number of the page in the name of the file.",
+            "updated": 1633859283087,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zu diesem Zeitpunkt kann die Seitennummer nicht innerhalb des Docs-Interface geändert werden. Um die Seitennummer zu ändern, müssen Sie die entsprechende Datei manuell ändern, das Feld Seitennummer bearbeiten und die Seitennummer der Seite im Namen der Datei richtig zuordnen.",
+                    "updated": 1633859557578
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "The Docs Repaginate Command helps with arranging page numbers of large collection of pages."
+            "text": "The Docs Repaginate Command helps with arranging page numbers of large collection of pages.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Docs Repaginate Command hilft bei der Anordnung der Seitenzahlen bei einer großen Sammlung von Seiten.",
+                    "updated": 1633859626848
+                }
+            ]
         }
     ]
 }

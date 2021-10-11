@@ -899,20 +899,20 @@ exports.newHttpInterface = function newHttpInterface() {
                                         }
                                     }
 
-                                    async function runNodeSetup () {
-                                        console.log( "Running Node setup to adjust for new Branch" )
+                                    async function runNodeSetup() {
+                                        console.log("Running Node setup to adjust for new Branch")
                                         const process = require("process");
                                         const { execSync } = require("child_process");
 
                                         let dir = process.cwd()
                                         let command = "node setup";
-                                        let stdout = execSync( command,
-                                        {
-                                            cwd: dir 
-                                        }).toString();
-                                    
+                                        let stdout = execSync(command,
+                                            {
+                                                cwd: dir
+                                            }).toString();
+
                                         console.log("Node Setup has completed with the following result:", stdout)
-                                           
+
                                     }
 
                                 } catch (err) {
@@ -988,6 +988,138 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                                 }
+                                break
+                            }
+
+                            case 'FixAppSchema': {
+                                /*
+                                We will use this process when we have moved APP SCHEMA files from one project to another, and we need to fixt the
+                                actions where this node was referenced, so that it points to the new project where the node has moved to. 
+                                */
+                                let customResponse = {
+                                    result: global.CUSTOM_OK_RESPONSE.result,
+                                    message: ''
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
+
+                                console.log('Fixing App Schemas...')
+
+                                let projects = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS)
+                                let PROJECTS_MAP = new Map()
+                                let directoryCount = 0
+                                let allAppSchemas = []
+                                let allAppSchemasFilePaths = []
+
+                                for (let i = 0; i < projects.length; i++) {
+                                    let project = projects[i]
+
+
+
+                                    const fs = SA.nodeModules.fs
+                                    let folder = 'App-Schema'
+                                    let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/'
+                                    SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(filePath + folder, onFilesReady)
+
+                                    function onFilesReady(files) {
+                                        try {
+                                            let SCHEMA_MAP = new Map()
+
+                                            console.log('files.length... ' + files.length)
+
+                                            for (let k = 0; k < files.length; k++) {
+                                                let name = files[k]
+                                                let nameSplitted = name.split(folder)
+                                                let fileName = nameSplitted[1]
+                                                for (let i = 0; i < 10; i++) {
+                                                    fileName = fileName.replace('\\', '/')
+                                                }
+                                                let fileToRead = filePath + folder + fileName
+
+                                                console.log('Reading file... ' + fileToRead)
+
+                                                let fileContent = fs.readFileSync(fileToRead)
+                                                let schemaDocument
+                                                try {
+                                                    schemaDocument = JSON.parse(fileContent)
+                                                    SCHEMA_MAP.set(schemaDocument.type, schemaDocument)
+                                                    allAppSchemas.push(schemaDocument)
+                                                    allAppSchemasFilePaths.push(fileToRead)
+                                                } catch (err) {
+                                                    console.log('[ERROR] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
+                                                    return
+                                                }
+                                            }
+                                            PROJECTS_MAP.set(project, SCHEMA_MAP)
+                                            directoryCount++
+
+                                            console.log('directoryCount = ' + directoryCount, 'projects.length = ' + projects.length)
+                                            //console.log(Array.from(PROJECTS_MAP.get(project).keys()))
+                                            if (directoryCount === projects.length) {
+                                                fixSchemas()
+                                            }
+                                        } catch (err) {
+                                            console.log(err.stack)
+                                        }
+                                    }
+                                }
+
+                                function fixSchemas() {
+                                    try {
+                                        console.log('fixSchemas...' + allAppSchemas.length)
+                                        let projects = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS)
+                                        const fs = SA.nodeModules.fs
+                                        let needFixing = 0
+                                        for (let i = 0; i < allAppSchemas.length; i++) {
+                                            let schemaDocument = allAppSchemas[i]
+                                            let wasUpdated = false
+                                            for (let j = 0; j < schemaDocument.menuItems.length; j++) {
+                                                let menuItem = schemaDocument.menuItems[j]
+                                                if (menuItem.relatedUiObject !== undefined && menuItem.relatedUiObjectProject === undefined) {
+                                                    needFixing++
+
+                                                    let hits = 0
+                                                    let foundProject
+                                                    let multiProject = ''
+                                                    for (let k = 0; k < projects.length; k++) {
+                                                        let project = projects[k]
+
+                                                        let testDocument = PROJECTS_MAP.get(project).get(menuItem.relatedUiObject)
+                                                        if (testDocument !== undefined) {
+                                                            hits++
+                                                            foundProject = project
+                                                            multiProject = multiProject + ' -> ' + project
+                                                        }
+                                                    }
+
+                                                    if (hits === 0) {
+                                                        console.log('Problem With No Solution #' + needFixing, '         Type: ' + schemaDocument.type, '          Action: ' + menuItem.action, '              Related UI Object: ' + menuItem.relatedUiObject)
+                                                        console.log('This Node Type was NOT FOUND at any project. ' + menuItem.relatedUiObject)
+                                                        continue
+                                                    }
+                                                    if (hits === 1) {
+                                                        console.log('Problem With One Solution #' + needFixing, '         Type: ' + schemaDocument.type, '          Action: ' + menuItem.action, '              Related UI Object: ' + menuItem.relatedUiObject, '              Found Project:' + foundProject)
+
+                                                        menuItem.relatedUiObjectProject = foundProject
+                                                        wasUpdated = true
+                                                        continue
+                                                    }
+                                                    console.log('Problem With MULTIPLE Solutions #' + needFixing, '         Type: ' + schemaDocument.type, '          Action: ' + menuItem.action, '              Related UI Object: ' + menuItem.relatedUiObject, '              Found at these Projects:' + multiProject)
+                                                }
+                                            }
+
+                                            if (wasUpdated === true) {
+                                                let fileContent = JSON.stringify(schemaDocument, undefined, 4)
+                                                let filePath = allAppSchemasFilePaths[i]
+                                                console.log('Saving File at ' + filePath)
+                                                console.log(fileContent)
+                                                fs.readFileSync(filePath, fileContent)
+                                            }
+                                        }
+                                    } catch (err) {
+                                        console.log(err.stack)
+                                    }
+                                }
+
                                 break
                             }
                         }
@@ -1406,13 +1538,13 @@ exports.newHttpInterface = function newHttpInterface() {
                             try {
                                 let project = unescape(requestPath[2])
                                 let folder = unescape(requestPath[3])
-                                
+
                                 let response = await SA.projects.communityPlugins.utilities.plugins.getPluginFileNames(
                                     project,
                                     folder
-                                ).catch(err =>  {
+                                ).catch(err => {
                                     console.log('[ERROR] httpInterface -> PluginFileNames -> err.stack = ' + err.stack)
-                                }) 
+                                })
 
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
 
@@ -1445,25 +1577,24 @@ exports.newHttpInterface = function newHttpInterface() {
                                 if (fileName === 'Superalgos-CL.json') {
                                     fileName = 'Superalgos-PL.json'
                                 }
-                                
+
                                 await SA.projects.communityPlugins.utilities.plugins.getPluginFileContent(
                                     project,
                                     folder,
                                     fileName
                                 )
-                                .then( response => 
-                                    {
+                                    .then(response => {
                                         SA.projects.foundations.utilities.httpResponses.respondWithContent(response, httpResponse)
                                     }
-                                )
-                                .catch(err => {
-                                    let error = {
-                                        result: 'Fail Because',
-                                        message: err
-                                    }
-                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
-                                    return
-                                })
+                                    )
+                                    .catch(err => {
+                                        let error = {
+                                            result: 'Fail Because',
+                                            message: err
+                                        }
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                                        return
+                                    })
 
                             } catch (err) {
                                 console.log('[ERROR] httpInterface -> LoadPlugin -> Method call produced an error.')

@@ -27,6 +27,7 @@ function newFoundationsDocsCommmandInterface() {
     function detectAppCommands() {
         if (checkContributeCommand() === undefined) { return true }
         if (checkUpdateCommand() === undefined) { return true }
+        if (fixAppSchema() === undefined) { return true }
 
         function checkContributeCommand() {
             if (UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase() === 'app.help app.contribute') {
@@ -128,6 +129,19 @@ function newFoundationsDocsCommmandInterface() {
                         data.docs.placeholder
                     )
                 }
+            }
+        }
+
+        function fixAppSchema() {
+
+            if (UI.projects.education.spaces.docsSpace.commandInterface.command.indexOf('App.fix') !== 0 && UI.projects.education.spaces.docsSpace.commandInterface.command.indexOf('app.fix') !== 0) { return 'Not Update Commands' }
+
+            httpRequest(undefined, 'App/FixAppSchema', onResponse)
+
+            return
+
+            function onResponse(err, data) {
+
             }
         }
     }

@@ -1,4 +1,4 @@
-function newFoundationsActionSwitch() {
+function newVisualScriptingActionSwitch() {
 
     let thisObject = {
         executeAction: executeAction,

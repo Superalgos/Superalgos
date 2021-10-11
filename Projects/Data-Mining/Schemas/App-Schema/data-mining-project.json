@@ -8,7 +8,7 @@
             "iconPathOff": "data-mining-project",
             "iconProject": "Data-Mining",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",

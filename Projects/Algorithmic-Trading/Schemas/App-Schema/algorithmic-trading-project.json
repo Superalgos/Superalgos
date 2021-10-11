@@ -8,7 +8,7 @@
             "iconPathOff": "algorithmic-trading-project",
             "iconProject": "Algorithmic-Trading",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",

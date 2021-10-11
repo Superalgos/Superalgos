@@ -8,7 +8,7 @@
             "iconPathOff": "machine-learning-project",
             "iconProject": "Machine-Learning",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",

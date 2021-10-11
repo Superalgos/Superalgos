@@ -3,7 +3,7 @@
     "menuItems": [
         {
             "action": "Add Missing Children",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "label": "Add Missing Children",
             "relatedUiObject": "Ethereum Token Definitions",
             "actionFunction": "payload.executeAction"

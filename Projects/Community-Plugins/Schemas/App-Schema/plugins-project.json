@@ -6,7 +6,7 @@
             "label": "Add Missing Children",
             "relatedUiObject": "Foundations Project",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",

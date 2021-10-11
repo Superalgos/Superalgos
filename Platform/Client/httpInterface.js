@@ -922,18 +922,17 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     async function runNodeSetup () {
                                         console.log( "Running Node setup to adjust for new Branch" )
-                                        const process = require("process");
-                                        const { execSync } = require("child_process");
+                                        const process = SA.nodeModules.process
+                                        const childProcess = SA.nodeModules.childProcess
 
                                         let dir = process.cwd()
-                                        let command = "node setup";
-                                        let stdout = execSync( command,
+                                        let command = "node setup noShortcuts";
+                                        let stdout = childProcess.execSync( command,
                                         {
                                             cwd: dir 
                                         }).toString();
                                     
-                                        console.log("Node Setup has completed with the following result:", stdout)
-                                           
+                                        console.log("Node Setup has completed with the following result:", stdout)      
                                     }
 
                                 } catch (err) {

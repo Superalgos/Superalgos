@@ -138,9 +138,9 @@
                 contextSummary.dataset = outputDatasetNode.referenceParent.config.codeName
                 contextSummary.product = outputDatasetNode.referenceParent.parentNode.config.codeName
 
-                let botNode = TS.projects.foundations.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Indicator Bot')
+                let botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Indicator Bot')
                 contextSummary.bot = botNode.config.codeName
-                let dataMineNode = TS.projects.foundations.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Data Mine')
+                let dataMineNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Data Mine')
                 contextSummary.dataMine = dataMineNode.config.codeName
                 contextSummary.mineType = dataMineNode.type.replace(' ', '-')
                 contextSummary.project = dataMineNode.project

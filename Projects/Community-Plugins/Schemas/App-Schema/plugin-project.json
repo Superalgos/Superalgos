@@ -14,17 +14,18 @@
             "label": "Add Missing Plugin Types",
             "relatedUiObject": "Plugins",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Community-Plugins"
+            "actionProject": "Community-Plugins",
+            "relatedUiObjectProject": "Community-Plugins"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionFunction": "payload.executeAction"
         }
     ],
     "initialValues": {

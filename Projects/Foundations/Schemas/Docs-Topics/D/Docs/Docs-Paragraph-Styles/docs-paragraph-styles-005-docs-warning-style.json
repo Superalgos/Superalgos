@@ -3,20 +3,48 @@
     "pageNumber": 5,
     "type": "Docs Warning Style",
     "definition": {
-        "text": "Use this style for boxing text as a warning to readers."
+        "text": "Use this style for boxing text as a warning to readers.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diesen Stil für Schachteltexte als Warnung für die Leser.",
+                "updated": 1633952991020
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Anything you type while editing a paragraph of this style will be rendered inside the warning box."
+            "text": "Anything you type while editing a paragraph of this style will be rendered inside the warning box.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Alles, was Sie während der Bearbeitung eines Absatzes dieses Stils eingeben, wird im Warnfeld angezeigt.",
+                    "updated": 1633953012204
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Example:"
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1633953021077
+                }
+            ]
         },
         {
             "style": "Warning",
-            "text": "This is an example of a paragraph in warning style."
+            "text": "This is an example of a paragraph in warning style.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist ein Beispiel für einen Absatz im Warnstil (warning style).",
+                    "updated": 1633953043371
+                }
+            ]
         }
     ]
 }

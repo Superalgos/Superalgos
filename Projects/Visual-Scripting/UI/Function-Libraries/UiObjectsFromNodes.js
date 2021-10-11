@@ -1,4 +1,4 @@
-function newFoundationsFunctionLibraryUiObjectsFromNodes() {
+function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
     let thisObject = {
         syncronizeTasksFoundAtWorkspaceWithBackEnd: syncronizeTasksFoundAtWorkspaceWithBackEnd,
         syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd: syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd,
@@ -186,7 +186,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                             for (let i = 0; i < node.rootNodes.length; i++) {
                                 let rootNode = node.rootNodes[i]
                                 if (rootNode.id === receivedNode.id) {
-                                    console.log('[WARN] The node with name "' + rootNode.name + '" and type "' + rootNode.type + '" will be replaced by the node with name "' + receivedNode.name + '" and type "' + receivedNode.type +'" because they both have the same node.id')
+                                    console.log('[WARN] The node with name "' + rootNode.name + '" and type "' + rootNode.type + '" will be replaced by the node with name "' + receivedNode.name + '" and type "' + receivedNode.type + '" because they both have the same node.id')
                                     node.rootNodes.splice(i, 1)
                                     break
                                 }
@@ -353,7 +353,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                                 }
                             }
                             if (pathNode !== undefined) {
-                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(node, pathNode)
+                                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(node, pathNode)
                             } else {
                                 //console.log("[WARN] ", node.name, ' ', node.type, "failed to fix reference.  Unable to find reference parent ", pathName, ' ', pathType  )
                             }
@@ -601,8 +601,11 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
         let schemaDocument = getSchemaDocument(object, project)
 
         if (schemaDocument === undefined) {
-            console.log('Cannot addUIOBject of type "' + type + '" and project "' + project + '" because that type it is not defined at the APP_SCHEMA.')
-            return
+            schemaDocument = getSchemaDocument(object, 'Foundations') // TODO: This is provisional until all actions can have the relatedUiObject project explicitly set.
+            if (schemaDocument === undefined) {
+                console.log('Cannot addUIOBject of type "' + type + '" and project "' + project + '" because that type it is not defined at the APP_SCHEMA.')
+                return
+            }
         }
 
         if (schemaDocument.initialValues !== undefined) {
@@ -767,7 +770,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                 if (property.type === 'node') {
                     if (property.name !== previousPropertyName) {
                         if (node[property.name] === undefined) {
-                            let currenAngleToParent = node.payload.floatingObject.angleToParent  
+                            let currenAngleToParent = node.payload.floatingObject.angleToParent
                             node.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                             let uiObject = addUIObject(node, property.childType, rootNodes, property.project)
                             node.payload.floatingObject.angleToParent = currenAngleToParent
@@ -906,7 +909,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                 frame.width = node.savedPayload.frame.width
                 frame.height = node.savedPayload.frame.height
                 frame.radius = node.savedPayload.frame.radius
-                UI.projects.foundations.utilities.loadSaveFrame.saveFrame(payload, frame)
+                UI.projects.visualScripting.utilities.loadSaveFrame.saveFrame(payload, frame)
             }
             if (node.savedPayload.tutorial !== undefined) {
                 let tutorial = {

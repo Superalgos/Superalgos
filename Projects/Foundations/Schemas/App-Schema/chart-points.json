@@ -18,10 +18,13 @@
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Point",
-            "relatedUiObject": "Point"
+            "relatedUiObject": "Point",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",

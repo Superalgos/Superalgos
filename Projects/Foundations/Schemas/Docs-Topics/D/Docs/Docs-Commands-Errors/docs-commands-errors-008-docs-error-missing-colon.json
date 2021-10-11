@@ -4,7 +4,14 @@
     "type": "Docs Error - Missing Colon",
     "definition": {
         "text": "Make sure you are using the \":\" in the appropriate position.",
-        "updated": 1610977606831
+        "updated": 1610977606831,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Achten Sie darauf, dass Sie das \":\" an der richtigen Stelle verwenden.",
+                "updated": 1633897375895
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,16 +22,37 @@
         {
             "style": "Error",
             "text": "Syntax Error. Colon character \":\" is missing. ",
-            "updated": 1609176970772
+            "updated": 1609176970772,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Syntax Error. Das Doppelpunkt-Zeichen \":\" fehlt.",
+                    "updated": 1633897408928
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Check the syntax of the command you are executing and see where to place the colon \":\" character. The character may not be detected if it's not followed by a space.",
-            "updated": 1610977564139
+            "updated": 1610977564139,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie die Syntax des Befehls, den Sie ausführen, und sehen Sie nach, wo das Zeichen für den Doppelpunkt \":\" zu platzieren ist. Das Zeichen wird möglicherweise nicht erkannt, wenn es nicht von einem Leerzeichen gefolgt wird.",
+                    "updated": 1633897527864
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Applies to"
+            "text": "Applies to",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gilt für",
+                    "updated": 1633897535054
+                }
+            ]
         },
         {
             "style": "List",

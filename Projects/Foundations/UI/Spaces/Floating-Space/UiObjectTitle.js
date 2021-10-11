@@ -191,7 +191,7 @@ function newUiObjectTitle() {
                         }
                         if (titleReference.indexOf('Find In Parents Node Type->') === 0) {
                             let nodeType = titleReference.substring(titleReference.indexOf('->') + 2, titleReference.length)
-                            let nodeToUse = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(
+                            let nodeToUse = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(
                                 thisObject.payload.node,
                                 nodeType,
                                 undefined,
@@ -206,7 +206,7 @@ function newUiObjectTitle() {
                         }
                         if (titleReference.indexOf('Reference Parent Find In Parents Node Type->') === 0) {
                             let nodeType = titleReference.substring(titleReference.indexOf('->') + 2, titleReference.length)
-                            let nodeToUse = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(
+                            let nodeToUse = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(
                                 thisObject.payload.referenceParent,
                                 nodeType,
                                 undefined,

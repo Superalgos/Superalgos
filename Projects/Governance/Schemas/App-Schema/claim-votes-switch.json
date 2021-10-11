@@ -15,39 +15,44 @@
             "label": "Install Missing Votes",
             "relatedUiObject": "Weight Votes Switch",
             "askConfirmation": true,
-            "confirmationLabel": "Confirm to Install"
+            "confirmationLabel": "Confirm to Install",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Claim Votes Switch",
-            "relatedUiObject": "Claim Votes Switch"
+            "relatedUiObject": "Claim Votes Switch",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Position Claim Vote",
-            "relatedUiObject": "Position Claim Vote"
+            "relatedUiObject": "Position Claim Vote",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset Claim Vote",
-            "relatedUiObject": "Asset Claim Vote"
+            "relatedUiObject": "Asset Claim Vote",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Feature Claim Vote",
-            "relatedUiObject": "Feature Claim Vote"
+            "relatedUiObject": "Feature Claim Vote",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

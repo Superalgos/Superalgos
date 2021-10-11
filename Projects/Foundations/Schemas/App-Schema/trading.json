@@ -5,16 +5,21 @@
             "action": "Add UI Object",
             "label": "Add Trading System",
             "relatedUiObject": "Trading System",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Algorithmic-Trading"
         },
         {
             "action": "Add UI Object",
             "label": "Add Trading Engine",
             "relatedUiObject": "Trading Engine",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Algorithmic-Trading"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",

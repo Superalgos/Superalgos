@@ -43,7 +43,8 @@
             {
                 "language": "NL",
                 "text": "Als je het frontend draait, gebruik dan Chrome, of Safari op de Mac! We testen niet met andere browsers!",
-                "updated": 1633849729343
+                "updated": 1633849729343,
+                "style": "Definition"
             }
         ]
     },
@@ -85,7 +86,8 @@
                 {
                     "language": "NL",
                     "text": "Het is een feit dat browsers zich verschillend gedragen, en er zijn functies bekend die niet werken op andere browsers. Als u Chrome of Safari gebruikt, klik dan op Volgende en ga verder. Zo niet, doe dan het volgende:",
-                    "updated": 1633854517473
+                    "updated": 1633854517473,
+                    "style": "Text"
                 }
             ]
         },
@@ -127,7 +129,8 @@
                 {
                     "language": "NL",
                     "text": "kopieer de huidige URL;",
-                    "updated": 1633849856387
+                    "updated": 1633849856387,
+                    "style": "List"
                 }
             ]
         },
@@ -169,7 +172,8 @@
                 {
                     "language": "NL",
                     "text": "sluit de browser; niet de tutorial afsluiten...",
-                    "updated": 1633849937374
+                    "updated": 1633849937374,
+                    "style": "List"
                 }
             ]
         },
@@ -211,7 +215,8 @@
                 {
                     "language": "NL",
                     "text": "open Chrome/Safari en plak de URL; de tutorial hoort te openen op deze stap bij terugkomst!",
-                    "updated": 1633850034853
+                    "updated": 1633850034853,
+                    "style": "List"
                 }
             ]
         },
@@ -251,8 +256,9 @@
                 },
                 {
                     "language": "NL",
-                    "text": "We bieden online support, maar kunnen je niet helpen bij het gebruik van een andere brwoser!",
-                    "updated": 1633850083942
+                    "text": "We bieden online support, maar kunnen je niet helpen bij het gebruik van een andere browser!",
+                    "updated": 1633885540625,
+                    "style": "Warning"
                 }
             ]
         }

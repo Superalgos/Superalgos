@@ -112,7 +112,7 @@ function newEducationTutorialSpace() {
 
         browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
         let workspace = UI.projects.foundations.spaces.designSpace.workspace
-        workspace.executeAction({ name: 'Play Tutorials', project: 'Foundations' })
+        workspace.executeAction({ name: 'Play Tutorials', project: 'Visual-Scripting' })
         isInitialized = true
     }
 

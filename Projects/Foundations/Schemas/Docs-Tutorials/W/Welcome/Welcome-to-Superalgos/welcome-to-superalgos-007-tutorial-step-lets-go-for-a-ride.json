@@ -42,7 +42,8 @@
             {
                 "language": "NL",
                 "text": "Voor ik je de rest van het menu laat zien, laten we eerst een andere hiërarchie bekijken: het Netwerk.",
-                "updated": 1633853332041
+                "updated": 1633853332041,
+                "style": "Definition"
             }
         ]
     },
@@ -84,7 +85,8 @@
                 {
                     "language": "NL",
                     "text": "De Netwerk hiërarchie is de controlekamer van het systeem. Dit is waar je jouw Data Tasks, Test Trading Tasks en Production Trading Tasks beheert.",
-                    "updated": 1633853559028
+                    "updated": 1633853559028,
+                    "style": "Text"
                 }
             ]
         },
@@ -125,7 +127,8 @@
                 {
                     "language": "NL",
                     "text": "Vouw de hiërarchie uit en laten we eens binnenin kijken!",
-                    "updated": 1633853650994
+                    "updated": 1633853650994,
+                    "style": "Callout"
                 }
             ]
         },
@@ -166,8 +169,9 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Zie je de eerder genoemde (sub)knooppunten? Cool! Wij zijn hier om uw allereerste datamining operatie op te starten.",
-                    "updated": 1633853738041
+                    "text": "Zie je de eerder genoemde (sub)knooppunten? Cool! Wij zijn hier om jouw allereerste datamining operatie op te starten.",
+                    "updated": 1633890622350,
+                    "style": "Text"
                 }
             ]
         },
@@ -208,7 +212,8 @@
                 {
                     "language": "NL",
                     "text": "Voor we beginnen, heb ik de volgende vraag voor je: benader je de Client op afstand?",
-                    "updated": 1633853800893
+                    "updated": 1633853800893,
+                    "style": "Note"
                 }
             ]
         }

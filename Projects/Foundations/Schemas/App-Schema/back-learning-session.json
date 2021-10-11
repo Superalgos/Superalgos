@@ -44,6 +44,13 @@
             "actionFunction": "uiObject.configEditor.activate"
         },
         {
+            "action": "Add UI Object",
+            "label": "Add Social Bots",
+            "relatedUiObject": "Social Bots",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Social-Bots"
+        },
+        {
             "action": "Add Missing Children",
             "label": "Add Missing Children",
             "relatedUiObject": "Learning Parameters",
@@ -96,7 +103,8 @@
         {
             "name": "socialBots",
             "type": "node",
-            "childType": "Social Bots"
+            "childType": "Social Bots",
+            "project": "Social-Bots"
         }
     ],
     "propertyNameAtParent": "session"

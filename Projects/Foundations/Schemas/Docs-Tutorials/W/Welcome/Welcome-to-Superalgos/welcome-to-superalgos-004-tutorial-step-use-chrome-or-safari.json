@@ -37,7 +37,13 @@
             {
                 "language": "TR",
                 "text": "Ön ucu çalıştırırken Chrome'u veya Mac'te Safari'yi kullanın! Başka tarayıcılarda test yapmıyoruz!",
-                "updated": 1633119819656
+                "updated": 1633119819656,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Als je het frontend draait, gebruik dan Chrome, of Safari op de Mac! We testen niet met andere browsers!",
+                "updated": 1633849729343
             }
         ]
     },
@@ -73,7 +79,13 @@
                 {
                     "language": "TR",
                     "text": "Tarayıcıların farklı davrandığı bilinen bir gerçektir ve diğer tarayıcılarda çalışmayan özellikleri biliyoruz. Chrome veya Safari kullanıyorsanız, İleri'yi tıklayın ve devam edin. Değilse, aşağıdakileri yapın:",
-                    "updated": 1633119849958
+                    "updated": 1633119849958,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Het is een feit dat browsers zich verschillend gedragen, en er zijn functies bekend die niet werken op andere browsers. Als u Chrome of Safari gebruikt, klik dan op Volgende en ga verder. Zo niet, doe dan het volgende:",
+                    "updated": 1633854517473
                 }
             ]
         },
@@ -109,7 +121,13 @@
                 {
                     "language": "TR",
                     "text": "Mevcut URL'yi kopyalayın;",
-                    "updated": 1633119896420
+                    "updated": 1633119896420,
+                    "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "kopieer de huidige URL;",
+                    "updated": 1633849856387
                 }
             ]
         },
@@ -145,7 +163,13 @@
                 {
                     "language": "TR",
                     "text": "Bu tarayıcıyı olduğu gibi kapatın; öğreticiyi kapatmayın...",
-                    "updated": 1633119959684
+                    "updated": 1633119959684,
+                    "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "sluit de browser; niet de tutorial afsluiten...",
+                    "updated": 1633849937374
                 }
             ]
         },
@@ -181,7 +205,13 @@
                 {
                     "language": "TR",
                     "text": "Chrome/Safari'yi açın ve URL'yi yapıştırın; Geri döndüğünüzde bu adımda öğretici açık olmalıdır!",
-                    "updated": 1633119977867
+                    "updated": 1633119977867,
+                    "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "open Chrome/Safari en plak de URL; de tutorial hoort te openen op deze stap bij terugkomst!",
+                    "updated": 1633850034853
                 }
             ]
         },
@@ -216,7 +246,13 @@
                 {
                     "language": "TR",
                     "text": "Çevrimiçi destek sunuyoruz, ancak başka bir tarayıcıyla size yardımcı olamayız!",
-                    "updated": 1633120004286
+                    "updated": 1633120004286,
+                    "style": "Warning"
+                },
+                {
+                    "language": "NL",
+                    "text": "We bieden online support, maar kunnen je niet helpen bij het gebruik van een andere brwoser!",
+                    "updated": 1633850083942
                 }
             ]
         }

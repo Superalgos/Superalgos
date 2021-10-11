@@ -112,7 +112,7 @@ function newCircularMenuItem() {
         iconPhysics()
 
         if (thisObject.icon === undefined) {
-            console.log('[ERROR] newCircularMenuItem -> initialize -> err = Icon not found, Action: "' + thisObject.action + '", relatedUiObject: "' + thisObject.relatedUiObject +'", label: "' + thisObject.label + '"')
+            console.log('[ERROR] newCircularMenuItem -> initialize -> err = Icon not found, Action: "' + thisObject.action + '", relatedUiObject: "' + thisObject.relatedUiObject + '", label: "' + thisObject.label + '"')
         }
 
         selfMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
@@ -379,7 +379,21 @@ function newCircularMenuItem() {
                 }
 
                 /* Execute the action and wait for callbacks to update our statuus. */
-                thisObject.actionFunction({ node: thisObject.payload.node, name: thisObject.action, project: thisObject.actionProject, relatedNodeType: thisObject.relatedUiObject, callBackFunction: onPrimaryCallBack })
+                let relatedNodeProject = thisObject.actionProject
+                if (thisObject.relatedUiObjectProject !== undefined) {
+                    relatedNodeProject = thisObject.relatedUiObjectProject
+                } 
+
+                thisObject.actionFunction(
+                    {
+                        node: thisObject.payload.node,
+                        name: thisObject.action,
+                        project: thisObject.actionProject,
+                        relatedNodeType: thisObject.relatedUiObject,
+                        relatedNodeProject: relatedNodeProject,
+                        callBackFunction: onPrimaryCallBack
+                    }
+                )
                 return
             }
             if (temporaryStatus === STATUS_PRIMARY_WORK_DONE && thisObject.secondaryAction !== undefined) {
@@ -502,7 +516,7 @@ function newCircularMenuItem() {
         if (thisObject.icon === undefined) {
             thisObject.icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', 'missing-image')
         }
-        
+
         if (thisObject.icon !== undefined) {
             if (thisObject.icon.canDrawIcon === true && thisObject.currentRadius > 1 && thisObject.isDeployed === true) {
                 browserCanvasContext.drawImage(thisObject.icon, menuPosition.x - iconSize, menuPosition.y - iconSize, iconSize * 2, iconSize * 2)

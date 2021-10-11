@@ -1,11 +1,11 @@
-exports.newFoundationsBotModulesTwitterBot = function (processIndex) {
+exports.newSocialBotsBotModulesDiscordBot = function (processIndex) {
 
-    const MODULE_NAME = 'Twitter Bot'
+    const MODULE_NAME = 'Discord Bot'
 
     let thisObject = {
+        webhookURL: undefined,
         taskParameters: undefined,
         format: undefined,
-        twitterclient: undefined,
         sendMessage: sendMessage,
         initialize: initialize,
         finalize: finalize
@@ -14,36 +14,10 @@ exports.newFoundationsBotModulesTwitterBot = function (processIndex) {
     return thisObject
 
     function initialize(config) {
-        /* Twitter Bot Initialization */
-        var Twitter = SA.nodeModules.twitter
-
-        let consumer_key = config.consumer_key
-        let consumer_secret = config.consumer_secret
-        let access_token_key = config.access_token_key
-        let access_token_secret = config.access_token_secret
-
-        if (process.env.TWITTER_CONSUMER_KEY) {
-            consumer_key = process.env.TWITTER_CONSUMER_KEY
-        }
-        if (process.env.TWITTER_CONSUMER_SECRET) {
-            consumer_secret = process.env.TWITTER_CONSUMER_SECRET
-        }
-        if (process.env.TWITTER_ACCESS_TOKEN_KEY) {
-            access_token_key = process.env.TWITTER_ACCESS_TOKEN_KEY
-        }
-        if (process.env.TWITTER_ACCESS_TOKEN_SECRET) {
-            access_token_secret = process.env.TWITTER_ACCESS_TOKEN_SECRET
-        }
+        /* Discord Bot Initialization */
         
-        var twitterclient = new Twitter({
-            consumer_key: consumer_key,
-            consumer_secret: consumer_secret,
-            access_token_key: access_token_key,
-            access_token_secret: access_token_secret
-        });
-        thisObject.twitterclient = twitterclient
-
         try {
+            thisObject.webhookURL = config.webhookURL
             thisObject.taskParameters = {
                 exchange: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name,
                 market: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
@@ -64,19 +38,35 @@ exports.newFoundationsBotModulesTwitterBot = function (processIndex) {
     function finalize() {}
 
     function sendMessage(message) {
+        const https = SA.nodeModules.https
+
         try {
             message = formatMessage(message)
-            message = JSON.stringify({status: message})
+            message = JSON.stringify({content: message})
         } catch (err) {
-            logError("announce -> Twitter JSON message error -> err = " + err)
+            logError("announce -> Discord JSON message error -> err = " + err)
         }
 
-        thisObject.twitterclient.post('statuses/update', message,  function(error, tweet, response) {
-            if(error) throw error;
-            console.log(tweet);  // Tweet body.
-            console.log(response);  // Raw response object.
-        });
-        
+        return new Promise((resolve, reject) => {
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            }
+
+            const req = https.request(thisObject.webhookURL, requestOptions, (res) => {
+                let response = ''
+                res.on('data', (data) => { response += data })
+                res.on('end', () => { resolve(response) })
+            })
+
+            req.on('error', (err) => {
+                reject(err)
+                logWarn("announce -> Discord request error -> err = " + err)
+            })
+
+            req.write(message)
+            req.end()
+        })
     }
 
     function formatMessage(message) {

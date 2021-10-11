@@ -864,6 +864,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                             await doGit()
 
                                             if (error === undefined) {
+                                                // Run node setup to prepare instance for branch change
+                                                await runNodeSetup()
+                                                // Return to UI that Branch is suggessfully changed 
                                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                             } else {
                                                 let docs = {
@@ -894,6 +897,22 @@ exports.newHttpInterface = function newHttpInterface() {
                                             console.log(err.stack)
                                             error = err
                                         }
+                                    }
+
+                                    async function runNodeSetup () {
+                                        console.log( "Running Node setup to adjust for new Branch" )
+                                        const process = require("process");
+                                        const { execSync } = require("child_process");
+
+                                        let dir = process.cwd()
+                                        let command = "node setup";
+                                        let stdout = execSync( command,
+                                        {
+                                            cwd: dir 
+                                        }).toString();
+                                    
+                                        console.log("Node Setup has completed with the following result:", stdout)
+                                           
                                     }
 
                                 } catch (err) {

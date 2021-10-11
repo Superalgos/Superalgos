@@ -45,16 +45,18 @@ exports.newSocialBotsBotModulesAnnouncements = function (processIndex) {
             let canAnnounce = true
 
             // Check configuration to see if Announcement should be run at Enter or Exit of Node
-            // protect against empty configurations or missing values
-            onEnter = true
-            onExit = false
+            // set defaults, protect against empty configurations or missing values
+            let onEnter = true
+            let onExit = false
             if (announcement.config.onEnter !== undefined) {
                 onEnter = announcement.config.onEnter
             }
             if (announcement.config.onExit !== undefined) {
                 onExit = announcement.config.onExit
+                if (announcement.config.onEnter === undefined) {
+                    onEnter = false
+                }
             }
-
             if ((status === 'Open' && onEnter) || (status === 'Closed' && onExit)) {
                 canAnnounce = true
             } else {

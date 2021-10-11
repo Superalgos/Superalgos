@@ -157,7 +157,6 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                                     changeStageStatus('Trigger Stage', 'Open')
                                     announcementsModuleObject.makeAnnouncements(triggerStage.triggerOn)
-                                    announcementsModuleObject.makeAnnouncements(triggerStage)
                                 }
                             }
                         }
@@ -195,7 +194,6 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                 tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOff.value = 1
                                 announcementsModuleObject.makeAnnouncements(triggerStage.triggerOff)
                                 changeStageStatus('Trigger Stage', 'Closed', 'Trigger Off Event')
-                                announcementsModuleObject.makeAnnouncements(triggerStage, 'Closed')
                                 tradingStrategyModuleObject.closeStrategy('Trigger Off')
                             }
                         }
@@ -241,9 +239,8 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                     }
                                 }
 
-                                changeStageStatus('Trigger Stage', 'Closed', 'Position Taken')
                                 announcementsModuleObject.makeAnnouncements(triggerStage.takePosition)
-                                announcementsModuleObject.makeAnnouncements(triggerStage, 'Closed')
+                                changeStageStatus('Trigger Stage', 'Closed', 'Position Taken')
                                 changeStageStatus('Open Stage', 'Opening')
                                 changeStageStatus('Manage Stage', 'Opening')
                             } else {
@@ -1295,18 +1292,11 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
         }
     }
 
-    // checkAnnounce(): Check if announcement should be made
+    // checkAnnounce(): Check if stage announcement should be made
     function checkAnnounce(stage, status) {
         let tradingSystemStage = getTradingSystemStage(stage);
-        switch(status) {
-            case 'Open' : {
-                announcementsModuleObject.makeAnnouncements(tradingSystemStage, 'Open')
-                break;
-            }
-            case 'Closed' : {
-                announcementsModuleObject.makeAnnouncements(tradingSystemStage, 'Closed')
-                break;
-            }
+        if (status === 'Open' || status === 'Closed') {
+            announcementsModuleObject.makeAnnouncements(tradingSystemStage, status)
         }
     }
 

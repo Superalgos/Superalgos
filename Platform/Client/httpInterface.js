@@ -895,7 +895,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             
                                             let remotes = await git.getRemotes();
                                             for(let remote in remotes) {
-                                                console.log(remote)
+                                                console.log(remote.name)
                                             }
                                             if (true){
                                                 //console.log(remotes)

@@ -906,7 +906,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                 frame.width = node.savedPayload.frame.width
                 frame.height = node.savedPayload.frame.height
                 frame.radius = node.savedPayload.frame.radius
-                UI.projects.foundations.utilities.loadSaveFrame.saveFrame(payload, frame)
+                UI.projects.visualScripting.utilities.loadSaveFrame.saveFrame(payload, frame)
             }
             if (node.savedPayload.tutorial !== undefined) {
                 let tutorial = {

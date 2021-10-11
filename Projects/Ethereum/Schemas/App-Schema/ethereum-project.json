@@ -38,7 +38,8 @@
             "actionProject": "Visual-Scripting",
             "label": "Add Data Mine",
             "relatedUiObject": "Data Mine",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Ethereum"
         },
         {
             "action": "Delete UI Object",

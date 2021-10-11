@@ -30,7 +30,13 @@
             {
                 "language": "NL",
                 "text": "Voor we met data mining beginnen, heb ik een vraag voor je: handel je op binance.com, binance.us, of geen van beide?",
-                "updated": 1633889925479
+                "updated": 1633889925479,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Bevor wir mit dem Data Mining beginnen, habe ich eine kleine Frage an Sie: Handeln Sie auf binance.com, binance.us oder weder noch?",
+                "updated": 1633989121032
             }
         ],
         "updated": 1622189667210
@@ -61,7 +67,13 @@
                 {
                     "language": "NL",
                     "text": "Handel je op binance.com of helemaal niet op Binance, dan kan je deze stap overslaan en op \"Next\" klikken.",
-                    "updated": 1633890006155
+                    "updated": 1633890006155,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie bei binance.com handeln oder überhaupt nicht mit Binance handeln, können Sie diesen und den nächsten Schritt überspringen!",
+                    "updated": 1633989155293
                 }
             ]
         },
@@ -91,7 +103,13 @@
                 {
                     "language": "NL",
                     "text": "Handel je op binance.us dan moet je nu het Binance knooppunt aan de rechterkant configureren. De video in de volgende stap laat je zien hoe dit moet!",
-                    "updated": 1633890111836
+                    "updated": 1633890111836,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie bei binance.us handeln, müssen Sie den Binance-Knoten auf der rechten Seite konfigurieren! Das Video im nächsten Schritt zeigt Ihnen wie!",
+                    "updated": 1633989169354
                 }
             ]
         },
@@ -121,7 +139,13 @@
                 {
                     "language": "NL",
                     "text": "Verander in de configuratie de \"codeName\" in \"binanceus\". Beweeg de muis uit de configuratiecirkel en het zal automatisch de configuratie opslaan en afsluiten.",
-                    "updated": 1633890351655
+                    "updated": 1633890351655,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Rufen Sie die Konfiguration auf und ändern Sie den Codenamen in \"binanceus\". Bewegen Sie den Mauszeiger aus der Konfigurationsblase und sie wird automatisch geschlossen und gespeichert.",
+                    "updated": 1633989202936
                 }
             ]
         },
@@ -151,7 +175,13 @@
                 {
                     "language": "NL",
                     "text": "Verander het naamlabel van het knooppunt in \"Binanceus\".",
-                    "updated": 1633890370268
+                    "updated": 1633890370268,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ändern Sie die Bezeichnung des Knotens in \"Binanceus\".",
+                    "updated": 1633989207644
                 }
             ]
         }

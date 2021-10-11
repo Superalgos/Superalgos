@@ -26,6 +26,11 @@
                 "text": "Hay una herramienta más que puede resultarte útil para manipular el espacio-tiempo. La función nativa de zoom del navegador.",
                 "updated": 1618436075914,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Es gibt noch ein weiteres nützliches Werkzeug, mit dem Sie die Raumzeit manipulieren können! Die Zoomfunktion des Browsers!",
+                "updated": 1633990373996
             }
         ]
     },
@@ -52,13 +57,18 @@
                     "text": "A veces es posible que desee visualizar secciones más grandes del Design Space de lo que permite su pantalla.",
                     "updated": 1618436141915,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Manchmal möchten Sie vielleicht größere Bereiche des Design Space visualisieren, als Ihr Bildschirm zulässt.",
+                    "updated": 1633990393931
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Hit Ctrl and scroll the mouse wheel on Windows or <kbd>⌘</kbd> and <kbd>-</kbd> or <kbd>+</kbd> in Mac.",
-            "updated": 1611314352825,
+            "text": "Hit Ctrl and scroll the mouse wheel on Windows or ⌘ and - or + in Mac.",
+            "updated": 1633990463846,
             "translations": [
                 {
                     "language": "IT",
@@ -77,6 +87,11 @@
                     "text": "Pulsa Ctrl y desplaza la rueda del ratón en Windows o ⌘ y - o + en Mac.",
                     "updated": 1618436175073,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie die Ctrl Taste und drehen Sie das Mausrad unter Windows oder or ⌘ and - or + unter Mac.",
+                    "updated": 1633990511602
                 }
             ]
         },
@@ -106,6 +121,11 @@
                     "text": "Chrome indica el nivel de zoom en la esquina superior derecha. Al acercar o alejar el zoom, el Desing Space vuelve al centro. Utiliza el mapa para volver a donde estabas.",
                     "updated": 1618436232576,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Chrome zeigt die Zoomstufe in der rechten oberen Ecke an. Beim Vergrößern oder Verkleinern wird der Design Space auf dem Bildschirm zentriert. Verwenden Sie die Karte des Design Space, um dorthin zurückzukehren, wo Sie waren.",
+                    "updated": 1633990645404
                 }
             ]
         }

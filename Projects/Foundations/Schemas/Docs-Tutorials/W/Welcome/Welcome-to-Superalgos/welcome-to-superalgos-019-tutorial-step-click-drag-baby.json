@@ -26,6 +26,11 @@
                 "text": "Quiero enseñarte algo mientras avanza la operación de Data Mining. Te enseñaré a moverte... ¡En solo unos segundos!",
                 "updated": 1624227902845,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich möchte Ihnen etwas zeigen, während die Data-Mining-Operation fortschreitet. Ich bringe Ihnen bei, wie man Navigiert... in zwei Sekunden!",
+                "updated": 1633989914538
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "text": "Simplemente haz clic y arrastrar con el mouse.",
                     "updated": 1624491408788,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Einfach mit der Maus klicken und ziehen!",
+                    "updated": 1633989919997
                 }
             ]
         },
@@ -76,6 +86,11 @@
                     "text": "Fácil, ¿verdad? Muy bien. Sin embargo, el espacio de diseño es un lugar enorme y no me gustaría que te diera una tendinitis arrastrándote de esta manera.",
                     "updated": 1618435473213,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Einfach, nicht wahr? Großartig! Aber der Designbereich ist riesig, und ich möchte nicht, dass Sie eine Sehnenscheidenentzündung bekommen, wenn Sie sich auf diese Weise durch die Gegend schleppen.",
+                    "updated": 1633989945390
                 }
             ]
         },
@@ -100,6 +115,11 @@
                     "text": "Te enseñaré un par de trucos más en los siguientes pasos.",
                     "updated": 1618435496165,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "In den nächsten Schritten werde ich Ihnen ein paar weitere Tricks zeigen.",
+                    "updated": 1633989979907
                 }
             ]
         }

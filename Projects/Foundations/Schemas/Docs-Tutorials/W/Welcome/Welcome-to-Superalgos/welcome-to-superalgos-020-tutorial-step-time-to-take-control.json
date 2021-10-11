@@ -26,6 +26,11 @@
                 "text": "Sí, también puede utilizar su teclado. ¡Te encantara para los desplazamientos de larga distancia en el Desing Space!",
                 "updated": 1624285512726,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ja! Sie können auch Ihre Tastatur benutzen! Sie werden es lieben, wenn Sie lange Strecken im Designraum zurücklegen!",
+                "updated": 1633990017235
             }
         ]
     },
@@ -52,6 +57,11 @@
                     "text": "La gente normal puede usar la tecla Ctrl más las teclas de dirección: ← → ↑ ↓",
                     "updated": 1618435586353,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Normale Leute können die Ctrl Taste plus Pfeiltasten verwenden: ← → ↑ ↓",
+                    "updated": 1633990049491
                 }
             ]
         },
@@ -77,6 +87,11 @@
                     "text": "¡Fíjate como mantener las teclas pulsadas te hará volar!",
                     "updated": 1624285662132,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass Sie fliegen, wenn Sie die Tasten gedrückt halten!",
+                    "updated": 1633990066464
                 }
             ]
         },
@@ -102,6 +117,11 @@
                     "text": "Por supuesto, los fanboys de Mac saben que tienen sustituir Ctrl por Cmd",
                     "updated": 1618435654720,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mac-Fanboys und -girls müssen natürlich Ctrl durch Cmd ersetzen.",
+                    "updated": 1633990094780
                 }
             ]
         }

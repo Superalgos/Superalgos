@@ -27,6 +27,11 @@
                 "text": "Abre el menú del nodo Data Tasks y busca el botón Run All Project Data Tasks en la esquina superior derecha... ",
                 "updated": 1627302836248,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Rufen Sie das Menü des Knotens Data Tasks auf und suchen Sie die Schaltfläche \"Run all project data tasks\" in der oberen rechten Ecke...",
+                "updated": 1633989312617
             }
         ]
     },
@@ -53,6 +58,11 @@
                     "text": "Haz clic en el botón \"Run all project data tasks\". Confirma la solicitud haciendo clic en el botón por segunda vez.",
                     "updated": 1624491186735,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf die Schaltfläche \"Run all project data Tasks\"! Bestätigen Sie die Abfrage, indem Sie die Schaltfläche ein zweites Mal anklicken.",
+                    "updated": 1633989327971
                 }
             ]
         },
@@ -77,6 +87,11 @@
                     "text": "En unos 30 segundos, deberias ver un aviso de estado debajo del nodo Data Tasks que indica que 1 de cada 1 nodo Exchange Data Tasks se está ejecutando.",
                     "updated": 1624452903459,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Innerhalb von ca. 30 Sekunden sollten Sie unterhalb des Knotens Data Tasks einen Statushinweis sehen, der anzeigt, dass 1 von 1 Exchange Data Tasks-Knoten ausgeführt wird.",
+                    "updated": 1633989371751
                 }
             ],
             "updated": 1622190035816
@@ -102,6 +117,11 @@
                     "text": "Tu aplicación de consola deberia mostrar algo similar a lo que aparece en el video a continuación..",
                     "updated": 1624283587596,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "In Ihrer Konsole sollte etwas ähnliches anzeigen wie in dem Video im nächsten Schritt.",
+                    "updated": 1633989412536
                 }
             ]
         }

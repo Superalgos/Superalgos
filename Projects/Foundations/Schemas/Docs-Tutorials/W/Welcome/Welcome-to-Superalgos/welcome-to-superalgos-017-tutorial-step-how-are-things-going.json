@@ -26,6 +26,11 @@
                 "text": "Acabo de arrastrarte a los confines de la operación de  Data Mining. ¡Observa el progreso de la Instancia del  Sensor Bot a tu derecha!",
                 "updated": 1618434622270,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich habe Sie soeben in die Tiefen der Data-Mining-Operation gezogen. Sehen Sie sich den Fortschritt der Sensor Bot Instance zu Ihrer Rechten an!",
+                "updated": 1633989521458
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "text": "El sensor bot está extrayendo datos del exchage. En cuanto complete la extracción para el rango de fechas definido, sucederá algo realmente genial... ¡automáticamente!",
                     "updated": 1618434692416,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Sensor-Bot ist gerade dabei, Daten aus der Börse zu extrahieren. Sobald er die Extraktion für den definierten Zeitraum abgeschlossen hat, wird etwas wirklich Cooles passieren... automatisch!",
+                    "updated": 1633989547372
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "text": "¿Puedes imaginar que es lo que sucederá?",
                     "updated": 1624291138773,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Können Sie erraten, was das sein könnte?",
+                    "updated": 1633989571418
                 }
             ]
         },
@@ -100,6 +115,11 @@
                     "text": "No debería tomar más de 3 a 5 minutos extraer los datos de Binance dependiendo de tu hardware. ¿No quieres esperar? No hay problema. Haz clic en Next para obtener una pequeña pista.",
                     "updated": 1625933743042,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es sollte nicht länger als 3 bis 5 Minuten dauern, um die Daten von Binance zu extrahieren, oder ein bisschen länger, je nach Ihrer Hardware. Sie können nicht warten? Kein Problem! Klicken Sie auf Weiter für einen kurzen Hinweis!",
+                    "updated": 1633989589110
                 }
             ]
         }

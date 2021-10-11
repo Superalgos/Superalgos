@@ -42,7 +42,13 @@
             {
                 "language": "NL",
                 "text": "Tutorials zijn gedefinieerd binnen in het systeem, je mag er meer maken als je wilt! Maar die \"goddelijke macht\" bespreken we later. Laten we ons eerst richten op de basis!",
-                "updated": 1633760912101
+                "updated": 1633760912101,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Tutorien werden innerhalb des Systems definiert, du kannst also mehr von uns erstellen, wenn du willst! Aber wir werden diese gottähnliche Macht später besprechen. Konzentrieren wir uns erst einmal auf die Grundlagen!",
+                "updated": 1633987769567
             }
         ]
     },
@@ -84,7 +90,13 @@
                 {
                     "language": "NL",
                     "text": "Superalgos is een visueel hulpmiddel. Het systeem geeft informatie weer in hiërarchische structuren van onderling verbonden knooppunten, afgebeeld met pictogrammen. Wat je rechts ziet, is een van deze hiërarchieën - in het bijzonder een Tutorial hiërarchie. In dit geval is \"tutorial\" het type knooppunt en \"Welcome to Superalgos!\" is de naam van het knooppunt.",
-                    "updated": 1633761030337
+                    "updated": 1633761030337,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos ist von Natur aus ein visuelles Werkzeug. Das System stellt Informationen in hierarchischen Strukturen aus miteinander verbundenen Knoten dar, die durch Icons repräsentiert werden. Was Sie auf der rechten Seite sehen, ist eine dieser Hierarchien - insbesondere eine Tutorial Hierarchie. In diesem Fall ist \"Tutorial\" der Typ des Knotens und \"Willkommen bei Superalgos\" ist der Name des Knotens.",
+                    "updated": 1633987826821
                 }
             ],
             "updated": 1616410534255
@@ -127,7 +139,13 @@
                 {
                     "language": "NL",
                     "text": "Beweeg je muis over het Tutorial knooppunt en kijk wat er gebeurt! Wow! Cool toch? Dat zijn een heleboel knoppen!",
-                    "updated": 1633761113014
+                    "updated": 1633761113014,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Bewegen Sie Ihren Mauszeiger über den Knoten Tutorial und sehen Sie, was passiert! Wahnsinn! Cool, oder? Das sind eine Menge Knöpfe!",
+                    "updated": 1633987850044
                 }
             ]
         }

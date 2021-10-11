@@ -112,7 +112,7 @@ function newGovernanceFunctionLibraryAssets() {
                 /*
                 The last element of the path is an Asset.
                 */
-                let childNode = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Asset')
+                let childNode = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Asset')
                 childNode.config = JSON.stringify({ codeName: nextItem })
                 childNode.name = nextItem
 
@@ -120,7 +120,7 @@ function newGovernanceFunctionLibraryAssets() {
                 /*
                 All previous elements are an Asset Class.
                 */
-                let childNode = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Asset Class')
+                let childNode = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Asset Class')
                 childNode.config = JSON.stringify({ codeName: nextItem })
                 childNode.name = nextItem
                 createNodesFromPath(childNode, pathArray)

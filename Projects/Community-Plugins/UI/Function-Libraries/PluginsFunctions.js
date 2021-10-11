@@ -23,7 +23,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
             let projectDefinition = PROJECTS_SCHEMA[k]
             let project = projectDefinition.name
             if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenByName(node, project) === true) {
-                let child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin Project')
+                let child = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin Project')
                 child.name = project
                 let config = JSON.parse(child.config)
                 config.codeName = project
@@ -43,7 +43,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
                 let pluginType = "Plugin" + " " + projectDefinition.plugins[i]
 
                 if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenByType(node, pluginType) === true) {
-                    UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, pluginType, undefined, 'Community-Plugins')
+                    UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, pluginType, undefined, 'Community-Plugins')
                 }
             }
         }

@@ -119,7 +119,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     console.log('Call to WEB3 Server failed. ' + response.error)
                     return
                 }
-                let userProfile = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(
+                let userProfile = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(
                     node,
                     'User Profile',
                     UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
@@ -185,7 +185,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         }
 
         if (node.payload.referenceParent.signingAccounts === undefined) {
-            signingAccounts = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(
+            signingAccounts = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(
                 node.payload.referenceParent,
                 'Signing Accounts',
                 UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
@@ -294,7 +294,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
 
             function createSigningAccount(signature) {
 
-                let signingAccount = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(
+                let signingAccount = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(
                     signingAccounts,
                     'Signing Account',
                     UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes

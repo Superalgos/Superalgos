@@ -555,7 +555,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                             let originNodeChild = UI.projects.foundations.utilities.nodeChildren.findChildReferencingThisNode(originNode, destinationNodeChild)
 
                             if (originNodeChild === undefined) {
-                                originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
+                                originNodeChild = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
                             }
                             UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
                             scanNodeBranch(originNodeChild, destinationNodeChild)
@@ -572,7 +572,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                     let originNodeChild = UI.projects.foundations.utilities.nodeChildren.findChildReferencingThisNode(originNode, destinationNodeChild)
 
                                     if (originNodeChild === undefined) {
-                                        originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
+                                        originNodeChild = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
                                     }
                                     UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
                                     scanNodeBranch(originNodeChild, destinationNodeChild)

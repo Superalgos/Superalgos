@@ -36,7 +36,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
         function scanBotArray(botArray) {
             for (let i = 0; i < botArray.length; i++) {
                 let bot = botArray[i]
-                let botLayers = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Bot Layers')
+                let botLayers = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Bot Layers')
                 botLayers.name = bot.name
 
                 UI.projects.foundations.utilities.folders.asymetricalFolderStructureCloning(
@@ -139,7 +139,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
 
     function createTimeMachine(dashboard, session, market, lanNetworkNode, rootNodes) {
         let mineProducts
-        let timeMachine = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(dashboard, 'Time Machine')
+        let timeMachine = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dashboard, 'Time Machine')
         let exchange = market.payload.parentNode.payload.parentNode
         UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(timeMachine, session)
         timeMachine.name = session.name + ' ' + session.type + ' ' + lanNetworkNode.name + ' ' + exchange.name + ' ' + market.name
@@ -168,7 +168,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             */
 
             for (let k = 0; k < 3; k++) {
-                let timelineChart = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
+                let timelineChart = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
 
                 UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(timelineChart.layerManager, mineProduct)
                 timelineChart.payload.floatingObject.collapseToggle()
@@ -227,7 +227,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             */
 
             for (let k = 0; k < 3; k++) {
-                let timelineChart = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
+                let timelineChart = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
 
                 UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(timelineChart.layerManager, mineProduct)
                 timelineChart.payload.floatingObject.collapseToggle()
@@ -279,7 +279,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             if (mineProduct.payload.parentNode.payload.referenceParent === undefined) { continue }
             if (mineProduct.payload.parentNode.payload.referenceParent.id !== market.id) { continue }
 
-            let timelineChart = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
+            let timelineChart = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
             /* 
             The Mine Product Node might be collapesd and since its creation it never 
             received the physics call, so we will do the call so that it properly
@@ -321,13 +321,13 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                 let productionTradingTasks = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Production Trading Tasks', node, true)
 
                 if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, testingTradingTasks, true) === true) {
-                    let dashboard = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
+                    let dashboard = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
                     UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(dashboard, testingTradingTasks)
                     dashboard.name = testingTradingTasks.type + ' ' + lanNetworkNode.name
                 }
 
                 if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, productionTradingTasks, true) === true) {
-                    let dashboard = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
+                    let dashboard = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
                     UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(dashboard, productionTradingTasks)
                     dashboard.name = productionTradingTasks.type + ' ' + lanNetworkNode.name
                 }
@@ -348,7 +348,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                     let projectDefinition = rootNode.projectDefinition
                     if (projectDefinition !== undefined) {
                         if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, projectDefinition, true) === true) {
-                            let projectTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Project Dashboards', undefined, project)
+                            let projectTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Project Dashboards', undefined, project)
                             UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
                         }
                     }
@@ -364,7 +364,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
         let plotterModule = layerNode.payload.referenceParent.payload.referenceParent.payload.referenceParent
         for (let i = 0; i < plotterModule.panels.length; i++) {
             let plotterPanel = plotterModule.panels[i]
-            let layerPanel = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Layer Panel')
+            let layerPanel = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Layer Panel')
             UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(layerPanel, plotterPanel)
         }
     }
@@ -382,7 +382,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
 
         for (let i = 0; i < plotterModule.shapes.polygons.length; i++) {
             let polygon = plotterModule.shapes.polygons[i]
-            let layerPolygon = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Layer Polygon')
+            let layerPolygon = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Layer Polygon')
             UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(layerPolygon, polygon)
         }
     }

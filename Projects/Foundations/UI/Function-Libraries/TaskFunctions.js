@@ -613,7 +613,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                     let projectDefinition = rootNode.projectDefinition
                     if (projectDefinition !== undefined) {
                         if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, projectDefinition, true) === true) {
-                            let projectTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType, undefined, node.project)
+                            let projectTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType, undefined, node.project)
                             UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
                         }
                     }
@@ -644,7 +644,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                     for (let k = 0; k < cryptoExchanges.exchanges.length; k++) {
                         let cryptoExchange = cryptoExchanges.exchanges[k]
                         if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, cryptoExchange, true) === true) {
-                            let exchangeTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
+                            let exchangeTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
                             UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(exchangeTasks, cryptoExchange)
                         }
                     }
@@ -676,7 +676,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             let market = markets[i]
 
             if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, market, true) === true) {
-                let marketDataTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
+                let marketDataTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
                 UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(marketDataTasks, market)
             }
         }
@@ -701,7 +701,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                 let mine = rootNode
 
                 if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, mine, true) === true) {
-                    let dataMineTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
+                    let dataMineTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
                     UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(dataMineTasks, mine)
                 }
             }
@@ -712,7 +712,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) { return }
 
-        let taskManager = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Task Manager')
+        let taskManager = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Task Manager')
         taskManager.name = node.payload.referenceParent.name
         taskManager.payload.floatingObject.collapseToggle()
 
@@ -773,7 +773,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                         case 'Sensor Bot': {
                             let task = addTask(taskManager)
 
-                            botInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Sensor Bot Instance')
+                            botInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Sensor Bot Instance')
                             botInstance.name = bot.name
 
                             addProcessInstance(task, bot, botInstance)
@@ -782,7 +782,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                         case 'API Data Fetcher Bot': {
                             let task = addTask(taskManager)
 
-                            botInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'API Data Fetcher Bot Instance')
+                            botInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'API Data Fetcher Bot Instance')
                             botInstance.name = bot.name
 
                             addProcessInstance(task, bot, botInstance)
@@ -791,7 +791,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                         case 'Indicator Bot': {
                             let task = addTask(taskManager)
 
-                            botInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Indicator Bot Instance')
+                            botInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Indicator Bot Instance')
                             botInstance.name = bot.name
 
                             addProcessInstance(task, bot, botInstance)
@@ -800,7 +800,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                         case 'Trading Bot': {
                             let task = addTask(taskManager)
 
-                            botInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Trading Bot Instance')
+                            botInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Trading Bot Instance')
                             botInstance.name = bot.name
 
                             addProcessInstance(task, bot, botInstance)
@@ -815,7 +815,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                             task = addTask(taskManager)
                             task.name = 'Back ' + task.name
 
-                            botInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Learning Bot Instance')
+                            botInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Learning Bot Instance')
                             botInstance.name = 'Back ' + bot.name
 
                             addProcessInstance(task, bot, botInstance, 'Back Learning Session')
@@ -823,7 +823,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                             task = addTask(taskManager)
                             task.name = 'Live ' + task.name
 
-                            botInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Learning Bot Instance')
+                            botInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Learning Bot Instance')
                             botInstance.name = 'Live ' + bot.name
 
                             addProcessInstance(task, bot, botInstance, 'Live Learning Session')
@@ -832,7 +832,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                     }
 
                     function addTask(taskManager) {
-                        let task = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(taskManager, 'Task')
+                        let task = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(taskManager, 'Task')
 
                         if (systemNode !== undefined) {
                             task.name = systemNode.name
@@ -848,12 +848,12 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                             let processInstance
                             switch (bot.type) {
                                 case 'Sensor Bot': {
-                                    processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Sensor Process Instance')
+                                    processInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Sensor Process Instance')
                                     UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
                                     break
                                 }
                                 case 'API Data Fetcher Bot': {
-                                    processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'API Data Fetcher Process Instance')
+                                    processInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'API Data Fetcher Process Instance')
                                     UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
 
                                     /*
@@ -873,12 +873,12 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                     break
                                 }
                                 case 'Indicator Bot': {
-                                    processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Indicator Process Instance')
+                                    processInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Indicator Process Instance')
                                     UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
                                     break
                                 }
                                 case 'Trading Bot': {
-                                    processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Trading Process Instance')
+                                    processInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Trading Process Instance')
                                     UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
 
                                     if (node.payload.parentNode === undefined) { return }
@@ -904,7 +904,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                     break
 
                                     function addSession(sessionType) {
-                                        session = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(processInstance, sessionType)
+                                        session = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(processInstance, sessionType)
                                         session.name = task.name
                                         let config = JSON.parse(session.config)
                                         config.folderName = session.name.split(" ").join("-")
@@ -921,7 +921,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                     }
                                 }
                                 case 'Learning Bot': {
-                                    processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Learning Process Instance')
+                                    processInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Learning Process Instance')
                                     UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
 
                                     let session
@@ -929,7 +929,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                     break
 
                                     function addSession(sessionType) {
-                                        session = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(processInstance, sessionType)
+                                        session = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(processInstance, sessionType)
                                         session.name = task.name
                                         let config = JSON.parse(session.config)
                                         config.folderName = session.name.split(" ").join("-")

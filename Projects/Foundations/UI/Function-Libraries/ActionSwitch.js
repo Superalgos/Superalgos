@@ -31,35 +31,35 @@ function newFoundationsActionSwitch() {
             }
 
             case 'Create UI Object': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.createUiObjectFromNode(action.node, undefined, undefined, action.extraParameter)
+                UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.createUiObjectFromNode(action.node, undefined, undefined, action.extraParameter)
             }
                 break
             case 'Connect Children to Reference Parents': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.tryToConnectChildrenWithReferenceParents()
+                UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.tryToConnectChildrenWithReferenceParents()
             }
                 break
             case 'Get Node By Id': {
-                return UI.projects.foundations.functionLibraries.uiObjectsFromNodes.getNodeById(action.relatedNodeId)
+                return UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.getNodeById(action.relatedNodeId)
             }
 
             case 'Syncronize Tasks': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd()
+                UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd()
             }
                 break
             case 'Syncronize Trading Sessions': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd()
+                UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd()
             }
                 break
             case 'Syncronize Learning Sessions': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd()
+                UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd()
             }
                 break
             case 'Play Tutorials': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.playTutorials()
+                UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.playTutorials()
             }
                 break
             case 'Recreate Workspace': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.recreateWorkspace(action.node, action.callBackFunction)
+                UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.recreateWorkspace(action.node, action.callBackFunction)
             }
                 break
             case 'Delete Workspace': {
@@ -101,7 +101,7 @@ function newFoundationsActionSwitch() {
                 break
             case 'Add UI Object':
                 {
-                    UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(
+                    UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(
                         action.node,
                         action.relatedNodeType,
                         action.rootNodes,
@@ -111,7 +111,7 @@ function newFoundationsActionSwitch() {
                 break
             case 'Add Missing Children':
                 {
-                    UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addMissingChildren(action.node, action.rootNodes)
+                    UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addMissingChildren(action.node, action.rootNodes)
                 }
                 break
             case 'Delete UI Object':

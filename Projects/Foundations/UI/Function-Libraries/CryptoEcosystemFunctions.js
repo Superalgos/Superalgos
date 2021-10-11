@@ -44,7 +44,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                 let exchange = exchanges[i]
                 let existingExchange = currentExchanges.get(exchange.id)
                 if (existingExchange === undefined) {
-                    let newExchange = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Crypto Exchange')
+                    let newExchange = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Crypto Exchange')
                     newExchange.name = exchange.name
                     newExchange.config = '{ \n\"codeName\": \"' + exchange.id + '\"\n}'
                     newExchange.payload.floatingObject.collapseToggle()
@@ -118,7 +118,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                     }
 
                     function addAsset(name) {
-                        let newAsseet = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Asset')
+                        let newAsseet = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Asset')
                         newAsseet.name = name
                         newAsseet.config = '{ \n\"codeName\": \"' + name + '\"\n}'
                     }
@@ -187,7 +187,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                     }
 
                     function addMarket(name, baseAsset, quotedAsset) {
-                        let newMarket = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Market')
+                        let newMarket = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Market')
                         newMarket.name = name
                         newMarket.config = '{ \n\"codeName\": \"' + name + '\"\n}'
                         newMarket.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
@@ -272,7 +272,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         */
                         let dataTasks = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Data Tasks', node, true)
                         if (dataTasks === undefined) {
-                            dataTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Tasks')
+                            dataTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Tasks')
                         }
                         /*
                         We will make ourserves sure that the Project Data Tasks nodes are there.
@@ -305,7 +305,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         */
                         let learningTasks = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Learning Tasks', node, true)
                         if (learningTasks === undefined) {
-                            learningTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Learning Tasks')
+                            learningTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Learning Tasks')
                         }
                         /*
                         We will make ourserves sure that the Project Learning Tasks nodes are there.
@@ -359,7 +359,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             */
                             let tradingTasks = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, environmentType, node, true)
                             if (tradingTasks === undefined) {
-                                tradingTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, environmentType)
+                                tradingTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, environmentType)
                             }
                             /*
                              We will make ourserves sure that the Project Trading Tasks nodes are there.
@@ -406,11 +406,11 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         */
                         let dataStorage = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
-                            dataStorage = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
+                            dataStorage = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
                         }
                         let dataMinesData = UI.projects.foundations.utilities.branches.findInBranch(dataStorage, 'Data Mines Data', node, true)
                         if (dataMinesData === undefined) {
-                            dataMinesData = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(dataStorage, 'Data Mines Data')
+                            dataMinesData = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataStorage, 'Data Mines Data')
                         }
                         dataMinesData.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                         /*
@@ -445,11 +445,11 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         */
                         let dataStorage = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
-                            dataStorage = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
+                            dataStorage = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
                         }
                         let learningMinesData = UI.projects.foundations.utilities.branches.findInBranch(dataStorage, 'Learning Mines Data', node, true)
                         if (learningMinesData === undefined) {
-                            learningMinesData = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(dataStorage, 'Learning Mines Data')
+                            learningMinesData = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataStorage, 'Learning Mines Data')
                         }
                         learningMinesData.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                         /*
@@ -500,11 +500,11 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         */
                         let dataStorage = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
-                            dataStorage = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
+                            dataStorage = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
                         }
                         let tradingMinesData = UI.projects.foundations.utilities.branches.findInBranch(dataStorage, 'Trading Mines Data', node, true)
                         if (tradingMinesData === undefined) {
-                            tradingMinesData = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(dataStorage, 'Trading Mines Data')
+                            tradingMinesData = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataStorage, 'Trading Mines Data')
                         }
                         tradingMinesData.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                         /*

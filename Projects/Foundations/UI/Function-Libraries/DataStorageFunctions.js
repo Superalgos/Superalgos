@@ -52,7 +52,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
 
             for (let i = 0; i < botArray.length; i++) {
                 let bot = botArray[i]
-                let botProducts = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Bot Products')
+                let botProducts = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Bot Products')
                 botProducts.name = bot.name
                 botProducts.payload.floatingObject.collapseToggle()
 
@@ -75,7 +75,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
             let rootNode = rootNodes[i]
 
             if (rootNode.type === 'Data Mine') {
-                let dataMineProducts = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Data Mine Products')
+                let dataMineProducts = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Data Mine Products')
                 UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(dataMineProducts, rootNode)
             }
         }
@@ -86,7 +86,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
             let rootNode = rootNodes[i]
 
             if (rootNode.type === 'Trading Mine') {
-                let tradingMineProducts = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Trading Mine Products')
+                let tradingMineProducts = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Trading Mine Products')
                 UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(tradingMineProducts, rootNode)
             }
         }
@@ -97,7 +97,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
             let rootNode = rootNodes[i]
 
             if (rootNode.type === 'Learning Mine') {
-                let learningMineProducts = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Learning Mine Products')
+                let learningMineProducts = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Learning Mine Products')
                 UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(learningMineProducts, rootNode)
             }
         }
@@ -154,7 +154,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
     }
 
     function createSessionReference(node, session, nodeType) {
-        let sessionReference = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, nodeType)
+        let sessionReference = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, nodeType)
         UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(sessionReference, session)
     }
 
@@ -178,7 +178,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
         for (let i = 0; i < marketsArray.length; i++) {
             let market = marketsArray[i]
             if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, market, true) === true) {
-                let marketDataProducts = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
+                let marketDataProducts = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
                 UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(marketDataProducts, market)
             }
         }
@@ -206,7 +206,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
                     for (let k = 0; k < cryptoExchanges.exchanges.length; k++) {
                         let cryptoExchange = cryptoExchanges.exchanges[k]
                         if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, cryptoExchange, true) === true) {
-                            let exchange = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
+                            let exchange = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
                             UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(exchange, cryptoExchange)
                         }
                     }
@@ -242,7 +242,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
                     let projectDefinition = rootNode.projectDefinition
                     if (projectDefinition !== undefined) {
                         if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, projectDefinition, true) === true) {
-                            let projectTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType, undefined, project)
+                            let projectTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType, undefined, project)
                             UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
                         }
                     }

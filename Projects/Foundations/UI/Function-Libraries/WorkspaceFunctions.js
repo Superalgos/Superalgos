@@ -20,7 +20,7 @@ function newFoundationsFunctionLibraryWorkspaceFunctions() {
             }
 
             if (alreadyExist === false) {
-                let child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, project + ' Project', rootNodes, project)
+                let child = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, project + ' Project', rootNodes, project)
                 if (child === undefined) { continue }
                 child.project = project
                 child.projectDefinition.name = project

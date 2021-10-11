@@ -321,7 +321,7 @@ function newVisualScriptingUtilitiesNodeChildren() {
         */
         let child
         if (isMissingChildrenById(startingNode, referencedNode, true) === true) {
-            child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(startingNode, childType)
+            child = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(startingNode, childType)
             UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(child, referencedNode)
         } else {
             child = findChildReferencingThisNode(startingNode, referencedNode)
@@ -340,7 +340,7 @@ function newVisualScriptingUtilitiesNodeChildren() {
         if (child !== undefined) {
             UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(child, rootNodes)
         }
-        child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(startingNode, childType)
+        child = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(startingNode, childType)
         UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(child, referencedNode)
         return child
     }

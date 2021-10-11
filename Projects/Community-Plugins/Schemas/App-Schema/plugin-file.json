@@ -16,7 +16,7 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Plugin File Position",
             "relatedUiObject": "Plugin File Position",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Enable Saving With Workspace",

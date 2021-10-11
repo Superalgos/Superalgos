@@ -16,7 +16,7 @@
             "relatedUiObject": "Learning Mine",
             "relatedUiObjectProject": "Machine-Learning",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -24,7 +24,7 @@
             "relatedUiObject": "Learning Engine",
             "relatedUiObjectProject": "Machine-Learning",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -32,7 +32,7 @@
             "relatedUiObject": "Learning System",
             "relatedUiObjectProject": "Machine-Learning",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

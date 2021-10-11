@@ -10,7 +10,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "tokenPowerSwitch",
             "actionFunction": "payload.executeAction",
@@ -19,7 +19,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "tokensMined",
             "actionFunction": "payload.executeAction",

@@ -17,7 +17,7 @@
             "relatedUiObject": "Trading Bot",
             "relatedUiObjectProject": "Algorithmic-Trading",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -25,7 +25,7 @@
             "relatedUiObject": "Plotter",
             "relatedUiObjectProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

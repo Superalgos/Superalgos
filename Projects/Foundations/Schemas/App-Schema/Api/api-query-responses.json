@@ -5,7 +5,8 @@
             "action": "Add UI Object",
             "label": "Add API Query Response",
             "relatedUiObject": "API Query Response",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

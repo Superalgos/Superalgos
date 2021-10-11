@@ -6,7 +6,7 @@
             "label": "Add Telegram Bot",
             "relatedUiObject": "Telegram Bot",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Social-Bots"
         },
         {
@@ -14,7 +14,7 @@
             "label": "Add Discord Bot",
             "relatedUiObject": "Discord Bot",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Social-Bots"
         },
         {
@@ -22,7 +22,7 @@
             "label": "Add Slack Bot",
             "relatedUiObject": "Slack Bot",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Social-Bots"
         },
         {
@@ -30,7 +30,7 @@
             "label": "Add Twitter Bot",
             "relatedUiObject": "Twitter Bot",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Social-Bots"
         },
         {

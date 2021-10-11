@@ -19,14 +19,14 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Position Claims Folder",
             "relatedUiObject": "Position Claims Folder"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Position Contribution Claim",
             "relatedUiObject": "Position Contribution Claim"

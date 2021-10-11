@@ -33,7 +33,8 @@
             "propertyToCheckFor": "style",
             "actionFunction": "payload.executeAction",
             "label": "Add Style",
-            "relatedUiObject": "Style"
+            "relatedUiObject": "Style",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

@@ -5,13 +5,15 @@
             "action": "Add UI Object",
             "label": "Add Layer",
             "relatedUiObject": "Layer",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "label": "Add Layer Folder",
             "relatedUiObject": "Layer Folder",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

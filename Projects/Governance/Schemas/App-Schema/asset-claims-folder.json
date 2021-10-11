@@ -22,14 +22,16 @@
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset Claims Folder",
-            "relatedUiObject": "Asset Claims Folder"
+            "relatedUiObject": "Asset Claims Folder",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset Contribution Claim",
-            "relatedUiObject": "Asset Contribution Claim"
+            "relatedUiObject": "Asset Contribution Claim",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

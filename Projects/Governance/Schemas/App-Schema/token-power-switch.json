@@ -10,14 +10,14 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Token Power Switch",
             "relatedUiObject": "Token Power Switch"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "onboardingPrograms",
@@ -26,7 +26,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "communityBuildingPrograms",
@@ -35,7 +35,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "votesAndClaimsPrograms",
@@ -44,7 +44,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "financialPrograms",

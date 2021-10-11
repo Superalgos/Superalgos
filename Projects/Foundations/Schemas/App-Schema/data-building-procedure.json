@@ -7,7 +7,8 @@
             "propertyToCheckFor": "initialization",
             "label": "Add Procedure Initialization",
             "relatedUiObject": "Procedure Initialization",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -15,7 +16,8 @@
             "propertyToCheckFor": "loop",
             "label": "Add Procedure Loop",
             "relatedUiObject": "Procedure Loop",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

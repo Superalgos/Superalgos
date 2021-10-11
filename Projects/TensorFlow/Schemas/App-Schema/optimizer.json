@@ -3,7 +3,7 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "optimizerType",
             "label": "Add Optimizer by Name",
@@ -12,7 +12,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "optimizerType",
             "label": "Add SGD Instance",
@@ -21,7 +21,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "optimizerType",
             "label": "Add Momentum Instance",
@@ -30,7 +30,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "optimizerType",
             "label": "Add Adagrad Instance",
@@ -39,7 +39,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "optimizerType",
             "label": "Add Adadelta Instance",
@@ -48,7 +48,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "optimizerType",
             "label": "Add Adam Instance",
@@ -57,7 +57,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "optimizerType",
             "label": "Add Rmsprop Instance",

@@ -16,7 +16,7 @@
             "relatedUiObject": "Trading Mine",
             "relatedUiObjectProject": "Algorithmic-Trading",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -24,7 +24,7 @@
             "relatedUiObject": "Trading Engine",
             "relatedUiObjectProject": "Algorithmic-Trading",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -32,7 +32,7 @@
             "relatedUiObject": "Trading System",
             "relatedUiObjectProject": "Algorithmic-Trading",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

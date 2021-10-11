@@ -7,7 +7,8 @@
             "propertyToCheckFor": "rateScale",
             "label": "Add Rate Scale",
             "relatedUiObject": "Rate Scale",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -15,7 +16,8 @@
             "propertyToCheckFor": "timeFrameScale",
             "label": "Add Time Frame Scale",
             "relatedUiObject": "Time Frame Scale",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -23,7 +25,8 @@
             "propertyToCheckFor": "layerManager",
             "label": "Add Layer Manager",
             "relatedUiObject": "Layer Manager",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

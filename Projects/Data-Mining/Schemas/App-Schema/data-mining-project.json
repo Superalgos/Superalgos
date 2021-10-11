@@ -16,7 +16,7 @@
             "relatedUiObject": "Data Mine",
             "relatedUiObjectProject": "Data-Mining",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

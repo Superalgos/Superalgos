@@ -15,13 +15,15 @@
             "propertyToCheckFor": "timeFramesFilter",
             "label": "Add Time Frames Filter",
             "relatedUiObject": "Time Frames Filter",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "label": "Add Process Instance",
             "relatedUiObject": "Indicator Process Instance",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

@@ -5,7 +5,8 @@
             "action": "Add UI Object",
             "label": "Add Project Trading Products",
             "relatedUiObject": "Project Trading Products",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add Missing Project Trading Products",

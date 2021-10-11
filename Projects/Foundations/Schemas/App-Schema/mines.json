@@ -5,19 +5,22 @@
             "action": "Add UI Object",
             "label": "Add Data Mine",
             "relatedUiObject": "Data Mine",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "label": "Add Trading Mine",
             "relatedUiObject": "Trading Mine",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "label": "Add Learning Mine",
             "relatedUiObject": "Learning Mine",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

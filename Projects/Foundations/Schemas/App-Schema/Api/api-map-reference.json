@@ -5,7 +5,8 @@
             "action": "Add UI Object",
             "label": "Add API Response Field",
             "relatedUiObject": "API Response Field",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

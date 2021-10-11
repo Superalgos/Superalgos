@@ -5,13 +5,15 @@
             "action": "Add UI Object",
             "label": "Add Crypto Exchanges",
             "relatedUiObject": "Crypto Exchanges",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "label": "Add Signals Providers",
             "relatedUiObject": "Signals Providers",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

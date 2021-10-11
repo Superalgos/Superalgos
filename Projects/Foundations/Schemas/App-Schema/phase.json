@@ -7,7 +7,8 @@
             "propertyToCheckFor": "formula",
             "label": "Add Formula",
             "relatedUiObject": "Formula",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -15,21 +16,24 @@
             "propertyToCheckFor": "nextPhaseEvent",
             "label": "Add Next Phase Event",
             "relatedUiObject": "Next Phase Event",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "label": "Add Move To Phase Event",
             "relatedUiObject": "Move To Phase Event",
             "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Social-Bots"
+            "relatedUiObjectProject": "Social-Bots",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "label": "Add Announcement",
             "relatedUiObject": "Announcement",
             "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Social-Bots"
+            "relatedUiObjectProject": "Social-Bots",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

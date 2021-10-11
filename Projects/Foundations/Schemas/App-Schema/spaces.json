@@ -5,13 +5,15 @@
             "action": "Add UI Object",
             "label": "Add Charting Space",
             "relatedUiObject": "Charting Space",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "label": "Add Design Space",
             "relatedUiObject": "Design Space",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

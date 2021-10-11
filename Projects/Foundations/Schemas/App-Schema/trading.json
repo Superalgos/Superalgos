@@ -5,13 +5,15 @@
             "action": "Add UI Object",
             "label": "Add Trading System",
             "relatedUiObject": "Trading System",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "label": "Add Trading Engine",
             "relatedUiObject": "Trading Engine",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

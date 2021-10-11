@@ -19,7 +19,7 @@
       "label": "Add Formula",
       "relatedUiObject": "Formula",
       "actionFunction": "payload.executeAction",
-      "actionProject": "Foundations"
+      "actionProject": "Visual-Scripting"
     },
     {
       "action": "Delete UI Object",

@@ -36,25 +36,29 @@
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Chart Points",
-            "relatedUiObject": "Chart Points"
+            "relatedUiObject": "Chart Points",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Polygon",
-            "relatedUiObject": "Polygon"
+            "relatedUiObject": "Polygon",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Image",
-            "relatedUiObject": "Image"
+            "relatedUiObject": "Image",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Text",
-            "relatedUiObject": "Text"
+            "relatedUiObject": "Text",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

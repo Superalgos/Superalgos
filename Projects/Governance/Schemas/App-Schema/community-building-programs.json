@@ -10,7 +10,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "referralProgram",
@@ -19,7 +19,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "supportProgram",
@@ -28,7 +28,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "mentorshipProgram",
@@ -37,7 +37,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "influencerProgram",
@@ -46,7 +46,7 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

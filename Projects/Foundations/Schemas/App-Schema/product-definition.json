@@ -15,13 +15,15 @@
             "propertyToCheckFor": "record",
             "label": "Add Record Definition",
             "relatedUiObject": "Record Definition",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "label": "Add Dataset Definition",
             "relatedUiObject": "Dataset Definition",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add Missing Children",

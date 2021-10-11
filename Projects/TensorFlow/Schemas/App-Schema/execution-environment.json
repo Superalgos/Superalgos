@@ -3,7 +3,7 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "backend",
             "label": "Add WebGL Backend",
@@ -12,7 +12,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "backend",
             "label": "Add NodeJS Backend",
@@ -21,7 +21,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "backend",
             "label": "Add WASM Backend",
@@ -30,7 +30,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "backend",
             "label": "Add CPU Backend",
@@ -39,7 +39,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "environmentFlags",
             "label": "Add Environment Flags",

@@ -14,7 +14,8 @@
             "propertyToCheckFor": "createOrderEvent",
             "label": "Add Create Order Event",
             "relatedUiObject": "Create Order Event",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -22,7 +23,8 @@
             "propertyToCheckFor": "simulatedExchangeEvents",
             "label": "Add Simulated Events",
             "relatedUiObject": "Simulated Exchange Events",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

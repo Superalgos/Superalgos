@@ -3,7 +3,7 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "batchesPerGradientUpdate",
             "label": "Add Batch Size Per Gradient Update",
@@ -12,7 +12,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "shuffle",
             "label": "Add Shuffle",

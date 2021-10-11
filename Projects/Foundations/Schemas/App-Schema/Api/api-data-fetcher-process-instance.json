@@ -7,7 +7,8 @@
             "propertyToCheckFor": "apiMapReference",
             "label": "Add API Map Reference",
             "relatedUiObject": "API Map Reference",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

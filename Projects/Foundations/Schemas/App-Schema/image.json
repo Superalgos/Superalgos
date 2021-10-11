@@ -25,7 +25,8 @@
             "propertyToCheckFor": "imageCondition",
             "actionFunction": "payload.executeAction",
             "label": "Add Image Condition",
-            "relatedUiObject": "Image Condition"
+            "relatedUiObject": "Image Condition",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -33,7 +34,8 @@
             "propertyToCheckFor": "imagePosition",
             "actionFunction": "payload.executeAction",
             "label": "Add Image Position",
-            "relatedUiObject": "Image Position"
+            "relatedUiObject": "Image Position",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

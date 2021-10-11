@@ -20,7 +20,7 @@
             "relatedUiObject": "Announcement Formula",
             "relatedUiObjectProject": "Social-Bots",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -30,7 +30,7 @@
             "relatedUiObject": "Announcement Condition",
             "relatedUiObjectProject": "Social-Bots",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

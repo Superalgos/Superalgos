@@ -93,7 +93,8 @@
             "propertyToCheckFor": "shapes",
             "actionFunction": "payload.executeAction",
             "label": "Add Shapes",
-            "relatedUiObject": "Shapes"
+            "relatedUiObject": "Shapes",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -101,13 +102,15 @@
             "propertyToCheckFor": "plotterModuleJavascriptCode",
             "actionFunction": "payload.executeAction",
             "label": "Add Javascript Code",
-            "relatedUiObject": "Plotter Module Javascript Code"
+            "relatedUiObject": "Plotter Module Javascript Code",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Plotter Panel",
-            "relatedUiObject": "Plotter Panel"
+            "relatedUiObject": "Plotter Panel",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add Missing Children",

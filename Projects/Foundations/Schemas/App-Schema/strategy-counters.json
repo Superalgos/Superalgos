@@ -7,13 +7,15 @@
             "propertyToCheckFor": "periods",
             "label": "Add Periods",
             "relatedUiObject": "Periods",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "label": "Add User Defined Counter",
             "relatedUiObject": "User Defined Counter",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

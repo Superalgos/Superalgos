@@ -5,7 +5,8 @@
             "action": "Add UI Object",
             "label": "Add Template Script",
             "relatedUiObject": "Template Script",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -13,7 +14,8 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "javascriptCode",
             "relatedUiObject": "Javascript Code",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

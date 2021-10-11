@@ -14,7 +14,7 @@
             "relatedUiObject": "Plugins",
             "relatedUiObjectProject": "Community-Plugins",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

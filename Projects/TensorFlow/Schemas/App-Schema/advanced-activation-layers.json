@@ -3,7 +3,7 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Elu Layer",
@@ -12,7 +12,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Leaky Relu Layer",
@@ -21,7 +21,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Prelu Layer",
@@ -30,7 +30,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Relu Layer",
@@ -39,7 +39,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Softmax Layer",
@@ -48,7 +48,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Thresholded Relu Layer",

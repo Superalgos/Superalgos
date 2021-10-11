@@ -25,13 +25,15 @@
             "propertyToCheckFor": "style",
             "actionFunction": "payload.executeAction",
             "label": "Add Style",
-            "relatedUiObject": "Style"
+            "relatedUiObject": "Style",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Style Condition",
-            "relatedUiObject": "Style Condition"
+            "relatedUiObject": "Style Condition",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

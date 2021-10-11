@@ -14,7 +14,8 @@
             "propertyToCheckFor": "orderRate",
             "label": "Add Order Rate",
             "relatedUiObject": "Order Rate",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -22,7 +23,8 @@
             "propertyToCheckFor": "createOrderEvent",
             "label": "Add Create Order Event",
             "relatedUiObject": "Create Order Event",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -30,7 +32,8 @@
             "propertyToCheckFor": "cancelOrderEvent",
             "label": "Add Cancel Order Event",
             "relatedUiObject": "Cancel Order Event",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -38,7 +41,8 @@
             "propertyToCheckFor": "simulatedExchangeEvents",
             "label": "Add Simulated Events",
             "relatedUiObject": "Simulated Exchange Events",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

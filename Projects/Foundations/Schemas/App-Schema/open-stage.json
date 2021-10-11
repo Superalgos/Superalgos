@@ -19,7 +19,8 @@
             "label": "Add Announcement",
             "relatedUiObject": "Announcement",
             "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Social-Bots"
+            "relatedUiObjectProject": "Social-Bots",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

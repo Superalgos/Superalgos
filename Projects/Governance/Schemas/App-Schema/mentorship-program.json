@@ -10,14 +10,14 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add User Mentor",
             "relatedUiObject": "User Mentor"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "tokensAwarded",
             "actionFunction": "payload.executeAction",
@@ -26,7 +26,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "tokensBonus",
             "actionFunction": "payload.executeAction",

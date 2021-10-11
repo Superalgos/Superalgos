@@ -3,7 +3,7 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "label": "Add Data Label",
             "relatedUiObject": "Data Label",
             "actionFunction": "payload.executeAction"

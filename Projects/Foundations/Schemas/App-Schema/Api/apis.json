@@ -7,7 +7,8 @@
             "relatedUiObject": "Github API",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "githubAPI",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -15,7 +16,8 @@
             "relatedUiObject": "Web3 API",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "web3API",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

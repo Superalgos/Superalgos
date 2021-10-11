@@ -14,7 +14,8 @@
       "propertyToCheckFor": "exchangeAssets",
       "label": "Add Exchange Assets",
       "relatedUiObject": "Exchange Assets",
-      "actionFunction": "payload.executeAction"
+      "actionFunction": "payload.executeAction",
+      "actionProject": "Visual-Scripting"
     },
     {
       "action": "Add UI Object",
@@ -22,7 +23,8 @@
       "propertyToCheckFor": "exchangeMarkets",
       "label": "Add Exchange Markets",
       "relatedUiObject": "Exchange Markets",
-      "actionFunction": "payload.executeAction"
+      "actionFunction": "payload.executeAction",
+      "actionProject": "Visual-Scripting"
     },
     {
       "action": "Add UI Object",
@@ -30,7 +32,8 @@
       "propertyToCheckFor": "exchangeAccounts",
       "label": "Add Exchange Accounts",
       "relatedUiObject": "Exchange Accounts",
-      "actionFunction": "payload.executeAction"
+      "actionFunction": "payload.executeAction",
+      "actionProject": "Visual-Scripting"
     },
     {
       "action": "Delete UI Object",

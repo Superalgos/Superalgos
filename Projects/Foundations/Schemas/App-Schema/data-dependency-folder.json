@@ -5,13 +5,15 @@
             "action": "Add UI Object",
             "label": "Add Data Dependency",
             "relatedUiObject": "Data Dependency",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "label": "Add Data Dependency Folder",
             "relatedUiObject": "Data Dependency Folder",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

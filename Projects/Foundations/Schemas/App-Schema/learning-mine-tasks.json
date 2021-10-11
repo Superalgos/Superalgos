@@ -25,7 +25,8 @@
             "action": "Add UI Object",
             "label": "Add Task Manager",
             "relatedUiObject": "Task Manager",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add All Tasks",

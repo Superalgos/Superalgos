@@ -5,13 +5,15 @@
             "action": "Add UI Object",
             "label": "Add Learning System",
             "relatedUiObject": "Learning System",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "label": "Add Learning Engine",
             "relatedUiObject": "Learning Engine",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

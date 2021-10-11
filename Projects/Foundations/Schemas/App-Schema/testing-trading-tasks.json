@@ -25,7 +25,8 @@
             "action": "Add UI Object",
             "label": "Add Project Trading Tasks",
             "relatedUiObject": "Project Trading Tasks",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add Missing Project Trading Tasks",

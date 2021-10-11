@@ -18,7 +18,8 @@
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Point",
-            "relatedUiObject": "Point"
+            "relatedUiObject": "Point",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

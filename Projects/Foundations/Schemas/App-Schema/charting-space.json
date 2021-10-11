@@ -7,7 +7,8 @@
             "propertyToCheckFor": "viewport",
             "label": "Add Viewport",
             "relatedUiObject": "Viewport",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -15,7 +16,8 @@
             "propertyToCheckFor": "spaceStyle",
             "label": "Add Space Style",
             "relatedUiObject": "Space Style",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -23,13 +25,15 @@
             "propertyToCheckFor": "spaceSettings",
             "label": "Add Space Settings",
             "relatedUiObject": "Space Settings",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "label": "Add Project Dashboards",
             "relatedUiObject": "Project Dashboards",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add Missing Project Dashboards",

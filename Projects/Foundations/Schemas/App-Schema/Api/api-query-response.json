@@ -14,7 +14,8 @@
             "propertyToCheckFor": "apiResponseSchema",
             "label": "Add API Response Schema",
             "relatedUiObject": "API Response Schema",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

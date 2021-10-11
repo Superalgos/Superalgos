@@ -13,13 +13,15 @@
             "action": "Add UI Object",
             "label": "Add Layer",
             "relatedUiObject": "Layer",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "label": "Add Bot Layers",
             "relatedUiObject": "Bot Layers",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add All Mine Layers",

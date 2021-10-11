@@ -3,7 +3,7 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "label": "Add Tutorial",
             "iconProject": "Education",
             "relatedUiObject": "Tutorial",
@@ -11,7 +11,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "label": "Add Docs Space",
             "relatedUiObject": "Docs Space",
             "actionFunction": "payload.executeAction"

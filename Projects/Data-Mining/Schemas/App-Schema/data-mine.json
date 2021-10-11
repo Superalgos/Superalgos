@@ -16,21 +16,21 @@
             "label": "Add Sensor Bot",
             "relatedUiObject": "Sensor Bot",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "label": "Add API Data Fetcher Bot",
             "relatedUiObject": "API Data Fetcher Bot",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "label": "Add Indicator Bot",
             "relatedUiObject": "Indicator Bot",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -38,7 +38,7 @@
             "relatedUiObject": "Plotter",
             "relatedUiObjectProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

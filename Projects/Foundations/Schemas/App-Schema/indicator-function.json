@@ -14,7 +14,8 @@
             "propertyToCheckFor": "formula",
             "label": "Add Formula",
             "relatedUiObject": "Formula",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

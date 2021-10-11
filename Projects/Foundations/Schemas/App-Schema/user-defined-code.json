@@ -13,7 +13,8 @@
             "propertyToCheckFor": "javascriptCode",
             "label": "Add Code",
             "relatedUiObject": "Javascript Code",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

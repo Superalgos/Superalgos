@@ -10,7 +10,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "votingProgram",
@@ -19,7 +19,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "claimsProgram",

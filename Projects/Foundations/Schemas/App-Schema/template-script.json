@@ -7,7 +7,8 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "templateStructure",
             "relatedUiObject": "Template Structure",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -15,7 +16,8 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "templateTarget",
             "relatedUiObject": "Template Target",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -23,7 +25,8 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "javascriptCode",
             "relatedUiObject": "Javascript Code",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

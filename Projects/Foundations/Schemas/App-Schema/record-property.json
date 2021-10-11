@@ -15,7 +15,8 @@
             "propertyToCheckFor": "recordFormula",
             "label": "Add Formula",
             "relatedUiObject": "Record Formula",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -23,7 +24,8 @@
             "propertyToCheckFor": "apiResponseFieldReference",
             "label": "Add Field Reference",
             "relatedUiObject": "API Response Field Reference",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

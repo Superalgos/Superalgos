@@ -39,7 +39,8 @@
             "propertyToCheckFor": "dataFormula",
             "actionFunction": "payload.executeAction",
             "label": "Add Data Formula",
-            "relatedUiObject": "Data Formula"
+            "relatedUiObject": "Data Formula",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -47,7 +48,8 @@
             "propertyToCheckFor": "textStyle",
             "actionFunction": "payload.executeAction",
             "label": "Add Text Style",
-            "relatedUiObject": "Text Style"
+            "relatedUiObject": "Text Style",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

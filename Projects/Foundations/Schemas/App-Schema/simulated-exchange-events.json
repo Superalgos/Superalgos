@@ -7,7 +7,8 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "simulatedPartialFill",
             "relatedUiObject": "Simulated Partial Fill",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -15,7 +16,8 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "simulatedActualRate",
             "relatedUiObject": "Simulated Actual Rate",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -23,7 +25,8 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "simulatedFeesPaid",
             "relatedUiObject": "Simulated Fees Paid",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

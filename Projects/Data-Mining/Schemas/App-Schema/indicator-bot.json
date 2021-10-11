@@ -16,7 +16,7 @@
             "relatedUiObject": "Process Definition",
             "relatedUiObjectProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -24,7 +24,7 @@
             "relatedUiObject": "Product Definition",
             "relatedUiObjectProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

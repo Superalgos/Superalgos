@@ -10,7 +10,7 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "label": "Add Machine Learning",
             "relatedUiObject": "Machine Learning",
             "actionFunction": "payload.executeAction"

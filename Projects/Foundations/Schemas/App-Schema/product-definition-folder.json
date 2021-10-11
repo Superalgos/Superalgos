@@ -5,13 +5,15 @@
             "action": "Add UI Object",
             "label": "Add Product Definition",
             "relatedUiObject": "Product Definition",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "label": "Add Product Definition Folder",
             "relatedUiObject": "Product Definition Folder",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

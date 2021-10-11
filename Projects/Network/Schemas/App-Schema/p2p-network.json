@@ -3,7 +3,7 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "label": "Add P2P Network Node",
             "relatedUiObject": "P2P Network Node",
             "actionFunction": "payload.executeAction"

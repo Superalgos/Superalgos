@@ -25,7 +25,8 @@
             "action": "Add UI Object",
             "label": "Add Project Data Tasks",
             "relatedUiObject": "Project Data Tasks",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add Missing Project Data Tasks",

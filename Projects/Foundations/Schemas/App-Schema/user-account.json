@@ -7,7 +7,8 @@
             "propertyToCheckFor": "userAssets",
             "label": "Add User Assets",
             "relatedUiObject": "User Assets",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -15,7 +16,8 @@
             "propertyToCheckFor": "userKeys",
             "label": "Add User Keys",
             "relatedUiObject": "User Keys",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

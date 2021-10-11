@@ -14,7 +14,8 @@
             "propertyToCheckFor": "baseAsset",
             "label": "Add Base Asset",
             "relatedUiObject": "Market Base Asset",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -22,7 +23,8 @@
             "propertyToCheckFor": "quotedAsset",
             "label": "Add Quoted Asset",
             "relatedUiObject": "Market Quoted Asset",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Install Market",

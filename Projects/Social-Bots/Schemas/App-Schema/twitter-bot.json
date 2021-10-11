@@ -17,7 +17,7 @@
             "label": "Add Social Bot Command",
             "relatedUiObject": "Social Bot Command",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Social-Bots"
         },
         {

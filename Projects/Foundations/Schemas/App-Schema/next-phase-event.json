@@ -5,14 +5,16 @@
             "action": "Add UI Object",
             "label": "Add Situation",
             "relatedUiObject": "Situation",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
             "label": "Add Announcement",
             "relatedUiObject": "Announcement",
             "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Social-Bots"
+            "relatedUiObjectProject": "Social-Bots",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",

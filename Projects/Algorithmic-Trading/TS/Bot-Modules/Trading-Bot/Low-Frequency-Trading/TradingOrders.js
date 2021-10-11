@@ -1262,7 +1262,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
                     tradingSystem.highlights.push(executionAlgorithm.id)
                     tradingSystem.highlights.push(executionNode.id)
 
-                    announcementsModuleObject.makeAnnoucements(event)
+                    announcementsModuleObject.makeAnnouncements(event)
                     return situation.name  // if the event is triggered, we return the name of the situation that passed
                 }
             }

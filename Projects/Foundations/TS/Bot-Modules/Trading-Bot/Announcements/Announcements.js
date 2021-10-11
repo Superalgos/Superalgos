@@ -3,7 +3,7 @@ exports.newFoundationsBotModulesAnnouncements = function (processIndex) {
     const MODULE_NAME = 'Announcements'
 
     let thisObject = {
-        makeAnnoucements: makeAnnoucements,
+        makeAnnouncements: makeAnnouncements,
         initialize: initialize,
         finalize: finalize
     }
@@ -20,7 +20,7 @@ exports.newFoundationsBotModulesAnnouncements = function (processIndex) {
         tradingEngine = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine
         sessionParameters = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters
 
-        let taskParameters = {
+        taskParameters = {
             exchange: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name,
             market: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
                 '/' +
@@ -36,13 +36,34 @@ exports.newFoundationsBotModulesAnnouncements = function (processIndex) {
         TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.messagesSent = undefined
     }
 
-    function makeAnnoucements(node) {
+    function makeAnnouncements(node, status='Open') {
         if (node === undefined) { return }
         if (node.announcements === undefined) { return }
 
         for (let i = 0; i < node.announcements.length; i++) {
             let announcement = node.announcements[i]
             let canAnnounce = true
+
+            // Check configuration to see if Announcement should be run at Enter or Exit of Node
+            console.log('[DEBUG] announcement.config:')
+            console.log(announcement.config)
+            
+            // protect against empty configurations or missing values
+            onEnter = true
+            onExit = false
+            if (announcement.config.onEnter !== undefined) {
+                onEnter = announcement.config.onEnter
+            }
+            if (announcement.config.onExit !== undefined) {
+                onExit = announcement.config.onExit   
+            }
+
+            if ((status === 'Open' && onEnter) || (status === 'Closed' && onExit)) {
+                canAnnounce = true
+            } else {
+                canAnnounce = false
+            }
+            
             if (announcement.announcementCondition !== undefined) {
                 let conditionValue
                 try {

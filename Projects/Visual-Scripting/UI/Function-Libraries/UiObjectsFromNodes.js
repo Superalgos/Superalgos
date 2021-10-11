@@ -1,4 +1,4 @@
-function newFoundationsFunctionLibraryUiObjectsFromNodes() {
+function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
     let thisObject = {
         syncronizeTasksFoundAtWorkspaceWithBackEnd: syncronizeTasksFoundAtWorkspaceWithBackEnd,
         syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd: syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd,

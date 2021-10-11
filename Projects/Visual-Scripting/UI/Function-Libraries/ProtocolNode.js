@@ -1,4 +1,4 @@
-function newFoundationsFunctionLibraryProtocolNode() {
+function newVisualScriptingFunctionLibraryProtocolNode() {
     const MODULE_NAME = 'Protocol Node'
     const ERROR_LOG = true
     const logger = newWebDebugLog()

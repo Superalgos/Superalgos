@@ -1,4 +1,4 @@
-function newFoundationsFunctionLibraryNodeDeleter() {
+function newVisualScriptingFunctionLibraryNodeDeleter() {
     let thisObject = {
         deleteWorkspace: deleteWorkspace,
         deleteUIObject: deleteUIObject

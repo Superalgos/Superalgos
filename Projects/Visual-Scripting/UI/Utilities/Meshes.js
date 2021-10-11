@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesMeshes() {
+function newVisualScriptingUtilitiesMeshes() {
     let thisObject = {
         findNodeInNodeMesh: findNodeInNodeMesh
     }

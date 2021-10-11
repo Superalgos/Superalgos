@@ -1,4 +1,4 @@
-function newNodeChildren() {
+function newVisualScriptingFunctionLibraryNodeChildren() {
     let thisObject = {
         childrenCount: childrenCount
     }

@@ -1,5 +1,5 @@
 // These function are used across the system to establish and remove references between nodes
-function newFoundationsFunctionLibraryReferenceAttachDetach() {
+function newVisualScriptingFunctionLibraryReferenceAttachDetach() {
     let thisObject = {
         referenceDetachNode: referenceDetachNode,
         referenceAttachNode: referenceAttachNode

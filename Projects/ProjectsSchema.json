@@ -253,44 +253,9 @@
             ],
             "functionLibraries": [
                 {
-                    "name": "Reference Attach Detach",
-                    "propertyName": "attachDetach",
-                    "functionName": "newFoundationsFunctionLibraryReferenceAttachDetach"
-                },
-                {
-                    "name": "Chain Attach Detach",
-                    "propertyName": "chainAttachDetach",
-                    "functionName": "newFoundationsFunctionLibraryChainAttachDetach"
-                },
-                {
-                    "name": "Node Deleter",
-                    "propertyName": "nodeDeleter",
-                    "functionName": "newFoundationsFunctionLibraryNodeDeleter"
-                },
-                {
-                    "name": "Ui Objects From Nodes",
-                    "propertyName": "uiObjectsFromNodes",
-                    "functionName": "newFoundationsFunctionLibraryUiObjectsFromNodes"
-                },
-                {
-                    "name": "Protocol Node",
-                    "propertyName": "protocolNode",
-                    "functionName": "newFoundationsFunctionLibraryProtocolNode"
-                },
-                {
-                    "name": "Node Cloning",
-                    "propertyName": "nodeCloning",
-                    "functionName": "newFoundationsFunctionLibraryNodeCloning"
-                },
-                {
                     "name": "Shortcut Keys",
                     "propertyName": "shortcutKeys",
                     "functionName": "newFoundationsFunctionLibraryShortcutKeys"
-                },
-                {
-                    "name": "On Focus",
-                    "propertyName": "onFocus",
-                    "functionName": "newFoundationsFunctionLibraryOnFocus"
                 },
                 {
                     "name": "Webhook Functions",
@@ -301,11 +266,6 @@
                     "name": "Dependencies Filter",
                     "propertyName": "dependenciesFilter",
                     "functionName": "newFoundationsFunctionLibraryDependenciesFilter"
-                },
-                {
-                    "name": "Node Path",
-                    "propertyName": "nodePath",
-                    "functionName": "newFoundationsFunctionLibraryNodePath"
                 },
                 {
                     "name": "Task Functions",
@@ -370,16 +330,6 @@
                     "functionName": "newFoundationsUtilitiesDrawPrint"
                 },
                 {
-                    "name": "Hierarchy",
-                    "propertyName": "hierarchy",
-                    "functionName": "newFoundationsUtilitiesHierarchy"
-                },
-                {
-                    "name": "Load Save Frame",
-                    "propertyName": "loadSaveFrame",
-                    "functionName": "newFoundationsUtilitiesLoadSaveFrame"
-                },
-                {
                     "name": "Tutorial",
                     "propertyName": "tutorial",
                     "functionName": "newFoundationsUtilitiesTutorial"
@@ -388,21 +338,6 @@
                     "name": "Menu",
                     "propertyName": "menu",
                     "functionName": "newFoundationsUtilitiesMenu"
-                },
-                {
-                    "name": "Meshes",
-                    "propertyName": "meshes",
-                    "functionName": "newFoundationsUtilitiesMeshes"
-                },
-                {
-                    "name": "Node Children",
-                    "propertyName": "nodeChildren",
-                    "functionName": "newFoundationsUtilitiesNodeChildren"
-                },
-                {
-                    "name": "Node Config",
-                    "propertyName": "nodeConfig",
-                    "functionName": "newFoundationsUtilitiesNodeConfig"
                 },
                 {
                     "name": "Folders",
@@ -652,12 +587,6 @@
             ],
             "utilities": [
                 {
-                    "name": "Node Functions",
-                    "propertyName": "nodeFunctions",
-                    "functionName": "newFoundationsUtilitiesNodeFunctions",
-                    "fileName": "NodeFunctions.js"
-                },
-                {
                     "name": "Date Time Functions",
                     "propertyName": "dateTimeFunctions",
                     "functionName": "newFoundationsUtilitiesDateTimeFunctions",
@@ -733,8 +662,7 @@
                     "functionName": "newFoundationsProcessModulesProcessOutput",
                     "fileName": "ProcessOutput.js"
                 }
-            ],
-            "botModules": []
+            ]
         },
         "PL": {
             "utilities": [
@@ -1616,11 +1544,89 @@
         "name": "Visual-Scripting",
         "propertyName": "visualScripting",
         "UI": {
-            "functionLibraries": [],
-            "utilities": []
+            "functionLibraries": [
+                {
+                    "name": "Reference Attach Detach",
+                    "propertyName": "attachDetach",
+                    "functionName": "newVisualScriptingFunctionLibraryReferenceAttachDetach"
+                },
+                {
+                    "name": "Chain Attach Detach",
+                    "propertyName": "chainAttachDetach",
+                    "functionName": "newVisualScriptingFunctionLibraryChainAttachDetach"
+                },
+                {
+                    "name": "Node Deleter",
+                    "propertyName": "nodeDeleter",
+                    "functionName": "newVisualScriptingFunctionLibraryNodeDeleter"
+                },
+                {
+                    "name": "Node Children",
+                    "propertyName": "nodeChildren",
+                    "functionName": "newVisualScriptingFunctionLibraryNodeChildren"
+                },
+                {
+                    "name": "Ui Objects From Nodes",
+                    "propertyName": "uiObjectsFromNodes",
+                    "functionName": "newVisualScritingFunctionLibraryUiObjectsFromNodes"
+                },
+                {
+                    "name": "Protocol Node",
+                    "propertyName": "protocolNode",
+                    "functionName": "newVisualScriptingFunctionLibraryProtocolNode"
+                },
+                {
+                    "name": "Node Cloning",
+                    "propertyName": "nodeCloning",
+                    "functionName": "newVisualScriptingFunctionLibraryNodeCloning"
+                },
+                {
+                    "name": "On Focus",
+                    "propertyName": "onFocus",
+                    "functionName": "newVisualScriptingFunctionLibraryOnFocus"
+                },
+                {
+                    "name": "Node Path",
+                    "propertyName": "nodePath",
+                    "functionName": "newVisualScriptingFunctionLibraryNodePath"
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Hierarchy",
+                    "propertyName": "hierarchy",
+                    "functionName": "newVisualScriptingUtilitiesHierarchy"
+                },
+                {
+                    "name": "Load Save Frame",
+                    "propertyName": "loadSaveFrame",
+                    "functionName": "newVisualScriptingUtilitiesLoadSaveFrame"
+                },                {
+                    "name": "Meshes",
+                    "propertyName": "meshes",
+                    "functionName": "newVisualScriptingUtilitiesMeshes"
+                },
+                {
+                    "name": "Node Children",
+                    "propertyName": "nodeChildren",
+                    "functionName": "newVisualScriptingUtilitiesNodeChildren"
+                },
+                {
+                    "name": "Node Config",
+                    "propertyName": "nodeConfig",
+                    "functionName": "newVisualScriptingUtilitiesNodeConfig"
+                }
+            ]
         },
         "TS": {
-            "botModules": []
+            "utilities": [
+                {
+                    "name": "Node Functions",
+                    "propertyName": "nodeFunctions",
+                    "functionName": "newVisualScriptingUtilitiesNodeFunctions",
+                    "fileName": "NodeFunctions.js"
+                }
+            ]
         }
     }
 ]

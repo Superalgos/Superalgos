@@ -10,7 +10,6 @@ function newWorkspace() {
         workspaceNode: undefined,
         container: undefined,
         enabled: false,
-        nodeChildren: undefined,
         eventsServerClients: new Map(),
         replaceWorkspaceByLoadingOne: replaceWorkspaceByLoadingOne,
         save: saveWorkspace,
@@ -43,8 +42,6 @@ function newWorkspace() {
 
     thisObject.workspaceNode = {}
     thisObject.workspaceNode.rootNodes = []
-
-    thisObject.nodeChildren = newNodeChildren()
 
     let savingWorkspaceIntervalId
     let workingAtTask = 0

@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesNodeChildren() {
+function newVisualScriptingUtilitiesNodeChildren() {
     let thisObject = {
         isMissingChildrenById: isMissingChildrenById,
         isMissingChildrenByType: isMissingChildrenByType,

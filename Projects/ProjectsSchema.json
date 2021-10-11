@@ -241,6 +241,95 @@
         ]
     },
     {
+        "name": "Visual-Scripting",
+        "propertyName": "visualScripting",
+        "UI": {
+            "functionLibraries": [
+                {
+                    "name": "Reference Attach Detach",
+                    "propertyName": "attachDetach",
+                    "functionName": "newVisualScriptingFunctionLibraryReferenceAttachDetach"
+                },
+                {
+                    "name": "Chain Attach Detach",
+                    "propertyName": "chainAttachDetach",
+                    "functionName": "newVisualScriptingFunctionLibraryChainAttachDetach"
+                },
+                {
+                    "name": "Node Deleter",
+                    "propertyName": "nodeDeleter",
+                    "functionName": "newVisualScriptingFunctionLibraryNodeDeleter"
+                },
+                {
+                    "name": "Node Children",
+                    "propertyName": "nodeChildren",
+                    "functionName": "newVisualScriptingFunctionLibraryNodeChildren"
+                },
+                {
+                    "name": "Ui Objects From Nodes",
+                    "propertyName": "uiObjectsFromNodes",
+                    "functionName": "newVisualScritingFunctionLibraryUiObjectsFromNodes"
+                },
+                {
+                    "name": "Protocol Node",
+                    "propertyName": "protocolNode",
+                    "functionName": "newVisualScriptingFunctionLibraryProtocolNode"
+                },
+                {
+                    "name": "Node Cloning",
+                    "propertyName": "nodeCloning",
+                    "functionName": "newVisualScriptingFunctionLibraryNodeCloning"
+                },
+                {
+                    "name": "On Focus",
+                    "propertyName": "onFocus",
+                    "functionName": "newVisualScriptingFunctionLibraryOnFocus"
+                },
+                {
+                    "name": "Node Path",
+                    "propertyName": "nodePath",
+                    "functionName": "newVisualScriptingFunctionLibraryNodePath"
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Hierarchy",
+                    "propertyName": "hierarchy",
+                    "functionName": "newVisualScriptingUtilitiesHierarchy"
+                },
+                {
+                    "name": "Load Save Frame",
+                    "propertyName": "loadSaveFrame",
+                    "functionName": "newVisualScriptingUtilitiesLoadSaveFrame"
+                },                {
+                    "name": "Meshes",
+                    "propertyName": "meshes",
+                    "functionName": "newVisualScriptingUtilitiesMeshes"
+                },
+                {
+                    "name": "Node Children",
+                    "propertyName": "nodeChildren",
+                    "functionName": "newVisualScriptingUtilitiesNodeChildren"
+                },
+                {
+                    "name": "Node Config",
+                    "propertyName": "nodeConfig",
+                    "functionName": "newVisualScriptingUtilitiesNodeConfig"
+                }
+            ]
+        },
+        "TS": {
+            "utilities": [
+                {
+                    "name": "Node Functions",
+                    "propertyName": "nodeFunctions",
+                    "functionName": "newVisualScriptingUtilitiesNodeFunctions",
+                    "fileName": "NodeFunctions.js"
+                }
+            ]
+        }
+    },
+    {
         "name": "Foundations",
         "propertyName": "foundations",
         "UI": {
@@ -1536,95 +1625,6 @@
                     "functionName": "newSocialBotsBotModulesTwitterBot",
                     "fileName": "TwitterBot.js",
                     "folderName": ""
-                }
-            ]
-        }
-    },
-    {
-        "name": "Visual-Scripting",
-        "propertyName": "visualScripting",
-        "UI": {
-            "functionLibraries": [
-                {
-                    "name": "Reference Attach Detach",
-                    "propertyName": "attachDetach",
-                    "functionName": "newVisualScriptingFunctionLibraryReferenceAttachDetach"
-                },
-                {
-                    "name": "Chain Attach Detach",
-                    "propertyName": "chainAttachDetach",
-                    "functionName": "newVisualScriptingFunctionLibraryChainAttachDetach"
-                },
-                {
-                    "name": "Node Deleter",
-                    "propertyName": "nodeDeleter",
-                    "functionName": "newVisualScriptingFunctionLibraryNodeDeleter"
-                },
-                {
-                    "name": "Node Children",
-                    "propertyName": "nodeChildren",
-                    "functionName": "newVisualScriptingFunctionLibraryNodeChildren"
-                },
-                {
-                    "name": "Ui Objects From Nodes",
-                    "propertyName": "uiObjectsFromNodes",
-                    "functionName": "newVisualScritingFunctionLibraryUiObjectsFromNodes"
-                },
-                {
-                    "name": "Protocol Node",
-                    "propertyName": "protocolNode",
-                    "functionName": "newVisualScriptingFunctionLibraryProtocolNode"
-                },
-                {
-                    "name": "Node Cloning",
-                    "propertyName": "nodeCloning",
-                    "functionName": "newVisualScriptingFunctionLibraryNodeCloning"
-                },
-                {
-                    "name": "On Focus",
-                    "propertyName": "onFocus",
-                    "functionName": "newVisualScriptingFunctionLibraryOnFocus"
-                },
-                {
-                    "name": "Node Path",
-                    "propertyName": "nodePath",
-                    "functionName": "newVisualScriptingFunctionLibraryNodePath"
-                }
-            ],
-            "utilities": [
-                {
-                    "name": "Hierarchy",
-                    "propertyName": "hierarchy",
-                    "functionName": "newVisualScriptingUtilitiesHierarchy"
-                },
-                {
-                    "name": "Load Save Frame",
-                    "propertyName": "loadSaveFrame",
-                    "functionName": "newVisualScriptingUtilitiesLoadSaveFrame"
-                },                {
-                    "name": "Meshes",
-                    "propertyName": "meshes",
-                    "functionName": "newVisualScriptingUtilitiesMeshes"
-                },
-                {
-                    "name": "Node Children",
-                    "propertyName": "nodeChildren",
-                    "functionName": "newVisualScriptingUtilitiesNodeChildren"
-                },
-                {
-                    "name": "Node Config",
-                    "propertyName": "nodeConfig",
-                    "functionName": "newVisualScriptingUtilitiesNodeConfig"
-                }
-            ]
-        },
-        "TS": {
-            "utilities": [
-                {
-                    "name": "Node Functions",
-                    "propertyName": "nodeFunctions",
-                    "functionName": "newVisualScriptingUtilitiesNodeFunctions",
-                    "fileName": "NodeFunctions.js"
                 }
             ]
         }

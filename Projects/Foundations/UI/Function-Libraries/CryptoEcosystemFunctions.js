@@ -218,7 +218,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
     ) {
 
         let market = node
-        let cryptoExchange = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(node, 'Crypto Exchange', undefined, true, false, true, false)
+        let cryptoExchange = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(node, 'Crypto Exchange', undefined, true, false, true, false)
         if (cryptoExchange === undefined) {
             node.payload.uiObject.setErrorMessage('Market must be a descendant of a Crypto Exchange')
             return
@@ -598,7 +598,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                                 UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
                                 continue
                             }
-                            let marketTradingTasks = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+                            let marketTradingTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                             if (marketTradingTasks === undefined) { continue }
                             if (marketTradingTasks.payload === undefined) { continue }
                             if (marketTradingTasks.payload.referenceParent === undefined) { continue }
@@ -644,7 +644,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                     let timeMachine = timeMachines[i]
                     let session = timeMachine.payload.referenceParent
                     if (session === undefined) { continue }
-                    let marketTradingTasks = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+                    let marketTradingTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                     if (marketTradingTasks === undefined) { continue }
                     if (marketTradingTasks.payload === undefined) { continue }
                     if (marketTradingTasks.payload.referenceParent === undefined) { continue }

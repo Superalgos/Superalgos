@@ -266,7 +266,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             return
         }
 
-        result.lanNetworkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(result.taskManager, 'LAN Network Node', undefined, true, false, true, false)
+        result.lanNetworkNode = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(result.taskManager, 'LAN Network Node', undefined, true, false, true, false)
 
         if (node.tradingSystemReference === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs a child Trading System Reference.')

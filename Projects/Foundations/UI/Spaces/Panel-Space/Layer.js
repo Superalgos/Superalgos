@@ -210,44 +210,44 @@ function newLayer() {
             }
 
             /* Here we validate that we have all the needed information */
-            if (UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Data Product', undefined, false, true, true, true) === undefined) {
+            if (UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Data Product', undefined, false, true, true, true) === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Data Product not Found')
                 return
             }
-            if (UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Market', undefined, false, true, true, true) === undefined) {
+            if (UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Market', undefined, false, true, true, true) === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Market not Found')
                 return
             }
 
-            thisObject.productDefinition = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Product Definition', undefined, false, true, true, true)
+            thisObject.productDefinition = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Product Definition', undefined, false, true, true, true)
             if (thisObject.productDefinition === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Product Definition not Found')
                 return
             }
 
-            thisObject.bot = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Sensor Bot', undefined, false, true, true, true)
+            thisObject.bot = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Sensor Bot', undefined, false, true, true, true)
             if (thisObject.bot === undefined) {
-                thisObject.bot = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'API Data Fetcher Bot', undefined, false, true, true, true)
+                thisObject.bot = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'API Data Fetcher Bot', undefined, false, true, true, true)
             }
             if (thisObject.bot === undefined) {
-                thisObject.bot = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Indicator Bot', undefined, false, true, true, true)
+                thisObject.bot = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Indicator Bot', undefined, false, true, true, true)
             }
             if (thisObject.bot === undefined) {
-                thisObject.bot = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Trading Bot', undefined, false, true, true, true)
+                thisObject.bot = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Trading Bot', undefined, false, true, true, true)
             }
             if (thisObject.bot === undefined) {
-                thisObject.bot = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Learning Bot', undefined, false, true, true, true)
+                thisObject.bot = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Learning Bot', undefined, false, true, true, true)
             }
             if (thisObject.bot === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Bot not Found')
                 return
             }
 
-            thisObject.mine = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Data Mine', undefined, false, true, true, true)
+            thisObject.mine = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Data Mine', undefined, false, true, true, true)
             if (thisObject.mine === undefined) {
-                thisObject.mine = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Trading Mine', undefined, false, true, true, true)
+                thisObject.mine = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Trading Mine', undefined, false, true, true, true)
                 if (thisObject.mine === undefined) {
-                    thisObject.mine = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Learning Mine', undefined, false, true, true, true)
+                    thisObject.mine = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Learning Mine', undefined, false, true, true, true)
                     if (thisObject.mine === undefined) {
                         thisObject.payload.uiObject.setErrorMessage('Data Mine or Trading Mine or Learning Mine not Found')
                         return
@@ -255,13 +255,13 @@ function newLayer() {
                 }
             }
 
-            thisObject.exchange = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Crypto Exchange', undefined, false, true, true, true)
+            thisObject.exchange = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Crypto Exchange', undefined, false, true, true, true)
             if (thisObject.exchange === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Crypto Exchange not Found')
                 return
             }
 
-            thisObject.baseAsset = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Market Base Asset', undefined, false, true, true, true)
+            thisObject.baseAsset = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Market Base Asset', undefined, false, true, true, true)
             if (thisObject.baseAsset !== undefined) {
                 thisObject.baseAsset = thisObject.baseAsset.referenceParent
             }
@@ -270,7 +270,7 @@ function newLayer() {
                 return
             }
 
-            thisObject.quotedAsset = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Market Quoted Asset', undefined, false, true, true, true)
+            thisObject.quotedAsset = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Market Quoted Asset', undefined, false, true, true, true)
             if (thisObject.quotedAsset !== undefined) {
                 thisObject.quotedAsset = thisObject.quotedAsset.referenceParent
             }
@@ -279,13 +279,13 @@ function newLayer() {
                 return
             }
 
-            thisObject.plotterModule = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Plotter Module', undefined, false, false, false, true)
+            thisObject.plotterModule = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Plotter Module', undefined, false, false, false, true)
             if (thisObject.plotterModule === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Plotter Module not Found')
                 return
             }
 
-            thisObject.lanNetworkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'LAN Network Node', undefined, false, true, true, true)
+            thisObject.lanNetworkNode = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'LAN Network Node', undefined, false, true, true, true)
             if (thisObject.lanNetworkNode === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Network Node not Found')
                 return

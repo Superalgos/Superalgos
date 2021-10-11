@@ -63,7 +63,7 @@ function newFoundationsUtilitiesBranches() {
         /*
         This function finds a node in a brach and reports an error if it could not be found.
         */
-        let nodeFound = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(startingNode, nodeType, undefined, connectedViaPayload, true, false, false)
+        let nodeFound = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(startingNode, nodeType, undefined, connectedViaPayload, true, false, false)
         if (nodeFound === undefined) {
             if (displayError === true) {
                 errorNode.payload.uiObject.setErrorMessage('Could not find ' + nodeType + ' at ' + startingNode.type + ' ' + startingNode.name)

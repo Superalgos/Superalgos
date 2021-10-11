@@ -288,7 +288,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             return
         }
 
-        let lanNetworkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(taskManager, 'LAN Network Node', undefined, true, false, true, false)
+        let lanNetworkNode = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(taskManager, 'LAN Network Node', undefined, true, false, true, false)
 
         if (UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(lanNetworkNode.payload, 'host') === undefined) {
             node.payload.uiObject.setErrorMessage('Network Node needs to have a valid Host property at its config.')

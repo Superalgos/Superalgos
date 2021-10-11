@@ -104,7 +104,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
     }
 
     function addMissingTradingSessionReferences(node, rootNodes) {
-        let lanNetworkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(node, 'LAN Network Node', undefined, true, false, true, false)
+        let lanNetworkNode = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(node, 'LAN Network Node', undefined, true, false, true, false)
         if (lanNetworkNode === undefined) { return }
 
         let backtestingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Backtesting Session')
@@ -121,7 +121,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
             for (let i = 0; i < sessionsArray.length; i++) {
                 let session = sessionsArray[i]
                 /* We will filter out all the sessions that does not belong to the market we are in */
-                let marketTradingTasks = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+                let marketTradingTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                 if (node.payload.referenceParent.id !== marketTradingTasks.payload.referenceParent.id) { continue }
                 if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, session, true) === true) {
                     createSessionReference(node, session, 'Trading Session Reference')
@@ -131,7 +131,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
     }
 
     function addMissingLearningSessionReferences(node, rootNodes) {
-        let lanNetworkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(node, 'LAN Network Node', undefined, true, false, true, false)
+        let lanNetworkNode = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(node, 'LAN Network Node', undefined, true, false, true, false)
         if (lanNetworkNode === undefined) { return }
 
         let backLearningSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Back Learning Session')
@@ -144,7 +144,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
             for (let i = 0; i < sessionsArray.length; i++) {
                 let session = sessionsArray[i]
                 /* We will filter out all the sessions that does not belong to the market we are in */
-                let marketLearningTasks = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(session, 'Market Learning Tasks', undefined, true, false, true, false)
+                let marketLearningTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Learning Tasks', undefined, true, false, true, false)
                 if (node.payload.referenceParent.id !== marketLearningTasks.payload.referenceParent.id) { continue }
                 if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, session, true) === true) {
                     createSessionReference(node, session, 'Learning Session Reference')

@@ -59,7 +59,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                     let layer = allLayers[j]
                     layer.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
 
-                    let plotterModule = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(layer, 'Plotter Module', undefined, true, false, false, true)
+                    let plotterModule = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(layer, 'Plotter Module', undefined, true, false, false, true)
                     if (plotterModule === undefined) {
                         UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(layer, rootNodes)
                     }
@@ -124,10 +124,10 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             function scanSessionArray(sessionsArray) {
                 for (let i = 0; i < sessionsArray.length; i++) {
                     let session = sessionsArray[i]
-                    let environment = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(session, node.payload.referenceParent.type, undefined, true, false, true, false)
+                    let environment = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, node.payload.referenceParent.type, undefined, true, false, true, false)
                     if (environment === undefined) { continue }
                     if (environment.id !== node.payload.referenceParent.id) { continue }
-                    let market = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+                    let market = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                     if (market.payload.referenceParent === undefined) { continue }
                     if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, session, true) === true) {
                         createTimeMachine(node, session, market.payload.referenceParent, lanNetworkNode, rootNodes)
@@ -201,7 +201,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                     }
                 }
                 function deleteNodeByName(nodeName) {
-                    let nodeToDelete = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(timelineChart.layerManager, undefined, nodeName, true, true, false, false)
+                    let nodeToDelete = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(timelineChart.layerManager, undefined, nodeName, true, true, false, false)
                     if (nodeToDelete === undefined) { return }
                     UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(nodeToDelete, rootNodes)
                 }
@@ -260,7 +260,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                     }
                 }
                 function deleteNodeByName(nodeName) {
-                    let nodeToDelete = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(timelineChart.layerManager, undefined, nodeName, true, true, false, false)
+                    let nodeToDelete = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(timelineChart.layerManager, undefined, nodeName, true, true, false, false)
                     if (nodeToDelete === undefined) { return }
                     UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(nodeToDelete, rootNodes)
                 }

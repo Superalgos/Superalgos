@@ -1120,9 +1120,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                             if (wasUpdated === true) {
                                                 let fileContent = JSON.stringify(schemaDocument, undefined, 4)
                                                 let filePath = allAppSchemasFilePaths[i]
-                                                console.log('Saving File at ' + filePath)
-                                                console.log(fileContent)
-                                                fs.writeFileSync(filePath, fileContent)
+                                                //console.log('Saving File at ' + filePath)
+                                                //console.log(fileContent)
+                                                //fs.writeFileSync(filePath, fileContent)
                                             }
                                         }
                                     } catch (err) {

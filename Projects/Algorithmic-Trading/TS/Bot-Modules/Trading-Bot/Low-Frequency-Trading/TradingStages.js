@@ -147,6 +147,8 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                     /* Initialize this */
                                     tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOn.value = 1
 
+                                    announcementsModuleObject.makeAnnouncements(triggerStage.triggerOn)
+
                                     if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
                                         if (sessionParameters.snapshots !== undefined) {
                                             if (sessionParameters.snapshots.config.strategy === true) {
@@ -156,7 +158,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                     }
 
                                     changeStageStatus('Trigger Stage', 'Open')
-                                    announcementsModuleObject.makeAnnouncements(triggerStage.triggerOn)
+                                    
                                 }
                             }
                         }
@@ -231,6 +233,8 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                                 tradingPositionModuleObject.openPosition(situation.name)
 
+                                announcementsModuleObject.makeAnnouncements(triggerStage.takePosition)
+
                                 if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
                                     if (sessionParameters.snapshots !== undefined) {
                                         if (sessionParameters.snapshots.config.position === true) {
@@ -239,7 +243,6 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                     }
                                 }
 
-                                announcementsModuleObject.makeAnnouncements(triggerStage.takePosition)
                                 changeStageStatus('Trigger Stage', 'Closed', 'Position Taken')
                                 changeStageStatus('Open Stage', 'Opening')
                                 changeStageStatus('Manage Stage', 'Opening')

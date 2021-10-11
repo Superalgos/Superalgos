@@ -21,7 +21,13 @@
             {
                 "language": "TR",
                 "text": "Bu eğitim size Superalgos evrenini tanıtır. Sistemin ana alanlarında size yol gösterir, size temel işlemleri öğretir, bir demo alım satım sisteminin geriye dönük test etme sürecinde size yol gösterir ve hatta ilk Canlı alım satım oturumunuzu ayarlar.",
-                "updated": 1633120392075
+                "updated": 1633120392075,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Deze tutorial is een introductie in het Superalgos-universum. Het leid je door de belangrijkste gebieden van het systeem, leert je de basiswerking, loopt je door het proces van backtesting van een demo Trading System, en helpt je zelfs met je eerste Live Trading Session.",
+                "updated": 1633851542435
             }
         ]
     },

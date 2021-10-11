@@ -32,6 +32,11 @@
                 "text": "Superalgos permet d'exécuter le Client sur une machine et d'y accéder via le navigateur depuis une autre machine du réseau.",
                 "updated": 1623952405992,
                 "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "De Superalgos Client kan op afstand draaien en benaderd worden via de browser op een ander apparaat in het netwerk.",
+                "updated": 1633853950991
             }
         ],
         "updated": 1616410688496
@@ -64,6 +69,11 @@
                     "text": "De nombreux utilisateurs choisissent d'exécuter le Client dans le nuage, sur des machines à carte unique comme le Raspberry Pi, ou sur un PC dédié qu'ils peuvent laisser allumé en permanence lorsqu'ils négocient en direct. Le nœud de réseau My Computer représente la machine sur laquelle le Client est exécuté.",
                     "updated": 1623952548227,
                     "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Veel geruikers kiezen ervoor om de Client in de cloud te draaien op een single-board apparaat zoals de Raspberry Pi, of op een toegewijde PC die altijd aanstaat voor Live Trading. De \"My Computer\" Network Node stelt het apparaat voor waar de Client op draait.",
+                    "updated": 1633854215256
                 }
             ]
         },
@@ -89,6 +99,11 @@
                     "text": "Al momento, Superalgos non implementa alcuna forma di sicurezza. Dovresti usarlo soltanto in un contesto sicuro, come una LAN riservata. Se scegli di eseguire il Client nel cloud, devi implementare da te i meccanismi di sicurezza.",
                     "updated": 1614718058273,
                     "style": "Warning"
+                },
+                {
+                    "language": "NL",
+                    "text": "Op dit moment implementeert Superalgos nog geen enkele vorm van beveiliging. Gebruik het systeem alleen in een \"restricted Local Area Network\". Als je ervoor kiest om de client in de cloud te draaien, moet je jouw eigen beveiliging implementeren!",
+                    "updated": 1633854469540
                 }
             ]
         }

@@ -338,7 +338,7 @@ function newVisualScriptingUtilitiesNodeChildren() {
         let child
         child = findChildReferencingThisNode(startingNode, referencedNode)
         if (child !== undefined) {
-            UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(child, rootNodes)
+            UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(child, rootNodes)
         }
         child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(startingNode, childType)
         UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(child, referencedNode)

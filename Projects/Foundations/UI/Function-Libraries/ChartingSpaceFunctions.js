@@ -61,7 +61,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
 
                     let plotterModule = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(layer, 'Plotter Module', undefined, true, false, false, true)
                     if (plotterModule === undefined) {
-                        UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(layer, rootNodes)
+                        UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(layer, rootNodes)
                     }
                 }
                 /*
@@ -203,7 +203,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                 function deleteNodeByName(nodeName) {
                     let nodeToDelete = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(timelineChart.layerManager, undefined, nodeName, true, true, false, false)
                     if (nodeToDelete === undefined) { return }
-                    UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(nodeToDelete, rootNodes)
+                    UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(nodeToDelete, rootNodes)
                 }
             }
         }
@@ -262,7 +262,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                 function deleteNodeByName(nodeName) {
                     let nodeToDelete = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(timelineChart.layerManager, undefined, nodeName, true, true, false, false)
                     if (nodeToDelete === undefined) { return }
-                    UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(nodeToDelete, rootNodes)
+                    UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(nodeToDelete, rootNodes)
                 }
             }
         }

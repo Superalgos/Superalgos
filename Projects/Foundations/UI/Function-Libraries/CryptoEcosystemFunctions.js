@@ -595,7 +595,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                                 time machines to lose their reference parent since the install
                                 process deletes them.
                                 */
-                                UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                                UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
                                 continue
                             }
                             let marketTradingTasks = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
@@ -603,7 +603,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             if (marketTradingTasks.payload === undefined) { continue }
                             if (marketTradingTasks.payload.referenceParent === undefined) { continue }
                             if (marketTradingTasks.payload.referenceParent.id === market.id) {
-                                UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                                UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
                             }
                         }
                         /*
@@ -649,7 +649,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                     if (marketTradingTasks.payload === undefined) { continue }
                     if (marketTradingTasks.payload.referenceParent === undefined) { continue }
                     if (marketTradingTasks.payload.referenceParent.id === market.id) {
-                        UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                        UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
                     }
                 }
 
@@ -664,11 +664,11 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         */
                         let projectReference = dashboard.payload.parentNode
                         schemaDocument = getSchemaDocument(dashboard)
-                        UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(dashboard, rootNodes)
+                        UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(dashboard, rootNodes)
                         if (projectReference !== undefined && schemaDocument.propertyNameAtParent !== undefined) {
                             if (projectReference[schemaDocument.propertyNameAtParent] !== undefined) {
                                 if (projectReference[schemaDocument.propertyNameAtParent].length === 0) {
-                                    UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(projectReference, rootNodes)
+                                    UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(projectReference, rootNodes)
                                 }
                             }
                         }
@@ -712,7 +712,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             */
                             let exchangeReference = marketReference.payload.parentNode
                             let schemaDocument = getSchemaDocument(marketReference)
-                            UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(marketReference, rootNodes)
+                            UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(marketReference, rootNodes)
                             if (exchangeReference !== undefined && schemaDocument.propertyNameAtParent !== undefined) {
                                 if (exchangeReference[schemaDocument.propertyNameAtParent].length === 0) {
                                     /* 
@@ -721,10 +721,10 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                                     */
                                     let projectReference = exchangeReference.payload.parentNode
                                     schemaDocument = getSchemaDocument(exchangeReference)
-                                    UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(exchangeReference, rootNodes)
+                                    UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(exchangeReference, rootNodes)
                                     if (projectReference !== undefined && schemaDocument.propertyNameAtParent !== undefined) {
                                         if (projectReference[schemaDocument.propertyNameAtParent].length === 0) {
-                                            UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(projectReference, rootNodes)
+                                            UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(projectReference, rootNodes)
                                         }
                                     }
                                 }

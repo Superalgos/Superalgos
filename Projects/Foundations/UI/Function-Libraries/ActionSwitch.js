@@ -63,7 +63,7 @@ function newFoundationsActionSwitch() {
             }
                 break
             case 'Delete Workspace': {
-                return UI.projects.foundations.functionLibraries.nodeDeleter.deleteWorkspace(action.node, action.rootNodes, action.callBackFunction)
+                return UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteWorkspace(action.node, action.rootNodes, action.callBackFunction)
             }
                 break
             case 'Copy Node Path':
@@ -116,7 +116,7 @@ function newFoundationsActionSwitch() {
                 break
             case 'Delete UI Object':
                 {
-                    UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(action.node, action.rootNodes)
+                    UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(action.node, action.rootNodes)
                 }
                 break
             case 'Edit Code':

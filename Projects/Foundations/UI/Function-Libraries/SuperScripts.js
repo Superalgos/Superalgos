@@ -48,7 +48,7 @@ function newFoundationsFunctionLibrarySuperScriptsFunctions() {
             }
 
             function deleteNode(node) {
-                UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(node, rootNodes)
+                UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(node, rootNodes)
             }
 
             /* Validations */

@@ -760,52 +760,50 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
             }
 
             function checkStopLossOrTakeProfitWasHit() {
-                {
-                    let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
-                    /* 
-                    Checking what happened since the last execution. We need to know if the Stop Loss
-                    or our Take Profit were hit. 
-                    */
+                let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
+                /* 
+                Checking what happened since the last execution. We need to know if the Stop Loss
+                or our Take Profit were hit. 
+                */
 
-                    /* Stop Loss condition: Here we verify if the Stop Loss was hit or not. */
-                    if (
-                        (
-                            tradingEngine.tradingCurrent.position.stopLoss.stopLossPosition.value === 'Above' &&
-                            tradingEngine.tradingCurrent.tradingEpisode.candle.max.value >= tradingEngine.tradingCurrent.position.stopLoss.value
-                        ) ||
-                        (
-                            tradingEngine.tradingCurrent.position.stopLoss.stopLossPosition.value === 'Below' &&
-                            tradingEngine.tradingCurrent.tradingEpisode.candle.min.value <= tradingEngine.tradingCurrent.position.stopLoss.value
-                        )
-                    ) {
-                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Stop Loss was hit.')
+                /* Stop Loss condition: Here we verify if the Stop Loss was hit or not. */
+                if (
+                    (
+                        tradingEngine.tradingCurrent.position.stopLoss.stopLossPosition.value === 'Above' &&
+                        tradingEngine.tradingCurrent.tradingEpisode.candle.max.value >= tradingEngine.tradingCurrent.position.stopLoss.value
+                    ) ||
+                    (
+                        tradingEngine.tradingCurrent.position.stopLoss.stopLossPosition.value === 'Below' &&
+                        tradingEngine.tradingCurrent.tradingEpisode.candle.min.value <= tradingEngine.tradingCurrent.position.stopLoss.value
+                    )
+                ) {
+                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Stop Loss was hit.')
 
-                        tradingPositionModuleObject.closingPosition('Stop Loss')
-                        changeStageStatus('Close Stage', 'Opening')
-                        changeStageStatus('Manage Stage', 'Closed', 'Stop Loss Hit')
-                        return
-                    }
-
-                    /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
-                    if (
-                        (
-                            tradingEngine.tradingCurrent.position.takeProfit.takeProfitPosition.value === 'Below' &&
-                            tradingEngine.tradingCurrent.tradingEpisode.candle.min.value <= tradingEngine.tradingCurrent.position.takeProfit.value
-                        ) ||
-                        (
-                            tradingEngine.tradingCurrent.position.takeProfit.takeProfitPosition.value === 'Above' &&
-                            tradingEngine.tradingCurrent.tradingEpisode.candle.max.value >= tradingEngine.tradingCurrent.position.takeProfit.value
-                        )
-                    ) {
-                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Take Profit was hit.')
-
-                        tradingPositionModuleObject.closingPosition('Take Profit')
-                        changeStageStatus('Close Stage', 'Opening')
-                        changeStageStatus('Manage Stage', 'Closed', 'Take Profit Hit')
-                        return
-                    }
+                    tradingPositionModuleObject.closingPosition('Stop Loss')
+                    changeStageStatus('Close Stage', 'Opening')
+                    changeStageStatus('Manage Stage', 'Closed', 'Stop Loss Hit')
                     return
                 }
+
+                /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
+                if (
+                    (
+                        tradingEngine.tradingCurrent.position.takeProfit.takeProfitPosition.value === 'Below' &&
+                        tradingEngine.tradingCurrent.tradingEpisode.candle.min.value <= tradingEngine.tradingCurrent.position.takeProfit.value
+                    ) ||
+                    (
+                        tradingEngine.tradingCurrent.position.takeProfit.takeProfitPosition.value === 'Above' &&
+                        tradingEngine.tradingCurrent.tradingEpisode.candle.max.value >= tradingEngine.tradingCurrent.position.takeProfit.value
+                    )
+                ) {
+                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Take Profit was hit.')
+
+                    tradingPositionModuleObject.closingPosition('Take Profit')
+                    changeStageStatus('Close Stage', 'Opening')
+                    changeStageStatus('Manage Stage', 'Closed', 'Take Profit Hit')
+                    return
+                }
+                return
             }
         }
     }
@@ -1144,9 +1142,11 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
         if (stage.status.value === 'Open') {
             openStage(stage)
             checkUserDefinedCode(stageName, 'Open')
+            checkAnnounce(stageName, 'Open')
         }
         if (stage.status.value === 'Closed') {
             checkUserDefinedCode(stageName, 'Closed')
+            checkAnnounce(stageName, 'Closed')
             closeStage(stage, stageName)
         }
 
@@ -1266,33 +1266,48 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
     /* checkUserDefinedCode(): Checks if User Defined Code exists and processes if applicable. */
     function checkUserDefinedCode(stage, status, when) {
-      let tradingSystemStage = getTradingSystemStage(stage);
+        let tradingSystemStage = getTradingSystemStage(stage);
 
-      if (tradingSystemStage !== undefined &&
-          tradingSystemStage.userDefinedCode !== undefined) {
-        if (status === 'Running' && when !== tradingSystemStage.userDefinedCode.config.whileAtStageWhenToRun) { return; }
+        if (tradingSystemStage !== undefined &&
+            tradingSystemStage.userDefinedCode !== undefined) {
+            if (status === 'Running' && when !== tradingSystemStage.userDefinedCode.config.whileAtStageWhenToRun) { return; }
 
-        switch(status) {
-          case 'Open' : {
-            if (tradingSystemStage.userDefinedCode.config.runWhenEnteringStage) {
-              tradingSystem.evalUserCode(tradingSystemStage, 'User Defined Code');
+            switch(status) {
+                case 'Open' : {
+                    if (tradingSystemStage.userDefinedCode.config.runWhenEnteringStage) {
+                        tradingSystem.evalUserCode(tradingSystemStage, 'User Defined Code');
+                    }
+                    break;
+                }
+                case 'Running' : {
+                    if (tradingSystemStage.userDefinedCode.config.runWhileAtStage) {
+                        tradingSystem.evalUserCode(tradingSystemStage, 'User Defined Code');
+                    }
+                    break;
+                }
+                case 'Closed' : {
+                    if (tradingSystemStage.userDefinedCode.config.runWhenExitingStage) {
+                        tradingSystem.evalUserCode(tradingSystemStage, 'User Defined Code');
+                    }
+                    break;
+                }
             }
-            break;
-          }
-          case 'Running' : {
-            if (tradingSystemStage.userDefinedCode.config.runWhileAtStage) {
-              tradingSystem.evalUserCode(tradingSystemStage, 'User Defined Code');
-            }
-            break;
-          }
-          case 'Closed' : {
-            if (tradingSystemStage.userDefinedCode.config.runWhenExitingStage) {
-              tradingSystem.evalUserCode(tradingSystemStage, 'User Defined Code');
-            }
-            break;
-          }
         }
-      }
+    }
+
+    // checkAnnounce(): Check if announcement should be made
+    function checkAnnounce(stage, status) {
+        let tradingSystemStage = getTradingSystemStage(stage);
+        switch(status) {
+            case 'Open' : {
+                announcementsModuleObject.makeAnnouncements(tradingSystemStage, 'Open')
+                break;
+            }
+            case 'Closed' : {
+                announcementsModuleObject.makeAnnouncements(tradingSystemStage, 'Closed')
+                break;
+            }
+        }
     }
 
     /* getTradingSystemStage(): takes stage name returns stage object. */

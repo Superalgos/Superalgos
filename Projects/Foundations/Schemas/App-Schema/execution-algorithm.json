@@ -13,28 +13,32 @@
             "label": "Add Market Buy Order",
             "relatedUiObject": "Market Buy Order",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add Market Sell Order",
             "relatedUiObject": "Market Sell Order",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add Limit Buy Order",
             "relatedUiObject": "Limit Buy Order",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add Limit Sell Order",
             "relatedUiObject": "Limit Sell Order",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",

@@ -8,7 +8,8 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "githubAPI",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -17,11 +18,12 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "web3API",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
-"actionProject": "Visual-Scripting",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

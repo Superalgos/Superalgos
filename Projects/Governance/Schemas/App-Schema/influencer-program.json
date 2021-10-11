@@ -13,7 +13,8 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add User Influencer",
-            "relatedUiObject": "User Influencer"
+            "relatedUiObject": "User Influencer",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
@@ -22,7 +23,8 @@
             "propertyToCheckFor": "tokensAwarded",
             "actionFunction": "payload.executeAction",
             "label": "Add Tokens Awarded",
-            "relatedUiObject": "Tokens Awarded"
+            "relatedUiObject": "Tokens Awarded",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
@@ -31,7 +33,8 @@
             "propertyToCheckFor": "tokensBonus",
             "actionFunction": "payload.executeAction",
             "label": "Add Tokens Bonus",
-            "relatedUiObject": "Tokens Bonus"
+            "relatedUiObject": "Tokens Bonus",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",

@@ -15,7 +15,8 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "referralProgram",
             "label": "Add Referral Program",
-            "relatedUiObject": "Referral Program"
+            "relatedUiObject": "Referral Program",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
@@ -24,7 +25,8 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "supportProgram",
             "label": "Add Support Program",
-            "relatedUiObject": "Support Program"
+            "relatedUiObject": "Support Program",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
@@ -33,7 +35,8 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "mentorshipProgram",
             "label": "Add Mentorship Program",
-            "relatedUiObject": "Mentorship Program"
+            "relatedUiObject": "Mentorship Program",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
@@ -42,7 +45,8 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "influencerProgram",
             "label": "Add Influencer Program",
-            "relatedUiObject": "Influencer Program"
+            "relatedUiObject": "Influencer Program",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",

@@ -15,7 +15,8 @@
             "label": "Add Order Rate",
             "relatedUiObject": "Order Rate",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -24,7 +25,8 @@
             "label": "Add Create Order Event",
             "relatedUiObject": "Create Order Event",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -33,7 +35,8 @@
             "label": "Add Cancel Order Event",
             "relatedUiObject": "Cancel Order Event",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -42,11 +45,12 @@
             "label": "Add Simulated Events",
             "relatedUiObject": "Simulated Exchange Events",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
-"actionProject": "Visual-Scripting",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

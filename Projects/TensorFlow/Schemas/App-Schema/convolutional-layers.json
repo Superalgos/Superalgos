@@ -15,7 +15,8 @@
             "propertyToCheckFor": "layer",
             "label": "Add Conv 1D Layer",
             "relatedUiObject": "Conv 1D Layer",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -24,7 +25,8 @@
             "propertyToCheckFor": "layer",
             "label": "Add Conv 2D Layer",
             "relatedUiObject": "Conv 2D Layer",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -33,7 +35,8 @@
             "propertyToCheckFor": "layer",
             "label": "Add Conv 2D Transpose Layer",
             "relatedUiObject": "Conv 2D Transpose Layer",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -42,7 +45,8 @@
             "propertyToCheckFor": "layer",
             "label": "Add Conv 3D Layer",
             "relatedUiObject": "Conv 3D Layer",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -51,7 +55,8 @@
             "propertyToCheckFor": "layer",
             "label": "Add Cropping 2D Layer",
             "relatedUiObject": "Cropping 2D Layer",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -60,7 +65,8 @@
             "propertyToCheckFor": "layer",
             "label": "Add Depthwise Conv 2D Layer",
             "relatedUiObject": "Depthwise Conv 2D Layer",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -69,7 +75,8 @@
             "propertyToCheckFor": "layer",
             "label": "Add Separable Conv 2D Layer",
             "relatedUiObject": "Separable Conv 2D Layer",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -78,7 +85,8 @@
             "propertyToCheckFor": "layer",
             "label": "Add Up Sampling 2D Layer",
             "relatedUiObject": "Up Sampling 2D Layer",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Delete UI Object",

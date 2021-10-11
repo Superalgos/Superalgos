@@ -15,21 +15,24 @@
             "label": "Install Missing Claims",
             "relatedUiObject": "Asset Contribution Claim",
             "askConfirmation": true,
-            "confirmationLabel": "Confirm to Install"
+            "confirmationLabel": "Confirm to Install",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset Claims Folder",
             "relatedUiObject": "Asset Claims Folder",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset Contribution Claim",
             "relatedUiObject": "Asset Contribution Claim",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",

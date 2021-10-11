@@ -23,7 +23,8 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Asset Class",
             "relatedUiObject": "Asset Class",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",

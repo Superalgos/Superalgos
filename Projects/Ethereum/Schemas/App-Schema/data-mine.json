@@ -14,7 +14,8 @@
             "actionProject": "Visual-Scripting",
             "label": "Add Blockchain Scanner Bot",
             "relatedUiObject": "Blockchain Scanner Bot",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Ethereum"
         },
         {
             "action": "Delete UI Object",

@@ -8,7 +8,8 @@
             "label": "Add User Assets",
             "relatedUiObject": "User Assets",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -17,11 +18,12 @@
             "label": "Add User Keys",
             "relatedUiObject": "User Keys",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
-"actionProject": "Visual-Scripting",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

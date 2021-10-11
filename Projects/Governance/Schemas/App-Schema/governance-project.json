@@ -6,14 +6,16 @@
             "actionProject": "Visual-Scripting",
             "label": "Add Pools",
             "relatedUiObject": "Pools",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "label": "Add Assets",
             "relatedUiObject": "Assets",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
@@ -34,7 +36,8 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Profile Constructor",
-            "relatedUiObject": "Profile Constructor"
+            "relatedUiObject": "Profile Constructor",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",

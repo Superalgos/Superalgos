@@ -16,7 +16,8 @@
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
             "relatedUiObject": "Profile Constructor",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add Signing Account",
@@ -26,7 +27,8 @@
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
             "relatedUiObject": "Profile Constructor",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",

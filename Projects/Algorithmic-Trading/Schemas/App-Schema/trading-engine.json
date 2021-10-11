@@ -6,7 +6,8 @@
             "label": "Add Missing Children",
             "relatedUiObject": "Trading Engine",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Algorithmic-Trading"
         },
         {
             "action": "Delete UI Object",

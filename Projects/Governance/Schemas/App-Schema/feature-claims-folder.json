@@ -15,21 +15,24 @@
             "label": "Install Missing Claims",
             "relatedUiObject": "Feature Contribution Claim",
             "askConfirmation": true,
-            "confirmationLabel": "Confirm to Install"
+            "confirmationLabel": "Confirm to Install",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Feature Claims Folder",
-            "relatedUiObject": "Feature Claims Folder"
+            "relatedUiObject": "Feature Claims Folder",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Feature Contribution Claim",
-            "relatedUiObject": "Feature Contribution Claim"
+            "relatedUiObject": "Feature Contribution Claim",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",

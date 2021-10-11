@@ -6,7 +6,8 @@
             "label": "Add Market",
             "relatedUiObject": "Market",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add Missing Markets",
@@ -15,11 +16,12 @@
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Request Sent",
             "relatedUiObject": "Market",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
-"actionProject": "Visual-Scripting",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

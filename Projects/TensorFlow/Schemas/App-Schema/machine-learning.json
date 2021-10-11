@@ -6,7 +6,8 @@
             "actionProject": "Visual-Scripting",
             "label": "Add Library",
             "relatedUiObject": "TensorFlow Library",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Delete UI Object",

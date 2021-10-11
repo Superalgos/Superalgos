@@ -8,7 +8,8 @@
             "propertyToCheckFor": "backend",
             "label": "Add WebGL Backend",
             "relatedUiObject": "WebGL Backend",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -17,7 +18,8 @@
             "propertyToCheckFor": "backend",
             "label": "Add NodeJS Backend",
             "relatedUiObject": "NodeJS Backend",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -26,7 +28,8 @@
             "propertyToCheckFor": "backend",
             "label": "Add WASM Backend",
             "relatedUiObject": "WASM Backend",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -35,7 +38,8 @@
             "propertyToCheckFor": "backend",
             "label": "Add CPU Backend",
             "relatedUiObject": "CPU Backend",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -44,7 +48,8 @@
             "propertyToCheckFor": "environmentFlags",
             "label": "Add Environment Flags",
             "relatedUiObject": "Environment Flags",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Delete UI Object",

@@ -16,7 +16,8 @@
             "propertyToCheckFor": "solidityCode",
             "label": "Add Solidity Code",
             "relatedUiObject": "Solidity Code",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Ethereum"
         },
         {
             "action": "Delete UI Object",

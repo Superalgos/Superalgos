@@ -40,7 +40,8 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Data Formula",
             "relatedUiObject": "Data Formula",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -49,11 +50,12 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Text Style",
             "relatedUiObject": "Text Style",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
-"actionProject": "Visual-Scripting",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",

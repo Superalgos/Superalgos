@@ -8,7 +8,8 @@
             "propertyToCheckFor": "minMaxScaler",
             "label": "Add MinMax Scaler",
             "relatedUiObject": "MinMax Scaler",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -17,7 +18,8 @@
             "propertyToCheckFor": "standardScaler",
             "label": "Add Standard Scaler",
             "relatedUiObject": "Standard Scaler",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Delete UI Object",

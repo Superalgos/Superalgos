@@ -16,7 +16,8 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "smartContract",
             "relatedUiObject": "Smart Contract",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Ethereum"
         },
         {
             "action": "Delete UI Object",

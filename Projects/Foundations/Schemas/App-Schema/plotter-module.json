@@ -94,7 +94,8 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Shapes",
             "relatedUiObject": "Shapes",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -103,25 +104,28 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Javascript Code",
             "relatedUiObject": "Plotter Module Javascript Code",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Plotter Panel",
             "relatedUiObject": "Plotter Panel",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add Missing Children",
             "label": "Add Missing Children",
             "relatedUiObject": "Trading Parameters",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
-"actionProject": "Visual-Scripting",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",

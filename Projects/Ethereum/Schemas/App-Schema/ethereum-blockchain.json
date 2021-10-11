@@ -6,7 +6,8 @@
             "actionProject": "Visual-Scripting",
             "label": "Add Blockchain Network",
             "relatedUiObject": "Blockchain Network",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Ethereum"
         },
         {
             "action": "Delete UI Object",

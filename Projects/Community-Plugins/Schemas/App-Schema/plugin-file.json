@@ -16,28 +16,32 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Plugin File Position",
             "relatedUiObject": "Plugin File Position",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Community-Plugins"
         },
         {
             "action": "Enable Saving With Workspace",
             "actionFunction": "payload.executeAction",
             "label": "Enable Saving With Workspace",
             "relatedUiObject": "Plugin File",
-            "actionProject": "Community-Plugins"
+            "actionProject": "Community-Plugins",
+            "relatedUiObjectProject": "Community-Plugins"
         },
         {
             "action": "Disable Saving With Workspace",
             "actionFunction": "payload.executeAction",
             "label": "Disable Saving With Workspace",
             "relatedUiObject": "Plugin File",
-            "actionProject": "Community-Plugins"
+            "actionProject": "Community-Plugins",
+            "relatedUiObjectProject": "Community-Plugins"
         },
         {
             "action": "Save Plugin",
             "actionFunction": "payload.executeAction",
             "label": "Save Plugin",
             "relatedUiObject": "Plugin File",
-            "actionProject": "Community-Plugins"
+            "actionProject": "Community-Plugins",
+            "relatedUiObjectProject": "Community-Plugins"
         },
         {
             "action": "Delete UI Object",

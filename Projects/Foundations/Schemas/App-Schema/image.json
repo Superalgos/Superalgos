@@ -26,7 +26,8 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Image Condition",
             "relatedUiObject": "Image Condition",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -35,11 +36,12 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Image Position",
             "relatedUiObject": "Image Position",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
-"actionProject": "Visual-Scripting",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",

@@ -8,7 +8,8 @@
             "propertyToCheckFor": "inputFeatures",
             "label": "Add Input Features",
             "relatedUiObject": "Input Features",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -17,7 +18,8 @@
             "propertyToCheckFor": "inputShape",
             "label": "Add Input Shape",
             "relatedUiObject": "Input Shape",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -26,7 +28,8 @@
             "propertyToCheckFor": "batchImputShape",
             "label": "Add Batch Input Shape",
             "relatedUiObject": "Batch Input Shape",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -35,7 +38,8 @@
             "propertyToCheckFor": "collectionCondition",
             "label": "Add Collection Condition",
             "relatedUiObject": "Collection Condition",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Delete UI Object",

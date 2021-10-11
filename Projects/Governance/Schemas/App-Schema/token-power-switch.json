@@ -13,7 +13,8 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Token Power Switch",
-            "relatedUiObject": "Token Power Switch"
+            "relatedUiObject": "Token Power Switch",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
@@ -22,7 +23,8 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "onboardingPrograms",
             "label": "Add Onboarding Programs",
-            "relatedUiObject": "Onboarding Programs"
+            "relatedUiObject": "Onboarding Programs",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
@@ -31,7 +33,8 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "communityBuildingPrograms",
             "label": "Add Community Building Programs",
-            "relatedUiObject": "Community Building Programs"
+            "relatedUiObject": "Community Building Programs",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
@@ -40,7 +43,8 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "votesAndClaimsPrograms",
             "label": "Add Votes And Claims Programs",
-            "relatedUiObject": "Votes And Claims Programs"
+            "relatedUiObject": "Votes And Claims Programs",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
@@ -49,7 +53,8 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "financialPrograms",
             "label": "Add Financial Programs",
-            "relatedUiObject": "Financial Programs"
+            "relatedUiObject": "Financial Programs",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",

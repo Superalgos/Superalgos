@@ -8,7 +8,8 @@
             "propertyToCheckFor": "typeOfModel",
             "label": "Add Artificial Neural Network",
             "relatedUiObject": "Artificial Neural Network",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Delete UI Object",

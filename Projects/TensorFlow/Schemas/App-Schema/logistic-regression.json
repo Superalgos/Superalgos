@@ -8,7 +8,8 @@
             "propertyToCheckFor": "model",
             "label": "Add Model",
             "relatedUiObject": "Model",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Delete UI Object",

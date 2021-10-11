@@ -8,7 +8,8 @@
             "propertyToCheckFor": "mode",
             "label": "Add Debug Mode",
             "relatedUiObject": "Debug Mode",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -17,7 +18,8 @@
             "propertyToCheckFor": "mode",
             "label": "Add Production Mode",
             "relatedUiObject": "Production Mode",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Delete UI Object",

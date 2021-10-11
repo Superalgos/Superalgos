@@ -8,14 +8,16 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "networkClientReference",
             "relatedUiObject": "Network Client Reference",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Ethereum"
         },
         {
             "action": "Create Wallet Account",
             "actionProject": "Ethereum",
             "label": "Add Wallet Account",
             "relatedUiObject": "Wallet Account",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Ethereum"
         },
         {
             "action": "Delete UI Object",

@@ -13,21 +13,24 @@
             "actionProject": "Visual-Scripting",
             "label": "Add Asset Claims Folder",
             "relatedUiObject": "Asset Claims Folder",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Feature Claims Folder",
-            "relatedUiObject": "Feature Claims Folder"
+            "relatedUiObject": "Feature Claims Folder",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Position Claims Folder",
-            "relatedUiObject": "Position Claims Folder"
+            "relatedUiObject": "Position Claims Folder",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
@@ -36,7 +39,8 @@
             "propertyToCheckFor": "tokensAwarded",
             "actionFunction": "payload.executeAction",
             "label": "Add Tokens Awarded",
-            "relatedUiObject": "Tokens Awarded"
+            "relatedUiObject": "Tokens Awarded",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",

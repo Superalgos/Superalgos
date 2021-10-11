@@ -13,14 +13,16 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Pool Class",
-            "relatedUiObject": "Pool Class"
+            "relatedUiObject": "Pool Class",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Pool",
-            "relatedUiObject": "Pool"
+            "relatedUiObject": "Pool",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",

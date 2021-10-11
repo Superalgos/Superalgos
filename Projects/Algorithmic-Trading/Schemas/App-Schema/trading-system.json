@@ -6,7 +6,8 @@
             "label": "Add Trading Strategy",
             "relatedUiObject": "Trading Strategy",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -15,7 +16,8 @@
             "label": "Add Dynamic Indicators",
             "relatedUiObject": "Dynamic Indicators",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",

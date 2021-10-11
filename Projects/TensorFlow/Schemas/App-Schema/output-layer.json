@@ -8,7 +8,8 @@
             "propertyToCheckFor": "outputLabels",
             "label": "Add Output Labels",
             "relatedUiObject": "Output Labels",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Delete UI Object",

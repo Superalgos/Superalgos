@@ -8,7 +8,8 @@
             "propertyToCheckFor": "typeOfModel",
             "label": "Add Artificial Neural Network",
             "relatedUiObject": "Artificial Neural Network",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -17,7 +18,8 @@
             "propertyToCheckFor": "typeOfModel",
             "label": "Add Logistic Regression",
             "relatedUiObject": "Logistic Regression",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Delete UI Object",

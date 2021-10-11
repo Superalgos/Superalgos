@@ -6,7 +6,8 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Feature Class",
-            "relatedUiObject": "Feature Class"
+            "relatedUiObject": "Feature Class",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",

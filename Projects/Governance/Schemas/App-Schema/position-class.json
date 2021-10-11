@@ -20,7 +20,8 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Position Class",
-            "relatedUiObject": "Position Class"
+            "relatedUiObject": "Position Class",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",

@@ -15,7 +15,8 @@
             "propertyToCheckFor": "api",
             "label": "Add Layers API",
             "relatedUiObject": "Layers API",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -24,7 +25,8 @@
             "propertyToCheckFor": "api",
             "label": "Add Core API",
             "relatedUiObject": "Core API",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -33,7 +35,8 @@
             "propertyToCheckFor": "compile",
             "label": "Add Compile",
             "relatedUiObject": "Compile",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -42,7 +45,8 @@
             "propertyToCheckFor": "fitDataset",
             "label": "Add Fit Dataset",
             "relatedUiObject": "Fit Dataset",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -51,7 +55,8 @@
             "propertyToCheckFor": "dataReporting",
             "label": "Add Data Reporting",
             "relatedUiObject": "Data Reporting",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Delete UI Object",

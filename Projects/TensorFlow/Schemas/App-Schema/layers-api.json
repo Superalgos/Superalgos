@@ -8,7 +8,8 @@
             "propertyToCheckFor": "layersModel",
             "label": "Add Sequential Model",
             "relatedUiObject": "Sequential Model",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -17,7 +18,8 @@
             "propertyToCheckFor": "layersModel",
             "label": "Add Functional Model",
             "relatedUiObject": "Functional Model",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Delete UI Object",

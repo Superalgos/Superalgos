@@ -6,7 +6,8 @@
             "actionProject": "Visual-Scripting",
             "label": "Add Ethereum Token",
             "relatedUiObject": "Ethereum Token",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Ethereum"
         },
         {
             "action": "Delete UI Object",

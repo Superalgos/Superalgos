@@ -13,7 +13,8 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Delegate Power Switch",
-            "relatedUiObject": "Delegate Power Switch"
+            "relatedUiObject": "Delegate Power Switch",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
@@ -22,7 +23,8 @@
             "propertyToCheckFor": "tokensBonus",
             "actionFunction": "payload.executeAction",
             "label": "Add Tokens Bonus",
-            "relatedUiObject": "Tokens Bonus"
+            "relatedUiObject": "Tokens Bonus",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",

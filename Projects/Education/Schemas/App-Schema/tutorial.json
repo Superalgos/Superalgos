@@ -29,14 +29,16 @@
             "actionProject": "Visual-Scripting",
             "label": "Add Tutorial Step",
             "relatedUiObject": "Tutorial Step",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Education"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "label": "Add Tutorial Topic",
             "relatedUiObject": "Tutorial Topic",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Education"
         },
         {
             "action": "Reset Tutorial Progress",

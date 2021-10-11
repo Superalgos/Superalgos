@@ -9,7 +9,8 @@
             "workDoneLabel": "Done",
             "relatedUiObject": "API Map",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Community-Plugins"
+            "actionProject": "Community-Plugins",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",

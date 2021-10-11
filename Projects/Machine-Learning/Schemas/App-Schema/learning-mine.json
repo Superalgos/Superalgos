@@ -15,7 +15,8 @@
             "label": "Add Learning Bot",
             "relatedUiObject": "Learning Bot",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Machine-Learning"
         },
         {
             "action": "Add UI Object",

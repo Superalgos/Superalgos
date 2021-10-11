@@ -6,7 +6,8 @@
             "label": "Add Missing Children",
             "relatedUiObject": "Learning Engine",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Machine-Learning"
         },
         {
             "action": "Delete UI Object",

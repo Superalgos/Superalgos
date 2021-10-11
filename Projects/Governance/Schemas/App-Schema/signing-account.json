@@ -25,7 +25,8 @@
             "propertyToCheckFor": "assignedTo",
             "label": "Add Algo Traders Platform",
             "relatedUiObject": "Algo Traders Platform",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
@@ -34,7 +35,8 @@
             "propertyToCheckFor": "assignedTo",
             "label": "Add Social Trading Mobile App",
             "relatedUiObject": "Social Trading Mobile App",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
@@ -43,7 +45,8 @@
             "propertyToCheckFor": "assignedTo",
             "label": "Add Social Trading Desktop App",
             "relatedUiObject": "Social Trading Desktop App",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
@@ -52,7 +55,8 @@
             "propertyToCheckFor": "assignedTo",
             "label": "Add Social Trading Server App",
             "relatedUiObject": "Social Trading Server App",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",

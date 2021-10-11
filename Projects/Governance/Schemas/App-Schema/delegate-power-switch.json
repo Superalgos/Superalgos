@@ -13,14 +13,16 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Delegate Power Switch",
-            "relatedUiObject": "Delegate Power Switch"
+            "relatedUiObject": "Delegate Power Switch",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add User Delegate",
-            "relatedUiObject": "User Delegate"
+            "relatedUiObject": "User Delegate",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",

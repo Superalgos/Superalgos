@@ -8,11 +8,12 @@
             "label": "Add API Map Reference",
             "relatedUiObject": "API Map Reference",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
-"actionProject": "Visual-Scripting",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -35,7 +36,7 @@
         "compatibleTypes": "->API Data Fetcher Bot Instance->"
     },
     "childrenNodesProperties": [
-        {            
+        {
             "name": "apiMapReference",
             "type": "node",
             "childType": "API Map Reference",

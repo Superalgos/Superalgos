@@ -8,7 +8,8 @@
             "propertyToCheckFor": "kernelInitializer",
             "label": "Add Kernel Initializer",
             "relatedUiObject": "Kernel Initializer",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -17,7 +18,8 @@
             "propertyToCheckFor": "kernelConstraint",
             "label": "Add Kernel Constraint",
             "relatedUiObject": "Kernel Constraint",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -26,7 +28,8 @@
             "propertyToCheckFor": "kernelRegularizer",
             "label": "Add Kernel Regularizer",
             "relatedUiObject": "Kernel Regularizer",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Delete UI Object",

@@ -8,7 +8,8 @@
             "propertyToCheckFor": "datasetArgs",
             "label": "Add Dataset Args",
             "relatedUiObject": "Dataset Args",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -17,7 +18,8 @@
             "propertyToCheckFor": "verbose",
             "label": "Add Verbose",
             "relatedUiObject": "Verbose",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -26,7 +28,8 @@
             "propertyToCheckFor": "epochs",
             "label": "Add Epochs",
             "relatedUiObject": "Epochs",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Add UI Object",
@@ -35,7 +38,8 @@
             "propertyToCheckFor": "callbacks",
             "label": "Add Callbacks",
             "relatedUiObject": "Callbacks",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Delete UI Object",

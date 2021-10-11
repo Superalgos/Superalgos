@@ -7,14 +7,16 @@
             "label": "Add Tutorial",
             "iconProject": "Education",
             "relatedUiObject": "Tutorial",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Education"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "label": "Add Docs Space",
             "relatedUiObject": "Docs Space",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Education"
         },
         {
             "action": "Delete UI Object",

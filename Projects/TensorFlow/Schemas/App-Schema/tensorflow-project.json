@@ -6,14 +6,16 @@
             "label": "Add Missing Children",
             "relatedUiObject": "Foundations Project",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "label": "Add Machine Learning",
             "relatedUiObject": "Machine Learning",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
         },
         {
             "action": "Delete UI Object",

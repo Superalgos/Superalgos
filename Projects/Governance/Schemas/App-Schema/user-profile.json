@@ -15,7 +15,8 @@
             "propertyToCheckFor": "tokenPowerSwitch",
             "actionFunction": "payload.executeAction",
             "label": "Add Token Power Switch",
-            "relatedUiObject": "Token Power Switch"
+            "relatedUiObject": "Token Power Switch",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
@@ -24,7 +25,8 @@
             "propertyToCheckFor": "tokensMined",
             "actionFunction": "payload.executeAction",
             "label": "Add Tokens Mined",
-            "relatedUiObject": "Tokens Mined"
+            "relatedUiObject": "Tokens Mined",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Install as Plugin",

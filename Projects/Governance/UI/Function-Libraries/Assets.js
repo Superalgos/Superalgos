@@ -9,7 +9,7 @@ function newGovernanceFunctionLibraryAssets() {
         node,
         rootNodes
     ) {
-        let folderPath = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'folderPath')
+        let folderPath = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'folderPath')
 
         if (folderPath === undefined || folderPath === "") {
             node.payload.uiObject.setErrorMessage(
@@ -80,7 +80,7 @@ function newGovernanceFunctionLibraryAssets() {
                         case 'node': {
                             let childNode = node[property.name]
                             if (childNode !== undefined) {
-                                let codeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'codeName')
+                                let codeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'codeName')
                                 if (nextItem === codeName) {
                                     exist = true
                                     createNodesFromPath(childNode, pathArray)
@@ -94,7 +94,7 @@ function newGovernanceFunctionLibraryAssets() {
                                 for (let m = 0; m < propertyArray.length; m++) {
                                     let childNode = propertyArray[m]
                                     if (childNode !== undefined) {
-                                        let codeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'codeName')
+                                        let codeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'codeName')
                                         if (nextItem === codeName) {
                                             exist = true
                                             createNodesFromPath(childNode, pathArray)

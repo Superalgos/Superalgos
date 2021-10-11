@@ -250,7 +250,7 @@ function newWorkspace() {
                             for (let k = 0; k < childNode.pluginFiles.length; k++) {
                                 let pluginFile = childNode.pluginFiles[k]
 
-                                let saveWithWorkspace = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'saveWithWorkspace')
+                                let saveWithWorkspace = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'saveWithWorkspace')
                                 if (saveWithWorkspace === true) {
                                     UI.projects.communityPlugins.utilities.plugins.savePluginFile(pluginFile)
                                 }
@@ -572,7 +572,7 @@ function newWorkspace() {
         if (hierarchyHeads === undefined) { return }
         for (let i = 0; i < hierarchyHeads.length; i++) {
             let hierarchyHead = hierarchyHeads[i]
-            let hierarchyHeadCodeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(hierarchyHead.payload, 'codeName')
+            let hierarchyHeadCodeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(hierarchyHead.payload, 'codeName')
             if (hierarchyHeadCodeName === codeName && hierarchyHead.type === nodeType) {
                 return hierarchyHead
             } else if (hierarchyHead.name === codeName && hierarchyHead.type === nodeType) {

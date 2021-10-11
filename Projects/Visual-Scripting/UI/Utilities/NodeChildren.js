@@ -281,7 +281,7 @@ function newVisualScriptingUtilitiesNodeChildren() {
                         let child = startingNode[property.name]
                         if (child === undefined) { continue }
                         if (child.payload !== undefined) {
-                            let codeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(child.payload, 'codeName')
+                            let codeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(child.payload, 'codeName')
                             if (codeName !== undefined) {
                                 if (codeName === checkCodeName) {
                                     return child
@@ -297,7 +297,7 @@ function newVisualScriptingUtilitiesNodeChildren() {
                                 let arrayItem = startingNodePropertyArray[m]
 
                                 if (arrayItem.payload !== undefined) {
-                                    let codeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(arrayItem.payload, 'codeName')
+                                    let codeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(arrayItem.payload, 'codeName')
                                     if (codeName !== undefined) {
                                         if (codeName === checkCodeName) {
                                             return arrayItem

@@ -24,7 +24,7 @@ function newFoundationsDocsSearchEngine() {
         let docsSpaceNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Docs Space')
         if (docsSpaceNode !== undefined) {
             if (docsSpaceNode.docsSpaceSettings !== undefined) {
-                let indexContent = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(docsSpaceNode.docsSpaceSettings.payload, 'indexContent')
+                let indexContent = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(docsSpaceNode.docsSpaceSettings.payload, 'indexContent')
                 if (indexContent === false) {
                     callbackFunction()
                     return

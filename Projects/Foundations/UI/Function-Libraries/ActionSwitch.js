@@ -568,7 +568,7 @@ function newFoundationsActionSwitch() {
                 break
             case 'Open Documentation':
                 {
-                    let docs = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(action.node.payload, 'docs')
+                    let docs = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(action.node.payload, 'docs')
 
                     if (docs === undefined) {
                         let definition = getSchemaDocument(action.node)

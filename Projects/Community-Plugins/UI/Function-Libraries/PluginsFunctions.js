@@ -33,7 +33,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
     }
 
     function addMissingPluginTypes(node, rootNodes) {
-        let project = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'codeName')
+        let project = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'codeName')
         if (project === undefined || project === "") { return }
         for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
             let projectDefinition = PROJECTS_SCHEMA[k]
@@ -194,12 +194,12 @@ function newPluginsFunctionLibraryPluginsFunctions() {
     }
 
     function enableSavingWithWorkspace(node, rootNodes) {
-        UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'saveWithWorkspace', true)
+        UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'saveWithWorkspace', true)
         node.payload.uiObject.setInfoMessage('Saving with Workspace Enabled')
     }
 
     function disableSavingWithWorkspace(node, rootNodes) {
-        UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'saveWithWorkspace', false)
+        UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'saveWithWorkspace', false)
         node.payload.uiObject.setInfoMessage('Saving with Workspace Disabled')
     }
 

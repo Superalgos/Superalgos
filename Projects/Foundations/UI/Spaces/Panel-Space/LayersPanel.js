@@ -114,7 +114,7 @@ function newLayersPanel() {
     }
 
     function saveObjectStateVisibleLayers() {
-        UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(thisObject.payload, 'visibleLayers', desiredVisibleLayers)
+        UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(thisObject.payload, 'visibleLayers', desiredVisibleLayers)
     }
 
     function saveObjectStatePanelLocation() {
@@ -122,13 +122,13 @@ function newLayersPanel() {
             upOrDown: thisObject.upDownButton.status,
             leftOrRight: thisObject.leftRightButton.status
         }
-        UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(thisObject.payload, 'panelLocation', panelLocation)
+        UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(thisObject.payload, 'panelLocation', panelLocation)
     }
 
     function readObjectState() {
         let storedValue
 
-        storedValue = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'visibleLayers')
+        storedValue = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'visibleLayers')
 
         if (isNaN(storedValue) || storedValue === null || storedValue === undefined) {
             // not using this value
@@ -147,7 +147,7 @@ function newLayersPanel() {
             }
         }
 
-        storedValue = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'panelLocation')
+        storedValue = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'panelLocation')
 
         if (storedValue === null || storedValue === undefined) {
             // not using this value

@@ -111,10 +111,10 @@ function newPluginsUtilitiesPlugins() {
     }
 
     function savePluginFile(pluginFile) {
-        let project = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'project')
-        let fileName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'fileName')
-        let folderName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'folderName')
-        let nodeType = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'nodeType')
+        let project = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'project')
+        let fileName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'fileName')
+        let folderName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'folderName')
+        let nodeType = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'nodeType')
 
         if (
             project === undefined ||

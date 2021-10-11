@@ -290,17 +290,17 @@ function newFoundationsFunctionLibraryTaskFunctions() {
 
         let lanNetworkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(taskManager, 'LAN Network Node', undefined, true, false, true, false)
 
-        if (UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(lanNetworkNode.payload, 'host') === undefined) {
+        if (UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(lanNetworkNode.payload, 'host') === undefined) {
             node.payload.uiObject.setErrorMessage('Network Node needs to have a valid Host property at its config.')
             return
         }
 
-        if (UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(lanNetworkNode.payload, 'webPort') === undefined) {
+        if (UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(lanNetworkNode.payload, 'webPort') === undefined) {
             node.payload.uiObject.setErrorMessage('Network Node needs to have a valid webPort property at its config.')
             return
         }
 
-        if (UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(lanNetworkNode.payload, 'webSocketsPort') === undefined) {
+        if (UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(lanNetworkNode.payload, 'webSocketsPort') === undefined) {
             node.payload.uiObject.setErrorMessage('Network Node needs to have a valid webSocketsPort property at its config.')
             return
         }
@@ -862,8 +862,8 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                     let apiMaps = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('API Map')
                                     for (let i = 0; i < apiMaps.length; i++) {
                                         let apiMap = apiMaps[i]
-                                        let apiMapCodeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(apiMap.payload, 'codeName')
-                                        let mineCodeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(mine.payload, 'codeName')
+                                        let apiMapCodeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(apiMap.payload, 'codeName')
+                                        let mineCodeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(mine.payload, 'codeName')
 
                                         if (apiMapCodeName === mineCodeName) {
                                             UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(processInstance.apiMapReference, apiMap)

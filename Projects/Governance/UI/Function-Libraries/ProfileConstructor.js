@@ -13,8 +13,8 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         /*
         Some validations first...
         */
-        let githubUsername = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'githubUsername')
-        let mnemonic = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'mnemonic')
+        let githubUsername = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'githubUsername')
+        let mnemonic = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'mnemonic')
 
         if (githubUsername === undefined || githubUsername === "") {
             node.payload.uiObject.setErrorMessage(
@@ -127,9 +127,9 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 /*
                 We store at the User Profile the Signed githubUsername
                 */
-                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(userProfile.payload, 'signature', response.signature)
-                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'address', address)
-                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'privateKey', privateKey)
+                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(userProfile.payload, 'signature', response.signature)
+                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'address', address)
+                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'privateKey', privateKey)
                 /*
                 We set the name of the User Profile as the githubUsername
                 */
@@ -161,8 +161,8 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         node,
         rootNodes
     ) {
-        let githubUsername = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'githubUsername')
-        let mnemonic = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'mnemonic')
+        let githubUsername = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'githubUsername')
+        let mnemonic = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'mnemonic')
         let signingAccounts
 
         if (githubUsername === undefined || githubUsername === "") {
@@ -302,17 +302,17 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 /*
                 We store at the User Profile the Signed githubUsername
                 */
-                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(signingAccount.payload, 'signature', signature)
+                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(signingAccount.payload, 'signature', signature)
     
                 node.config = "{}"
-                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'nodeName', signingAccount.name)
-                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'codeName', signingAccount.name)
-                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'nodeType', signingAccount.type)
-                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'nodeId', signingAccount.id)
-                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'address', address)
-                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'privateKey', privateKey)
-                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'githubUsername', githubUsername)
-                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'userProfileId', node.payload.referenceParent.id)
+                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'nodeName', signingAccount.name)
+                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'codeName', signingAccount.name)
+                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'nodeType', signingAccount.type)
+                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'nodeId', signingAccount.id)
+                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'address', address)
+                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'privateKey', privateKey)
+                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'githubUsername', githubUsername)
+                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'userProfileId', node.payload.referenceParent.id)
                 /*
                 Show nice message.
                 */

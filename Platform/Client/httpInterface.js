@@ -894,15 +894,18 @@ exports.newHttpInterface = function newHttpInterface() {
                                             await git.checkout(currentBranch)
                                             
                                             let remotes = await git.getRemotes();
+                                            for(let remote in remotes) {
+                                                console.log(remote)
+                                            }
                                             if (true){
-                                                console.log(remotes)
+                                                //console.log(remotes)
                                                 let setUpstream = ['remote', 'add', 'upstream', 'https://github.com/Superalgos/Superalgos']
                                                 //await git.getRemotes(setUpstream);
                                             }
                                             let pullMainRepo = ['pull', 'upstream', `${currentBranch}`]
-                                            await git.raw(pullMainRepo);
+                                            //await git.raw(pullMainRepo);
                                             let updateToMainRepo = ['reset', '--hard', `upstream/${currentBranch}`]
-                                            await git.raw(updateToMainRepo);
+                                            //await git.raw(updateToMainRepo);
                                             
                                         } catch (err) {
                                             console.log('[ERROR] Error changing current branch to ' + currentBranch)

@@ -601,7 +601,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
         let schemaDocument = getSchemaDocument(object, project)
 
         if (schemaDocument === undefined) {
-            console.log('Cannot addUIOBject of ' + type + ' because that type it is not defined at the APP_SCHEMA.')
+            console.log('Cannot addUIOBject of type "' + type + '" and project "' + project + '" because that type it is not defined at the APP_SCHEMA.')
             return
         }
 
@@ -629,7 +629,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
 
             parentSchemaDocument = getSchemaDocument(parentNode, parentNode.project)
             if (parentSchemaDocument === undefined) {
-                console.log('Cannot addUIOBject from parent of ' + type + ' because that type it is not defined at the APP_SCHEMA.')
+                console.log('Cannot addUIOBject from parent of type "' + type + '" and project "' + parentNode.project + '" because that type it is not defined at the APP_SCHEMA.')
                 return
             }
             checkChainToSelfTypeCollection()

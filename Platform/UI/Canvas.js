@@ -485,6 +485,19 @@ function newCanvas() {
             return
         }
 
+        if (
+            event.shiftKey === true &&
+            (event.ctrlKey === true || event.metaKey === true) &&
+            (event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.rescueFloatingObjectToMouse || event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.rescueFloatingObjectToMouse.toLowerCase())
+
+        ) {
+            UI.projects.foundations.spaces.floatingSpace.rescueFloatingObjectToMouse(thisObject.mouse.position)
+            if (event.preventDefault !== undefined) {
+                event.preventDefault()
+            }
+            return
+        }
+
         let nodeOnFocus = await UI.projects.foundations.spaces.designSpace.workspace.getNodeThatIsOnFocus()
         if (nodeOnFocus !== undefined) {
             if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {

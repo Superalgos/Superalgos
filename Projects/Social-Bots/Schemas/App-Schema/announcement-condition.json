@@ -9,7 +9,8 @@
             "actionFunction": "uiObject.codeEditor.activate",
             "label": "Configure",
             "iconPathOn": "configuration",
-            "iconPathOff": "configuration"
+            "iconPathOff": "configuration",
+            "actionProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
@@ -18,7 +19,8 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Foundations"
         }
     ],
     "initialValues": {

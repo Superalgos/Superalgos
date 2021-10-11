@@ -14,7 +14,8 @@
             "actionProject": "Visual-Scripting",
             "label": "Add Position",
             "relatedUiObject": "Position",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Install as Plugin",

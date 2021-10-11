@@ -246,6 +246,11 @@
         "UI": {
             "functionLibraries": [
                 {
+                    "name": "Shortcut Keys",
+                    "propertyName": "shortcutKeys",
+                    "functionName": "newVisualScriptingFunctionLibraryShortcutKeys"
+                },
+                {
                     "name": "Reference Attach Detach",
                     "propertyName": "attachDetach",
                     "functionName": "newVisualScriptingFunctionLibraryReferenceAttachDetach"
@@ -346,11 +351,6 @@
                 }
             ],
             "functionLibraries": [
-                {
-                    "name": "Shortcut Keys",
-                    "propertyName": "shortcutKeys",
-                    "functionName": "newFoundationsFunctionLibraryShortcutKeys"
-                },
                 {
                     "name": "Webhook Functions",
                     "propertyName": "webhookFunctions",

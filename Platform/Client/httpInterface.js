@@ -631,7 +631,13 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'App':
                     {
+                        // If running the electron app do not try to get git tool. I don't allow it.
+                        if (process.env.SA_MODE === 'gitDisable') {
+                            console.log('[WARNING] No contributions on binary distributions. Do manual installation')
+                            break
+                        }
                         switch (requestPath[2]) { // switch by command
+                            
                             case 'Contribute': {
                                 try {
                                     let commitMessage = unescape(requestPath[3])
@@ -641,7 +647,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     const contributionsBranch = unescape(requestPath[7])
                                     let error
 
-                                    /* Unsavping # */
+                                    /* Unsaving # */
                                     for (let i = 0; i < 10; i++) {
                                         commitMessage = commitMessage.replace('_SLASH_', '/')
                                         commitMessage = commitMessage.replace('_HASHTAG_', '#')
@@ -649,7 +655,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     contribute()
 
-                                    async function contribute() {
+                                    async function contribute() {                                      
                                         const { lookpath } = SA.nodeModules.lookpath
                                         const gitpath = await lookpath('git')
                                         if (gitpath === undefined) {

@@ -136,7 +136,7 @@ function newPluginsUtilitiesPlugins() {
             return
         }
         let fileContent = JSON.stringify(
-            UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(pluginToSave, false, false, true, true, true),
+            UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(pluginToSave, false, false, true, true, true),
             undefined,
             4)
 

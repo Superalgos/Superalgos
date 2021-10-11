@@ -7,7 +7,7 @@ function newFoundationsFunctionLibrarySuperScriptsFunctions() {
 
     function runSuperScript(node, rootNodes) {
         try {
-            let clone = UI.projects.foundations.functionLibraries.nodeCloning.getNodeClone
+            let clone = UI.projects.visualScripting.functionLibraries.nodeCloning.getNodeClone
             let executionResult = true
             let superAction = node
 

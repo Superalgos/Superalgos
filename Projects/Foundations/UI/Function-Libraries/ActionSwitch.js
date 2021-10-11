@@ -27,7 +27,7 @@ function newFoundationsActionSwitch() {
             }
 
             case 'Get Node Data Structure': {
-                return UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(action.node, action.extraParameter, false, true, true, true)
+                return UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(action.node, action.extraParameter, false, true, true, true)
             }
 
             case 'Create UI Object': {
@@ -125,7 +125,7 @@ function newFoundationsActionSwitch() {
             case 'Share':
                 {
                     let text = JSON.stringify(
-                        UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(action.node, true, false, true, true, true),
+                        UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(action.node, true, false, true, true, true),
                         undefined,
                         4
                     )
@@ -144,7 +144,7 @@ function newFoundationsActionSwitch() {
             case 'Backup':
                 {
                     let text = JSON.stringify(
-                        UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(action.node, false, false, true, true, true),
+                        UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(action.node, false, false, true, true, true),
                         undefined,
                         4)
 
@@ -162,7 +162,7 @@ function newFoundationsActionSwitch() {
             case 'Clone':
                 {
                     let text = JSON.stringify(
-                        UI.projects.foundations.functionLibraries.nodeCloning.getNodeClone(action.node),
+                        UI.projects.visualScripting.functionLibraries.nodeCloning.getNodeClone(action.node),
                         undefined,
                         4
                     )

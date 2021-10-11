@@ -110,7 +110,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->' +
             'User Defined Code->Javascript Code->'
 
-        let tradingSystem = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
+        let tradingSystem = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
         lightingPath = '' +
             'Trading Engine->' +
@@ -149,7 +149,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Index->Situation Name->Formula->Periods->' +
             'User Defined Variables->User Defined Variable->'
 
-        let tradingEngine = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
+        let tradingEngine = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
         lightingPath = '' +
             'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
@@ -159,7 +159,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Social Bot Command->Formula->' +
             'Exchange Account Asset->Asset->'
 
-        let session = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
+        let session = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
 
         let defaultExchange = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.exchange.payload, 'codeName')
         let defaultMarket =

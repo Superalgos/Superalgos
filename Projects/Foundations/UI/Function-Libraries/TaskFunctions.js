@@ -159,7 +159,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             'API Map->API Version->API Endpoint->API Query Parameters->API Query Parameter->API Path Parameters->API Path Parameter->API Query Responses->API Query Response->API Response Schema->' +
             'API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->'
 
-        let taskDefinition = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
+        let taskDefinition = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
 
         let networkLightingPath = '->LAN Network->LAN Network Node->' +
             'Data Storage->' +
@@ -185,7 +185,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             'Market->' +
             'Process Definition->'
 
-        let networkDefinition = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(lanNetworkNode.payload.parentNode, false, true, true, false, false, networkLightingPath)
+        let networkDefinition = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(lanNetworkNode.payload.parentNode, false, true, true, false, false, networkLightingPath)
 
         /*
         We will also send all the project schemas we have to the Task Server.

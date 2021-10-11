@@ -659,7 +659,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         const { lookpath } = SA.nodeModules.lookpath
                                         const gitpath = await lookpath('git')
                                         if (gitpath === undefined) {
-                                            console.log('[ERROR] `git` not installed. Line 656')
+                                            console.log('[ERROR] `git` not installed.')
                                         } else {
                                             await doGit()
                                             if (error !== undefined) {

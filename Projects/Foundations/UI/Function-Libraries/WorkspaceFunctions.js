@@ -34,7 +34,7 @@ function newFoundationsFunctionLibraryWorkspaceFunctions() {
         let nodes
         for (let i = 0; i < rootNodes.length; i++) {
             if (rootNodes[i] !== undefined) {
-                nodes = UI.projects.foundations.utilities.hierarchy.getHiriarchyMap(rootNodes[i]) 
+                nodes = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyMap(rootNodes[i]) 
                 for (let [key, value] of nodes) {
                     // Check nodes that have a saved reference parent
                     if (value.savedPayload.referenceParent !== undefined) {

@@ -296,7 +296,7 @@ function newFoundationsDocsSearchEngine() {
                 let node = allNodesFound[i]
 
                 if (node.project === project) {
-                    let nodeNameTypePath = UI.projects.foundations.utilities.hierarchy.getNodeNameTypePath(node)
+                    let nodeNameTypePath = UI.projects.visualScripting.utilities.hierarchy.getNodeNameTypePath(node)
 
                     let docsSchemaDocument = {
                         nodeId: node.id,

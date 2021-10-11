@@ -261,7 +261,7 @@ function newVisualScriptingFunctionLibraryProtocolNode() {
                 }
                 // If the path has not been saved save it now
                 if (node.payload.referenceParentCombinedNodePath === undefined) {
-                    let attachNodePath = UI.projects.foundations.utilities.hierarchy.getNodeNameTypePath(node.payload.referenceParent)
+                    let attachNodePath = UI.projects.visualScripting.utilities.hierarchy.getNodeNameTypePath(node.payload.referenceParent)
                     // Save path to reference parent for auto restore
                     savedPayload.referenceParentCombinedNodePath = attachNodePath
                 } else {

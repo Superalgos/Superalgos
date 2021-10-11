@@ -19,7 +19,7 @@ function newFoundationsActionSwitch() {
     async function executeAction(action) {
         switch (action.name) {
             case 'Get Node On Focus': {
-                return UI.projects.foundations.functionLibraries.onFocus.getNodeThatIsOnFocus(action.node)
+                return UI.projects.visualScripting.functionLibraries.onFocus.getNodeThatIsOnFocus(action.node)
             }
 
             case 'Get Node By Shortcut Key': {
@@ -68,7 +68,7 @@ function newFoundationsActionSwitch() {
                 break
             case 'Copy Node Path':
                 {
-                    let nodePath = UI.projects.foundations.functionLibraries.nodePath.getNodePath(action.node)
+                    let nodePath = UI.projects.visualScripting.functionLibraries.nodePath.getNodePath(action.node)
 
                     UI.projects.foundations.utilities.clipboard.copyTextToClipboard(nodePath)
 

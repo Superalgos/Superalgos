@@ -39,8 +39,35 @@
         },
         {
             "style": "Success",
-            "text": "The above doesn't affect your work directly, but it is worth noting because it means that many contributors may be working on the same page at any point in time. Hence the need to constantly update and to  submit contributions frequently.",
-            "updated": 1613823174025
+            "text": "The above doesn't affect your work directly, but it is worth noting because it means that many contributors may be working on the same page at any point in time. Hence the need to constantly update and to submit contributions frequently.",
+            "updated": 1634056155573
+        },
+        {
+            "style": "Important",
+            "text": "Whatever you translate, be careful not to translate keywords. They offer the possibility to jump to the docs page of the respective keyword by clicking on the keywords. You can recognize them by the dashed line below them and the fact that they start with a capital letter. For example Node. But it can also be short phrases that are linked by the heading of an docs article. You can translate them by putting them in () after the keywords so that new Superalgos users have an easier start.",
+            "updated": 1634057127540
+        },
+        {
+            "style": "Title",
+            "text": "Examples of keywords/-phrases that should not be translated:",
+            "updated": 1634058099408
+        },
+        {
+            "style": "Table",
+            "text": "|Keywords|Key-phrases|\n|Nodes|How to Contribute to the Docs|\n|Tutorial|Docs Save Command|\n|Community|Docs Group|\n|Client|Docs Page|",
+            "updated": 1634057999076
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": ""
         },
         {
             "style": "Title",

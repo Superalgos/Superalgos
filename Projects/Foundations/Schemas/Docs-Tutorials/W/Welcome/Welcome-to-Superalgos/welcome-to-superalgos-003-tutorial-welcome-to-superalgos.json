@@ -36,7 +36,13 @@
             {
                 "language": "NL",
                 "text": "Ik ben een interactieve tutorial, de eerste in een reeks die ontworpen is om je kennismaking te vergemakkelijken en je alle basisprincipes te leren!",
-                "updated": 1633850222210
+                "updated": 1633850222210,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich bin ein interaktives Tutorial, das erste einer Reihe, die Ihnen den Einstieg erleichtern und Ihnen alle Grundlagen vermitteln soll!",
+                "updated": 1634070025309
             }
         ],
         "updated": 1633159917192
@@ -73,7 +79,13 @@
                 {
                     "language": "NL",
                     "text": "Ik help je op weg, laat je de hulpmiddelen zien om je op weg te helpen en help je alle coole dingen te ontdekken die Superalgos voor je kan doen.",
-                    "updated": 1633850415380
+                    "updated": 1633850415380,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich werde Ihnen den Einstieg erleichtern, Ihnen die Werkzeuge zeigen, mit denen Sie Navigieren können, und Ihnen helfen, all die coolen Dinge zu entdecken, die Superalgos für Sie tun kann.",
+                    "updated": 1634070189968
                 }
             ],
             "updated": 1633159949363
@@ -109,7 +121,13 @@
                 {
                     "language": "NL",
                     "text": "Tutorials zijn de ultieme Superalgos kennismakingstool! Op een andere manier Superalgos ontdekken is een vergissing, omdat geen enkel ander hulpmiddel je sneller op weg helpt. Je hoort alle tutorials te doen voordat je jouw eigen ideeën probeert te implementeren!",
-                    "updated": 1633850814638
+                    "updated": 1633850814638,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Tutorials sind das Einführungswerkzeug! Mit Superalgos auf eine andere Art und Weise zu starten wäre ein Fehler, denn keine andere Ressource wird Sie schneller auf den neuesten Stand bringen. Sie sollten alle Tutorials durcharbeiten, bevor Sie versuchen, Ihre eigenen Ideen zu implementieren!",
+                    "updated": 1634070223080
                 }
             ],
             "updated": 1633159975051
@@ -151,7 +169,13 @@
                 {
                     "language": "NL",
                     "text": "klik op Next om verder te gaan!",
-                    "updated": 1633850689870
+                    "updated": 1633850689870,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": " Bitte klicken Sie immer auf Weiter, um fortzufahren!",
+                    "updated": 1634070092386
                 }
             ]
         }

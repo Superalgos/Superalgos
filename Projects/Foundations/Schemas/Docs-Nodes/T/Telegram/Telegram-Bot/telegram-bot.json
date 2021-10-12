@@ -82,7 +82,15 @@
         },
         {
             "style": "Subtitle",
-            "text": "Example Configuration"
+            "text": "Example Configuration:",
+            "updated": 1634064610204,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispielkonfiguration:",
+                    "updated": 1634064911645
+                }
+            ]
         },
         {
             "style": "Javascript",

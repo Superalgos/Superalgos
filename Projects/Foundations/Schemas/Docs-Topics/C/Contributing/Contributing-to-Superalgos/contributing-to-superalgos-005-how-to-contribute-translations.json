@@ -4,23 +4,51 @@
     "type": "How to Contribute Translations",
     "definition": {
         "text": "The Docs are originally written in English. Making Superalgos more accessible is a key endeavor to grow the Community and the user base. Translating tutorials and software documentation into languages other than English is of huge value!",
-        "updated": 1613822257340
+        "updated": 1613822257340,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Docs sind ursprünglich in Englisch geschrieben. Superalgos zugänglicher zu machen ist ein wichtiges Ziel, um die Gemeinschaft und die Community zu vergrößern. Die Übersetzung von Tutorials und Software-Dokumentation in andere Sprachen als Englisch ist von großem Wert!",
+                "updated": 1634063456710
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Read About Contributing to the Docs",
-            "updated": 1613822300139
+            "updated": 1613822300139,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Lesen Sie über die Contribution (Mitarbeit) an den Docs:",
+                    "updated": 1634063494221
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Translations are a particular case of contributing to the Docs. Please read the How to Contribute to the Docs page first, and come back here for the details about how we deal with translations in particular.",
-            "updated": 1613822394353
+            "updated": 1613822394353,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Übersetzungen sind ein besonderer Fall von Beiträgen zu den Docs. Bitte lesen Sie zuerst die Seite How to Contribute to the Docs (Wie man zu den Docs beiträgt) und kommen Sie danach hierher zurück, um zu erfahren, wie wir mit Übersetzungen im Besonderen umgehen.",
+                    "updated": 1634064332897
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "About Translations",
-            "updated": 1613822457097
+            "updated": 1613822457097,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Über Übersetzungen:",
+                    "updated": 1634064347886
+                }
+            ]
         },
         {
             "style": "Include",
@@ -30,32 +58,74 @@
         {
             "style": "Text",
             "text": "The system stores the content of each Docs Page in a single file, regardless of how many translations may exist for each page.",
-            "updated": 1613822896070
+            "updated": 1613822896070,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das System speichert den Inhalt jeder Docs Page (Dokumentationsseite) in einer einzigen Datei, unabhängig davon, wie viele Übersetzungen für jede Seite existieren.",
+                    "updated": 1634064802911
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Actually, translations exist at the level of each paragraph. This means that, for each paragraph in a page, there may be as many translations as there are supported languages.",
-            "updated": 1613825539396
+            "updated": 1613825539396,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Tatsächlich gibt es Übersetzungen auf der Ebene der einzelnen Absätze. Das bedeutet, dass es für jeden Absatz einer Seite so viele Übersetzungen geben kann, wie es unterstützte Sprachen gibt.",
+                    "updated": 1634065039731
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "The above doesn't affect your work directly, but it is worth noting because it means that many contributors may be working on the same page at any point in time. Hence the need to constantly update and to submit contributions frequently.",
-            "updated": 1634056155573
+            "updated": 1634056155573,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies hat zwar keine direkten Auswirkungen auf Ihre Arbeit, ist aber dennoch erwähnenswert, weil es bedeutet, dass viele Mitwirkende zu einem bestimmten Zeitpunkt an derselben Seite arbeiten können. Daher ist es notwendig, die Seite ständig zu aktualisieren und häufig contributions (Beiträge) einzureichen.",
+                    "updated": 1634065120896
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Whatever you translate, be careful not to translate keywords. They offer the possibility to jump to the docs page of the respective keyword by clicking on the keywords. You can recognize them by the dashed line below them and the fact that they start with a capital letter. For example Node. But it can also be short phrases that are linked by the heading of an docs article. You can translate them by putting them in () after the keywords so that new Superalgos users have an easier start.",
-            "updated": 1634057127540
+            "updated": 1634057127540,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Was auch immer Sie übersetzen, achten Sie darauf, dass Sie keine Schlüsselwörter übersetzen. Sie bieten die Möglichkeit, durch Anklicken der Schlüsselwörter auf die Dokumentseite des jeweiligen Schlüsselworts zu springen. Sie erkennen sie an der gestrichelten Linie unter ihnen und daran, dass sie mit einem Großbuchstaben beginnen. Zum Beispiel Node. Es können aber auch kurze Phrasen sein, die durch die Überschrift eines Doku-Artikels verlinkt sind. Sie können sie übersetzen, indem Sie sie in () nach den Schlüsselwörtern einfügen, damit neue Superalgos-Benutzer einen leichteren Einstieg haben.",
+                    "updated": 1634065297899
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Examples of keywords/-phrases that should not be translated:",
-            "updated": 1634058099408
+            "updated": 1634058099408,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele für Schlüsselwörter/Phrasen, die nicht übersetzt werden sollten:",
+                    "updated": 1634065317195
+                }
+            ]
         },
         {
             "style": "Table",
-            "text": "|Keywords|Key-phrases|\n|Nodes|How to Contribute to the Docs|\n|Tutorial|Docs Save Command|\n|Community|Docs Group|\n|Client|Docs Page|",
-            "updated": 1634057999076
+            "text": "|Keywords|Key-phrases|\n|Nodes|How to Contribute to the Docs|\n|Tutorial|Docs Save Command|\n|Community|Docs Group|\n|Client|Docs Page|\n|...|...|",
+            "updated": 1634065561865,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "|Schlüsselwörter|Schlüssel-Phrasen|\n|Nodes|How to Contribute to the Docs|\n|Tutorial|Docs Save Command|\n|Community|Docs Group|\n|Client|Docs Page|\n|...|...|",
+                    "updated": 1634065598815
+                }
+            ]
         },
         {
             "style": "Title",
@@ -71,72 +141,182 @@
         },
         {
             "style": "Title",
-            "text": "Best Practices",
-            "updated": 1613824072677
+            "text": "Best Practices:",
+            "updated": 1634065658837,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bewährte Praktiken:",
+                    "updated": 1634065685236
+                }
+            ]
         },
         {
             "style": "List",
             "text": "As explained in the How to Contribute to the Docs page, you must switch your Contributions Branch and your Current Branch to the develop branch. Remember to restart the app after the switch.",
-            "updated": 1616762259778
+            "updated": 1616762259778,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wie auf der Seite How to Contribute to the Docs beschrieben, müssen Sie Ihren Contributions Branch und Ihren Current Branch auf den Develop Branch umstellen. Denken Sie daran, die Anwendung nach dem Wechsel neu zu starten.",
+                    "updated": 1634066110481
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Make sure your system is up to date running the app.update command.",
-            "updated": 1616762308286
+            "updated": 1616762308286,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie sicher, dass Ihr System auf dem neuesten Stand ist, indem Sie den Befehl app.update ausführen.",
+                    "updated": 1634066143147
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Then, switch to the language you wish to translate to."
+            "text": "Then, switch to the language you wish to translate to.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wechseln Sie dann zu der Sprache, in die Sie übersetzen möchten. In diesem Fall wahrscheinlich Deutsch falls noch nicht geschehen.",
+                    "updated": 1634066189038
+                }
+            ]
         },
         {
             "style": "List",
             "text": "To translate a paragraph, right-click to edit the content and replace the English text with your translation. That's it!",
-            "updated": 1613825599051
+            "updated": 1613825599051,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um einen Absatz zu übersetzen, klicken Sie mit der rechten Maustaste auf den zu übersetzenden Absatz, um den Inhalt zu bearbeiten und den englischen Text durch Ihre Übersetzung zu ersetzen. Das war's!",
+                    "updated": 1634066255678
+                }
+            ]
         },
         {
             "style": "List",
             "text": "You may find it easier to write your translations in a separate text editor, where you may use spelling and grammar-checking software. Once you've double-checked your translation, you may come back to Superalgos to replace each paragraph with the translated version.",
-            "updated": 1613825640442
+            "updated": 1613825640442,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Vielleicht finden Sie es einfacher, Ihre Übersetzungen in einem separaten Texteditor zu schreiben, in dem Sie eine Software zur Rechtschreib und Grammatikprüfung verwenden können. Sobald Sie Ihre Übersetzung überprüft haben, können Sie zu Superalgos zurückkehren und jeden Absatz durch die übersetzte Version ersetzen.",
+                    "updated": 1634066679625
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Remember that translations exist at the level of each paragraph. Always make sure that the translation you input matches the correct paragraph. This is important because if a paragraph is updated in the English version, all translations will get a notice that the particular paragraph may be outdated.",
-            "updated": 1613824142107
+            "updated": 1613824142107,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass Übersetzungen auf der Ebene der einzelnen Absätze existieren. Vergewissern Sie sich immer, dass die von Ihnen eingegebene Übersetzung dem richtigen Absatz entspricht. Dies ist wichtig, denn wenn ein Absatz in der englischen Version aktualisiert wird, erhalten alle Übersetzungen einen Hinweis, dass der betreffende Absatz möglicherweise veraltet ist. Ein Abschnitt ist das was Blau hinterlegt ist wenn sie mit der rechten Maustaste draufklicken.",
+                    "updated": 1634066760100
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Participate in the Superalgos Docs Group. Let people know what part of the Docs or which Tutorial you will be working with. This basic coordination will help avoid conflicts when more than one user works on the same pages at the same time.",
-            "updated": 1616762526615
+            "updated": 1616762526615,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beteiligen Sie sich an der Superalgos Docs Group (Gruppe). Teilen Sie anderen mit, an welchem Teil der Docs oder an welchem Tutorial Sie arbeiten werden. Diese grundlegende Koordination hilft, Konflikte zu vermeiden, wenn mehrere Benutzer gleichzeitig an denselben Seiten arbeiten.",
+                    "updated": 1634066998278
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "You may start with the translation of the Docs in [Language] page that you land on after you switch the language.",
-            "updated": 1613823805871
+            "updated": 1613823805871,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie können mit der Übersetzung der Seite \"Docs in [Sprache]\" beginnen, auf die Sie nach dem Umschalten der Sprache gelangen. Falls dieser schon übersetzt ist, suchen sie sich mit Absprache in der Docs Group einen oder mehrere andere noch nicht übersetzte Artikel aus.",
+                    "updated": 1634067346839
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "You want to add an important information that is missing?",
-            "updated": 1634061304642
+            "updated": 1634061304642,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie möchten eine wichtige Information hinzufügen, die noch fehlt?",
+                    "updated": 1634067408405
+                }
+            ]
         },
         {
             "style": "List",
             "text": "change your language in the footer to english as it is the origin language. Click on the English Circle in the footer.",
-            "updated": 1634060264417
+            "updated": 1634060264417,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ändern Sie die Sprache in der Fußzeile auf Englisch, da dies die Ausgangssprache ist. Klicken Sie auf den englischen Kreis in der Fußzeile.",
+                    "updated": 1634067430126
+                }
+            ]
         },
         {
             "style": "List",
             "text": "navigte to the docs page you want to add something to.",
-            "updated": 1634061337706
+            "updated": 1634061337706,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Navigieren Sie zu der Dokumentseite, zu der Sie etwas hinzufügen möchten.",
+                    "updated": 1634067447605
+                }
+            ]
         },
         {
             "style": "List",
             "text": "find yourself a paragraph after which you want to add the paragraph (no matter what style) right click on it go to the end off the last sentence of the paragraph and hit \"Enter\". If you switched into a new line right click on another existing paragraph. Trough that you create a line break. Now you should see a new paragraph. If that didnt work, repeat the procedure but write something in the new line, anything.",
-            "updated": 1634061488285
+            "updated": 1634061488285,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie sich einen Absatz, nach dem Sie den Absatz einfügen möchten (unabhängig vom Stil), klicken Sie mit der rechten Maustaste darauf, gehen Sie zum Ende des letzten Satzes des Absatzes und drücken Sie \"Enter\". Wenn Sie in eine neue Zeile gewechselt haben, klicken Sie mit der rechten Maustaste auf einen anderen bestehenden Absatz. Dadurch erzeugen Sie einen Zeilenumbruch. Jetzt sollten Sie einen neuen Absatz sehen. Wenn das nicht funktioniert hat, wiederholen Sie den Vorgang, aber schreiben Sie etwas in die neue Zeile, irgendetwas.",
+                    "updated": 1634067513279
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "You can now again right click on the new paragraph and use all editing Features like, changing  the style.",
-            "updated": 1634061294646
+            "text": "You can now again right click on the new paragraph and use all editing Features like, changing the style.",
+            "updated": 1634067833935,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie können nun wieder mit der rechten Maustaste auf den neuen Absatz klicken und alle Bearbeitungsfunktionen nutzen, wie z.B. das Ändern des Stils.",
+                    "updated": 1634067539969
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Remember to switch back your language after you docs.save the changes and or app.contribute the changes. Otherwise you may forget it and later translate the original english text into your language which could cause problems.",
+            "updated": 1634067837318,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, die Sprache wieder umzuschalten, nachdem Sie die Änderungen mit docs.save  gespeichert oder mit app.contribute commited haben. Andernfalls könnten Sie es vergessen und später den englischen Originaltext in Ihre Sprache übersetzen, was zu Problemen führen könnte.",
+                    "updated": 1634067925417
+                }
+            ]
         },
         {
             "style": "Title",
@@ -152,23 +332,51 @@
         },
         {
             "style": "Title",
-            "text": "Translating Tutorials",
-            "updated": 1613823828960
+            "text": "Translating Tutorials:",
+            "updated": 1634067600964,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Tutorials übersetzen:",
+                    "updated": 1634067758085
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Tutorial pages present certain challenges that we must take into account while translating: the first and foremost is that the space available in the tutorial window is limited. This means that you have to be mindful of the length of the translated text and that you must test each of the tutorial steps to make sure the translation fits the available space.",
-            "updated": 1613825681579
+            "updated": 1613825681579,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bei der Übersetzung von Tutorial`s gibt es einige Herausforderungen, die wir berücksichtigen müssen: In erster Linie ist der Platz im Tutorial Fenster begrenzt. Das bedeutet, dass Sie auf die Länge des übersetzten Textes achten müssen und dass Sie jeden einzelnen Schritt des Tutorials testen müssen, um sicherzustellen, dass die Übersetzung in den verfügbaren Platz passt.",
+                    "updated": 1634068068151
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You will notice that if you open the Docs when a tutorial is running, the Docs automatically load the page of the corresponding tutorial step, so that you may edit it. This is quite helpful, as you may translate the page and see how it looks on the tutorial window in real-time.",
-            "updated": 1613825697215
+            "text": "You will notice that if you open the Docs when a tutorial is running, the Docs automatically load the page of the corresponding tutorial step, so that you may edit it. This is quite helpful, as you may translate the page and see how it looks on the tutorial window in real-time. This is the recommended way.",
+            "updated": 1634068533341,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "You will notice that if you open the Docs when a tutorial is running, the Docs automatically load the page of the corresponding tutorial step, so that you may edit it. This is quite helpful, as you may translate the page and see how it looks on the tutorial window in real-time. Dies ist der empfohlene Weg.",
+                    "updated": 1634068602979
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "However, this is not always the case. Some tutorial steps are configured to close the Docs or the editor, and when you open the Docs manually, the tutorial step page is not loaded automatically. In such cases, you must search for the name of the page — which should match the title of the tutorial step — so that you may access the page manually.",
-            "updated": 1613825460620
+            "updated": 1613825460620,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist jedoch nicht immer der Fall. Einige tutorial steps sind so konfiguriert, dass sie die Docs (Dokumentation) oder den Editor schließen, und wenn Sie die Dokumentation manuell öffnen, wird die Seite (Fenster) des tutorial steps nicht automatisch geladen. In solchen Fällen müssen Sie nach dem Namen der Seite suchen - der mit dem Titel des tutorial steps übereinstimmen sollte -, damit Sie die Seite manuell aufrufen können.",
+                    "updated": 1634068950060
+                }
+            ]
         }
     ]
 }

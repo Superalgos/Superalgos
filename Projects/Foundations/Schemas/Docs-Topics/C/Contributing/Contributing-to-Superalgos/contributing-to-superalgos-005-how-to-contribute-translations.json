@@ -115,6 +115,43 @@
         },
         {
             "style": "Title",
+            "text": "You want to add an important information that is missing?",
+            "updated": 1634061304642
+        },
+        {
+            "style": "List",
+            "text": "change your language in the footer to english as it is the origin language. Click on the English Circle in the footer.",
+            "updated": 1634060264417
+        },
+        {
+            "style": "List",
+            "text": "navigte to the docs page you want to add something to.",
+            "updated": 1634061337706
+        },
+        {
+            "style": "List",
+            "text": "find yourself a paragraph after which you want to add the paragraph (no matter what style) right click on it go to the end off the last sentence of the paragraph and hit \"Enter\". If you switched into a new line right click on another existing paragraph. Trough that you create a line break. Now you should see a new paragraph. If that didnt work, repeat the procedure but write something in the new line, anything.",
+            "updated": 1634061488285
+        },
+        {
+            "style": "List",
+            "text": "You can now again right click on the new paragraph and use all editing Features like, changing  the style.",
+            "updated": 1634061294646
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Title",
             "text": "Translating Tutorials",
             "updated": 1613823828960
         },

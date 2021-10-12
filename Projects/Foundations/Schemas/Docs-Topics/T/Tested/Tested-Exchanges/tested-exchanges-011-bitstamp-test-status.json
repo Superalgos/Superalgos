@@ -1,6 +1,6 @@
 {
     "topic": "Tested Exchanges",
-    "pageNumber": "11",
+    "pageNumber": 11,
     "type": "Bitstamp Test Status",
     "definition": {
         "text": "Bitstamp is fully tested for data mining and trading.",

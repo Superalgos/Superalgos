@@ -1,10 +1,10 @@
 {
     "topic": "Tested Exchanges",
-    "pageNumber": 5,
-    "type": "Bitfinex Test Status",
+    "pageNumber": 4,
+    "type": "FTX Test Status",
     "definition": {
-        "text": "Bitfinex is tested for data mining but not for live trading.",
-        "updated": 1616003876885
+        "text": "FTX is tested for data mining but not for live trading.",
+        "updated": 1616003850379
     },
     "paragraphs": [
         {
@@ -15,22 +15,22 @@
         {
             "style": "List",
             "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
-            "updated": 1616003797511
+            "updated": 1616003666832
         },
         {
             "style": "List",
-            "text": "Market History: 1 year.",
-            "updated": 1616004049653
+            "text": "Market History: Starting on September 2019",
+            "updated": 1615204614502
         },
         {
             "style": "List",
             "text": "Trading Capability: Unknown. The ability to run strategies in live-trading mode has not been verified.",
-            "updated": 1616003817998
+            "updated": 1616003699055
         },
         {
             "style": "List",
-            "text": "Comments: Raw Data mining can be slow due to exchange restrictions on their API that limit the number of data it can be requested via Rest API.",
-            "updated": 1616004065179
+            "text": "Comments: Raw Data mining can be slow due to exchange restrictions on their API that limit the number of data it can be requested via Rest API",
+            "updated": 1615205045729
         },
         {
             "style": "Title",
@@ -38,8 +38,8 @@
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"bitfinex\",\n    \"API\": [\n        {\n            \"rateLimit\": 999\n        }\n    ]\n}",
-            "updated": 1615211032603
+            "text": "{\n    \"codeName\": \"ftx\"\n}",
+            "updated": 1615204693035
         },
         {
             "style": "Text",

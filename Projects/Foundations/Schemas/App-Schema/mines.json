@@ -6,7 +6,8 @@
             "label": "Add Data Mine",
             "relatedUiObject": "Data Mine",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting"
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Data-Mining"
         },
         {
             "action": "Add UI Object",

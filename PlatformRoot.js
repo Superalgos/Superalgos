@@ -48,7 +48,9 @@ SA.nodeModules = {
     ccxt: require('ccxt'),
     octokit: require("@octokit/rest"),
     simpleGit: require('simple-git'),
-    lookpath: require('lookpath')
+    lookpath: require('lookpath'),
+    process: require('process'),
+    childProcess: require('child_process')
 }
 
 run()

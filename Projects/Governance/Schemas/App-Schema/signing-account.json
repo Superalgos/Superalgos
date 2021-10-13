@@ -16,7 +16,8 @@
             "propertyToCheckFor": "assignedTo",
             "label": "Add P2P Network Node",
             "relatedUiObject": "P2P Network Node",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Network"
         },
         {
             "action": "Add UI Object",

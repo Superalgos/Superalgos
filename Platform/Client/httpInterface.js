@@ -898,6 +898,27 @@ exports.newHttpInterface = function newHttpInterface() {
                                         const git = simpleGit(options)
                                         try {
                                             await git.checkout(currentBranch)
+                                            
+                                            // Check to see it main repo has been set as upstream
+                                            let remotes = await git.getRemotes();
+                                            let isUpstreamSet
+                                            for(let remote in remotes) {
+                                                if (remotes[remote].name === 'upstream') {
+                                                    isUpstreamSet = true
+                                                } else {
+                                                    isUpstreamSet = false
+                                                }
+                                            }
+                                            // If upstream has not been set. Set it now
+                                            if (isUpstreamSet === false){
+                                                await git.addRemote('upstream', 'https://github.com/Superalgos/Superalgos');
+                                            }
+                                            // Pull branch from main repo
+                                            await git.pull('upstream', currentBranch);
+                                            // Reset branch to match main repo
+                                            let upstreamLocation = `upstream/${currentBranch}`
+                                            await git.reset('hard', [upstreamLocation])
+                                            
                                         } catch (err) {
                                             console.log('[ERROR] Error changing current branch to ' + currentBranch)
                                             console.log(err.stack)
@@ -905,20 +926,19 @@ exports.newHttpInterface = function newHttpInterface() {
                                         }
                                     }
 
-                                    async function runNodeSetup() {
-                                        console.log("Running Node setup to adjust for new Branch")
-                                        const process = require("process");
-                                        const { execSync } = require("child_process");
+                                    async function runNodeSetup () {
+                                        console.log( "Running Node setup to adjust for new Branch" )
+                                        const process = SA.nodeModules.process
+                                        const childProcess = SA.nodeModules.childProcess
 
                                         let dir = process.cwd()
-                                        let command = "node setup";
-                                        let stdout = execSync(command,
-                                            {
-                                                cwd: dir
-                                            }).toString();
-
-                                        console.log("Node Setup has completed with the following result:", stdout)
-
+                                        let command = "node setup noShortcuts";
+                                        let stdout = childProcess.execSync( command,
+                                        {
+                                            cwd: dir 
+                                        }).toString();
+                                    
+                                        console.log("Node Setup has completed with the following result:", stdout)      
                                     }
 
                                 } catch (err) {
@@ -1015,6 +1035,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 let directoryCount = 0
                                 let allAppSchemas = []
                                 let allAppSchemasFilePaths = []
+                                let allAppSchemasFileProjects = []
 
                                 for (let i = 0; i < projects.length; i++) {
                                     let project = projects[i]
@@ -1050,6 +1071,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                     SCHEMA_MAP.set(schemaDocument.type, schemaDocument)
                                                     allAppSchemas.push(schemaDocument)
                                                     allAppSchemasFilePaths.push(fileToRead)
+                                                    allAppSchemasFileProjects.push(project)
                                                 } catch (err) {
                                                     console.log('[ERROR] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
                                                     return
@@ -1094,6 +1116,14 @@ exports.newHttpInterface = function newHttpInterface() {
                                                             hits++
                                                             foundProject = project
                                                             multiProject = multiProject + ' -> ' + project
+
+                                                            let fileProject = allAppSchemasFileProjects[i]
+                                                            //console.log(fileProject, project)
+                                                            if (fileProject === project) {
+                                                                /* If the projec of the file is the same as the project found, then we consider this a match*/
+                                                                hits = 1
+                                                                continue
+                                                            }
                                                         }
                                                     }
 

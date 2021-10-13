@@ -3,7 +3,7 @@ const {app, Menu, BrowserWindow} = require('electron')
 const path = require('path')
 const fs = require('fs')
 // To check for update on Github repo
-const {autoUpdater} = require("electron-updater");
+const {autoUpdater} = require("electron-updater")
 
 // Enable non contribution mode (test)
 process.env.SA_MODE = 'gitDisable'
@@ -23,11 +23,11 @@ run()
 
 function run() {
   if (process.env.PORTABLE_EXECUTABLE_DIR) {
-    process.env.PORTABLE_USER_DOCUMENTS = app.getPath("documents")
-  }  
+    process.env.PORTABLE_USER_DOCUMENTS = app.getPath("userData")
+  }
 
   const { fork } = require('child_process')
-  fork(path.join(__dirname, './PlatformRoot.js'), ["noBrowser"])
+  fork(path.join(__dirname, '/PlatformRoot.js'), ["noBrowser"])
 
   server_ready = true
   if (app_ready) open()

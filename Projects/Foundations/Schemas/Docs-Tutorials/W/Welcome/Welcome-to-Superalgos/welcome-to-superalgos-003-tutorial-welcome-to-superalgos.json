@@ -42,7 +42,8 @@
             {
                 "language": "DE",
                 "text": "Ich bin ein interaktives Tutorial, das erste einer Reihe, die Ihnen den Einstieg erleichtern und Ihnen alle Grundlagen vermitteln soll!",
-                "updated": 1634070025309
+                "updated": 1634070025309,
+                "style": "Definition"
             }
         ],
         "updated": 1633159917192
@@ -84,8 +85,9 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ich werde Ihnen den Einstieg erleichtern, Ihnen die Werkzeuge zeigen, mit denen Sie Navigieren können, und Ihnen helfen, all die coolen Dinge zu entdecken, die Superalgos für Sie tun kann.",
-                    "updated": 1634070189968
+                    "text": "Ich werde Ihnen die Werkzeuge zeigen, mit denen Sie sich bequem zurechtfinden, und Ihnen helfen, all die coolen Dinge zu entdecken, die Superalgos für Sie tun kann.",
+                    "updated": 1634159537847,
+                    "style": "Text"
                 }
             ],
             "updated": 1633159949363
@@ -126,8 +128,9 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Tutorials sind das Einführungswerkzeug! Mit Superalgos auf eine andere Art und Weise zu starten wäre ein Fehler, denn keine andere Ressource wird Sie schneller auf den neuesten Stand bringen. Sie sollten alle Tutorials durcharbeiten, bevor Sie versuchen, Ihre eigenen Ideen zu implementieren!",
-                    "updated": 1634070223080
+                    "text": "Tutorials sind der beste Start in Superalgos!  Keine andere Ressource wird Sie schneller einarbeiten. Sie sollten alle Tutorials durcharbeiten, bevor Sie versuchen, Ihre eigenen Ideen zu implementieren!",
+                    "updated": 1634159523866,
+                    "style": "Callout"
                 }
             ],
             "updated": 1633159975051
@@ -175,7 +178,8 @@
                 {
                     "language": "DE",
                     "text": " Bitte klicken Sie immer auf Weiter, um fortzufahren!",
-                    "updated": 1634070092386
+                    "updated": 1634070092386,
+                    "style": "Success"
                 }
             ]
         }

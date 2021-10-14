@@ -32613,7 +32613,7 @@
                                                             },
                                                             "referenceParent": {
                                                                 "type": "Feature Class",
-                                                                "name": "Beta-12-New-Features",
+                                                                "name": "Beta-12-New-Features by Casual Contributors",
                                                                 "id": "791d4a3d-f4a5-495a-9d9b-be157c24c14a"
                                                             },
                                                             "referenceParentCombinedNodePath": [
@@ -32624,7 +32624,7 @@
                                                                     "7c27de79-0ac7-4d48-81f0-5d7b6a4d93c6"
                                                                 ],
                                                                 [
-                                                                    "Beta-12-New-Features",
+                                                                    "Beta-12-New-Features by Casual Contributors",
                                                                     "Feature Class",
                                                                     "Governance",
                                                                     "791d4a3d-f4a5-495a-9d9b-be157c24c14a"
@@ -36890,7 +36890,7 @@
                             },
                             "referenceParent": {
                                 "type": "Feature Class",
-                                "name": "Beta-12-New-Features",
+                                "name": "Beta-12-New-Features by Casual Contributors",
                                 "id": "791d4a3d-f4a5-495a-9d9b-be157c24c14a"
                             },
                             "referenceParentCombinedNodePath": [
@@ -36901,7 +36901,7 @@
                                     "7c27de79-0ac7-4d48-81f0-5d7b6a4d93c6"
                                 ],
                                 [
-                                    "Beta-12-New-Features",
+                                    "Beta-12-New-Features by Casual Contributors",
                                     "Feature Class",
                                     "Governance",
                                     "791d4a3d-f4a5-495a-9d9b-be157c24c14a"

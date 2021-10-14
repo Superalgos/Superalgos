@@ -6,42 +6,11 @@
     "featureClasses": [
         {
             "type": "Feature Class",
-            "name": "Beta-12-New-Features",
+            "name": "Beta-12-New-Features by Casual Contributors",
             "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}",
             "project": "Governance",
             "featureClasses": [],
-            "features": [
-                {
-                    "type": "Feature",
-                    "name": "Simplified Governance",
-                    "config": "{}",
-                    "project": "Governance",
-                    "featureClasses": [],
-                    "features": [],
-                    "id": "030428c8-b03f-4f33-bc7b-8bfe4830d5c3",
-                    "savedPayload": {
-                        "position": {
-                            "x": 26712.625,
-                            "y": 45416.344169246644
-                        },
-                        "targetPosition": {
-                            "x": 26712.625,
-                            "y": 45116.344169246644
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": false,
-                            "angleToParent": 2,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                }
-            ],
+            "features": [],
             "id": "791d4a3d-f4a5-495a-9d9b-be157c24c14a",
             "savedPayload": {
                 "position": {
@@ -80,7 +49,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

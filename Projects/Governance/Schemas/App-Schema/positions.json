@@ -19,7 +19,7 @@
         },
         {
             "action": "Install as Plugin",
-            "actionProject": "Foundations",
+            "actionProject": "Community-Plugins",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Install",
             "label": "Install as Plugin",

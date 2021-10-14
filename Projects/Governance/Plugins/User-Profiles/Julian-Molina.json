@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "Julian-Molina",
-    "config": "{\n    \"signature\": {\n        \"message\": \"Julian-Molina\",\n        \"messageHash\": \"0x25694a4a2a623f9a6a4cd32f94dccc0162b3379c378d0ea8afaf26d3e8b0fff3\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xbc1f7bdcf7f9bc0e794c3c7bb7d7d3b73a2411a81fdfb028c1dde34e460026dd\",\n        \"s\": \"0x1c5bda64627d214d65670f60179e2303709604cff579ef80934fa99bb80c33f2\",\n        \"signature\": \"0xbc1f7bdcf7f9bc0e794c3c7bb7d7d3b73a2411a81fdfb028c1dde34e460026dd1c5bda64627d214d65670f60179e2303709604cff579ef80934fa99bb80c33f21c\"\n    }\n}",
+    "config": "{\"signature\":{\"message\":\"Julian-Molina\",\"messageHash\":\"0x25694a4a2a623f9a6a4cd32f94dccc0162b3379c378d0ea8afaf26d3e8b0fff3\",\"v\":\"0x1c\",\"r\":\"0xbc1f7bdcf7f9bc0e794c3c7bb7d7d3b73a2411a81fdfb028c1dde34e460026dd\",\"s\":\"0x1c5bda64627d214d65670f60179e2303709604cff579ef80934fa99bb80c33f2\",\"signature\":\"0xbc1f7bdcf7f9bc0e794c3c7bb7d7d3b73a2411a81fdfb028c1dde34e460026dd1c5bda64627d214d65670f60179e2303709604cff579ef80934fa99bb80c33f21c\"},\"codeName\":\"Julian-Molina\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -147,7 +147,7 @@
                 "userSupporters": [
                     {
                         "type": "User Supporter",
-                        "name": "Raplh2502",
+                        "name": "",
                         "config": "{}",
                         "project": "Governance",
                         "id": "c84af7b3-b580-41df-bd9a-d873a126b486",
@@ -188,7 +188,7 @@
                     },
                     {
                         "type": "User Supporter",
-                        "name": "Smidy13",
+                        "name": "",
                         "config": "{}",
                         "project": "Governance",
                         "id": "326139c1-d5bf-4353-9d5c-4277bd670699",
@@ -229,7 +229,7 @@
                     },
                     {
                         "type": "User Supporter",
-                        "name": "harrellbm",
+                        "name": "",
                         "config": "{}",
                         "project": "Governance",
                         "id": "456319d1-ae7f-4bae-9764-5bba2200a7c9",
@@ -270,7 +270,7 @@
                     },
                     {
                         "type": "User Supporter",
-                        "name": "PLuv",
+                        "name": "",
                         "config": "{}",
                         "project": "Governance",
                         "id": "3c1b332e-80e5-45a3-b381-8f988ba7cb54",
@@ -311,7 +311,7 @@
                     },
                     {
                         "type": "User Supporter",
-                        "name": "cozed-gh",
+                        "name": "",
                         "config": "{}",
                         "project": "Governance",
                         "id": "8e626e39-c496-42f9-979c-ee94da1ca13e",
@@ -352,7 +352,7 @@
                     },
                     {
                         "type": "User Supporter",
-                        "name": "ssplatt",
+                        "name": "",
                         "config": "{}",
                         "project": "Governance",
                         "id": "739e3adf-372a-41c9-9102-cc8587f7cd28",
@@ -670,7 +670,7 @@
                                                                 "featureClaimVotes": [
                                                                     {
                                                                         "type": "Feature Claim Vote",
-                                                                        "name": "Luis-Fernando-Molina Governance System New Features",
+                                                                        "name": "Luis-Fernando-Molina ",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "6efe2790-61d1-4269-9725-d3824ab8d787",
@@ -696,7 +696,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Feature Contribution Claim",
-                                                                                "name": "Governance System New Features",
+                                                                                "name": "",
                                                                                 "id": "92f0f22e-f631-482d-88b1-c16596bf951d"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -743,7 +743,7 @@
                                                                                     "c4815ebe-d3a8-47fd-b204-936242bd8f40"
                                                                                 ],
                                                                                 [
-                                                                                    "Governance System New Features",
+                                                                                    "",
                                                                                     "Feature Contribution Claim",
                                                                                     "Governance",
                                                                                     "92f0f22e-f631-482d-88b1-c16596bf951d"
@@ -753,7 +753,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Feature Claim Vote",
-                                                                        "name": "Luis-Fernando-Molina API Maps New Features",
+                                                                        "name": "Luis-Fernando-Molina ",
                                                                         "config": "{\n    \"percentage\":  30\n}",
                                                                         "project": "Governance",
                                                                         "id": "643883cd-80fa-44ed-94f3-3aa7243d5f03",
@@ -779,7 +779,7 @@
                                                                             },
                                                                             "referenceParent": {
                                                                                 "type": "Feature Contribution Claim",
-                                                                                "name": "API Maps New Features",
+                                                                                "name": "",
                                                                                 "id": "81c477e0-c9bf-4b25-a875-d265011a6136"
                                                                             },
                                                                             "referenceParentCombinedNodePath": [
@@ -826,7 +826,7 @@
                                                                                     "c4815ebe-d3a8-47fd-b204-936242bd8f40"
                                                                                 ],
                                                                                 [
-                                                                                    "API Maps New Features",
+                                                                                    "",
                                                                                     "Feature Contribution Claim",
                                                                                     "Governance",
                                                                                     "81c477e0-c9bf-4b25-a875-d265011a6136"
@@ -1131,7 +1131,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "Decentralized Marketing Rewards Superalgos Medium Blog Software News Beta 10 Announcement",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "da6745cd-c069-4c44-9e34-392642acdfdc",
@@ -1196,7 +1196,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "Decentralized Marketing Rewards Superalgos Medium Blog Software News Beta 11 Announcement",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "c162f541-6d95-4c36-a6d9-ef5ca201d3c2",
@@ -1326,7 +1326,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "Decentralized Marketing Rewards Superalgos Medium Blog Articles Add Your Article as a New Asset",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "adc79b8f-cb0a-418c-a233-c27cec888ecb",
@@ -1391,7 +1391,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "Decentralized Marketing Rewards Superalgos Medium Blog Articles Superalgos Beta 11 : Taking the Data Mining Infrastructure to the Next Level",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "42b14139-e88a-41ee-b315-916c3bc4a36c",
@@ -1456,7 +1456,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "Decentralized Marketing Rewards Superalgos Medium Blog Articles Entropy as a Calculation Basis for Market Trends: The Advanced Trend Indicator in Superalgos",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "da3cfd0e-2cee-413d-a287-62cbefdde82b",
@@ -1521,7 +1521,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "Decentralized Marketing Rewards Superalgos Medium Blog Articles Implementing a Monte-Carlo Forecast of the Next Period of an Asset in Superalgos",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "c52ea42d-86f4-4465-9197-89cfa246c29e",
@@ -1586,7 +1586,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "Decentralized Marketing Rewards Superalgos Medium Blog Articles NewNew high quality indicators for Superalgos Beta 11Asset",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "66067b26-ca79-485e-8e0d-051caa69ce91",
@@ -1716,7 +1716,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "Decentralized Marketing Rewards Superalgos Medium Blog Reviews Add Your Review as a New Asset",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "f885cbb0-419b-4619-a34e-84a6103c9a07",
@@ -1911,7 +1911,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "Article Publications Alternative Media Code Project Add Your Article as a New Asset",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "cc19e820-b1b0-4d35-a95e-a839eda3e28f",
@@ -2053,7 +2053,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "Article Publications Alternative Media Coinmonks Add Your Article as a New Asset",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "fb73fa6d-8c7f-4272-85ca-7861cdfd7516",
@@ -2195,7 +2195,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "Article Publications Alternative Media Towards Data Science Add Your Article as a New Asset",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "7a0a153a-bb6e-4842-9fe8-6af74aa84ca3",
@@ -2337,7 +2337,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "Article Publications Alternative Media Hackernoon Add Your Article as a New Asset",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "19ec6716-975e-45be-a9a4-84c657d5e805",
@@ -2544,7 +2544,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "Article Publications Specialized Media CoinDesk Add Your Article as a New Asset",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "ed3671da-b508-40df-a1af-2085cddd8a83",
@@ -2686,7 +2686,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "Article Publications Specialized Media CoinTelegraph Add Your Article as a New Asset",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "6cb62a01-5d5d-4b2b-8a10-8f730b559bf1",
@@ -2828,7 +2828,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "Article Publications Specialized Media VentureBeat Add Your Article as a New Asset",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "02dab135-0ee8-4e88-aea8-e214d903b079",
@@ -3035,7 +3035,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "Article Publications Mainstream Media Forbes Add Your Article as a New Asset",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "b4e60688-09d5-484c-a8eb-e0fababeb22b",
@@ -3177,7 +3177,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "Article Publications Mainstream Media Wall Street Journal Add Your Article as a New Asset",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "612e1b69-a095-4f88-8cd9-857bc4105a18",
@@ -3319,7 +3319,7 @@
                                                                         "assetWeightVotes": [
                                                                             {
                                                                                 "type": "Asset Weight Vote",
-                                                                                "name": "Article Publications Mainstream Media Financial Times Add Your Article as a New Asset",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "1f3c879a-caf9-415b-8447-12f7e29b8e52",
@@ -3579,7 +3579,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "Decentralized Marketing Rewards Video Publications YouTube Add Your Video as a New Asset",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "14400000-ba7e-4691-acb1-2c39df549b34",
@@ -3709,7 +3709,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "Decentralized Marketing Rewards Video Publications Vimeo Add Your Video as a New Asset",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "5dadb998-d325-4833-a33e-0107fd1179bc",
@@ -3898,7 +3898,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "Decentralized Marketing Rewards Social Media Posts Twitter Add Your Post as a New Asset",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "9493de22-3911-40df-a69e-fda76acdef29",
@@ -4028,7 +4028,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "Decentralized Marketing Rewards Social Media Posts Facebook Add Your Post as a New Asset",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "a4f26986-6522-485b-a230-2bbe3077e258",
@@ -4158,7 +4158,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "Decentralized Marketing Rewards Social Media Posts Instagram Add Your Post as a New Asset",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "041404ad-4b38-4f3d-83ae-513e7b3811e7",
@@ -4288,7 +4288,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "Decentralized Marketing Rewards Social Media Posts Reddit Add Your Post as a New Asset",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "6eeecaa1-ea8f-4561-b110-949a1d9fe615",
@@ -4418,7 +4418,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "Decentralized Marketing Rewards Social Media Posts Hacker News Add Your Post as a New Asset",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "b2e3bb65-8d4d-432b-a638-8836b6f4dab6",
@@ -4607,7 +4607,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "Decentralized Marketing Rewards Backlinks To Website Add Your Link as a New Asset",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "5e829432-7013-4321-a9b9-679429739bda",
@@ -4737,7 +4737,7 @@
                                                                 "assetWeightVotes": [
                                                                     {
                                                                         "type": "Asset Weight Vote",
-                                                                        "name": "Decentralized Marketing Rewards Backlinks To Repository Add Your Link as a New Asset",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "6321faa9-5c63-4745-a8d7-0353d5821e29",
@@ -4969,7 +4969,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "Rewarded Positions Marketing Lead",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "70d963f8-9a14-46e0-9db8-51521692badd",
@@ -5022,7 +5022,7 @@
                                                     },
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "Rewarded Positions Marketing Advisor",
+                                                        "name": "",
                                                         "config": "{\n    \"percentage\":  25\n}",
                                                         "project": "Governance",
                                                         "id": "be920920-edfc-4af2-a69d-cd0a0f439429",
@@ -5075,7 +5075,7 @@
                                                     },
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "Rewarded Positions Webmaster Superalgos.org",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "b875c124-aa5f-41b3-8417-5ffef1dd731a",
@@ -5128,7 +5128,7 @@
                                                     },
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "Rewarded Positions Social Media Accounts Manager",
+                                                        "name": "",
                                                         "config": "{\n    \"percentage\": 5\n}",
                                                         "project": "Governance",
                                                         "id": "16474331-a828-4455-93ad-c7e995f7cf2e",
@@ -5272,7 +5272,7 @@
                                                         "assetWeightVotes": [
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-001-data-mining-introduction.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "972f397b-169a-4475-a594-f7b45b816bc5",
@@ -5349,7 +5349,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-002-data-mining-workflows.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "caf67f3c-af98-43b0-9725-ec7d592388a2",
@@ -5426,7 +5426,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-003-data-mining-dataset-types.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "f28ef240-766c-4475-8570-31e86450887d",
@@ -5503,7 +5503,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-004-data-mining-datasets-type-conversions.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "91dbf001-b6ad-4917-b8ed-3ff7e018aab1",
@@ -5580,7 +5580,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-005-data-mining-indicator-frameworks.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "ea28f543-7cbc-4db3-b307-4d2b85397edc",
@@ -5657,7 +5657,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-006-data-mining-data-mine-hierarchy.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "120aa4c9-004f-468a-adda-ef4fe3c42aa9",
@@ -5734,7 +5734,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-007-data-mining-managing-execution.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "64539ae7-e8f1-45fe-ab99-ccd9ea0cef64",
@@ -5811,7 +5811,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-008-data-mining-data-dependencies.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "23ea7782-593f-4799-b294-687fe831bb99",
@@ -5888,7 +5888,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-009-data-mining-status-reports.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "c84bb21e-aed0-4cbe-bf27-360e6534997a",
@@ -5965,7 +5965,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-010-data-mining-status-dependencies.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "4d589c68-500f-4050-877d-57a590267d4f",
@@ -6042,7 +6042,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-011-data-mining-deployments.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "f8fda4cd-5971-47f6-934f-82214c3431a2",
@@ -6119,7 +6119,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-012-data-mining-products.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "b8b963d8-921b-458f-9192-e8b35af794b5",
@@ -6196,7 +6196,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-013-data-mining-plotting.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "10ce9ac7-7b86-483f-bc6b-4868fe00c840",
@@ -6273,7 +6273,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-014-data-mining-fetching-data-from-apis.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "9dd7a541-0daa-4d3f-95a7-c16efa946a02",
@@ -6350,7 +6350,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-015-data-mining-consuming-data-from-strategies.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "7b2f24d2-3e60-4322-8abd-bd9d4c294dbf",
@@ -6427,7 +6427,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-016-data-mining-indicator-bots.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "c17df90d-e269-4f9e-8558-c1500b43c601",
@@ -6504,7 +6504,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-017-data-mining-indicator-bots-process-definition.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "5ea6e2a4-d27e-471e-8700-a47539c05e4d",
@@ -6581,7 +6581,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-018-data-mining-indicator-bots-product-definition.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "ab4d2612-e8de-4a72-ab6a-3a107142538f",
@@ -6658,7 +6658,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-019-data-mining-indicator-bots-data-mining-workflow.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "f151e193-5bfc-499e-9d0e-a172dfa3d09e",
@@ -6735,7 +6735,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-020-data-mining-indicator-bots-coding-the-indicators-logic.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "6339b029-cd96-47c8-a4e2-2c303f60cd10",
@@ -6812,7 +6812,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-021-data-mining-plotters.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "c48475ff-d97f-41ba-b561-0f382333478c",
@@ -6889,7 +6889,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-022-data-mining-plotters-shapes.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "b97d193b-05b6-4110-a385-0a5e964379a0",
@@ -6966,7 +6966,7 @@
                                                             },
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "D Data Data-Mining data-mining-023-data-mining-how-to-build-an-indicator-video-series.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "cffc09c0-62bf-4360-acd9-53ea184446d4",
@@ -7120,7 +7120,7 @@
                                                         "assetWeightVotes": [
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": " Foundations-Project-Docs Spanish Translations thaissmolina75 Translations",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "22805fde-c0a9-4132-af2a-178bab3ba4f7",
@@ -7235,7 +7235,7 @@
                                                         "assetWeightVotes": [
                                                             {
                                                                 "type": "Asset Weight Vote",
-                                                                "name": "Governance-Project-Docs Docs Books the-governance-project.json",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "075ba82b-16b1-43e7-b76c-26437c5928de",
@@ -7536,7 +7536,7 @@
                                                 "assetContributionClaims": [
                                                     {
                                                         "type": "Asset Contribution Claim",
-                                                        "name": "Docs Books the-governance-project.json",
+                                                        "name": "",
                                                         "config": "{\n  \"description\": \"\"\n}",
                                                         "project": "Governance",
                                                         "id": "24248a65-20e4-4f29-8663-9f4f93315910",
@@ -7726,7 +7726,7 @@
                                         "assetContributionClaims": [
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-001-data-mining-introduction.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "7374f808-a7fb-4025-aef9-a7f263a56d4b",
@@ -7803,7 +7803,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-002-data-mining-workflows.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "c50ab92b-383d-4ba4-bacd-769542c676c1",
@@ -7880,7 +7880,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-003-data-mining-dataset-types.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "872621cd-d92e-4173-8d76-d0bb94432c0f",
@@ -7957,7 +7957,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-004-data-mining-datasets-type-conversions.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "1ef85d88-ab0a-4fb9-b193-77e0f88d091b",
@@ -8034,7 +8034,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-005-data-mining-indicator-frameworks.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "c5a82a80-d288-4534-8862-8f4c0b31a7a9",
@@ -8111,7 +8111,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-006-data-mining-data-mine-hierarchy.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "8089412c-2b1e-4173-950d-457ea2a4d53f",
@@ -8188,7 +8188,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-007-data-mining-managing-execution.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "797f9fcc-ebd6-444f-99eb-e1d00dc7ed8d",
@@ -8265,7 +8265,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-008-data-mining-data-dependencies.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "040cb5e5-985a-4a85-89b2-d8843845168a",
@@ -8342,7 +8342,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-009-data-mining-status-reports.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "43baad58-8f7f-45e1-bf55-0bb21cbc33e5",
@@ -8419,7 +8419,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-010-data-mining-status-dependencies.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "7bfd9ed1-1305-4e60-8411-deaa5ef5d48e",
@@ -8496,7 +8496,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-011-data-mining-deployments.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "25a02023-7635-408c-b6db-28e9c53017d5",
@@ -8573,7 +8573,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-012-data-mining-products.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "0e4fecd0-117d-46f0-9f54-67c7d7bd7f1a",
@@ -8650,7 +8650,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-013-data-mining-plotting.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "18543f20-fc0e-4a9d-b893-00647cdbd0e3",
@@ -8727,7 +8727,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-014-data-mining-fetching-data-from-apis.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "94bfa541-6b42-4932-84c9-09b4b6128088",
@@ -8804,7 +8804,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-015-data-mining-consuming-data-from-strategies.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "1e539e74-e1f5-4d9f-9669-904b4b6936ef",
@@ -8881,7 +8881,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-016-data-mining-indicator-bots.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "6fa9cd03-2703-4298-8d0d-49642dddba24",
@@ -8958,7 +8958,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-017-data-mining-indicator-bots-process-definition.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "a09c682d-dd6a-474e-9811-1b4d3bc55a4d",
@@ -9035,7 +9035,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-018-data-mining-indicator-bots-product-definition.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "d56fc2b2-4d19-4483-833c-253dd2b8f2d8",
@@ -9112,7 +9112,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-019-data-mining-indicator-bots-data-mining-workflow.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "dd6fbf37-f460-47f6-a958-5a595b7de2a7",
@@ -9189,7 +9189,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-020-data-mining-indicator-bots-coding-the-indicators-logic.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "554c413c-cd47-4e79-9b14-c9a1f2e88f5b",
@@ -9266,7 +9266,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-021-data-mining-plotters.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "719a919d-02b7-4335-b93d-d1062485393e",
@@ -9343,7 +9343,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-022-data-mining-plotters-shapes.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "4ec17db7-bd10-4277-b25a-97d66a2a8465",
@@ -9420,7 +9420,7 @@
                                             },
                                             {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Data Data-Mining data-mining-023-data-mining-how-to-build-an-indicator-video-series.json",
+                                                "name": "",
                                                 "config": "{\n  \"description\": \"\"\n}",
                                                 "project": "Governance",
                                                 "id": "dd17448e-2219-4f9f-8af8-bd88e0ecc8a9",
@@ -9667,7 +9667,7 @@
                                         "positionContributionClaims": [
                                             {
                                                 "type": "Position Contribution Claim",
-                                                "name": "Marketing Lead Rewarded Positions",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "924ae88a-510a-4d4b-8d8d-906be074e3c8",
@@ -9720,7 +9720,7 @@
                                             },
                                             {
                                                 "type": "Position Contribution Claim",
-                                                "name": "Webmaster Superalgos.org Rewarded Positions",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "e65b1b4d-d9dc-476c-90fa-a7bf4b2ba3b0",
@@ -9773,7 +9773,7 @@
                                             },
                                             {
                                                 "type": "Position Contribution Claim",
-                                                "name": "Social Media Accounts Manager Rewarded Positions",
+                                                "name": "",
                                                 "config": "{\n    \"percentage\": 13\n}",
                                                 "project": "Governance",
                                                 "id": "00c47bb5-1fb4-470d-a86c-29b46836ba8c",
@@ -9913,7 +9913,7 @@
                                                 "positionContributionClaims": [
                                                     {
                                                         "type": "Position Contribution Claim",
-                                                        "name": "Telgram Groups / Discord Server Manager Community Management",
+                                                        "name": "",
                                                         "config": "{\n    \"percentage\": 25\n}",
                                                         "project": "Governance",
                                                         "id": "e2e294a7-bfab-43c3-821f-f8f93f4adcd7",
@@ -9942,32 +9942,7 @@
                                                                 "name": "Telgram Groups / Discord Server Manager",
                                                                 "id": "fe1e9d28-e5dc-433f-b7af-58fb358634a6"
                                                             },
-                                                            "referenceParentCombinedNodePath": [
-                                                                [
-                                                                    "Superalgos",
-                                                                    "Positions",
-                                                                    "Governance",
-                                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                                                ],
-                                                                [
-                                                                    "Rewarded Positions",
-                                                                    "Position Class",
-                                                                    "Governance",
-                                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                                                ],
-                                                                [
-                                                                    "Community Management",
-                                                                    "Position Class",
-                                                                    "Governance",
-                                                                    "35b790f0-c567-498c-83fd-ac0aacd8720b"
-                                                                ],
-                                                                [
-                                                                    "Telgram Groups / Discord Server Manager",
-                                                                    "Position",
-                                                                    "Governance",
-                                                                    "fe1e9d28-e5dc-433f-b7af-58fb358634a6"
-                                                                ]
-                                                            ]
+                                                            "referenceParentCombinedNodePath": []
                                                         }
                                                     }
                                                 ],
@@ -9997,26 +9972,7 @@
                                                         "name": "Community Management",
                                                         "id": "35b790f0-c567-498c-83fd-ac0aacd8720b"
                                                     },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Superalgos",
-                                                            "Positions",
-                                                            "Governance",
-                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                                        ],
-                                                        [
-                                                            "Rewarded Positions",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                                        ],
-                                                        [
-                                                            "Community Management",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "35b790f0-c567-498c-83fd-ac0aacd8720b"
-                                                        ]
-                                                    ]
+                                                    "referenceParentCombinedNodePath": []
                                                 }
                                             },
                                             {
@@ -10028,7 +9984,7 @@
                                                 "positionContributionClaims": [
                                                     {
                                                         "type": "Position Contribution Claim",
-                                                        "name": "Business Lead Business",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "f6bc13cb-c70b-4a42-9491-6796aa862d54",
@@ -10057,32 +10013,7 @@
                                                                 "name": "Business Lead",
                                                                 "id": "b29c3581-089f-41fd-9421-3e9b518a9c7b"
                                                             },
-                                                            "referenceParentCombinedNodePath": [
-                                                                [
-                                                                    "Superalgos",
-                                                                    "Positions",
-                                                                    "Governance",
-                                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                                                ],
-                                                                [
-                                                                    "Rewarded Positions",
-                                                                    "Position Class",
-                                                                    "Governance",
-                                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                                                ],
-                                                                [
-                                                                    "Business",
-                                                                    "Position Class",
-                                                                    "Governance",
-                                                                    "520de537-9ab0-41d6-8bd0-950fe9524e4d"
-                                                                ],
-                                                                [
-                                                                    "Business Lead",
-                                                                    "Position",
-                                                                    "Governance",
-                                                                    "b29c3581-089f-41fd-9421-3e9b518a9c7b"
-                                                                ]
-                                                            ]
+                                                            "referenceParentCombinedNodePath": []
                                                         }
                                                     }
                                                 ],
@@ -10109,29 +10040,10 @@
                                                     },
                                                     "referenceParent": {
                                                         "type": "Position Class",
-                                                        "name": "Business",
+                                                        "name": "Business Advisors",
                                                         "id": "520de537-9ab0-41d6-8bd0-950fe9524e4d"
                                                     },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Superalgos",
-                                                            "Positions",
-                                                            "Governance",
-                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                                        ],
-                                                        [
-                                                            "Rewarded Positions",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                                        ],
-                                                        [
-                                                            "Business",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "520de537-9ab0-41d6-8bd0-950fe9524e4d"
-                                                        ]
-                                                    ]
+                                                    "referenceParentCombinedNodePath": []
                                                 }
                                             },
                                             {
@@ -10143,7 +10055,7 @@
                                                 "positionContributionClaims": [
                                                     {
                                                         "type": "Position Contribution Claim",
-                                                        "name": "Member Core Team",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "74b80085-5336-4046-959d-2d7367d4e0a0",
@@ -10172,32 +10084,7 @@
                                                                 "name": "Member",
                                                                 "id": "63bbf7f7-2d71-4075-8498-f09f754d8c0b"
                                                             },
-                                                            "referenceParentCombinedNodePath": [
-                                                                [
-                                                                    "Superalgos",
-                                                                    "Positions",
-                                                                    "Governance",
-                                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                                                ],
-                                                                [
-                                                                    "Rewarded Positions",
-                                                                    "Position Class",
-                                                                    "Governance",
-                                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                                                ],
-                                                                [
-                                                                    "Core Team",
-                                                                    "Position Class",
-                                                                    "Governance",
-                                                                    "0dc6759d-459b-45ff-83c5-220b7a323f75"
-                                                                ],
-                                                                [
-                                                                    "Member",
-                                                                    "Position",
-                                                                    "Governance",
-                                                                    "63bbf7f7-2d71-4075-8498-f09f754d8c0b"
-                                                                ]
-                                                            ]
+                                                            "referenceParentCombinedNodePath": []
                                                         }
                                                     }
                                                 ],
@@ -10227,26 +10114,7 @@
                                                         "name": "Core Team",
                                                         "id": "0dc6759d-459b-45ff-83c5-220b7a323f75"
                                                     },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Superalgos",
-                                                            "Positions",
-                                                            "Governance",
-                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                                        ],
-                                                        [
-                                                            "Rewarded Positions",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                                        ],
-                                                        [
-                                                            "Core Team",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "0dc6759d-459b-45ff-83c5-220b7a323f75"
-                                                        ]
-                                                    ]
+                                                    "referenceParentCombinedNodePath": []
                                                 }
                                             }
                                         ],
@@ -10274,7 +10142,7 @@
                                             },
                                             "referenceParent": {
                                                 "type": "Position Class",
-                                                "name": "Rewarded Positions",
+                                                "name": "Roles Played @ Beta-12",
                                                 "id": "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                             },
                                             "referenceParentCombinedNodePath": [
@@ -10285,7 +10153,7 @@
                                                     "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                 ],
                                                 [
-                                                    "Rewarded Positions",
+                                                    "Roles Played @ Beta-12",
                                                     "Position Class",
                                                     "Governance",
                                                     "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
@@ -10437,7 +10305,7 @@
                         "userDelegates": [
                             {
                                 "type": "User Delegate",
-                                "name": "ssplatt",
+                                "name": "",
                                 "config": "{\n    \"percentage\": 0\n}",
                                 "project": "Governance",
                                 "id": "0573f3f1-abf7-47b3-b5f6-3099de6f71ab",
@@ -10478,7 +10346,7 @@
                             },
                             {
                                 "type": "User Delegate",
-                                "name": "PLuv",
+                                "name": "",
                                 "config": "{\n    \"percentage\": 25\n}",
                                 "project": "Governance",
                                 "id": "84bc87f4-835e-4a23-91d7-74ae8c8c16a7",
@@ -10519,7 +10387,7 @@
                             },
                             {
                                 "type": "User Delegate",
-                                "name": "harrellbm",
+                                "name": "",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "7239aedf-468c-4296-a13c-6ac7aa20892d",
@@ -10560,7 +10428,7 @@
                             },
                             {
                                 "type": "User Delegate",
-                                "name": "Raplh2502",
+                                "name": "",
                                 "config": "{\n    \"percentage\": 20\n}",
                                 "project": "Governance",
                                 "id": "6168a5be-f91e-4703-8f92-0a70707a0511",
@@ -10601,7 +10469,7 @@
                             },
                             {
                                 "type": "User Delegate",
-                                "name": "Smidy13",
+                                "name": "",
                                 "config": "{\n    \"percentage\": 20\n}",
                                 "project": "Governance",
                                 "id": "abe90f53-525f-4bab-9dd6-fac172cec502",
@@ -10791,17 +10659,17 @@
     "id": "b85aaac1-0708-4aec-97f9-bc3cc70e530a",
     "savedPayload": {
         "position": {
-            "x": 47474.62711864406,
-            "y": 16108.75
+            "x": 28571.428571428572,
+            "y": 19850
         },
         "targetPosition": {
-            "x": 47474.62711864406,
-            "y": 16108.75
+            "x": 28571.428571428572,
+            "y": 19850
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

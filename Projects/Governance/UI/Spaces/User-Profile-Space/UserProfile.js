@@ -64,11 +64,12 @@ function newGovernanceUserProfileSpace() {
         const SPACE_HEIGHT = UI.projects.foundations.spaces.floatingSpace.container.frame.height
 
         arrangeNodes(userProfiles, SPACE_HEIGHT * 0.245, 3800, 4)
+        /*
         arrangeNodes(pools, SPACE_HEIGHT * 0.570, 0, 1)
         arrangeNodes(features, SPACE_HEIGHT * 0.620, 0, 1)
         arrangeNodes(positions, SPACE_HEIGHT * 0.660, 0, 1)
         arrangeNodes(assets, SPACE_HEIGHT * 0.735, 3800, 4)
-
+        */
 
         function arrangeNodes(nodes, yLevel, yStep, rows) {
             /*
@@ -435,7 +436,7 @@ function newGovernanceUserProfileSpace() {
                     )
                     userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000
                     userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens)
-                    console.log('Reputation of ' + userProfile.name + ' is ' , userProfile.payload.reputation)
+                    console.log('Reputation of ' + userProfile.name + ' is ', userProfile.payload.reputation)
                 }
                 waitingForResponses--
             }).catch(function (err) {

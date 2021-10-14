@@ -30,7 +30,8 @@
             {
                 "language": "DE",
                 "text": "Da wir keine Live Trading Session durchführen, macht es grade keinen Sinn, das Data Mining zu diesem Zeitpunkt laufen zu lassen.",
-                "updated": 1634170784986
+                "updated": 1634170784986,
+                "style": "Definition"
             }
         ]
     },
@@ -61,7 +62,8 @@
                 {
                     "language": "DE",
                     "text": "Es gibt zwei Anwendungsfälle für die Data Tasks:",
-                    "updated": 1634170835236
+                    "updated": 1634170835236,
+                    "style": "Text"
                 }
             ]
         },
@@ -90,8 +92,9 @@
                 },
                 {
                     "language": "DE",
-                    "text": "To process historic data: Sie möchten für einen bestimmten Zeitraum einen bestimmten Market verarbeiten, um eine Backtesting Session durchzuführen oder Indikatoren testen.",
-                    "updated": 1634172738777
+                    "text": "Zur Verarbeitung historischer Daten: Sie möchten für einen bestimmten Zeitraum einen bestimmten Market verarbeiten, um eine Backtesting Session durchzuführen oder Indikatoren testen.",
+                    "updated": 1634208005120,
+                    "style": "List"
                 }
             ]
         },
@@ -120,8 +123,9 @@
                 },
                 {
                     "language": "DE",
-                    "text": "To run a live session: Die verschiedenen Arten von Live-Sitzungen, wie Paper Trading Session, Forward Testing Session und Live Trading Session, benötigen alle einen Live-Markt-Feed.",
-                    "updated": 1634170508863
+                    "text": "Eine Live-Sitzung durchführen: Die verschiedenen Arten von Live-Sitzungen, wie Paper Trading Session, Forward Testing Session und Live Trading Session, benötigen alle einen Live-Markt-Feed.",
+                    "updated": 1634208020007,
+                    "style": "List"
                 }
             ]
         },
@@ -150,7 +154,8 @@
                 {
                     "language": "DE",
                     "text": "Wenn alle Prozesse auf dem neuesten Stand sind, wählen Sie \"Stop All Tasks\" im Knoten Market Data Tasks. Beachten Sie, dass die Tasks auch von einem anderen Knoten aus gestoppt werden können als von dem aus, mit dem sie gestartet wurden!",
-                    "updated": 1634172843262
+                    "updated": 1634172843262,
+                    "style": "Callout"
                 }
             ],
             "updated": 1622197433719

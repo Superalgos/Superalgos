@@ -20,6 +20,11 @@
                 "text": "Esta es la configuración de la jerarquía del Charting Space de las Time Machine hemos estado viendo en los gráficos.",
                 "updated": 1624412993386,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Dies ist der Aufbau der Charting Space Hierarchie der Time Machine, mit der wir in den Charts gespielt haben.",
+                "updated": 1634218294649
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "text": "¡Dedica unos minutos a explorar estas definiciones! ¡Ve a los menús de los nodos!",
                     "updated": 1624412138619,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich ein paar Minuten Zeit, um diese Definitionen zu erkunden! Werfen Sie einen Blick auf die Menüs der verschiedenen Knoten!",
+                    "updated": 1634218308224
                 }
             ]
         },

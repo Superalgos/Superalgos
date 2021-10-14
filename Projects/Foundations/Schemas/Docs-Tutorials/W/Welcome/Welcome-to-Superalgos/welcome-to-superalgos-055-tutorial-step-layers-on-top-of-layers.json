@@ -24,7 +24,8 @@
             {
                 "language": "DE",
                 "text": "Ihre Data-Mining-Operation umfasst Bots, die Datenprodukte erstellen. Jedes Produkt wird in den Diagrammen durch einen Layer in einem Layer Manager verfügbar gemacht.",
-                "updated": 1634217919050
+                "updated": 1634217919050,
+                "style": "Definition"
             }
         ],
         "updated": 1616427338175
@@ -49,7 +50,8 @@
                 {
                     "language": "DE",
                     "text": "Der erste Layer-Manager auf der linken Seite dieser Time Machine besteht aus drei Layern. Diese Layer stellen die Datenprodukte dar, die das Handelssystem, das wir später testen werden, verwendet, um Handelsentscheidungen zu treffen.",
-                    "updated": 1634217907919
+                    "updated": 1634217907919,
+                    "style": "Text"
                 }
             ]
         },
@@ -68,6 +70,11 @@
                     "text": "¡Para activar y desactivar las capas, haz clic izquierdo en ellas!",
                     "updated": 1624495289554,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um Ebenen ein- und auszuschalten, klicken Sie mit der linken Maustaste auf sie!",
+                    "updated": 1634221550537
                 }
             ]
         },
@@ -91,7 +98,8 @@
                 {
                     "language": "DE",
                     "text": "Superalgos wird mit vielen weiteren Indikatoren ausgeliefert, die jedoch in diesem Workspace nicht konfiguriert sind. Sie werden sie später kennenlernen!",
-                    "updated": 1634217927340
+                    "updated": 1634217927340,
+                    "style": "Note"
                 }
             ]
         }

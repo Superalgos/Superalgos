@@ -282,10 +282,19 @@ function newGovernanceFunctionLibraryVotingProgram() {
                         return
                     }
 
+                    /*
+                    Setup the sign of the votes.
+                    */
+                    let sign = 1 
+                    let negative = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'negative')
+                    if (negative === true) {
+                        sign = - 1
+                    }
+
                     distributeProgramPower(
                         currentProgramNode,
                         node.payload.referenceParent,
-                        votes,
+                        votes * sign,
                         undefined,
                         generation,
                         userProfile

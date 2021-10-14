@@ -641,7 +641,36 @@
                                 "config": "{}",
                                 "project": "Governance",
                                 "claimVotesSwitch": [],
-                                "positionClaimVotes": [],
+                                "positionClaimVotes": [
+                                    {
+                                        "type": "Position Claim Vote",
+                                        "name": "",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "6cebf5ee-6e03-4591-9854-2675e03d9d22",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 29581.236192563905,
+                                                "y": 18840.192378864667
+                                            },
+                                            "targetPosition": {
+                                                "x": 29581.236192563905,
+                                                "y": 19140.192378864667
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    }
+                                ],
                                 "assetClaimVotes": [],
                                 "featureClaimVotes": [],
                                 "id": "41a68bcf-16de-4b38-8c9a-3ca23f963de2",
@@ -792,7 +821,79 @@
                         "config": "{}",
                         "project": "Governance",
                         "positionClaimsFolders": [],
-                        "positionContributionClaims": [],
+                        "positionContributionClaims": [
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Project Creator Luis-Fernando-Molina Governance Project",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "5b8a612a-223b-4f48-8373-14282e81534f",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 30031.236192563905,
+                                        "y": 20000
+                                    },
+                                    "targetPosition": {
+                                        "x": 29731.236192563905,
+                                        "y": 20000
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Project Creator Luis-Fernando-Molina",
+                                        "id": "b555c1fb-e0d3-445f-b46d-9428818b5fe5"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions",
+                                            "Governance",
+                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class",
+                                            "Governance",
+                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                        ],
+                                        [
+                                            "Projects",
+                                            "Position Class",
+                                            "Governance",
+                                            "864ef810-2d34-4776-946d-2f4bd68b45c5"
+                                        ],
+                                        [
+                                            "Active Projects",
+                                            "Position Class",
+                                            "Governance",
+                                            "75998134-fe6b-4dd0-9995-6beb613cd165"
+                                        ],
+                                        [
+                                            "Governance Project",
+                                            "Position Class",
+                                            "Governance",
+                                            "68dd2990-457e-48df-b752-6e1fd02081a3"
+                                        ],
+                                        [
+                                            "Project Creator Luis-Fernando-Molina",
+                                            "Position",
+                                            "Governance",
+                                            "b555c1fb-e0d3-445f-b46d-9428818b5fe5"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
                         "id": "04bfb43c-913b-4096-ab89-71fdadc72d79",
                         "savedPayload": {
                             "position": {
@@ -1068,7 +1169,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

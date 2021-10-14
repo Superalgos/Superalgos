@@ -54,11 +54,5 @@
             "childType": "Position",
             "autoAdd": false
         }
-    ],
-    "inMapMode": {
-        "showNodeType": false,
-        "showHierarchyHeadRing": false,
-        "smallIcon": true,
-        "smallText": true
-    }
+    ]
 }

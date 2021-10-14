@@ -63,7 +63,7 @@ function newGovernanceUserProfileSpace() {
         const SPACE_WIDTH = UI.projects.foundations.spaces.floatingSpace.container.frame.width
         const SPACE_HEIGHT = UI.projects.foundations.spaces.floatingSpace.container.frame.height
 
-        arrangeNodes(userProfiles, SPACE_HEIGHT * 0.245, 3800, 4)
+        arrangeNodes(userProfiles, SPACE_HEIGHT * 0.280, 4800, 6)
         /*
         arrangeNodes(pools, SPACE_HEIGHT * 0.570, 0, 1)
         arrangeNodes(features, SPACE_HEIGHT * 0.620, 0, 1)
@@ -104,6 +104,14 @@ function newGovernanceUserProfileSpace() {
                         break
                     }
                     case (yOffset === yStep * 3): {
+                        yOffset = yStep * 4
+                        break
+                    }
+                    case (yOffset === yStep * 4): {
+                        yOffset = yStep * 5
+                        break
+                    }
+                    case (yOffset === yStep * 5): {
                         yOffset = 0
                         break
                     }

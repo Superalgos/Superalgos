@@ -147,7 +147,7 @@
                 "userSupporters": [
                     {
                         "type": "User Supporter",
-                        "name": "",
+                        "name": "Raplh2502",
                         "config": "{}",
                         "project": "Governance",
                         "id": "c84af7b3-b580-41df-bd9a-d873a126b486",
@@ -188,7 +188,7 @@
                     },
                     {
                         "type": "User Supporter",
-                        "name": "",
+                        "name": "Smidy13",
                         "config": "{}",
                         "project": "Governance",
                         "id": "326139c1-d5bf-4353-9d5c-4277bd670699",
@@ -229,7 +229,7 @@
                     },
                     {
                         "type": "User Supporter",
-                        "name": "",
+                        "name": "harrellbm",
                         "config": "{}",
                         "project": "Governance",
                         "id": "456319d1-ae7f-4bae-9764-5bba2200a7c9",
@@ -270,7 +270,7 @@
                     },
                     {
                         "type": "User Supporter",
-                        "name": "",
+                        "name": "PLuv",
                         "config": "{}",
                         "project": "Governance",
                         "id": "3c1b332e-80e5-45a3-b381-8f988ba7cb54",
@@ -311,7 +311,7 @@
                     },
                     {
                         "type": "User Supporter",
-                        "name": "",
+                        "name": "cozed-gh",
                         "config": "{}",
                         "project": "Governance",
                         "id": "8e626e39-c496-42f9-979c-ee94da1ca13e",
@@ -352,7 +352,7 @@
                     },
                     {
                         "type": "User Supporter",
-                        "name": "",
+                        "name": "ssplatt",
                         "config": "{}",
                         "project": "Governance",
                         "id": "739e3adf-372a-41c9-9102-cc8587f7cd28",
@@ -1159,17 +1159,17 @@
     "id": "b85aaac1-0708-4aec-97f9-bc3cc70e530a",
     "savedPayload": {
         "position": {
-            "x": 28571.428571428572,
-            "y": 19850
+            "x": 28125,
+            "y": 33200
         },
         "targetPosition": {
-            "x": 28571.428571428572,
-            "y": 19850
+            "x": 28125,
+            "y": 33200
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

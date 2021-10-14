@@ -44,6 +44,11 @@
                 "text": "Voor ik je de rest van het menu laat zien, laten we eerst een andere hiërarchie bekijken: het Netwerk.",
                 "updated": 1633853332041,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Bevor ich Ihnen den Rest des Menüs zeige, lassen Sie uns einen Blick auf eine andere Hierarchie werfen: das Netzwerk.",
+                "updated": 1634160400461
             }
         ]
     },
@@ -87,6 +92,11 @@
                     "text": "De Netwerk hiërarchie is de controlekamer van het systeem. Dit is waar je jouw Data Tasks, Test Trading Tasks en Production Trading Tasks beheert.",
                     "updated": 1633853559028,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Netzwerkhierarchie ist der Kontrollraum des Systems. Von hier aus steuern Sie Ihre Data Tasks, Testing Trading Tasks und Production Trading Tasks.",
+                    "updated": 1634160438707
                 }
             ]
         },
@@ -129,6 +139,11 @@
                     "text": "Vouw de hiërarchie uit en laten we eens binnenin kijken!",
                     "updated": 1633853650994,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erweitern Sie die Hierarchie und schauen Sie rein!",
+                    "updated": 1634160512829
                 }
             ]
         },
@@ -172,6 +187,11 @@
                     "text": "Zie je de eerder genoemde (sub)knooppunten? Cool! Wij zijn hier om jouw allereerste datamining operatie op te starten.",
                     "updated": 1633890622350,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sehen Sie die Knoten, die ich bereits erwähnt habe? Cool! Wir sind hier, um Ihre allererste Data-Mining-Operation zu starten.",
+                    "updated": 1634160465920
                 }
             ]
         },
@@ -214,6 +234,11 @@
                     "text": "Voor we beginnen, heb ik de volgende vraag voor je: benader je de Client op afstand?",
                     "updated": 1633853800893,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Doch bevor wir beginnen, habe ich eine kurze Frage an Sie: Greifen Sie per Fernzugriff auf den Client zu?",
+                    "updated": 1634160524428
                 }
             ]
         }

@@ -20,6 +20,11 @@
                 "text": "No puedes moverte porque las escalas están bloqueadas en el modo automático para que puedas encontrar fácilmente los datos después de tu primera operación de minería de datos.",
                 "updated": 1624404740730,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Der Grund, warum Sie sich nicht bewegen können, ist, dass die Skalen im automatischen Modus gesperrt sind, damit Sie die Daten nach Ihrer ersten Data-Mining-Operation leicht finden können.",
+                "updated": 1634216885238
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "text": "Fijar el Time Scale en automático fuerza todo el rango de fecha y hora de los datos disponibles al gráfico.",
                     "updated": 1624404973090,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie die Time Scale im automatischen Modus einstellen, wird der gesamte Zeitbereich der verfügbaren Daten in das Diagramm gezwungen.",
+                    "updated": 1634216894224
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "text": "Para alternar entre los modos automáticos y el manual, presiona Shift y haz un suave giro de un paso con la rueda del mouse en la parte superior del cuadro de escala de tiempo. O bien, también puedes colocar el mouse sobre el cuadro de escala y presionar ↑ ↓.",
                     "updated": 1624405351031,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um zwischen den verschiedenen automatischen Modi und dem manuellen Modus hin- und herzuschalten, drücken Sie die Umschalttaste und bewegen Sie das Mausrad über dem Time Scale-Feld in einem Schritt. Alternativ können Sie auch den Mauszeiger auf das Skalenfeld setzen und die Pfeiltasten ↑ ↓ drücken.",
+                    "updated": 1634216938054
                 }
             ],
             "updated": 1622199287763
@@ -77,6 +92,11 @@
                     "text": "Ahora deberías poder moverte libremente en el eje X, es decir, el eje de tiempo del gráfico.",
                     "updated": 1624405847740,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie sollten sich nun frei auf der X-Achse, das heißt der Zeitachse des Diagramms, bewegen können.",
+                    "updated": 1634216981937
                 }
             ]
         }

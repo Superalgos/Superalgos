@@ -49,7 +49,8 @@
             {
                 "language": "DE",
                 "text": "Wenn Sie das Frontend ausführen, verwenden Sie Chrome oder Safari auf dem Mac! Wir testen es nicht mit anderen Browsern!",
-                "updated": 1634070256991
+                "updated": 1634070256991,
+                "style": "Definition"
             }
         ]
     },
@@ -96,8 +97,9 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Es ist bekannt, dass sich Browser unterschiedlich verhalten, und wir wissen von Funktionen, die in anderen Browsern nicht funktionieren. Wenn Sie mit Chrome oder Safari arbeiten, klicken Sie auf Weiter und fahren Sie fort. Wenn nicht, gehen Sie wie folgt vor:",
-                    "updated": 1634070274045
+                    "text": "Webbrowser verhalten sich unterschiedlich. Wir wissen von Funktionen, die in anderen Browsern nicht funktionieren. Wenn Sie mit Chrome oder Safari arbeiten, klicken Sie auf Weiter und fahren Sie fort. Wenn nicht, gehen Sie wie folgt vor:",
+                    "updated": 1634160046151,
+                    "style": "Text"
                 }
             ]
         },
@@ -145,7 +147,8 @@
                 {
                     "language": "DE",
                     "text": "kopieren Sie die aktuelle URL;",
-                    "updated": 1634070306435
+                    "updated": 1634070306435,
+                    "style": "List"
                 }
             ]
         },
@@ -193,7 +196,8 @@
                 {
                     "language": "DE",
                     "text": "Schließen Sie diesen Browser so wie er ist; dies schließt nicht das Lernprogramm...",
-                    "updated": 1634070358662
+                    "updated": 1634070358662,
+                    "style": "List"
                 }
             ]
         },
@@ -240,8 +244,9 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Öffnen Sie Chrome/Safari und fügen Sie die URL ein; das Tutorial sollte bei diesem Schritt geöffnet sein, wenn Sie zurückkommen!",
-                    "updated": 1634070340817
+                    "text": "Öffnen Sie Chrome/Safari und fügen Sie die URL ein; das Tutorial wird bei diesem Schritt geöffnet sein.",
+                    "updated": 1634160173540,
+                    "style": "List"
                 }
             ]
         },
@@ -288,7 +293,8 @@
                 {
                     "language": "DE",
                     "text": "Wir bieten Online-Support, aber wir können Ihnen mit keinem anderen Browser helfen!",
-                    "updated": 1634070371187
+                    "updated": 1634070371187,
+                    "style": "Warning"
                 }
             ]
         }

@@ -9,6 +9,7 @@
             "workDoneLabel": "Done",
             "relatedUiObject": "Features",
             "actionFunction": "payload.executeAction",
+            "actionProject": "Governance",
             "relatedUiObjectProject": "Governance"
         },
         {

@@ -36,8 +36,9 @@
             },
             {
                 "language": "DE",
-                "text": "Die Benutzer tragen Übersetzungen bei, so dass Sie Ihre bevorzugte Sprache wählen können! Diese Community ist großartig!",
-                "updated": 1634069933057
+                "text": "Die Übersetzungen werden von Unterstützern aus der Community beigetragen, so dass Sie Ihre bevorzugte Sprache wählen können! Diese Community ist großartig!",
+                "updated": 1634159799660,
+                "style": "Definition"
             }
         ]
     },
@@ -73,8 +74,9 @@
                 },
                 {
                     "language": "DE",
-                    "text": "So funktioniert es: Die Standardsprache ist Englisch. Wenn Sie eine andere Sprache wählen und es eine Übersetzung für die aktuelle Seite gibt, erhalten Sie diese in der gewählten Sprache. Andernfalls erhalten Sie die Seite auf Englisch!",
-                    "updated": 1634069953835
+                    "text": "So funktioniert es: Standard ist Englisch. Wenn Sie eine andere Sprache wählen und es eine Übersetzung für die aktuelle Seite gibt, erhalten Sie diese in der gewählten Sprache. Andernfalls erhalten Sie die Seite auf Englisch!",
+                    "updated": 1634159943189,
+                    "style": "Text"
                 }
             ]
         },
@@ -109,8 +111,9 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Benutzen Sie das Mausrad, um die Seite rechts nach unten zu scrollen. Klicken Sie auf eine Flagge, um die bevorzugte Sprache zu ändern, wenn Sie dies wünschen!",
-                    "updated": 1634069996324
+                    "text": "Um die bevorzugte Sprache zu ändern scrollen Sie die Docs auf der rechten Seite ganz nach unten und klicken Sie auf die entsprechende Flagge.",
+                    "updated": 1634159894831,
+                    "style": "Callout"
                 }
             ]
         },
@@ -146,7 +149,8 @@
                 {
                     "language": "DE",
                     "text": "Nur die Docs und Tutorials dürfen übersetzt werden, nicht aber das Interface oder die Titel!",
-                    "updated": 1634070001415
+                    "updated": 1634070001415,
+                    "style": "Note"
                 }
             ]
         }

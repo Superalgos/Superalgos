@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Let's Do Some Testing!",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "testing-trading-tasks"
         },
         "text": "We are back on the Network hierarchy to show you one of the core strategy-testing resources built-in the Trading Bot.",
@@ -18,7 +18,13 @@
             {
                 "language": "ES",
                 "text": "Estamos de vuelta en la jerarquia del  Network para mostrarte uno de los recursos centrales de prueba de estrategia integrados en el Trading Bot.",
-                "updated": 1624414541186
+                "updated": 1624414541186,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wir sind zurück in der Netzwerkhierarchie, um Ihnen eine der wichtigsten Ressourcen für Strategietests zu zeigen, die in den Trading Bot integriert sind.",
+                "updated": 1634218612347
             }
         ]
     },
@@ -37,7 +43,13 @@
                 {
                     "language": "ES",
                     "text": "Antes de ejecutar tu primer Backtesting Session, vayamos a una misión de rápida para comprender cómo el nodo Testing Trading Tasks está configurado.",
-                    "updated": 1624414924601
+                    "updated": 1624414924601,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Doch bevor Sie Ihre erste Backtesting Session starten, wollen wir uns erst einmal einen Überblick verschaffen, wie der Knoten Testing Trading Tasks aufgebaut ist.",
+                    "updated": 1634218620382
                 }
             ]
         },
@@ -55,7 +67,13 @@
                 {
                     "language": "ES",
                     "text": "Expande el nodo Testing Trading Tasks y mira la estructura de los nodos descendientes ... ¿Suena familiar?",
-                    "updated": 1624414662047
+                    "updated": 1624414662047,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erweitern Sie den Testing Trading Tasks und sehen Sie sich die Struktur der Nachfolgeknoten an... Kommt Ihnen das bekannt vor?",
+                    "updated": 1634218627346
                 }
             ]
         },
@@ -72,7 +90,13 @@
                 {
                     "language": "ES",
                     "text": "¡Claro! Parece la sección de Data Task: las tareas están organizadas por exchange, mercado y mina de trading, de modo que puedes probar cualquier cantidad de estrategias optimizadas para diferentes mercados, en múltiples exchanges.",
-                    "updated": 1624414880776
+                    "updated": 1624414880776,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "In der Tat! Sie ähnelt dem Abschnitt Data Tasks : Die Aufgaben sind nach Börse, Markt und Handelsmine geordnet, so dass Sie eine beliebige Anzahl von Strategien testen können, die für verschiedene Märkte an mehreren Börsen optimiert sind.",
+                    "updated": 1634218636921
                 }
             ]
         }

@@ -55,20 +55,22 @@ function newGovernanceUserProfileSpace() {
             }
         }
         let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+        /*
         let pools = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Pools')
         let assets = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Assets')
         let features = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Features')
         let positions = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Positions')
-
+        */
         const SPACE_WIDTH = UI.projects.foundations.spaces.floatingSpace.container.frame.width
         const SPACE_HEIGHT = UI.projects.foundations.spaces.floatingSpace.container.frame.height
 
-        arrangeNodes(userProfiles, SPACE_HEIGHT * 0.245, 3800, 4)
+        arrangeNodes(userProfiles, SPACE_HEIGHT * 0.280, 4800, 6)
+        /*
         arrangeNodes(pools, SPACE_HEIGHT * 0.570, 0, 1)
         arrangeNodes(features, SPACE_HEIGHT * 0.620, 0, 1)
         arrangeNodes(positions, SPACE_HEIGHT * 0.660, 0, 1)
         arrangeNodes(assets, SPACE_HEIGHT * 0.735, 3800, 4)
-
+        */
 
         function arrangeNodes(nodes, yLevel, yStep, rows) {
             /*
@@ -103,6 +105,14 @@ function newGovernanceUserProfileSpace() {
                         break
                     }
                     case (yOffset === yStep * 3): {
+                        yOffset = yStep * 4
+                        break
+                    }
+                    case (yOffset === yStep * 4): {
+                        yOffset = yStep * 5
+                        break
+                    }
+                    case (yOffset === yStep * 5): {
                         yOffset = 0
                         break
                     }
@@ -370,7 +380,7 @@ function newGovernanceUserProfileSpace() {
         }
 
         function getBlockchainAccount(userProfile) {
-            let signature = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'signature')
+            let signature = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'signature')
             if (signature === undefined || signature === "") { return }
 
             let request = {
@@ -435,7 +445,7 @@ function newGovernanceUserProfileSpace() {
                     )
                     userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000
                     userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens)
-                    console.log('Reputation of ' + userProfile.name + ' is ' , userProfile.payload.reputation)
+                    console.log('Reputation of ' + userProfile.name + ' is ', userProfile.payload.reputation)
                 }
                 waitingForResponses--
             }).catch(function (err) {

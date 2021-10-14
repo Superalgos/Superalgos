@@ -10,6 +10,11 @@
                 "text": "Questo step riprodurrà un video a schermo intero.",
                 "updated": 1618068335719,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1634226544774
             }
         ]
     },

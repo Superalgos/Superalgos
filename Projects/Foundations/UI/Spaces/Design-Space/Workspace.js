@@ -10,7 +10,6 @@ function newWorkspace() {
         workspaceNode: undefined,
         container: undefined,
         enabled: false,
-        nodeChildren: undefined,
         eventsServerClients: new Map(),
         replaceWorkspaceByLoadingOne: replaceWorkspaceByLoadingOne,
         save: saveWorkspace,
@@ -18,7 +17,7 @@ function newWorkspace() {
         share: shareWorkspace,
         getNodesByTypeAndHierarchyHeadsType: getNodesByTypeAndHierarchyHeadsType,
         getProjectsHeads: getProjectsHeads,
-        getProjectHeadByNodeType: getProjectHeadByNodeType, 
+        getProjectHeadByNodeType: getProjectHeadByNodeType,
         getHierarchyHeads: getHierarchyHeads,
         getHierarchyHeadsById: getHierarchyHeadsById,
         getHierarchyHeadsByCodeNameAndNodeType: getHierarchyHeadsByCodeNameAndNodeType,
@@ -43,8 +42,6 @@ function newWorkspace() {
 
     thisObject.workspaceNode = {}
     thisObject.workspaceNode.rootNodes = []
-
-    thisObject.nodeChildren = newNodeChildren()
 
     let savingWorkspaceIntervalId
     let workingAtTask = 0
@@ -72,7 +69,7 @@ function newWorkspace() {
                 for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
                     let project = PROJECTS_SCHEMA[i].name
                     try {
-                        let actionSwitch = eval('new' + project + 'ActionSwitch()')
+                        let actionSwitch = eval('new' + project.replaceAll('-', '') + 'ActionSwitch()')
                         actionSwitchesByProject.set(project, actionSwitch)
                     } catch (err) {
                         console.log('[WARN] Action Switch for project ' + project + ' not found.')
@@ -107,7 +104,7 @@ function newWorkspace() {
 
                 function recreateWorkspace() {
                     UI.projects.foundations.utilities.statusBar.changeStatus("Connecting all the workspace nodes...")
-                    executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Foundations', callBackFunction: finishInitialization })
+                    executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Visual-Scripting', callBackFunction: finishInitialization })
                 }
 
                 function finishInitialization() {
@@ -135,9 +132,9 @@ function newWorkspace() {
     }
 
     function runTasksAndSessions() {
-        executeAction({ name: 'Syncronize Tasks', project: 'Foundations' })
-        executeAction({ name: 'Syncronize Trading Sessions', project: 'Foundations' })
-        executeAction({ name: 'Syncronize Learning Sessions', project: 'Foundations' })
+        executeAction({ name: 'Syncronize Tasks', project: 'Visual-Scripting' })
+        executeAction({ name: 'Syncronize Trading Sessions', project: 'Visual-Scripting' })
+        executeAction({ name: 'Syncronize Learning Sessions', project: 'Visual-Scripting' })
     }
 
     function setupEventsServerClients() {
@@ -253,9 +250,9 @@ function newWorkspace() {
                             for (let k = 0; k < childNode.pluginFiles.length; k++) {
                                 let pluginFile = childNode.pluginFiles[k]
 
-                                let saveWithWorkspace = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'saveWithWorkspace')
+                                let saveWithWorkspace = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'saveWithWorkspace')
                                 if (saveWithWorkspace === true) {
-                                    UI.projects.foundations.utilities.plugins.savePluginFile(pluginFile)
+                                    UI.projects.communityPlugins.utilities.plugins.savePluginFile(pluginFile)
                                 }
                             }
                         }
@@ -287,7 +284,7 @@ function newWorkspace() {
     }
 
     async function getNodeById(nodeId) {
-        return await executeAction({ name: 'Get Node By Id', project: 'Foundations', relatedNodeId: nodeId })
+        return await executeAction({ name: 'Get Node By Id', project: 'Visual-Scripting', relatedNodeId: nodeId })
     }
 
     function physics() {
@@ -337,7 +334,7 @@ function newWorkspace() {
                             thisObject.isInitialized = false
                             UI.projects.education.spaces.tutorialSpace.stop()
 
-                            let result = await executeAction({ node: thisObject.workspaceNode, name: 'Delete Workspace', project: 'Foundations', callBackFunction: onDeleted })
+                            let result = await executeAction({ node: thisObject.workspaceNode, name: 'Delete Workspace', project: 'Visual-Scripting', callBackFunction: onDeleted })
                             if (result === false) {
                                 console.log('[ERROR] Could not replace the current workspace because there was a problem removing one node from memory.')
                                 console.log('[ERROR] The system is at an inconsistent state and your workspace is partially deleted. Saving has been disabled to prevent data loss.')
@@ -398,7 +395,7 @@ function newWorkspace() {
                         workingAtTask = 0
 
                         function takeAction() {
-                            executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Foundations', callBackFunction: finishInitialization })
+                            executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Visual-Scripting', callBackFunction: finishInitialization })
                             function finishInitialization() {
                                 setupEventsServerClients()
                                 workingAtTask = 7
@@ -448,7 +445,7 @@ function newWorkspace() {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
 
             if (rootNode.isPlugin !== true) {
-                let node = await executeAction({ node: rootNode, name: 'Get Node Data Structure', project: 'Foundations', extraParameter: removePersonalData })
+                let node = await executeAction({ node: rootNode, name: 'Get Node Data Structure', project: 'Visual-Scripting', extraParameter: removePersonalData })
                 stringifyReadyNodes.push(node)
             }
         }
@@ -504,7 +501,7 @@ function newWorkspace() {
         if (thisObject.workspaceNode === undefined) { return }
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
-            let node = await executeAction({ node: rootNode, name: 'Get Node By Shortcut Key', project: 'Foundations', extraParameter: searchingKey })
+            let node = await executeAction({ node: rootNode, name: 'Get Node By Shortcut Key', project: 'Visual-Scripting', extraParameter: searchingKey })
             if (node !== undefined) { return node }
         }
     }
@@ -513,7 +510,7 @@ function newWorkspace() {
         if (thisObject.workspaceNode === undefined) { return }
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
-            let node = await executeAction({ node: rootNode, name: 'Get Node On Focus', project: 'Foundations' })
+            let node = await executeAction({ node: rootNode, name: 'Get Node On Focus', project: 'Visual-Scripting' })
             if (node !== undefined) { return node }
         }
     }
@@ -575,7 +572,7 @@ function newWorkspace() {
         if (hierarchyHeads === undefined) { return }
         for (let i = 0; i < hierarchyHeads.length; i++) {
             let hierarchyHead = hierarchyHeads[i]
-            let hierarchyHeadCodeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(hierarchyHead.payload, 'codeName')
+            let hierarchyHeadCodeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(hierarchyHead.payload, 'codeName')
             if (hierarchyHeadCodeName === codeName && hierarchyHead.type === nodeType) {
                 return hierarchyHead
             } else if (hierarchyHead.name === codeName && hierarchyHead.type === nodeType) {
@@ -617,7 +614,7 @@ function newWorkspace() {
             let hierarchyHead = hierarchyHeads[i]
             if (hierarchyHead.type === hierarchyHeadsType) {
 
-                let nodeArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(hierarchyHead, nodeType)
+                let nodeArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(hierarchyHead, nodeType)
                 resultArray = resultArray.concat(nodeArray)
             }
         }
@@ -681,8 +678,8 @@ function newWorkspace() {
             }
 
             thisObject.workspaceNode.rootNodes.push(droppedNode)
-            executeAction({ node: droppedNode, name: 'Create UI Object', project: 'Foundations', extraParameter: positionOffset })
-            executeAction({ name: 'Connect Children to Reference Parents', project: 'Foundations' })
+            executeAction({ node: droppedNode, name: 'Create UI Object', project: 'Visual-Scripting', extraParameter: positionOffset })
+            executeAction({ name: 'Connect Children to Reference Parents', project: 'Visual-Scripting' })
 
             droppedNode = undefined
         } catch (err) {
@@ -706,6 +703,10 @@ function newWorkspace() {
         action.rootNodes = thisObject.workspaceNode.rootNodes
 
         let actionSwitch = actionSwitchesByProject.get(action.project)
+        if (actionSwitch === undefined) {
+            console.log('[ERROR] Action Switch for project ' + action.project + ' could not be found.')
+            return
+        }
         return actionSwitch.executeAction(action)
 
     }

@@ -4,7 +4,15 @@
     "type": "Community Effort to Test Exchanges",
     "definition": {
         "text": "This topic covers the results of the Community work testing exchanges. Each page in the topic describes the results of the tests performed on one exchange, and explains whether the exchange is usable or not.",
-        "updated": 1616010652806
+        "updated": 1616010652806,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este tópico cubre los resultados de los trabajos de testeo de la comunidad en los exchanges. Cada página en el tópico describe el resultados de los testeos realizados en un exchange, y explica si el exchange es utilizable o no.",
+                "updated": 1633284067216,
+                "style": "Definition"
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -14,12 +22,28 @@
         },
         {
             "style": "Text",
-            "text": "Superalgos uses the CCXT library to communicate with exchanges. CCXT is an open-source project attempting to standardize access to exchanges APIs."
+            "text": "Superalgos uses the CCXT library to communicate with exchanges. CCXT is an open-source project attempting to standardize access to exchanges APIs.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Superalgos utiliza el  CCXT library para comunicarse con los exchanges. CCXT es proyecto de código abierto que intenta estandarizar el acceso a las APIs de los exchanges .",
+                    "updated": 1633284193717,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The project lists more than 120 exchanges as \"supported\" and a few dozen exchanges as \"certified\". See the list in the following ink:",
-            "updated": 1616006648441
+            "updated": 1616006648441,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El proyecto lista más de 120 exchanges as \"supported\" and a few dozen exchanges as \"certified\". See the list in the following ink:",
+                    "updated": 1633284228947,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Link",
@@ -29,12 +53,28 @@
         {
             "style": "Text",
             "text": "However, it is not clear what exactly is supported nor what is certified. Current experience shows that standardization has still a long way to go.",
-            "updated": 1616006593509
+            "updated": 1616006593509,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "De todos modos, no está muy claro exactamente cuales están respaldados y cuales certificados. Experiencias actuales muestran que la estandarización todavía tiene un largo recorrido por delante.",
+                    "updated": 1633284466832,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "To know if your preferred exchange is ready to be used in Superalgos, consult the corresponding page in this topic.",
-            "updated": 1616006719622
+            "updated": 1616006719622,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para saber si su exchange preferido está listo para ser utiliado por Superalgos, consulte la página correspondiente a este tópico.",
+                    "updated": 1633284553628,
+                    "style": "Success"
+                }
+            ]
         },
         {
             "style": "Title",
@@ -44,11 +84,27 @@
         {
             "style": "Text",
             "text": "If your preferred exchange doesn't show up in this list, it means that it hasn't been tested. You may want to ask in the Develop Group to see if anyone has started tests. ",
-            "updated": 1616154716371
+            "updated": 1616154716371,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si tu exchange preferido no está incluído en este listado, significa que no ha sido probado. Puede querer preguntar en el Develop Group si alguien ha comenzado con el testeo.",
+                    "updated": 1633284684470,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "If you are a developer, you may want to learn How to Test New Exchanges and help the Community in the quest to expand the list."
+            "text": "If you are a developer, you may want to learn How to Test New Exchanges and help the Community in the quest to expand the list.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si eres un developer, puedes querer aprender How to Test New Exchanges y ayudar a la comunidad en la búsqueda de expandir el listado.",
+                    "updated": 1633284798025,
+                    "style": "Success"
+                }
+            ]
         }
     ]
 }

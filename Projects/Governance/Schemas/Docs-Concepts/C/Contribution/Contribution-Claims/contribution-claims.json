@@ -2,12 +2,26 @@
     "type": "Contribution Claims",
     "definition": {
         "text": "The term Contribution Claims is a generalization of the concept of claims and may refer to any or all of the existing types, namely Asset Contribution Claim, Feature Contribution Claim, and Position Contribution Claim nodes.",
-        "updated": 1630351499915
+        "updated": 1630351499915,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El término  Contribution Claims ( declaración de contribución) es una generalización del concepto reclamo y puede referirse a  cualquiera o a todos los tipos existentes, a saber Asset Contribution Claim (declaración de contribución de activos), Feature Contribution Claim ( declaración de contribución de funciones), and Position Contribution Claim nodes (declaraciónde contribución de posición de nodos).",
+                "updated": 1633179306733
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cliquear botón derecho  y editar para entrar en el modo edición y cambiar este texto. ENTER  para escribir parrafos nuevos. ESC para salir del modo edición. Entonces puede escribir docs.save arriba y ENTER para guardar los cambios y  app.contribute ENTER para enviarlos al repositorio principal.",
+                    "updated": 1633179602447
+                }
+            ]
         }
     ]
 }

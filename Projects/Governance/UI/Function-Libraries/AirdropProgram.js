@@ -117,7 +117,7 @@ function newGovernanceFunctionLibraryAirdropProgram() {
             /*
             Next thing to do is to validate if the airdrop user profile has a star at the Superalgos repository. 
             */
-            let profileSignature = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'signature')
+            let profileSignature = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'signature')
             if (
                 profileSignature === undefined
             ) {

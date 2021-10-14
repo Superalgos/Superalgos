@@ -26,6 +26,11 @@
                 "text": "Antes de volver al asunto, déjame explicarte algunas cosas sobre como, nosotros (los tutoriales) funcionamos.",
                 "updated": 1627303035002,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Bevor wir wieder zur Sache kommen, möchte ich Ihnen ein paar Dinge darüber erzählen, wie wir-Tutorials funktionieren.",
+                "updated": 1634165352894
             }
         ]
     },
@@ -52,6 +57,11 @@
                     "text": "En resumen, ¡tu eres el Jefe!",
                     "updated": 1627303058091,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Kurz gesagt: Sie sind der Boss!",
+                    "updated": 1634165360945
                 }
             ]
         },
@@ -71,6 +81,11 @@
                     "text": "Puedes detener un tutorial y saltarte pasos -o temas enteros- en cualquier momento. Una vez que estés listo para retomar la lección, búscanos en la sección inferior del Design space.. Selecciona Resume en el menú para continuar donde lo dejaste, o en el primer paso que te saltaste. Selecciona Play para empezar desde el principio.",
                     "updated": 1618436484170,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können ein Tutorial jederzeit unterbrechen und Schritte - oder ganze Themen - überspringen. Wenn Sie bereit sind, die Lektion fortzusetzen, finden Sie uns im unteren Bereich der Designfläche. Wählen Sie im Menü Resume , um dort anzufangen, wo Sie aufgehört haben, oder beim ersten Schritt, den Sie übersprungen haben. Wählen Sie Play , um von vorne zu beginnen!",
+                    "updated": 1634165366034
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "text": "Haz clic en el botón Stop, y una vez que haya desaparecido, abre mi menú y selecciona Resume.",
                     "updated": 1625871849020,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Probieren wir das aus! Klicken Sie unten auf die Schaltfläche Stopp, und wenn ich weg bin, öffnen Sie mein Menü und wählen Sie Resume.",
+                    "updated": 1634165372118
                 }
             ]
         }

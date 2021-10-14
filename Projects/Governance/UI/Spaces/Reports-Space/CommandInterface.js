@@ -159,7 +159,7 @@ function newGovernanceReportsCommmandInterface() {
             }
             /* Let's get the Mnemonic */
             let web3API = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('APIs')[0].web3API
-            let mnemonic = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(web3API.payload, 'mnemonic')
+            let mnemonic = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(web3API.payload, 'mnemonic')
 
             /* Lets execute this command against the Client */
 

@@ -1,0 +1,65 @@
+{
+    "type": "Trading Mine",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "iconProject": "Foundations",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate",
+            "actionProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Trading Bot",
+            "relatedUiObject": "Trading Bot",
+            "relatedUiObjectProject": "Algorithmic-Trading",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Plotter",
+            "relatedUiObject": "Plotter",
+            "relatedUiObjectProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "level": 0,
+    "initialValues": {
+        "config": "{ \n\"codeName\": \"Type a name with no spaces or dashes\"\n}"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "tradingBots",
+            "type": "array",
+            "childType": "Trading Bot",
+            "project": "Algorithmic-Trading"
+        },
+        {
+            "name": "plotters",
+            "type": "array",
+            "childType": "Plotter",
+            "project": "Foundations"
+        }
+    ]
+}

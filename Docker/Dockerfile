@@ -12,5 +12,5 @@ RUN apk add --no-cache --virtual .build-deps make g++ \
 USER superalgos
 EXPOSE 34248
 EXPOSE 18041
-VOLUME ["/app/Data-Storage", "/app/Log-Files", "/app/My-Workspaces"]
+VOLUME ["/app/Platform/My-Data-Storage", "/app/Platform/My-Log-Files", "/app/Platform/My-Workspaces"]
 ENTRYPOINT ["node", "platform", "noBrowser"]

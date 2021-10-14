@@ -76,6 +76,11 @@
       "createStartMenuShortcut": true,
       "license": "./LICENSE",
       "runAfterFinish": false
+    },
+    "mac": {
+      "category": "public.app-category.finance",
+      "target": "default",
+      "icon": "build/icon.icns"
     }
   }
 }

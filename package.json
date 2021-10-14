@@ -12,7 +12,8 @@
     "start": "node platform minMemo noBrowser",
     "setup": "node setup noShortcuts",
     "release": "electron-builder -w",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "genDoc": "node gen_docs"
   },
   "dependencies": {
     "@octokit/rest": "^18.11.4",
@@ -38,7 +39,8 @@
   },
   "devDependencies": {
     "electron": "^15.1.0",
-    "electron-builder": "^22.11.7"
+    "electron-builder": "^22.11.7",
+    "puppeteer": "^10.4.0"
   },
   "build": {
     "appId": "org.superalgos.platform",

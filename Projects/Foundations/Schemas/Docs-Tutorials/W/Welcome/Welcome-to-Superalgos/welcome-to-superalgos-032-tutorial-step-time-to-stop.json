@@ -90,8 +90,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "To process historic data: Sie möchten einen bestimmten Zeitraum eines bestimmten Market verarbeiten, um eine Backtesting Session durchzuführen oder neue Indikatoren zu testen.",
-                    "updated": 1634170736798
+                    "text": "To process historic data: Sie möchten für einen bestimmten Zeitraum einen bestimmten Market verarbeiten, um eine Backtesting Session durchzuführen oder Indikatoren testen.",
+                    "updated": 1634172738777
                 }
             ]
         },
@@ -149,8 +149,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn alle Prozesse auf dem neuesten Stand sind, wählen Sie \"Stop All Tasks\" im Knoten Market Data Tasks. Beachten Sie, dass die Tasks von einem anderen Knoten aus gestoppt werden können als von dem aus, mit dem sie gestartet wurden!",
-                    "updated": 1634170982221
+                    "text": "Wenn alle Prozesse auf dem neuesten Stand sind, wählen Sie \"Stop All Tasks\" im Knoten Market Data Tasks. Beachten Sie, dass die Tasks auch von einem anderen Knoten aus gestoppt werden können als von dem aus, mit dem sie gestartet wurden!",
+                    "updated": 1634172843262
                 }
             ],
             "updated": 1622197433719

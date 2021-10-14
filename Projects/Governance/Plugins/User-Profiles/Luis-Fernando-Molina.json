@@ -553,7 +553,100 @@
                         "config": "{}",
                         "project": "Governance",
                         "votesSwitch": [],
-                        "claimVotesSwitch": [],
+                        "claimVotesSwitch": [
+                            {
+                                "type": "Claim Votes Switch",
+                                "name": "New Claim Votes Switch",
+                                "config": "{}",
+                                "project": "Governance",
+                                "claimVotesSwitch": [],
+                                "positionClaimVotes": [
+                                    {
+                                        "type": "Position Claim Vote",
+                                        "name": "Luis-Fernando-Molina Project Creator Luis-Fernando-Molina Governance Project",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "0e56ae23-8712-4dbd-b8d1-37a2ecdce5e3",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 30192.953595941923,
+                                                "y": 16039.77774788672
+                                            },
+                                            "targetPosition": {
+                                                "x": 29933.14597480659,
+                                                "y": 16189.77774788672
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Project Creator Luis-Fernando-Molina Governance Project",
+                                                "id": "7b082886-4a95-4564-b555-01d4bbcf2784"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Luis-Fernando-Molina",
+                                                    "User Profile"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program"
+                                                ],
+                                                [
+                                                    "New Position Claims Folder",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "Project Creator Luis-Fernando-Molina Governance Project",
+                                                    "Position Contribution Claim"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "assetClaimVotes": [],
+                                "featureClaimVotes": [],
+                                "id": "5c86c829-ec6b-41e2-aab3-ef9d35840479",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 29933.14597480659,
+                                        "y": 16189.77774788672
+                                    },
+                                    "targetPosition": {
+                                        "x": 29673.338353671257,
+                                        "y": 16339.77774788672
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
                         "weightVotesSwitch": [
                             {
                                 "type": "Weight Votes Switch",
@@ -1857,12 +1950,12 @@
                                                 "id": "d928e0c2-5408-443b-9849-f015a6a97485",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30415.487388811296,
-                                                        "y": 15420.13897091794
+                                                        "x": 30492.953595941923,
+                                                        "y": 16639.777747886717
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30252.09567830679,
-                                                        "y": 15671.740141301567
+                                                        "x": 30192.953595941923,
+                                                        "y": 16639.777747886717
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2047,12 +2140,12 @@
                                                 "id": "61be79f5-5d3c-4667-9e7a-f4c13b958037",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 30551.68453873316,
-                                                        "y": 15687.44092817445
+                                                        "x": 30342.953595941923,
+                                                        "y": 16899.58536902205
                                                     },
                                                     "targetPosition": {
-                                                        "x": 30252.09567830679,
-                                                        "y": 15671.740141301567
+                                                        "x": 30192.953595941923,
+                                                        "y": 16639.777747886717
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2090,12 +2183,12 @@
                                         "id": "800e3388-1ea6-40ee-ace5-1811a3373e39",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 30252.09567830679,
-                                                "y": 15671.740141301567
+                                                "x": 30192.953595941923,
+                                                "y": 16639.777747886717
                                             },
                                             "targetPosition": {
-                                                "x": 29984.79372105028,
-                                                "y": 15807.93729122343
+                                                "x": 29933.14597480659,
+                                                "y": 16489.777747886717
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -2130,12 +2223,12 @@
                                 "id": "1d398124-3f36-40a1-8b3b-6c77ad489b92",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 29984.79372105028,
-                                        "y": 15807.93729122343
+                                        "x": 29933.14597480659,
+                                        "y": 16489.777747886717
                                     },
                                     "targetPosition": {
-                                        "x": 29717.49176379377,
-                                        "y": 15944.134441145294
+                                        "x": 29673.338353671257,
+                                        "y": 16339.77774788672
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -2156,12 +2249,12 @@
                         "id": "2b8d3ce7-515c-44ad-8d80-3c2be6d7736f",
                         "savedPayload": {
                             "position": {
-                                "x": 29717.49176379377,
-                                "y": 15944.134441145294
+                                "x": 29673.338353671257,
+                                "y": 16339.77774788672
                             },
                             "targetPosition": {
-                                "x": 29450.18980653726,
-                                "y": 16080.331591067157
+                                "x": 29373.338353671257,
+                                "y": 16339.77774788672
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -2184,12 +2277,12 @@
                     "id": "e9c0e495-7985-4381-bf75-865d87289038",
                     "savedPayload": {
                         "position": {
-                            "x": 29749.77866696363,
-                            "y": 16096.03237794004
+                            "x": 29633.14597480659,
+                            "y": 16489.777747886717
                         },
                         "targetPosition": {
-                            "x": 29450.18980653726,
-                            "y": 16080.331591067157
+                            "x": 29373.338353671257,
+                            "y": 16339.77774788672
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -2207,12 +2300,12 @@
                 "id": "d5ed432e-78bf-432e-be3b-8649932f7a65",
                 "savedPayload": {
                     "position": {
-                        "x": 29450.18980653726,
-                        "y": 16080.331591067157
+                        "x": 29373.338353671257,
+                        "y": 16339.77774788672
                     },
                     "targetPosition": {
-                        "x": 29156.745526317118,
-                        "y": 16142.705098312485
+                        "x": 29083.560605784536,
+                        "y": 16262.132034355964
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -2234,7 +2327,98 @@
                 "project": "Governance",
                 "assetClaimsFolders": [],
                 "featureClaimsFolders": [],
-                "positionClaimsFolders": [],
+                "positionClaimsFolders": [
+                    {
+                        "type": "Position Claims Folder",
+                        "name": "New Position Claims Folder",
+                        "config": "{}",
+                        "project": "Governance",
+                        "positionClaimsFolders": [],
+                        "positionContributionClaims": [
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Project Creator Luis-Fernando-Molina Governance Project",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "7b082886-4a95-4564-b555-01d4bbcf2784",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 29461.206319315294,
+                                        "y": 17071.52502451335
+                                    },
+                                    "targetPosition": {
+                                        "x": 29311.206319315294,
+                                        "y": 16811.717403378017
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 3,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Project Creator Luis-Fernando-Molina",
+                                        "id": "b555c1fb-e0d3-445f-b46d-9428818b5fe5"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Projects",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Active Projects",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Governance Project",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Project Creator Luis-Fernando-Molina",
+                                            "Position"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "id": "b09bc246-6593-4061-ac8a-b52670694e8e",
+                        "savedPayload": {
+                            "position": {
+                                "x": 29311.206319315294,
+                                "y": 16811.717403378017
+                            },
+                            "targetPosition": {
+                                "x": 29161.206319315294,
+                                "y": 16551.909782242685
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 3,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
                 "tokensAwarded": {
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
@@ -2242,12 +2426,12 @@
                     "id": "5011109c-3f87-471a-b786-5fd371f53853",
                     "savedPayload": {
                         "position": {
-                            "x": 29558.223890132434,
-                            "y": 16588.591993598922
+                            "x": 29161.206319315294,
+                            "y": 16851.909782242685
                         },
                         "targetPosition": {
-                            "x": 29357.484708224776,
-                            "y": 16365.648545955703
+                            "x": 29161.206319315294,
+                            "y": 16551.909782242685
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -2265,12 +2449,12 @@
                 "id": "796dd30f-c90d-4b8d-a63d-89867347407b",
                 "savedPayload": {
                     "position": {
-                        "x": 29357.484708224776,
-                        "y": 16365.648545955703
+                        "x": 29161.206319315294,
+                        "y": 16551.909782242685
                     },
                     "targetPosition": {
-                        "x": 29156.745526317118,
-                        "y": 16142.705098312485
+                        "x": 29083.560605784536,
+                        "y": 16262.132034355964
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -2298,7 +2482,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 2,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

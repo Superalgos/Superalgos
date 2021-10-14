@@ -273,6 +273,15 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     node.type !== 'Weight Votes Switch'
                 ) {
                     currentProgramNode.payload.votingProgram.usedPower = currentProgramNode.payload.votingProgram.usedPower + votes
+                    /*
+                    Here we will validate that users can not vote for their own claims. 
+                    */
+                    let votedUserProfile = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyHead(node.payload.referenceParent)
+                    if (votedUserProfile.id === userProfile.id) {
+                        node.payload.uiObject.setErrorMessage('Voting your own claims is not allowed.')
+                        return
+                    }
+
                     distributeProgramPower(
                         currentProgramNode,
                         node.payload.referenceParent,

@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\..\\TaskServerRoot.js"
+            "program": "/home/algos/SA2/Superalgos/TaskServerRoot.js"
         }
     ]
 }

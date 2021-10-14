@@ -3,8 +3,8 @@
     "pageNumber": 10,
     "type": "Bittrex Test Status",
     "definition": {
-        "text": "Bittrex is not fully tested for data mining nor for live trading.",
-        "updated": 1616005578529
+        "text": "Bittrex is tested for data mining BUT not for live trading.",
+        "updated": 1634135329154
     },
     "paragraphs": [
         {
@@ -14,13 +14,13 @@
         },
         {
             "style": "List",
-            "text": "1-min OHLCVs Capability: Unknown. The ability to fetch historic data for backtesting purposes has not been verified.",
-            "updated": 1616005666238
+            "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
+            "updated": 1634135432569
         },
         {
             "style": "List",
-            "text": "Market History: Unknown.",
-            "updated": 1616005647200
+            "text": "Market History: Tested from 2020-01-01",
+            "updated": 1634135568527
         },
         {
             "style": "List",
@@ -38,8 +38,8 @@
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"bittrex\",\n    \"API\": [\n        {\n            \"method\": \"fetch_ohlcv\",\n            \"limit\": 2\n        }\n    ]\n}",
-            "updated": 1615450253869
+            "text": "{\n    \"codeName\": \"bittrex\",\n    \"API\": [\n        {\n            \"method\": \"fetchOHLCV\",\n            \"limit\": 1500\n        }\n    ]\n}",
+            "updated": 1634135616222
         },
         {
             "style": "Text",

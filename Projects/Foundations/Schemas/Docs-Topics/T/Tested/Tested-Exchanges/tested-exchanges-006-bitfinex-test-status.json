@@ -38,8 +38,8 @@
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"bitfinex\",\n    \"API\": [\n        {\n            \"rateLimit\": 999\n        }\n    ]\n}",
-            "updated": 1615211032603
+            "text": "{\n    \"codeName\": \"bitfinex\",\n    \"API\": [\n        {\n            \"rateLimit\": 1500\n        }\n    ]\n}",
+            "updated": 1634113060318
         },
         {
             "style": "Text",

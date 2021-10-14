@@ -42,7 +42,8 @@
             {
                 "language": "DE",
                 "text": "Superalgos ermöglicht es, den Client auf einem Rechner auszuführen und über den Browser von einem anderen Rechner im Netzwerk darauf zuzugreifen.",
-                "updated": 1634160581763
+                "updated": 1634160581763,
+                "style": "Definition"
             }
         ],
         "updated": 1616410688496
@@ -81,6 +82,11 @@
                     "text": "Veel geruikers kiezen ervoor om de Client in de cloud te draaien op een single-board apparaat zoals de Raspberry Pi, of op een toegewijde PC die altijd aanstaat voor Live Trading. De \"My Computer\" Network Node stelt het apparaat voor waar de Client op draait.",
                     "updated": 1633854215256,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Viele Nutzer entscheiden sich dafür, den Client in der Cloud, auf Einplatinencomputern wie dem Raspberry Pi oder auf einem eigenen PC auszuführen, den sie beim Live-Handel immer eingeschaltet lassen können. Der My Computer Network Node stellt den Rechner dar, auf dem der Client ausgeführt wird.",
+                    "updated": 1634168869002
                 }
             ]
         },
@@ -116,7 +122,8 @@
                 {
                     "language": "DE",
                     "text": "Superalgos hat derzeit keine Form der Sicherheit implementiert. Sie sollten das System nur im Rahmen eines beschränkten LANs verwenden. Wenn Sie sich dafür entscheiden, den Client in der Cloud laufen zu lassen, müssen Sie Ihre eigene Sicherheit implementieren.",
-                    "updated": 1634160832892
+                    "updated": 1634160832892,
+                    "style": "Warning"
                 }
             ]
         }

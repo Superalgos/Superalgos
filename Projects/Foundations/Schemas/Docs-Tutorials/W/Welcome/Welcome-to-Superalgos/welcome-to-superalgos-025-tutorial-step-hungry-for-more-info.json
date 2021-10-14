@@ -26,6 +26,11 @@
                 "text": "No entraré en todos los detalles mientras avanzamos, pero si necesitas más información sobre un nodo, el botón de ayuda del menú te lleva directamente a su documentación.",
                 "updated": 1618437888108,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich werde hier nicht auf jedes Detail eingehen, aber wenn Sie mehr Informationen zu einem Knoten benötigen, können Sie über die Hilfe-Schaltfläche im Menü direkt zu dessen Dokumentation gelangen.",
+                "updated": 1634165900990
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "text": "La documentación de un nodo puede incluir una o varias de las siguientes secciones:",
                     "updated": 1618437914338,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Dokumentation eines Knotens kann einen oder mehrere der folgenden Abschnitte enthalten:",
+                    "updated": 1634165911448
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "text": "Definition: describe que es o que hace el nodo",
                     "updated": 1618437935444,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Definition: beschreibt, was der Knoten ist oder tut.",
+                    "updated": 1634165918664
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "text": "Content: describe como funciona el nodo",
                     "updated": 1618437948010,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Content: beschreibt, wie der Knoten funktioniert.",
+                    "updated": 1634165925998
                 }
             ]
         },
@@ -124,6 +144,11 @@
                     "text": "Configuration: Algunos nodos pueden tenerla",
                     "updated": 1618437961538,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Configuration: einige Knoten haben einen solchen Abschnitt.",
+                    "updated": 1634165931369
                 }
             ]
         },
@@ -149,6 +174,11 @@
                     "text": "Technical: El resto de la info es de caracter técnico, orientada a desarrolladores",
                     "updated": 1618438001044,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Technical: Der Rest der Informationen ist technischer Natur und richtet sich an Entwickler.",
+                    "updated": 1634165955935
                 }
             ]
         },
@@ -173,6 +203,11 @@
                     "text": "¡Haz clic en el boton de ayuda en el nodo de Data Tasks!",
                     "updated": 1627303592815,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf die Schaltfläche \"Hilfe\" auf dem Knoten \" Data Tasks\"!",
+                    "updated": 1634165943580
                 }
             ]
         }

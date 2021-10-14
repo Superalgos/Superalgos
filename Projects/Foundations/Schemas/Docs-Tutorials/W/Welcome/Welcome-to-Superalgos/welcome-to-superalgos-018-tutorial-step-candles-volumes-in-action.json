@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Candles Volumes in Action",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "indicator-bot-instance"
         },
         "text": "That's right! Indicators will start working as soon as the sensor bot finishes her job!",
@@ -26,6 +26,11 @@
                 "text": "Así es; los indicadores comenzarán a funcionar tan pronto como el sensor bot termine su trabajo.",
                 "updated": 1624284142388,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Das ist richtig! Die Indikatoren beginnen zu arbeiten, sobald der Sensor-Bot seine Arbeit beendet hat!",
+                "updated": 1634163288773
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "text": "Estás viendo los procesos de Volúmenes de Velas. Convierte las velas de un minuto que el sensor bot descarga del Exchange en velas para las diferentes temporalidades.",
                     "updated": 1618435042108,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Prozesse von Candles Volumes verwandelt die einminütigen Kerzen, die der Sensor-Bot von der Börse herunterlädt, in Kerzen für alle Zeitrahmen.",
+                    "updated": 1634163365805
                 }
             ]
         },
@@ -76,6 +86,11 @@
                     "text": "¿Qué pasa cuando el bot acaba?",
                     "updated": 1624291212314,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Was passiert, nachdem es fertig ist?",
+                    "updated": 1634163400186
                 }
             ]
         },
@@ -100,6 +115,11 @@
                     "text": "Otros bots necesitan que Candles Volumes acabe, para poder iniciarse. Imagina que un bot necesita calcular una SMA de 20 periodos en todas las temporalidades. Necesitas el Data Product de Candles Volumes como entrada para el cálculo de la SMA. Llamamos a esto una Dependencia de Datos.",
                     "updated": 1624491371609,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Andere Bots brauchen Candles Volumes, um ihre Arbeit zu beenden, damit sie mit ihrer eigenen Arbeit beginnen können. Stellen Sie sich vor, ein Bot muss einen 20-Perioden Simple Moving Average für alle Zeitrahmen berechnen. Er benötigt das von Candles Volumes erzeugte Data Product als Eingabe für die SMA-Berechnung. Wir nennen einen solchen Bedarf eine Data Dependency.",
+                    "updated": 1634163313850
                 }
             ]
         }

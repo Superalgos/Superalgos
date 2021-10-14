@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Let's Start With 100 Bucks!",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "session-quoted-asset"
         },
         "text": "The default initialBalance is set to 100 USDT, well above the minimum transaction size supported by Binance.",
@@ -18,7 +18,13 @@
             {
                 "language": "ES",
                 "text": "El balance inicial predeterminado se establece en 100 USDT, muy por encima del tamaño mínimo de transacción admitido por Binance.",
-                "updated": 1624470578837
+                "updated": 1624470578837,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Der Standard initialBalance ist auf 100 USDT eingestellt, weit über der minimalen Transaktionsgröße, die von Binance unterstützt wird.",
+                "updated": 1634227030636
             }
         ]
     },
@@ -36,7 +42,13 @@
                 {
                     "language": "ES",
                     "text": "El balance inicial se define en la configuración del Session Quoted Asset. ¡Compruébalo y decide por ti mismo si deseas cambiarlo!",
-                    "updated": 1624470828900
+                    "updated": 1624470828900,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die initialBalance wird in der Konfiguration des Session Quoted Asset definiert. Prüfen Sie sie und entscheiden Sie selbst, ob Sie sie ändern möchten!",
+                    "updated": 1634227039328
                 }
             ]
         },
@@ -53,7 +65,13 @@
                 {
                     "language": "ES",
                     "text": "Binance define el tamaño mínimo de transacción en BTC, por lo que el requisito en USDT varía mucho con el tiempo. Establecí la cantidad 100 USDT para asegurarme que no se produzcan errores. Puedes probar con una cantidad menor. Obtendras errores si es demasiado pequeño, pero puedes intentarlo tantas veces como sea necesario. Solo deten la tarea, cambia el initialBalance en el Session Quoted Asset y vuelva a intentarlo.",
-                    "updated": 1624471145987
+                    "updated": 1624471145987,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Binance definiert die Mindesttransaktionsgröße in BTC, so dass die Anforderung in USDT mit der Zeit stark variiert. Ich habe den Betrag auf 100 USDT festgelegt, um sicherzustellen, dass Sie keine Fehler machen. Es steht Ihnen frei, es mit einem kleineren Betrag zu versuchen. Sie werden Fehler erhalten, wenn der Betrag zu klein ist, aber Sie können es so oft wie nötig erneut versuchen. Stoppen Sie einfach die Aufgabe, ändern Sie den initialBalance in der Session Quoted Asset, und versuchen Sie es erneut!",
+                    "updated": 1634227048102
                 }
             ]
         }

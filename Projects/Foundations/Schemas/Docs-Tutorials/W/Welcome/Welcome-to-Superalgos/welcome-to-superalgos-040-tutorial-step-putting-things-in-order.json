@@ -26,6 +26,11 @@
                 "text": "Una cosa más antes de sumergirnos en los gráficos. ¡Necesitas saber cómo poner la casa en orden!",
                 "updated": 1624383691146,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Bevor wir in die Tabellen eintauchen, noch eine Sache. Sie müssen wissen, wie Sie das Haus in Ordnung bringen können!",
+                "updated": 1634206589741
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "text": "Llegará el momento en que quizás estes trabajando con decenas de gráficos. Ya sabes cómo cambiar su formato. Ahora necesita aprender a moverlos para poder crear los arreglos que necesite. Es bastante sencillo:",
                     "updated": 1624383763312,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es wird die Zeit kommen, in der Sie vielleicht mit Dutzenden von Diagrammen arbeiten werden. Sie wissen bereits, wie Sie deren Format ändern können. Jetzt müssen Sie lernen, wie Sie die Diagramme verschieben können, damit Sie die gewünschten Arrangements erstellen können. Das ist ganz einfach:",
+                    "updated": 1634206671224
                 }
             ],
             "updated": 1616416902513
@@ -77,6 +87,11 @@
                     "text": "¡Pulsa Shift, clic con el botón izquierdo y arrastra!",
                     "updated": 1624494466055,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie die Shift, klicken Sie mit der linken Maustaste, und ziehen Sie!",
+                    "updated": 1634206723517
                 }
             ]
         },
@@ -101,6 +116,11 @@
                     "text": "Creo que hemos cubierto todo sobre cómo administrar Charting Space. ¡Es hora de sumergirse en los gráficos!",
                     "updated": 1624383921501,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich glaube, wir haben jetzt alles über die Verwaltung des Charting Space gesagt. Jetzt ist es Zeit, in die Diagramme einzutauchen!",
+                    "updated": 1634206736658
                 }
             ]
         }

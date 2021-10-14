@@ -20,6 +20,11 @@
                 "text": "¡Vámonos! De todos modos, esto será rápido, ya que estamos probando datos históricos de un solo día.",
                 "updated": 1624453945775,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Los geht's! Dies wird ohnehin schnell gehen, da wir nur einen einzigen Tag mit historischen Daten testen.",
+                "updated": 1634222237362
             }
         ]
     },
@@ -58,6 +63,11 @@
                     "text": "Seleccione Run en el Task menu! Ahora seleccione Run en el Backtesting Session menu!",
                     "updated": 1624454082709,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wählen Sie im Menü Lightning Strike Task die Option Run! <br/>Wählen Sie nun Run im Menü Backtesting Session!",
+                    "updated": 1634222444040
                 }
             ]
         },
@@ -76,6 +86,11 @@
                     "text": "Cuando el Backtesting Session indica que terminó el procesamiento, detenga el Task y haz clic en Next.",
                     "updated": 1624454207659,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die Backtesting Session anzeigt, dass die Verarbeitung abgeschlossen ist, beenden Sie die Aufgabe und klicken Sie auf Weiter.",
+                    "updated": 1634222377772
                 }
             ],
             "updated": 1622201246283

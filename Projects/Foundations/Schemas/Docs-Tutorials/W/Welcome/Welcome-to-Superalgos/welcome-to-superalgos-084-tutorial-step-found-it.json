@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Found It?",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "copy-path"
         },
         "text": "This is how the Trading Engine makes every bit of information processed by the Trading Bot available to trading systems.",
@@ -18,7 +18,13 @@
             {
                 "language": "ES",
                 "text": "Así es como el Trading Engine hace que toda la información sea procesada por el Trading Bot available to trading systems.",
-                "updated": 1624461890814
+                "updated": 1624461890814,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Auf diese Weise macht die Trading Engine alle vom Trading Bot verarbeiteten Informationen für Handelssysteme verfügbar.",
+                "updated": 1634226260355
             }
         ]
     },
@@ -36,7 +42,13 @@
                 {
                     "language": "ES",
                     "text": "Hay una ruta para cada pieza de datos y, al conocer la ruta, puede acceder a los datos desde cualquier Formula o Condition en un Trading Strategy. Hagamos una comprobación rápida:",
-                    "updated": 1624461972400
+                    "updated": 1624461972400,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt einen Pfad zu jedem Datenelement, und wenn Sie den Pfad kennen, können Sie von jeder Formula oder Condition in einer Trading Strategy auf die Daten zugreifen. Lassen Sie uns einen kurzen Test durchführen:",
+                    "updated": 1634226270054
                 }
             ]
         },
@@ -53,7 +65,13 @@
                 {
                     "language": "ES",
                     "text": "Abre el menú del nodo Exit Target Ratea la izquierda y haga clic en Copy Node Path. Ahora, abra un editor de texto y pegue lo que copió.",
-                    "updated": 1624463350863
+                    "updated": 1624463350863,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Öffnen Sie das Menü des Knotens Exit Target Rate auf der linken Seite, und klicken Sie auf Copy Node Path. Öffnen Sie nun einen Texteditor und fügen Sie den kopierten Text ein.",
+                    "updated": 1634226278604
                 }
             ]
         },
@@ -70,7 +88,13 @@
                 {
                     "language": "ES",
                     "text": "¡OK! Así es como las fórmulas y las condiciones acceden a la información ... ¿Y los humanos?",
-                    "updated": 1624463387465
+                    "updated": 1624463387465,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Fertig! So greifen Formeln und Bedingungen auf die Informationen zu... Wie sieht es mit Menschen aus?",
+                    "updated": 1634226301372
                 }
             ]
         }

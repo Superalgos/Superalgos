@@ -20,6 +20,11 @@
                 "text": "Hemos realizado un backtest pero no hemos discutido el Trading System que estamos probando. ¡Repasemos los conceptos básicos!",
                 "updated": 1624455109238,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wir haben einen Backtest durchgeführt, aber wir haben noch nicht über das Trading System gesprochen, das wir testen! Lassen Sie uns die Grundlagen durchgehen!",
+                "updated": 1634222921349
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "text": "La idea de trading es comprar \"el cuchillo que cae\" y vender \"el rebote\". La estrategia coloca un Limit Buy Order por debajo del precio. Si el pedido no se completa en el minuto siguiente, el pedido se cancela y se coloca un nuevo pedido, potencialmente a una tarifa ajustada. Si el precio baja repentinamente, es probable que la orden se complete. Si eso sucede, entonces la estrategia intenta vender a un precio más alto.",
                     "updated": 1624455253344,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Handelsidee ist, \"the falling knife\" zu kaufen und \"den Rebound\" zu verkaufen. Die Strategie platziert eine Limit Buy Order mit einem Abstand unter dem Preis. Wenn die Order nicht bis zur nächsten Minute ausgeführt wird, wird sie storniert und eine neue Order platziert, möglicherweise zu einem angepassten Kurs. Wenn der Kurs plötzlich fällt, besteht die Chance, dass der Auftrag ausgeführt wird. In diesem Fall versucht die Strategie, zu einem höheren Preis zu verkaufen.",
+                    "updated": 1634222949643
                 }
             ]
         },
@@ -63,6 +73,11 @@
                     "text": "No discutamos los méritos de la idea de trading, sino la implementación. Esta es solo una demostración para mostrar las capacidades del Trading Bot, no la estrategia per se.",
                     "updated": 1624455325589,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir wollen hier nicht über die Vorzüge der Handelsidee diskutieren, sondern über die Umsetzung. Dies ist nur eine Demo, um die Fähigkeiten des Trading Bot zu zeigen, nicht die Strategie an sich.",
+                    "updated": 1634222957739
                 }
             ]
         }

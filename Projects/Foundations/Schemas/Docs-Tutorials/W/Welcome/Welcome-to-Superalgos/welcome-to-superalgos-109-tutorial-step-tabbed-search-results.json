@@ -21,6 +21,11 @@
                 "text": "Los resultados están organizados en varias categorías, y cada una está representada por una pestaña que agrupa los resultados que coinciden con la categoría...",
                 "updated": 1624486888979,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Ergebnisse sind in verschiedene Kategorien eingeteilt, und jede Kategorie wird durch eine Registerkarte repräsentiert, die die der Kategorie entsprechenden Ergebnisse zusammenfasst...",
+                "updated": 1634246412249
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Explicaré cada uno brevemente y te dejaré observar:",
                     "updated": 1624486914405,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich erkläre jede Kategorie kurz und überlasse es Ihnen, sich umzusehen:",
+                    "updated": 1634246421578
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "text": "All: presenta resultados de todas las categorías.",
                     "updated": 1624486755415,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "All: enthält Ergebnisse aus allen Kategorien.",
+                    "updated": 1634246435535
                 }
             ]
         },
@@ -78,6 +93,11 @@
                     "text": "Nodes: Node Type coincidencias en la frase.",
                     "updated": 1624486865186,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nodes: Ergebnisse vom Node Type, die den Begriff enthalten.",
+                    "updated": 1634246458058
                 }
             ]
         },
@@ -97,6 +117,11 @@
                     "text": "Concepts: incluye nociones como References.",
                     "updated": 1624486815927,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Concepts: enthält Begriffe wie References.",
+                    "updated": 1634246469250
                 }
             ]
         },
@@ -116,6 +141,11 @@
                     "text": "Topics: temas cubiertos en páginas secuenciadas.",
                     "updated": 1624487132871,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Topics: große Themen, die in aufeinanderfolgenden Seiten behandelt werden.",
+                    "updated": 1634246475658
                 }
             ]
         },
@@ -135,6 +165,11 @@
                     "text": "Tutorials: Son las páginas que los componen.",
                     "updated": 1624487067166,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Tutorials: enthält die Seiten, aus denen Tutorials bestehen.",
+                    "updated": 1634246482307
                 }
             ]
         },
@@ -154,6 +189,11 @@
                     "text": "Reviews: reseñas de usuarios sobre plugins etc.",
                     "updated": 1624487122000,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Reviews: enthält Benutzerrezensionen zu Plugins usw..",
+                    "updated": 1634246489513
                 }
             ]
         },
@@ -173,6 +213,11 @@
                     "text": "Books: colecciones de temas organizados en capítulos, para una lectura ordenada.",
                     "updated": 1624487191610,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Books: Sammlungen von Themen, die in Kapiteln organisiert sind, die ganze App-Bereiche abdecken, um ein geordnetes Lesen zu ermöglichen.",
+                    "updated": 1634246497013
                 }
             ]
         },
@@ -192,6 +237,11 @@
                     "text": "Workspace: devuelve los nodos que están presentes en el espacio de trabajo activo... ¡haz clic para ir ahi!",
                     "updated": 1624487240382,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Workspace: zeigt Knoten an, die sich im aktiven Arbeitsbereich befinden... klicken Sie darauf, um zu ihnen zu gelangen!",
+                    "updated": 1634246504156
                 }
             ]
         },

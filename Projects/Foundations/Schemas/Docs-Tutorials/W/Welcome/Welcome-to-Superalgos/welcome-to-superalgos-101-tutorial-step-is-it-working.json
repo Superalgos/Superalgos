@@ -21,6 +21,11 @@
                 "text": "La forma inequívoca de verificar si las cosas están funcionando bien es iniciar sesión en Binance y verificar tu historial de pedidos para BTC / USDT.",
                 "updated": 1624497071539,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Der eindeutigste Weg, um zu überprüfen, ob die Dinge gut funktionieren, ist, sich bei Binance anzumelden und Ihren Bestellverlauf für BTC/USDT zu überprüfen.",
+                "updated": 1634245336699
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "text": "¡Ve a Binance y echa un vistazo a lo que está pasando!",
                     "updated": 1624484856566,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zu Binance und schauen Sie sich an, was los ist!",
+                    "updated": 1634245342910
                 }
             ]
         },
@@ -58,6 +68,11 @@
                     "text": "En cualquier momento, deberías ver un pedido abierto y un número de pedidos cancelados acumulándose en tu historial de pedidos, ¡casi como en el video del siguiente paso!",
                     "updated": 1624484917412,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Zu einem beliebigen Zeitpunkt sollten Sie eine offene Order und eine Reihe von stornierten Orders in Ihrer Orderhistorie sehen, ähnlich wie im Video im nächsten Schritt!",
+                    "updated": 1634245350624
                 }
             ]
         }

@@ -19,7 +19,7 @@
         },
         {
             "action": "Install as Plugin",
-            "actionProject": "Foundations",
+            "actionProject": "Community-Plugins",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Install",
             "label": "Install as Plugin",
@@ -54,11 +54,5 @@
             "childType": "Position",
             "autoAdd": false
         }
-    ],
-    "inMapMode": {
-        "showNodeType": false,
-        "showHierarchyHeadRing": false,
-        "smallIcon": true,
-        "smallText": true
-    }
+    ]
 }

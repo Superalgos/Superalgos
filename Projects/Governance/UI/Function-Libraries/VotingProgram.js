@@ -223,6 +223,10 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     node.type === 'Asset' ||
                     node.type === 'Feature' ||
                     node.type === 'Pool' ||
+                    node.type === 'Position Class' ||
+                    node.type === 'Asset Class' ||
+                    node.type === 'Feature Class' ||
+                    node.type === 'Pool Class' ||
                     node.type === 'Position Contribution Claim' ||
                     node.type === 'Asset Contribution Claim' ||
                     node.type === 'Feature Contribution Claim'

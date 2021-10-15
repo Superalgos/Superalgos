@@ -1,0 +1,27 @@
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence, these will be requested for
+# review when someone opens a pull request.
+*       @superalgos/core-devs
+
+# Project Teams
+/Projects/Algorithmic-Trading   @superalgos/algorithmic-trading
+/Projects/Community-Plugins     @superalgos/community-plugins
+/Projects/Data-Mining           @superalgos/data-mining
+/Projects/Education             @superalgos/education
+/Projects/Ethereum              @superalgos/ethereum
+/Projects/Foundations           @superalgos/foundations
+/Projects/Governance            @superalgos/governance  
+/Projects/Machine-Learning      @superalgos/machine-learning
+/Projects/Network               @superalgos/network 
+/Projects/Social-Bots           @superalgos/social-bots  
+/Projects/Social-Trading        @superalgos/social-trading
+/Projects/TensorFlow            @superalgos/tensorflow
+/Projects/Visual-Scripting      @superalgos/visual-scripting
+
+/.github                        @superalgos/sysadmins
+/Docker                         @superalgos/sysadmins
+.git*                           @superalgos/sysadmins
+.docker*                        @superalgos/sysadmins
+package*.json                   @superalgos/sysadmins

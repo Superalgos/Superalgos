@@ -13,7 +13,13 @@
             {
                 "language": "ES",
                 "text": "Antes de dejarlo con el siguiente tutorial, debe saber que Superalgos es un proyecto crypto project con gobernanza distribuida!",
-                "updated": 1633545502625
+                "updated": 1633545502625,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Bevor ich Sie mit dem nächsten Tutorial verlasse, müssen Sie wissen, dass Superalgos ein Krypto-Projekt mit verteilter Governance ist!",
+                "updated": 1634248136269
             }
         ]
     },
@@ -26,7 +32,13 @@
                 {
                     "language": "ES",
                     "text": "Puede ganar Superalgos SA Tokens y Reputation por contribuir al proyecto.",
-                    "updated": 1633545548293
+                    "updated": 1633545548293,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können Superalgos SA Token und Reputation verdienen, indem Sie zum Projekt beitragen.",
+                    "updated": 1634248142424
                 }
             ]
         },
@@ -38,7 +50,13 @@
                 {
                     "language": "ES",
                     "text": "Entonces puede aprovechar sus tokens y reputación para particiapar en los Governance Programs.",
-                    "updated": 1633545620173
+                    "updated": 1633545620173,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dann können Sie Ihre Token und Ihren Ruf nutzen, um an Governance Programs teilzunehmen.",
+                    "updated": 1634248151994
                 }
             ]
         },
@@ -50,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "Participando en la gobernanza gana más tokens, ya que ayudar a dirigir el proyecto es una contribución importante en sí misma!",
-                    "updated": 1633545710019
+                    "updated": 1633545710019,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Teilnahme an Governance-Programmen bringt Ihnen mehr Token ein, da die Hilfe bei der Leitung des Projekts an sich schon ein wichtiger Beitrag ist!",
+                    "updated": 1634248158681
                 }
             ]
         },
@@ -62,7 +86,13 @@
                 {
                     "language": "ES",
                     "text": "Puede ganar sus primeros pocos tokens con el Airdrops Program con solo programar su User Profile. Pero antes de que lo haga, necesita hacer un parmás de tutoriales para completar su educación!",
-                    "updated": 1633545813091
+                    "updated": 1633545813091,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können Ihre ersten Token mit dem Airdrops-Programm verdienen, indem Sie einfach Ihr User Profile einrichten. Aber bevor Sie das tun, müssen Sie noch ein paar Tutorials machen, um Ihre Ausbildung zu vervollständigen!",
+                    "updated": 1634248167434
                 }
             ]
         }

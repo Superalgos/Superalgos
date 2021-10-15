@@ -11,6 +11,11 @@
                 "text": "Los Docs (documentos) son originalmente escritos en Ingles. Hacer a Superalgos más accesible es un esfuerzo clave para el crecimiento de la comunidad y la base de usuarios. Traducir tutoriales y documentación del software a otros idiomas que no sean el Inglés es un aporte muy valioso!",
                 "updated": 1633170996967,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Docs sind ursprünglich auf Englisch geschrieben. Superalgos zugänglicher zu machen ist ein wichtiges Anliegen, um die Community und die Benutzerbasis zu vergrößern. Die Übersetzung von Tutorials und Software-Dokumentation in andere Sprachen als Englisch ist von großem Wert!",
+                "updated": 1634292094574
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "text": "Read About Contributing to the Docs  (Leer sobre como contribuir a los Docs)",
                     "updated": 1633171160951,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Lesen Sie über die Mitarbeit an den Docs",
+                    "updated": 1634292102975
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "text": "Las traducciones son un caso particular de contribuir con los documentos. Por favor leer primero la página de como contribuir con los documentos, y regresar aqui para los detalles de como nosotros nos manejamos particularmente con las traducciones.",
                     "updated": 1633171406067,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Übersetzungen sind eine besondere Form der Mitarbeit an den Docs. Bitte lesen Sie zuerst die Seite \"How to Contribute to the Docs\" und kommen Sie dann hierher zurück, um zu erfahren, wie wir mit Übersetzungen im Besonderen umgehen.",
+                    "updated": 1634292110817
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "text": "About Translations    ( Acerca de las traducciones)",
                     "updated": 1633171444432,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Über Übersetzungen",
+                    "updated": 1634292175550
                 }
             ]
         },
@@ -119,7 +139,8 @@
                 {
                     "language": "ES",
                     "text": "Como fue explicado en la página de How to Contribute to the Docs, debe cambiar su Contributions Branch  (rama de contribución) y su Current Branch (rama actual) a la rama de desarrollo. Recuerde de recomenzar la app luego del cambio.",
-                    "updated": 1633277617230
+                    "updated": 1633277617230,
+                    "style": "List"
                 }
             ]
         },
@@ -131,7 +152,8 @@
                 {
                     "language": "ES",
                     "text": "Asegúrese de que sus sitema esté actualizado haciendo correr el comando app.update.",
-                    "updated": 1633277826500
+                    "updated": 1633277826500,
+                    "style": "List"
                 }
             ]
         },
@@ -142,7 +164,8 @@
                 {
                     "language": "ES",
                     "text": "Entonces, cambie el idioma al cual desea traducir.",
-                    "updated": 1633277782209
+                    "updated": 1633277782209,
+                    "style": "List"
                 }
             ]
         },
@@ -154,7 +177,8 @@
                 {
                     "language": "ES",
                     "text": "Para traducir un párrafo  cliquear botón derecho editar el contenido y reemplace e texto en Inglés  con su traducción. Eso es!",
-                    "updated": 1633277934174
+                    "updated": 1633277934174,
+                    "style": "List"
                 }
             ]
         },
@@ -166,7 +190,8 @@
                 {
                     "language": "ES",
                     "text": "Puede encontrar más fácil escribir su traducción en un editor de texto separado, donde puede utilizar corrector ortográfico y gramatical. Ona vez que haya doble chequeado su traducción, puede volver a Superalgos para reemplazar cada parrafo con la versión traducida.",
-                    "updated": 1633278119180
+                    "updated": 1633278119180,
+                    "style": "List"
                 }
             ]
         },
@@ -178,7 +203,8 @@
                 {
                     "language": "ES",
                     "text": "Recuerde que las traducciones existen al nivel de cada párrafo. Siempre asegúrese de que la traducción que introduzca corresponda con el párrafo adecuado. TEsto es impotante porque si el pàrrafo es actualizado en la versión en Inglés, todas las traducciones recibirán un aviso de que ese parrafo en particular puede necesitar actualización.",
-                    "updated": 1633278353289
+                    "updated": 1633278353289,
+                    "style": "List"
                 }
             ]
         },
@@ -190,7 +216,8 @@
                 {
                     "language": "ES",
                     "text": "Participe en Superalgos Docs Group ( grupo de documentos de superalgos). Permita que la gente sepa que parte de los documentos o que tutoriales  va a estar trabajando. Esto coordinación básica  ayudará a evitar conflictos cuando más de un usuario trabajan en la misma página al mismo tiempo.",
-                    "updated": 1633278524671
+                    "updated": 1633278524671,
+                    "style": "List"
                 }
             ]
         },
@@ -202,7 +229,8 @@
                 {
                     "language": "ES",
                     "text": "Puede comenzar con la traducción de los documentos de la pagina [Language] (idioma) que abra luego de cambiar el idioma.",
-                    "updated": 1633278662035
+                    "updated": 1633278662035,
+                    "style": "Success"
                 }
             ]
         },
@@ -214,7 +242,8 @@
                 {
                     "language": "ES",
                     "text": "Translating Tutorials      Traduciendo tutoriales",
-                    "updated": 1633278676243
+                    "updated": 1633278676243,
+                    "style": "Title"
                 }
             ]
         },
@@ -226,7 +255,8 @@
                 {
                     "language": "ES",
                     "text": "Las páginas de los Tutorial presentan ciertos desafíos que debemos tener en cuenta mientras traducimos: el primero y principal es que el espacio disponible en la ventana del tutorial es limitado. Esto significa que debe considerar la extensión  del texto traducido y que debe probar cada paso del tutorial para asegurarse que la traducción cabe en el espacio disponible.",
-                    "updated": 1633279006183
+                    "updated": 1633279006183,
+                    "style": "Text"
                 }
             ]
         },
@@ -238,7 +268,8 @@
                 {
                     "language": "ES",
                     "text": "Notará que si abre los documentos mientras el tutorial está corriendo, los documentos automáticamente carga l página correspondiente al paso del tutorial, entonces puede editarlo. Esto es de gran ayuda, ya que podrá traducir la página y ver como se ve en la ventanta del tutorial al mismo tiempo.",
-                    "updated": 1633279236805
+                    "updated": 1633279236805,
+                    "style": "Text"
                 }
             ]
         },
@@ -250,7 +281,8 @@
                 {
                     "language": "ES",
                     "text": "De todos modos, este no es siempre el caso. Algunos pasos de los tutoriales están configurados para cerrar  los dcumentos o el editor, y cuando abre los documentos manualmente, la página del paso del tutorial no se carga automáticamente. En estos casos, deberá buscar la pagina por su nombre  — la cual debería coincidir con el titulo del paso en el tutorial — podrá acceder a la página en forma manual.",
-                    "updated": 1633279497908
+                    "updated": 1633279497908,
+                    "style": "Important"
                 }
             ]
         }

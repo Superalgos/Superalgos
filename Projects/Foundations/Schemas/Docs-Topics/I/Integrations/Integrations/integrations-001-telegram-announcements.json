@@ -869,6 +869,7 @@
             "translations": [
                 },
                 {
+                   "language": "ID",
                 "language": "ID",
                     "text": "Solusinya cukup mudah. Siapkan multiple bot. Aturan mainnya adalah kamu harus menggunakan satu untuk setiap sesi trading. Ingat kamu dapat memasukkan bot sebanyak kamu inginkan kedalam grup Telegrammu. Aritnya, kamu mungkin memiliki bot berbeda yang dibroadcast dari session berbeda dalam grup yang sama.",
                     "updated": 1616931501454,

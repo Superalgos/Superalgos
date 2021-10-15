@@ -24,6 +24,9 @@
             "updated": 1613822300139,
             "translations": [
                 {
+                    "language": "ES"
+                    "text": "Read About Contributing to the Docs  (Leer sobre como contribuir a los Docs)"
+                
                     "language": "DE",
                     "text": "Lesen Sie über die Contribution (Mitarbeit) an den Docs:",
                     "updated": 1634063494221,

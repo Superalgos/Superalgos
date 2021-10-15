@@ -1,0 +1,49 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 17,
+    "type": "Bybit Test Status",
+    "definition": {
+        "text": "Bytbit passed data-mining but backtesting nor live trading haven't been tested or verified",
+        "updated": 1634240261012
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1634236747539
+        },
+        {
+            "style": "Text",
+            "text": "1-min OHLCVs Capability: Yes",
+            "updated": 1634240280189
+        },
+        {
+            "style": "Text",
+            "text": "Market History: 2020-01-01",
+            "updated": 1634240313275
+        },
+        {
+            "style": "Text",
+            "text": "Trading Capability: hasn't been verified",
+            "updated": 1634240333405
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": "Comments: ",
+            "updated": 1634240400921
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n\"codeName\": \"bybit\",\n\"rateLimit\": 1000 ,\n\"sandBox\": \" false\n}",
+            "updated": 1634240386012
+        }
+    ]
+}

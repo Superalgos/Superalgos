@@ -1,0 +1,13 @@
+[
+['2021-10-13T08:37:49.662Z',53,'FileStorage','[INFO] FileStorage -> createTextFile -> fileLocation: C:\Users\User\c\superalgos\Platform\My-Log-Files/Project/Data-Mining/Data-Mine/Candles/Exchange-Raw-Data/bybit/BTC-USDT/Logs/Historic-OHLCVs/D.2021.10.13.T.08.37.34/Loop.00000001.0001.json']
+['2021-10-13T08:37:51.241Z',54,'Historic OHLCVs','[INFO] start -> getOHLCVs -> OHLCVs Fetched = 200']
+['2021-10-13T08:37:51.241Z',55,'Historic OHLCVs','[INFO] start -> getOHLCVs -> OHLCVs Fetched From Wed Mar 25 2020 15:54:00 GMT+0200 (South Africa Standard Time) -> timestamp = 1585144440000']
+['2021-10-13T08:37:51.241Z',56,'Historic OHLCVs','[INFO] start -> getOHLCVs -> OHLCVs Fetched to Wed Mar 25 2020 19:13:00 GMT+0200 (South Africa Standard Time) -> timestamp = 1585156380000']
+['2021-10-13T08:37:51.242Z',57,'Historic OHLCVs','[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ 2020-03-25-> exchange = Bybit -> symbol = BTC/USDT -> since = 1585156380000 -> limit = 1000']
+['2021-10-13T08:37:51.243Z',58,'Single Market Sensor Bot','[INFO] run -> loop -> startBotModuleObject -> onFinished > Execution finished well.']
+['2021-10-13T08:37:51.243Z',59,'Process Execution Events','[INFO] finish -> Entering function.']
+['2021-10-13T08:37:51.243Z',60,'Process Execution Events','[INFO] finish -> Historic-OHLCVs-Process Definition-5eb11d6a-022e-4f60-97c4-d6cf90b249dc-bybit-BTC/USDT Process Execution Finished ']
+['2021-10-13T08:37:51.243Z',61,'Single Market Sensor Bot','[INFO] run -> loop -> finishProcessExecutionEvents -> onFinished -> Execution finished well.']
+['2021-10-13T08:37:51.243Z',62,'Single Market Sensor Bot','[INFO] run -> loop -> loopControl -> nextWaitTime = Normal']
+['2021-10-13T08:37:51.243Z',63,'Single Market Sensor Bot','[INFO] run -> loop -> loopControl -> onStop -> Stopping the Loop Gracefully. See you next time!']
+]

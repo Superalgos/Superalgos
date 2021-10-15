@@ -1,0 +1,4 @@
+[
+['2021-10-12T16:52:17.496Z',107,'FileStorage','[INFO] FileStorage -> createTextFile -> fileLocation: C:\Users\User\c\superalgos\Platform\My-Log-Files/Project/Data-Mining/Data-Mine/Candles/Candles-Volumes/kraken/BTC-USDT/Logs/Multi-Time-Frame-Daily/D.2021.10.12.T.14.58.41/Loop.00000108.0000.json']
+['2021-10-12T16:52:17.498Z',108,'FileStorage','[INFO] FileStorage -> getTextFile -> fileLocation: C:\Users\User\c\superalgos\Platform\My-Data-Storage/Project/Data-Mining/Data-Mine/Candles/Candles-Volumes/kraken/BTC-USDT/Logs/Multi-Time-Frame-Daily/D.2021.10.12.T.14.58.41/Loop.00000103.0000.json']
+]

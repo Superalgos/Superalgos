@@ -1,0 +1,11 @@
+[
+['2021-10-13T08:45:27.362Z',1,'Process Execution Events','[INFO] initialize -> Multi-Time-Frame-Market-Process Definition-9f683143-a33f-42c1-9fa8-c601f01ee4e1-bybit-BTC/USDT based on the Data Mine depends on Historic-OHLCVs']
+['2021-10-13T08:45:27.362Z',2,'Process Execution Events','[INFO] initialize -> Connecting to Websockets Server My Computer  -> host = localhost -> port = 18041.']
+['2021-10-13T08:45:27.364Z',3,'Process Execution Events','[INFO] initialize -> Connected to Websockets Server My Computer  -> host = localhost -> port = 18041.']
+['2021-10-13T08:45:27.365Z',4,'Single Market Indicator Bot','[INFO] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> Execution finished well.']
+['2021-10-13T08:45:27.365Z',5,'Process Execution Events','[INFO] start -> waitForDependantProcess -> Entering Code Block.']
+['2021-10-13T08:45:27.365Z',6,'Process Execution Events','[INFO] start -> waitForDependantProcess -> started listening to Process Execution Finished. ']
+['2021-10-13T08:45:27.365Z',7,'Process Execution Events','[INFO] start -> waitForDependantProcess -> key = Historic-OHLCVs-Process Definition-5eb11d6a-022e-4f60-97c4-d6cf90b249dc-bybit-BTC/USDT']
+['2021-10-13T08:45:27.365Z',8,'Process Execution Events','[INFO] start -> waitForDependantProcess -> callerId = Candles-Candles-Volumes-Multi-Time-Frame-Market-4598-']
+['2021-10-13T08:45:27.365Z',9,'Process Execution Events','[INFO] start -> waitForDependantProcess -> subscriptionId = 423776']
+]

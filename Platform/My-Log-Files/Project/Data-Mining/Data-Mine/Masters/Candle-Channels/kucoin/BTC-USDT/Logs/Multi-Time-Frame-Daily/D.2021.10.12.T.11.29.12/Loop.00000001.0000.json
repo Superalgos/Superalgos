@@ -1,0 +1,11 @@
+[
+['2021-10-12T11:29:13.427Z',1,'Process Execution Events','[INFO] initialize -> Multi-Time-Frame-Daily-Process Definition-55aa76d8-9329-464b-b6b6-9d0eadb40337-kucoin-BTC/USDT based on the Data Mine depends on Multi-Time-Frame-Daily']
+['2021-10-12T11:29:13.427Z',2,'Process Execution Events','[INFO] initialize -> Connecting to Websockets Server My Computer  -> host = localhost -> port = 18041.']
+['2021-10-12T11:29:13.429Z',3,'Process Execution Events','[INFO] initialize -> Connected to Websockets Server My Computer  -> host = localhost -> port = 18041.']
+['2021-10-12T11:29:13.429Z',4,'Single Market Indicator Bot','[INFO] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> Execution finished well.']
+['2021-10-12T11:29:13.429Z',5,'Process Execution Events','[INFO] start -> waitForDependantProcess -> Entering Code Block.']
+['2021-10-12T11:29:13.429Z',6,'Process Execution Events','[INFO] start -> waitForDependantProcess -> started listening to Process Execution Finished. ']
+['2021-10-12T11:29:13.429Z',7,'Process Execution Events','[INFO] start -> waitForDependantProcess -> key = Multi-Time-Frame-Daily-Process Definition-980ceb1d-7be6-454f-90d9-01ba1fd4a65d-kucoin-BTC/USDT']
+['2021-10-12T11:29:13.429Z',8,'Process Execution Events','[INFO] start -> waitForDependantProcess -> callerId = Masters-Candle-Channels-Multi-Time-Frame-Daily-6503-']
+['2021-10-12T11:29:13.430Z',9,'Process Execution Events','[INFO] start -> waitForDependantProcess -> subscriptionId = 974205']
+]

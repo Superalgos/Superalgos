@@ -1,0 +1,53 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 13,
+    "type": "Gemini Test Status",
+    "definition": {
+        "text": "Failed to fetch OHLCVs",
+        "updated": 1634235811147
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1634235513589
+        },
+        {
+            "style": "Text",
+            "text": "1-min OHLCVs Capability: ",
+            "updated": 1634235772801
+        },
+        {
+            "style": "Text",
+            "text": "Market History: ",
+            "updated": 1634235757433
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": "Trading Capability: ",
+            "updated": 1634235745494
+        },
+        {
+            "style": "Text",
+            "text": "Comments: On the sensor bot: No data found, fast-forwarding to next data",
+            "updated": 1634236588022
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{ \n   \"codeName\": \"gateio\",\n   \"rateLimit\": 10/3, // 300 requests per second or 3.33ms\n   \"sandBox\": \"false\"\n}",
+            "updated": 1634235695788
+        }
+    ]
+}

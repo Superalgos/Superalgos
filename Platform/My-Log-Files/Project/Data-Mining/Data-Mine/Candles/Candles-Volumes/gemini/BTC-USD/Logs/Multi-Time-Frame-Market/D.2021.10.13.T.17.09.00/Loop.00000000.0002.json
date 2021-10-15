@@ -1,0 +1,5 @@
+[
+['2021-10-13T17:09:25.477Z',272,'FileStorage','[INFO] FileStorage -> createTextFile -> fileLocation: C:\Users\User\c\superalgos\Platform\My-Log-Files/Project/Data-Mining/Data-Mine/Candles/Candles-Volumes/gemini/BTC-USD/Logs/Multi-Time-Frame-Market/D.2021.10.13.T.17.09.00/Loop.00000001.0001.json']
+['2021-10-13T17:09:25.478Z',273,'FileStorage','[INFO] FileStorage -> createTextFile -> fileLocation: C:\Users\User\c\superalgos\Platform\My-Log-Files/Project/Data-Mining/Data-Mine/Candles/Candles-Volumes/gemini/BTC-USD/Logs/Multi-Time-Frame-Market/D.2021.10.13.T.17.09.00/Loop.00000000.0000.json']
+['2021-10-13T17:09:25.479Z',274,'Process Execution Events','[INFO] start -> waitForDependantProcess -> subscriptionId = undefined']
+]

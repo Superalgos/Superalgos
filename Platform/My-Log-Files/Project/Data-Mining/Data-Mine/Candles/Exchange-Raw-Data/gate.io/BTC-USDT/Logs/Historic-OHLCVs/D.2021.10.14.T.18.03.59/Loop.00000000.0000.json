@@ -1,0 +1,6 @@
+[
+['2021-10-14T18:04:09.675Z',1,'Process Instance','[ERROR] start -> onInitializeReady -> whenStartFinishes -> err = Operation Failed']
+['2021-10-14T18:04:09.675Z',2,'Process Instance','[ERROR] start -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ']
+['2021-10-14T18:04:09.676Z',3,'Process Instance','[ERROR] start -> onInitializeReady -> whenStartFinishes -> Bye.']
+['2021-10-14T18:04:09.676Z',4,'Process Instance','[ERROR] start -> onInitializeReady -> whenStartFinishes -> Bot Id = Candles.Exchange-Raw-Data.Historic-OHLCVs']
+]

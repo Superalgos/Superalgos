@@ -1,0 +1,11 @@
+[
+['2021-10-12T11:29:13.580Z',1,'Process Execution Events','[INFO] initialize -> Multi-Time-Frame-Daily-Process Definition-a4122e12-4925-46c8-9d45-77299af9cb69-kucoin-BTC/USDT based on the Data Mine depends on Multi-Time-Frame-Daily']
+['2021-10-12T11:29:13.580Z',2,'Process Execution Events','[INFO] initialize -> Connecting to Websockets Server My Computer  -> host = localhost -> port = 18041.']
+['2021-10-12T11:29:13.583Z',3,'Process Execution Events','[INFO] initialize -> Connected to Websockets Server My Computer  -> host = localhost -> port = 18041.']
+['2021-10-12T11:29:13.583Z',4,'Single Market Indicator Bot','[INFO] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> Execution finished well.']
+['2021-10-12T11:29:13.583Z',5,'Process Execution Events','[INFO] start -> waitForDependantProcess -> Entering Code Block.']
+['2021-10-12T11:29:13.583Z',6,'Process Execution Events','[INFO] start -> waitForDependantProcess -> started listening to Process Execution Finished. ']
+['2021-10-12T11:29:13.583Z',7,'Process Execution Events','[INFO] start -> waitForDependantProcess -> key = Multi-Time-Frame-Daily-Process Definition-980ceb1d-7be6-454f-90d9-01ba1fd4a65d-kucoin-BTC/USDT']
+['2021-10-12T11:29:13.583Z',8,'Process Execution Events','[INFO] start -> waitForDependantProcess -> callerId = Masters-Resistances-And-Supports-Multi-Time-Frame-Daily-8519-']
+['2021-10-12T11:29:13.583Z',9,'Process Execution Events','[INFO] start -> waitForDependantProcess -> subscriptionId = 175448']
+]

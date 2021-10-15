@@ -1,0 +1,41 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 27,
+    "type": "Ascendex Test Status",
+    "definition": {
+        "text": "Passed the Fetch OHLCV's tested. Backtesting and Live Trading haven't been tested yet",
+        "updated": 1634302026886
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1634302170580
+        },
+        {
+            "style": "Text",
+            "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified."
+        },
+        {
+            "style": "Text",
+            "text": "Market History: Starting on September 2019"
+        },
+        {
+            "style": "Text",
+            "text": "Trading Capability: Unknown. The ability to run strategies in live-trading mode has not been verified."
+        },
+        {
+            "style": "Text",
+            "text": "Comments: Raw Data mining can be slow due to exchange restrictions on their API that limit the number of data it can be requested via Rest API"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"ascendex\",\n    \"rateLimit\": 500,\n    \"sandBox\": \"true\"\n}",
+            "updated": 1634302208724
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+[
+['2021-10-13T12:08:59.026Z',47,'FileStorage','[INFO] FileStorage -> createTextFile -> fileLocation: C:\Users\User\c\superalgos\Platform\My-Log-Files/Project/Data-Mining/Data-Mine/Candles/Exchange-Raw-Data/poloniex/BTC-USDT/Logs/Historic-OHLCVs/D.2021.10.13.T.12.06.43/Loop.00000005.0000.json']
+['2021-10-13T12:09:09.755Z',48,'Historic OHLCVs','[ERROR] start -> getOHLCVs -> Retrying Later -> err = ExchangeError: poloniex {"error":"Please specify a period."}
+    at poloniex.handleErrors (C:\Users\User\c\superalgos\node_modules\ccxt\js\poloniex.js:1591:19)
+    at C:\Users\User\c\superalgos\node_modules\ccxt\js\base\Exchange.js:657:18
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at async timeout (C:\Users\User\c\superalgos\node_modules\ccxt\js\base\functions\time.js:195:24)
+    at async poloniex.fetchOHLCV (C:\Users\User\c\superalgos\node_modules\ccxt\js\poloniex.js:274:26)
+    at async getOHLCVs (C:\Users\User\c\superalgos\Projects\Data-Mining\TS\Bot-Modules\Sensor-Bot\Exchange-Raw-Data\HistoricOHLCVs.js:418:29)
+    at async begin (C:\Users\User\c\superalgos\Projects\Data-Mining\TS\Bot-Modules\Sensor-Bot\Exchange-Raw-Data\HistoricOHLCVs.js:184:17)']
+['2021-10-13T12:09:09.755Z',49,'Single Market Sensor Bot','[WARN] run -> loop -> startBotModuleObject -> onFinished > Retry Later. Requesting Execution Retry.']
+['2021-10-13T12:09:09.755Z',50,'Single Market Sensor Bot','[INFO] run -> loop -> loopControl -> nextWaitTime = Retry']
+['2021-10-13T12:09:09.755Z',51,'Single Market Sensor Bot','[INFO] run -> loop -> loopControl -> Restarting Loop in 10 seconds.']
+]

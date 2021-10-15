@@ -1,0 +1,10 @@
+[
+['2021-10-12T16:52:17.311Z',26,'FileStorage','[INFO] FileStorage -> createTextFile -> fileLocation: C:\Users\User\c\superalgos\Platform\My-Log-Files/Project/Data-Mining/Data-Mine/Candles/Exchange-Raw-Data/kraken/BTC-USDT/Logs/Historic-OHLCVs/D.2021.10.12.T.14.58.41/Loop.00000108.0000.json']
+['2021-10-12T16:52:17.312Z',27,'FileStorage','[INFO] FileStorage -> getTextFile -> fileLocation: C:\Users\User\c\superalgos\Platform\My-Data-Storage/Project/Data-Mining/Data-Mine/Candles/Exchange-Raw-Data/kraken/BTC-USDT/Logs/Historic-OHLCVs/D.2021.10.12.T.14.58.41/Loop.00000103.0000.json']
+['2021-10-12T16:52:17.312Z',28,'FileStorage','[WARN] FileStorage -> getTextFile -> onFileRead -> File does not exist. Not Retrying. ']
+['2021-10-12T16:52:17.312Z',29,'FileStorage','[INFO] FileStorage -> deleteTextFile -> Entering Function.']
+['2021-10-12T16:52:17.312Z',30,'FileStorage','[INFO] FileStorage -> deleteTextFile -> fileLocation: C:\Users\User\c\superalgos\Platform\My-Log-Files/Project/Data-Mining/Data-Mine/Candles/Exchange-Raw-Data/kraken/BTC-USDT/Logs/Historic-OHLCVs/D.2021.10.12.T.14.58.41/Loop.00000103.0000.json']
+['2021-10-12T16:52:17.827Z',31,'FileStorage','[INFO] FileStorage -> deleteTextFile -> retry -> Will try to delete the file again -> Retry #: 1']
+['2021-10-12T16:52:17.827Z',32,'FileStorage','[INFO] FileStorage -> deleteTextFile -> Entering Function.']
+['2021-10-12T16:52:17.827Z',33,'FileStorage','[INFO] FileStorage -> deleteTextFile -> fileLocation: C:\Users\User\c\superalgos\Platform\My-Log-Files/Project/Data-Mining/Data-Mine/Candles/Exchange-Raw-Data/kraken/BTC-USDT/Logs/Historic-OHLCVs/D.2021.10.12.T.14.58.41/Loop.00000103.0000.json']
+]

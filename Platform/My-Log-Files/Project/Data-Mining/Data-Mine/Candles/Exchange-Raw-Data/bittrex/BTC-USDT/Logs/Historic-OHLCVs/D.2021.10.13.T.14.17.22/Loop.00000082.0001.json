@@ -1,0 +1,10 @@
+[
+['2021-10-13T16:33:46.830Z',26,'FileStorage','[INFO] FileStorage -> createTextFile -> fileLocation: C:\Users\User\c\superalgos\Platform\My-Log-Files/Project/Data-Mining/Data-Mine/Candles/Exchange-Raw-Data/bittrex/BTC-USDT/Logs/Historic-OHLCVs/D.2021.10.13.T.14.17.22/Loop.00000082.0000.json']
+['2021-10-13T16:33:46.831Z',27,'FileStorage','[INFO] FileStorage -> getTextFile -> fileLocation: C:\Users\User\c\superalgos\Platform\My-Data-Storage/Project/Data-Mining/Data-Mine/Candles/Exchange-Raw-Data/bittrex/BTC-USDT/Logs/Historic-OHLCVs/D.2021.10.13.T.14.17.22/Loop.00000077.0000.json']
+['2021-10-13T16:33:46.831Z',28,'FileStorage','[WARN] FileStorage -> getTextFile -> onFileRead -> File does not exist. Not Retrying. ']
+['2021-10-13T16:33:46.831Z',29,'FileStorage','[INFO] FileStorage -> deleteTextFile -> Entering Function.']
+['2021-10-13T16:33:46.831Z',30,'FileStorage','[INFO] FileStorage -> deleteTextFile -> fileLocation: C:\Users\User\c\superalgos\Platform\My-Log-Files/Project/Data-Mining/Data-Mine/Candles/Exchange-Raw-Data/bittrex/BTC-USDT/Logs/Historic-OHLCVs/D.2021.10.13.T.14.17.22/Loop.00000077.0000.json']
+['2021-10-13T16:33:47.336Z',31,'FileStorage','[INFO] FileStorage -> deleteTextFile -> retry -> Will try to delete the file again -> Retry #: 1']
+['2021-10-13T16:33:47.336Z',32,'FileStorage','[INFO] FileStorage -> deleteTextFile -> Entering Function.']
+['2021-10-13T16:33:47.336Z',33,'FileStorage','[INFO] FileStorage -> deleteTextFile -> fileLocation: C:\Users\User\c\superalgos\Platform\My-Log-Files/Project/Data-Mining/Data-Mine/Candles/Exchange-Raw-Data/bittrex/BTC-USDT/Logs/Historic-OHLCVs/D.2021.10.13.T.14.17.22/Loop.00000077.0000.json']
+]

@@ -1,0 +1,22 @@
+[
+['2021-10-12T10:30:14.898Z',2387,'FileStorage','[INFO] FileStorage -> createTextFile -> fileLocation: C:\Users\User\c\superalgos\Platform\My-Log-Files/Project/Data-Mining/Data-Mine/Candles/Exchange-Raw-Data/kucoin/BTC-USDT/Logs/Historic-OHLCVs/D.2021.10.12.T.09.30.31/Loop.00000020.0180.json']
+['2021-10-12T10:30:14.901Z',2388,'FileStorage','[INFO] FileStorage -> getTextFile -> fileLocation: C:\Users\User\c\superalgos\Platform\My-Data-Storage/Project/Data-Mining/Data-Mine/Candles/Exchange-Raw-Data/kucoin/BTC-USDT/Logs/Historic-OHLCVs/D.2021.10.12.T.09.30.31/Loop.00000020.0170.json']
+['2021-10-12T10:30:14.901Z',2389,'FileStorage','[WARN] FileStorage -> getTextFile -> onFileRead -> File does not exist. Not Retrying. ']
+['2021-10-12T10:30:14.901Z',2390,'FileStorage','[INFO] FileStorage -> deleteTextFile -> Entering Function.']
+['2021-10-12T10:30:14.901Z',2391,'FileStorage','[INFO] FileStorage -> deleteTextFile -> fileLocation: C:\Users\User\c\superalgos\Platform\My-Log-Files/Project/Data-Mining/Data-Mine/Candles/Exchange-Raw-Data/kucoin/BTC-USDT/Logs/Historic-OHLCVs/D.2021.10.12.T.09.30.31/Loop.00000020.0170.json']
+['2021-10-12T10:30:15.403Z',2392,'FileStorage','[INFO] FileStorage -> deleteTextFile -> retry -> Will try to delete the file again -> Retry #: 1']
+['2021-10-12T10:30:15.403Z',2393,'FileStorage','[INFO] FileStorage -> deleteTextFile -> Entering Function.']
+['2021-10-12T10:30:15.403Z',2394,'FileStorage','[INFO] FileStorage -> deleteTextFile -> fileLocation: C:\Users\User\c\superalgos\Platform\My-Log-Files/Project/Data-Mining/Data-Mine/Candles/Exchange-Raw-Data/kucoin/BTC-USDT/Logs/Historic-OHLCVs/D.2021.10.12.T.09.30.31/Loop.00000020.0170.json']
+['2021-10-12T10:30:16.256Z',2395,'Historic OHLCVs','[ERROR] start -> getOHLCVs -> Retrying Later -> err = RateLimitExceeded: kucoin GET https://openapi-v2.kucoin.com/api/v1/market/candles?symbol=BTC-USDT&type=1min&startAt=1588626000&endAt=1588686000 429 Too Many Requests {"code":"429000","msg":"Too Many Requests"}
+    at kucoin.handleHttpStatusCode (C:\Users\User\c\superalgos\node_modules\ccxt\js\base\Exchange.js:626:19)
+    at C:\Users\User\c\superalgos\node_modules\ccxt\js\base\Exchange.js:658:18
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at async timeout (C:\Users\User\c\superalgos\node_modules\ccxt\js\base\functions\time.js:195:24)
+    at async kucoin.fetchOHLCV (C:\Users\User\c\superalgos\node_modules\ccxt\js\kucoin.js:870:26)
+    at async getOHLCVs (C:\Users\User\c\superalgos\Projects\Data-Mining\TS\Bot-Modules\Sensor-Bot\Exchange-Raw-Data\HistoricOHLCVs.js:418:29)
+    at async begin (C:\Users\User\c\superalgos\Projects\Data-Mining\TS\Bot-Modules\Sensor-Bot\Exchange-Raw-Data\HistoricOHLCVs.js:184:17)']
+['2021-10-12T10:30:16.257Z',2396,'Single Market Sensor Bot','[WARN] run -> loop -> startBotModuleObject -> onFinished > Retry Later. Requesting Execution Retry.']
+['2021-10-12T10:30:16.257Z',2397,'Single Market Sensor Bot','[INFO] run -> loop -> loopControl -> nextWaitTime = Retry']
+['2021-10-12T10:30:16.257Z',2398,'Single Market Sensor Bot','[INFO] run -> loop -> loopControl -> Restarting Loop in 10 seconds.']
+]

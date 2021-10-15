@@ -1,0 +1,40 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 15,
+    "type": "BithumbTest Status",
+    "definition": {
+        "text": "Write a summary for this topic page."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1634243686090
+        },
+        {
+            "style": "Text",
+            "text": "1-min OHLCVs Capability: None"
+        },
+        {
+            "style": "Text",
+            "text": "Market History: Unknown"
+        },
+        {
+            "style": "Text",
+            "text": "Trading Capability: Unknown. The ability to run strategies in live-trading mode has not been verified."
+        },
+        {
+            "style": "Text",
+            "text": "Comments: The Raw data-mine sensor bot finds no data and fast-forwards to next data."
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"bithumb\",\n    \"rateLimit\": 500,\n    \"sandBox\": \"false\"\n}",
+            "updated": 1634243738315
+        }
+    ]
+}

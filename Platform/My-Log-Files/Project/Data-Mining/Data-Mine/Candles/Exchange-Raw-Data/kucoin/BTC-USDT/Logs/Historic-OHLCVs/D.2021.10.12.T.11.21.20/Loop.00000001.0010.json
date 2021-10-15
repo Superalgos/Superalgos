@@ -1,0 +1,8 @@
+[
+['2021-10-12T11:21:53.350Z',101,'FileStorage','[INFO] FileStorage -> createTextFile -> fileLocation: C:\Users\User\c\superalgos\Platform\My-Log-Files/Project/Data-Mining/Data-Mine/Candles/Exchange-Raw-Data/kucoin/BTC-USDT/Logs/Historic-OHLCVs/D.2021.10.12.T.11.21.20/Loop.00000001.0009.json']
+['2021-10-12T11:21:54.811Z',102,'Historic OHLCVs','[INFO] start -> getOHLCVs -> OHLCVs Fetched = 1000']
+['2021-10-12T11:21:54.811Z',103,'Historic OHLCVs','[INFO] start -> getOHLCVs -> OHLCVs Fetched From Tue Jan 07 2020 07:51:00 GMT+0200 (South Africa Standard Time) -> timestamp = 1578376260000']
+['2021-10-12T11:21:54.811Z',104,'Historic OHLCVs','[INFO] start -> getOHLCVs -> OHLCVs Fetched to Wed Jan 08 2020 00:30:00 GMT+0200 (South Africa Standard Time) -> timestamp = 1578436200000']
+['2021-10-12T11:21:54.813Z',105,'Historic OHLCVs','[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ 2020-01-07-> exchange = Kucoin -> symbol = BTC/USDT -> since = 1578436200000 -> limit = 1000']
+['2021-10-12T11:21:54.813Z',106,'Historic OHLCVs','[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ 2020-01-07-> exchange = Kucoin -> symbol = BTC/USDT -> since = 1578436200000 -> limit = 1000']
+]

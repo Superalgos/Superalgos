@@ -1,0 +1,7 @@
+[
+['2021-10-13T17:10:16.419Z',1,'Single Market Sensor Bot','[INFO] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> Execution finished well.']
+['2021-10-13T17:10:16.419Z',2,'Process Execution Events','[INFO] start -> Historic-OHLCVs-Process Definition-5eb11d6a-022e-4f60-97c4-d6cf90b249dc-gemini-BTC/USD Process Execution Started ']
+['2021-10-13T17:10:16.419Z',3,'Single Market Sensor Bot','[INFO] run -> loop -> startProcessExecutionEvents -> onStarted -> Execution finished well.']
+['2021-10-13T17:10:16.419Z',4,'Single Market Sensor Bot','[INFO] run -> loop -> loopControl -> nextWaitTime = undefined']
+['2021-10-13T17:10:16.419Z',5,'Single Market Sensor Bot','[INFO] run -> loop -> loopControl -> onStop -> Stopping the Loop Gracefully. See you next time!']
+]

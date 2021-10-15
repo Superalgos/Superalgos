@@ -3,8 +3,8 @@
     "pageNumber": 8,
     "type": "Luno Test Status",
     "definition": {
-        "text": "Luno is tested for data mining and for live trading - however, due to recent changes in their API, it has become virtually useless for back-testing, and not much better for live trading. See below for explanation.",
-        "updated": 1621587736536
+        "text": "Failed to Fetch OHLCVs, timestamp is older than 24 hours",
+        "updated": 1634272185596
     },
     "paragraphs": [
         {
@@ -28,7 +28,7 @@
             "updated": 1621587866572
         },
         {
-            "style": "Subtitle",
+            "style": "Text",
             "text": "RECOMMENDATION: Luno is no longer suitable for use with SuperAlgos until such time that the Luno developers implement the correct API for retrieving OHLCV data.",
             "updated": 1621588017824
         },

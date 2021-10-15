@@ -24,8 +24,8 @@
             },
             {
                 "language": "DE",
-                "text": "Standardmäßig sind die Knoten auf eine Rotationssymmetrie um ihren übergeordneten Knoten festgelegt. Die Symmetrie kann 360 Grad oder weniger umfassen, je nach Einstellung!",
-                "updated": 1634297515224
+                "text": "Standardmäßig sind die Knoten auf eine Rotationssymmetrie um ihren übergeordneten Knoten festgelegt. Die Symmetrie kann 360 Grad oder weniger umfassen, je nach Einstellung!\n",
+                "updated": 1634331973308
             }
         ]
     },
@@ -50,7 +50,7 @@
                 {
                     "language": "DE",
                     "text": "Wenn Sie auf die Schaltfläche Winkel zum übergeordneten Knoten klicken, können Sie zwischen fünf verschiedenen Einstellungen wählen: 360, 180, 90 und 45 Grad sowie die Möglichkeit, die Rotationssymmetrie zu deaktivieren.",
-                    "updated": 1634297525079
+                    "updated": 1634331981010
                 }
             ]
         },
@@ -73,8 +73,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Werfen Sie einen kurzen Blick auf die Einstellung, die für die einzelnen Nachkommen des Knotens "Lightning Strike" "Backtesting Session" node: "Trading Parameters", "Trading System Reference" und die "Trading Engine Reference" . Sie sind alle auf 180 Grad eingestellt, richtig?",
-                    "updated": 1634297686941
+                    "text": "Werfen Sie einen kurzen Blick auf die Einstellung, die für die einzelnen Nachkommen des Knotens \"Lightning Strike Backtesting Session\" node: \"Trading Parameters\", \"Trading System Reference\" und die \"Trading Engine Reference\". Sie sind alle auf 180 Grad eingestellt, richtig?",
+                    "updated": 1634331993147
                 }
             ]
         }

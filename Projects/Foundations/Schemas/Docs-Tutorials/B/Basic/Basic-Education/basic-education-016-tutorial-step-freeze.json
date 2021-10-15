@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "El botón de congelación tiene sentido en circunstancias muy específicas: cuando la física se activa al nivel del Design Space.",
-                "updated": 1626040673536
+                "updated": 1626040673536,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Schaltfläche \"Einfrieren\" ist nur unter ganz bestimmten Umständen sinnvoll: wenn die Physik auf der Ebene des Design Space aktiviert ist.",
+                "updated": 1634333134069
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "El Design Space ofrece algunas funciones de personalización, una de las cuales es activar la física del universo. Cuando la física está activada, ¡todo el espacio cobra vida!",
-                    "updated": 1626040738666
+                    "updated": 1626040738666,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Design Space bietet einige Anpassungsmöglichkeiten, von denen eine die Aktivierung der Physik des Universums ist. Wenn die Physik aktiviert ist, wird der ganze Raum lebendig!",
+                    "updated": 1634333140802
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "¡No entraremos en eso en ya que no está en el plan de estudios de educación básica!",
-                    "updated": 1626040817848
+                    "updated": 1626040817848,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir werden an dieser Stelle nicht auf dieses Thema eingehen, da es nicht im Lehrplan für die Grundausbildung enthalten ist!",
+                    "updated": 1634333147196
                 }
             ]
         },
@@ -74,7 +92,13 @@
                 {
                     "language": "ES",
                     "text": "La opción de congelación congela las conexiones en cadena del nodo con su padre y su descendencia y las líneas de conexión se vuelven azules. La congelación libera los recursos de la CPU cuando las animaciones físicas están activadas, ya que el sistema deja de calcular las posiciones y el estado de los nodos.",
-                    "updated": 1626043017042
+                    "updated": 1626043017042,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Option Einfrieren friert die Kettenverbindungen des Knotens mit seinen Über- und Unterknoten ein, und die Verbindungslinien werden blau. Das Einfrieren setzt CPU-Ressourcen frei, wenn die Physik-Animationen eingeschaltet sind, da das System aufhört, die Positionen und den Status der Knoten zu berechnen.",
+                    "updated": 1634333202786
                 }
             ]
         }

@@ -21,6 +21,11 @@
                 "text": "Muy parecido a Node Attaching Rules, Los nodos que pueden establecer referencias también tienen reglas al respecto.",
                 "updated": 1626563799313,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Gehen Sie zum Menü des Trading System Reference Knotens, klicken Sie auf die Schaltfläche Hilfe und scrollen Sie bis zum Ende der Seite!",
+                "updated": 1634334946591
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Ve al menu del nodo Trading System Reference, haga clic en el botón de ayuda y desplácese hasta el final de la página.",
                     "updated": 1626563954890,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zum Menü des Trading System Reference Knotens, klicken Sie auf die Schaltfläche Hilfe und scrollen Sie bis zum Ende der Seite!",
+                    "updated": 1634334991343
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "Si eres desarrollador, es posible que quieras saber que Node Attaching Rules y Node Referencing Rules se definen en el archivo AppSchema.json en la carpeta Schema de un proyecto.",
                     "updated": 1626568316882,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie ein Entwickler sind, sollten Sie wissen, dass die Node Attaching Rules und die Node Referencing Rules in der Datei AppSchema.json im Schema-Ordner eines Projekts definiert sind.",
+                    "updated": 1634334953417
                 }
             ]
         }

@@ -21,6 +21,11 @@
                 "text": "Ahora necesitamos adjuntar la copia de seguridad del nodo Trading Parameters del Backtesting Session. ¿Cómo lo hacemos?",
                 "updated": 1626358562550,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Nun müssen wir die Sicherung des Knotens Trading Parameters an die Backtesting Session anhängen. Wie machen wir das?",
+                "updated": 1634333572735
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "text": "Haz clic derecho en el nodo Trading ParametersY tire de él más cerca del nodo Backtesting session. ¡Suelta cuando veas un anillo naranja que rodea el nodo Backtesting session!",
                     "updated": 1626358925461,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf den Knoten Trading Parameters und ziehen Sie ihn näher an den Knoten Backtesting Session! Lassen Sie los, wenn Sie einen orangefarbenen Ring um den Backtesting Session Knoten sehen!",
+                    "updated": 1634333597218
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "text": "¡Eso es! La copia de seguridad del nodo Trading Parameters está restaurado y de nuevo en uso.",
                     "updated": 1626358976073,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das war's! Die Sicherung des Knotens Trading Parameters ist wiederhergestellt und kann wieder verwendet werden.",
+                    "updated": 1634333609241
                 }
             ]
         },
@@ -78,6 +93,11 @@
                     "text": "Ten en cuenta que puedes eliminar el segundo nodo Trading Parameters si lo deseas, o puedes dejarlo a un lado para su uso posterior.",
                     "updated": 1626359059810,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass Sie den zweiten Trading Parameters-Knoten löschen können, wenn Sie möchten, oder Sie können ihn für eine spätere Verwendung beiseite legen.",
+                    "updated": 1634333617512
                 }
             ]
         }

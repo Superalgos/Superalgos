@@ -28,7 +28,6 @@ font-weight: bold;
 .tutorial-content-div {
     overflow-y: auto;
     overflow-x: clip;
-    height: 78%;
 }
 
 ::-webkit-scrollbar {

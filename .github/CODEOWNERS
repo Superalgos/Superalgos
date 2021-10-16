@@ -6,22 +6,22 @@
 *       @superalgos/core-devs
 
 # Project Teams
-/Projects/Algorithmic-Trading   @superalgos/algorithmic-trading
-/Projects/Community-Plugins     @superalgos/community-plugins
-/Projects/Data-Mining           @superalgos/data-mining
-/Projects/Education             @superalgos/education
-/Projects/Ethereum              @superalgos/ethereum
-/Projects/Foundations           @superalgos/foundations
-/Projects/Governance            @superalgos/governance  
-/Projects/Machine-Learning      @superalgos/machine-learning
-/Projects/Network               @superalgos/network 
-/Projects/Social-Bots           @superalgos/social-bots  
-/Projects/Social-Trading        @superalgos/social-trading
-/Projects/TensorFlow            @superalgos/tensorflow
-/Projects/Visual-Scripting      @superalgos/visual-scripting
+/Projects/Algorithmic-Trading   @superalgos/algorithmic-trading-project
+/Projects/Community-Plugins     @superalgos/community-plugins-project
+/Projects/Data-Mining           @superalgos/data-mining-project
+/Projects/Education             @superalgos/education-project
+/Projects/Ethereum              @superalgos/ethereum-project
+/Projects/Foundations           @superalgos/foundations-project
+/Projects/Governance            @superalgos/governance-project
+/Projects/Machine-Learning      @superalgos/machine-learning-project
+/Projects/Network               @superalgos/network-project
+/Projects/Social-Bots           @superalgos/social-bots-project
+/Projects/Social-Trading        @superalgos/social-trading-project
+/Projects/TensorFlow            @superalgos/tensorflow-project
+/Projects/Visual-Scripting      @superalgos/visual-scripting-project
 
-/.github                        @superalgos/sysadmins
-/Docker                         @superalgos/sysadmins
-.git*                           @superalgos/sysadmins
-.docker*                        @superalgos/sysadmins
-package*.json                   @superalgos/sysadmins
+/.github                        @superalgos/sysadmins-team
+/Docker                         @superalgos/sysadmins-team
+.git*                           @superalgos/sysadmins-team
+.docker*                        @superalgos/sysadmins-team
+package*.json                   @superalgos/sysadmins-team

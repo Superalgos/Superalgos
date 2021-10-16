@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "En algún momento, deberás establecer una referencia, ¡así que hagamos un entrenamiento básico para desarrollar las habilidades requeridas!",
-                "updated": 1626533505140
+                "updated": 1626533505140,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Irgendwann werden Sie eine Referenz erstellen müssen, also lassen Sie uns ein paar grundlegende Übungen durchführen, um die erforderlichen Fähigkeiten zu entwickeln!",
+                "updated": 1634334474059
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Haz doble clic en el botón de desvincular en el menú del nodo Trading System Reference!",
-                    "updated": 1626533552438
+                    "updated": 1626533552438,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Doppelklicken Sie auf die Schaltfläche Delink im Menü des Knotens Trading System Reference!",
+                    "updated": 1634334490234
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "¡Acabas de romper la referencia! Tranquilo, lo volveremos a crear en los próximos pasos!",
-                    "updated": 1626534167277
+                    "updated": 1626534167277,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie haben gerade die Referenz zerstört! Aber keine Sorge... wir werden sie in den nächsten Schritten wiederherstellen!",
+                    "updated": 1634334499633
                 }
             ]
         },
@@ -74,7 +92,13 @@
                 {
                     "language": "ES",
                     "text": "Para establecer una referencia, sige el mismo proceso que usas para adjuntar un nodo. Haz clic con el botón derecho en el nodo donde se originará la referencia, arrástralo cerca del nodo con el que se establecerá la referencia y suelta cuando aparezca el anillo naranja.",
-                    "updated": 1626534977269
+                    "updated": 1626534977269,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um eine Referenz zu erstellen, folgen Sie demselben Prozess, den Sie zum Anhängen eines Knotens verwenden. Klicken Sie also mit der rechten Maustaste auf den Knoten, von dem die Referenz ausgehen soll, ziehen Sie ihn in die Nähe des Knotens, mit dem die Referenz hergestellt werden soll, und lassen Sie den Klick los, sobald der orangefarbene Ring erscheint!",
+                    "updated": 1634334505328
                 }
             ]
         },

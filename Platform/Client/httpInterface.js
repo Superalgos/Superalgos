@@ -20,7 +20,7 @@ exports.newHttpInterface = function newHttpInterface() {
         webhook = undefined
     }
 
-    function initialize() {
+    function initialize(initialWorkspace) {
         /*
         We will create an HTTP Server and leave it running forever.
         */
@@ -29,7 +29,11 @@ exports.newHttpInterface = function newHttpInterface() {
         if (process.argv.includes("noBrowser")) {
             //Running Client only with no UI.
         } else {
-            SA.nodeModules.open('http://localhost:' + global.env.CLIENT_HTTP_INTERFACE_PORT)
+            let queryString = ''
+            if (initialWorkspace.name !== undefined) {
+                queryString = '/?initialWorkspaceName=' + initialWorkspace.name + '&initialWorkspaceProject=' + initialWorkspace.project + '&initialWorkspaceType=' + initialWorkspace.type
+            }
+            SA.nodeModules.open('http://localhost:' + global.env.CLIENT_HTTP_INTERFACE_PORT + queryString)
         }
     }
 
@@ -637,7 +641,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             break
                         }
                         switch (requestPath[2]) { // switch by command
-                            
+
                             case 'Contribute': {
                                 try {
                                     let commitMessage = unescape(requestPath[3])
@@ -655,7 +659,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     contribute()
 
-                                    async function contribute() {                                      
+                                    async function contribute() {
                                         const { lookpath } = SA.nodeModules.lookpath
                                         const gitpath = await lookpath('git')
                                         if (gitpath === undefined) {
@@ -898,11 +902,11 @@ exports.newHttpInterface = function newHttpInterface() {
                                         const git = simpleGit(options)
                                         try {
                                             await git.checkout(currentBranch)
-                                            
+
                                             // Check to see it main repo has been set as upstream
                                             let remotes = await git.getRemotes();
                                             let isUpstreamSet
-                                            for(let remote in remotes) {
+                                            for (let remote in remotes) {
                                                 if (remotes[remote].name === 'upstream') {
                                                     isUpstreamSet = true
                                                 } else {
@@ -910,7 +914,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 }
                                             }
                                             // If upstream has not been set. Set it now
-                                            if (isUpstreamSet === false){
+                                            if (isUpstreamSet === false) {
                                                 await git.addRemote('upstream', 'https://github.com/Superalgos/Superalgos');
                                             }
                                             // Pull branch from main repo
@@ -918,7 +922,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             // Reset branch to match main repo
                                             let upstreamLocation = `upstream/${currentBranch}`
                                             await git.reset('hard', [upstreamLocation])
-                                            
+
                                         } catch (err) {
                                             console.log('[ERROR] Error changing current branch to ' + currentBranch)
                                             console.log(err.stack)
@@ -926,19 +930,19 @@ exports.newHttpInterface = function newHttpInterface() {
                                         }
                                     }
 
-                                    async function runNodeSetup () {
-                                        console.log( "Running Node setup to adjust for new Branch" )
+                                    async function runNodeSetup() {
+                                        console.log("Running Node setup to adjust for new Branch")
                                         const process = SA.nodeModules.process
                                         const childProcess = SA.nodeModules.childProcess
 
                                         let dir = process.cwd()
                                         let command = "node setup noShortcuts";
-                                        let stdout = childProcess.execSync( command,
-                                        {
-                                            cwd: dir 
-                                        }).toString();
-                                    
-                                        console.log("Node Setup has completed with the following result:", stdout)      
+                                        let stdout = childProcess.execSync(command,
+                                            {
+                                                cwd: dir
+                                            }).toString();
+
+                                        console.log("Node Setup has completed with the following result:", stdout)
                                     }
 
                                 } catch (err) {

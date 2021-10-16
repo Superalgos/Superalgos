@@ -52,11 +52,35 @@ SA.nodeModules = {
     process: require('process'),
     childProcess: require('child_process')
 }
+/*
+Check if we are starting from a particular workspace.
+*/
+let initialWorkspace = {}
 
-run()
+for (let i = 0; i < process.argv.length; i++) {
+    let arg = process.argv[i]
 
-async function run() {
+    if (arg === 'noBrowser') { continue }
+    if (arg === 'minMemo') { continue }
+    if (arg.indexOf(':') >= 0) { continue }
+
+    if (initialWorkspace.project === undefined) {
+        if (arg !== 'My-Workspaces') {
+            initialWorkspace.type = 'Plugin'
+            initialWorkspace.project = arg
+        } else {
+            initialWorkspace.type = 'My-Workspaces'
+            initialWorkspace.project = ''
+        }
+    } else {
+        initialWorkspace.name = arg
+    }
+}
+
+run(initialWorkspace)
+
+async function run(initialWorkspace) {
     PL.app = require('./Platform/PlatformApp.js').newPlatformApp()
-    await PL.app.run()
+    await PL.app.run(initialWorkspace)
     console.log('Superalgos Platform App is Running!')
 }

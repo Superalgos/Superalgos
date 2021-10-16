@@ -76,17 +76,40 @@ function newWorkspace() {
                     }
                 }
 
-                /* Check which was the last workspace. */
+                const browserURL = new URLSearchParams(window.location.search);
+                const queryString = Object.fromEntries(browserURL.entries());
+                /* 
+                By default, we will laod the last used workspace. 
+                */
                 let lastUsedWorkspace = window.localStorage.getItem('Last Used Workspace')
 
-                if (lastUsedWorkspace !== 'undefined' && lastUsedWorkspace !== null && lastUsedWorkspace !== undefined) {
+                if (
+                    (lastUsedWorkspace !== 'undefined' && lastUsedWorkspace !== null && lastUsedWorkspace !== undefined) ||
+                    (queryString.initialWorkspaceName !== undefined)
+                ) {
+                    let webCommand
+                    if (queryString.initialWorkspaceType !== undefined) {
+                        /*
+                        We get here when the workspace to lead comes at the URL 
+                        */
+                        UI.projects.foundations.utilities.statusBar.changeStatus("Loading Workspace " + queryString.initialWorkspaceName + "...")
+                        if (queryString.initialWorkspaceType !== 'My-Workspaces') {
+                            webCommand = 'LoadPlugin' + '/' + queryString.initialWorkspaceProject + '/' + 'Workspaces' + '/' + queryString.initialWorkspaceName + '.json'
+                        } else {
+                            webCommand = 'LoadMyWorkspace' + '/' + queryString.initialWorkspaceName
+                        }
+                    } else {
+                        /*
+                        We get here when the workspace to lead is the last saved workspace.
+                        */
+                        UI.projects.foundations.utilities.statusBar.changeStatus("Loading Workspace " + lastUsedWorkspace + "...")
+                        webCommand = 'LoadMyWorkspace' + '/' + lastUsedWorkspace
+                    }
 
-                    UI.projects.foundations.utilities.statusBar.changeStatus("Loading Workspace " + lastUsedWorkspace + "...")
-
-                    httpRequest(undefined, 'LoadMyWorkspace' + '/' + lastUsedWorkspace, onFileReceived)
+                    httpRequest(undefined, webCommand, onFileReceived)
                     function onFileReceived(err, text, response) {
                         if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                            UI.projects.foundations.spaces.cockpitSpace.setStatus('Could not load the last Workspace used, called "' + lastUsedWorkspace + '". Will switch to the default Workspace instead.', 500, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
+                            UI.projects.foundations.spaces.cockpitSpace.setStatus('Could not load the Workspace called "' + lastUsedWorkspace + '". Will switch to the default Workspace instead.', 500, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
                             thisObject.workspaceNode = getWorkspace() // This is the default workspace that comes with the system.
                             thisObject.workspaceNode.project = 'Foundations'
                             recreateWorkspace()

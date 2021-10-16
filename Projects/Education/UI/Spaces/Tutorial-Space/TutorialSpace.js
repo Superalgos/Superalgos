@@ -1384,7 +1384,7 @@ function newEducationTutorialSpace() {
                 html = html + '<h2 class="tutorial-font-medium">' + title + '</h2>'
             }
 
-            html = html + '<div>'
+            html = html + '<div class="tutorial-content-div">'
 
             if (schemaDocument.definition !== undefined && schemaDocument.definition.text !== '') {
                 if (fullscreenMode === false) {

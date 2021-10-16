@@ -25,6 +25,12 @@ content: "Summary: ";
 font-weight: bold;
 }
 
+.tutorial-content-div {
+    overflow-y: auto;
+    overflow-x: clip;
+    height: 78%;
+}
+
 .tutorial-definitionTable {
 background-color: #f3f3f3;
 border-top-color: #a6e1ec;

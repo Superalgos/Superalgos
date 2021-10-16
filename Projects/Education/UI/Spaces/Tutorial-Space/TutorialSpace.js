@@ -1380,11 +1380,16 @@ function newEducationTutorialSpace() {
                 }
             }
 
+            let divHeight
             if (fullscreenMode === false) {
                 html = html + '<h2 class="tutorial-font-medium">' + title + '</h2>'
+
+                divHeight = "78%"
+            } else {
+                divHeight = "91%"
             }
 
-            html = html + '<div class="tutorial-content-div">'
+            html = html + '<div class="tutorial-content-div" style="height: ' + divHeight + '">'
 
             if (schemaDocument.definition !== undefined && schemaDocument.definition.text !== '') {
                 if (fullscreenMode === false) {

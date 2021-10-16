@@ -21,6 +21,11 @@
                 "text": "Cuando todos los nodos descendientes se establecen en un ángulo de 180 grados, cada nodo ocupa una ranura en una fracción de una circunferencia que abarca 180 grados, normal al padre.",
                 "updated": 1625955596065,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn alle Nachkommenknoten auf einen Winkel von 180 Grad eingestellt sind, nimmt jeder Knoten einen Platz in einem Bruchteil eines Kreises ein, der sich über 180 Grad erstreckt, normal zum Elternteil.",
+                "updated": 1634297880856
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Pero, ¿qué sucede si uno de los nodos descendientes tiene una configuración diferente de Ángulo al padre? ¡Hagamos un experimento!",
                     "updated": 1625955629982,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Aber was passiert, wenn einer der Nachkommenknoten einen anderen Winkel zum Elternteil hat? Lassen Sie uns ein Experiment durchführen!",
+                    "updated": 1634297887613
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "text": "Haz clic una vez en el Trading Parameters Angle a la configuración de los padres y salir del menú!",
                     "updated": 1625955715664,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie einmal auf die Einstellung \"Trading Parameters\" Winkel zu Elternteil und verlassen Sie das Menü!",
+                    "updated": 1634297909566
                 }
             ]
         },
@@ -78,6 +93,11 @@
                     "text": "El nodo ocupa una ranura en un ángulo más pequeño: ¡90 grados! Haz lo mismo con los nodos Trading System Reference y Trading Engine Reference!",
                     "updated": 1625955775564,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Knoten nimmt einen Platz in einem kleineren Winkel ein - 90 Grad! Machen Sie dasselbe mit den Knoten \"Trading System Reference\" und \"Trading Engine Reference\"!",
+                    "updated": 1634297917131
                 }
             ]
         }

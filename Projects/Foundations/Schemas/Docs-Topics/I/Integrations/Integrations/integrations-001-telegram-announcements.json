@@ -868,16 +868,15 @@
             "text": "The solution is quite simple. Set up multiple bots. The rule of thumb is you should use one bot for each trading session. Remember you can include as many bots as you wish in your Telegram groups. That is, you may have different bots broadcast from different sessions in the same group.",
             "translations": [
                 {
-                    "language": "ID",
+                   "language": "ID",
                     "text": "Solusinya cukup mudah. Siapkan multiple bot. Aturan mainnya adalah kamu harus menggunakan satu untuk setiap sesi trading. Ingat kamu dapat memasukkan bot sebanyak kamu inginkan kedalam grup Telegrammu. Aritnya, kamu mungkin memiliki bot berbeda yang dibroadcast dari session berbeda dalam grup yang sama.",
                     "updated": 1616931501454,
                     "style": "Text"
                 },
-                {
+                {                    
                     "language": "DE",
                     "text": "Telegram erlaubt es nicht, mehrere Instanzen desselben Bots zu betreiben. Dies kann zu Warnungen, Fehlern, Verzögerungen bei der Nachrichtenzustellung, verlorenen Nachrichten und allgemeinem unregelmäßigem Verhalten führen.",
-                    "updated": 1634142192077,
-                    "style": "Text"
+                    "updated": 1634142192077
                 }
             ]
         },

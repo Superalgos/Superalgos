@@ -3,8 +3,8 @@
     "pageNumber": 27,
     "type": "Ascendex Test Status",
     "definition": {
-        "text": "Passed the Fetch OHLCV's tested. Backtesting and Live Trading haven't been tested yet",
-        "updated": 1634302026886
+        "text": "Passed the Fetch OHLCV's test. Backtesting and Live Trading haven't been tested yet",
+        "updated": 1634455181648
     },
     "paragraphs": [
         {

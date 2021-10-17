@@ -63,7 +63,7 @@ for (let i = 0; i < process.argv.length; i++) {
     if (arg === 'noBrowser') { continue }
     if (arg === 'minMemo') { continue }
     if (arg.indexOf(':') >= 0) { continue }
-    if (arg.indexOf('usr/local') >= 0) { continue }
+    if (arg.indexOf('/') >= 0) { continue }
 
     if (initialWorkspace.project === undefined) {
         if (arg !== 'My-Workspaces') {

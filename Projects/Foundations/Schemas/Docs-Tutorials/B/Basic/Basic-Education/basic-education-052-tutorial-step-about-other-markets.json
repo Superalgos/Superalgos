@@ -21,6 +21,11 @@
                 "text": "¡Puedes trabajar con cualquiera de los mercados listados en el exchange! ¡Echa un vistazo a la configuración en el nodo Exchange Markets!",
                 "updated": 1628020751758,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Sie können mit jedem der an der Börse gelisteten Märkte arbeiten! Werfen Sie einen Blick auf die Einrichtung im Knoten Exchange Markets!",
+                "updated": 1634590229826
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "No voy a explicar cómo configurar nuevos mercados, ya que el tema se trata en Install a New Market Tutorial in the Install a New Market Tutorial Plugin Workspace. ¡Solo quería hacerte saber que es fácil!",
                     "updated": 1628020854073,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich werde nicht erklären, wie man neue Märkte einrichtet, da das Thema im Tutorial Install a New Market Tutorial im the Install a New Market Tutorial Plugin Workspace behandelt wird. Ich wollte Sie nur wissen lassen, dass es ganz einfach ist!",
+                    "updated": 1634590236889
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "¡Eche un vistazo al menú del mercado BTC/USDT! Observe los botones \"Install Market\" y \"Uninstall Market\" . ¡Asi es como lo haces!",
                     "updated": 1628021245760,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Werfen Sie einen Blick auf das Menü des BTC/USDT-Marktes! Beachten Sie die Schaltflächen  \"Install Market\" und \"Uninstall Market\"! So machen Sie es!",
+                    "updated": 1634590245917
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "text": "¡Lo dejaré así y te dejaré hacer el Install a New Market Tutorial cuando sea tu tiempo!",
                     "updated": 1628021318712,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": " Ich lasse es dabei bewenden und überlasse Ihnen das Install a New Market Tutorial, wenn die Zeit reif ist!",
+                    "updated": 1634590252957
                 }
             ]
         }

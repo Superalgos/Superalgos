@@ -7,7 +7,7 @@
         "updated": 1613822257340,
         "translations": [
             {
-                "language": "DE",
+              "language": "DE",
                 "text": "Die Docs sind ursprünglich in Englisch geschrieben. Superalgos zugänglicher zu machen ist ein wichtiges Ziel, um die Gemeinschaft und die Community zu vergrößern. Die Übersetzung von Tutorials und Software-Dokumentation in andere Sprachen als Englisch ist von großem Wert! Ins deutsche übersetzt von gitforkgit.",
                 "updated": 1634133734053,
                 "style": "Definition"
@@ -510,9 +510,10 @@
                     "language": "ES",
                     "text": "De todos modos, este no es siempre el caso. Algunos pasos de los tutoriales están configurados para cerrar  los dcumentos o el editor, y cuando abre los documentos manualmente, la página del paso del tutorial no se carga automáticamente. En estos casos, deberá buscar la pagina por su nombre  — la cual debería coincidir con el titulo del paso en el tutorial — podrá acceder a la página en forma manual.",
                     "updated": 1633279497908,
-                    "style": "Important"
+                    "style": "Important" 
                 }
             ]
         }
     ]
 }
+

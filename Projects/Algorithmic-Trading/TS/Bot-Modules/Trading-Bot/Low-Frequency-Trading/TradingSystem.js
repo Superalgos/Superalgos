@@ -348,13 +348,13 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         }
         if (errorMessage !== undefined) {
             tradingSystem.addError([node.id, errorMessage, docs])
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] evalCondition -> errorMessage = ' + errorMessage)
         }
         if (value !== undefined) {
             tradingSystem.values.push([node.id, value])
         }
 
         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalCondition -> value = ' + value)
-        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalCondition -> errorMessage = ' + errorMessage)
     }
 
     function evalFormula(node) {

@@ -21,7 +21,7 @@ jobs:
         id: version
         uses: nyaa8/package-version@v1
         with:
-          path: './package.json' # Optional
+          path: './package.json'
 
       - name: Create nightly release
         id: create_release
@@ -60,14 +60,7 @@ jobs:
         id: version
         uses: nyaa8/package-version@v1
         with:
-          path: './package.json' # Optional
-
-      #- name: Update package.json version
-      #  uses: jossef/action-set-json-field@v1
-      #  with:
-      #    file: package.json
-      #    field: version
-      #    value: ${{ env.PACKAGE_VERSION }}.${{ steps.date.outputs.date }}
+          path: './package.json'
 
       - name: Build/release Electron app
         #env:

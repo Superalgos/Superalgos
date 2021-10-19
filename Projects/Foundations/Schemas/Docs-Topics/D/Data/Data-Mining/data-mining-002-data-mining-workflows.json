@@ -4,22 +4,50 @@
     "type": "Data Mining - Workflows",
     "definition": {
         "text": "Superalgos enables users to setup powerful data mining operations. This page will introduce the workflows that are involved in data mining.",
-        "updated": 1622201830789
+        "updated": 1622201830789,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Superalgos ermöglicht es Benutzern, leistungsstarke Data-Mining-Operationen einzurichten. Auf dieser Seite werden die Arbeitsabläufe vorgestellt, die beim Data Mining involviert sind.",
+                "updated": 1634578254653
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "In general, data flows from the Internet into the Superalgos system. Once inside, it is then processed and reprocessed and finally consumed by trading strategies.",
-            "updated": 1622201876819
+            "updated": 1622201876819,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Allgemeinen fließen die Daten aus dem Internet in das Superalgos-System. Dort werden sie anschließend verarbeitet und weiterverarbeitet und schließlich von den trading strategies (Handelsstrategien) verbraucht.",
+                    "updated": 1634578330154
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "As more users jump in to contribute and create more assets that they share with the community, the data mining capabilities of the system will expand.",
-            "updated": 1622201931367
+            "updated": 1622201931367,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bedingt dadurch, dass sich mehr Nutzer beteiligen und mehr Inhalte erstellen, die sie mit der Gemeinschaft teilen, werden die Data-Mining-Funktionen des Systems erweitert.",
+                    "updated": 1634578512210
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Two Main Data Workflows"
+            "text": "Two Main Data Workflows",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die zwei Haupt Daten-Workflows:",
+                    "updated": 1634578558625
+                }
+            ]
         },
         {
             "style": "Title",
@@ -28,74 +56,180 @@
         {
             "style": "List",
             "text": "Sensor Bot Workflow: Data arrives into the system through a Sensor Bot. In this main workflow, the resulting dataset serves as an input for an Indicator Bot that will further process it. ",
-            "updated": 1622202312743
+            "updated": 1622202312743,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sensor Bot Workflow: Die Daten werden über einen Sensor Bot in das System eingespeist. In diesem Haupt-Workflow dient der resultierende Datensatz als Input für einen Indicator Bot, der ihn weiterverarbeitet.",
+                    "updated": 1634580249065
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Why? Because the data arrives in a format that is not standardized to be consumed by trading strategies or plotted at the charts just yet (except for Webhooks that record data in the Single-File Dataset type which can be consumed by plotters and trading strategies)."
+            "text": "Why? Because the data arrives in a format that is not standardized to be consumed by trading strategies or plotted at the charts just yet (except for Webhooks that record data in the Single-File Dataset type which can be consumed by plotters and trading strategies).",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Warum? Weil die Daten in einem Format ankommen, das noch nicht standardisiert ist, um von Handelsstrategien verarbeitet oder in Charts dargestellt zu werden (mit Ausnahme von Webhooks, die Daten im Typ Single-File Dataset aufzeichnen, der von Plottern und trading strategies (Handelsstrategien) verarbeitet werden kann).",
+                    "updated": 1634580399832
+                }
+            ]
         },
         {
             "style": "List",
             "text": "API Data Fetcher Bot Workflow: Data arrives into the system through an API Data Fetcher Bot. In this main workflow, the resulting dataset serves as an input for an Indicator Bot that will further process it.",
-            "updated": 1622202181798
+            "updated": 1622202181798,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "API Data Fetcher Bot Workflow: Die Daten werden über einen API Data Fetcher Bot in das System eingespeist. In diesem Haupt-Workflow dient der resultierende Datensatz als Eingabe für einen Indicator Bot, der ihn danach weiter verarbeitet.",
+                    "updated": 1634580475107
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The data arriving from an external source is considered Raw Data. Both of these 2 workflows produce Raw Data that has to be digested by Indicator Bots.",
-            "updated": 1622202291043
+            "updated": 1622202291043,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Daten, die von einer externen Quelle kommen, werden als Raw Data (Rohdaten) betrachtet. Beide Workflows erzeugen Rohdaten, die von Indikator-Bots verarbeitet werden müssen.",
+                    "updated": 1634580517112
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Raw Data -> Indicator Bots",
-            "updated": 1621698286836
+            "updated": 1621698286836,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Rohdaten -> Indicator-Bots",
+                    "updated": 1634580556564
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Indicator bots have two different purposes. "
+            "text": "Indicator bots have two different purposes:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Indicator-Bots haben zwei unterschiedliche Zwecke:",
+                    "updated": 1634580952464
+                }
+            ],
+            "updated": 1634580879323
         },
         {
             "style": "List",
             "text": "Standardize Datasets: They are used for standardization of raw data extracted from the Internet by a Sensor Bot or an API Data Fetcher Bot. Once data is standardized, it can be run through other Indicator Bots that will extract the juice out of them. Once standardized, data can also be plotted and consumed by Trading Strategies. By standardizing, we are specifically referring to transforming the data into a Dataset type that can be used for plotting charts, or feeding Learning and Trading Bots. These Dataset types are Multi-Time-Frame-Daily and Multi-Time-Frame-Market.",
-            "updated": 1622203207179
+            "updated": 1622203207179,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Datensätze standardisieren: Sie werden zur Standardisierung von Rohdaten verwendet, die von einem Sensor Bot oder einem API Data Fetcher Bot aus dem Internet extrahiert wurden. Sobald die Daten standardisiert sind, können sie durch andere Indikator-Bots geleitet werden, die das Beste aus ihnen herausholen. Sobald die Daten standardisiert sind, können sie auch geplottet und von Trading Strategies (Handelsstrategien) verwendet werden. Mit Standardisierung meinen wir insbesondere die Umwandlung der Daten in einen Dataset Typ, der zum Plotten von Diagrammen oder zum Füttern von Lern- und Trading-Bots verwendet werden kann. Diese Datensatztypen sind Multi-Time-Frame-Daily und Multi-Time-Frame-Market.",
+                    "updated": 1634582999079
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Process Data: This means processing the data in any way that makes sense for users. Many users use Indicator Bots to calculate standard indicators, others calculate non-standard stuff, even ideas of what could be useful to extract from a certain dataset can be implemented. The system is open and allows users to do just that, play with the data by transforming it in any way they wish.",
-            "updated": 1622203469938
+            "updated": 1622203469938,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Daten verarbeiten: Dies bedeutet, dass die Daten auf jede Art und Weise verarbeitet werden, die für die Nutzer sinnvoll ist. Viele Nutzer verwenden Indicator Bots, um Standardindikatoren zu berechnen, andere berechnen nicht standardisierte Dinge, sogar Ideen, was aus einem bestimmten Datensatz nützlich sein könnte, können umgesetzt werden. Das System ist offen und erlaubt es den Nutzern, mit den Daten zu spielen, indem sie sie auf jede beliebige Art und Weise umwandeln.",
+                    "updated": 1634583321196
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Indicators -> Plotters",
-            "updated": 1621900608845
+            "updated": 1621900608845,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Indicators -> Plotter",
+                    "updated": 1634583699357
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Plotters are tools for users, not for bots. Plotters will render the information of a Dataset at the charts based on the plotter's definition. This allows users to visually discover patterns in datasets and generate ideas. These ideas can then help the user decide how to process the data further or feed the data to a Learning Bot or a Trading Bot.",
-            "updated": 1622203827359
+            "updated": 1622203827359,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Plotter sind Werkzeuge für Benutzer, nicht für Bots. Plotter stellen die Informationen eines Datensatzes auf der Grundlage der Definition des Plotters in den Diagrammen dar. Auf diese Weise können Nutzer visuell Muster in Datensätzen entdecken und Ideen entwickeln. Diese Ideen können dem Nutzer dann bei der Entscheidung helfen, wie er die Daten weiterverarbeitet oder sie an einen Learning Bot oder Trading Bot weitergibt.",
+                    "updated": 1634583962530
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "Plotters can only read data from certain Dataset types, you will learn which ones later on in this Topic."
+            "text": "Plotters can only read data from certain Dataset types, you will learn which ones later on in this Topic.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Plotter können nur Daten von bestimmten Dataset Typen lesen. Welche das sind, erfahren Sie später in diesem Thema.",
+                    "updated": 1634583996041
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Indicators -> Learning Bots (under development)",
-            "updated": 1621698378105
+            "updated": 1621698378105,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Indikatoren -> Learning Bots (stecken mitten in der Entwicklung):",
+                    "updated": 1634585606476
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Learning Bots have access to mined data which they use to train their AI Models. Once trained, these AI Models can be used by trading strategies to request predictions and act upon them.",
-            "updated": 1622204001242
+            "updated": 1622204001242,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Learning Bots haben Zugang zu geschürften Daten, die sie zum Trainieren ihrer KI-Modelle verwenden. Einmal trainiert, können diese KI-Modelle von Trading-Strategien genutzt werden, um Vorhersagen anzufordern und daraufhin zu handeln.",
+                    "updated": 1634585521697
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Indicators -> Trading Bots",
-            "updated": 1621698387166
+            "updated": 1621698387166,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Indikatoren -> Trading Bots",
+                    "updated": 1634585651731
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Trading bots are the ultimate consumer of data. They use the data they receive to make trading decisions based on their definitions. The ultimate purpose of the whole Data Mining operation is to digest data so that it is easily accessible for trading strategies.",
-            "updated": 1622204325508
+            "updated": 1622204325508,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Trading Bots sind die ultimativen Konsumenten von Daten. Sie nutzen die Daten, die sie erhalten, um auf der Grundlage ihrer Definitionen Handelsentscheidungen zu treffen. Der ultimative Zweck der gesamten Data-Mining-Operation besteht darin, Daten so zu verarbeiten, dass sie für Handelsstrategien leicht zugänglich sind.",
+                    "updated": 1634585828124
+                }
+            ]
         }
     ]
 }

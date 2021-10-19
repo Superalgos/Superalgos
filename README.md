@@ -84,6 +84,9 @@ You can use the windows installer (Setup file) which will install all the necess
 > **NOTE**
 > There's a known issue where the screen stays white. In this case, go to "View/Reload" and it should work. 
 
+> **NOTE**
+> The application is not signed yet. The antivirus probably will flag the file as unsecure. You can force the installation and running or way for the signed app. 
+
 The manual installation option, tailored for users who are experienced and who want to contribute to the project (highly appreciated and rewarded with SA tokens). Follow the install wizards to install the latest NodeJS and Github Desktop applications.
 
 - [Node.js download page](https://nodejs.org/en/download/). Select "Current" then "Windows Installer", then follow the wizard to install after the download completes.
@@ -92,6 +95,11 @@ The manual installation option, tailored for users who are experienced and who w
 - If you intend on running the machine learning features (TensorFlow), you must [install Python 2](https://www.python.org/downloads/release/python-2718/) as well.
 
 ### Mac OS Install
+
+You can use the MacOS installer (DMG file) which will install all the necessary dependencies and files for you to run the platform. Also the shortcuts are placed. This application will notify you and update as new releases come (to be released).
+
+> **NOTE**
+> The application is not signed. To be able to run you have to permit it in System Preferences > Security & Privacy > General > Open Anyway. 
 
 [Homebrew](https://brew.sh/) can be used to install the requirements with minimal effort on Mac OS.  After you clone the repository, change directory to the Superalgos base and install the requirements using the Brewfile. Python 3 is only required for running machine learning (TensorFlow).
 

@@ -1,5 +1,4 @@
 {
-    "main": "electron-wrapper.js",
     "appId": "org.superalgos.platform",
     "productName": "Superalgos",
     "asar": false,

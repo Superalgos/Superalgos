@@ -62,12 +62,12 @@ jobs:
         with:
           path: './package.json' # Optional
 
-      - name: Update package.json version
-        uses: jossef/action-set-json-field@v1
-        with:
-          file: package.json
-          field: version
-          value: ${{ env.PACKAGE_VERSION }}.${{ steps.date.outputs.date }}
+      #- name: Update package.json version
+      #  uses: jossef/action-set-json-field@v1
+      #  with:
+      #    file: package.json
+      #    field: version
+      #    value: ${{ env.PACKAGE_VERSION }}.${{ steps.date.outputs.date }}
 
       - name: Build/release Electron app
         #env:
@@ -77,7 +77,7 @@ jobs:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
           github_token: ${{ secrets.github_token }}
-          args: "-c build/electron-builder.json -p onTagOrDraft"
+          args: "-c.extraMetadata.main=electron-wrapper.js -c.extraMetadata.version=${{ env.PACKAGE_VERSION }}.${{ steps.date.outputs.date }} -c build/electron-builder.json -p onTagOrDraft"
 
           # If the commit is tagged with a version (e.g. "v1.0.0"),
           # release the app after building

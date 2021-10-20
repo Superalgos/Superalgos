@@ -1,0 +1,45 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 8,
+    "type": "Luno Test Status",
+    "definition": {
+        "text": "Luno is tested for data mining and for live trading - however, due to recent changes in their API, it has become virtually useless for back-testing, and not much better for live trading. See below for explanation.",
+        "updated": 1621587736536
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1615143100216
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: Yes - but with severe restrictions. The ability to fetch historic data for backtesting purposes has been now been severely restricted, since you can no longer fetch trades older than 24 hours.",
+            "updated": 1621587332130
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability [**]: Yes - but with restrictions. The ability to run strategies in live-trading mode is now possible. Ensure that the version of the CCXT library being used by Superalgos is 1.42.77 or better - earlier versions of this library did not correctly apply the precision settings of the exchange in the amounts specified for creating orders.",
+            "updated": 1621587760053
+        },
+        {
+            "style": "List",
+            "text": "Comments: Raw Data mining is extremely slow due to exchange restrictions on their API that limit the number of data it can be requested via Rest API. One day of Raw Data used to take about 5 minutes to download. However, since a recent upgrade (somewhere around 15th May, 2021) it is no longer possible to retrieve raw trades older than 24 hours. This means that a start day must be fully specified (i.e. both date and time), and it must be less than 24 hours behind the current date/time. Keep this in mind when setting a start date. The reason for this is because they do not support fetching of OHCLV data - this data has to be compiled by fetching individual trades. The fetching of trades is limited to 100 trades per request, and the rate limit is 1 second. Furthermore, you will need to run data mining for at least 24 hours before being able to start running any trading.",
+            "updated": 1621587866572
+        },
+        {
+            "style": "Subtitle",
+            "text": "RECOMMENDATION: Luno is no longer suitable for use with SuperAlgos until such time that the Luno developers implement the correct API for retrieving OHLCV data.",
+            "updated": 1621588017824
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"luno\",\n    \"API\": [\n        {\n            \"method\": \"fetch_ohlcv\",\n            \"useFetchTradesForFetchOHLCVs\": true,\n            \"maxTradesPerFetch\": 100,\n            \"limit\": 200,\n            \"rateLimit\": 1100\n        }\n    ]\n}",
+            "updated": 1615211372349
+        }
+    ]
+}

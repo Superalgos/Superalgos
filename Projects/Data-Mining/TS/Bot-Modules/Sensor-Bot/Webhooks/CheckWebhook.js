@@ -90,7 +90,7 @@ exports.newDataMiningBotModulesCheckWebhook = function (processIndex) {
                 try {
                     let http = SA.nodeModules.http
                     let url = 'http://' + global.env.WEB_SERVER_URL +
-                        ':' + global.env.CLIENT_HTTP_INTERFACE_PORT +
+                        ':' + global.env.PLATFORM_HTTP_INTERFACE_PORT +
                         '/Webhook/Fetch-Messages/' +
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" +
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + 

@@ -219,7 +219,6 @@ function newEventsServerClient(lanNetworkNode) {
             let host
             let port
             let extwsurl
-            /* At this point the node does not have the payload property yet, that is why we have to do this manually */
             try {
                 let config = JSON.parse(lanNetworkNode.config)
                 host = config.host

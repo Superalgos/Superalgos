@@ -19,8 +19,8 @@
         },
         {
             "style": "List",
-            "text": "Market History: Full extent is unknown, however it is at least 2020-01-01.",
-            "updated": 1617935743856
+            "text": "Market History: Full extent is unknown, however the sensor bot start from 2021-05-01 even through set date is 2020-01-01",
+            "updated": 1634126300339
         },
         {
             "style": "List",
@@ -38,8 +38,8 @@
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"coinbasepro\",\n    \"API\": [\n        {\n            \"method\": \"fetch_ohlcv\",\n            \"limit\": 300\n        }\n    ]\n}",
-            "updated": 1617935879109
+            "text": "{\n    \"codeName\": \"coinbasepro\",\n    \"API\": [\n        {\n            \"method\": \"fetch_ohlcv\",\n            \"limit\": 100\n        }\n    ]\n}",
+            "updated": 1634116119423
         },
         {
             "style": "Title",

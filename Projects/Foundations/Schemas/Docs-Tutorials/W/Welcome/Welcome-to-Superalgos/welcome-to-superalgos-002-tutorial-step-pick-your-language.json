@@ -31,7 +31,14 @@
             {
                 "language": "NL",
                 "text": "Gebruikers voegen vertalingen toe, zodat je jouw voorkeurstaal kan kiezen! Deze Community is geweldig!",
-                "updated": 1633850957963
+                "updated": 1633850957963,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Übersetzungen werden von Unterstützern aus der Community beigetragen, so dass Sie Ihre bevorzugte Sprache wählen können! Diese Community ist großartig!",
+                "updated": 1634159799660,
+                "style": "Definition"
             }
         ]
     },
@@ -62,7 +69,14 @@
                 {
                     "language": "NL",
                     "text": "Dit is hoe het werkt: de standaardtaal is Engels. Als je een andere taal kiest en er is een vertaling voor de huidige pagina, dan krijgt je deze te zien in de gekozen taal, anders zie je de pagina in het Engels!",
-                    "updated": 1633851093585
+                    "updated": 1633851093585,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "So funktioniert es: Standard ist Englisch. Wenn Sie eine andere Sprache wählen und es eine Übersetzung für die aktuelle Seite gibt, erhalten Sie diese in der gewählten Sprache. Andernfalls erhalten Sie die Seite auf Englisch!",
+                    "updated": 1634159943189,
+                    "style": "Text"
                 }
             ]
         },
@@ -92,7 +106,14 @@
                 {
                     "language": "NL",
                     "text": "Gebruik je muiswiel om de pagina aan de rechterkant naar beneden te scrollen. Als je het wilt, klik op een vlaggetje om de voorkeurstaal te wijzigen!",
-                    "updated": 1633851203889
+                    "updated": 1633851203889,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um die bevorzugte Sprache zu ändern scrollen Sie die Docs auf der rechten Seite ganz nach unten und klicken Sie auf die entsprechende Flagge.",
+                    "updated": 1634159894831,
+                    "style": "Callout"
                 }
             ]
         },
@@ -122,7 +143,14 @@
                 {
                     "language": "NL",
                     "text": "Alleen de Docs en de tutorials mogen worden vertaald niet de interface en de titels!",
-                    "updated": 1633851259089
+                    "updated": 1633851259089,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nur die Docs und Tutorials dürfen übersetzt werden, nicht aber das Interface oder die Titel!",
+                    "updated": 1634070001415,
+                    "style": "Note"
                 }
             ]
         }

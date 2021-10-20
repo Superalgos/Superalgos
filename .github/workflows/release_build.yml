@@ -1,9 +1,14 @@
-name: Build/release
+name: Build/release Binaries
 
 on: 
   push: 
+    branches: [master]
     tags: 
       - '*'
+    release:
+      types: [published, created, edited]
+
+  workflow_dispatch:
 
 jobs:
   release:
@@ -11,16 +16,16 @@ jobs:
 
     strategy:
       matrix:
-        os: [windows-latest]
+        os: [windows-latest, macos-latest]
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 14
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
@@ -28,7 +33,8 @@ jobs:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
           github_token: ${{ secrets.github_token }}
+          args: "-c.extraMetadata.main=electron-wrapper.js -c build/electron-builder.json"
 
           # If the commit is tagged with a version (e.g. "v1.0.0"),
           # release the app after building
-          release: ${{ startsWith(github.ref, 'refs/tags/v') }}
+          release: ${{ startsWith(github.ref, 'refs/tags/') }}

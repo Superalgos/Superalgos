@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "References son cómo un nodo puede obtener información sobre otro nodo no relacionado. Este es un concepto crucial, ¡así que presta atención!",
-                "updated": 1626374249599
+                "updated": 1626374249599,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Durch Verweise kann ein Knoten Informationen über einen anderen, nicht verwandten Knoten erhalten. Dies ist ein wichtiges Konzept, also passen Sie auf!",
+                "updated": 1634334022751
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "¡Lee esta página con atención! Si no eres un desarrollador, es posible que desees leerlo dos veces hasta que lo asimiles.",
-                    "updated": 1626374324926
+                    "updated": 1626374324926,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Lesen Sie diese Seite sorgfältig! Wenn Sie kein Entwickler sind, sollten Sie sie vielleicht zweimal lesen, bis Sie sie verstanden haben!",
+                    "updated": 1634334030518
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "En resumen, las referencias tienen ...",
-                    "updated": 1626374340957
+                    "updated": 1626374340957,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Kurz gesagt, Referenzen haben...",
+                    "updated": 1634334036037
                 }
             ]
         },
@@ -74,7 +92,13 @@
                 {
                     "language": "ES",
                     "text": "a direction: saliente o entrante,",
-                    "updated": 1626374361958
+                    "updated": 1626374361958,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "eine Richtung: ausgehend oder eingehend,",
+                    "updated": 1634334042695
                 }
             ]
         },
@@ -91,7 +115,13 @@
                 {
                     "language": "ES",
                     "text": "and a scope: Interno o externo.",
-                    "updated": 1626374390593
+                    "updated": 1626374390593,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "und einen Geltungsbereich: intern oder extern.",
+                    "updated": 1634334050191
                 }
             ]
         },
@@ -109,7 +139,13 @@
                 {
                     "language": "ES",
                     "text": "El último concepto, el alcance de una referencia, es crucial para comprender las diferencias entre Backups y Clones.",
-                    "updated": 1626374427839
+                    "updated": 1626374427839,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": " Das letztere Konzept - der Geltungsbereich einer Referenz - ist entscheidend für das Verständnis der Unterschiede zwischen Backups und Clones.",
+                    "updated": 1634334057640
                 }
             ]
         }

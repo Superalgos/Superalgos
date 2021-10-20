@@ -1,0 +1,80 @@
+name: Nightly develop Binaries
+
+on:
+  schedule:
+    - cron:  '20 3 * * *'
+
+  workflow_dispatch:
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download a file
+        run: curl "https://raw.githubusercontent.com/${{ github.repository }}/develop/package.json" -o package.json
+
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y%m%d')"
+
+      - name: get-version
+        id: version
+        uses: nyaa8/package-version@v1
+        with:
+          path: './package.json'
+
+      - name: Create nightly release
+        id: create_release
+        uses: viperproject/create-nightly-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.PACKAGE_VERSION }}.${{ steps.date.outputs.date }}
+          release_name: Superalgos ${{ env.PACKAGE_VERSION }} Snapshot ${{ steps.date.outputs.date }}
+          keep_num: 5
+          keep_tags: false
+
+  build-release:
+    runs-on: ${{ matrix.os }}
+    needs: create-release
+    strategy:
+        matrix:
+          os: [windows-latest, macos-latest]
+
+    steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y%m%d')"
+
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+        with:
+          ref: develop
+
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - name: get-version
+        id: version
+        uses: nyaa8/package-version@v1
+        with:
+          path: './package.json'
+
+      - name: Build/release Electron app
+        #env:
+        #  DATE: ${{ steps.date.outputs.date }}
+        uses: samuelmeuli/action-electron-builder@v1
+        with:
+          # GitHub token, automatically provided to the action
+          # (No need to define this secret in the repo settings)
+          github_token: ${{ secrets.github_token }}
+          args: "-c.extraMetadata.main=electron-wrapper.js -c.extraMetadata.version=${{ env.PACKAGE_VERSION }}.${{ steps.date.outputs.date }} -c build/electron-builder.json -p onTagOrDraft"
+
+          # If the commit is tagged with a version (e.g. "v1.0.0"),
+          # release the app after building
+          # release: ${{ startsWith(github.ref, 'refs/tags/v') }}
+          release: true
+ 
+

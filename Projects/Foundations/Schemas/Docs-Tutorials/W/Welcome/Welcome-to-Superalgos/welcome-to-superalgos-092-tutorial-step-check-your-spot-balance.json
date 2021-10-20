@@ -20,6 +20,11 @@
                 "text": "Antes de ejecutar el Live Trading Session, asegúrate de tener suficiente saldo en USDT al contado en el exchange.",
                 "updated": 1624471256717,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Werfen Sie einen Blick auf Ihren Kontostand an der Börse und sorgen Sie für genügend USDT für die Session!",
+                "updated": 1634243867885
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "text": "¡Eche un vistazo a su saldo en el exchange y organiza suficientes USDT para la sesión!",
                     "updated": 1624471291732,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Werfen Sie einen Blick auf Ihren Kontostand an der Börse und sorgen Sie für genügend USDT für die Session!",
+                    "updated": 1634243896032
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "text": "El Trading Bot colocará una orden limitada para el inicialBalance y la cancelará al minuto siguiente en caso de que no se complete, como se explicó anteriormente.",
                     "updated": 1624471439730,
                     "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Trading Bot wird eine Limit Order für das initiale Guthaben platzieren und sie in der nächsten Minute stornieren, falls sie nicht ausgeführt wird, wie zuvor erklärt.",
+                    "updated": 1634243904481
                 }
             ]
         },
@@ -76,6 +91,11 @@
                     "text": "¡Continúa incluso si no estás listo para la sesión! ¡Es importante porque hay más cosas que aprender en el tutorial!",
                     "updated": 1624471521635,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Machen Sie weiter, auch wenn Sie nicht bereit sind zu handeln! Das ist wichtig, denn es gibt noch mehr Dinge im Tutorial zu lernen!",
+                    "updated": 1634243912421
                 }
             ]
         }

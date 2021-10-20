@@ -13,7 +13,8 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Position",
-            "relatedUiObject": "Position"
+            "relatedUiObject": "Position",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",

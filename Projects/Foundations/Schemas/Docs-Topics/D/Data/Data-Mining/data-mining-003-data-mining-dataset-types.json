@@ -4,7 +4,14 @@
     "type": "Data Mining - Dataset Types",
     "definition": {
         "text": "Superalgos organizes data into datasets. These datasets are standardized across the system using different type definitions.",
-        "updated": 1622204454559
+        "updated": 1622204454559,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Superalgos organisiert Daten in Datasets (Datensätze). Diese Datensätze sind systemübergreifend durch unterschiedliche Typdefinitionen standardisiert.",
+                "updated": 1634586751277
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,16 +22,37 @@
         {
             "style": "Title",
             "text": "Dataset Types",
-            "updated": 1622227827875
+            "updated": 1622227827875,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Datensatz-Typen:",
+                    "updated": 1634586996444
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is the complete list of Dataset types currently supported by the system:"
+            "text": "This is the complete list of Dataset types currently supported by the system:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist die vollständige Liste der derzeit vom System unterstützten Dataset Typen:",
+                    "updated": 1634587492613
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Single-File: As the name suggests, this Dataset consists of only one file containing all the data. This Dataset type can be plotted and its data consumed by and within Trading Strategies. The API Data Fetcher Bot can also save Raw Data in this type of dataset, if needed.",
-            "updated": 1622204763019
+            "updated": 1622204763019,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Single-File (Einzeldatei): Wie der Name schon sagt, besteht dieses Dataset aus nur einer Datei, die alle Daten enthält. Dieser Dataset-Typ kann geplottet werden und seine Daten können von und in Handelsstrategien verwendet werden. Der API Data Fetcher Bot kann bei Bedarf auch Rohdaten in diesem Dataset-Typ speichern.",
+                    "updated": 1634588065048
+                }
+            ]
         },
         {
             "style": "Note",

@@ -21,6 +21,11 @@
                 "text": "Cuando pasas el puntero del mouse sobre un nodo con una referencia saliente, la referencia se vuelve visible.",
                 "updated": 1626532933005,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie mit dem Mauszeiger über einen Knoten mit einer ausgehenden Referenz fahren, wird die Referenz sichtbar.\nEs gibt aber auch eine Möglichkeit, alle Verweise sichtbar zu machen!",
+                "updated": 1634334263709
             }
         ]
     },
@@ -60,6 +65,11 @@
                     "text": "Presiona la siguiente combinación de teclas: Ctrl + Shift + Alt + Key-R",
                     "updated": 1626532976069,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie die folgende Tastenkombination: Ctrl + Shift + Key-R oder Cmd + Shift + Key-R auf einem Mac.",
+                    "updated": 1634334380790
                 }
             ]
         },
@@ -79,6 +89,11 @@
                     "text": "Ahora puede ver las referencias que salen tanto del nodo Trading System Reference y el nodo Trading Engine Reference.",
                     "updated": 1626533039571,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jetzt können Sie die Referenzen sehen, die sowohl vom Knoten Handelssystem-Referenz als auch vom Knoten Handelsmodul-Referenz ausgehen.",
+                    "updated": 1634334332966
                 }
             ]
         },
@@ -98,6 +113,11 @@
                     "text": "Haz clic derecho para acceder al mapa Design Space y observa otras referencias que puedan ser visibles.",
                     "updated": 1626533199736,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste, um auf die Design Space Map zuzugreifen und andere Referenzen zu sehen, die möglicherweise sichtbar sind.",
+                    "updated": 1634334343062
                 }
             ]
         }

@@ -20,6 +20,11 @@
                 "text": "No hemos hablado de los Trading Systems como un marco, pero una característica relevante para esta explicación es que pueden manejar múltiples estrategias.",
                 "updated": 1624460329052,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wir haben noch nicht über Handelssysteme als Rahmenwerk gesprochen, aber ein für diese Erklärung relevantes Merkmal ist, dass sie mehrere Strategien handhaben können.",
+                "updated": 1634225842126
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "text": "Cada estrategia presenta un Open Stage y un Close Stage, cada uno con sus propias definiciones de ejecución. Cada etapa puede presentar múltiples algoritmos de ejecución y cada algoritmo puede manejar múltiples órdenes.",
                     "updated": 1624460372216,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jede Strategie verfügt über eine Open Stage und eine Close Stage, die jeweils eigene Ausführungsdefinitionen haben. Jede Phase kann mehrere Ausführungsalgorithmen enthalten, und jeder Algorithmus kann mehrere Aufträge verarbeiten.",
+                    "updated": 1634225846386
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "text": "¿Ves el patrón? Lo llamamos granularidad.",
                     "updated": 1624460392079,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erkennen Sie das Muster? Wir nennen es Granularität.",
+                    "updated": 1634225855936
                 }
             ]
         },
@@ -75,6 +90,11 @@
                     "text": "Superalgos desglosa cada tema a la mínima expresión e integra las soluciones. Así es como le permite diseñar, implementar y administrar configuraciones de trading tan simples y tan complejas como puedas imaginar.",
                     "updated": 1624460510159,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos bricht jedes Problem auf den kleinsten Ausdruck herunter und integriert die Lösungen. Auf diese Weise können Sie sowohl einfache als auch die komplexesten Handels-Setups entwerfen, einsetzen und verwalten, die Sie sich vorstellen können.",
+                    "updated": 1634225869664
                 }
             ]
         }

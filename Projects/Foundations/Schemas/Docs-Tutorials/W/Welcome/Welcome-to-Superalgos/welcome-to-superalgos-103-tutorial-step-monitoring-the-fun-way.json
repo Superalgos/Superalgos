@@ -20,6 +20,11 @@
                 "text": "¿Pensaste que te permitiría monitorear el Live Trading Session viendo la desagradable lista de órdenes en el exchange? ¡De ninguna manera!",
                 "updated": 1624485064261,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Sie dachten, ich würde Sie den Live Trading Session überwachen lassen, indem Sie die hässliche Liste der Aufträge an der Börse beobachten? Weit gefehlt!",
+                "updated": 1634245518290
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "text": "Superalgos también produce el mismo tipo de simulaciones que te enamoraron para las sesiones en vivo, ¡en tiempo real!",
                     "updated": 1624485018498,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos produziert die gleiche Art von Simulationen, in die Sie sich verliebt haben, auch für Live-Sessions, in Echtzeit!",
+                    "updated": 1634245526070
                 }
             ]
         },
@@ -58,6 +68,11 @@
                     "text": "¿Puedes ver las primeras órdenes de compra?",
                     "updated": 1625929057040,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Können Sie die ersten Kaufaufträge auf dem Chart sehen?",
+                    "updated": 1634245535663
                 }
             ]
         },
@@ -76,6 +91,11 @@
                     "text": "Te acabo de traer al presente, en el gráfico de 1 minuto. Deberías poder ver la última formación de velas y algunos pedidos ya. El Rate Scale está en modo automático en ambos extremos. Siéntete libre de cambiar las escalas a tu gusto.",
                     "updated": 1624497121831,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich habe Sie gerade in die Gegenwart gebracht, in den 1-Minuten-Chart. Sie sollten in der Lage sein, die letzte Kerze zu sehen, die sich gebildet hat, und bereits ein paar Aufträge. Die Rate Scale ist an beiden Enden im automatischen Modus. Es steht Ihnen frei, die Skalen nach Ihren Wünschen zu ändern.",
+                    "updated": 1634245542981
                 }
             ]
         }

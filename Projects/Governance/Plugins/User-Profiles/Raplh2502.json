@@ -23,15 +23,15 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "a7bd0da0-fe5b-41ad-9ab6-e70a1ce774d1",
+                    "id": "88da3219-2703-4206-a23c-f95181f10242",
                     "savedPayload": {
                         "position": {
-                            "x": 49439.8183809071,
-                            "y": -25985.00533062487
+                            "x": 21176.656341247235,
+                            "y": 43724.4360306208
                         },
                         "targetPosition": {
-                            "x": 49733.26266112724,
-                            "y": -25922.631823379543
+                            "x": 21470.100621467376,
+                            "y": 43786.809537866124
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -46,15 +46,15 @@
                         }
                     }
                 },
-                "id": "5b868622-a889-4f13-a6ba-0790c0c57750",
+                "id": "af66bbbe-47f4-4b26-b5ae-7969ed8c05a1",
                 "savedPayload": {
                     "position": {
-                        "x": 49733.26266112724,
-                        "y": -25922.631823379543
+                        "x": 21470.100621467376,
+                        "y": 43786.809537866124
                     },
                     "targetPosition": {
-                        "x": 50026.70694134739,
-                        "y": -25860.258316134215
+                        "x": 21763.544901687517,
+                        "y": 43849.18304511145
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -78,15 +78,15 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "baf3e806-0255-4941-888a-a530f7a98496",
+                    "id": "f39a50ed-25fb-4031-92c9-2178cb7aea09",
                     "savedPayload": {
                         "position": {
-                            "x": 50428.185305162704,
-                            "y": -26306.14521142065
+                            "x": 22165.023265502834,
+                            "y": 43403.29614982501
                         },
                         "targetPosition": {
-                            "x": 50227.446123255046,
-                            "y": -26083.201763777433
+                            "x": 21964.284083595176,
+                            "y": 43626.23959746823
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -101,15 +101,15 @@
                         }
                     }
                 },
-                "id": "29cbf82c-d53b-44e2-98b8-7ff297ee77de",
+                "id": "7537fe52-fc60-49a6-b876-3127795d95c7",
                 "savedPayload": {
                     "position": {
-                        "x": 50227.446123255046,
-                        "y": -26083.201763777433
+                        "x": 21964.284083595176,
+                        "y": 43626.23959746823
                     },
                     "targetPosition": {
-                        "x": 50026.70694134739,
-                        "y": -25860.258316134215
+                        "x": 21763.544901687517,
+                        "y": 43849.18304511145
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -124,15 +124,15 @@
                     }
                 }
             },
-            "id": "59605729-c2b7-4f72-9aac-f90b799904be",
+            "id": "db8ad20a-9625-4687-b77f-e2a7e65d857d",
             "savedPayload": {
                 "position": {
-                    "x": 5207.294901687515,
-                    "y": 23964.683045111455
+                    "x": 21763.544901687517,
+                    "y": 43849.18304511145
                 },
                 "targetPosition": {
-                    "x": 5300,
-                    "y": 24250
+                    "x": 21856.25,
+                    "y": 44134.5
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -163,7 +163,7 @@
                         "name": "Julian-Molina",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "33626cde-884e-4607-9769-e9ea2f635942",
+                        "id": "369dacdd-832c-4904-b0e2-d216626a42fc",
                         "savedPayload": {
                             "position": {
                                 "x": 46675.354418524534,
@@ -187,14 +187,12 @@
                             "referenceParent": {
                                 "type": "User Profile",
                                 "name": "Julian-Molina",
-                                "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11"
+                                "id": "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
-                                    "User Profile",
-                                    "Governance",
-                                    "1fd95e41-4b22-48d5-be3a-904c37afcb11"
+                                    "User Profile"
                                 ]
                             ]
                         }
@@ -204,7 +202,7 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "9f589a06-d98a-4feb-85a5-233507b6d626",
+                    "id": "a94d0dc4-0329-4a6e-a8d7-a9f8378ae69f",
                     "savedPayload": {
                         "position": {
                             "x": 46565.5467973892,
@@ -231,7 +229,7 @@
                     "type": "Tokens Bonus",
                     "name": "New Tokens Bonus",
                     "project": "Governance",
-                    "id": "a482f8fb-c6bd-4640-9aac-6abc58b2bffd",
+                    "id": "5ae42507-3c1e-4476-af00-94ac261ef774",
                     "savedPayload": {
                         "position": {
                             "x": 46975.354418524534,
@@ -254,7 +252,7 @@
                         }
                     }
                 },
-                "id": "ccf32689-b3e7-4b4a-b457-2ec356ce9a28",
+                "id": "ffc6c079-faaf-40db-bab3-8e57f72d930e",
                 "savedPayload": {
                     "position": {
                         "x": 46825.354418524534,
@@ -288,7 +286,7 @@
                         "name": "Julian-Molina",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "0ecc93cd-c518-41da-88bf-38cc199dffad",
+                        "id": "3de9114c-755f-4c08-a36f-02ca4dc24fd4",
                         "savedPayload": {
                             "position": {
                                 "x": 46961.09840236709,
@@ -312,24 +310,22 @@
                             "referenceParent": {
                                 "type": "User Profile",
                                 "name": "Julian-Molina",
-                                "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11"
+                                "id": "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
-                                    "User Profile",
-                                    "Governance",
-                                    "1fd95e41-4b22-48d5-be3a-904c37afcb11"
+                                    "User Profile"
                                 ]
                             ]
                         }
                     },
                     {
                         "type": "User Supporter",
-                        "name": "",
+                        "name": "harrellbm",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "082bf3f8-3d66-4b3a-b189-fd744d44f143",
+                        "id": "98d14088-a9ea-4e84-9175-1535fb7566e7",
                         "savedPayload": {
                             "position": {
                                 "x": 46941.71775943972,
@@ -370,7 +366,7 @@
                         "name": "Luis-Fernando-Molina",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "f78404df-d725-4012-b664-fc0508fa0317",
+                        "id": "24a69823-c5d2-4a26-9e54-4d7ca2585f6c",
                         "savedPayload": {
                             "position": {
                                 "x": 47034.42285775221,
@@ -408,10 +404,10 @@
                     },
                     {
                         "type": "User Supporter",
-                        "name": "",
+                        "name": "ssplatt",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "521317f9-8e62-4a27-a6d0-07ade0cd6f10",
+                        "id": "307a8be7-34e7-4e11-afc0-05bbe83161e7",
                         "savedPayload": {
                             "position": {
                                 "x": 47203.80350067957,
@@ -452,7 +448,7 @@
                         "name": "9808us",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "607e01b2-6eec-4303-b570-8a88d35a7186",
+                        "id": "5633aab6-ea67-4970-a3bd-1fc53bd85db1",
                         "savedPayload": {
                             "position": {
                                 "x": 47385.16203965987,
@@ -490,10 +486,10 @@
                     },
                     {
                         "type": "User Supporter",
-                        "name": "",
+                        "name": "Smidy13",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "b21fc78d-f642-4d53-9500-c1d93e8c3186",
+                        "id": "773d8eb2-b937-4ccc-a807-eb647cf56b26",
                         "savedPayload": {
                             "position": {
                                 "x": 47509.22567695265,
@@ -531,10 +527,10 @@
                     },
                     {
                         "type": "User Supporter",
-                        "name": "",
+                        "name": "cozed-gh",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "b56855ae-ed50-4ea4-87ad-636a7fad76e0",
+                        "id": "d26ca541-0e12-47d5-8ec5-6f9e2937432c",
                         "savedPayload": {
                             "position": {
                                 "x": 47528.606319880004,
@@ -575,7 +571,7 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "d6f3df32-782e-4568-be8b-1025d6e9da9a",
+                    "id": "4f94e117-7449-44b3-b251-11209bfb27ea",
                     "savedPayload": {
                         "position": {
                             "x": 47435.901221567525,
@@ -602,7 +598,7 @@
                     "type": "Tokens Bonus",
                     "name": "New Tokens Bonus",
                     "project": "Governance",
-                    "id": "3caa341d-f3b7-4b88-be02-7650d7251a0f",
+                    "id": "c61d61e2-7adf-4fe2-9379-459cc3d21cac",
                     "savedPayload": {
                         "position": {
                             "x": 47266.520578640164,
@@ -625,7 +621,7 @@
                         }
                     }
                 },
-                "id": "b3fd8174-08b9-4c47-aa3d-584c21fcc181",
+                "id": "c3f130eb-30cd-4bf0-80d6-14ac85580b47",
                 "savedPayload": {
                     "position": {
                         "x": 47235.16203965987,
@@ -659,7 +655,7 @@
                         "name": "Luis-Fernando-Molina",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "8d0ee7a4-b389-4c2c-8074-333ba3dac965",
+                        "id": "6f50d792-80ea-4498-9abc-bf1c56364c06",
                         "savedPayload": {
                             "position": {
                                 "x": 47407.34316804053,
@@ -697,10 +693,10 @@
                     },
                     {
                         "type": "User Mentor",
-                        "name": "",
+                        "name": "PLuv",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "821753dd-4cfd-4307-a54d-95a1a8c70e8a",
+                        "id": "811b55d8-ce67-4003-ad24-77e76d7f1e09",
                         "savedPayload": {
                             "position": {
                                 "x": 47643.326229405684,
@@ -741,7 +737,7 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "b45a0bb9-e1cd-45d8-999b-2131f56bf865",
+                    "id": "1d6eb4a8-b78e-4fed-b6cf-e3a294254b4b",
                     "savedPayload": {
                         "position": {
                             "x": 47466.99065371794,
@@ -768,7 +764,7 @@
                     "type": "Tokens Bonus",
                     "name": "New Tokens Bonus",
                     "project": "Governance",
-                    "id": "0c830369-2b70-4b63-8495-03d6f134b265",
+                    "id": "f9999c12-b0aa-41a2-a2e1-ae5f2de75c17",
                     "savedPayload": {
                         "position": {
                             "x": 47122.026213151985,
@@ -791,7 +787,7 @@
                         }
                     }
                 },
-                "id": "127c94a4-1f0f-4b19-96be-88d651f77ca2",
+                "id": "eb860719-769c-43c9-b395-737dd5034264",
                 "savedPayload": {
                     "position": {
                         "x": 47344.9696607952,
@@ -814,15 +810,15 @@
                     }
                 }
             },
-            "id": "ab72e17b-50b0-4cde-afb2-f4923ff6c9d5",
+            "id": "d3becb67-0e17-4de1-b424-ad6b1054c034",
             "savedPayload": {
                 "position": {
-                    "x": 5542.705098312485,
-                    "y": 24073.664424312257
+                    "x": 22098.955098312483,
+                    "y": 43958.16442431226
                 },
                 "targetPosition": {
-                    "x": 5300,
-                    "y": 24250
+                    "x": 21856.25,
+                    "y": 44134.5
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -883,7 +879,7 @@
                                                         "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
-                                                        "id": "918e4e4a-0f43-4168-bb7f-0e347ac68764",
+                                                        "id": "c4fb3514-666a-4a39-a42a-52b9c2bda19e",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 54618.22857753207,
@@ -942,7 +938,7 @@
                                                         "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
-                                                        "id": "7997bd35-4cba-4f30-9f82-3c75449469b8",
+                                                        "id": "1ded0865-1b7c-40e5-a6df-69898a7930ba",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 54726.26266112724,
@@ -997,7 +993,7 @@
                                                         }
                                                     }
                                                 ],
-                                                "id": "842506c6-38d4-48ee-b23d-513fed3359b5",
+                                                "id": "140be743-f8df-4351-bf8a-9068d8fec1a4",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 54818.96775943973,
@@ -1060,7 +1056,7 @@
                                                         "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
-                                                        "id": "e3c4e7d0-ec4a-4bee-bc31-8d2e78064438",
+                                                        "id": "230746f5-8f90-4199-a086-19ec8a7948c8",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 54806.98986338679,
@@ -1119,7 +1115,7 @@
                                                         "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
-                                                        "id": "5c0388c3-fef7-4c3b-b7be-af67c296dee4",
+                                                        "id": "4ae73898-08ea-4749-a5f4-a2ec2c09b010",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 55323.758598992055,
@@ -1174,7 +1170,7 @@
                                                         }
                                                     }
                                                 ],
-                                                "id": "cf518545-de2e-472a-aa94-78822dcc24f6",
+                                                "id": "e9b84f05-7765-43a0-a95e-17c8c6ba22fd",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 55081.05350067957,
@@ -1237,7 +1233,7 @@
                                                         "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
-                                                        "id": "cda268d5-e0e1-440f-ba8f-d867ceaf2239",
+                                                        "id": "d756033c-03fe-49f4-9215-80e53d6edabc",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 55660.53931424543,
@@ -1292,7 +1288,7 @@
                                                         }
                                                     }
                                                 ],
-                                                "id": "ad264cba-6f81-4b39-ad23-4e00334f8dd7",
+                                                "id": "a27be009-8783-4f13-93f6-a4bbd0bd593f",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 55386.47567695265,
@@ -1350,7 +1346,7 @@
                                                 "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
-                                                "id": "a17d037b-0e2c-4bfe-b5a3-09e7107e2812",
+                                                "id": "537b7c8f-0478-4e1d-932f-779854e6d04f",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 55313.151221567525,
@@ -1399,7 +1395,7 @@
                                                 }
                                             }
                                         ],
-                                        "id": "53270d0c-9445-43f4-ba5a-3db49d18b645",
+                                        "id": "4274bc12-e5d7-4c20-91bf-948c980ceaf6",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 55112.41203965987,
@@ -1422,7 +1418,7 @@
                                             },
                                             "referenceParent": {
                                                 "type": "Position Class",
-                                                "name": "Rewarded Positions",
+                                                "name": "Roles Played @ Beta-12",
                                                 "id": "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                             },
                                             "referenceParentCombinedNodePath": [
@@ -1430,10 +1426,10 @@
                                                     "Superalgos",
                                                     "Positions",
                                                     "Governance",
-                                                    "50c68665-5da2-48a8-b229-7a1563ae82d2"
+                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                 ],
                                                 [
-                                                    "Rewarded Positions",
+                                                    "Roles Played @ Beta-12",
                                                     "Position Class",
                                                     "Governance",
                                                     "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
@@ -1446,15 +1442,15 @@
                                 "assetWeightVotes": [],
                                 "featureWeightVotes": [],
                                 "positionWeightVotes": [],
-                                "id": "09f0077c-ea01-4615-9a2f-a7b631caa49f",
+                                "id": "1c105a2b-d6bb-491a-96c1-826047bf48aa",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 59574.91203965987,
-                                        "y": -11681.44136124567
+                                        "x": 22130.31363729278,
+                                        "y": 44012.47900707726
                                     },
                                     "targetPosition": {
-                                        "x": 59874.91203965987,
-                                        "y": -11681.44136124567
+                                        "x": 22404.37727458556,
+                                        "y": 43890.458014154516
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1513,7 +1509,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "f3dd2d01-04d0-418f-99bb-00a2ade93144",
+                                                                "id": "0bf92982-c323-4c48-a9e6-e967de8d083a",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 47725.354418524534,
@@ -1578,7 +1574,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "1795adeb-96de-49da-a3a0-6348924305e7",
+                                                                "id": "600f0e3f-b2c9-4d2b-890f-02d341cda8a2",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 47465.5467973892,
@@ -1641,7 +1637,7 @@
                                                         ],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "830fe5aa-4580-4543-b87d-3e26ed182bbd",
+                                                        "id": "58f1f57a-a374-483f-81a5-17a2ccf10504",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 47725.354418524534,
@@ -1708,7 +1704,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "ea97de09-41c3-46e0-b6a7-352e501ce3a8",
+                                                                "id": "498a5f5d-0306-4436-a3cb-ea0cedcf8c97",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 47685.16203965987,
@@ -1773,7 +1769,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "fa130c21-7a1a-481e-b5c8-a7255103f3b1",
+                                                                "id": "83a71279-c41c-46fe-a795-432920e6606c",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 47535.16203965987,
@@ -1838,7 +1834,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "8e2639bc-0274-4a90-a6d1-fbe2f13879ab",
+                                                                "id": "a4347ee9-2f94-4106-8fd9-bc260dd42b3f",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 47685.16203965987,
@@ -1903,7 +1899,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "9d5091f6-55ec-46cf-a994-b0f1781c46eb",
+                                                                "id": "670076bd-17be-4e44-9e54-18053286644b",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 47985.16203965987,
@@ -1968,7 +1964,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "c26f0305-1655-4fbc-8a67-1e614b4346e0",
+                                                                "id": "c83857c0-e09d-4705-9803-df25d4ffee80",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 48135.16203965987,
@@ -2031,7 +2027,7 @@
                                                         ],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "36b8257d-348c-4c6b-9066-7ac9e847014f",
+                                                        "id": "85731e18-607f-4bad-8535-ebbc7f05f0d7",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 47835.16203965987,
@@ -2098,7 +2094,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "8b72da51-9826-4011-859d-cc040ac79271",
+                                                                "id": "bb375524-71fc-46ec-b7d7-448256c237e3",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 48504.77728193053,
@@ -2161,7 +2157,7 @@
                                                         ],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "20e8a577-092e-4a24-8152-e8659ccc66fe",
+                                                        "id": "d1045359-64d8-4c5a-9a3c-0984f2d10bb6",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 48244.9696607952,
@@ -2220,7 +2216,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "a9a7f802-f896-444f-bea7-1c72a2b8a064",
+                                                "id": "25f4bc88-3778-4c29-a86d-553a2d8cd6b5",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 47985.16203965987,
@@ -2293,7 +2289,7 @@
                                                                         "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
-                                                                        "id": "189944d8-af08-4064-b8a0-f733539b2af5",
+                                                                        "id": "4ad22d38-c45b-478a-9d7b-a4906007ef2b",
                                                                         "savedPayload": {
                                                                             "position": {
                                                                                 "x": 47900.60740403388,
@@ -2362,7 +2358,7 @@
                                                                 ],
                                                                 "featureWeightVotes": [],
                                                                 "positionWeightVotes": [],
-                                                                "id": "8d08aee5-3460-4645-8973-b19c439040c0",
+                                                                "id": "741f7efb-d264-4329-bb68-dac9a9dd1550",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 47962.980911279206,
@@ -2435,7 +2431,7 @@
                                                                         "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
-                                                                        "id": "db41e456-6a37-4666-bf1f-f8b390b2b93c",
+                                                                        "id": "d4d6d705-5b13-447e-9dea-dd962dff8300",
                                                                         "savedPayload": {
                                                                             "position": {
                                                                                 "x": 47428.64128130357,
@@ -2504,7 +2500,7 @@
                                                                 ],
                                                                 "featureWeightVotes": [],
                                                                 "positionWeightVotes": [],
-                                                                "id": "87bdfa02-caa1-4dc7-88f4-c84289c4e2bf",
+                                                                "id": "6c280972-6746-4b32-a015-fc92d8342ad2",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 47726.99784991405,
@@ -2577,7 +2573,7 @@
                                                                         "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
-                                                                        "id": "a182ebe9-3752-442a-beda-c2c243ae0863",
+                                                                        "id": "5b84b46e-f2f2-498a-9ba6-a925da9a7290",
                                                                         "savedPayload": {
                                                                             "position": {
                                                                                 "x": 47781.31243267906,
@@ -2646,7 +2642,7 @@
                                                                 ],
                                                                 "featureWeightVotes": [],
                                                                 "positionWeightVotes": [],
-                                                                "id": "df93c963-b42b-43c7-b512-4aefd1c7582a",
+                                                                "id": "04a3ceed-b44e-4c4c-9ca0-8ea56dee38d7",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 47903.33342560179,
@@ -2719,7 +2715,7 @@
                                                                         "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
-                                                                        "id": "de59345f-1600-49d6-a457-105ac87b83a3",
+                                                                        "id": "88868d50-ba65-4371-bb73-544cf0b76f5e",
                                                                         "savedPayload": {
                                                                             "position": {
                                                                                 "x": 48471.24131381097,
@@ -2788,7 +2784,7 @@
                                                                 ],
                                                                 "featureWeightVotes": [],
                                                                 "positionWeightVotes": [],
-                                                                "id": "ea7b2796-fd01-4c6c-b4f3-748cb733b7ef",
+                                                                "id": "cc36bb46-2a79-49b7-a62e-4121781aae9e",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 48248.297866167755,
@@ -2853,7 +2849,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "9eefa8ae-c9a7-4db1-8079-6eaf0293ffce",
+                                                        "id": "aec70c33-9fae-4ae5-bbf2-df7bdb4a55a1",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 48025.354418524534,
@@ -2926,7 +2922,7 @@
                                                                         "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
-                                                                        "id": "6b65f21d-63a7-40ef-aba0-b3091c161c62",
+                                                                        "id": "2f71c684-a383-4bc0-bd41-05ae3926dd35",
                                                                         "savedPayload": {
                                                                             "position": {
                                                                                 "x": 47915.5467973892,
@@ -2995,7 +2991,7 @@
                                                                 ],
                                                                 "featureWeightVotes": [],
                                                                 "positionWeightVotes": [],
-                                                                "id": "e08b0753-e70d-41de-96c5-800b360a8109",
+                                                                "id": "cbd2dd94-3ac7-449f-bc70-8bf4c1fdd8a5",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 48175.354418524534,
@@ -3068,7 +3064,7 @@
                                                                         "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
-                                                                        "id": "c7c10b25-1f3c-4857-ae3a-a09d947d69c5",
+                                                                        "id": "cd5013e4-392d-4d46-a256-307f449f672a",
                                                                         "savedPayload": {
                                                                             "position": {
                                                                                 "x": 48735.16203965987,
@@ -3137,7 +3133,7 @@
                                                                 ],
                                                                 "featureWeightVotes": [],
                                                                 "positionWeightVotes": [],
-                                                                "id": "f2cbbecc-e070-4dbe-b71f-504e51375463",
+                                                                "id": "425e5893-84a0-439a-b791-4af86fee86ae",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 48585.16203965987,
@@ -3210,7 +3206,7 @@
                                                                         "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
-                                                                        "id": "f6d3556b-19d2-4c18-8566-bb7505e45caf",
+                                                                        "id": "f90be057-9b3f-4f34-b1de-c8ae5d1e2c77",
                                                                         "savedPayload": {
                                                                             "position": {
                                                                                 "x": 48954.77728193053,
@@ -3279,7 +3275,7 @@
                                                                 ],
                                                                 "featureWeightVotes": [],
                                                                 "positionWeightVotes": [],
-                                                                "id": "493edb9a-cb95-4e11-95e2-03ff4ae446a1",
+                                                                "id": "bf1c7b64-a4d9-4699-b06a-6be71b656b94",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 48694.9696607952,
@@ -3344,7 +3340,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "cee100ce-d02c-42c0-8d8f-9ed6af386633",
+                                                        "id": "86ce3c26-ef7a-4630-a1b6-ad2efb6bc38b",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 48435.16203965987,
@@ -3417,7 +3413,7 @@
                                                                         "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
-                                                                        "id": "f18638ab-7b55-43c0-a904-1f466a27051a",
+                                                                        "id": "d44d65f7-3aa6-49f0-83f3-97448c9363b1",
                                                                         "savedPayload": {
                                                                             "position": {
                                                                                 "x": 48844.9696607952,
@@ -3486,7 +3482,7 @@
                                                                 ],
                                                                 "featureWeightVotes": [],
                                                                 "positionWeightVotes": [],
-                                                                "id": "4657e637-b8ff-4cca-a33c-5dc496756f47",
+                                                                "id": "e9dc6874-d1a9-4dcf-9d35-187246e87442",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 48694.9696607952,
@@ -3559,7 +3555,7 @@
                                                                         "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
-                                                                        "id": "6faa1eb3-cfd7-4536-8473-393ea65267ff",
+                                                                        "id": "90256090-62f7-4180-bb5f-4e778b077159",
                                                                         "savedPayload": {
                                                                             "position": {
                                                                                 "x": 49064.584903065865,
@@ -3628,7 +3624,7 @@
                                                                 ],
                                                                 "featureWeightVotes": [],
                                                                 "positionWeightVotes": [],
-                                                                "id": "44c15ebc-cd22-45f8-88d2-384cdff2dcc1",
+                                                                "id": "ff62ff60-99ac-47cc-8718-55b352c7045e",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 48804.77728193053,
@@ -3701,7 +3697,7 @@
                                                                         "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
-                                                                        "id": "2d37ad23-3498-4948-845d-a99048d2d4dd",
+                                                                        "id": "e8b7d4ee-3ef0-4dd2-9e0a-87932b1b2ab6",
                                                                         "savedPayload": {
                                                                             "position": {
                                                                                 "x": 48244.9696607952,
@@ -3770,7 +3766,7 @@
                                                                 ],
                                                                 "featureWeightVotes": [],
                                                                 "positionWeightVotes": [],
-                                                                "id": "ac534777-56ec-485b-aa34-00a25511622b",
+                                                                "id": "29a91a49-74e1-4b0d-9680-6e10b016d3ed",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 48394.9696607952,
@@ -3835,7 +3831,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "f23ede5c-c7d8-4baf-9041-2cde79c7733c",
+                                                        "id": "5892c387-4a84-4a6e-a7c1-fd8fc3437588",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 48544.9696607952,
@@ -3894,7 +3890,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "9440b416-9a72-4c95-ad67-362aab865953",
+                                                "id": "20c70468-c28e-404d-b92f-38bfe953851d",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 48285.16203965987,
@@ -3961,7 +3957,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "e0df77a6-2d8b-47e4-847c-fad5b5947b14",
+                                                                "id": "417109ea-c5ec-4d48-828d-78bbc3f633e1",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 48735.16203965987,
@@ -4024,7 +4020,7 @@
                                                         ],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "ffa04540-e863-426e-ae1d-b29ba2a0a736",
+                                                        "id": "3be99c07-8701-4790-8cff-c217738f1abe",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 48585.16203965987,
@@ -4091,7 +4087,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "f6a15da9-5e19-4253-8662-df569e420447",
+                                                                "id": "65438bb9-7da6-4960-9f27-aaa691c4dd8b",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 48735.16203965987,
@@ -4154,7 +4150,7 @@
                                                         ],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "565104ee-b72d-49dc-ae5a-8bd04b5a4bde",
+                                                        "id": "0e290eae-e238-4f86-a7dd-68d601b49dab",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 48585.16203965987,
@@ -4213,7 +4209,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "410a3cd9-404b-428a-9837-e5e4950a2c9d",
+                                                "id": "868fcc16-2866-4c2a-ac7b-3efd9f8b90b7",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 48435.16203965987,
@@ -4280,7 +4276,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "6b98f1d2-d4b7-4c87-8407-18d837be8633",
+                                                                "id": "f95a4e65-f4a3-44de-9dcb-c26350b3a36f",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 48585.16203965987,
@@ -4343,7 +4339,7 @@
                                                         ],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "a849aced-51c0-4beb-919e-062e7de73abf",
+                                                        "id": "0b8b8306-4291-42d5-88a3-b2b80f5119b9",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 48435.16203965987,
@@ -4410,7 +4406,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "8952a4a6-4f41-4ea9-b811-4787a20287cd",
+                                                                "id": "90e2d7b4-4248-4f03-ae2b-9ae7c8dfa8ef",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 48885.16203965987,
@@ -4473,7 +4469,7 @@
                                                         ],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "46399366-531a-4b36-a336-5dc1a8ed6736",
+                                                        "id": "0b19c837-d605-4024-a0ae-f337914d338e",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 48585.16203965987,
@@ -4540,7 +4536,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "3c2cad73-6bd8-4f59-8234-0aaf18dd7690",
+                                                                "id": "a968edf9-5762-40d1-9c7a-4e70062b20e6",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 48585.16203965987,
@@ -4603,7 +4599,7 @@
                                                         ],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "059dd324-6f8f-49e9-8b08-f5cda2346bad",
+                                                        "id": "9325be2c-cd7b-46d7-9559-13cf1ab7a1c9",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 48435.16203965987,
@@ -4670,7 +4666,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "1d64f9b0-4fdc-43a8-8ca0-bf59d02d731e",
+                                                                "id": "71f5a2d8-4b6a-4569-a0b9-4e3360998f48",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 47985.16203965987,
@@ -4733,7 +4729,7 @@
                                                         ],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "7b707a0f-7b73-4d47-967b-9eb810dd6085",
+                                                        "id": "b6f20428-4391-453b-ba10-343539a6ec71",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 48135.16203965987,
@@ -4800,7 +4796,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "f5169215-0952-4beb-ac54-41dbde1e22f4",
+                                                                "id": "e2452f8a-d5c1-470c-80a8-502dcf42b282",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 47685.16203965987,
@@ -4863,7 +4859,7 @@
                                                         ],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "c8332295-3cd6-4e11-a1b1-81773e28e9e2",
+                                                        "id": "641f1144-ab6c-4803-8a76-6f1f29ec4adf",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 47985.16203965987,
@@ -4922,7 +4918,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "fa1b420d-79b3-44f1-aef3-8122a9ed2b59",
+                                                "id": "b93f8a13-72dd-4d41-8f64-62d5688691d6",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 48285.16203965987,
@@ -4989,7 +4985,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "9c4a26d5-27dc-4a3c-8912-a1db5130841c",
+                                                                "id": "af1f301f-95c4-412e-aff8-787bcc0aca49",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 48285.16203965987,
@@ -5052,7 +5048,7 @@
                                                         ],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "966383b7-306d-4879-9aee-d69373567459",
+                                                        "id": "504f2b98-49be-4cc6-b8ca-4a081276d250",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 48135.16203965987,
@@ -5119,7 +5115,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "7f0bde31-d21d-4e99-b9fe-5a29cc814123",
+                                                                "id": "8b17538a-a77f-4190-9c17-7ccf6cdefc0b",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 47385.16203965987,
@@ -5182,7 +5178,7 @@
                                                         ],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "6a477592-0943-44f4-89c5-011890205c79",
+                                                        "id": "070651d7-b645-47d2-b6c6-095645401be8",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 47685.16203965987,
@@ -5241,7 +5237,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "f81e0d71-a11c-4333-a79b-8cf174d26eb6",
+                                                "id": "e2202e11-0183-495f-b665-d31acd3a0b79",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 47985.16203965987,
@@ -5294,7 +5290,7 @@
                                         "assetWeightVotes": [],
                                         "featureWeightVotes": [],
                                         "positionWeightVotes": [],
-                                        "id": "97b27def-565d-49c6-9ae5-04a2fbdb2d69",
+                                        "id": "35b19602-b55b-43dd-ab05-04fcccd93f54",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 48135.16203965987,
@@ -5341,15 +5337,15 @@
                                 "assetWeightVotes": [],
                                 "featureWeightVotes": [],
                                 "positionWeightVotes": [],
-                                "id": "f1296ef3-362c-4c56-b1c6-e03204dcff82",
+                                "id": "2ddb6245-9ab3-4790-bf9e-f1836d5c7539",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 59724.91203965987,
-                                        "y": -11941.248982381003
+                                        "x": 22161.672176273078,
+                                        "y": 43714.12243846677
                                     },
                                     "targetPosition": {
-                                        "x": 59874.91203965987,
-                                        "y": -11681.44136124567
+                                        "x": 22404.37727458556,
+                                        "y": 43890.458014154516
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -5391,7 +5387,7 @@
                                         "name": "",
                                         "config": "{}",
                                         "project": "Governance",
-                                        "id": "6610fabc-d1ca-4597-a847-1f95eb42a4f5",
+                                        "id": "4afff67a-47b7-4df6-ab0e-e40203ef2a7e",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 60197.09316804053,
@@ -5456,7 +5452,7 @@
                                         "name": "",
                                         "config": "{}",
                                         "project": "Governance",
-                                        "id": "630e1984-567c-42b9-b4b1-787210b4080e",
+                                        "id": "0aa82976-cb42-467a-80e8-d58f396dac5f",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 60433.076229405684,
@@ -5521,7 +5517,7 @@
                                         "name": "",
                                         "config": "{}",
                                         "project": "Governance",
-                                        "id": "e8fc8494-6370-4775-9b71-99b3cc6c0c67",
+                                        "id": "2c9b2811-296d-4650-8fe2-ef67bf7d9ba0",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 60256.74065371794,
@@ -5586,7 +5582,7 @@
                                         "name": "",
                                         "config": "{}",
                                         "project": "Governance",
-                                        "id": "d8a666d6-aa02-4003-b1ea-7ba53f33aa87",
+                                        "id": "d1a2ce85-9136-4d81-8370-5f44c2f6ee79",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 59911.77621315198,
@@ -5648,15 +5644,15 @@
                                     }
                                 ],
                                 "positionWeightVotes": [],
-                                "id": "f54574ef-8b64-4591-9493-b20db919731b",
+                                "id": "a5a60a0d-9c58-4635-abd0-f8ecd58b1d15",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 60024.91203965987,
-                                        "y": -11941.248982381003
+                                        "x": 22435.735813565858,
+                                        "y": 43592.10144554403
                                     },
                                     "targetPosition": {
-                                        "x": 59874.91203965987,
-                                        "y": -11681.44136124567
+                                        "x": 22404.37727458556,
+                                        "y": 43890.458014154516
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -5722,7 +5718,7 @@
                                                 "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
-                                                "id": "b65dd184-eaa4-4a78-93c6-97f4c6fa77d4",
+                                                "id": "47667610-2b0a-465c-bf63-371cedc2a043",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 60477.12958538284,
@@ -5784,7 +5780,7 @@
                                             }
                                         ],
                                         "positionWeightVotes": [],
-                                        "id": "5ba44b5f-1c2c-415a-a715-86f0303d60b8",
+                                        "id": "c36fa0b3-b9f8-4eba-996c-972cd95804cc",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 60276.39040347518,
@@ -5843,15 +5839,15 @@
                                 "assetWeightVotes": [],
                                 "featureWeightVotes": [],
                                 "positionWeightVotes": [],
-                                "id": "370b325c-9785-45b6-ae40-5ddd4c94862f",
+                                "id": "84185f4c-966d-4bcc-9f3c-c8b9a30df081",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 60174.91203965987,
-                                        "y": -11681.44136124567
+                                        "x": 22678.44091187834,
+                                        "y": 43768.43702123177
                                     },
                                     "targetPosition": {
-                                        "x": 59874.91203965987,
-                                        "y": -11681.44136124567
+                                        "x": 22404.37727458556,
+                                        "y": 43890.458014154516
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -5911,7 +5907,7 @@
                                                 "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
-                                                "id": "cb0037de-938c-4aca-85f7-b63bf7f69e00",
+                                                "id": "3851a9ce-f3fa-41c2-86af-fe1647eed71c",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 60434.7196607952,
@@ -5976,7 +5972,7 @@
                                                 "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
-                                                "id": "a4b03614-787b-4b59-ba37-09ccb05dfe4d",
+                                                "id": "52c60b5b-a373-4238-be83-f1cf6c5c187a",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 60324.91203965987,
@@ -6041,7 +6037,7 @@
                                                 "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
-                                                "id": "5a2f17d9-ba75-499f-abae-a6b665c7cf6a",
+                                                "id": "2d26f301-6cbe-47a9-8798-58501f1f4abe",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 59915.104418524534,
@@ -6103,7 +6099,7 @@
                                             }
                                         ],
                                         "positionWeightVotes": [],
-                                        "id": "884639a9-f9e0-4f86-a115-7e44173bec5f",
+                                        "id": "258a3f98-d677-4857-9980-aa965045ce46",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 60174.91203965987,
@@ -6162,15 +6158,15 @@
                                 "assetWeightVotes": [],
                                 "featureWeightVotes": [],
                                 "positionWeightVotes": [],
-                                "id": "29d00b4d-6219-471a-8d3b-f270d11b99e0",
+                                "id": "89cb7fd0-395a-462f-96ca-3c78fd344743",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 60024.91203965987,
-                                        "y": -11421.633740110337
+                                        "x": 22647.082372898043,
+                                        "y": 44066.79358984226
                                     },
                                     "targetPosition": {
-                                        "x": 59874.91203965987,
-                                        "y": -11681.44136124567
+                                        "x": 22404.37727458556,
+                                        "y": 43890.458014154516
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -6212,15 +6208,15 @@
                             }
                         ],
                         "userProfileVotesSwitch": [],
-                        "id": "18d4f47d-4427-443a-8d42-9e2382557f30",
+                        "id": "1a25338b-b893-4295-af34-c12c8b134d28",
                         "savedPayload": {
                             "position": {
-                                "x": 47535.16203965987,
-                                "y": -11655.44136124567
+                                "x": 22404.37727458556,
+                                "y": 43890.458014154516
                             },
                             "targetPosition": {
-                                "x": 47385.16203965987,
-                                "y": -11395.633740110337
+                                "x": 22373.018735605263,
+                                "y": 44188.814582765
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -6240,15 +6236,15 @@
                     "type": "Tokens Bonus",
                     "name": "New Tokens Bonus",
                     "project": "Governance",
-                    "id": "7b51dec4-0342-4b14-8d07-ae64b74a8d49",
+                    "id": "b2a27a50-dc0f-4e31-b979-9348841c0d0b",
                     "savedPayload": {
                         "position": {
-                            "x": 47535.16203965987,
-                            "y": -11135.826118975005
+                            "x": 22615.723833917746,
+                            "y": 44365.15015845274
                         },
                         "targetPosition": {
-                            "x": 47385.16203965987,
-                            "y": -11395.633740110337
+                            "x": 22373.018735605263,
+                            "y": 44188.814582765
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -6263,15 +6259,15 @@
                         }
                     }
                 },
-                "id": "eaf8ed9f-a218-4f8c-9a95-e85ba6aeedb0",
+                "id": "ab69f739-5314-40bd-833e-d75f2d737967",
                 "savedPayload": {
                     "position": {
-                        "x": 5816.768735605265,
-                        "y": 24304.314582765004
+                        "x": 22373.018735605263,
+                        "y": 44188.814582765
                     },
                     "targetPosition": {
-                        "x": 5542.705098312485,
-                        "y": 24426.335575687743
+                        "x": 22098.955098312483,
+                        "y": 44310.83557568774
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -6310,7 +6306,7 @@
                                         "name": "",
                                         "config": "{\n  \"description\": \"\"\n}",
                                         "project": "Governance",
-                                        "id": "e8fba6f3-76f8-487e-84a5-627b457b2c87",
+                                        "id": "6575c51e-e139-42d4-8353-961904775306",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 35611.22271620756,
@@ -6375,7 +6371,7 @@
                                         "name": "",
                                         "config": "{\n  \"description\": \"\"\n}",
                                         "project": "Governance",
-                                        "id": "4247e29a-826e-4252-ba7f-3efc53b29a25",
+                                        "id": "1c4a7434-3369-451b-b8a0-a9933ffb8429",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 35847.43562607952,
@@ -6440,7 +6436,7 @@
                                         "name": "",
                                         "config": "{\n  \"description\": \"\"\n}",
                                         "project": "Governance",
-                                        "id": "ae057fd7-f6f7-4763-8db4-ae4e699efa91",
+                                        "id": "d85d983a-b4b2-489c-9129-2d34a5347c81",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 36080.26911437184,
@@ -6505,7 +6501,7 @@
                                         "name": "",
                                         "config": "{\n  \"description\": \"\"\n}",
                                         "project": "Governance",
-                                        "id": "08dce64f-1e2e-44b9-82c0-f93c1e95ed6c",
+                                        "id": "ae6e8bc9-69bf-4b50-b6a9-35cea97b4647",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 36134.394815462794,
@@ -6570,7 +6566,7 @@
                                         "name": "",
                                         "config": "{\n  \"description\": \"\"\n}",
                                         "project": "Governance",
-                                        "id": "c3945fdb-d5bd-4a9b-a621-f990e2a4031c",
+                                        "id": "52eaf135-159c-45d4-b11c-8e3a54c304dd",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 35969.0549724678,
@@ -6621,7 +6617,7 @@
                                         "name": "",
                                         "config": "{\n  \"description\": \"\"\n}",
                                         "project": "Governance",
-                                        "id": "67ea36b2-3144-4635-9cda-c1c179e53845",
+                                        "id": "aed662fc-e86e-4e87-8385-b5fdf3f37dee",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 35708.753859480246,
@@ -6668,7 +6664,7 @@
                                         }
                                     }
                                 ],
-                                "id": "568edaf0-34d1-4ea4-9077-5ca52490474c",
+                                "id": "26d5d0e2-a27b-4786-858d-e66fc535530c",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35842.94780397494,
@@ -6724,15 +6720,15 @@
                             }
                         ],
                         "assetContributionClaims": [],
-                        "id": "10106594-7220-43d9-959f-14d589ef3c7c",
+                        "id": "f68134f8-2428-4e01-beb7-bf267a50af6c",
                         "savedPayload": {
                             "position": {
-                                "x": 5804.790839552331,
-                                "y": 24662.318637052897
+                                "x": 23192.040839552326,
+                                "y": 44294.8186370529
                             },
                             "targetPosition": {
-                                "x": 5511.346559332189,
-                                "y": 24724.692144298224
+                                "x": 22898.596559332185,
+                                "y": 44357.19214429823
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -6761,15 +6757,15 @@
                                 "name": "",
                                 "config": "{}",
                                 "project": "Governance",
-                                "id": "20b9e435-1067-488c-ad90-62a9f3cacda4",
+                                "id": "3d5eaa47-cc78-4174-91c6-54f2e49fe48d",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 29590.83421593294,
-                                        "y": -24463.948557441785
+                                        "x": 22517.596559332185,
+                                        "y": 44868.99976543356
                                     },
                                     "targetPosition": {
-                                        "x": 29316.770578640164,
-                                        "y": -24585.969550364523
+                                        "x": 22217.596559332185,
+                                        "y": 44868.99976543356
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -6826,15 +6822,15 @@
                                 "name": "",
                                 "config": "{}",
                                 "project": "Governance",
-                                "id": "1f111795-0dae-4db9-838c-877e0b47be2c",
+                                "id": "fc2262f8-8969-483a-892c-860bc599c791",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 29074.065480327678,
-                                        "y": -24409.63397467678
+                                        "x": 22067.596559332185,
+                                        "y": 45128.80738656889
                                     },
                                     "targetPosition": {
-                                        "x": 29316.770578640164,
-                                        "y": -24585.969550364523
+                                        "x": 22217.596559332185,
+                                        "y": 44868.99976543356
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -6887,15 +6883,15 @@
                                 }
                             }
                         ],
-                        "id": "c8a86971-aa29-4ea0-953f-b53f74fc046f",
+                        "id": "74448fab-0cbf-4782-a2f9-7ddc6b79fa08",
                         "savedPayload": {
                             "position": {
-                                "x": 5661.346559332189,
-                                "y": 24984.499765433557
+                                "x": 23048.596559332185,
+                                "y": 44616.99976543356
                             },
                             "targetPosition": {
-                                "x": 5511.346559332189,
-                                "y": 24724.692144298224
+                                "x": 22898.596559332185,
+                                "y": 44357.19214429823
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -6921,18 +6917,18 @@
                         "positionContributionClaims": [
                             {
                                 "type": "Position Contribution Claim",
-                                "name": "",
+                                "name": "Team Member Superalgos Blog Team",
                                 "config": "{}",
                                 "project": "Governance",
-                                "id": "d4718c87-93a2-4a1e-9c28-42f421cc70bc",
+                                "id": "66b5c68e-f897-4287-9a28-63a731487e15",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 46410.739863386785,
-                                        "y": -10728.448557441778
+                                        "x": 23558.301657644668,
+                                        "y": 45005.50909918678
                                     },
                                     "targetPosition": {
-                                        "x": 46442.09840236709,
-                                        "y": -11026.805126052262
+                                        "x": 23264.857377424527,
+                                        "y": 44943.13559194145
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -6947,56 +6943,56 @@
                                     },
                                     "referenceParent": {
                                         "type": "Position",
-                                        "name": "Moderator",
-                                        "id": "6e141ab6-cc79-44b6-a58a-60b6480f706e"
+                                        "name": "Team Member",
+                                        "id": "ff6c7dfa-caca-4a7c-9f98-6560e124b082"
                                     },
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Superalgos",
-                                            "Positions",
-                                            "Governance",
-                                            "50c68665-5da2-48a8-b229-7a1563ae82d2"
+                                            "Positions"
                                         ],
                                         [
-                                            "Rewarded Positions",
-                                            "Position Class",
-                                            "Governance",
-                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                            "Roles Played @ Beta-12",
+                                            "Position Class"
                                         ],
                                         [
-                                            "Community Management",
-                                            "Position Class",
-                                            "Governance",
-                                            "35b790f0-c567-498c-83fd-ac0aacd8720b"
+                                            "Teams",
+                                            "Position Class"
                                         ],
                                         [
-                                            "Moderator",
-                                            "Position",
-                                            "Governance",
-                                            "6e141ab6-cc79-44b6-a58a-60b6480f706e"
+                                            "Content Creators Teams",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Superalgos Blog Team",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Team Member",
+                                            "Position"
                                         ]
                                     ]
                                 }
                             },
                             {
                                 "type": "Position Contribution Claim",
-                                "name": "",
+                                "name": "Team Creator Thomas Raplh2502 Thomas Data Science on Superalgos Team",
                                 "config": "{}",
                                 "project": "Governance",
-                                "id": "1311443c-2760-4649-bb2c-b95c402ef1fd",
+                                "id": "ee657992-3fbb-4eb7-b8c8-1faff7f7f011",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 46199.3933040546,
-                                        "y": -11203.140701740005
+                                        "x": 23357.56247573701,
+                                        "y": 45228.45254683
                                     },
                                     "targetPosition": {
-                                        "x": 46442.09840236709,
-                                        "y": -11026.805126052262
+                                        "x": 23264.857377424527,
+                                        "y": 44943.13559194145
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 1,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -7006,41 +7002,224 @@
                                     },
                                     "referenceParent": {
                                         "type": "Position",
-                                        "name": "Project Lead",
-                                        "id": "0c2e2b7c-3786-4810-9f0f-a287857ca83d"
+                                        "name": "Team Creator Thomas Raplh2502",
+                                        "id": "f8e11b4d-6f30-419c-9ef6-9c65cd8130f2"
                                     },
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Superalgos",
-                                            "Positions",
-                                            "Governance",
-                                            "50c68665-5da2-48a8-b229-7a1563ae82d2"
+                                            "Positions"
                                         ],
                                         [
-                                            "Rewarded Positions",
-                                            "Position Class",
-                                            "Governance",
-                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                            "Roles Played @ Beta-12",
+                                            "Position Class"
                                         ],
                                         [
-                                            "Project Lead",
-                                            "Position",
-                                            "Governance",
-                                            "0c2e2b7c-3786-4810-9f0f-a287857ca83d"
+                                            "Teams",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Content Creators Teams",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Thomas Data Science on Superalgos Team",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Team Creator Thomas Raplh2502",
+                                            "Position"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Team Member Discord Team",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "b0d8741f-b6a4-4f90-9c9c-edec0da6c3d3",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 23064.11819551687,
+                                        "y": 45166.07903958467
+                                    },
+                                    "targetPosition": {
+                                        "x": 23264.857377424527,
+                                        "y": 44943.13559194145
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Team Member",
+                                        "id": "90877e7d-cce4-475b-864b-9ec29fd6c5e3"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Teams",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Chat Platforms Teams",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Discord Team",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Team Member",
+                                            "Position"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Team Member Telegram Team",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "58d97eb4-d9a8-4ce4-b7a9-c869e1dc52cc",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22971.413097204386,
+                                        "y": 44880.76208469612
+                                    },
+                                    "targetPosition": {
+                                        "x": 23264.857377424527,
+                                        "y": 44943.13559194145
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Team Member",
+                                        "id": "f6494f82-4e9a-4962-a111-f75763f66bff"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Teams",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Chat Platforms Teams",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Telegram Team",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Team Member",
+                                            "Position"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Project Leader Thomas Raplh2502 Data Mining Project",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "ffce4735-eb0f-46bc-9387-ab9fdd239244",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 23172.152279112044,
+                                        "y": 44657.8186370529
+                                    },
+                                    "targetPosition": {
+                                        "x": 23264.857377424527,
+                                        "y": 44943.13559194145
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Project Leader Thomas Raplh2502",
+                                        "id": "2bc02096-7ec1-425c-92d7-35f7b7791c99"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Software Projects",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Active Projects",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Data Mining Project",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Project Leader Thomas Raplh2502",
+                                            "Position"
                                         ]
                                     ]
                                 }
                             }
                         ],
-                        "id": "494210e1-d75f-4c4a-8431-0876d9e4221f",
+                        "id": "c4dfbd50-c6b4-4018-8fe8-17da87a4128d",
                         "savedPayload": {
                             "position": {
-                                "x": 5310.6073774245315,
-                                "y": 24947.63559194144
+                                "x": 22697.857377424527,
+                                "y": 44580.13559194145
                             },
                             "targetPosition": {
-                                "x": 5511.346559332189,
-                                "y": 24724.692144298224
+                                "x": 22898.596559332185,
+                                "y": 44357.19214429823
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -7085,15 +7264,15 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "40eca223-4c26-425f-8cea-fba2c143bb3e",
+                    "id": "c35ccbad-c39e-4c5c-b4c8-46933e1e3a6c",
                     "savedPayload": {
                         "position": {
-                            "x": 5237.282922039409,
-                            "y": 24602.671151375485
+                            "x": 22624.532922039405,
+                            "y": 44235.171151375485
                         },
                         "targetPosition": {
-                            "x": 5511.346559332189,
-                            "y": 24724.692144298224
+                            "x": 22898.596559332185,
+                            "y": 44357.19214429823
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -7108,15 +7287,15 @@
                         }
                     }
                 },
-                "id": "4c87ca5c-c02f-47ff-adc4-a7244f08e387",
+                "id": "82da0e96-ffae-49d8-bea5-599b35a7822a",
                 "savedPayload": {
                     "position": {
-                        "x": 5511.346559332189,
-                        "y": 24724.692144298224
+                        "x": 22067.596559332185,
+                        "y": 44609.19214429823
                     },
                     "targetPosition": {
-                        "x": 5542.705098312485,
-                        "y": 24426.335575687743
+                        "x": 22098.955098312483,
+                        "y": 44310.83557568774
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -7131,15 +7310,15 @@
                     }
                 }
             },
-            "id": "d0c2842d-d141-42d5-8b0c-655150c53106",
+            "id": "b4d8574e-a72b-4c15-96e8-eef2728ab124",
             "savedPayload": {
                 "position": {
-                    "x": 5542.705098312485,
-                    "y": 24426.335575687743
+                    "x": 22098.955098312483,
+                    "y": 44310.83557568774
                 },
                 "targetPosition": {
-                    "x": 5300,
-                    "y": 24250
+                    "x": 21856.25,
+                    "y": 44134.5
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -7159,24 +7338,24 @@
             "name": "New Financial Programs",
             "config": "{\n    \"percentage\": 0\n}",
             "project": "Governance",
-            "stakingProgram": {
-                "type": "Staking Program",
-                "name": "New Staking Program",
+            "liquidityProgram": {
+                "type": "Liquidity Program",
+                "name": "New Liquidity Program",
                 "config": "{}",
                 "project": "Governance",
                 "tokensAwarded": {
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "bfb9035d-bd77-4d9f-9db1-99901cff1dfa",
+                    "id": "c7915e8f-a6c3-42d6-997c-461ca0b46a41",
                     "savedPayload": {
                         "position": {
-                            "x": 49841.296744722415,
-                            "y": -24718.990496580034
+                            "x": 21578.13470506255,
+                            "y": 44990.45086466565
                         },
                         "targetPosition": {
-                            "x": 49934.0018430349,
-                            "y": -25004.30745146858
+                            "x": 21670.839803375035,
+                            "y": 44705.1339097771
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -7191,15 +7370,15 @@
                         }
                     }
                 },
-                "id": "2ba014e1-bea3-4b02-8403-35cb1a23b24e",
+                "id": "7d5439e2-07cf-4d97-a077-7280063556fb",
                 "savedPayload": {
                     "position": {
-                        "x": 49934.0018430349,
-                        "y": -25004.30745146858
+                        "x": 21670.839803375035,
+                        "y": 44705.1339097771
                     },
                     "targetPosition": {
-                        "x": 50026.70694134739,
-                        "y": -25289.624406357125
+                        "x": 21763.544901687517,
+                        "y": 44419.81695488855
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -7214,20 +7393,20 @@
                     }
                 }
             },
-            "id": "e5fe21e0-f82f-454b-ba04-0d2021f206e0",
+            "id": "73b2a847-0111-43e3-acc3-1f74c51ce81c",
             "savedPayload": {
                 "position": {
-                    "x": 5207.294901687515,
-                    "y": 24535.316954888545
+                    "x": 21763.544901687517,
+                    "y": 44419.81695488855
                 },
                 "targetPosition": {
-                    "x": 5300,
-                    "y": 24250
+                    "x": 21856.25,
+                    "y": 44134.5
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -7237,15 +7416,15 @@
                 }
             }
         },
-        "id": "2646d59e-2da9-4507-ac23-32fb6f13c098",
+        "id": "b0169f39-bdaa-4051-804a-d1ec945383f6",
         "savedPayload": {
             "position": {
-                "x": 5300,
-                "y": 24250
+                "x": 21856.25,
+                "y": 44134.5
             },
             "targetPosition": {
-                "x": 5000,
-                "y": 24250
+                "x": 21556.25,
+                "y": 44134.5
             },
             "floatingObject": {
                 "isPinned": false,
@@ -7264,15 +7443,15 @@
         "type": "Tokens Mined",
         "name": "New Tokens Mined",
         "project": "Governance",
-        "id": "1e2d5252-54b7-4495-8c94-30f3f3152cb5",
+        "id": "e343d2d2-2487-491a-850f-a1903aab3846",
         "savedPayload": {
             "position": {
-                "x": 4700,
-                "y": 24250
+                "x": 21256.25,
+                "y": 44134.5
             },
             "targetPosition": {
-                "x": 5000,
-                "y": 24250
+                "x": 21556.25,
+                "y": 44134.5
             },
             "floatingObject": {
                 "isPinned": false,
@@ -7287,15 +7466,15 @@
             }
         }
     },
-    "id": "f24a8160-5264-4818-938f-4a132402f4c3",
+    "id": "6522c561-38b1-438d-a396-7fea9c9f2dd2",
     "savedPayload": {
         "position": {
-            "x": 5000,
-            "y": 24250
+            "x": 21556.25,
+            "y": 44134.5
         },
         "targetPosition": {
-            "x": 5000,
-            "y": 24250
+            "x": 21556.25,
+            "y": 44134.5
         },
         "floatingObject": {
             "isPinned": true,

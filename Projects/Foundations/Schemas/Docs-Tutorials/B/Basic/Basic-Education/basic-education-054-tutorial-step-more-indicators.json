@@ -21,6 +21,11 @@
                 "text": "¡Los indicadores los construye la comunidad! Un desarrollador construirá indicadores que necesita y los aportará al proyecto en una nueva mina de datos.",
                 "updated": 1628024771860,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Indikatoren werden von der Community erstellt! Normalerweise baut ein Entwickler ein paar Indikatoren, die er oder sie braucht, und stellt sie dem Projekt in einer neuen Data Mine zur Verfügung!",
+                "updated": 1634590447390
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "El Community Data Mines Book es donde puedes encontrar todas los Data Mines y sus indicadores. Cada capítulo del libro corresponde a un Data Mine...",
                     "updated": 1628024715026,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Im  Community Data Mines Buch finden Sie alle bestehenden Data Mines und ihre Indikatoren! Jedes Kapitel des Buches entspricht einer Data Mine...",
+                    "updated": 1634590455084
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "text": "¡Escanea el contenido de cada capítulo para saber de lo que está disponible en este momento!",
                     "updated": 1628023653141,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Scannen Sie den Inhalt jedes Kapitels, um eine Vorstellung davon zu bekommen, was an dieser Stelle verfügbar ist!",
+                    "updated": 1634590467643
                 }
             ]
         },
@@ -78,6 +93,11 @@
                     "text": "Para usar un Data Mine, debes incluirlo en el espacio de trabajo o como complemento e instalar el mercado. ¡Todas las tareas de datos se crearán automáticamente!",
                     "updated": 1628024742935,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um eine Data Mine zu verwenden, müssen Sie sie in den Workspace oder als Plugin einbinden und den Markt installieren. Alle Data Tasks werden dann automatisch erstellt!",
+                    "updated": 1634590473687
                 }
             ]
         }

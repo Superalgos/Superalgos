@@ -1240,6 +1240,11 @@
                     "functionName": "newGovernanceFunctionLibraryStakingProgram"
                 },
                 {
+                    "name": "Liquidity Program",
+                    "propertyName": "liquidityProgram",
+                    "functionName": "newGovernanceFunctionLibraryLiquidityProgram"
+                },
+                {
                     "name": "Profile Constructor",
                     "propertyName": "profileConstructor",
                     "functionName": "newGovernanceFunctionLibraryProfileConstructor"

@@ -26,6 +26,11 @@
                 "text": "Al igual que el Design Space, el Charting Space presenta un área enorme donde puede configurar gráficos ... ¡tantos como tu hardware pueda soportar!",
                 "updated": 1624380765872,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Genau wie der Design Space bietet auch der Charting Space einen riesigen Bereich, in dem Sie Diagramme einrichten können... so viele, wie Ihre Hardware verkraften kann!",
+                "updated": 1634205591674
             }
         ]
     },
@@ -52,6 +57,11 @@
                     "text": "Para simplificar las cosas para los recién llegados, solo hay dos gráficos en este espacio del Getting Started Tutorial. Los usuarios avanzados monitorean gráficos de múltiples intercambios y múltiples mercados.",
                     "updated": 1624380961849,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um die Dinge für Neulinge einfach zu halten, gibt es in diesem Workspace des Getting Started Tutorials nur zwei Charts. Fortgeschrittene Benutzer überwachen Charts von mehreren Börsen und Märkten.",
+                    "updated": 1634205603337
                 }
             ]
         },
@@ -76,6 +86,11 @@
                     "text": "Para moverte por el Viewport, haz clic y arrastrate por el área en blanco con el mouse. La combinación de teclado es Shift más las teclas de flecha ↑ ← → ↓",
                     "updated": 1624493970819,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um sich im Viewport zu bewegen, klicken Sie auf einen leeren Bereich und ziehen Sie mit der Maus. Die Tastaturkombination ist Shift plus die Pfeiltasten ↑ ← → ↓",
+                    "updated": 1634205660486
                 }
             ],
             "updated": 1622198195729

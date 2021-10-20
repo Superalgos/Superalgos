@@ -20,16 +20,20 @@ exports.newHttpInterface = function newHttpInterface() {
         webhook = undefined
     }
 
-    function initialize() {
+    function initialize(initialWorkspace) {
         /*
         We will create an HTTP Server and leave it running forever.
         */
-        SA.nodeModules.http.createServer(onHttpRequest).listen(global.env.CLIENT_HTTP_INTERFACE_PORT)
+        SA.nodeModules.http.createServer(onHttpRequest).listen(global.env.PLATFORM_HTTP_INTERFACE_PORT)
         /* Starting the browser now is optional */
         if (process.argv.includes("noBrowser")) {
             //Running Client only with no UI.
         } else {
-            SA.nodeModules.open('http://localhost:' + global.env.CLIENT_HTTP_INTERFACE_PORT)
+            let queryString = ''
+            if (initialWorkspace.name !== undefined) {
+                queryString = '/?initialWorkspaceName=' + initialWorkspace.name + '&initialWorkspaceProject=' + initialWorkspace.project + '&initialWorkspaceType=' + initialWorkspace.type
+            }
+            SA.nodeModules.open('http://localhost:' + global.env.PLATFORM_HTTP_INTERFACE_PORT + queryString)
         }
     }
 
@@ -637,7 +641,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             break
                         }
                         switch (requestPath[2]) { // switch by command
-                            
+
                             case 'Contribute': {
                                 try {
                                     let commitMessage = unescape(requestPath[3])
@@ -655,7 +659,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     contribute()
 
-                                    async function contribute() {                                      
+                                    async function contribute() {
                                         const { lookpath } = SA.nodeModules.lookpath
                                         const gitpath = await lookpath('git')
                                         if (gitpath === undefined) {
@@ -898,6 +902,27 @@ exports.newHttpInterface = function newHttpInterface() {
                                         const git = simpleGit(options)
                                         try {
                                             await git.checkout(currentBranch)
+
+                                            // Check to see it main repo has been set as upstream
+                                            let remotes = await git.getRemotes();
+                                            let isUpstreamSet
+                                            for (let remote in remotes) {
+                                                if (remotes[remote].name === 'upstream') {
+                                                    isUpstreamSet = true
+                                                } else {
+                                                    isUpstreamSet = false
+                                                }
+                                            }
+                                            // If upstream has not been set. Set it now
+                                            if (isUpstreamSet === false) {
+                                                await git.addRemote('upstream', 'https://github.com/Superalgos/Superalgos');
+                                            }
+                                            // Pull branch from main repo
+                                            await git.pull('upstream', currentBranch);
+                                            // Reset branch to match main repo
+                                            let upstreamLocation = `upstream/${currentBranch}`
+                                            await git.reset('hard', [upstreamLocation])
+
                                         } catch (err) {
                                             console.log('[ERROR] Error changing current branch to ' + currentBranch)
                                             console.log(err.stack)
@@ -907,18 +932,17 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     async function runNodeSetup() {
                                         console.log("Running Node setup to adjust for new Branch")
-                                        const process = require("process");
-                                        const { execSync } = require("child_process");
+                                        const process = SA.nodeModules.process
+                                        const childProcess = SA.nodeModules.childProcess
 
                                         let dir = process.cwd()
-                                        let command = "node setup";
-                                        let stdout = execSync(command,
+                                        let command = "node setup noShortcuts";
+                                        let stdout = childProcess.execSync(command,
                                             {
                                                 cwd: dir
                                             }).toString();
 
                                         console.log("Node Setup has completed with the following result:", stdout)
-
                                     }
 
                                 } catch (err) {
@@ -1015,6 +1039,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 let directoryCount = 0
                                 let allAppSchemas = []
                                 let allAppSchemasFilePaths = []
+                                let allAppSchemasFileProjects = []
 
                                 for (let i = 0; i < projects.length; i++) {
                                     let project = projects[i]
@@ -1050,6 +1075,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                     SCHEMA_MAP.set(schemaDocument.type, schemaDocument)
                                                     allAppSchemas.push(schemaDocument)
                                                     allAppSchemasFilePaths.push(fileToRead)
+                                                    allAppSchemasFileProjects.push(project)
                                                 } catch (err) {
                                                     console.log('[ERROR] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
                                                     return
@@ -1094,6 +1120,14 @@ exports.newHttpInterface = function newHttpInterface() {
                                                             hits++
                                                             foundProject = project
                                                             multiProject = multiProject + ' -> ' + project
+
+                                                            let fileProject = allAppSchemasFileProjects[i]
+                                                            //console.log(fileProject, project)
+                                                            if (fileProject === project) {
+                                                                /* If the projec of the file is the same as the project found, then we consider this a match*/
+                                                                hits = 1
+                                                                continue
+                                                            }
                                                         }
                                                     }
 
@@ -1277,17 +1311,17 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'LegacyPlotter.js':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/WebServer/LegacyPlotter.js', httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/WebServer/LegacyPlotter.js', httpResponse)
                     }
                     break
                 case 'PlotterPanel.js':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/WebServer/PlotterPanel.js', httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/WebServer/PlotterPanel.js', httpResponse)
                     }
                     break
                 case 'Images': // This means the Images folder.
                     {
-                        let path = global.env.PATH_TO_CLIENT + '/WebServer/Images/' + requestPath[2]
+                        let path = global.env.PATH_TO_PLATFORM + '/WebServer/Images/' + requestPath[2]
 
                         if (requestPath[3] !== undefined) {
                             path = path + '/' + requestPath[3]
@@ -1369,12 +1403,12 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'WebServer': // This means the WebServer folder.
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/WebServer/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/WebServer/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'externalScripts': // This means the WebServer folder.
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/WebServer/externalScripts/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/WebServer/externalScripts/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Plotters': // This means the plotter folder, not to be confused with the Plotters script!
@@ -1389,12 +1423,12 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'ChartLayers':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/UI/' + endpointOrFile + '/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/UI/' + endpointOrFile + '/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Files':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/UI/Data-Files/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/UI/Data-Files/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Fonts':
@@ -1909,7 +1943,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 default:
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithWebFile(httpResponse, endpointOrFile, global.env.PATH_TO_CLIENT)
+                        SA.projects.foundations.utilities.httpResponses.respondWithWebFile(httpResponse, endpointOrFile, global.env.PATH_TO_PLATFORM)
                     }
             }
         } catch (err) {

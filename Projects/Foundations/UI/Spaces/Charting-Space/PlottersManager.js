@@ -173,8 +173,15 @@ function newPlottersManager() {
 
             let host = layer.lanNetworkNode.config.host
             let webPort = layer.lanNetworkNode.config.webPort
+            let extWSURL = layer.lanNetworkNode.config.webSocketsExternalURL
+            let scheme = 'http'
             if (host === undefined) { host = window.location.hostname }
             if (webPort === undefined) { webPort = window.location.port }
+            if (extWSURL !== undefined) { 
+            	host = window.location.hostname
+            	webPort = window.location.port
+            	scheme = window.location.protocol.slice(0,-1)
+            }
 
             let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(layer.lanNetworkNode.id)
 
@@ -190,7 +197,8 @@ function newPlottersManager() {
                 host,
                 webPort,
                 eventsServerClient,
-                onProductStorageInitialized
+                onProductStorageInitialized,
+                scheme,
             )
 
             function onProductStorageInitialized(err) {

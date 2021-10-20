@@ -577,12 +577,12 @@
                             "id": "61ef0b8d-de6e-4e76-bdd5-996836760a4b",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19549.63719375129,
-                                    "y": 30737.529786102317
+                                    "x": 19507.63719375129,
+                                    "y": 30789.529786102317
                                 },
                                 "targetPosition": {
-                                    "x": 19373.301618063546,
-                                    "y": 30980.2348844148
+                                    "x": 19331.301618063546,
+                                    "y": 31032.2348844148
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -882,12 +882,12 @@
                             "id": "d763fdb6-bfe0-4fd2-9b1f-0a12ead4098b",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19658.61857295209,
-                                    "y": 30887.529786102317
+                                    "x": 19616.61857295209,
+                                    "y": 30939.529786102317
                                 },
                                 "targetPosition": {
-                                    "x": 19373.301618063546,
-                                    "y": 30980.2348844148
+                                    "x": 19331.301618063546,
+                                    "y": 31032.2348844148
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1184,12 +1184,12 @@
                             "id": "d4a66325-9be9-4855-8cf4-89a5795e30b6",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19658.61857295209,
-                                    "y": 31072.939982727283
+                                    "x": 19616.61857295209,
+                                    "y": 31124.939982727283
                                 },
                                 "targetPosition": {
-                                    "x": 19373.301618063546,
-                                    "y": 30980.2348844148
+                                    "x": 19331.301618063546,
+                                    "y": 31032.2348844148
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1484,12 +1484,12 @@
                             "id": "644efe9c-597a-4ddf-9e28-b33fb3b62d3e",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19549.63719375129,
-                                    "y": 31222.939982727283
+                                    "x": 19507.63719375129,
+                                    "y": 31274.939982727283
                                 },
                                 "targetPosition": {
-                                    "x": 19373.301618063546,
-                                    "y": 30980.2348844148
+                                    "x": 19331.301618063546,
+                                    "y": 31032.2348844148
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1508,12 +1508,12 @@
                     "id": "e3879d63-6f8f-41a3-8ac3-0349c4361722",
                     "savedPayload": {
                         "position": {
-                            "x": 19373.301618063546,
-                            "y": 30980.2348844148
+                            "x": 19331.301618063546,
+                            "y": 31032.2348844148
                         },
                         "targetPosition": {
-                            "x": 18773.301618063546,
-                            "y": 30980.2348844148
+                            "x": 18731.301618063546,
+                            "y": 31032.2348844148
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -5702,12 +5702,12 @@
                     "id": "51f64e29-e3ab-4683-a5de-f397fbf94260",
                     "savedPayload": {
                         "position": {
-                            "x": 18866.00671637603,
-                            "y": 31265.551839303345
+                            "x": 18824.00671637603,
+                            "y": 31317.551839303345
                         },
                         "targetPosition": {
-                            "x": 18773.301618063546,
-                            "y": 30980.2348844148
+                            "x": 18731.301618063546,
+                            "y": 31032.2348844148
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -5730,12 +5730,12 @@
                     "id": "895ce4b1-4890-4216-89ba-a012181d2546",
                     "savedPayload": {
                         "position": {
-                            "x": 18530.596519751063,
-                            "y": 31156.570460102543
+                            "x": 18488.596519751063,
+                            "y": 31208.570460102543
                         },
                         "targetPosition": {
-                            "x": 18773.301618063546,
-                            "y": 30980.2348844148
+                            "x": 18731.301618063546,
+                            "y": 31032.2348844148
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -5758,12 +5758,12 @@
                     "id": "467bc99c-1273-483a-909f-c21e5d728512",
                     "savedPayload": {
                         "position": {
-                            "x": 18530.596519751063,
-                            "y": 30803.899308727057
+                            "x": 18488.596519751063,
+                            "y": 30855.899308727057
                         },
                         "targetPosition": {
-                            "x": 18773.301618063546,
-                            "y": 30980.2348844148
+                            "x": 18731.301618063546,
+                            "y": 31032.2348844148
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -6062,12 +6062,12 @@
                             "id": "6c076027-683d-4778-8a6a-e60984980fdf",
                             "savedPayload": {
                                 "position": {
-                                    "x": 18665.26753446837,
-                                    "y": 30471.974481883037
+                                    "x": 18595.88492669602,
+                                    "y": 30552.0835150272
                                 },
                                 "targetPosition": {
-                                    "x": 18866.00671637603,
-                                    "y": 30694.917929526255
+                                    "x": 18824.00671637603,
+                                    "y": 30746.917929526255
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -6361,12 +6361,12 @@
                             "id": "f598f002-8fc5-491f-888e-07d017ea83c6",
                             "savedPayload": {
                                 "position": {
-                                    "x": 18803.6332091307,
-                                    "y": 30401.473649306114
+                                    "x": 18687.809566454165,
+                                    "y": 30479.615972269745
                                 },
                                 "targetPosition": {
-                                    "x": 18866.00671637603,
-                                    "y": 30694.917929526255
+                                    "x": 18824.00671637603,
+                                    "y": 30746.917929526255
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -6660,12 +6660,12 @@
                             "id": "23ec7356-eed9-4a26-ace4-f21ae0d1e43e",
                             "savedPayload": {
                                 "position": {
-                                    "x": 18958.71181468851,
-                                    "y": 30409.60097463771
+                                    "x": 18800.468987657674,
+                                    "y": 30447.842729406315
                                 },
                                 "targetPosition": {
-                                    "x": 18866.00671637603,
-                                    "y": 30694.917929526255
+                                    "x": 18824.00671637603,
+                                    "y": 30746.917929526255
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -6961,12 +6961,12 @@
                             "id": "b3e7f4de-1ca4-442f-8898-cb7397dc45d3",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19088.950164019247,
-                                    "y": 30494.178747618596
+                                    "x": 18916.71181468851,
+                                    "y": 30461.60097463771
                                 },
                                 "targetPosition": {
-                                    "x": 18866.00671637603,
-                                    "y": 30694.917929526255
+                                    "x": 18824.00671637603,
+                                    "y": 30746.917929526255
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -7261,12 +7261,852 @@
                             "id": "793d2f4a-3315-4c18-abad-f4d74c83ac4f",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19159.45099659617,
-                                    "y": 30632.544422280927
+                                    "x": 19018.841130875084,
+                                    "y": 30518.796139846247
                                 },
                                 "targetPosition": {
-                                    "x": 18866.00671637603,
-                                    "y": 30694.917929526255
+                                    "x": 18824.00671637603,
+                                    "y": 30746.917929526255
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Crypto Exchange",
+                            "name": "Binance Futures USDⓈ-M",
+                            "config": "{\n    \"codeName\": \"binanceusdm\",\n    \"API\": [\n        {\n            \"method\": \"fetchTrades\",\n            \"fetchType\": \"by Id\",\n            \"fetchTradesMethod\": \"publicGetHistoricalTrades\",\n            \"firstId\": \"f\"\n        }\n    ]\n}",
+                            "project": "Foundations",
+                            "exchangeAssets": {
+                                "type": "Exchange Assets",
+                                "name": "New Exchange Assets",
+                                "config": "{ \n\"addMissingAssetsFilter\": { \"quotedAsset\": \"USDT\"} \n}",
+                                "project": "Foundations",
+                                "assets": [
+                                    {
+                                        "type": "Asset",
+                                        "name": "BTC",
+                                        "config": "{\n    \"codeName\": \"BTC\"\n}",
+                                        "project": "Foundations",
+                                        "id": "e05c6048-8062-4e1e-acec-441d643fd399",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 19121.640264699694,
+                                                "y": 30031.959544495705
+                                            },
+                                            "targetPosition": {
+                                                "x": 19184.01377194502,
+                                                "y": 30325.403824715846
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "Asset",
+                                        "name": "Tether",
+                                        "config": "{\n    \"codeName\": \"USDT\"\n}",
+                                        "project": "Foundations",
+                                        "id": "d66e5b53-78e9-455f-8841-6bf62d2c36bf",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 19406.95721958824,
+                                                "y": 30124.664642808188
+                                            },
+                                            "targetPosition": {
+                                                "x": 19184.01377194502,
+                                                "y": 30325.403824715846
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    }
+                                ],
+                                "id": "b9f1342a-acb6-41fc-a4bf-ef13463f01ae",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 19184.01377194502,
+                                        "y": 30325.403824715846
+                                    },
+                                    "targetPosition": {
+                                        "x": 19091.30867363254,
+                                        "y": 30610.72077960439
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            "exchangeMarkets": {
+                                "type": "Exchange Markets",
+                                "name": "New Exchange Markets",
+                                "project": "Foundations",
+                                "markets": [
+                                    {
+                                        "type": "Market",
+                                        "name": "BTC/USDT",
+                                        "config": "{ \n\"codeName\": \"Type the name of the market\"\n}",
+                                        "project": "Foundations",
+                                        "baseAsset": {
+                                            "type": "Market Base Asset",
+                                            "name": "BTC",
+                                            "project": "Foundations",
+                                            "id": "a0ec8f79-8af8-4dfc-8a86-1c88a59bf74e",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 19789.304298650066,
+                                                    "y": 30086.725309377038
+                                                },
+                                                "targetPosition": {
+                                                    "x": 19625.91258814556,
+                                                    "y": 30338.326479760664
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 2,
+                                                    "distanceToParent": 3,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
+                                                "referenceParent": {
+                                                    "type": "Asset",
+                                                    "name": "BTC",
+                                                    "id": "e05c6048-8062-4e1e-acec-441d643fd399"
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem"
+                                                    ],
+                                                    [
+                                                        "Trading Tests Pending",
+                                                        "Crypto Exchanges"
+                                                    ],
+                                                    [
+                                                        "Binance Futures USDⓈ-M",
+                                                        "Crypto Exchange"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets"
+                                                    ],
+                                                    [
+                                                        "BTC",
+                                                        "Asset"
+                                                    ]
+                                                ]
+                                            }
+                                        },
+                                        "quotedAsset": {
+                                            "type": "Market Quoted Asset",
+                                            "name": "Tether",
+                                            "project": "Foundations",
+                                            "id": "12ce7888-9873-41fb-922e-21512a6e63b0",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 19925.50144857193,
+                                                    "y": 30354.027266633548
+                                                },
+                                                "targetPosition": {
+                                                    "x": 19625.91258814556,
+                                                    "y": 30338.326479760664
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 2,
+                                                    "distanceToParent": 3,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
+                                                "referenceParent": {
+                                                    "type": "Asset",
+                                                    "name": "Tether",
+                                                    "id": "d66e5b53-78e9-455f-8841-6bf62d2c36bf"
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem"
+                                                    ],
+                                                    [
+                                                        "Trading Tests Pending",
+                                                        "Crypto Exchanges"
+                                                    ],
+                                                    [
+                                                        "Binance Futures USDⓈ-M",
+                                                        "Crypto Exchange"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets"
+                                                    ],
+                                                    [
+                                                        "Tether",
+                                                        "Asset"
+                                                    ]
+                                                ]
+                                            }
+                                        },
+                                        "id": "a5015bce-68d3-4059-8c0c-4655958e7305",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 19625.91258814556,
+                                                "y": 30338.326479760664
+                                            },
+                                            "targetPosition": {
+                                                "x": 19358.61063088905,
+                                                "y": 30474.523629682528
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    }
+                                ],
+                                "id": "670bf7eb-d21c-471c-931d-ffa624eddf93",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 19358.61063088905,
+                                        "y": 30474.523629682528
+                                    },
+                                    "targetPosition": {
+                                        "x": 19091.30867363254,
+                                        "y": 30610.72077960439
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            "exchangeAccounts": {
+                                "type": "Exchange Accounts",
+                                "name": "New Exchange Accounts",
+                                "project": "Foundations",
+                                "userAccounts": [
+                                    {
+                                        "type": "User Account",
+                                        "name": "New User Account",
+                                        "project": "Foundations",
+                                        "userAssets": {
+                                            "type": "User Assets",
+                                            "name": "New User Assets",
+                                            "project": "Foundations",
+                                            "assets": [],
+                                            "id": "d52fe9fe-e4d5-4dc0-a690-6b34d9403a9e",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 19955.38686362977,
+                                                    "y": 30733.75746898403
+                                                },
+                                                "targetPosition": {
+                                                    "x": 19661.94258340963,
+                                                    "y": 30796.130976229357
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 2,
+                                                    "distanceToParent": 3,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                }
+                                            }
+                                        },
+                                        "userKeys": {
+                                            "type": "User Keys",
+                                            "name": "New User Keys",
+                                            "project": "Foundations",
+                                            "keys": [
+                                                {
+                                                    "type": "Exchange Account Key",
+                                                    "name": "New Exchange Account Key",
+                                                    "config": "{\n    \"codeName\": \"DOUBLE_CLICK_ON_THIS_STRING_TO_SELECT_IT_XXX_DELETE_IT_AND_PASTE_YOUR_EXCHANGE_API_PUBLIC_KEY\",\n    \"secret\": \"REPLACE_THIS_STRING_WITH_YOUR_API_KEY_SECRET\",\n    \"uid\": \"REPLACE_THIS_STRING_WITH_YOUR_UID_IF_NECESSARY\",\n    \"password\": \"REPLACE_THIS_STRING_WITH_YOUR_PASSWORD_IF_NECESSARY\"\n}",
+                                                    "project": "Foundations",
+                                                    "id": "3fa1ffa7-f802-4e9d-a735-21a3c71529e7",
+                                                    "savedPayload": {
+                                                        "position": {
+                                                            "x": 20063.420947224946,
+                                                            "y": 31242.017871515793
+                                                        },
+                                                        "targetPosition": {
+                                                            "x": 19862.681765317287,
+                                                            "y": 31019.074423872575
+                                                        },
+                                                        "floatingObject": {
+                                                            "isPinned": false,
+                                                            "isFrozen": false,
+                                                            "isCollapsed": false,
+                                                            "angleToParent": 2,
+                                                            "distanceToParent": 3,
+                                                            "arrangementStyle": 0
+                                                        },
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "id": "7389704c-900f-4c31-8364-8959fdc080a5",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 19862.681765317287,
+                                                    "y": 31019.074423872575
+                                                },
+                                                "targetPosition": {
+                                                    "x": 19661.94258340963,
+                                                    "y": 30796.130976229357
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 2,
+                                                    "distanceToParent": 3,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                }
+                                            }
+                                        },
+                                        "id": "5ccfec54-f7b2-4e6e-9d36-79b88904d517",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 19661.94258340963,
+                                                "y": 30796.130976229357
+                                            },
+                                            "targetPosition": {
+                                                "x": 19376.625628521084,
+                                                "y": 30703.425877916874
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    }
+                                ],
+                                "id": "9e42052a-2c5c-4958-8d30-2389375084a3",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 19376.625628521084,
+                                        "y": 30703.425877916874
+                                    },
+                                    "targetPosition": {
+                                        "x": 19091.30867363254,
+                                        "y": 30610.72077960439
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            "id": "7a10f447-a426-4c2b-911c-0a1f5a57ea56",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 19091.30867363254,
+                                    "y": 30610.72077960439
+                                },
+                                "targetPosition": {
+                                    "x": 18824.00671637603,
+                                    "y": 30746.917929526255
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Crypto Exchange",
+                            "name": "Binance Futures COINM",
+                            "config": "{\n    \"codeName\": \"binancecoinm\",\n    \"API\": [\n        {\n            \"method\": \"fetchTrades\",\n            \"fetchType\": \"by Id\",\n            \"fetchTradesMethod\": \"publicGetHistoricalTrades\",\n            \"firstId\": \"f\"\n        }\n    ]\n}",
+                            "project": "Foundations",
+                            "exchangeAssets": {
+                                "type": "Exchange Assets",
+                                "name": "New Exchange Assets",
+                                "config": "{ \n\"addMissingAssetsFilter\": { \"quotedAsset\": \"USDT\"} \n}",
+                                "project": "Foundations",
+                                "assets": [
+                                    {
+                                        "type": "Asset",
+                                        "name": "BTC",
+                                        "config": "{\n    \"codeName\": \"BTC\"\n}",
+                                        "project": "Foundations",
+                                        "id": "d887b805-f5d0-4891-a269-48fdf45daa2a",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 19372.586988642666,
+                                                "y": 30200.281938858705
+                                            },
+                                            "targetPosition": {
+                                                "x": 19317.916330995024,
+                                                "y": 30495.258411127892
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "Asset",
+                                        "name": "New Asset",
+                                        "config": "{\n    \"codeName\": \"USD\"\n}",
+                                        "project": "Foundations",
+                                        "id": "4cfa0b52-31eb-47be-91d2-7ae695945cc4",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 19600.708778322678,
+                                                "y": 30395.11635335776
+                                            },
+                                            "targetPosition": {
+                                                "x": 19317.916330995024,
+                                                "y": 30495.258411127892
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    }
+                                ],
+                                "id": "46d101f4-c29a-416e-b3b8-d80d5736ac05",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 19317.916330995024,
+                                        "y": 30495.258411127892
+                                    },
+                                    "targetPosition": {
+                                        "x": 19123.08191649597,
+                                        "y": 30723.3802008079
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            "exchangeMarkets": {
+                                "type": "Exchange Markets",
+                                "name": "New Exchange Markets",
+                                "project": "Foundations",
+                                "markets": [
+                                    {
+                                        "type": "Market",
+                                        "name": "BTC/USD",
+                                        "config": "{ \n\"codeName\": \"Type the name of the market\"\n}",
+                                        "project": "Foundations",
+                                        "baseAsset": {
+                                            "type": "Market Base Asset",
+                                            "name": "BTC",
+                                            "project": "Foundations",
+                                            "id": "31402052-0118-4227-99af-ddc45cbaf16c",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 19968.470173322454,
+                                                    "y": 30506.38287229374
+                                                },
+                                                "targetPosition": {
+                                                    "x": 19721.232316735848,
+                                                    "y": 30676.30474337119
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 2,
+                                                    "distanceToParent": 3,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
+                                                "referenceParent": {
+                                                    "type": "Asset",
+                                                    "name": "BTC",
+                                                    "id": "d887b805-f5d0-4891-a269-48fdf45daa2a"
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem"
+                                                    ],
+                                                    [
+                                                        "Trading Tests Pending",
+                                                        "Crypto Exchanges"
+                                                    ],
+                                                    [
+                                                        "Binance Futures COINM",
+                                                        "Crypto Exchange"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets"
+                                                    ],
+                                                    [
+                                                        "BTC",
+                                                        "Asset"
+                                                    ]
+                                                ]
+                                            }
+                                        },
+                                        "quotedAsset": {
+                                            "type": "Market Quoted Asset",
+                                            "name": "",
+                                            "project": "Foundations",
+                                            "id": "bc38184a-0805-4d3d-8638-9ce2b788a3d8",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 19992.007902040805,
+                                                    "y": 30805.45807241368
+                                                },
+                                                "targetPosition": {
+                                                    "x": 19721.232316735848,
+                                                    "y": 30676.30474337119
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 2,
+                                                    "distanceToParent": 3,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
+                                                "referenceParent": {
+                                                    "type": "Asset",
+                                                    "name": "New Asset",
+                                                    "id": "4cfa0b52-31eb-47be-91d2-7ae695945cc4"
+                                                },
+                                                "referenceParentCombinedNodePath": [
+                                                    [
+                                                        "My Crypto Ecosystem",
+                                                        "Crypto Ecosystem"
+                                                    ],
+                                                    [
+                                                        "Trading Tests Pending",
+                                                        "Crypto Exchanges"
+                                                    ],
+                                                    [
+                                                        "Binance Futures COINM",
+                                                        "Crypto Exchange"
+                                                    ],
+                                                    [
+                                                        "New Exchange Assets",
+                                                        "Exchange Assets"
+                                                    ],
+                                                    [
+                                                        "New Asset",
+                                                        "Asset"
+                                                    ]
+                                                ]
+                                            }
+                                        },
+                                        "id": "683ec1f4-4cdd-46cd-968c-f00fe603c1eb",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 19721.232316735848,
+                                                "y": 30676.30474337119
+                                            },
+                                            "targetPosition": {
+                                                "x": 19422.15711661591,
+                                                "y": 30699.842472089545
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    }
+                                ],
+                                "id": "c66c6d89-1390-4bb8-a3c4-dea1047e656b",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 19422.15711661591,
+                                        "y": 30699.842472089545
+                                    },
+                                    "targetPosition": {
+                                        "x": 19123.08191649597,
+                                        "y": 30723.3802008079
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            "exchangeAccounts": {
+                                "type": "Exchange Accounts",
+                                "name": "New Exchange Accounts",
+                                "project": "Foundations",
+                                "userAccounts": [
+                                    {
+                                        "type": "User Account",
+                                        "name": "New User Account",
+                                        "project": "Foundations",
+                                        "userAssets": {
+                                            "type": "User Assets",
+                                            "name": "New User Assets",
+                                            "project": "Foundations",
+                                            "assets": [],
+                                            "id": "04cb33d6-3f9e-496e-a440-272a9e110562",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 19874.30196812517,
+                                                    "y": 31167.719687453653
+                                                },
+                                                "targetPosition": {
+                                                    "x": 19579.325495855985,
+                                                    "y": 31113.04902980601
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 2,
+                                                    "distanceToParent": 3,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                }
+                                            }
+                                        },
+                                        "userKeys": {
+                                            "type": "User Keys",
+                                            "name": "New User Keys",
+                                            "project": "Foundations",
+                                            "keys": [
+                                                {
+                                                    "type": "Exchange Account Key",
+                                                    "name": "New Exchange Account Key",
+                                                    "config": "{ \n\"codeName\": \"DOUBLE_CLICK_ON_THIS_STRING_TO_SELECT_IT_XXX_DELETE_IT_AND_PASTE_YOUR_EXCHANGE_API_PUBLIC_KEY\",\n\"secret\": \"REPLACE_THIS_STRING_WITH_YOUR_API_KEY_SECRET\"\n,\n\"uid\": \"REPLACE_THIS_STRING_WITH_YOUR_UID_IF_NECESSARY\"\n,\n\"password\": \"REPLACE_THIS_STRING_WITH_YOUR_PASSWORD_IF_NECESSARY\"\n}",
+                                                    "project": "Foundations",
+                                                    "id": "1fe1a1d9-41b6-4635-a056-a4beb9787405",
+                                                    "savedPayload": {
+                                                        "position": {
+                                                            "x": 19779.60961139625,
+                                                            "y": 31678.63392446132
+                                                        },
+                                                        "targetPosition": {
+                                                            "x": 19679.467553626117,
+                                                            "y": 31395.841477133665
+                                                        },
+                                                        "floatingObject": {
+                                                            "isPinned": false,
+                                                            "isFrozen": false,
+                                                            "isCollapsed": false,
+                                                            "angleToParent": 2,
+                                                            "distanceToParent": 3,
+                                                            "arrangementStyle": 0
+                                                        },
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "id": "68177c10-f283-4a62-a242-667e2fc78473",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 19679.467553626117,
+                                                    "y": 31395.841477133665
+                                                },
+                                                "targetPosition": {
+                                                    "x": 19579.325495855985,
+                                                    "y": 31113.04902980601
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 2,
+                                                    "distanceToParent": 3,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                }
+                                            }
+                                        },
+                                        "id": "7482b0e8-eb18-4d8b-9099-fdaeab1697ff",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 19579.325495855985,
+                                                "y": 31113.04902980601
+                                            },
+                                            "targetPosition": {
+                                                "x": 19351.203706175977,
+                                                "y": 30918.214615306955
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    }
+                                ],
+                                "id": "9fb42a2b-dd80-482d-8511-33ee5cd5de4c",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 19351.203706175977,
+                                        "y": 30918.214615306955
+                                    },
+                                    "targetPosition": {
+                                        "x": 19123.08191649597,
+                                        "y": 30723.3802008079
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            "id": "d955c502-1516-49c2-82b1-28c7ad24c987",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 19123.08191649597,
+                                    "y": 30723.3802008079
+                                },
+                                "targetPosition": {
+                                    "x": 18824.00671637603,
+                                    "y": 30746.917929526255
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -7285,12 +8125,12 @@
                     "id": "fb5144e2-035a-4478-9a07-73f24e8193c9",
                     "savedPayload": {
                         "position": {
-                            "x": 18866.00671637603,
-                            "y": 30694.917929526255
+                            "x": 18824.00671637603,
+                            "y": 30746.917929526255
                         },
                         "targetPosition": {
-                            "x": 18773.301618063546,
-                            "y": 30980.2348844148
+                            "x": 18731.301618063546,
+                            "y": 31032.2348844148
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -7310,12 +8150,12 @@
             "id": "7217b56c-e854-4c06-8b8a-d5d3c05a153d",
             "savedPayload": {
                 "position": {
-                    "x": 18773.301618063546,
-                    "y": 30980.2348844148
+                    "x": 18731.301618063546,
+                    "y": 31032.2348844148
                 },
                 "targetPosition": {
-                    "x": 18773.301618063546,
-                    "y": 30980.2348844148
+                    "x": 18731.301618063546,
+                    "y": 31032.2348844148
                 },
                 "floatingObject": {
                     "isPinned": true,

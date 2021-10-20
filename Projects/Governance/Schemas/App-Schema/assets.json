@@ -16,7 +16,8 @@
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
             "relatedUiObject": "Asset",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
@@ -31,11 +32,12 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset",
-            "relatedUiObject": "Asset"
+            "relatedUiObject": "Asset",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Install as Plugin",
-            "actionProject": "Foundations",
+            "actionProject": "Community-Plugins",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Install",
             "label": "Install as Plugin",
@@ -76,11 +78,5 @@
             "childType": "Asset",
             "autoAdd": false
         }
-    ],
-    "inMapMode": {
-        "showNodeType": false,
-        "showHierarchyHeadRing": false,
-        "smallIcon": true,
-        "smallText": true
-    }
+    ]
 }

@@ -20,6 +20,11 @@
                 "text": "Hablando de la construcción de bloques, ahora estamos en los confines del Master Data Mine.  A tu izquierda, la definición de uno de los bots que has enviado hace minutos a la minería.",
                 "updated": 1627309457470,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Apropos Blockbildung: Wir befinden uns jetzt in der Masters Data Mine. Zu Ihrer Linken sehen Sie die Definition eines der Bots, die Sie vor einigen Minuten zum Abbau geschickt haben.",
+                "updated": 1634218419044
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "text": "Casi como con las definiciones similares a Lego del Charting Space, los bots están también definidos en un entorno visual.",
                     "updated": 1624413580741,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ähnlich wie bei den Lego-ähnlichen Definitionen des Charting Space werden auch die Bots in einer visuellen Umgebung definiert.",
+                    "updated": 1634218423345
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "text": "Todos lo que los desarrolladores necesitan codificar es el Data Building Procedure.",
                     "updated": 1624413641085,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Alles, was die Entwickler programmieren müssen, ist die eigentliche Data Building Procedure.",
+                    "updated": 1634218433837
                 }
             ]
         },
@@ -75,6 +90,11 @@
                     "text": "Todo lo demás se define en un entorno visual: procesos con sus dependencias, salidas, etc., y productos, con sus definiciones de registros y conjuntos de datos, etc.",
                     "updated": 1624413706861,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Alles andere wird in einer visuellen Umgebung definiert: Prozesse mit ihren Abhängigkeiten, Ausgaben usw. und Produkte mit ihren Datensatz- und Datasetdefinitionen usw.",
+                    "updated": 1634218442797
                 }
             ]
         }

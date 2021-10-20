@@ -135,17 +135,18 @@ function newGovernanceUtilitiesTables() {
                         }
                     }
                     let value = tableRecord[property]
+                    if (value === undefined) { value = 0 }
                     switch (format) {
                         case 'text': {
 
                             break
                         }
                         case 'integer': {
-                            value = parseFloat(parseFloat(value | 0).toFixed(0)).toLocaleString('en')
+                            value = parseFloat(parseFloat(value).toFixed(0)).toLocaleString('en')
                             break
                         }
                         case '2 decimals': {
-                            value = parseFloat(parseFloat(value | 0).toFixed(2)).toLocaleString('en')
+                            value = parseFloat(parseFloat(value).toFixed(2)).toLocaleString('en')
                             break
                         }
                         case 'percentage': {

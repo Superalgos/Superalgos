@@ -20,6 +20,11 @@
                 "text": "El Trading Engine administra la complejidad que conlleva el trading automatizado al hacer que la información sea accesible para usuarios y Trading Systems.",
                 "updated": 1627315125748,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Trading Engine verwaltet die Komplexität, die der automatisierte Handel mit sich bringt, indem sie Informationen für Benutzer und Handelssysteme zugänglich macht.",
+                "updated": 1634226103084
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "text": "¿Recuerdas mis comentarios sobre la granularidad? ¿Cómo la fórmula del Trading System obtuvo el valor de la tasa objetivo de salida? Recordatorio rápido:",
                     "updated": 1624461423083,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erinnern Sie sich an meine Bemerkungen zur Granularität? Erinnern Sie sich daran, wie die Formel des Handelssystems den Wert des Exit-Zielkurses ermittelt hat? Hier ist eine kurze Erinnerung:",
+                    "updated": 1634226111996
                 }
             ]
         },
@@ -63,6 +73,11 @@
                     "text": "Esta cadena contiene la ruta a esa pieza de información en la estructura de datos de la jerarquia Trading Engine! ¿Puedes encontrar el nodo Exit Target Rate? ¡Expande la jerarquía y sigue el rastro de migas de pan!",
                     "updated": 1624461765098,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser String enthält den Pfad zu dieser Information in der Datenstruktur der Trading Engine Hierarchie! Können Sie den Knoten Exit Target Rate finden? Erweitern Sie die Hierarchie und folgen Sie dem Brotkrumen-Pfad!",
+                    "updated": 1634226148267
                 }
             ]
         }

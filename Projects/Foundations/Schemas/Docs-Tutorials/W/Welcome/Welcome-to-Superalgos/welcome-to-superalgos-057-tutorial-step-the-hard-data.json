@@ -4,7 +4,7 @@
     "type": "Tutorial Step - The Hard Data",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "plotter-panel"
         },
         "text": "A Plotter Panel features non-graphical representations of data, mostly in the form of numerical values or text.",
@@ -18,7 +18,13 @@
             {
                 "language": "ES",
                 "text": "Un Plotter Panel presenta representaciones no gráficas de datos, principalmente en forma de valores numéricos o texto.",
-                "updated": 1624410194484
+                "updated": 1624410194484,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ein Plotter Panel enthält nicht-grafische Darstellungen von Daten, meist in Form von numerischen Werten oder Text.",
+                "updated": 1634218122317
             }
         ]
     },
@@ -36,7 +42,13 @@
                 {
                     "language": "ES",
                     "text": "Cada capa puede presentar o no uno o más paneles asociados. Depende del desarrollador del Bot indicador correspondiente definirlos o no.",
-                    "updated": 1624410271230
+                    "updated": 1624410271230,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jede Ebene kann ein oder mehrere zugehörige Panels enthalten oder auch nicht. Es liegt im Ermessen des Entwicklers des entsprechenden Indicator Bot, ob er diese definiert oder nicht.",
+                    "updated": 1634218128665
                 }
             ]
         },
@@ -53,7 +65,13 @@
                 {
                     "language": "ES",
                     "text": "Para acceder a los paneles, haz clic con el botón izquierdo en el icono del panel del trazador de la capa de tu elección.",
-                    "updated": 1624410322152
+                    "updated": 1624410322152,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um auf die Panels zuzugreifen, klicken Sie mit der linken Maustaste auf das Symbol des Plotter-Panels der gewünschten Ebene.",
+                    "updated": 1634218135107
                 }
             ]
         },
@@ -70,7 +88,13 @@
                 {
                     "language": "ES",
                     "text": "Puedes mover el Layer Manager y Plotter Panel haciendo clic con el botón izquierdo en sus encabezados y arrastrándolos a cualquier esquina de la pantalla.",
-                    "updated": 1624410466327
+                    "updated": 1624410466327,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können Ebenen-Manager und Plotter-Panels verschieben, indem Sie mit der linken Maustaste auf ihre Überschriften klicken und sie in eine beliebige Ecke des Bildschirms ziehen.",
+                    "updated": 1634218142345
                 }
             ]
         }

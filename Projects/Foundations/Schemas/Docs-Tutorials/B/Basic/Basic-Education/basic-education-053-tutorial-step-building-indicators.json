@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Si eres un desarrollador o tienes al menos un conocimiento básico de JavaScript, ¡podrás crear tus propios indicadores!",
-                "updated": 1628022227899
+                "updated": 1628022227899,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie ein Entwickler sind oder zumindest ein grundlegendes Verständnis von JavaScript haben, werden Sie in der Lage sein, Ihre eigenen Indikatoren zu erstellen!",
+                "updated": 1634590305087
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Esta es una característica crucial de Superalgos, ya que la inteligencia comercial no puede surgir sin la capacidad de analizar los datos del mercado. Una vez más, no voy a explicar cómo crear indicadores en este momento, ¡pero deseo informarte que lo tenemos cubierto!",
-                    "updated": 1628022270052
+                    "updated": 1628022270052,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist eine wichtige Funktion von Superalgos, denn ohne die Möglichkeit, Marktdaten zu analysieren, kann keine Handelsintelligenz entstehen! Ich werde an dieser Stelle nicht näher darauf eingehen, wie man Indikatoren erstellt, aber ich möchte Sie darauf hinweisen, dass wir für Sie da sind!",
+                    "updated": 1634590310614
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "¡Hay una serie completa de tutoriales en video que explican todo el proceso! ¡Echa un vistazo rápido a esta página en los Documentos!",
-                    "updated": 1628022294402
+                    "updated": 1628022294402,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt eine umfassende Reihe von Vid eo-Tutorials, die den gesamten Prozess erklären! Werfen Sie einen kurzen Blick auf diese Seite in den Docs!",
+                    "updated": 1634590316626
                 }
             ]
         }

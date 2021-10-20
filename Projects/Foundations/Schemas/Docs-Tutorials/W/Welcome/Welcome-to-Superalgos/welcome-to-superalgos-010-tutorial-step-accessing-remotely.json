@@ -138,7 +138,7 @@
         },
         {
             "style": "List",
-            "text": "Change the host parameter for the IP address of the machine running the backend.",
+            "text": "Change the host parameter for the IP address of the machine running the backend. If you use a reverse proxy you must manually add \"webSocketsExternalURL\": \"wss:\/\/mydomain.com:443\" config parameter.",
             "translations": [
                 {
                     "language": "ID",
@@ -160,13 +160,7 @@
                 },
                 {
                     "language": "FR",
-                    "text": "Changez le paramètre host pour l'adresse IP de la machine qui exécute le backend.",
-                    "updated": 1623958474738,
-                    "style": "List"
-                },
-                {
-                    "language": "FR",
-                    "text": "Changez le paramètre host pour l'adresse IP de la machine qui exécute le backend.",
+                    "text": "Changez le paramètre host pour l'adresse IP de la machine qui exécute le backend. Si vous utilisez un reverse proxy ajoutez manuellement \"webSocketsExternalURL\": \"wss:\/\/mydomain.com:443\" dans les paramètres de configuration ",
                     "updated": 1623958474738,
                     "style": "List"
                 },

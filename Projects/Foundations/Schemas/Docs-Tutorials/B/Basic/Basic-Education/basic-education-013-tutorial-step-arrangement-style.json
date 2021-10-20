@@ -21,6 +21,11 @@
                 "text": "El botón recorre varias opciones de disposición que afectan la ubicación de un nodo en relación con su padre.",
                 "updated": 1625958297786,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Schaltfläche schaltet zwischen verschiedenen Anordnungsoptionen um, die sich darauf auswirken, wo ein Knoten im Verhältnis zu seinem übergeordneten Knoten platziert wird.",
+                "updated": 1634332853777
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "El punto naranja representa el nodo principal y los puntos azules representan el nodo que adopta el estilo de disposición específico.",
                     "updated": 1626038309258,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "In der Zeichnung stellt der orangefarbene Punkt den übergeordneten Knoten dar, und die blauen Punkte repräsentieren den Knoten, der den spezifischen Anordnungsstil annimmt.",
+                    "updated": 1634332860892
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "Concave: El nodo adopta una ranura en una circunferencia alrededor de su nodo principal.",
                     "updated": 1626038471028,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Konkav: Dies ist der Standardstil. Der Knoten nimmt einen Platz auf einem Kreis um seinen übergeordneten Knoten ein.",
+                    "updated": 1634332870561
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "text": "Convex: La ranura está en una curva convexa.",
                     "updated": 1625958342457,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Konvex: Der Schlitz befindet sich auf einer konvexen Kurve.",
+                    "updated": 1634332885678
                 }
             ]
         },
@@ -98,6 +118,11 @@
                     "text": "Vertical-Right: Sobre una línea vertical a la derecha.",
                     "updated": 1625958412828,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Vertikal-Rechts: Auf einer vertikalen Linie nach rechts.",
+                    "updated": 1634332895278
                 }
             ]
         },
@@ -117,6 +142,11 @@
                     "text": "Vertical-Left: La ranura está en una línea vertical a la izquierda.",
                     "updated": 1625958432042,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Vertikal-Links: Der Schlitz befindet sich auf einer vertikalen Linie nach links.",
+                    "updated": 1634332902630
                 }
             ]
         },
@@ -136,6 +166,11 @@
                     "text": "Horizontal-Bottom: En una línea horizontal debajo.",
                     "updated": 1625958446725,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Horizontal-unten: Auf einer horizontalen Linie nach unten.",
+                    "updated": 1634332909056
                 }
             ]
         },
@@ -155,6 +190,11 @@
                     "text": "Horizontal-Top: La ranura está en una línea horizontal arriba.",
                     "updated": 1625958461412,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Horizontal-Oben: Der Schlitz befindet sich auf einer horizontalen Linie oben.",
+                    "updated": 1634332915541
                 }
             ]
         },

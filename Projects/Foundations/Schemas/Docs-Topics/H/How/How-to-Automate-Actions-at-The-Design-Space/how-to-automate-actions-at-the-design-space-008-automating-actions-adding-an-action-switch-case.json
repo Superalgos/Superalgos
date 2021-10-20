@@ -32,7 +32,7 @@
         },
         {
             "style": "Javascript",
-            "text": "UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginTradingEngines(action.node, action.rootNodes)\n",
+            "text": "UI.projects.plugins.functionLibraries.pluginsFunctions.addMissingPluginTradingEngines(action.node, action.rootNodes)\n",
             "updated": 1614938043930
         },
         {
@@ -50,7 +50,7 @@
         },
         {
             "style": "Json",
-            "text": "{\n                    \"name\": \"Plugins Functions\",\n                    \"propertyName\": \"pluginsFunctions\",\n                    \"functionName\": \"newFoundationsFunctionLibraryPluginsFunctions\"\n                }",
+            "text": "{\n                    \"name\": \"Plugins Functions\",\n                    \"propertyName\": \"pluginsFunctions\",\n                    \"functionName\": \"newPluginsFunctionLibraryPluginsFunctions\"\n                }",
             "updated": 1614938194636
         },
         {

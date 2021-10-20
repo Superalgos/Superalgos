@@ -18,166 +18,6 @@ function newFoundationsActionSwitch() {
 
     async function executeAction(action) {
         switch (action.name) {
-            case 'Get Node On Focus': {
-                return UI.projects.foundations.functionLibraries.onFocus.getNodeThatIsOnFocus(action.node)
-            }
-
-            case 'Get Node By Shortcut Key': {
-                return UI.projects.foundations.functionLibraries.shortcutKeys.getNodeByShortcutKey(action.node, action.extraParameter)
-            }
-
-            case 'Get Node Data Structure': {
-                return UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(action.node, action.extraParameter, false, true, true, true)
-            }
-
-            case 'Create UI Object': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.createUiObjectFromNode(action.node, undefined, undefined, action.extraParameter)
-            }
-                break
-            case 'Connect Children to Reference Parents': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.tryToConnectChildrenWithReferenceParents()
-            }
-                break
-            case 'Get Node By Id': {
-                return UI.projects.foundations.functionLibraries.uiObjectsFromNodes.getNodeById(action.relatedNodeId)
-            }
-
-            case 'Syncronize Tasks': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd()
-            }
-                break
-            case 'Syncronize Trading Sessions': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd()
-            }
-                break
-            case 'Syncronize Learning Sessions': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd()
-            }
-                break
-            case 'Play Tutorials': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.playTutorials()
-            }
-                break
-            case 'Recreate Workspace': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.recreateWorkspace(action.node, action.callBackFunction)
-            }
-                break
-            case 'Delete Workspace': {
-                return UI.projects.foundations.functionLibraries.nodeDeleter.deleteWorkspace(action.node, action.rootNodes, action.callBackFunction)
-            }
-                break
-            case 'Copy Node Path':
-                {
-                    let nodePath = UI.projects.foundations.functionLibraries.nodePath.getNodePath(action.node)
-
-                    UI.projects.foundations.utilities.clipboard.copyTextToClipboard(nodePath)
-
-                    UI.projects.foundations.spaces.cockpitSpace.setStatus(
-                        nodePath + ' copied to the Clipboard.'
-                        , 50, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
-                }
-                break
-            case 'Copy Node Value':
-                {
-                    let value = action.node.payload.uiObject.getValue()
-
-                    UI.projects.foundations.utilities.clipboard.copyTextToClipboard(value)
-
-                    UI.projects.foundations.spaces.cockpitSpace.setStatus(
-                        value + ' copied to the Clipboard.'
-                        , 50, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
-                }
-                break
-            case 'Copy Node Type':
-                {
-                    let value = action.node.type
-
-                    UI.projects.foundations.utilities.clipboard.copyTextToClipboard(value)
-
-                    UI.projects.foundations.spaces.cockpitSpace.setStatus(
-                        value + ' copied to the Clipboard.'
-                        , 50, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
-                }
-                break
-            case 'Add UI Object':
-                {
-                    UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(action.node, action.relatedNodeType, action.rootNodes)
-                }
-                break
-            case 'Add Missing Children':
-                {
-                    UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addMissingChildren(action.node, action.rootNodes)
-                }
-                break
-            case 'Delete UI Object':
-                {
-                    UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(action.node, action.rootNodes)
-                }
-                break
-            case 'Install as Plugin':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.installAsPlugin(action.node, action.rootNodes)
-                }
-                break
-            case 'Edit Code':
-
-                break
-            case 'Share':
-                {
-                    let text = JSON.stringify(
-                        UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(action.node, true, false, true, true, true),
-                        undefined,
-                        4
-                    )
-
-                    let nodeName = action.node.name
-                    if (nodeName === undefined) {
-                        nodeName = ''
-                    } else {
-                        nodeName = '.' + nodeName
-                    }
-                    let fileName = 'Share - ' + action.node.type + ' - ' + nodeName + '.json'
-                    UI.projects.foundations.utilities.download.downloadText(fileName, text)
-                }
-
-                break
-            case 'Backup':
-                {
-                    let text = JSON.stringify(
-                        UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(action.node, false, false, true, true, true),
-                        undefined,
-                        4)
-
-                    let nodeName = action.node.name
-                    if (nodeName === undefined) {
-                        nodeName = ''
-                    } else {
-                        nodeName = ' ' + nodeName
-                    }
-                    let fileName = 'Backup - ' + action.node.type + ' - ' + nodeName + '.json'
-                    UI.projects.foundations.utilities.download.downloadText(fileName, text)
-                }
-
-                break
-            case 'Clone':
-                {
-                    let text = JSON.stringify(
-                        UI.projects.foundations.functionLibraries.nodeCloning.getNodeClone(action.node),
-                        undefined,
-                        4
-                    )
-
-                    let nodeName = action.node.name
-                    if (nodeName === undefined) {
-                        nodeName = ''
-                    } else {
-                        nodeName = ' ' + nodeName
-                    }
-                    let fileName = 'Clone - ' + action.node.type + ' - ' + nodeName + '.json'
-                    UI.projects.foundations.utilities.download.downloadText(fileName, text)
-                }
-
-                break
             case 'Debug Task':
                 {
                     UI.projects.foundations.functionLibraries.taskFunctions.runTask(action.node, true, action.callBackFunction)
@@ -423,11 +263,6 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.cryptoEcosystemFunctions.uninstallMarket(action.node, action.rootNodes)
                 }
                 break
-            case 'Add All Output Datasets':
-                {
-                    UI.projects.foundations.functionLibraries.mineFunctions.addAllOutputDatasets(action.node)
-                }
-                break
             case 'Add All Data Products':
                 {
                     UI.projects.foundations.functionLibraries.dataStorageFunctions.addAllDataProducts(action.node)
@@ -503,16 +338,6 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.dataStorageFunctions.addMissingProjectDataProducts(action.node, action.rootNodes)
                 }
                 break
-            case 'Add All Data Dependencies':
-                {
-                    UI.projects.foundations.functionLibraries.mineFunctions.addAllDataDependencies(action.node)
-                }
-                break
-            case 'Add All Data Mine Dependencies':
-                {
-                    UI.projects.foundations.functionLibraries.mineFunctions.addAllDataMineDataDependencies(action.node, action.rootNodes)
-                }
-                break
             case 'Add All Layer Panels':
                 {
                     UI.projects.foundations.functionLibraries.chartingSpaceFunctions.addAllLayerPanels(action.node)
@@ -543,97 +368,14 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.chartingSpaceFunctions.addMissingProjectDashboards(action.node, action.rootNodes)
                 }
                 break
-            case 'Play Tutorial':
-                {
-                    UI.projects.education.spaces.tutorialSpace.playTutorial(action.node)
-                }
-                break
-            case 'Play Tutorial Topic':
-                {
-                    UI.projects.education.spaces.tutorialSpace.playTutorialTopic(action.node)
-                }
-                break
-            case 'Play Tutorial Step':
-                {
-                    UI.projects.education.spaces.tutorialSpace.playTutorialStep(action.node)
-                }
-                break
-            case 'Resume Tutorial':
-                {
-                    UI.projects.education.spaces.tutorialSpace.resumeTutorial(action.node)
-                }
-                break
-            case 'Resume Tutorial Topic':
-                {
-                    UI.projects.education.spaces.tutorialSpace.resumeTutorialTopic(action.node)
-                }
-                break
-            case 'Resume Tutorial Step':
-                {
-                    UI.projects.education.spaces.tutorialSpace.resumeTutorialStep(action.node)
-                }
-                break
-            case 'Reset Tutorial Progress':
-                {
-                    UI.projects.education.spaces.tutorialSpace.resetTutorialProgress(action.node)
-                }
-                break
             case 'Send Webhook Test Message':
                 {
                     UI.projects.foundations.functionLibraries.webhookFunctions.sendTestMessage(action.node, action.callBackFunction)
                 }
                 break
-            case 'Run Trading Session':
-                {
-                    UI.projects.foundations.functionLibraries.tradingSessionFunctions.runSession(action.node, false, action.callBackFunction)
-                }
-                break
-            case 'Resume Trading Session':
-                {
-                    UI.projects.foundations.functionLibraries.tradingSessionFunctions.runSession(action.node, true, action.callBackFunction)
-                }
-                break
-            case 'Stop Trading Session':
-                {
-                    UI.projects.foundations.functionLibraries.tradingSessionFunctions.stopSession(action.node, action.callBackFunction)
-                }
-                break
-            case 'Run Learning Session':
-                {
-                    UI.projects.foundations.functionLibraries.learningSessionFunctions.runSession(action.node, false, action.callBackFunction)
-                }
-                break
-            case 'Resume Learning Session':
-                {
-                    UI.projects.foundations.functionLibraries.learningSessionFunctions.runSession(action.node, true, action.callBackFunction)
-                }
-                break
-            case 'Stop Learning Session':
-                {
-                    UI.projects.foundations.functionLibraries.learningSessionFunctions.stopSession(action.node, action.callBackFunction)
-                }
-                break
             case 'Run Super Action':
                 {
                     UI.projects.foundations.functionLibraries.superScriptsFunctions.runSuperScript(action.node, action.rootNodes)
-                }
-                break
-            case 'Parent Attach': {
-                UI.projects.foundations.functionLibraries.chainAttachDetach.chainAttachNode(action.node, action.relatedNode, action.rootNodes)
-            }
-                break
-            case 'Reference Attach': {
-                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(action.node, action.relatedNode, action.rootNodes)
-            }
-                break
-            case 'Parent Detach':
-                {
-                    UI.projects.foundations.functionLibraries.chainAttachDetach.chainDetachNode(action.node, action.rootNodes)
-                }
-                break
-            case 'Reference Detach':
-                {
-                    UI.projects.foundations.functionLibraries.attachDetach.referenceDetachNode(action.node)
                 }
                 break
             case 'Push Code to Javascript Code':
@@ -648,7 +390,7 @@ function newFoundationsActionSwitch() {
                 break
             case 'Open Documentation':
                 {
-                    let docs = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(action.node.payload, 'docs')
+                    let docs = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(action.node.payload, 'docs')
 
                     if (docs === undefined) {
                         let definition = getSchemaDocument(action.node)
@@ -658,76 +400,6 @@ function newFoundationsActionSwitch() {
                     } else {
                         UI.projects.education.spaces.docsSpace.openSpaceAreaAndNavigateTo(docs.project, docs.category, docs.type, docs.anchor, docs.nodeId, docs.placeholder)
                     }
-                }
-                break
-            case 'Add Missing Plugin Projects':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginProjects(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Types':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginTypes(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Data Mines':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginDataMines(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Trading Mines':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginTradingMines(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Trading Systems':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginTradingSystems(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Trading Engines':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginTradingEngines(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Learning Mines':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginLearningMines(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Learning Systems':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginLearningSystems(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Learning Engines':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginLearningEngines(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin Tutorials':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginTutorials(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Missing Plugin API Maps':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginApiMaps(action.node, action.rootNodes)
-                }
-                break
-            case 'Enable Saving With Workspace':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.enableSavingWithWorkspace(action.node, action.rootNodes)
-                }
-                break
-            case 'Disable Saving With Workspace':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.disableSavingWithWorkspace(action.node, action.rootNodes)
-                }
-                break
-            case 'Save Plugin':
-                {
-                    UI.projects.foundations.functionLibraries.pluginsFunctions.savePlugin(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Workspace Projects':
@@ -764,65 +436,20 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
                 }
                 break
-            case 'Send Telegram Test Message':
+            case 'Save node to be moved':
                 {
-                    UI.projects.foundations.functionLibraries.socialBotsFunctions.sendTelegramTestMessage(action.node, action.callBackFunction)
+                    UI.projects.foundations.spaces.floatingSpace.saveFloatingObjectToBeMoved()
                 }
                 break
-            case 'Send Discord Test Message':
+            case 'Snap saved node to position':
                 {
-                    UI.projects.foundations.functionLibraries.socialBotsFunctions.sendDiscordTestMessage(action.node, action.callBackFunction)
+                    UI.projects.foundations.spaces.floatingSpace.moveFloatingObject(action.node.payload.position)
                 }
                 break
-            case 'Send Slack Test Message':
-                {
-                    UI.projects.foundations.functionLibraries.socialBotsFunctions.sendSlackTestMessage(action.node, action.callBackFunction)
-                }
-                break
-            case 'Copy Position':
-            {
-                UI.projects.foundations.utilities.clipboard.copyTextToClipboard( action.node.payload.position.x + ';' + action.node.payload.position.y)
-                action.node.payload.uiObject.setInfoMessage('Position copied')
+
+            default: {
+                console.log("[WARN] Action sent to Foundations Action Switch does not belong here. Verify at the App Schema file of the node that triggered this action that the actionProject is pointing to the right project. -> Action = " + action.name + " -> Action Node Name = " + action.node.name)
             }
-                break
-            case 'Snap to Position':
-            {
-                navigator.clipboard.readText()
-                    .then(text => {
-                        //console.log('Pasted content: ', text);
-                        let newPosition = {
-                            x: 0,
-                            y: 0
-                        }
-                        let newVector = {
-                            x: 0,
-                            y: 0
-                        }
-                        let positionArray = text.split(";",2)
-
-                        newPosition.x = positionArray[0]
-                        newPosition.y = positionArray[1]
-
-                        if (newPosition.x >= 0 && newPosition.x <= UI.projects.foundations.spaces.floatingSpace.container.frame.width) {
-                            newVector.x = newPosition.x - action.node.payload.position.x
-
-                            if (newPosition.y >= 0 && newPosition.y <= UI.projects.foundations.spaces.floatingSpace.container.frame.height) {
-
-                                newVector.y = newPosition.y - action.node.payload.position.y
-                                action.node.payload.floatingObject.container.displace(newVector)
-                                action.node.payload.uiObject.setInfoMessage('Snapped to new position')
-                            }
-                        }
-                        else {
-                            action.node.payload.uiObject.setErrorMessage('[Error]:Failed to read clipboard contents')
-                        }
-                    })
-                    .catch(err => {
-                        console.error('[Error]:Failed to read clipboard contents: ', err);
-                        action.node.payload.uiObject.setErrorMessage('[Error]:Failed to read clipboard contents')
-                    });
-            }
-                break
         }
     }
 }

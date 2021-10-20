@@ -5,11 +5,14 @@ debug.log
 
 *.db
 
-.git*
-.vscode
 README.md
 LICENSE
-CONTRIBUITING.md
+CONTRIBUTING.md
 CODE_OF_CONDUCT.md
-./**/.vscode
-Dockerfile
+.git*
+.docker*
+**/.vscode
+**/Dockerfile*
+**/docker-compose.yml
+**/node_modules
+**/.env*

@@ -39,8 +39,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Declarar tus referencias es la mejor manera de agradecer a las personas que pueden haber escrito ese artículo o tweet, producido ese video, mantenido el sitio web o le han contado sobre Superalgos.",
-                    "updated": 1630895822840,
+                    "text": "Declarar tus referencias es la mejor manera de agradecer a las personas que pueden haber escrito ese artículo o tweet, producido ese video, mantenido el sitio web etc....",
+                    "updated": 1632024727440,
                     "style": "Success"
                 }
             ]
@@ -52,8 +52,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Para declarar un referente, debe establecer una referencia del nodo User Referrer a el User Profile de tu referente! ¿Su referente tiene un User Profile?",
-                    "updated": 1630895923926,
+                    "text": "Para declarar una referencia, debes establecerla desde el nodo User Referrer al User Profile de tu referencia. ¡El nombre del User Profile también es un código de referencia!",
+                    "updated": 1632025274614,
                     "style": "Note"
                 }
             ]

@@ -4,7 +4,14 @@
     "type": "Docs Error - Page Already Exists",
     "definition": {
         "text": "The page you are trying to add already exists.",
-        "updated": 1610999079334
+        "updated": 1610999079334,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Seite, die Sie hinzufügen möchten, existiert bereits.",
+                "updated": 1633898374701
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,16 +22,37 @@
         {
             "style": "Error",
             "text": "Page already exists.",
-            "updated": 1610999086141
+            "updated": 1610999086141,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Seite existiert bereits.",
+                    "updated": 1633898447049
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Check the Docs Page Name you used on the command. It seems that a page with the same name already exists.",
-            "updated": 1610999134449
+            "updated": 1610999134449,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie den Docs Page Name, den Sie für den Befehl verwendet haben. Es scheint, dass eine Seite mit demselben Namen bereits existiert.",
+                    "updated": 1633898560092
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Applies to"
+            "text": "Applies to",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gilt für",
+                    "updated": 1633898579157
+                }
+            ]
         },
         {
             "style": "List",

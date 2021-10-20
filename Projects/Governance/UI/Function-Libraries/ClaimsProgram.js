@@ -188,10 +188,12 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                     node.payload.votingProgram.votes > 0 &&
                     node.payload.referenceParent !== undefined &&
                     node.payload.referenceParent.payload !== undefined &&
+                    node.payload.referenceParent.payload.votingProgram !== undefined &&
                     node.payload.referenceParent.payload.votingProgram.votes !== undefined &&
                     node.payload.referenceParent.payload.votingProgram.votes > 0 &&
                     node.payload.referenceParent.payload.weight !== undefined &&
                     node.payload.referenceParent.payload.weight > 0 &&
+                    node.payload.referenceParent.payload.claimsProgram !== undefined &&
                     node.payload.referenceParent.payload.claimsProgram.count !== undefined &&
                     node.payload.referenceParent.payload.claimsProgram.votes !== undefined
                 ) {
@@ -262,10 +264,12 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                     node.payload.votingProgram.votes > 0 &&
                     node.payload.referenceParent !== undefined &&
                     node.payload.referenceParent.payload !== undefined &&
+                    node.payload.referenceParent.payload.votingProgram !== undefined &&                    
                     node.payload.referenceParent.payload.votingProgram.votes !== undefined &&
                     node.payload.referenceParent.payload.votingProgram.votes > 0 &&
                     node.payload.referenceParent.payload.weight !== undefined &&
                     node.payload.referenceParent.payload.weight > 0 &&
+                    node.payload.referenceParent.payload.claimsProgram !== undefined &&
                     node.payload.referenceParent.payload.claimsProgram.count !== undefined &&
                     node.payload.referenceParent.payload.claimsProgram.votes !== undefined
                 ) {
@@ -321,7 +325,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                         if (childNode === undefined) { continue }
                         if (childNode.type === "Tokens Awarded") { continue }
 
-                        let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                        let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                         if (percentage !== undefined && isNaN(percentage) !== true) {
                             totalPercentage = totalPercentage + percentage
                         } else {
@@ -337,7 +341,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === "Tokens Awarded") { continue }
 
-                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                                 if (percentage !== undefined && isNaN(percentage) !== true) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
@@ -368,7 +372,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                         if (childNode === undefined) { continue }
                         if (childNode.type === "Tokens Awarded") { continue }
 
-                        let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                        let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                         if (percentage === undefined || isNaN(percentage) === true) {
                             percentage = defaultPercentage
                         }
@@ -383,7 +387,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === "Tokens Awarded") { continue }
 
-                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                                 if (percentage === undefined || isNaN(percentage) === true) {
                                     percentage = defaultPercentage
                                 }
@@ -535,12 +539,12 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                             let destinationNodeChild = destinationNode[property.name]
 
                             let originNodeChildType = getOriginNodeChildType(destinationNodeChild)
-                            let originNodeChild = UI.projects.foundations.utilities.nodeChildren.findChildReferencingThisNode(originNode, destinationNodeChild)
+                            let originNodeChild = UI.projects.visualScripting.utilities.nodeChildren.findChildReferencingThisNode(originNode, destinationNodeChild)
 
                             if (originNodeChild === undefined) {
-                                originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
+                                originNodeChild = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
                             }
-                            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
+                            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
                             scanNodeBranch(originNodeChild, destinationNodeChild)
                         }
                             break
@@ -552,12 +556,12 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                                     let destinationNodeChild = propertyArray[m]
 
                                     let originNodeChildType = getOriginNodeChildType(destinationNodeChild)
-                                    let originNodeChild = UI.projects.foundations.utilities.nodeChildren.findChildReferencingThisNode(originNode, destinationNodeChild)
+                                    let originNodeChild = UI.projects.visualScripting.utilities.nodeChildren.findChildReferencingThisNode(originNode, destinationNodeChild)
 
                                     if (originNodeChild === undefined) {
-                                        originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
+                                        originNodeChild = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
                                     }
-                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
+                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
                                     scanNodeBranch(originNodeChild, destinationNodeChild)
                                 }
                             }

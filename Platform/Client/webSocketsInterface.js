@@ -7,7 +7,7 @@
         finalize: finalize
     }
 
-    const WEB_SOCKET = require('ws')
+    const WEB_SOCKET = SA.nodeModules.ws
     let socketServer
     let port = global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT  
 
@@ -86,7 +86,7 @@
                         }
 
 
-                        CL.servers.EVENT_SERVER.onMessage(messageToEventServer, onResponse)
+                        PL.servers.EVENT_SERVER.onMessage(messageToEventServer, onResponse)
 
                         function onResponse(message) {
                             socket.send(message)
@@ -97,7 +97,8 @@
                 }
             }
         } catch (err) {
-            console.log('[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> err.message = ' + err.message.substring(0, 1000))
+            console.log('[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> err.message = ' + err.message)
+            console.log('[ERROR] Client -> Web Sockets Interface -> run -> setUpWebSocketServer -> err.message = ' + err.stack)
         }
     }
 }

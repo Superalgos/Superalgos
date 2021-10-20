@@ -100,7 +100,7 @@ exports.newFoundationsFunctionLibrariesProcessFilesFunctions = function () {
             }
 
             function startFromBegining() {
-                contextVariables.lastFile = new Date(contextVariables.dateBeginOfMarket.getUTCFullYear() + "-" + (contextVariables.dateBeginOfMarket.getUTCMonth() + 1) + "-" + contextVariables.dateBeginOfMarket.getUTCDate() + " " + "00:00" + TS.projects.foundations.globals.timeConstants.GMT_SECONDS)
+                contextVariables.lastFile = new Date(contextVariables.dateBeginOfMarket.getUTCFullYear() + "-" + (contextVariables.dateBeginOfMarket.getUTCMonth() + 1) + "-" + contextVariables.dateBeginOfMarket.getUTCDate() + " " + "00:00" + SA.projects.foundations.globals.timeConstants.GMT_SECONDS)
 
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                     "[INFO] start -> getContextVariables -> startFromBegining -> contextVariables.lastFile = " + contextVariables.lastFile)
@@ -123,7 +123,7 @@ exports.newFoundationsFunctionLibrariesProcessFilesFunctions = function () {
     async function writeProcessFiles(processIndex, contextVariables, currentTimeFrame, processDate, statusDependencies) {
 
         let fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex)
-        let outputDatasets = TS.projects.foundations.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
+        let outputDatasets = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
 
         await writeTimeFramesFiles()
         await writeDataRanges()
@@ -147,7 +147,7 @@ exports.newFoundationsFunctionLibrariesProcessFilesFunctions = function () {
             async function writeDataRange(productCodeName) {
                 let dataRange = {
                     begin: contextVariables.dateBeginOfMarket.valueOf(),
-                    end: processDate.valueOf() + TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+                    end: processDate.valueOf() + SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
                 }
 
                 let fileContent = JSON.stringify(dataRange)

@@ -141,7 +141,7 @@
         },
         {
             "style": "Javascript",
-            "text": "parameterValue = \nMath.trunc((new Date()).valueOf() / \nTS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * \nTS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS",
+            "text": "parameterValue = \nMath.trunc((new Date()).valueOf() / \nSA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * \nSA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS",
             "updated": 1622477009814
         },
         {
@@ -151,7 +151,7 @@
         },
         {
             "style": "Javascript",
-            "text": "parameterValue = Math.trunc((new Date()).valueOf() / \nTS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * \nTS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS + \nTS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1",
+            "text": "parameterValue = Math.trunc((new Date()).valueOf() / \nSA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * \nSA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS + \nSA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1",
             "updated": 1622477088684
         },
         {

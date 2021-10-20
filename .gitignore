@@ -2,6 +2,10 @@ Data-Storage
 Log-Files
 My-Workspaces
 My-Social-Trading-Data
+My-Network-Nodes-Data
+My-Secrets
+My-Data-Storage
+My-Log-Files
 debug.log
 .DS_Store
 *.db
@@ -13,4 +17,6 @@ Projects/Foundations/Icons/Thumbs.db
 *.exe
 node_modules
 launch.json
+package-lock.json
 .idea
+dist

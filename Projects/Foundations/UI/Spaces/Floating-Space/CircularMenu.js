@@ -80,6 +80,7 @@ function newCircularMenu() {
             menuItem.angle = menuItemInitialValue.angle
             menuItem.currentStatus = menuItemInitialValue.currentStatus
             menuItem.relatedUiObject = menuItemInitialValue.relatedUiObject
+            menuItem.relatedUiObjectProject = menuItemInitialValue.relatedUiObjectProject
             menuItem.dontShowAtFullscreen = menuItemInitialValue.dontShowAtFullscreen
             menuItem.askConfirmation = menuItemInitialValue.askConfirmation
             menuItem.confirmationLabel = menuItemInitialValue.confirmationLabel
@@ -107,7 +108,7 @@ function newCircularMenu() {
         }
 
         /* There are 4 possible rings of icons, we will go through each of them here. */
-        let amplitudeArray = [80, 50, 40, 80]
+        let amplitudeArray = [80, 70, 40, 80]
         let initialAngleArray = [220, 205, 200, 180]
         for (let j = 1; j < ringsArray.length + 1; j++) {
             let iconOnlyArray = ringsArray[j - 1]

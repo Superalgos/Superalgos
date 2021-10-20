@@ -56,13 +56,13 @@ function newFoundationsFunctionLibraryTaskFunctions() {
     return thisObject
 
     function syncronizeTaskWithBackEnd(node) {
-        let networkNode = validations(node)
-        if (networkNode === undefined) {
+        let lanNetworkNode = validations(node)
+        if (lanNetworkNode === undefined) {
             /* Nodes that do not belong to a network can not get ready. */
             return
         }
 
-        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(networkNode.id)
+        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         /* First we setup everything so as to listen to the response from the Task Manger */
         let eventSubscriptionIdOnStatus
@@ -90,14 +90,14 @@ function newFoundationsFunctionLibraryTaskFunctions() {
 
     function runTask(node, isDebugging, callBackFunction) {
 
-        let networkNode = validations(node)
-        if (networkNode === undefined) {
+        let lanNetworkNode = validations(node)
+        if (lanNetworkNode === undefined) {
             /* This means that the validations failed. */
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             return
         }
 
-        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(networkNode.id)
+        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         for (let i = 0; i < node.bot.processes.length; i++) {
             let process = node.bot.processes[i]
@@ -110,10 +110,10 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         let taskLightingPath = '->Task->' +
             'Sensor Bot Instance->' +
             'API Data Fetcher Bot Instance->' +
-            'Indicator Bot Instance->Time Frames Filter->' +
+            'Indicator Bot Instance->' +
             'Trading Bot Instance->' +
             'Learning Bot Instance->' +
-            'Sensor Process Instance->API Data Fetcher Process Instance->Indicator Process Instance->Trading Process Instance->Learning Process Instance->' +
+            'Sensor Process Instance->Time Frames Filter->API Data Fetcher Process Instance->Indicator Process Instance->Trading Process Instance->Learning Process Instance->' +
             'Execution Started Event->' +
             'Key Reference->Exchange Account Key->' +
             'Task Manager->' +
@@ -159,9 +159,9 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             'API Map->API Version->API Endpoint->API Query Parameters->API Query Parameter->API Path Parameters->API Path Parameter->API Query Responses->API Query Response->API Response Schema->' +
             'API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->'
 
-        let taskDefinition = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
+        let taskDefinition = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
 
-        let networkLightingPath = '->Network->Network Node->' +
+        let networkLightingPath = '->LAN Network->LAN Network Node->' +
             'Data Storage->' +
             'Data Mines Data->Trading Mines Data->Learning Mines Data->' +
             'Project Data Products->Project Trading Products->Project Learning Products->' +
@@ -185,7 +185,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             'Market->' +
             'Process Definition->'
 
-        let networkDefinition = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(networkNode.payload.parentNode, false, true, true, false, false, networkLightingPath)
+        let networkDefinition = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(lanNetworkNode.payload.parentNode, false, true, true, false, false, networkLightingPath)
 
         /*
         We will also send all the project schemas we have to the Task Server.
@@ -218,13 +218,13 @@ function newFoundationsFunctionLibraryTaskFunctions() {
     }
 
     function stopTask(node, callBackFunction) {
-        let networkNode = validations(node)
-        if (networkNode === undefined) {
+        let lanNetworkNode = validations(node)
+        if (lanNetworkNode === undefined) {
             /* This means that the validations failed. */
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             return
         }
-        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(networkNode.id)
+        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         let event = {
             taskId: node.id,
@@ -288,24 +288,24 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             return
         }
 
-        let networkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(taskManager, 'Network Node', undefined, true, false, true, false)
+        let lanNetworkNode = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(taskManager, 'LAN Network Node', undefined, true, false, true, false)
 
-        if (UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(networkNode.payload, 'host') === undefined) {
+        if (UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(lanNetworkNode.payload, 'host') === undefined) {
             node.payload.uiObject.setErrorMessage('Network Node needs to have a valid Host property at its config.')
             return
         }
 
-        if (UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(networkNode.payload, 'webPort') === undefined) {
+        if (UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(lanNetworkNode.payload, 'webPort') === undefined) {
             node.payload.uiObject.setErrorMessage('Network Node needs to have a valid webPort property at its config.')
             return
         }
 
-        if (UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(networkNode.payload, 'webSocketsPort') === undefined) {
+        if (UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(lanNetworkNode.payload, 'webSocketsPort') === undefined) {
             node.payload.uiObject.setErrorMessage('Network Node needs to have a valid webSocketsPort property at its config.')
             return
         }
 
-        return networkNode
+        return lanNetworkNode
     }
 
     function runAllTasks(taskManager) {
@@ -587,31 +587,34 @@ function newFoundationsFunctionLibraryTaskFunctions() {
     }
 
     function addMissingProjectDataTasks(node, rootNodes) {
-        addMissingProjectTasks(node, rootNodes, 'Project Data Tasks')
+        addMissingProjectTasks(node, rootNodes, 'Project Data Tasks', 'Data Tasks')
     }
 
     function addMissingProjectTradingTasks(node, rootNodes) {
-        addMissingProjectTasks(node, rootNodes, 'Project Trading Tasks')
+        addMissingProjectTasks(node, rootNodes, 'Project Trading Tasks', 'Trading Tasks')
     }
 
     function addMissingProjectLearningTasks(node, rootNodes) {
-        addMissingProjectTasks(node, rootNodes, 'Project Learning Tasks')
+        addMissingProjectTasks(node, rootNodes, 'Project Learning Tasks', 'Learning Tasks')
     }
 
-    function addMissingProjectTasks(node, rootNodes, newNodeType) {
+    function addMissingProjectTasks(node, rootNodes, newNodeType, taskType) {
 
         for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
             let projectDefinition = PROJECTS_SCHEMA[k]
             let project = projectDefinition.name
+
+            if (projectDefinition.tasks === undefined) { continue }
+            if (projectDefinition.tasks.includes(taskType) === false) { continue }
 
             for (let j = 0; j < rootNodes.length; j++) {
                 let rootNode = rootNodes[j]
                 if (rootNode.type === project + ' Project') {
                     let projectDefinition = rootNode.projectDefinition
                     if (projectDefinition !== undefined) {
-                        if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, projectDefinition, true) === true) {
-                            let projectTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType, undefined, project)
-                            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
+                        if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, projectDefinition, true) === true) {
+                            let projectTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType, undefined, node.project)
+                            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
                         }
                     }
                 }
@@ -640,9 +643,9 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                     let cryptoExchanges = cryptoEcosystem.cryptoExchanges[j]
                     for (let k = 0; k < cryptoExchanges.exchanges.length; k++) {
                         let cryptoExchange = cryptoExchanges.exchanges[k]
-                        if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, cryptoExchange, true) === true) {
-                            let exchangeTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
-                            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(exchangeTasks, cryptoExchange)
+                        if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, cryptoExchange, true) === true) {
+                            let exchangeTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
+                            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(exchangeTasks, cryptoExchange)
                         }
                     }
                 }
@@ -672,9 +675,9 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         for (let i = 0; i < markets.length; i++) {
             let market = markets[i]
 
-            if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, market, true) === true) {
-                let marketDataTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
-                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(marketDataTasks, market)
+            if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, market, true) === true) {
+                let marketDataTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
+                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(marketDataTasks, market)
             }
         }
     }
@@ -697,9 +700,9 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             if (rootNode.type === rootNodeType) {
                 let mine = rootNode
 
-                if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(node, mine, true) === true) {
-                    let dataMineTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
-                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(dataMineTasks, mine)
+                if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, mine, true) === true) {
+                    let dataMineTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
+                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(dataMineTasks, mine)
                 }
             }
         }
@@ -709,7 +712,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) { return }
 
-        let taskManager = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Task Manager')
+        let taskManager = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Task Manager')
         taskManager.name = node.payload.referenceParent.name
         taskManager.payload.floatingObject.collapseToggle()
 
@@ -770,7 +773,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                         case 'Sensor Bot': {
                             let task = addTask(taskManager)
 
-                            botInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Sensor Bot Instance')
+                            botInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Sensor Bot Instance')
                             botInstance.name = bot.name
 
                             addProcessInstance(task, bot, botInstance)
@@ -779,7 +782,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                         case 'API Data Fetcher Bot': {
                             let task = addTask(taskManager)
 
-                            botInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'API Data Fetcher Bot Instance')
+                            botInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'API Data Fetcher Bot Instance')
                             botInstance.name = bot.name
 
                             addProcessInstance(task, bot, botInstance)
@@ -788,7 +791,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                         case 'Indicator Bot': {
                             let task = addTask(taskManager)
 
-                            botInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Indicator Bot Instance')
+                            botInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Indicator Bot Instance')
                             botInstance.name = bot.name
 
                             addProcessInstance(task, bot, botInstance)
@@ -797,7 +800,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                         case 'Trading Bot': {
                             let task = addTask(taskManager)
 
-                            botInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Trading Bot Instance')
+                            botInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Trading Bot Instance')
                             botInstance.name = bot.name
 
                             addProcessInstance(task, bot, botInstance)
@@ -812,7 +815,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                             task = addTask(taskManager)
                             task.name = 'Back ' + task.name
 
-                            botInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Learning Bot Instance')
+                            botInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Learning Bot Instance')
                             botInstance.name = 'Back ' + bot.name
 
                             addProcessInstance(task, bot, botInstance, 'Back Learning Session')
@@ -820,7 +823,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                             task = addTask(taskManager)
                             task.name = 'Live ' + task.name
 
-                            botInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Learning Bot Instance')
+                            botInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Learning Bot Instance')
                             botInstance.name = 'Live ' + bot.name
 
                             addProcessInstance(task, bot, botInstance, 'Live Learning Session')
@@ -829,7 +832,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                     }
 
                     function addTask(taskManager) {
-                        let task = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(taskManager, 'Task')
+                        let task = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(taskManager, 'Task')
 
                         if (systemNode !== undefined) {
                             task.name = systemNode.name
@@ -845,13 +848,13 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                             let processInstance
                             switch (bot.type) {
                                 case 'Sensor Bot': {
-                                    processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Sensor Process Instance')
-                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
+                                    processInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Sensor Process Instance')
+                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
                                     break
                                 }
                                 case 'API Data Fetcher Bot': {
-                                    processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'API Data Fetcher Process Instance')
-                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
+                                    processInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'API Data Fetcher Process Instance')
+                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
 
                                     /*
                                     We will locate and reference the API MAP that has the same codeName than the data mine.
@@ -859,24 +862,24 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                     let apiMaps = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('API Map')
                                     for (let i = 0; i < apiMaps.length; i++) {
                                         let apiMap = apiMaps[i]
-                                        let apiMapCodeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(apiMap.payload, 'codeName')
-                                        let mineCodeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(mine.payload, 'codeName')
+                                        let apiMapCodeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(apiMap.payload, 'codeName')
+                                        let mineCodeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(mine.payload, 'codeName')
 
                                         if (apiMapCodeName === mineCodeName) {
-                                            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(processInstance.apiMapReference, apiMap)
+                                            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(processInstance.apiMapReference, apiMap)
                                             break
                                         }
                                     }
                                     break
                                 }
                                 case 'Indicator Bot': {
-                                    processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Indicator Process Instance')
-                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
+                                    processInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Indicator Process Instance')
+                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
                                     break
                                 }
                                 case 'Trading Bot': {
-                                    processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Trading Process Instance')
-                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
+                                    processInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Trading Process Instance')
+                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
 
                                     if (node.payload.parentNode === undefined) { return }
                                     if (node.payload.parentNode.payload === undefined) { return }
@@ -901,7 +904,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                     break
 
                                     function addSession(sessionType) {
-                                        session = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(processInstance, sessionType)
+                                        session = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(processInstance, sessionType)
                                         session.name = task.name
                                         let config = JSON.parse(session.config)
                                         config.folderName = session.name.split(" ").join("-")
@@ -911,22 +914,22 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                             let rootNode = rootNodes[m]
                                             if (rootNode.type === 'Trading Engine' && rootNode.isPlugin === true) {
                                                 let tradingEngine = rootNode
-                                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(session.tradingEngineReference, tradingEngine)
-                                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(session.tradingSystemReference, systemNode)
+                                                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(session.tradingEngineReference, tradingEngine)
+                                                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(session.tradingSystemReference, systemNode)
                                             }
                                         }
                                     }
                                 }
                                 case 'Learning Bot': {
-                                    processInstance = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Learning Process Instance')
-                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
+                                    processInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Learning Process Instance')
+                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
 
                                     let session
                                     addSession(sessionType)
                                     break
 
                                     function addSession(sessionType) {
-                                        session = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(processInstance, sessionType)
+                                        session = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(processInstance, sessionType)
                                         session.name = task.name
                                         let config = JSON.parse(session.config)
                                         config.folderName = session.name.split(" ").join("-")
@@ -936,8 +939,8 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                             let rootNode = rootNodes[m]
                                             if (rootNode.type === 'Learning Engine' && rootNode.isPlugin === true) {
                                                 let learningEngine = rootNode
-                                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(session.learningEngineReference, learningEngine)
-                                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(session.learningSystemReference, systemNode)
+                                                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(session.learningEngineReference, learningEngine)
+                                                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(session.learningSystemReference, systemNode)
                                             }
                                         }
                                     }

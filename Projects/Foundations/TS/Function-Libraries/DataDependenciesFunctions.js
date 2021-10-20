@@ -315,7 +315,7 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
                         /*
                         We will need to fetch the data of the current day and the previous day, in order for .previous properties in conditions and formulas to work well.
                         */
-                        let previousDate = new Date(processDate.valueOf() - TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                        let previousDate = new Date(processDate.valueOf() - SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
                         let currentDate = new Date(processDate.valueOf())
 
                         let previousFile = await getDataFileFromDate(previousDate)
@@ -375,14 +375,14 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
         THe first thing we do is to build an array of all the 
         declared dependencies of the Bot Process.
         */
-        let dataDependencies = TS.projects.foundations.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
+        let dataDependencies = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
         /* 
         Then we will filter out declared dependencies that are 
         not referencing nodes currently present at the workspace.
         This will allow the user to have less Data Mines loaded at 
         the workspace that the ones that a the Bot process depends on.
         */
-        dataDependencies = TS.projects.foundations.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(dataDependencies)
+        dataDependencies = TS.projects.visualScripting.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(dataDependencies)
         /*
         We will run some validations to prevent starting the process
         if all needed config and nodes are not present.
@@ -394,7 +394,7 @@ exports.newFoundationsFunctionLibrariesDataDependenciesFunctions = function () {
         we do it just to be able to validate that all nodes and config
         are ok before letting this provess run too far.
         */
-        let outputDatasets = TS.projects.foundations.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
+        let outputDatasets = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
         /*
         Here we check that all output datasets configs are ok. 
         */

@@ -1,24 +1,25 @@
 {
     "files.exclude": {
         "**/Data-Storage": true,
-        "**/Documentation": true,
         "**/Log-Files": true,
         "**/node_modules": true,
-        "**/Deprecated-Code": true,
         "**/My-Social-Trading-Data": true,
+	"**/My-Network-Nodes-Data": true,
+	"**/My-Workspaces": false,
+	"**/My-Secrets": true,
+	"**/My-Data-Storage": true,
+	"**/My-Log-Files": true,
     },
     "search.exclude": {
         "**/Data-Storage": true,
-        "**/Documentation": true,
         "**/Log-Files": true,
         "**/node_modules": true,
-<<<<<<< HEAD
-        "**/Deprecated-Code": true
-=======
-        "**/Deprecated-Code": true,
-        "**/My-Social-Trading-Data": true
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
+        "**/My-Social-Trading-Data": true,
+	"**/My-Network-Nodes-Data": true,
+	"**/My-Workspaces": true,
+	"**/My-Secrets": true,
+	"**/My-Data-Storage": true,
+	"**/My-Log-Files": true,
     },
-    "search.maintainFileSearchCache": true,
-    "json.maxItemsComputed": 0
+    "search.maintainFileSearchCache": true
 }

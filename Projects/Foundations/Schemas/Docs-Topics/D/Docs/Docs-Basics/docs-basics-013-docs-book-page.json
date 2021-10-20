@@ -4,13 +4,27 @@
     "type": "Docs Book Page",
     "definition": {
         "text": "A book is a collection of topics, each representing a chapter in the book.",
-        "updated": 1613756750385
+        "updated": 1613756750385,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ein Buch ist eine Sammlung von topics (Themen), die jeweils ein Kapitel des Buches darstellen.",
+                "updated": 1633863136250
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "A books is a page in and of itself. The page features a list of topics each constituting a chapter in the book.",
-            "updated": 1613756891822
+            "updated": 1613756891822,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ein Buch ist eine eigenständige Seite. Die Seite enthält eine Liste von Themen, die jeweils ein Kapitel des Buches darstellen.",
+                    "updated": 1633863164409
+                }
+            ]
         }
     ]
 }

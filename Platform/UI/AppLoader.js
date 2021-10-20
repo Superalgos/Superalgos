@@ -1,15 +1,10 @@
 let postLoader
 
 function newAppLoader() {
-    const MODULE_NAME = 'App Loader'
     const INFO_LOG = false
     const ERROR_LOG = true
     const logger = newWebDebugLog()
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
 
     let thisObject = {
         loadModules: loadModules
@@ -68,27 +63,16 @@ function newAppLoader() {
                     let fileArray = JSON.parse(fileList)
                     for (let i = 0; i < fileArray.length; i++) {
                         let item = fileArray[i]
-<<<<<<< HEAD
-                        
-                        project = item[0]
-                        fileName = item[1]
-                        urlArray.push('Projects' + '/' + project + '/'  + 'UI'  + '/' + 'Function-Libraries' + '/' +  fileName)
-=======
 
-                        project = item[0]
-                        fileName = item[1]
+                        let project = item[0]
+                        let fileName = item[1]
                         urlArray.push('Projects' + '/' + project + '/' + 'UI' + '/' + 'Function-Libraries' + '/' + fileName)
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                     }
 
                     modulesArray = modulesArray.concat(urlArray)
                     utilities()
                 }
-<<<<<<< HEAD
-            }    
-=======
             }
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
 
             function utilities() {
                 let url = 'ListUtilitiesFiles'
@@ -99,27 +83,16 @@ function newAppLoader() {
                     let fileArray = JSON.parse(fileList)
                     for (let i = 0; i < fileArray.length; i++) {
                         let item = fileArray[i]
-<<<<<<< HEAD
-                        
-                        project = item[0]
-                        fileName = item[1]
-                        urlArray.push('Projects' + '/' + project + '/'  + 'UI' + '/' + 'Utilities' + '/' +  fileName)
-=======
 
-                        project = item[0]
-                        fileName = item[1]
+                        let project = item[0]
+                        let fileName = item[1]
                         urlArray.push('Projects' + '/' + project + '/' + 'UI' + '/' + 'Utilities' + '/' + fileName)
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                     }
 
                     modulesArray = modulesArray.concat(urlArray)
                     globals()
                 }
-<<<<<<< HEAD
-            } 
-=======
             }
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
 
             function globals() {
                 let url = 'ListGlobalFiles'
@@ -130,27 +103,16 @@ function newAppLoader() {
                     let fileArray = JSON.parse(fileList)
                     for (let i = 0; i < fileArray.length; i++) {
                         let item = fileArray[i]
-<<<<<<< HEAD
-                        
-                        project = item[0]
-                        fileName = item[1]
-                        urlArray.push('Projects' + '/' + project + '/'  + 'UI' + '/' + 'Globals' + '/' +  fileName)
-=======
 
-                        project = item[0]
-                        fileName = item[1]
+                        let project = item[0]
+                        let fileName = item[1]
                         urlArray.push('Projects' + '/' + project + '/' + 'UI' + '/' + 'Globals' + '/' + fileName)
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                     }
 
                     modulesArray = modulesArray.concat(urlArray)
                     spaces()
                 }
-<<<<<<< HEAD
-            } 
-=======
             }
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
 
             function spaces() {
                 let url = 'ListSpaceFiles'
@@ -175,11 +137,7 @@ function newAppLoader() {
 
                 for (let i = 0; i < modulesArray.length; i++) {
                     let path = modulesArray[i]
-<<<<<<< HEAD
-
-=======
-                    console.log(path)
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
+              
                     REQUIREJS([path], onRequired)
 
                     if (INFO_LOG === true) { logger.write('[INFO] loadModules -> Module Requested.') }

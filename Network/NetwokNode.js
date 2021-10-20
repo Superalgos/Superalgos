@@ -1,24 +1,24 @@
 exports.newNetworkNode = function newNetworkNode() {
 
     let thisObject = {
+        socialGraphService: undefined,
+        storage: undefined,
         run: run
     }
 
     return thisObject
 
-    function run() {
+    async function run() {
         /*
         Let's start the Network Interfaces
         */
         NT.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
         NT.webSocketsInterface.initialize()
 
-        start()
+        thisObject.socialGraphService = NT.projects.socialTrading.modules.socialGraph.newNetworkModulesSocialGraph()
+        await thisObject.socialGraphService.initialize()
 
-        async function start() {
-            let socialGraphService = NT.projects.socialTrading.modules.socialGraph.newSocialGraph()
-            await socialGraphService.initialize()
-        }
-
+        thisObject.storage = NT.projects.socialTrading.modules.storage.newSocialTradingModulesStorage()
+        thisObject.storage.initialize()
     }
 }

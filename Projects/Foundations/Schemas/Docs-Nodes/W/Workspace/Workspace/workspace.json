@@ -12,28 +12,70 @@
         },
         {
             "style": "List",
-            "text": "Any hierarchy that is not included as a plugin."
+            "text": "Any hierarchy that is not included as a plugin.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Toda hierarchy (jerarquía) que no esté incluida como plugin (enchufe).",
+                    "updated": 1633089492790
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Nodes that may be floating around, detached from hierarchies."
+            "text": "Nodes that may be floating around, detached from hierarchies.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Nodos que puedan estar flotando por ahí, desconectados de jerarquías",
+                    "updated": 1633089543104
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Information regarding the physical position and state of all nodes within the design space, even those detached from hierarchies.",
-            "updated": 1615891174248
+            "updated": 1615891174248,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "nformación relacionada a la posición física y al estado de todos los nodos dentro del espacio de diseño, incluyendo aquellos nodos sueltos.",
+                    "updated": 1633089604851
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A workspace is not part of any of the hierarchies; instead, it contains them."
+            "text": "A workspace is not part of any of the hierarchies; instead, it contains them.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un workspace no es parte de ninguna jerarquía, por el contrario, las contiene.",
+                    "updated": 1633089633238
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Loading Workspaces"
+            "text": "Loading Workspaces",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Loading Workspaces  (Subiendo espacios de trabajo)",
+                    "updated": 1633089674625
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Users may manage multiple workspaces, but only one workspace may be loaded in the system at any point."
+            "text": "Users may manage multiple workspaces, but only one workspace may be loaded in the system at any point.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los usuarios pueden trabajar en muchos workspaces al mismo tiempo, pero uno solo debe ser subido al sistema en cualquier  momento.",
+                    "updated": 1633089722388
+                }
+            ]
         },
         {
             "style": "Text",
@@ -43,7 +85,14 @@
         {
             "style": "Success",
             "text": "To load a workspace you got from a third party, you may place the file in the My-Workspaces folder so that you may open it from the workspaces tab. You may also drag the file and drop it on the design space.",
-            "updated": 1615892822939
+            "updated": 1615892822939,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El workspace que obtenga de un tercero puede incluirlo en su carpeta de mis workspaces, para poderlos abrir desde el tabulador. También puedes sostener el archivo y soltarlo en el workspace",
+                    "updated": 1633106859191
+                }
+            ]
         },
         {
             "style": "Warning",
@@ -56,60 +105,137 @@
         },
         {
             "style": "Title",
-            "text": "Saving Workspaces"
+            "text": "Saving Workspaces",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Saving Workspaces   (Guardando espacios de trabajo)",
+                    "updated": 1633107199561
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Any workspace that is saved by the user is a User Workspace.",
-            "updated": 1622634912210
+            "updated": 1622634912210,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Todo workspace que sea grabado por un usuario es un user workspace.",
+                    "updated": 1633106992641
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "User workspaces feature a purple background in the workspaces tab.",
-            "updated": 1624469335347
+            "updated": 1624469335347,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Todo user workspace tiene fondo violeta en el menú de los workspaces a la izquierda.",
+                    "updated": 1633107024679
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Workspaces are saved as JSON files in the My-Workspaces folder.",
-            "updated": 1615891202642
+            "updated": 1615891202642,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los  workspaces son guardados como archivos JSON en la carpeta My-workspaces.",
+                    "updated": 1633107047310
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You may save a workspace manually using the following hot-key combination:",
-            "updated": 1629892197901
+            "updated": 1629892197901,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Puede guardar un  workspace manualmente utilizando la siguiente combinación de teclas:",
+                    "updated": 1633107089375
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Ctrl or Cmd + Shift + Key-S",
-            "updated": 1615891225650
+            "text": "Ctrl or Cmd + Shift + Alt + Key-S",
+            "updated": 1631372841724
         },
         {
             "style": "Success",
             "text": "Backing up a workspace downloads the same file to your local Downloads folder. This is a good way to store sequential versions in case you ever need to go back to a previous state of affairs.",
-            "updated": 1615892985307
+            "updated": 1615892985307,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si hace un  backup de un  workspace se bajará el mismo archivo a su carpeta de Downloads. Este es un buen modo de almacenar versiones secuencialmente en caso de que alguna vez necesite regresar a una versión anterior.",
+                    "updated": 1633107143583
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Plugin Workspaces"
+            "text": "Plugin Workspaces",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Plugin Workspaces ( Conectando espacios de trabajo)",
+                    "updated": 1633107189340
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Superalgos ships with several Plugin Workspaces. These are pre-configured workspaces built for specific purposes, for example, to host tutorials, demo strategies, specific projects, and so on.",
-            "updated": 1629893908384
+            "updated": 1629893908384,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Superalgos incluye un abanico de plugin workspaces. Estos son workspaces pre-configurados montados para propósitos determinados, por ejemplo, para contener tutoriales, estrategias demo, proyectos específicos, y otros.",
+                    "updated": 1633107236673
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "In the workspaces tab, plugin workspaces are marked with the words \"Plugin Workspace\", and feature a black background so that you may differentiate them from your own workspaces.",
-            "updated": 1622634983432
+            "updated": 1622634983432,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En el tabulador de workspaces, los plugin workspaces estan mencionados así sobre un fondo negro que los diferencia de tus propios workspaces.",
+                    "updated": 1633107278282
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "When you load, modify, and save a Plugin Workspace, the actual plugin file remains intact, that is, the plugin is not modified. Instead, a new file is created in the My-Workspaces folder. This file is a copy of the plugin workspace featuring the modifications you introduced. The copy is saved with the name of the Workspace node, which is usually the same name as the plugin. To save the workspace with a different name, you must change the name of the Workspace node and save.",
-            "updated": 1629894244406
+            "updated": 1629894244406,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando sube, modifica y guarda un plugin workspace, el plugin permanece intacto, esto significa que el plugin no se modifica sino que un nuevo archivo se crea en tu carpeta de My-workspaces. Este archivo es una copia del plugin con las modificaciones que ha introducido. La copia está guardada con el nombre del nodo de workspace, que normalmente es el mismo nombre del plugin. Para grabarlo con un nombre diferente debe cambiar el título del nodo y guardarlo",
+                    "updated": 1633107369531
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Creating Workspaces"
+            "text": "Creating Workspaces",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Creating Workspaces    (Creando workspaces)",
+                    "updated": 1633107483723
+                }
+            ]
         },
         {
             "style": "Text",
@@ -122,11 +248,25 @@
         },
         {
             "style": "Title",
-            "text": "Deleting Workspaces"
+            "text": "Deleting Workspaces",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Deleting Workspaces      ( Borrando workspaces)",
+                    "updated": 1633107676804
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To delete a workspace, delete the corresponding workspace file from within the file system application of your operating system."
+            "text": "To delete a workspace, delete the corresponding workspace file from within the file system application of your operating system.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para borrar un Workspace, borre el correspondiente archivo del Workspace dentro de la aplicación del sistema de archivos de su sistema operativo.",
+                    "updated": 1633107728584
+                }
+            ]
         }
     ],
     "definition": {
@@ -135,8 +275,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Un Workspace es una entidad que almacena toda la información generada por el usuario y el sistema, excluyendo el estado y el contenido de los complementos. En términos técnicos, un espacio de trabajo es un archivo JSON.",
-                "updated": 1624292534795,
+                "text": "Un Workspace  (espacio de trabajo) es una entidad que almacena toda la información generada por el usuario y el sistema, excluyendo el estado y el contenido de los complementos. En términos técnicos, un espacio de trabajo es un archivo JSON.",
+                "updated": 1633089108346,
                 "style": "Definition"
             }
         ]

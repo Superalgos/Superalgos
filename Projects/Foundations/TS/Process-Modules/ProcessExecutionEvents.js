@@ -8,7 +8,7 @@
     
 
     let thisObject = {
-        networkNode: undefined,
+        lanNetworkNode: undefined,
         initialize: initialize,
         finalize: finalize,
         start: start,
@@ -90,11 +90,11 @@
                 and need to exactly the same task to exist, you should split the network in two
                 different networks, each one with unique tasks so as to avoid confussion. 
                 */
-                for (let i = 0; i < network.networkNodes.length; i++) {
-                    let networkNode = network.networkNodes[i]
-                    if (networkNode.dataTasks !== undefined) {
-                        for (let z = 0; z < networkNode.dataTasks.projectDataTasks.length; z++) {
-                            let projectDataTasks = networkNode.dataTasks.projectDataTasks[z]
+                for (let i = 0; i < network.lanNetworkNodes.length; i++) {
+                    let lanNetworkNode = network.lanNetworkNodes[i]
+                    if (lanNetworkNode.dataTasks !== undefined) {
+                        for (let z = 0; z < lanNetworkNode.dataTasks.projectDataTasks.length; z++) {
+                            let projectDataTasks = lanNetworkNode.dataTasks.projectDataTasks[z]
                             if (projectDataTasks.exchangeDataTasks === undefined) {continue} 
                             for (let j = 0; j < projectDataTasks.exchangeDataTasks.length; j++) {
                                 let exchangeTasks = projectDataTasks.exchangeDataTasks[j]
@@ -118,22 +118,22 @@
                                                                 We found where the task that runs the process definition 
                                                                 we are waiting for is located on the network. 
                                                                 */
-                                                                thisObject.networkNode = networkNode
+                                                                thisObject.lanNetworkNode = lanNetworkNode
 
                                                                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                                    "[INFO] initialize -> Connecting to Websockets Server " + networkNode.name +
-                                                                    "  -> host = " + networkNode.config.host +
-                                                                    ' -> port = ' + networkNode.config.webSocketsPort + '.');
+                                                                    "[INFO] initialize -> Connecting to Websockets Server " + lanNetworkNode.name +
+                                                                    "  -> host = " + lanNetworkNode.config.host +
+                                                                    ' -> port = ' + lanNetworkNode.config.webSocketsPort + '.');
 
 
-                                                                eventServerClient = TS.projects.foundations.taskModules.eventServerClient.newFoundationsTaskModulesEventServerClient(networkNode.config.host, networkNode.config.webSocketsPort)
+                                                                eventServerClient = TS.projects.foundations.taskModules.eventServerClient.newFoundationsTaskModulesEventServerClient(lanNetworkNode.config.host, lanNetworkNode.config.webSocketsPort)
                                                                 eventServerClient.initialize(onConnected)
 
                                                                 function onConnected() {
 
-                                                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[INFO] initialize -> Connected to Websockets Server " + networkNode.name +
-                                                                        "  -> host = " + networkNode.config.host +
-                                                                        ' -> port = ' + networkNode.config.webSocketsPort + '.');
+                                                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[INFO] initialize -> Connected to Websockets Server " + lanNetworkNode.name +
+                                                                        "  -> host = " + lanNetworkNode.config.host +
+                                                                        ' -> port = ' + lanNetworkNode.config.webSocketsPort + '.');
 
 
                                                                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE);
@@ -173,7 +173,7 @@
 
         processThisDependsOn = undefined
         currentProcessKey = undefined
-        thisObject.networkNode = undefined
+        thisObject.lanNetworkNode = undefined
         bot = undefined
         thisObject = undefined
     }
@@ -202,7 +202,7 @@
 
                 eventServerClient.listenToEvent(key, 'Process Execution Finished', undefined, callerId, responseCallBack, eventsCallBack)
 
-                TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Waiting for " + thisObject.networkNode.name + "->" + processThisDependsOn.parentNode.parentNode.name + "->" + processThisDependsOn.parentNode.config.codeName + "->" + processThisDependsOn.config.codeName)
+                TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Waiting for " + thisObject.lanNetworkNode.name + "->" + processThisDependsOn.parentNode.parentNode.name + "->" + processThisDependsOn.parentNode.config.codeName + "->" + processThisDependsOn.config.codeName)
 
                 function responseCallBack(message) {
                     if (message.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {

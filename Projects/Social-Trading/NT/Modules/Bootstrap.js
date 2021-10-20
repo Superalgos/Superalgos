@@ -18,7 +18,7 @@ exports.newBootstrap = function newBootstrap() {
 
     async function initialize() {
 
-        let pluginFileNames = await SA.projects.foundations.utilities.plugins.getPluginFileNames(
+        let pluginFileNames = await SA.projects.communityPlugins.utilities.plugins.getPluginFileNames(
             'Governance',
             'User-Profiles'
         )
@@ -26,7 +26,7 @@ exports.newBootstrap = function newBootstrap() {
         for (let i = 0; i < pluginFileNames.length; i++) {
             let pluginFileName = pluginFileNames[i]
 
-            let pluginFileContent = await SA.projects.foundations.utilities.plugins.getPluginFileContent(
+            let pluginFileContent = await SA.projects.communityPlugins.utilities.plugins.getPluginFileContent(
                 'Governance',
                 'User-Profiles',
                 pluginFileName
@@ -52,7 +52,20 @@ exports.newBootstrap = function newBootstrap() {
             NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfileId, userProfile)
             NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_HANDLE.set(userHandle, userProfile)
             NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_BLOCHAIN_ACCOUNT.set(blockchainAccount, userProfile)
-
+            /*
+            Each User Profile might have Signing Accounts, meaning
+            accounts that can be siging on behalf of the User Profile.
+            */
+            if (userProfilePlugin.signingAccounts !== undefined) {
+                for (let j = 0; j < userProfilePlugin.signingAccounts.signingAccounts.length; j++) {
+                    let signingAccount = userProfilePlugin.signingAccounts.signingAccounts[j]
+                    let config = JSON.parse(signingAccount.config)
+                    let signatureObject = config.signature
+                    let web3 = new SA.nodeModules.web3()
+                    let blockchainAccount = web3.eth.accounts.recover(signatureObject)
+                    NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_BLOCHAIN_ACCOUNT.set(blockchainAccount, userProfile)
+                }
+            }
         }
     }
 }

@@ -59,17 +59,17 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
 
             Any of the above happening, means that indeed it is related.
             */
-            let emitterUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(eventReceived.emitterUserProfileId)
-            let emitterBotProfile = emitterUserProfile.bots.get(eventReceived.emitterBotProfileId)
-            let emitterPost = emitterUserProfile.posts.get(eventReceived.emitterPostHash)
+            let emitterUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(event.emitterUserProfileId)
+            let emitterBotProfile = emitterUserProfile.bots.get(event.emitterBotProfileId)
+            let emitterPost = emitterUserProfile.posts.get(event.emitterPostHash)
 
-            let targetUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(eventReceived.targetUserProfileId)
+            let targetUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(event.targetUserProfileId)
             let targetBotProfile
             let targetPost
 
             if (targetUserProfile !== undefined) {
-                targetBotProfile = targetUserProfile.bots.get(eventReceived.targetBotProfileId)
-                targetPost = targetUserProfile.posts.get(eventReceived.targetPostHash)
+                targetBotProfile = targetUserProfile.bots.get(event.targetBotProfileId)
+                targetPost = targetUserProfile.posts.get(event.targetPostHash)
             }
             /*
             Test #1 : The Emitter or Target profile must be the same as the Context Profile.

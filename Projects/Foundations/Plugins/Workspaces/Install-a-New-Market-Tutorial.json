@@ -4,12 +4,12 @@
     "config": "{\n    \"docsLanguage\": \"EN\",\n    \"contributionsBranch\": \"develop\"\n}",
     "rootNodes": [
         {
-            "type": "Network",
-            "name": "My Network",
+            "type": "LAN Network",
+            "name": "My LAN Network",
             "project": "Foundations",
-            "networkNodes": [
+            "lanNetworkNodes": [
                 {
-                    "type": "Network Node",
+                    "type": "LAN Network Node",
                     "name": "My Computer",
                     "config": "{ \n\"host\": \"localhost\", \n\"webPort\": \"34248\", \n\"webSocketsPort\": \"18041\"\n}",
                     "project": "Foundations",
@@ -7994,7 +7994,7 @@
                             "status": "Done"
                         },
                         "referenceParent": {
-                            "type": "Network Node",
+                            "type": "LAN Network Node",
                             "name": "My Computer",
                             "id": "e452cf65-2b2b-44f2-9e67-bdd9d3c008e4"
                         }

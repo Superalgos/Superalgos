@@ -21,6 +21,11 @@
                 "text": "¡Observa cómo cambió la configuración de Ángulo a padre en diferentes hermanos y cada uno de ellos reaccionó a la nueva configuración de forma independiente del resto!",
                 "updated": 1625956624650,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Beachten Sie, wie Sie die Einstellung \"Angle to Parent\" bei verschiedenen Geschwistern geändert haben und jedes von ihnen unabhängig von den anderen auf die neue Einstellung reagierte!",
+                "updated": 1634298018896
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Tu controlas la posición de cada nodo desde el menú del nodo. Ni el nodo principal ni los hermanos pueden afectar la posición ... excepto por esta genial excepción:",
                     "updated": 1625956814758,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie steuern die Position jedes Knotens über das Menü des Knotens. Weder der übergeordnete Knoten noch die Geschwister können die Position beeinflussen... mit dieser coolen Ausnahme:",
+                    "updated": 1634298027723
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "text": "¡Ve a el Lightning Strike Backtesting Session y selecciona Add Missing Childrendesde el lado derecho del menú!",
                     "updated": 1625956891800,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Rufen Sie die Lightning Strike \"Backtesting Session\" auf und wählen Sie \"Add Missing Children\" auf der rechten Seite des Menüs!",
+                    "updated": 1634298035258
                 }
             ]
         },
@@ -78,6 +93,11 @@
                     "text": "Nota como el nodo Social Bots  heredó el ajuste Ángulo a padre de su hermano más cercano.",
                     "updated": 1625956967094,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass der Knoten \"Social Bots\" die Einstellung \"Winkel zum Elternteil\" von seinem nächsten Geschwisterknoten geerbt hat!",
+                    "updated": 1634298043102
                 }
             ]
         },

@@ -66,12 +66,12 @@
             "id": "f8485ce5-67f3-4476-b9e2-80994e49c318",
             "savedPayload": {
                 "position": {
-                    "x": 24940.875,
-                    "y": 10717.347826086958
+                    "x": 40665.79166666667,
+                    "y": 6123.222222222223
                 },
                 "targetPosition": {
-                    "x": 24940.875,
-                    "y": 10717.347826086958
+                    "x": 40665.79166666667,
+                    "y": 6123.222222222223
                 },
                 "floatingObject": {
                     "isPinned": true,
@@ -99,98 +99,15 @@
             "id": "db380c52-cf90-475b-87df-c005dd51cdf6",
             "savedPayload": {
                 "position": {
-                    "x": 13532,
-                    "y": 10738.5
+                    "x": 13705.000000000002,
+                    "y": 6103.05830753354
                 },
                 "targetPosition": {
-                    "x": 13532,
-                    "y": 10738.5
+                    "x": 13705.000000000002,
+                    "y": 6103.05830753354
                 },
                 "floatingObject": {
                     "isPinned": true,
-                    "isFrozen": false,
-                    "isCollapsed": false,
-                    "angleToParent": 1,
-                    "distanceToParent": 3,
-                    "arrangementStyle": 0
-                },
-                "uiObject": {
-                    "isRunning": false
-                }
-            }
-        },
-        {
-            "type": "Docs Space",
-            "name": "New Docs Space",
-            "project": "Foundations",
-            "spaceStyle": {
-                "type": "Space Style",
-                "name": "New Space Style",
-                "config": "{\n}",
-                "project": "Foundations",
-                "id": "847b45a4-c724-41d1-a8a4-7d878de0250b",
-                "savedPayload": {
-                    "position": {
-                        "x": 19190,
-                        "y": 10762.557621135333
-                    },
-                    "targetPosition": {
-                        "x": 18890,
-                        "y": 10762.557621135333
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 1,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    }
-                }
-            },
-            "spaceSettings": {
-                "type": "Space Settings",
-                "name": "New Space Settings",
-                "config": "{\n    \"indexContent\": true\n}",
-                "project": "Foundations",
-                "id": "4124c674-c5fe-41d9-94b9-d669753188b7",
-                "savedPayload": {
-                    "position": {
-                        "x": 18590,
-                        "y": 10762.557621135333
-                    },
-                    "targetPosition": {
-                        "x": 18890,
-                        "y": 10762.557621135333
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 1,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    }
-                }
-            },
-            "id": "016e464a-2b86-4c73-b79b-35c95751c339",
-            "savedPayload": {
-                "position": {
-                    "x": 18890,
-                    "y": 10762.557621135333
-                },
-                "targetPosition": {
-                    "x": 18890,
-                    "y": 10762.557621135333
-                },
-                "floatingObject": {
-                    "isPinned": false,
                     "isFrozen": false,
                     "isCollapsed": true,
                     "angleToParent": 1,
@@ -372,17 +289,17 @@
             "id": "cf9f8b3b-77c6-43c6-b01f-95cf366a91f6",
             "savedPayload": {
                 "position": {
-                    "x": 8536.083333333334,
-                    "y": 11084.508771929824
+                    "x": 8491.916666666666,
+                    "y": 6133.855005159959
                 },
                 "targetPosition": {
-                    "x": 8536.083333333334,
-                    "y": 11084.508771929824
+                    "x": 8491.916666666666,
+                    "y": 6133.855005159959
                 },
                 "floatingObject": {
                     "isPinned": true,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -395,17 +312,17 @@
         {
             "type": "Plugins",
             "name": "New Plugins",
-            "project": "Foundations",
+            "project": "Community-Plugins",
             "pluginProjects": [
                 {
                     "type": "Plugin Project",
                     "name": "Foundations",
                     "config": "{\n    \"codeName\": \"Foundations\"\n}",
-                    "project": "Foundations",
+                    "project": "Community-Plugins",
                     "pluginDataMines": {
                         "type": "Plugin Data Mines",
                         "name": "New Plugin Data Mines",
-                        "project": "Foundations",
+                        "project": "Community-Plugins",
                         "pluginFiles": [],
                         "id": "69f06f7c-be5d-49c0-b66a-1691e6017cff",
                         "savedPayload": {
@@ -433,7 +350,7 @@
                     "pluginTradingMines": {
                         "type": "Plugin Trading Mines",
                         "name": "New Plugin Trading Mines",
-                        "project": "Foundations",
+                        "project": "Community-Plugins",
                         "pluginFiles": [],
                         "id": "65438ffb-76f9-40e2-a4dc-b85574412115",
                         "savedPayload": {
@@ -461,7 +378,7 @@
                     "pluginLearningMines": {
                         "type": "Plugin Learning Mines",
                         "name": "New Plugin Learning Mines",
-                        "project": "Foundations",
+                        "project": "Community-Plugins",
                         "pluginFiles": [],
                         "id": "c7affc7b-11af-4b8e-a722-c6104043d473",
                         "savedPayload": {
@@ -489,7 +406,7 @@
                     "pluginTradingSystems": {
                         "type": "Plugin Trading Systems",
                         "name": "New Plugin Trading Systems",
-                        "project": "Foundations",
+                        "project": "Community-Plugins",
                         "pluginFiles": [],
                         "id": "087e382c-a080-44e3-b84f-def9efe5c607",
                         "savedPayload": {
@@ -517,7 +434,7 @@
                     "pluginLearningSystems": {
                         "type": "Plugin Learning Systems",
                         "name": "New Plugin Learning Systems",
-                        "project": "Foundations",
+                        "project": "Community-Plugins",
                         "pluginFiles": [],
                         "id": "38621aa8-21e2-40b0-9d23-c6d180f9bf30",
                         "savedPayload": {
@@ -545,7 +462,7 @@
                     "pluginTradingEngines": {
                         "type": "Plugin Trading Engines",
                         "name": "New Plugin Trading Engines",
-                        "project": "Foundations",
+                        "project": "Community-Plugins",
                         "pluginFiles": [],
                         "id": "cb347aef-a76b-4bf5-96eb-85b75dd3bbec",
                         "savedPayload": {
@@ -573,7 +490,7 @@
                     "pluginLearningEngines": {
                         "type": "Plugin Learning Engines",
                         "name": "New Plugin Learning Engines",
-                        "project": "Foundations",
+                        "project": "Community-Plugins",
                         "pluginFiles": [],
                         "id": "672879cb-1e17-45b1-8f34-613a6c61bd52",
                         "savedPayload": {
@@ -601,37 +518,8 @@
                     "pluginTutorials": {
                         "type": "Plugin Tutorials",
                         "name": "New Plugin Tutorials",
-                        "project": "Foundations",
-                        "pluginFiles": [
-                            {
-                                "type": "Plugin File",
-                                "name": "Creating Your User Profile Tutorial",
-                                "config": "{\n    \"project\": \"Foundations\",\n    \"fileName\": \"Creating Your User Profile Tutorial\",\n    \"folderName\": \"Tutorials\",\n    \"nodeType\": \"Tutorial\",\n    \"saveWithWorkspace\": false\n}",
-                                "project": "Foundations",
-                                "id": "4f900690-970b-4d38-832c-273b0fd3ce1a",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 36774.75448470882,
-                                        "y": 11218.497915923215
-                                    },
-                                    "targetPosition": {
-                                        "x": 36598.41890902108,
-                                        "y": 10975.79281761073
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            }
-                        ],
+                        "project": "Community-Plugins",
+                        "pluginFiles": [],
                         "id": "84a541df-559d-4a0e-ac76-71d4a40e0639",
                         "savedPayload": {
                             "position": {
@@ -645,7 +533,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": true,
+                                "isCollapsed": false,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -658,7 +546,7 @@
                     "pluginApiMaps": {
                         "type": "Plugin API Maps",
                         "name": "New Plugin API Maps",
-                        "project": "Foundations",
+                        "project": "Community-Plugins",
                         "pluginFiles": [],
                         "id": "015179c9-7841-4a33-8e9c-e5d7cc24a4c2",
                         "savedPayload": {
@@ -686,12 +574,12 @@
                     "id": "c4e402d7-5228-408c-9d67-379d6ef40bae",
                     "savedPayload": {
                         "position": {
-                            "x": 36422.083333333336,
-                            "y": 10733.087719298246
+                            "x": 35952.66666666667,
+                            "y": 5293.249226006192
                         },
                         "targetPosition": {
-                            "x": 36122.083333333336,
-                            "y": 10733.087719298246
+                            "x": 35652.66666666667,
+                            "y": 5293.249226006192
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -710,16 +598,16 @@
                     "type": "Plugin Project",
                     "name": "Ethereum",
                     "config": "{\"codeName\":\"Ethereum\"}",
-                    "project": "Foundations",
+                    "project": "Community-Plugins",
                     "id": "20e1ad9d-6696-4ba6-a9fe-afe21e607d86",
                     "savedPayload": {
                         "position": {
-                            "x": 36214.78843164582,
-                            "y": 11018.404674186791
+                            "x": 35745.37176497916,
+                            "y": 5578.566180894738
                         },
                         "targetPosition": {
-                            "x": 36122.083333333336,
-                            "y": 10733.087719298246
+                            "x": 35652.66666666667,
+                            "y": 5293.249226006192
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -738,16 +626,16 @@
                     "type": "Plugin Project",
                     "name": "TensorFlow",
                     "config": "{\n    \"codeName\": \"TensorFlow\"\n}",
-                    "project": "Foundations",
+                    "project": "Community-Plugins",
                     "id": "4270ccb5-b0ee-4d6b-9def-828f3c2ad340",
                     "savedPayload": {
                         "position": {
-                            "x": 35879.37823502085,
-                            "y": 10909.423294985989
+                            "x": 35409.961568354185,
+                            "y": 5469.5848016939335
                         },
                         "targetPosition": {
-                            "x": 36122.083333333336,
-                            "y": 10733.087719298246
+                            "x": 35652.66666666667,
+                            "y": 5293.249226006192
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -766,26 +654,726 @@
                     "type": "Plugin Project",
                     "name": "Governance",
                     "config": "{\n    \"codeName\": \"Governance\"\n}",
-                    "project": "Foundations",
+                    "project": "Community-Plugins",
                     "pluginUserProfiles": {
                         "type": "Plugin User Profiles",
                         "name": "New Plugin User Profiles",
-                        "project": "Governance",
+                        "project": "Community-Plugins",
                         "pluginFiles": [
+                            {
+                                "type": "Plugin File",
+                                "name": "Julian-Molina",
+                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Julian-Molina\",\n    \"folderName\": \"User-Profiles\",\n    \"nodeType\": \"User Profile\",\n    \"saveWithWorkspace\": false\n}",
+                                "project": "Community-Plugins",
+                                "id": "d649e2e9-b02f-4265-a6b6-7a83897e1b47",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35075.843358605955,
+                                        "y": 5921.4912016434555
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
                             {
                                 "type": "Plugin File",
                                 "name": "Luis-Fernando-Molina",
                                 "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Luis-Fernando-Molina\",\n    \"folderName\": \"User-Profiles\",\n    \"nodeType\": \"User Profile\",\n    \"saveWithWorkspace\": false\n}",
-                                "project": "Foundations",
-                                "id": "cccfce2d-3497-419b-8c32-4cd62fb1b33f",
+                                "project": "Community-Plugins",
+                                "id": "0bcf1a15-60eb-4b15-8728-8e80a012bf52",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35636.67313670836,
-                                        "y": 10977.129705143725
+                                        "x": 35045.182712137364,
+                                        "y": 5932.255345144849
                                     },
                                     "targetPosition": {
-                                        "x": 35605.314597728066,
-                                        "y": 10678.773136533244
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "9808us",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"9808us\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "ed816151-a2c4-40c3-81c9-0faf3de52c05",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35013.98427316717,
+                                        "y": 5941.343768166147
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "a-r-1",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"a-r-1\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "8c18273d-b5fb-433b-8806-4fab4606789e",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34982.3395520923,
+                                        "y": 5948.7298127967115
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "alexbacanu",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"alexbacanu\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "766a1d9f-350d-429f-91e5-c509b8f8ef5c",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34950.34136833199,
+                                        "y": 5954.391814495042
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "AzraelMilosz",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"AzraelMilosz\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "5fc91464-45c6-4a5b-8305-65dd84c0c31a",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34918.08357807241,
+                                        "y": 5958.313165634609
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Basalt09",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Basalt09\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "ab3a1a11-9607-44b9-8b3e-996fe1a84c92",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34885.66079897034,
+                                        "y": 5960.482364216878
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "bayaderos",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"bayaderos\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "ba38d05b-ca5b-4758-b2f5-64a952f9f9e6",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34853.168132623265,
+                                        "y": 5960.89304760866
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "BillyYan13",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"BillyYan13\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "e38e7225-744c-46a5-8604-ff0d0f2b7cbe",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34820.70088561998,
+                                        "y": 5959.544011204807
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Bitstudiocoin",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Bitstudiocoin\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "1966b375-26f2-4184-b744-36f8c046fcdf",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34788.35428999,
+                                        "y": 5956.439211961529
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "brombispi",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"brombispi\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "3cf270d9-4ffc-4f0a-b1ce-17e671d0f40f",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34756.22322387154,
+                                        "y": 5951.587756789953
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "buck2825",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"buck2825\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "fe7a2849-fb8e-44c2-a9cb-d612b274f54d",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34724.40193321763,
+                                        "y": 5945.003875843995
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "buddies2705",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"buddies2705\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "8d8eb40b-5314-45f1-95fc-e04861e48bf3",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34692.98375535651,
+                                        "y": 5936.706880780856
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "bybader",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"bybader\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "d15a1d4d-783b-4e01-80f1-71feda0e5655",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34662.06084521712,
+                                        "y": 5926.7211081166115
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Charlie67j",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Charlie67j\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "43b9bf5a-565f-4535-8950-92a44f522ca3",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34631.723905022845,
+                                        "y": 5915.07584784301
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "cozed-gh",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"cozed-gh\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "01c532d5-554c-4d32-8691-2ea1fdd6c3ef",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34602.06191824627,
+                                        "y": 5901.805257514886
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Dummy",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Dummy\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "079a1fea-c236-417f-9aae-fc3fd45cdabf",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34573.1618886053,
+                                        "y": 5886.948262060167
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "e-Nut",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"e-Nut\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "be707e7e-9a1a-47fc-8e54-08fb4bf3dbbd",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34545.10858486627,
+                                        "y": 5870.548439606346
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "elipwns",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"elipwns\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "680ab1af-dd15-436c-8c10-2431f86a6ae5",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34517.984292202585,
+                                        "y": 5852.653893658334
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "end-debug",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"end-debug\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "024385a6-784c-4017-9f08-9dfa51263ca0",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34491.86857083807,
+                                        "y": 5833.317112002586
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "EvaMaria70",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"EvaMaria70\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "a6d6f54c-717a-4e4e-9ec7-38f3fd5c2fa8",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34466.83802268318,
+                                        "y": 5812.594812751384
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Ferrox85",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Ferrox85\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "f8f13bf9-58e0-46a4-9cd2-dc5161d9a4c2",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34442.96606664835,
+                                        "y": 5790.547777978834
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "gitforkgit",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"gitforkgit\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "60000881-677d-49b5-b524-8ea3eed23667",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34420.32272329371,
+                                        "y": 5767.240675436583
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "gustavohcorradi",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"gustavohcorradi\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "5408aa13-bd39-4666-b4d4-d4c450783956",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34398.97440944674,
+                                        "y": 5742.741868872145
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "gustavojuri",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"gustavojuri\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "56cf3eff-bfec-4335-bb21-272ab0be1e58",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34378.98374339019,
+                                        "y": 5717.123217506263
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "H-Rashdan",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"H-Rashdan\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "e0c493a8-4710-43ec-bc30-950f04241bdf",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34360.409361191974,
+                                        "y": 5690.459865257431
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -803,72 +1391,17 @@
                             {
                                 "type": "Plugin File",
                                 "name": "harrellbm",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"harrellbm\",\n    \"folderName\": \"User-Profiles\",\n    \"nodeType\": \"User Profile\",\n    \"saveWithWorkspace\": false\n}",
-                                "project": "Foundations",
-                                "pluginFilePosition": {
-                                    "type": "Plugin File Position",
-                                    "name": "harrellbm",
-                                    "project": "Foundations",
-                                    "id": "22b1f183-dcf7-4e56-abda-805045672c69",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 19219.64344635258,
-                                            "y": 23116.933333158213
-                                        },
-                                        "targetPosition": {
-                                            "x": 35428.97902204032,
-                                            "y": 10921.478234845728
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": true,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                "id": "49a18a94-de50-4285-bf38-fe43c700b93f",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"harrellbm\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "696458ed-8b1f-46d1-9a63-f5a11f45c14b",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35542.94109048274,
-                                        "y": 10972.217416753385
+                                        "x": 34343.30574471539,
+                                        "y": 5662.83002033183
                                     },
                                     "targetPosition": {
-                                        "x": 35605.314597728066,
-                                        "y": 10678.773136533244
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": true,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Plugin File",
-                                "name": "Julian-Molina",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Julian-Molina\",\n    \"folderName\": \"User-Profiles\",\n    \"nodeType\": \"User Profile\",\n    \"saveWithWorkspace\": false\n}",
-                                "project": "Foundations",
-                                "id": "7096909f-b221-4fb7-a5ec-5a76d147dc2f",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 35455.314597728066,
-                                        "y": 10938.580757668575
-                                    },
-                                    "targetPosition": {
-                                        "x": 35605.314597728066,
-                                        "y": 10678.773136533244
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -885,18 +1418,326 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Raplh2502",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Raplh2502\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
-                                "project": "Foundations",
-                                "id": "00a46dc7-6fbd-45d1-870a-fab7924ee5c0",
+                                "name": "hellarnasstrom",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"hellarnasstrom\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "f67685f0-c176-4dbb-8c7b-7885603fd829",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35382.371150084844,
-                                        "y": 10879.512318440902
+                                        "x": 34327.72306181448,
+                                        "y": 5634.314725825187
                                     },
                                     "targetPosition": {
-                                        "x": 35605.314597728066,
-                                        "y": 10678.773136533244
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "itzr",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"itzr\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "c71792a5-d378-4447-86ad-05d11f1b9ced",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34313.707019183064,
+                                        "y": 5604.997622009411
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "jance1499",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"jance1499\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "c48c29a1-3c45-4b6b-a8e0-a3cdb1630f09",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34301.2987282891,
+                                        "y": 5574.964701001263
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Jefferson111",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Jefferson111\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "3079842b-e8de-4c1f-8d95-c54bc3eb3d31",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34290.5345847877,
+                                        "y": 5544.304054532668
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Lantschirky",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Lantschirky\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "8a50defd-67ce-4976-9b50-c0b231faf0cf",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34281.446161766406,
+                                        "y": 5513.105615562477
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "LucOnGit",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"LucOnGit\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "a9fd71fd-06d8-448b-8abc-d459722d3c29",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34274.06011713584,
+                                        "y": 5481.46089448761
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "mantlik",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"mantlik\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "1fb5126a-2339-4446-91b2-6ade0c12eaa1",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34268.398115437514,
+                                        "y": 5449.4627107272945
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "MarinitaMarina",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"MarinitaMarina\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "70e906d5-4c3f-45e1-9f8c-19dd1484429c",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34264.47676429795,
+                                        "y": 5417.204920467714
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "NAmorim",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"NAmorim\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "36b59946-d0e1-4097-b2df-340ffef42e6a",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34262.30756571568,
+                                        "y": 5384.7821413656475
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "narkxx",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"narkxx\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "28b7b869-34cf-4793-99b1-9d90cd69b7d3",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34261.8968823239,
+                                        "y": 5352.289475018569
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "OliverTurtle",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"OliverTurtle\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "e831f8ee-257a-4a6e-96d8-1bdf0b507a0e",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34263.24591872775,
+                                        "y": 5319.82222801529
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "piyanthak",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"piyanthak\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "35f205ae-7237-4b33-b26a-ea76c66950d6",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34266.35071797103,
+                                        "y": 5287.475632385305
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -915,48 +1756,161 @@
                                 "type": "Plugin File",
                                 "name": "PLuv",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"PLuv\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
-                                "project": "Foundations",
-                                "pluginFilePosition": {
-                                    "type": "Plugin File Position",
-                                    "name": "PLuv",
-                                    "project": "Foundations",
-                                    "id": "75a82519-49b5-4241-8ccc-b966f1b979ef",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 19201.17093294025,
-                                            "y": 17090.823750516436
-                                        },
-                                        "targetPosition": {
-                                            "x": 35332.24276533416,
-                                            "y": 10554.54844352484
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": true,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                "id": "aeed0c96-3e89-426c-bf61-12b6e23c6916",
+                                "project": "Community-Plugins",
+                                "id": "d5423230-74f8-4274-adf3-6e599786839e",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35331.25096043528,
-                                        "y": 10800.794129455984
+                                        "x": 34271.2021731426,
+                                        "y": 5255.344566266842
                                     },
                                     "targetPosition": {
-                                        "x": 35605.314597728066,
-                                        "y": 10678.773136533244
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "prepheadrus",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"prepheadrus\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "5085dbd6-7af7-478b-a881-c3e49733681f",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34277.78605408856,
+                                        "y": 5223.523275612938
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "quantum8",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"quantum8\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "e06d3dd5-03f6-49ba-97cd-7eb257c5f564",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34286.0830491517,
+                                        "y": 5192.105097751817
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Raplh2502",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Raplh2502\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "1a5d32be-d032-408b-a587-86238019f7d0",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34296.06882181594,
+                                        "y": 5161.182187612426
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "romeox7",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"romeox7\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "8a059a1c-c0f5-4f8d-b46e-804f00885472",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34307.714082089544,
+                                        "y": 5130.845247418153
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "rominastabile",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"rominastabile\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "7d3080ea-2612-449c-ab4a-689f5ebc4543",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34320.98467241767,
+                                        "y": 5101.183260641574
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -970,48 +1924,21 @@
                                 "type": "Plugin File",
                                 "name": "Smidy13",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"Smidy13\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
-                                "project": "Foundations",
-                                "pluginFilePosition": {
-                                    "type": "Plugin File Position",
-                                    "name": "Smidy13",
-                                    "project": "Foundations",
-                                    "id": "5f3e2337-7339-403b-8c88-61310a7f9843",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24950.49870511971,
-                                            "y": 16984.34250420056
-                                        },
-                                        "targetPosition": {
-                                            "x": 35369.90665142389,
-                                            "y": 10492.807820366901
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": true,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                "id": "5d42dd71-edb0-409a-8caa-20a74e7ca269",
+                                "project": "Community-Plugins",
+                                "id": "0aa5c598-ce3c-4f09-b5de-aea51b183df8",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35306.95802911758,
-                                        "y": 10710.13167551354
+                                        "x": 34335.84166787239,
+                                        "y": 5072.2832310006
                                     },
                                     "targetPosition": {
-                                        "x": 35605.314597728066,
-                                        "y": 10678.773136533244
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -1023,18 +1950,18 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "cozed-gh",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"cozed-gh\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
-                                "project": "Foundations",
-                                "id": "21126c69-67ed-4839-8611-8feac8578cf6",
+                                "name": "SSChana",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"SSChana\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "cf9baf7c-cef0-4602-82bc-83d49c8fcb4c",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35311.87031750792,
-                                        "y": 10616.399629287916
+                                        "x": 34352.24149032621,
+                                        "y": 5044.229927261575
                                     },
                                     "targetPosition": {
-                                        "x": 35605.314597728066,
-                                        "y": 10678.773136533244
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1053,16 +1980,16 @@
                                 "type": "Plugin File",
                                 "name": "ssplatt",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"ssplatt\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
-                                "project": "Foundations",
-                                "id": "ded04ad6-6b18-4166-bb97-35a9521b9104",
+                                "project": "Community-Plugins",
+                                "id": "0c56a979-3ef2-487b-9e63-8512efb90818",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35345.50697659273,
-                                        "y": 10528.773136533244
+                                        "x": 34370.13603627422,
+                                        "y": 5017.105634597888
                                     },
                                     "targetPosition": {
-                                        "x": 35605.314597728066,
-                                        "y": 10678.773136533244
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1079,18 +2006,242 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Dummy",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Dummy\",\n    \"folderName\": \"User-Profiles\",\n    \"nodeType\": \"User Profile\",\n    \"saveWithWorkspace\": false\n}",
-                                "project": "Foundations",
-                                "id": "6e9df29f-58fc-4e30-9882-5a083c30fdbe",
+                                "name": "superharoun",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"superharoun\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "e408071f-934f-4055-ac03-3446536d5def",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35404.57541582041,
-                                        "y": 10455.829688890026
+                                        "x": 34389.47281792997,
+                                        "y": 4990.989913233377
                                     },
                                     "targetPosition": {
-                                        "x": 35605.314597728066,
-                                        "y": 10678.773136533244
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Tashkuk",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Tashkuk\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "fd81ceac-3c87-4801-87fc-4da0f4c5ad7c",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34410.195117181174,
+                                        "y": 4965.959365078484
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "teehanming",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"teehanming\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "5c5e04ea-2cf2-417a-a0b0-363c7a98980d",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34432.242151953724,
+                                        "y": 4942.087409043654
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Tentacule23",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Tentacule23\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "5010b1b2-0b3b-4d13-b01c-18bd1efd04a2",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34455.54925449597,
+                                        "y": 4919.444065689023
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Test-Network-Client-Profile",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Test-Network-Client-Profile\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "399eadbe-7293-4705-8180-7bf2ef04a307",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34480.04806106041,
+                                        "y": 4898.095751842045
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Test-Network-Node-Profile",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Test-Network-Node-Profile\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "c5c30a7b-b261-4308-ac53-7f92752318cb",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34505.66671242629,
+                                        "y": 4878.105085785501
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "thaissmolina75",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"thaissmolina75\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "0a393124-15ff-4a1d-b7f2-b2532382c682",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34532.33006467512,
+                                        "y": 4859.530703587281
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "tikry2021",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"tikry2021\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "82c5fa77-59f8-4b6d-b082-34d31c76b5d6",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34559.95990960072,
+                                        "y": 4842.427087110698
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "zpriv2021",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"zpriv2021\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "2d036440-eda2-44a1-a768-277fea52a139",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34588.475204107366,
+                                        "y": 4826.844404209791
+                                    },
+                                    "targetPosition": {
+                                        "x": 34861.834293768625,
+                                        "y": 5360.955636163931
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1106,22 +2257,22 @@
                                 }
                             }
                         ],
-                        "id": "2c899fe9-1335-4e9f-b2d0-45a83e478fd0",
+                        "id": "d1f61777-8fd7-4166-bf80-84b2f3ca977a",
                         "savedPayload": {
                             "position": {
-                                "x": 35605.314597728066,
-                                "y": 10678.773136533244
+                                "x": 34861.834293768625,
+                                "y": 5360.955636163931
                             },
                             "targetPosition": {
-                                "x": 35879.37823502085,
-                                "y": 10556.752143610503
+                                "x": 35409.961568354185,
+                                "y": 5116.91365031845
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 2,
-                                "distanceToParent": 3,
+                                "distanceToParent": 5,
                                 "arrangementStyle": 0
                             },
                             "uiObject": {
@@ -1138,16 +2289,16 @@
                                 "type": "Plugin File",
                                 "name": "Superalgos",
                                 "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos\",\n    \"folderName\": \"Pools\",\n    \"nodeType\": \"Pools\",\n    \"saveWithWorkspace\": false\n}",
-                                "project": "Foundations",
+                                "project": "Community-Plugins",
                                 "id": "00782daf-3dfd-4708-a3c2-983c846ac64e",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35282.66509779988,
-                                        "y": 10494.035065649912
+                                        "x": 34813.248431133215,
+                                        "y": 5054.196572357859
                                     },
                                     "targetPosition": {
-                                        "x": 35581.021666410365,
-                                        "y": 10525.393604630208
+                                        "x": 35111.6049997437,
+                                        "y": 5085.555111338154
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1166,12 +2317,12 @@
                         "id": "9fc45356-5ead-4765-ac9e-76bc7cb45580",
                         "savedPayload": {
                             "position": {
-                                "x": 35581.021666410365,
-                                "y": 10525.393604630208
+                                "x": 35111.6049997437,
+                                "y": 5085.555111338154
                             },
                             "targetPosition": {
-                                "x": 35879.37823502085,
-                                "y": 10556.752143610503
+                                "x": 35409.961568354185,
+                                "y": 5116.91365031845
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -1189,246 +2340,22 @@
                     "pluginAssets": {
                         "type": "Plugin Assets",
                         "name": "New Plugin Assets",
-                        "project": "Governance",
+                        "project": "Community-Plugins",
                         "pluginFiles": [
-                            {
-                                "type": "Plugin File",
-                                "name": "Superalgos-CL",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos-CL\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
-                                "project": "Foundations",
-                                "id": "92ef88cd-4921-4a11-ab45-3ae57c6c903c",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 35393.96803839588,
-                                        "y": 10556.752143610503
-                                    },
-                                    "targetPosition": {
-                                        "x": 35636.67313670836,
-                                        "y": 10380.41656792276
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Plugin File",
-                                "name": "Superalgos-Docker",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos-Docker\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
-                                "project": "Foundations",
-                                "id": "68637b02-e75b-4249-93a5-fc49f5a178db",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 35351.356181819814,
-                                        "y": 10473.121666235245
-                                    },
-                                    "targetPosition": {
-                                        "x": 35636.67313670836,
-                                        "y": 10380.41656792276
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Plugin File",
-                                "name": "Superalgos-Launch-Scripts",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos-Launch-Scripts\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
-                                "project": "Foundations",
-                                "id": "fbca16fe-9d01-42dd-8e3a-4c844cd5b7e2",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 35336.67313670836,
-                                        "y": 10380.41656792276
-                                    },
-                                    "targetPosition": {
-                                        "x": 35636.67313670836,
-                                        "y": 10380.41656792276
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Plugin File",
-                                "name": "Superalgos-Root",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos-Root\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
-                                "project": "Foundations",
-                                "id": "5cb51a14-6b94-400e-a421-494a8cdc0a96",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 35351.356181819814,
-                                        "y": 10287.711469610276
-                                    },
-                                    "targetPosition": {
-                                        "x": 35636.67313670836,
-                                        "y": 10380.41656792276
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Plugin File",
-                                "name": "Superalgos-TS",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos-TS\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
-                                "project": "Foundations",
-                                "id": "273c0c81-8d96-485e-a482-7b146d068d05",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 35393.96803839588,
-                                        "y": 10204.080992235018
-                                    },
-                                    "targetPosition": {
-                                        "x": 35636.67313670836,
-                                        "y": 10380.41656792276
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Plugin File",
-                                "name": "Superalgos-UI",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos-UI\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
-                                "project": "Foundations",
-                                "id": "febde55b-0351-4d8a-933b-082ed2cdb385",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 35460.33756102062,
-                                        "y": 10137.711469610276
-                                    },
-                                    "targetPosition": {
-                                        "x": 35636.67313670836,
-                                        "y": 10380.41656792276
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
                             {
                                 "type": "Plugin File",
                                 "name": "Superalgos",
                                 "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos\",\n    \"folderName\": \"Assets\",\n    \"nodeType\": \"Assets\",\n    \"saveWithWorkspace\": false\n}",
-                                "project": "Foundations",
+                                "project": "Community-Plugins",
                                 "id": "99887440-5fb5-46ed-88d6-d73d76e02c24",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35543.96803839588,
-                                        "y": 10095.099613034216
+                                        "x": 34924.55137172921,
+                                        "y": 4764.242498942966
                                     },
                                     "targetPosition": {
-                                        "x": 35636.67313670836,
-                                        "y": 10380.41656792276
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": true,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Plugin File",
-                                "name": "Superalgos-Marketing",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos-Marketing\",\n    \"folderName\": \"Assets\",\n    \"nodeType\": \"Assets\",\n    \"saveWithWorkspace\": false\n}",
-                                "project": "Foundations",
-                                "id": "0a312222-3970-4274-804a-ccf0292a992d",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 35636.67313670836,
-                                        "y": 10080.41656792276
-                                    },
-                                    "targetPosition": {
-                                        "x": 35636.67313670836,
-                                        "y": 10380.41656792276
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": true,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Plugin File",
-                                "name": "Superalgos-Exchanges",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos-Exchanges\",\n    \"folderName\": \"Assets\",\n    \"nodeType\": \"Assets\",\n    \"saveWithWorkspace\": false\n}",
-                                "project": "Foundations",
-                                "id": "2bf1c821-e0bf-4f23-81c3-ba298b465a3c",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 35729.37823502085,
-                                        "y": 10095.099613034216
-                                    },
-                                    "targetPosition": {
-                                        "x": 35636.67313670836,
-                                        "y": 10380.41656792276
+                                        "x": 35167.2564700417,
+                                        "y": 4940.578074630708
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1444,15 +2371,15 @@
                                 }
                             }
                         ],
-                        "id": "2d1cc188-cd73-4f48-a5b8-17c2c5d8ceff",
+                        "id": "ad439a02-6b2c-40b5-b5df-3f1965860d87",
                         "savedPayload": {
                             "position": {
-                                "x": 35636.67313670836,
-                                "y": 10380.41656792276
+                                "x": 35167.2564700417,
+                                "y": 4940.578074630708
                             },
                             "targetPosition": {
-                                "x": 35879.37823502085,
-                                "y": 10556.752143610503
+                                "x": 35409.961568354185,
+                                "y": 5116.91365031845
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -1476,16 +2403,16 @@
                                 "type": "Plugin File",
                                 "name": "Superalgos",
                                 "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos\",\n    \"folderName\": \"Features\",\n    \"nodeType\": \"Features\",\n    \"saveWithWorkspace\": false\n}",
-                                "project": "Foundations",
+                                "project": "Community-Plugins",
                                 "id": "03c1d6ad-fab0-43da-bc1e-82493d4530c2",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35635.336249175365,
-                                        "y": 10008.624869024943
+                                        "x": 35165.9195825087,
+                                        "y": 4568.78637573289
                                     },
                                     "targetPosition": {
-                                        "x": 35757.35724209811,
-                                        "y": 10282.688506317723
+                                        "x": 35287.94057543144,
+                                        "y": 4842.85001302567
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1504,12 +2431,12 @@
                         "id": "84b0c4f5-7395-4670-97c9-c8b1fa8233be",
                         "savedPayload": {
                             "position": {
-                                "x": 35757.35724209811,
-                                "y": 10282.688506317723
+                                "x": 35287.94057543144,
+                                "y": 4842.85001302567
                             },
                             "targetPosition": {
-                                "x": 35879.37823502085,
-                                "y": 10556.752143610503
+                                "x": 35409.961568354185,
+                                "y": 5116.91365031845
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -1533,44 +2460,16 @@
                                 "type": "Plugin File",
                                 "name": "Superalgos",
                                 "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos\",\n    \"folderName\": \"Positions\",\n    \"nodeType\": \"Positions\",\n    \"saveWithWorkspace\": false\n}",
-                                "project": "Foundations",
+                                "project": "Community-Plugins",
                                 "id": "d63c0780-7da9-43ec-ac21-f09715514b86",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35788.715781078405,
-                                        "y": 9984.331937707242
+                                        "x": 35472.67864631478,
+                                        "y": 4520.200513097486
                                     },
                                     "targetPosition": {
-                                        "x": 35910.73677400115,
-                                        "y": 10258.395575000022
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Plugin File",
-                                "name": "Superalgos-Marketing",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos-Marketing\",\n    \"folderName\": \"Positions\",\n    \"nodeType\": \"Positions\",\n    \"saveWithWorkspace\": false\n}",
-                                "project": "Foundations",
-                                "id": "0d4c7172-6e98-4254-a1a1-06acc6d038ef",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 36087.07234968889,
-                                        "y": 10015.690476687538
-                                    },
-                                    "targetPosition": {
-                                        "x": 35910.73677400115,
-                                        "y": 10258.395575000022
+                                        "x": 35441.32010733448,
+                                        "y": 4818.557081707968
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1589,12 +2488,12 @@
                         "id": "4adb08aa-1703-4a6d-a8f5-eec6f5d8d1cc",
                         "savedPayload": {
                             "position": {
-                                "x": 35910.73677400115,
-                                "y": 10258.395575000022
+                                "x": 35441.32010733448,
+                                "y": 4818.557081707968
                             },
                             "targetPosition": {
-                                "x": 35879.37823502085,
-                                "y": 10556.752143610503
+                                "x": 35409.961568354185,
+                                "y": 5116.91365031845
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -1612,17 +2511,17 @@
                     "id": "63a93d05-d353-4b5f-a641-957e031b28a9",
                     "savedPayload": {
                         "position": {
-                            "x": 35879.37823502085,
-                            "y": 10556.752143610503
+                            "x": 35409.961568354185,
+                            "y": 5116.91365031845
                         },
                         "targetPosition": {
-                            "x": 36122.083333333336,
-                            "y": 10733.087719298246
+                            "x": 35652.66666666667,
+                            "y": 5293.249226006192
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": false,
+                            "isCollapsed": true,
                             "angleToParent": 1,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -1636,21 +2535,21 @@
                     "type": "Plugin Project",
                     "name": "Education",
                     "config": "{\"codeName\":\"Education\"}",
-                    "project": "Foundations",
+                    "project": "Community-Plugins",
                     "id": "99ae82f6-e99d-4801-a336-6dc5a496bdb7",
                     "savedPayload": {
                         "position": {
-                            "x": 36214.78843164582,
-                            "y": 10447.7707644097
+                            "x": 35745.37176497916,
+                            "y": 5007.9322711176455
                         },
                         "targetPosition": {
-                            "x": 36122.083333333336,
-                            "y": 10733.087719298246
+                            "x": 35652.66666666667,
+                            "y": 5293.249226006192
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": false,
+                            "isCollapsed": true,
                             "angleToParent": 1,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -1664,15 +2563,98 @@
             "id": "bfb0b514-3b9f-4e9a-85ca-d0ca714b09f6",
             "savedPayload": {
                 "position": {
-                    "x": 36122.083333333336,
-                    "y": 10733.087719298246
+                    "x": 35652.66666666667,
+                    "y": 6103.249226006192
                 },
                 "targetPosition": {
-                    "x": 36122.083333333336,
-                    "y": 10733.087719298246
+                    "x": 35652.66666666667,
+                    "y": 6103.249226006192
                 },
                 "floatingObject": {
                     "isPinned": true,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        {
+            "type": "Docs Space",
+            "name": "New Docs Space",
+            "project": "Education",
+            "docsSpaceStyle": {
+                "type": "Docs Space Style",
+                "name": "New Docs Space Style",
+                "config": "{\"backgroundColor\":\"UI_COLOR.BLACK\",\"node\":{\"fontSize\":16,\"imageSize\":60,\"type\":{\"fontColor\":\"UI_COLOR.WHITE\"},\"name\":{\"fontColor\":\"UI_COLOR.WHITE\"},\"menuItem\":{\"backgroundColor\":\"UI_COLOR.BLACK\",\"fontColor\":\"UI_COLOR.WHITE\",\"fontSize\":14,\"imageSize\":14}}}",
+                "project": "Education",
+                "id": "9d4601e7-9244-48d7-a790-69186a6a8cf4",
+                "savedPayload": {
+                    "position": {
+                        "x": 19698.416666666668,
+                        "y": 5288.050051599587
+                    },
+                    "targetPosition": {
+                        "x": 19398.416666666668,
+                        "y": 5288.050051599587
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "docsSpaceSettings": {
+                "type": "Docs Space Settings",
+                "name": "New Docs Space Settings",
+                "config": "{\n    \"indexContent\": false\n}",
+                "project": "Education",
+                "id": "e0243a0a-2f1b-451b-adb4-3016cb33f48d",
+                "savedPayload": {
+                    "position": {
+                        "x": 19098.416666666668,
+                        "y": 5288.050051599587
+                    },
+                    "targetPosition": {
+                        "x": 19398.416666666668,
+                        "y": 5288.050051599587
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "1ba8bedd-73ad-4bc9-98b0-815ee804e8e4",
+            "savedPayload": {
+                "position": {
+                    "x": 19398.416666666668,
+                    "y": 6098.050051599587
+                },
+                "targetPosition": {
+                    "x": 19398.416666666668,
+                    "y": 6098.050051599587
+                },
+                "floatingObject": {
+                    "isPinned": false,
                     "isFrozen": false,
                     "isCollapsed": true,
                     "angleToParent": 1,
@@ -1691,17 +2673,45 @@
             "githubAPI": {
                 "type": "Github API",
                 "name": "New Github API",
-                "config": "{\n    \"username\": \"\",\n    \"token\": \"\"\n}\n",
+                "config": "{\n    \"username\": \"\",\n    \"token\": \"\"\n}",
                 "project": "Foundations",
-                "id": "48c9ca95-3cc0-43a8-a522-27e812979800",
+                "id": "90d121ab-9f19-4437-a051-1222287085fc",
                 "savedPayload": {
                     "position": {
-                        "x": 30519.083333333336,
-                        "y": 10718.951150794494
+                        "x": 30781.708333333336,
+                        "y": 5323.450464396285
                     },
                     "targetPosition": {
-                        "x": 30219.083333333336,
-                        "y": 10718.951150794494
+                        "x": 30481.708333333336,
+                        "y": 5323.450464396285
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": true,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "web3API": {
+                "type": "Web3 API",
+                "name": "New Web3 API",
+                "config": "{\n    \"token\": \"\",\n    \"mnemonic\": \"\"\n}",
+                "project": "Foundations",
+                "id": "5ec4f0ee-a208-43a8-ab2d-9687b555e7f1",
+                "savedPayload": {
+                    "position": {
+                        "x": 30181.708333333336,
+                        "y": 5323.450464396285
+                    },
+                    "targetPosition": {
+                        "x": 30481.708333333336,
+                        "y": 5323.450464396285
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -1716,18 +2726,18 @@
                     }
                 }
             },
-            "id": "e4e1b5e1-c1f6-45da-af08-32464d5b17f9",
+            "id": "23021bb7-9997-4fe6-8199-71ebf70aef76",
             "savedPayload": {
                 "position": {
-                    "x": 30219.083333333336,
-                    "y": 10718.951150794494
+                    "x": 30481.708333333336,
+                    "y": 6133.450464396285
                 },
                 "targetPosition": {
-                    "x": 30219.083333333336,
-                    "y": 10718.951150794494
+                    "x": 30481.708333333336,
+                    "y": 6133.450464396285
                 },
                 "floatingObject": {
-                    "isPinned": false,
+                    "isPinned": true,
                     "isFrozen": false,
                     "isCollapsed": true,
                     "angleToParent": 1,

@@ -126,6 +126,7 @@ function newGovernanceFunctionLibraryTokenMining() {
             if (userProfile === undefined) { return }
             if (userProfile.payload === undefined) { return }
             if (userProfile.tokensMined === undefined) { return }
+            if (userProfile.tokensMined.payload === undefined) { return }
             if (userProfile.tokensMined.payload.tokensMined === undefined) {
                 userProfile.tokensMined.payload.tokensMined = {
                     awarded: 0,
@@ -147,6 +148,8 @@ function newGovernanceFunctionLibraryTokenMining() {
             if (userProfile === undefined) { return }
             if (userProfile.payload === undefined) { return }
             if (userProfile.tokensMined === undefined) { return }
+            if (userProfile.tokensMined.payload === undefined) { return }
+            
             if (programNode.payload === undefined) { return }
             if (programNode.payload[programPropertyName] === undefined) { return }
 
@@ -165,6 +168,7 @@ function newGovernanceFunctionLibraryTokenMining() {
             if (userProfile === undefined) { return }
             if (userProfile.payload === undefined) { return }
             if (userProfile.tokensMined === undefined) { return }
+            if (userProfile.tokensMined.payload === undefined) { return }
 
             const awarded = parseFloat(userProfile.tokensMined.payload.tokensMined.awarded.toFixed(0)).toLocaleString('en')
             const bonus = parseFloat(userProfile.tokensMined.payload.tokensMined.bonus.toFixed(0)).toLocaleString('en')

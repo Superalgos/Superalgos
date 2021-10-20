@@ -70,17 +70,17 @@
         },
         {
             "style": "Title",
-            "text": "Network",
+            "text": "LAN Network",
             "updated": 1609945037649
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Network->Definition",
+            "text": "Foundations->Node->LAN Network->Definition",
             "updated": 1609945860234
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Network->Content",
+            "text": "Foundations->Node->LAN Network->Content",
             "updated": 1609945864347
         },
         {

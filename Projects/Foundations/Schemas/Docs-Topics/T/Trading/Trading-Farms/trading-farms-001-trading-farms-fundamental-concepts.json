@@ -18,12 +18,12 @@
         },
         {
             "style": "Title",
-            "text": "Network",
+            "text": "LAN Network",
             "updated": 1614353250354
         },
         {
             "style": "Text",
-            "text": "A Network, represented by the Network Hierarchy, is just a definition that allows the system to know where Tasks need to be run, and where data is hosted. At any workspace you might define one, or even more than one, Network Hierarchy. For simplicity, we will continue the explanation assuming only one Network is defined.",
+            "text": "A Network, represented by the LAN Network Hierarchy, is just a definition that allows the system to know where Tasks need to be run, and where data is hosted. At any workspace you might define one, or even more than one, LAN Network Hierarchy. For simplicity, we will continue the explanation assuming only one Network is defined.",
             "updated": 1617263502648
         },
         {

@@ -38,6 +38,11 @@ function newGovernanceActionSwitch() {
                     UI.projects.governance.functionLibraries.profileConstructor.buildProfile(action.node, action.rootNodes)
                     break
                 }
+            case 'Add Signing Account':
+                {
+                    UI.projects.governance.functionLibraries.profileConstructor.addSigningAccount(action.node, action.rootNodes)
+                    break
+                }
             case 'Add Missing Plugin User Profiles':
                 {
                     UI.projects.governance.functionLibraries.pluginsFunctions.addMissingPluginUserProfiles(action.node, action.rootNodes)
@@ -63,6 +68,10 @@ function newGovernanceActionSwitch() {
                     UI.projects.governance.functionLibraries.pluginsFunctions.addMissingPluginPositions(action.node, action.rootNodes)
                 }
                 break
+                
+            default: {
+                console.log("[WARN] Action sent to Governance Action Switch does not belong here. Verify at the App Schema file of the node that triggered this action that the actionProject is pointing to the right project. -> Action = " + action.name + " -> Action Node Name = " + action.node.name)
+            }
         }
     }
 }

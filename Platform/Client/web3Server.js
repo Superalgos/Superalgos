@@ -7,6 +7,7 @@ exports.newWeb3Server = function newWeb3Server() {
         createWalletAccount: createWalletAccount,
         getWalletBalances: getWalletBalances,
         signData: signData,
+        hashData: hashData,
         recoverAddress: recoverAddress,
         mnemonicToPrivateKey: mnemonicToPrivateKey,
         payContributors: payContributors,
@@ -15,7 +16,7 @@ exports.newWeb3Server = function newWeb3Server() {
         run: run
     }
 
-    const Web3 = require('web3');
+    const Web3 = SA.nodeModules.web3
     let web3Map = new Map()
 
     return thisObject
@@ -223,6 +224,22 @@ exports.newWeb3Server = function newWeb3Server() {
         }
     }
 
+    async function hashData(data) {
+        try {
+
+            let web3 = new Web3()
+            let hash = web3.eth.accounts.hashMessage(data)
+
+            return {
+                hash: hash,
+                result: 'Ok'
+            }
+
+        } catch (err) {
+            return { error: 'Could not hash the data. ' + err.stack }
+        }
+    }
+
     async function recoverAddress(signature) {
         try {
             let signatureObject = JSON.parse(signature)
@@ -241,7 +258,7 @@ exports.newWeb3Server = function newWeb3Server() {
 
     async function mnemonicToPrivateKey(mnemonic) {
         try {
-            const ethers = require('ethers')
+            const ethers = SA.nodeModules.ethers
             let wallet = ethers.Wallet.fromMnemonic(mnemonic)
 
             if (wallet.privateKey !== undefined) {
@@ -268,10 +285,14 @@ exports.newWeb3Server = function newWeb3Server() {
             let response = await mnemonicToPrivateKey(mnemonic)
             let privateKey = response.privateKey
 
+            console.log('----------------------------------------------------------------------------------------------')
+            console.log('PAYING CONTRIBUTORS')
+            console.log('----------------------------------------------------------------------------------------------')
+
             for (let i = 0; i < paymentsArray.length; i++) {
-                await CL.projects.foundations.utilities.asyncFunctions.sleep(10000)
+                await PL.projects.foundations.utilities.asyncFunctions.sleep(10000)
                 let payment = paymentsArray[i]
-                sendTokens(
+                await sendTokens(
                     i + 1,
                     payment.userProfile,
                     payment.from,
@@ -282,20 +303,36 @@ exports.newWeb3Server = function newWeb3Server() {
 
             async function sendTokens(number, userProfile, fromAddress, toAddress, tokenAmount) {
                 try {
+             
+                    tokenAmount = Math.trunc(tokenAmount / 1000000000000000000)
+
                     console.log('')
                     console.log('---------------------------------------------------------------------------------------------------------------------------------------------------')
-                    console.log(' Payment # ' + number + ' - User Profile: ' + userProfile + ' - SA Tokens Amount: ' +  tokenAmount / 1000000000000000000 + ' - Address: ' + toAddress)
+                    console.log(' Payment # ' + number + ' - User Profile: ' + userProfile + ' - SA Tokens Amount: ' + parseFloat(tokenAmount).toLocaleString('en') + ' - Address: ' + toAddress)
                     console.log('---------------------------------------------------------------------------------------------------------------------------------------------------')
                     console.log('')
 
-                    const Tx = require('ethereumjs-tx').Transaction;
+                    if (tokenAmount === 0) {
+                        console.log('No need to send a transaction in this case.')
+                        return
+                    }
+
+                    const Tx = SA.nodeModules.ethereumjsTx.Transaction;
                     const web3 = new Web3(new Web3.providers.HttpProvider('https://bsc-dataseed.binance.org/'))
-                    const amount = web3.utils.toHex(tokenAmount)
+                    /*
+                    Token Amount
+                    */
+
+                    tokenAmount = web3.utils.toWei(tokenAmount.toString(), 'ether')
+                    var amountBigNumber = web3.utils.toBN(tokenAmount)
+
+                    //const amount = web3.utils.toHex(tokenAmount)
+                    if (privateKey === undefined) { privateKey = 'No Privete Key - Just Testing' }
                     privateKey = privateKey.replace('0x', '')
                     const privateKeyBuffer = Buffer.from(privateKey, 'hex')
                     const contractAbiObject = JSON.parse(contractAbi)
                     const contract = new web3.eth.Contract(contractAbiObject, contractAddress, { from: fromAddress })
-                    const Common = require('ethereumjs-common').default
+                    const Common = SA.nodeModules.ethereumjsCommon.default
                     const BSC_FORK = Common.forCustomChain(
                         'mainnet',
                         {
@@ -308,13 +345,14 @@ exports.newWeb3Server = function newWeb3Server() {
                     );
 
                     const nonce = await web3.eth.getTransactionCount(fromAddress);
+                    console.log('Nonce:', nonce)
 
                     const rawTransaction = {
                         "from": fromAddress,
                         "gasPrice": web3.utils.toHex(5000000000),
                         "gasLimit": web3.utils.toHex(210000),
                         "to": contractAddress, "value": "0x0",
-                        "data": contract.methods.transfer(toAddress, amount).encodeABI(),
+                        "data": contract.methods.transfer(toAddress, amountBigNumber).encodeABI(),
                         "nonce": web3.utils.toHex(nonce)
                     };
 
@@ -323,6 +361,10 @@ exports.newWeb3Server = function newWeb3Server() {
 
                     console.log('Transaction:', rawTransaction)
                     const result = await web3.eth.sendSignedTransaction('0x' + transaction.serialize().toString('hex'))
+                        .catch(err => {
+                            console.log('[ERROR] sendSignedTransaction -> err =' + JSON.stringify(err))
+                        })
+
                     console.log('Result:', result)
                     return result
                 } catch (err) {

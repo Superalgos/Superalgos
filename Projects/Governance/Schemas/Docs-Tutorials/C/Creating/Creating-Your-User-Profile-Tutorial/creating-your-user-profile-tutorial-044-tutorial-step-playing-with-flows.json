@@ -8,31 +8,73 @@
         "icon": {
             "name": "Programs//delegation-program",
             "project": "Governance"
-        }
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Casi me olvido! Antes de que se vaya, Voy a darle un curso intensivo para que pueda jugar un poco con algo de Token Power real!",
+                "updated": 1633297571727
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "We're sneaking into the lead developer's User Profile, particularly in his Delegation Program! Your mission: delegate yourself some Token Power so that you can play with the flows within your own profile!",
-            "updated": 1630931293437
+            "updated": 1630931293437,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Estamos espiando en el User Profile del leader de develop, particularlmente en su Delegation Program! la misión: deleguese a si mismo algo de Token Power para que pueda jugar con el flujo dentro de su propio perfil!",
+                    "updated": 1633297853468
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Use the User Delegate node on the right to reference your own User Profile!"
+            "text": "Use the User Delegate node on the right to reference your own User Profile!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Use el nodo de User Delegate a la derecha para referenciar a su propio User Profile!",
+                    "updated": 1633298180980
+                }
+            ]
         },
         {
             "style": "List",
             "text": "You can freely play with other User Profiles.",
-            "updated": 1630931454654
+            "updated": 1630931454654,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Puede libremente jugar con otros User Profiles.",
+                    "updated": 1633297955207
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Those profiles don't save with the workspace.",
-            "updated": 1630931469032
+            "updated": 1630931469032,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Esos profiles no se graban en el workspace.",
+                    "updated": 1633298215317
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Even if you submitted them to the repo, they would be rejected by our bot controlling that profiles are uploaded by their owners only."
+            "text": "Even if you submitted them to the repo, they would be rejected by our bot controlling that profiles are uploaded by their owners only.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Aunque los someta al repositorio, serían rechazados por nuestro bot controlando que profiles son actualizados por sus dueños unicamente.",
+                    "updated": 1633298152744
+                }
+            ]
         }
     ]
 }

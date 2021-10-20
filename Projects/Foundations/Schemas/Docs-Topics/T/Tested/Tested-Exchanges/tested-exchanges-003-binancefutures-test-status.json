@@ -1,0 +1,58 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 3,
+    "type": "Binance Futures USDS-M/COIN-M Test Status",
+    "definition": {
+        "text": "Binance Futures Perpetual contracts are partially tested for data mining. Testing in progress for live trading.  Note that Quarterly Contract trading will be tested in the future based on users requirement/demand.",
+        "updated": 1615141847424
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1615143100216
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
+            "updated": 1616003523813
+        },
+        {
+            "style": "List",
+            "text": "Market History: Starting 2019/09/13 04:00 AM (UTC) for most stable coin perpetual contracts.",
+            "updated": 1615142912901
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability: Currently under review and testing for both USDⓈ-M/COIN-M.",
+            "updated": 1616003541160
+        },
+        {
+            "style": "List",
+            "text": "Comments: Ensure that the correct market symbol codes are choosen (refer to Binance as symbols are added and withdrawn regularly).  Sandbox/testnet facility available but not yet reviewed as it requires independent exchange API keys.",
+            "updated": 1615142951363
+        },
+        {
+            "style": "Title",
+            "text": "Configuration for USDⓈ-M"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"binanceusdm\",\n    \"API\": [\n        {\n            \"method\": \"fetchTrades\",\n            \"fetchType\": \"by Id\",\n            \"fetchTradesMethod\": \"publicGetHistoricalTrades\",\n            \"firstId\": \"f\"\n        }\n    ]\n}",
+            "updated": 1615143066280
+        },
+        {
+         "style": "Title",
+         "text": "Configuration for COIN-M"
+        },
+        {
+         "style": "Json",
+         "text": "{\n    \"codeName\": \"binancecoinm\",\n    \"API\": [\n        {\n            \"method\": \"fetchTrades\",\n            \"fetchType\": \"by Id\",\n            \"fetchTradesMethod\": \"publicGetHistoricalTrades\",\n            \"firstId\": \"f\"\n        }\n    ]\n}",
+         "updated": 1615143066280
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

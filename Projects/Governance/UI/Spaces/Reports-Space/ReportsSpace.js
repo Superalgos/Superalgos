@@ -125,8 +125,8 @@ function newGobernanceReportsSpace() {
         /*
         If the workspace is not related to governance, then we exit the Intialize Function
         */
-        let resultsArary = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
-        if (resultsArary.length === 0) { return }
+        let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
+        if (governanceProject === undefined) { return }
 
         thisObject.container = newContainer()
         thisObject.container.name = MODULE_NAME

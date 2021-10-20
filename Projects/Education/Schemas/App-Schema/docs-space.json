@@ -3,22 +3,27 @@
     "menuItems": [
         {
             "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "spaceStyle",
-            "label": "Add Space Style",
-            "relatedUiObject": "Space Style",
-            "actionFunction": "payload.executeAction"
+            "propertyToCheckFor": "docsSpaceStyle",
+            "label": "Add Docs Space Style",
+            "relatedUiObject": "Docs Space Style",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Education"
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "spaceSettings",
-            "label": "Add Space Settings",
-            "relatedUiObject": "Space Settings",
-            "actionFunction": "payload.executeAction"
+            "propertyToCheckFor": "docsSpaceSettings",
+            "label": "Add Docs Space Settings",
+            "relatedUiObject": "Docs Space Settings",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Education"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",

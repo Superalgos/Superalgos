@@ -1,12 +1,9 @@
 exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSocketsInterface() {
 
     let thisObject = {
-<<<<<<< HEAD
-=======
         networkClients: undefined,
         networkPeers: undefined,
         callersMap: undefined,
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         initialize: initialize,
         finalize: finalize
     }
@@ -20,13 +17,10 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
     return thisObject
 
     function finalize() {
-<<<<<<< HEAD
-=======
         thisObject.networkClients = undefined
         thisObject.networkPeers = undefined
         callersMap = undefined
 
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         socketServer = undefined
         clientInterface = undefined
         peerInterface = undefined
@@ -39,27 +33,15 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
         clientInterface = NT.projects.socialTrading.modules.clientInterface.newSocialTradingModulesClientInterface()
         peerInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesPeerInterface()
 
-<<<<<<< HEAD
-=======
         thisObject.networkClients = []
         thisObject.networkPeers = []
         thisObject.callersMap = new Map()
 
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         setUpWebSocketServer()
     }
 
     function setUpWebSocketServer() {
         try {
-<<<<<<< HEAD
-            socketServer.on('connection', onConnection)
-
-            function onConnection(socket) {
-                let caller = {}
-                let calledTimestamp = (new Date()).valueOf()
-
-                socket.on('message', onMenssage)
-=======
             socketServer.on('connection', onConnectionOpened)
 
             function onConnectionOpened(socket)
@@ -80,7 +62,6 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 let calledTimestamp = (new Date()).valueOf()
 
                 caller.socket.on('message', onMenssage)
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
 
                 async function onMenssage(message) {
                     try {
@@ -92,11 +73,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                 result: 'Error',
                                 message: 'messageHeader Not Coorrect JSON Format.'
                             }
-<<<<<<< HEAD
-                            socket.send(JSON.stringify(response))
-=======
                             caller.socket.send(JSON.stringify(response))
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                             return
                         }
                         /*
@@ -107,21 +84,13 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                 result: 'Error',
                                 message: 'messageType Not Provided.'
                             }
-<<<<<<< HEAD
-                            socket.send(JSON.stringify(response))
-=======
                             caller.socket.send(JSON.stringify(response))
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                             return
                         }
 
                         switch (messageHeader.messageType) {
                             case "Handshake": {
-<<<<<<< HEAD
-                                handshakeProducedure(socket, caller, calledTimestamp, messageHeader)
-=======
                                 handshakeProducedure(caller, calledTimestamp, messageHeader)
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                                 break
                             }
                             case "Request": {
@@ -131,24 +100,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                         result: 'Error',
                                         message: 'Handshake Not Done Yet.'
                                     }
-<<<<<<< HEAD
-                                    socket.send(JSON.stringify(response))
-                                    return
-                                }
-
-                                switch (caller.role) {
-                                    case 'Network Client': {
-                                        let response = await clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
-                                        socket.send(JSON.stringify(response))
-                                        break
-                                    }
-                                    case 'Network Peer': {
-                                        let response = await peerInterface.messageReceived(messageHeader.payload)
-                                        socket.send(JSON.stringify(response))
-                                        break
-                                    }
-                                }
-=======
+                                    response.messageId = messageHeader.messageId
                                     caller.socket.send(JSON.stringify(response))
                                     return
                                 }
@@ -157,11 +109,13 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                 switch (caller.role) {
                                     case 'Network Client': {
                                         response = await clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                        response.messageId = messageHeader.messageId
                                         caller.socket.send(JSON.stringify(response))
                                         break
                                     }
                                     case 'Network Peer': {
                                         response = await peerInterface.messageReceived(messageHeader.payload)
+                                        response.messageId = messageHeader.messageId
                                         caller.socket.send(JSON.stringify(response))
                                         break
                                     }
@@ -170,7 +124,6 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                     broadcastToPeers(messageHeader, caller)
                                     broadcastToClients(messageHeader, caller)
                                 }
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                                 break
                             }
                             default: {
@@ -178,11 +131,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                     result: 'Error',
                                     message: 'messageType Not Supported.'
                                 }
-<<<<<<< HEAD
-                                socket.send(JSON.stringify(response))
-=======
                                 caller.socket.send(JSON.stringify(response))
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                                 break
                             }
                         }
@@ -192,9 +141,6 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 }
             }
 
-<<<<<<< HEAD
-            function handshakeProducedure(socket, caller, calledTimestamp, messageHeader) {
-=======
             function onConnectionClosed() {
                 let socketId = this.id
                 let caller = thisObject.callersMap.get(socketId)
@@ -202,7 +148,6 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
             }
 
             function handshakeProducedure(caller, calledTimestamp, messageHeader) {
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                 /*
                 The handshage producedure have 2 steps, we need to know 
                 now which one we are at. 
@@ -212,11 +157,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         result: 'Error',
                         message: 'step Not Provided.'
                     }
-<<<<<<< HEAD
-                    socket.send(JSON.stringify(response))
-=======
                     caller.socket.send(JSON.stringify(response))
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                     return
                 }
                 if (messageHeader.step !== 'One' && messageHeader.step !== 'Two') {
@@ -224,11 +165,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         result: 'Error',
                         message: 'step Not Supported.'
                     }
-<<<<<<< HEAD
-                    socket.send(JSON.stringify(response))
-=======
                     caller.socket.send(JSON.stringify(response))
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                     return
                 }
                 switch (messageHeader.step) {
@@ -250,11 +187,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'callerRole Not Provided.'
                         }
-<<<<<<< HEAD
-                        socket.send(JSON.stringify(response))
-=======
                         caller.socket.send(JSON.stringify(response))
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
 
@@ -263,11 +196,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'callerRole Not Supported.'
                         }
-<<<<<<< HEAD
-                        socket.send(JSON.stringify(response))
-=======
                         caller.socket.send(JSON.stringify(response))
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
 
@@ -280,11 +209,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'callerProfileHandle Not Provided.'
                         }
-<<<<<<< HEAD
-                        socket.send(JSON.stringify(response))
-=======
                         caller.socket.send(JSON.stringify(response))
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
 
@@ -297,11 +222,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'callerTimestamp Not Provided.'
                         }
-<<<<<<< HEAD
-                        socket.send(JSON.stringify(response))
-=======
                         caller.socket.send(JSON.stringify(response))
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
                     /*
@@ -312,11 +233,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'callerTimestamp Too Old.'
                         }
-<<<<<<< HEAD
-                        socket.send(JSON.stringify(response))
-=======
                         caller.socket.send(JSON.stringify(response))
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
                     /*
@@ -325,22 +242,18 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     */
                     let signedMessage = {
                         callerProfileHandle: messageHeader.callerProfileHandle,
-                        calledProfileHandle: NT.NETWORK_NODE_USER_PROFILE_HANDLE,
+                        calledProfileHandle: SA.secrets.map.get('P2P Network Node').githubUsername,
                         callerTimestamp: messageHeader.callerTimestamp,
                         calledTimestamp: calledTimestamp
                     }
-                    let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), NT.NETWORK_NODE_USER_PROFILE_PRIVATE_KEY)
+                    let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get('P2P Network Node').privateKey)
 
                     let response = {
                         result: 'Ok',
                         message: 'Handshake Step One Complete',
                         signature: JSON.stringify(signature)
                     }
-<<<<<<< HEAD
-                    socket.send(JSON.stringify(response))
-=======
                     caller.socket.send(JSON.stringify(response))
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                 }
 
                 function handshakeStepTwo() {
@@ -352,11 +265,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'Handshake Step One Not Completed.'
                         }
-<<<<<<< HEAD
-                        socket.send(JSON.stringify(response))
-=======
                         caller.socket.send(JSON.stringify(response))
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
                     /*
@@ -367,11 +276,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'signature Not Provided.'
                         }
-<<<<<<< HEAD
-                        socket.send(JSON.stringify(response))
-=======
                         caller.socket.send(JSON.stringify(response))
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
 
@@ -383,11 +288,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'Bad Signature.'
                         }
-<<<<<<< HEAD
-                        socket.send(JSON.stringify(response))
-=======
                         caller.socket.send(JSON.stringify(response))
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
                     /*
@@ -400,45 +301,46 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'userProfile Not Found.'
                         }
-<<<<<<< HEAD
-                        socket.send(JSON.stringify(response))
-=======
                         caller.socket.send(JSON.stringify(response))
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
+                        return
+                    }
+                    let signedMessage = JSON.parse(signature.message)
+                    /*
+                    We will verify that the signature belongs to the signature.message.
+                    To do this we will hash the signature.message and see if we get 
+                    the same hash of the signature.
+                    */
+                    let hash = web3.eth.accounts.hashMessage(signature.message)
+                    if (hash !== signature.messageHash) {
+                        let response = {
+                            result: 'Error',
+                            message: 'signature.message Hashed Does Not Match signature.messageHash.'
+                        }
+                        caller.socket.send(JSON.stringify(response))
                         return
                     }
                     /*
                     The user profile based on the blockchain account, based on the signature,
                     it is our witness user profile, to validate the caller.
                     */
-                    let signedMessage = JSON.parse(signature.message)
-
                     if (signedMessage.callerProfileHandle !== witnessUserProfile.userProfileHandle) {
                         let response = {
                             result: 'Error',
                             message: 'callerProfileHandle Does Not Match witnessUserProfile.'
                         }
-<<<<<<< HEAD
-                        socket.send(JSON.stringify(response))
-=======
                         caller.socket.send(JSON.stringify(response))
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
                     /*
                     We will check that the signature includes this Network Node handle, to avoid
                     man in the middle attackts.
                     */
-                    if (signedMessage.calledProfileHandle !== NT.NETWORK_NODE_USER_PROFILE_HANDLE) {
+                    if (signedMessage.calledProfileHandle !== SA.secrets.map.get('P2P Network Node').githubUsername) {
                         let response = {
                             result: 'Error',
                             message: 'calledProfileHandle Does Not Match This Network Node Handle.'
                         }
-<<<<<<< HEAD
-                        socket.send(JSON.stringify(response))
-=======
                         caller.socket.send(JSON.stringify(response))
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
                     /*
@@ -449,11 +351,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             result: 'Error',
                             message: 'calledTimestamp Does Not Match calledTimestamp On Record.'
                         }
-<<<<<<< HEAD
-                        socket.send(JSON.stringify(response))
-=======
                         caller.socket.send(JSON.stringify(response))
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                         return
                     }
                     /*
@@ -463,21 +361,15 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     We will remember the user profile behind this caller.
                     */
                     caller.userProfile = witnessUserProfile
-<<<<<<< HEAD
-=======
                     /*
                     We will remember the caller itself.
                     */
                     addCaller(caller)
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
 
                     let response = {
                         result: 'Ok',
                         message: 'Handshake Successful.'
                     }
-<<<<<<< HEAD
-                    socket.send(JSON.stringify(response))
-=======
                     caller.socket.send(JSON.stringify(response))
                 }
             }
@@ -559,7 +451,6 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     let networkClient = thisObject.networkClients[i]
                     if (networkClient.socket.id === callerIdToAVoid) { continue }
                     networkClient.socket.send(messageHeader)
->>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                 }
             }
 

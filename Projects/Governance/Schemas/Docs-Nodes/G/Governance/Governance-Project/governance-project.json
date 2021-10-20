@@ -2,7 +2,14 @@
     "type": "Governance Project",
     "definition": {
         "text": "The Governance Project is the section of the Superalgos Platform that enables the distributed governance of the Superalgos Project.",
-        "updated": 1630067351210
+        "updated": 1630067351210,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "The Governance Project es la sección de la plataforma Superalgos que posibilita la gobernanza distribuida del Superalgos Project.",
+                "updated": 1631672276415
+            }
+        ]
     },
     "paragraphs": [
         {

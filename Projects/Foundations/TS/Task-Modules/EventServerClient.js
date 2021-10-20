@@ -23,10 +23,10 @@
     if (host === undefined) {
         host = 'localhost'
     }
-    if (port === undefined || port !== global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT) {
+    if (port === undefined) {
         port = global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT  
     }
-
+     
     let messageCounter = 0
     let commandCounter = 0 
 

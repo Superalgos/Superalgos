@@ -181,7 +181,8 @@
                 {
                     "language": "DE",
                     "text": "Bewährte Praktiken:",
-                    "updated": 1634065685236
+                    "updated": 1634065685236,
+                    "style": "Title"
                 },
                 {
                     "language": "ES",
@@ -198,8 +199,7 @@
                 {
                     "language": "ES",
                     "text": "Lo mencionado no afecta su trabajo directamente,pero es bueno tenerlo en cuenta ya que significa que muchos contribuyentes pueden estar trabajando la misma página al mismo tiempo. He aqui la necesidad de actualizar constantemente y de solicitar la contribución a menudo.",
-                    "updated": 1633172414535,
-                    "style": "Success"
+                    "updated": 1633172414535
                 }
             ]
         },
@@ -224,8 +224,8 @@
         },
         {
             "style": "List",
-            "text": "Make sure your system is up to date running the app.update command.",
-            "updated": 1616762308286,
+            "text": "Make sure your system is up to date running the app.update command in the Searchbar/Command Line at the top of these Docs.",
+            "updated": 1634589766751,
             "translations": [
                 {
                     "language": "DE",
@@ -490,8 +490,7 @@
                 {
                     "language": "ES",
                     "text": "Notará que si abre los documentos mientras el tutorial está corriendo, los documentos automáticamente carga l página correspondiente al paso del tutorial, entonces puede editarlo. Esto es de gran ayuda, ya que podrá traducir la página y ver como se ve en la ventanta del tutorial al mismo tiempo.",
-                    "updated": 1633279236805,
-                    "style": "Text"
+                    "updated": 1633279236805
                 }
             ]
         },
@@ -516,4 +515,3 @@
         }
     ]
 }
-

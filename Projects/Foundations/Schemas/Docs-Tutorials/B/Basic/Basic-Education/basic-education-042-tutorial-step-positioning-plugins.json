@@ -21,6 +21,11 @@
                 "text": "Aquí está la locura... el nodo Plugin File Position determina en qué parte del workspace el plugin es colocado.",
                 "updated": 1626642524737,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Jetzt kommt der verrückte Teil... der Knoten Plugin File Position bestimmt, wo im Workspace das Plugin platziert wird!",
+                "updated": 1634588642076
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "¡Por eso encontraste el nodo Trading System en la parte superior del nodo Plugin File Position!",
                     "updated": 1626642599727,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Aus diesem Grund finden Sie den Knoten Trading System über dem Knoten Plugin File Position!",
+                    "updated": 1634588653804
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "¡Si eliminas el nodo Trading System, volvería a aparecer la próxima vez que recargues el workspace!¡Plugins se cargan desde el archivo plugin cada vez que se carga el workspace!",
                     "updated": 1626642734045,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie den Knoten Trading System löschen, erscheint er wieder, wenn Sie den Workspace das nächste Mal neu laden! Plugins werden jedes Mal aus der Plugin-Datei geladen, wenn der Workspace geladen wird!",
+                    "updated": 1634588661690
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "text": "¡No dudes en probarlo! Si lo desea, puedes eliminar el nodo Trading System y actualiza la página. Ten en cuenta que deberás encontrar el Basic Education Tutorial y hacer clic en Resume en el menú para continuar!",
                     "updated": 1626642833516,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Probieren Sie es einfach aus! Wenn Sie möchten, können Sie den Knoten Trading System löschen und die Seite neu laden. Denken Sie daran, dass Sie das Tutorial zur Grundausbildung finden und im Menü auf Fortsetzen klicken müssen, um fortzufahren!",
+                    "updated": 1634588669393
                 }
             ]
         }

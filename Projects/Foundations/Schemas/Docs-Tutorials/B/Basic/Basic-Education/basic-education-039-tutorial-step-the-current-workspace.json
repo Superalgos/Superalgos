@@ -21,6 +21,11 @@
                 "text": "El espacio de trabajo actual es el User Workspace que estés utilizando en cualquier momento.",
                 "updated": 1626621294273,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Der aktuelle Workspace ist der User Workspace oder der Plugin Workspace, den Sie gerade verwenden.",
+                "updated": 1634587888849
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Si cierras y reinicias la aplicación, o actualizas el User Interface, el sistema carga el ultimo Workspace usado.",
                     "updated": 1626622914590,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie die Anwendung schließen und neu starten oder die Benutzeroberfläche UI aktualisieren, lädt das System den zuletzt verwendeten Workspace.",
+                    "updated": 1634587898657
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "Accede al menú del nodo Workspace, doble clic en la etiqueta  \"Getting Started Tutorials\" y cámbialo a \"Basic Education\".",
                     "updated": 1626621401640,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Rufen Sie das Menü des Knotens Workspace auf, doppelklicken Sie auf die Bezeichnung \"Getting Started Tutorials\" und ändern Sie sie in \"Basic Education\".",
+                    "updated": 1634587910330
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "text": "Ahora presiona  Ctrl + Shift + Alt + Key-S",
                     "updated": 1626621439639,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie nun Ctrl + Shift + Alt + Key-S",
+                    "updated": 1634587951733
                 }
             ]
         },
@@ -98,6 +118,11 @@
                     "text": "Ve a la carpeta My-Workspaces para verificar que el nuevo archivo está allí. ¡Encuéntralo también en la pestaña de espacios de trabajo!",
                     "updated": 1626622475717,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zum Ordner My-Workspaces , um zu überprüfen, ob die neue Datei dort vorhanden ist. Sie finden sie auch auf der Registerkarte Workspaces !",
+                    "updated": 1634587938906
                 }
             ]
         }

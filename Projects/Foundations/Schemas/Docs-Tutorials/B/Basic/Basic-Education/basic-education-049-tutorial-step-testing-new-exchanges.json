@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Si eres un desarrollador y tu intercambio preferido no ha sido probado, ¡puedes unirte al esfuerzo y ayudar con las pruebas!",
-                "updated": 1628015097699
+                "updated": 1628015097699,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie ein Entwickler sind und Ihre bevorzugte Börse noch nicht getestet wurde, können Sie sich an den Bemühungen beteiligen und beim Testen helfen!",
+                "updated": 1634589557030
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Este tema en los Documentos explica cómo depurar el Sensor Bot para que obtenga datos de un exchange. Si el exchange admite las funciones básicas requeridas por Superalgos, ¡deberías terminar con una solución!",
-                    "updated": 1628015199818
+                    "updated": 1628015199818,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieses Thema in den Docs erklärt, wie man den Sensor Bot debuggt, um ihn dazu zu bringen, Daten von einer Börse zu holen. Wenn die Börse die von Superalgos geforderten Grundfunktionen unterstützt, sollten Sie am Ende eine Lösung haben!",
+                    "updated": 1634589564876
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "Compartir la solución con la comunidad es una contribución valiosa. ¡Los que vengan pronto podrán disfrutar de su exchange favorito!",
-                    "updated": 1628015422895
+                    "updated": 1628015422895,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Teilen der Lösung mit der Community ist ein wertvoller Beitrag. Jeder, der als nächstes kommt, kann sich auch an seiner Lieblingsbörse erfreuen!",
+                    "updated": 1634589572089
                 }
             ]
         },
@@ -74,7 +92,13 @@
                 {
                     "language": "ES",
                     "text": "Te recomendamos que completes tu educación con todos los tutoriales antes de sumergirte en la configuración de otros exchanges.",
-                    "updated": 1628015615665
+                    "updated": 1628015615665,
+                    "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir empfehlen Ihnen dringend, Ihre Ausbildung auf Superalgos zu vervollständigen und alle Tutorials zu absolvieren, bevor Sie sich an die Einrichtung anderer Börsen machen.",
+                    "updated": 1634589578473
                 }
             ]
         }

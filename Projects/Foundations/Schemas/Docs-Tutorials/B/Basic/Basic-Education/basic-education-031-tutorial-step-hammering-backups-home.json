@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "¡Repasemos los mismos ejemplos sobre los que acabas de leer para que te los aprendas de memoria!",
-                "updated": 1626613958881
+                "updated": 1626613958881,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Gehen wir noch einmal die Beispiele durch, die Sie gerade gelesen haben, damit Sie das auswendig lernen!",
+                "updated": 1634585727295
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Realiza una copia de seguridad del Lightning Strike Task y restaurarlo sin eliminar la tarea original. Luego repite la operación pero eliminando la tarea original antes de restaurar la copia de seguridad.",
-                    "updated": 1626614204066
+                    "updated": 1626614204066,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erstellen Sie eine Sicherungskopie des Lightning Strike Tasks und stellen Sie diese wieder her, ohne den ursprünglichen Task zu löschen. Dann wiederholen Sie den Vorgang, löschen aber den ursprünglichen Task, bevor Sie die Sicherung wiederherstellen.",
+                    "updated": 1634585740393
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "Verifica que, en ambos casos, las referencias salientes originadas en el Trading System Reference y el nodo Trading Engine Reference se conservan.",
-                    "updated": 1626614637489
+                    "updated": 1626614637489,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Vergewissern Sie sich, dass in beiden Fällen die ausgehenden Verweise, die von den Knoten Trading System Reference und Trading Engine Reference ausgehen, erhalten bleiben.",
+                    "updated": 1634585747278
                 }
             ]
         },
@@ -74,7 +92,13 @@
                 {
                     "language": "ES",
                     "text": "¡Recuerda que las referencias salientes siempre se conservan!",
-                    "updated": 1626614674572
+                    "updated": 1626614674572,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass ausgehende Referenzen immer erhalten bleiben!",
+                    "updated": 1634585756386
                 }
             ]
         }

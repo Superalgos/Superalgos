@@ -1,5 +1,16 @@
 exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSocketsInterface() {
+    /*
+    This module represents the websockets interface of the Network Node.
 
+    A Network Nodes is epected to receive conections request from 2 different types
+    of entities:
+
+    1. Other Network Nodes.
+    2. Clients / Apps. 
+
+    This module deals with those 2 connection types and is the one receiving from
+    and sending messages to those entities.
+    */
     let thisObject = {
         networkClients: undefined,
         networkPeers: undefined,
@@ -45,7 +56,6 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
             socketServer.on('connection', onConnectionOpened)
 
             function onConnectionOpened(socket)
-
             /*
             This function is executed every time a new Websockets connection
             is stablished.  

@@ -779,6 +779,11 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.socialBotsFunctions.sendSlackTestMessage(action.node, action.callBackFunction)
                 }
                 break
+            case 'Send Twitter Test Message':
+                {
+                    UI.projects.foundations.functionLibraries.socialBotsFunctions.sendTwitterTestMessage(action.node, action.callBackFunction)
+                }
+                break
             case 'Save node to be moved':
             {
                 UI.projects.foundations.spaces.floatingSpace.saveFloatingObjectToBeMoved()

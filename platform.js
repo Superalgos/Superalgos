@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /*
 The Superalgos Platform is a software for algo-traders:
 
@@ -25,7 +26,7 @@ if (
     console.log('')
     console.log('TELEGRAM COMMUNITY:    https://t.me/superalgoscommunity')
     console.log('')
-    console.log('USAGE:                 node runPlatform [help] [noBrowser] [minMemo]')
+    console.log('USAGE:                 node platform [help] [noBrowser] [minMemo]')
     console.log('')
     console.log('OPTIONS:')
     console.log('')
@@ -112,5 +113,5 @@ function fatalErrorHelp() {
     console.log('')
     console.log('If you continue having trouble to start the Superalgos Platform Client try:')
     console.log('')
-    console.log('node runPlatform minMemo noBrowser')
+    console.log('node platform minMemo noBrowser')
 }

@@ -46,7 +46,8 @@ SA.nodeModules = {
     nodeFetch: require('node-fetch'),
     ccxt: require('ccxt'),
     ccxtMisc: require('./node_modules/ccxt/js/base/functions/misc'),
-    lookpath: require('lookpath')
+    lookpath: require('lookpath'),
+    twitter: require('twitter')
 }
 
 run()

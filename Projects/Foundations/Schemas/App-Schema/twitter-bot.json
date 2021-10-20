@@ -1,0 +1,41 @@
+{
+    "type": "Twitter Bot",
+    "editors": {
+        "config": true
+    },
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Send Twitter Test Message",
+            "label": "Send Twitter Test Message",
+            "iconPathOn": "test-entity",
+            "iconPathOff": "test-entity",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "initialValues": {
+        "config": "{\n  \"consumer_key\": \"TWITTER_CONSUMER_KEY\",\n  \"consumer_secret\": \"TWITTER_CONSUMER_SECRET\",\n  \"access_token_key\": \"TWITTER_ACCESS_TOKEN_KEY\",\n  \"access_token_secret\": \"TWITTER_ACCESS_TOKEN_SECRET\"\n}"
+    },
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Social Bots->"
+    },
+    "childrenNodesProperties": [],
+    "propertyNameAtParent": "TwitterBots"
+}

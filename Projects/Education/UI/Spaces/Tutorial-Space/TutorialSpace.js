@@ -50,6 +50,7 @@ function newEducationTutorialSpace() {
     let tutorialFormDiv = document.getElementById('tutorialFormDiv')
     let htmlGif = document.createElement("IMG")
     let htmlImage = document.createElement("IMG")
+    //let htmlVid = document.createElement("iframe")
 
     let currentGifName
     let newGifName
@@ -182,6 +183,7 @@ function newEducationTutorialSpace() {
         checkPressButton()
         checkGif()
         checkImage()
+        //checkVid()
         checkDocumentation()
         checkWorkspaces()
         checkSlider()
@@ -324,6 +326,17 @@ function newEducationTutorialSpace() {
                 htmlImage.width = "100"
                 htmlImage.height = "100"
             }
+        }
+
+        function checkVid() {
+            let tutorialGifDiv = document.getElementById('tutorialGifDiv')
+            if (tutorialGifDiv !== null && tutorialGifDiv !== undefined) {
+                tutorialGifDiv.appendChild(htmlGif)
+            }
+
+            if (currentGifName === newGifName) { return }
+            currentGifName = newGifName
+            htmlVid.src = currentGifName
         }
 
         function checkDocumentation() {
@@ -994,7 +1007,7 @@ function newEducationTutorialSpace() {
     function resumeTutorial(node) {
         if (UI.projects.foundations.spaces.designSpace.workspace.isInitialized !== true) { return }
         //Testing if removing the navigationStack reset here fixes the tutorial resume issues
-        //navigationStack = []
+        navigationStack = []
         node.payload.uiObject.isPlaying = true
         tutorialRootNode = node
         currentNode = node
@@ -1016,7 +1029,7 @@ function newEducationTutorialSpace() {
 
     function resumeTutorialTopic(node) {
         //Testing if removing the navigationStack reset here fixes the tutorial resume issues
-        //navigationStack = []
+        navigationStack = []
         currentTopicNode = node
         currentNode = node
         currentStatus = 'Playing Topic'
@@ -1037,7 +1050,7 @@ function newEducationTutorialSpace() {
 
     function resumeTutorialStep(node) {
         //Testing if removing the navigationStack reset here fixes the tutorial resume issues
-        //navigationStack = []
+        navigationStack = []
         currentStepNode = node
         currentNode = node
         currentStatus = 'Playing Step'
@@ -1430,6 +1443,13 @@ function newEducationTutorialSpace() {
                         let text = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
                         html = html + '<div id="tutorialGifDiv" width="200" width="290"/>'
                         newGifName = text
+                        break
+                    }
+                    case 'Youtube': {
+                        let text = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
+                        let src = UI.projects.education.utilities.docs.parseYoutube(text)
+                        console.log('text', src)
+                        html = html + '<iframe width="400" height="215" src="https://www.youtube.com/embed/' + text + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
                         break
                     }
                     case 'Text': {

@@ -30,15 +30,15 @@
                                     "project": "Governance",
                                     "assetClasses": [],
                                     "assets": [],
-                                    "id": "3bfd7674-c175-476e-a6e9-9bfe120e2f7c",
+                                    "id": "3312dc3f-9077-4259-a647-2e6170f140c9",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 20419.717403378017,
-                                            "y": 37946.97225211328
+                                            "x": 26293.632296995038,
+                                            "y": 37910.22225211328
                                         },
                                         "targetPosition": {
-                                            "x": 20207.585369022054,
-                                            "y": 38159.10428646924
+                                            "x": 26081.500262639074,
+                                            "y": 38122.35428646924
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -60,15 +60,15 @@
                                     "project": "Governance",
                                     "assetClasses": [],
                                     "assets": [],
-                                    "id": "e892f30f-5185-4d94-8db8-2c7bd8b86368",
+                                    "id": "98d6762c-db0f-4a59-8802-b3c1bbe01e34",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 20497.363116908775,
-                                            "y": 38236.75
+                                            "x": 26371.278010525795,
+                                            "y": 38200
                                         },
                                         "targetPosition": {
-                                            "x": 20207.585369022054,
-                                            "y": 38159.10428646924
+                                            "x": 26081.500262639074,
+                                            "y": 38122.35428646924
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -84,15 +84,15 @@
                                     }
                                 }
                             ],
-                            "id": "3e0a4e42-e787-47bd-9797-d83b50a768a4",
+                            "id": "4d687367-8b83-4cbb-a516-ab20fe63ceeb",
                             "savedPayload": {
                                 "position": {
-                                    "x": 20207.585369022054,
-                                    "y": 38159.10428646924
+                                    "x": 26081.500262639074,
+                                    "y": 38122.35428646924
                                 },
                                 "targetPosition": {
-                                    "x": 19917.807621135333,
-                                    "y": 38236.75
+                                    "x": 25791.722514752353,
+                                    "y": 38200
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -121,15 +121,135 @@
                                     "project": "Governance",
                                     "assetClasses": [],
                                     "assets": [],
-                                    "id": "e8819534-2d2c-4783-8cb7-f88858877d93",
+                                    "id": "7fdc12ee-47d6-4b78-81a6-cc5a3922fa96",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 20437.422863406,
-                                            "y": 38536.75
+                                            "x": 26311.33775702302,
+                                            "y": 38200
                                         },
                                         "targetPosition": {
-                                            "x": 20177.615242270665,
-                                            "y": 38386.75
+                                            "x": 26051.530135887686,
+                                            "y": 38350
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset",
+                                    "name": "Superalgos Beta 11 : Taking the Data Mining Infrastructure to the Next Level",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "790bdb18-3b99-4e27-b8d8-960e2267c8ec",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26351.530135887686,
+                                            "y": 38350
+                                        },
+                                        "targetPosition": {
+                                            "x": 26051.530135887686,
+                                            "y": 38350
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset",
+                                    "name": "Entropy as a Calculation Basis for Market Trends: The Advanced Trend Indicator in Superalgos",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "f5ac9a2c-defb-4ad0-aef4-b78b59c494b6",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26311.33775702302,
+                                            "y": 38500
+                                        },
+                                        "targetPosition": {
+                                            "x": 26051.530135887686,
+                                            "y": 38350
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset",
+                                    "name": "Implementing a Monte-Carlo Forecast of the Next Period of an Asset in Superalgos",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "2dcebd7c-6f45-4074-8b1b-e981b3b3dee7",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26201.530135887686,
+                                            "y": 38609.80762113533
+                                        },
+                                        "targetPosition": {
+                                            "x": 26051.530135887686,
+                                            "y": 38350
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Asset",
+                                    "name": "NewNew high quality indicators for Superalgos Beta 11Asset",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "assetClasses": [],
+                                    "assets": [],
+                                    "id": "1bf7938b-2fb6-4766-8507-a384849efbce",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 26051.530135887686,
+                                            "y": 38650
+                                        },
+                                        "targetPosition": {
+                                            "x": 26051.530135887686,
+                                            "y": 38350
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -145,15 +265,15 @@
                                     }
                                 }
                             ],
-                            "id": "70c9e68f-c0f2-4e16-9dab-d0f816c23193",
+                            "id": "d8d73b90-ed75-4e83-93a1-50605e9e9b40",
                             "savedPayload": {
                                 "position": {
-                                    "x": 20177.615242270665,
-                                    "y": 38386.75
+                                    "x": 26051.530135887686,
+                                    "y": 38350
                                 },
                                 "targetPosition": {
-                                    "x": 19917.807621135333,
-                                    "y": 38236.75
+                                    "x": 25791.722514752353,
+                                    "y": 38200
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -182,15 +302,15 @@
                                     "project": "Governance",
                                     "assetClasses": [],
                                     "assets": [],
-                                    "id": "d324f79d-a7a2-4b59-9548-20b64a4e34bd",
+                                    "id": "b0f13061-3280-451c-aefd-b61ff9a040fd",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 20073.099048196847,
-                                            "y": 38816.30549577344
+                                            "x": 25947.013941813868,
+                                            "y": 38779.55549577344
                                         },
                                         "targetPosition": {
-                                            "x": 19995.45333466609,
-                                            "y": 38526.52774788672
+                                            "x": 25869.36822828311,
+                                            "y": 38489.77774788672
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -206,15 +326,15 @@
                                     }
                                 }
                             ],
-                            "id": "35277463-b778-4c43-85f0-eebdfe398198",
+                            "id": "b93cbd1b-3aa0-4081-b538-6407754fb6fc",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19995.45333466609,
-                                    "y": 38526.52774788672
+                                    "x": 25869.36822828311,
+                                    "y": 38489.77774788672
                                 },
                                 "targetPosition": {
-                                    "x": 19917.807621135333,
-                                    "y": 38236.75
+                                    "x": 25791.722514752353,
+                                    "y": 38200
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -231,20 +351,20 @@
                         }
                     ],
                     "assets": [],
-                    "id": "361efd8b-cfdf-44bc-a11b-ad07fe5e38c8",
+                    "id": "d25642e4-49ca-4b2d-a479-8b0012b987b2",
                     "savedPayload": {
                         "position": {
-                            "x": 19917.807621135333,
-                            "y": 38236.75
+                            "x": 25791.722514752353,
+                            "y": 38200
                         },
                         "targetPosition": {
-                            "x": 19658,
-                            "y": 38086.75
+                            "x": 25531.91489361702,
+                            "y": 38050
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -280,15 +400,15 @@
                                             "project": "Governance",
                                             "assetClasses": [],
                                             "assets": [],
-                                            "id": "801da9b4-69da-40cf-9058-a59aa874bb20",
+                                            "id": "30a2f056-8493-427f-ad07-3bc34ec7802b",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 19239.728644668176,
-                                                    "y": 38591.49503871305
+                                                    "x": 39203.93766518643,
+                                                    "y": 41009.861100036185
                                                 },
                                                 "targetPosition": {
-                                                    "x": 19192.798305156106,
-                                                    "y": 38295.18853653451
+                                                    "x": 38970.79387674934,
+                                                    "y": 41198.65721735114
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -304,15 +424,15 @@
                                             }
                                         }
                                     ],
-                                    "id": "51852149-bc7a-4b20-8c62-ba610f1f05af",
+                                    "id": "bbb433cd-abab-48f5-8d30-c71c98c5ec1c",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 19192.798305156106,
-                                            "y": 38295.18853653451
+                                            "x": 38970.79387674934,
+                                            "y": 41198.65721735114
                                         },
                                         "targetPosition": {
-                                            "x": 19145.867965644036,
-                                            "y": 37998.882034355964
+                                            "x": 38737.65008831225,
+                                            "y": 41387.45333466609
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -341,15 +461,15 @@
                                             "project": "Governance",
                                             "assetClasses": [],
                                             "assets": [],
-                                            "id": "591ba012-586d-4d7f-a2bd-a9f20a30fd90",
+                                            "id": "2cb2726d-bdb6-49ef-bc87-bf9fd9b28db2",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 18873.47366580031,
-                                                    "y": 38533.48594886898
+                                                    "x": 39336.827809165,
+                                                    "y": 41356.05176092032
                                                 },
                                                 "targetPosition": {
-                                                    "x": 19009.670815722173,
-                                                    "y": 38266.18399161247
+                                                    "x": 39037.238948738624,
+                                                    "y": 41371.75254779321
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -365,15 +485,15 @@
                                             }
                                         }
                                     ],
-                                    "id": "fc766d7c-6855-4765-b95e-3c5934cad5e4",
+                                    "id": "58780932-3d88-4042-a478-c4db5c1ff8b1",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 19009.670815722173,
-                                            "y": 38266.18399161247
+                                            "x": 39037.238948738624,
+                                            "y": 41371.75254779321
                                         },
                                         "targetPosition": {
-                                            "x": 19145.867965644036,
-                                            "y": 37998.882034355964
+                                            "x": 38737.65008831225,
+                                            "y": 41387.45333466609
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -402,15 +522,15 @@
                                             "project": "Governance",
                                             "assetClasses": [],
                                             "assets": [],
-                                            "id": "1dd73db7-8205-4bd5-9ae7-686650229b25",
+                                            "id": "4ae0b507-4214-49ea-a9e5-a56365b4a043",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 18611.264051131016,
-                                                    "y": 38271.27633419969
+                                                    "x": 39240.8524290795,
+                                                    "y": 41714.23675567511
                                                 },
                                                 "targetPosition": {
-                                                    "x": 18878.566008387526,
-                                                    "y": 38135.07918427783
+                                                    "x": 38989.25125869588,
+                                                    "y": 41550.8450451706
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -426,15 +546,15 @@
                                             }
                                         }
                                     ],
-                                    "id": "5db66d5f-c71f-4828-97f2-d7cd9863bbcd",
+                                    "id": "f25649ab-867f-4587-a676-a9c742e96f01",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 18878.566008387526,
-                                            "y": 38135.07918427783
+                                            "x": 38989.25125869588,
+                                            "y": 41550.8450451706
                                         },
                                         "targetPosition": {
-                                            "x": 19145.867965644036,
-                                            "y": 37998.882034355964
+                                            "x": 38737.65008831225,
+                                            "y": 41387.45333466609
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -463,15 +583,15 @@
                                             "project": "Governance",
                                             "assetClasses": [],
                                             "assets": [],
-                                            "id": "a5bdea2f-384a-4d66-b233-1a10022c1a75",
+                                            "id": "2709f5d3-06e8-41e1-bfac-79aad3f3c74f",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 18553.254961286955,
-                                                    "y": 37905.02135533183
+                                                    "x": 38952.67085803943,
+                                                    "y": 41947.601590564416
                                                 },
                                                 "targetPosition": {
-                                                    "x": 18849.561463465496,
-                                                    "y": 37951.9516948439
+                                                    "x": 38845.16047317584,
+                                                    "y": 41667.52746261525
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -487,15 +607,15 @@
                                             }
                                         }
                                     ],
-                                    "id": "19caa58e-01e9-4811-aba6-e6ad9cd571ed",
+                                    "id": "e4ffe593-0c4b-4997-9ffd-832a0e3170cf",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 18849.561463465496,
-                                            "y": 37951.9516948439
+                                            "x": 38845.16047317584,
+                                            "y": 41667.52746261525
                                         },
                                         "targetPosition": {
-                                            "x": 19145.867965644036,
-                                            "y": 37998.882034355964
+                                            "x": 38737.65008831225,
+                                            "y": 41387.45333466609
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -512,15 +632,15 @@
                                 }
                             ],
                             "assets": [],
-                            "id": "3ad7b667-a09d-4f4a-9363-ea6e4216356a",
+                            "id": "433aef3f-29ac-42b3-a917-3e5124db55b5",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19145.867965644036,
-                                    "y": 37998.882034355964
+                                    "x": 38737.65008831225,
+                                    "y": 41387.45333466609
                                 },
                                 "targetPosition": {
-                                    "x": 19358,
-                                    "y": 37786.75
+                                    "x": 38447.87234042553,
+                                    "y": 41309.80762113533
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -555,15 +675,15 @@
                                             "project": "Governance",
                                             "assetClasses": [],
                                             "assets": [],
-                                            "id": "9dee6dff-f658-439f-8e12-0aab40f075cc",
+                                            "id": "a40d48ba-8f99-45ff-96d2-792aa0b22efa",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 7866.613470484037,
-                                                    "y": 30437.996758217385
+                                                    "x": 39177.42783619897,
+                                                    "y": 41724.90666933218
                                                 },
                                                 "targetPosition": {
-                                                    "x": 7993.398949006245,
-                                                    "y": 30166.104422106393
+                                                    "x": 38887.65008831225,
+                                                    "y": 41647.26095580142
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -579,15 +699,15 @@
                                             }
                                         }
                                     ],
-                                    "id": "bf32af8b-d249-462f-ba81-f3269c9f5a1f",
+                                    "id": "ba9d0dfc-8678-4af8-8fa8-19c1ddd46357",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 7993.398949006245,
-                                            "y": 30166.104422106393
+                                            "x": 38887.65008831225,
+                                            "y": 41647.26095580142
                                         },
                                         "targetPosition": {
-                                            "x": 8120.184427528453,
-                                            "y": 29894.2120859954
+                                            "x": 38597.87234042553,
+                                            "y": 41569.615242270665
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -616,15 +736,15 @@
                                             "project": "Governance",
                                             "assetClasses": [],
                                             "assets": [],
-                                            "id": "9109ae37-eb9e-4f92-92bd-e2e56340adaf",
+                                            "id": "e0c258ee-a96f-406f-a63e-b2ce8a4c521d",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 7556.368855056906,
-                                                    "y": 30099.424171990802
+                                                    "x": 38897.87234042553,
+                                                    "y": 42089.23048454133
                                                 },
                                                 "targetPosition": {
-                                                    "x": 7838.276641292679,
-                                                    "y": 29996.8181289931
+                                                    "x": 38747.87234042553,
+                                                    "y": 41829.422863406
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -640,15 +760,15 @@
                                             }
                                         }
                                     ],
-                                    "id": "2709fa87-cb67-40b3-b85c-ef2a6acffa26",
+                                    "id": "622d7b16-62dd-4ce4-b00c-ab4b14969a32",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 7838.276641292679,
-                                            "y": 29996.8181289931
+                                            "x": 38747.87234042553,
+                                            "y": 41829.422863406
                                         },
                                         "targetPosition": {
-                                            "x": 8120.184427528453,
-                                            "y": 29894.2120859954
+                                            "x": 38597.87234042553,
+                                            "y": 41569.615242270665
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -677,15 +797,15 @@
                                             "project": "Governance",
                                             "assetClasses": [],
                                             "assets": [],
-                                            "id": "658ba678-a890-4df0-a567-9db7362db051",
+                                            "id": "1dcc76e5-ca31-4fbb-9451-b8c37d4f9382",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 7576.399755306462,
-                                                    "y": 29640.641128950985
+                                                    "x": 38442.580913364014,
+                                                    "y": 42149.17073804411
                                                 },
                                                 "targetPosition": {
-                                                    "x": 7848.292091417457,
-                                                    "y": 29767.426607473193
+                                                    "x": 38520.22662689477,
+                                                    "y": 41859.39299015739
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -701,15 +821,15 @@
                                             }
                                         }
                                     ],
-                                    "id": "6869158d-251a-42a9-9690-2e9330e679f6",
+                                    "id": "5fc3b441-ba0a-45b3-a25f-ac078a9fb59e",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 7848.292091417457,
-                                            "y": 29767.426607473193
+                                            "x": 38520.22662689477,
+                                            "y": 41859.39299015739
                                         },
                                         "targetPosition": {
-                                            "x": 8120.184427528453,
-                                            "y": 29894.2120859954
+                                            "x": 38597.87234042553,
+                                            "y": 41569.615242270665
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -726,20 +846,20 @@
                                 }
                             ],
                             "assets": [],
-                            "id": "3ab41e5e-7f2b-49b5-8185-91aae42a3886",
+                            "id": "b9cd6fcc-8374-4231-bd45-dd5d6a194c6d",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19058,
-                                    "y": 37786.75
+                                    "x": 38597.87234042553,
+                                    "y": 41569.615242270665
                                 },
                                 "targetPosition": {
-                                    "x": 19358,
-                                    "y": 37786.75
+                                    "x": 38447.87234042553,
+                                    "y": 41309.80762113533
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
                                     "isFrozen": false,
-                                    "isCollapsed": true,
+                                    "isCollapsed": false,
                                     "angleToParent": 2,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
@@ -769,15 +889,15 @@
                                             "project": "Governance",
                                             "assetClasses": [],
                                             "assets": [],
-                                            "id": "79b859a1-be36-46d1-93b3-b4130268d67a",
+                                            "id": "b8fd0a6f-8bc6-4a78-84b9-c4614c534123",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 7566.384305181684,
-                                                    "y": 29870.032650470894
+                                                    "x": 38670.22662689477,
+                                                    "y": 42119.20061129272
                                                 },
                                                 "targetPosition": {
-                                                    "x": 7848.292091417457,
-                                                    "y": 29767.426607473193
+                                                    "x": 38520.22662689477,
+                                                    "y": 41859.39299015739
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -793,15 +913,15 @@
                                             }
                                         }
                                     ],
-                                    "id": "117b674b-8b19-4d2e-8f13-7a359cad566a",
+                                    "id": "c4313d2d-819b-4613-9dc9-43214ad87ed4",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 7848.292091417457,
-                                            "y": 29767.426607473193
+                                            "x": 38520.22662689477,
+                                            "y": 41859.39299015739
                                         },
                                         "targetPosition": {
-                                            "x": 8130.199877653231,
-                                            "y": 29664.820564475493
+                                            "x": 38370.22662689477,
+                                            "y": 41599.585369022054
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -830,15 +950,15 @@
                                             "project": "Governance",
                                             "assetClasses": [],
                                             "assets": [],
-                                            "id": "59c96b16-8156-42c9-a538-7d9c12e4f8ff",
+                                            "id": "31146e10-9cf7-4921-8208-f71205386200",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 7586.41520543124,
-                                                    "y": 29411.249607431077
+                                                    "x": 38214.93519983326,
+                                                    "y": 42179.140864795496
                                                 },
                                                 "targetPosition": {
-                                                    "x": 7858.307541542235,
-                                                    "y": 29538.035085953285
+                                                    "x": 38292.580913364014,
+                                                    "y": 41889.363116908775
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -854,15 +974,15 @@
                                             }
                                         }
                                     ],
-                                    "id": "d7dda9f9-f5b5-4d0e-9a9b-17f49a77ec7b",
+                                    "id": "889b2362-7f60-4e83-a3e9-8aa873dbb34b",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 7858.307541542235,
-                                            "y": 29538.035085953285
+                                            "x": 38292.580913364014,
+                                            "y": 41889.363116908775
                                         },
                                         "targetPosition": {
-                                            "x": 8130.199877653231,
-                                            "y": 29664.820564475493
+                                            "x": 38370.22662689477,
+                                            "y": 41599.585369022054
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -891,15 +1011,15 @@
                                             "project": "Governance",
                                             "assetClasses": [],
                                             "assets": [],
-                                            "id": "6e5fa39d-d088-430c-88f5-ce72461c19e5",
+                                            "id": "09509442-b432-4b0b-805e-f0b059c44a10",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 7924.98779165783,
-                                                    "y": 29101.004992003946
+                                                    "x": 37850.611384624106,
+                                                    "y": 41899.585369022054
                                                 },
                                                 "targetPosition": {
-                                                    "x": 8027.59383465553,
-                                                    "y": 29382.91277823972
+                                                    "x": 38110.41900575944,
+                                                    "y": 41749.585369022054
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -915,15 +1035,15 @@
                                             }
                                         }
                                     ],
-                                    "id": "f7210df8-4e8b-4399-9658-f9b2b87fea05",
+                                    "id": "4df65e60-7ef5-49d5-a230-90b89eb90f46",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 8027.59383465553,
-                                            "y": 29382.91277823972
+                                            "x": 38110.41900575944,
+                                            "y": 41749.585369022054
                                         },
                                         "targetPosition": {
-                                            "x": 8130.199877653231,
-                                            "y": 29664.820564475493
+                                            "x": 38370.22662689477,
+                                            "y": 41599.585369022054
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -940,20 +1060,20 @@
                                 }
                             ],
                             "assets": [],
-                            "id": "0549b410-bbb4-45f3-b3b0-d60af55da2b5",
+                            "id": "7ffe1f9b-388c-4117-bd8c-8ce1f213bcad",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19145.867965644036,
-                                    "y": 37574.617965644036
+                                    "x": 38370.22662689477,
+                                    "y": 41599.585369022054
                                 },
                                 "targetPosition": {
-                                    "x": 19358,
-                                    "y": 37786.75
+                                    "x": 38447.87234042553,
+                                    "y": 41309.80762113533
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
                                     "isFrozen": false,
-                                    "isCollapsed": true,
+                                    "isCollapsed": false,
                                     "angleToParent": 2,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
@@ -965,15 +1085,15 @@
                         }
                     ],
                     "assets": [],
-                    "id": "fa5288a3-7f8e-44e0-ad9f-8f0bdd34476a",
+                    "id": "25684556-402b-4b27-883e-ae46c56dcf33",
                     "savedPayload": {
                         "position": {
-                            "x": 19808,
-                            "y": 38346.55762113533
+                            "x": 25681.91489361702,
+                            "y": 38309.80762113533
                         },
                         "targetPosition": {
-                            "x": 19658,
-                            "y": 38086.75
+                            "x": 25531.91489361702,
+                            "y": 38050
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -1008,15 +1128,15 @@
                                     "project": "Governance",
                                     "assetClasses": [],
                                     "assets": [],
-                                    "id": "54b5daca-5651-4d54-94c3-3b1c40bc928b",
+                                    "id": "77b1a546-4d93-44d9-b252-ca6af6f2976d",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 11103,
-                                            "y": 22333.692378864667
+                                            "x": 38597.87234042553,
+                                            "y": 41869.615242270665
                                         },
                                         "targetPosition": {
-                                            "x": 11103,
-                                            "y": 22633.692378864667
+                                            "x": 38447.87234042553,
+                                            "y": 41609.80762113533
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -1032,15 +1152,15 @@
                                     }
                                 }
                             ],
-                            "id": "dc919439-aa5f-441f-b725-027bde05ccca",
+                            "id": "96be4102-1348-4e4b-b4ac-53fb30ba5c09",
                             "savedPayload": {
                                 "position": {
-                                    "x": 11103,
-                                    "y": 22633.692378864667
+                                    "x": 38447.87234042553,
+                                    "y": 41609.80762113533
                                 },
                                 "targetPosition": {
-                                    "x": 11103,
-                                    "y": 22933.692378864667
+                                    "x": 38297.87234042553,
+                                    "y": 41350
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1069,15 +1189,15 @@
                                     "project": "Governance",
                                     "assetClasses": [],
                                     "assets": [],
-                                    "id": "f4b2f6d0-07cd-4105-a810-fc5b744cfc72",
+                                    "id": "3b55a3bd-d9bd-484a-87f1-6513a8f8c65c",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 11622.615242270665,
-                                            "y": 22633.692378864667
+                                            "x": 37997.87234042553,
+                                            "y": 41869.615242270665
                                         },
                                         "targetPosition": {
-                                            "x": 11362.807621135333,
-                                            "y": 22783.692378864667
+                                            "x": 38147.87234042553,
+                                            "y": 41609.80762113533
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -1093,15 +1213,15 @@
                                     }
                                 }
                             ],
-                            "id": "478369a0-691a-4936-8dc5-d8841aca3a1c",
+                            "id": "0ed1eeb4-841c-456f-8e3d-487c107bddd4",
                             "savedPayload": {
                                 "position": {
-                                    "x": 11362.807621135333,
-                                    "y": 22783.692378864667
+                                    "x": 38147.87234042553,
+                                    "y": 41609.80762113533
                                 },
                                 "targetPosition": {
-                                    "x": 11103,
-                                    "y": 22933.692378864667
+                                    "x": 38297.87234042553,
+                                    "y": 41350
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1118,15 +1238,15 @@
                         }
                     ],
                     "assets": [],
-                    "id": "24550aaf-708d-4b42-81e4-b8eedab129c6",
+                    "id": "6967df4a-9414-4319-b37e-ab1b6fb2550e",
                     "savedPayload": {
                         "position": {
-                            "x": 19658,
-                            "y": 38386.75
+                            "x": 25531.91489361702,
+                            "y": 38350
                         },
                         "targetPosition": {
-                            "x": 19658,
-                            "y": 38086.75
+                            "x": 25531.91489361702,
+                            "y": 38050
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -1161,15 +1281,15 @@
                                     "project": "Governance",
                                     "assetClasses": [],
                                     "assets": [],
-                                    "id": "47aef9c5-ca13-4e41-84dd-2f12cd0141fa",
+                                    "id": "a5ac468c-3d97-4253-ac98-a2fa74d40154",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 19808,
-                                            "y": 38866.172863406
+                                            "x": 38447.87234042553,
+                                            "y": 41829.422863406
                                         },
                                         "targetPosition": {
-                                            "x": 19658,
-                                            "y": 38606.365242270665
+                                            "x": 38297.87234042553,
+                                            "y": 41569.615242270665
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -1185,15 +1305,15 @@
                                     }
                                 }
                             ],
-                            "id": "ca73a870-ec32-46f0-adb9-36bcbb537027",
+                            "id": "20d106b6-c17d-4a06-94ce-d7adcdbaf93f",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19658,
-                                    "y": 38606.365242270665
+                                    "x": 38297.87234042553,
+                                    "y": 41569.615242270665
                                 },
                                 "targetPosition": {
-                                    "x": 19508,
-                                    "y": 38346.55762113533
+                                    "x": 38147.87234042553,
+                                    "y": 41309.80762113533
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1222,15 +1342,15 @@
                                     "project": "Governance",
                                     "assetClasses": [],
                                     "assets": [],
-                                    "id": "4ae0e8ff-3df7-487c-8f58-c4267ebe2d39",
+                                    "id": "2ea6dd32-e5b2-4efa-ad5a-78b8a6790632",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 19508,
-                                            "y": 38946.55762113533
+                                            "x": 38147.87234042553,
+                                            "y": 41909.80762113533
                                         },
                                         "targetPosition": {
-                                            "x": 19508,
-                                            "y": 38646.55762113533
+                                            "x": 38147.87234042553,
+                                            "y": 41609.80762113533
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -1246,15 +1366,15 @@
                                     }
                                 }
                             ],
-                            "id": "98fdc3e9-66be-4697-b20b-c454884df033",
+                            "id": "4edfe420-8f3a-4b72-b61a-63a3ee484ec3",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19508,
-                                    "y": 38646.55762113533
+                                    "x": 38147.87234042553,
+                                    "y": 41609.80762113533
                                 },
                                 "targetPosition": {
-                                    "x": 19508,
-                                    "y": 38346.55762113533
+                                    "x": 38147.87234042553,
+                                    "y": 41309.80762113533
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1283,15 +1403,15 @@
                                     "project": "Governance",
                                     "assetClasses": [],
                                     "assets": [],
-                                    "id": "eca46431-9c33-4bdf-831c-a01af5bb39c1",
+                                    "id": "abc3c2d1-e8e8-4050-8c4a-151ce51a2187",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 19208,
-                                            "y": 38866.172863406
+                                            "x": 37847.87234042553,
+                                            "y": 41829.422863406
                                         },
                                         "targetPosition": {
-                                            "x": 19358,
-                                            "y": 38606.365242270665
+                                            "x": 37997.87234042553,
+                                            "y": 41569.615242270665
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -1307,15 +1427,15 @@
                                     }
                                 }
                             ],
-                            "id": "2aae16b0-c8ee-4d81-a4ba-e3c8e1c74f11",
+                            "id": "0e616d82-2751-4c50-803d-edf543f73028",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19358,
-                                    "y": 38606.365242270665
+                                    "x": 37997.87234042553,
+                                    "y": 41569.615242270665
                                 },
                                 "targetPosition": {
-                                    "x": 19508,
-                                    "y": 38346.55762113533
+                                    "x": 38147.87234042553,
+                                    "y": 41309.80762113533
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1344,15 +1464,15 @@
                                     "project": "Governance",
                                     "assetClasses": [],
                                     "assets": [],
-                                    "id": "b2c40a75-a190-418f-a92f-5d5d6d48d440",
+                                    "id": "f1505a03-f0d6-41cb-be54-3154849a9bef",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 18988.384757729335,
-                                            "y": 38646.55762113533
+                                            "x": 37628.25709815486,
+                                            "y": 41609.80762113533
                                         },
                                         "targetPosition": {
-                                            "x": 19248.192378864667,
-                                            "y": 38496.55762113533
+                                            "x": 37888.064719290196,
+                                            "y": 41459.80762113533
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -1368,15 +1488,15 @@
                                     }
                                 }
                             ],
-                            "id": "478d13a2-138a-4404-8200-cec5f8300fe4",
+                            "id": "71617232-c490-40e2-94cd-37e097ba6bb5",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19248.192378864667,
-                                    "y": 38496.55762113533
+                                    "x": 37888.064719290196,
+                                    "y": 41459.80762113533
                                 },
                                 "targetPosition": {
-                                    "x": 19508,
-                                    "y": 38346.55762113533
+                                    "x": 38147.87234042553,
+                                    "y": 41309.80762113533
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1405,15 +1525,15 @@
                                     "project": "Governance",
                                     "assetClasses": [],
                                     "assets": [],
-                                    "id": "782c046b-0590-48dd-b997-9485f70ad53a",
+                                    "id": "c523e6e4-38b2-4ce6-8d4c-a2d413f3f2a9",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 18908,
-                                            "y": 38346.55762113533
+                                            "x": 37547.87234042553,
+                                            "y": 41309.80762113533
                                         },
                                         "targetPosition": {
-                                            "x": 19208,
-                                            "y": 38346.55762113533
+                                            "x": 37847.87234042553,
+                                            "y": 41309.80762113533
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -1429,15 +1549,15 @@
                                     }
                                 }
                             ],
-                            "id": "f8e738d8-4dcb-4534-a9e7-918791e237f7",
+                            "id": "49ea7f0d-38a8-41a3-b62d-dec1e3c0276e",
                             "savedPayload": {
                                 "position": {
-                                    "x": 19208,
-                                    "y": 38346.55762113533
+                                    "x": 37847.87234042553,
+                                    "y": 41309.80762113533
                                 },
                                 "targetPosition": {
-                                    "x": 19508,
-                                    "y": 38346.55762113533
+                                    "x": 38147.87234042553,
+                                    "y": 41309.80762113533
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1454,15 +1574,15 @@
                         }
                     ],
                     "assets": [],
-                    "id": "39029972-92d3-482b-8b50-bb46487d2c02",
+                    "id": "6262a35c-bde9-4986-9b2d-f33b8b4ba412",
                     "savedPayload": {
                         "position": {
-                            "x": 19508,
-                            "y": 38346.55762113533
+                            "x": 25381.91489361702,
+                            "y": 38309.80762113533
                         },
                         "targetPosition": {
-                            "x": 19658,
-                            "y": 38086.75
+                            "x": 25531.91489361702,
+                            "y": 38050
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -1497,7 +1617,7 @@
                                     "project": "Governance",
                                     "assetClasses": [],
                                     "assets": [],
-                                    "id": "d9074fb1-335c-411b-8db5-fa2980967b83",
+                                    "id": "00f83c16-8b45-4216-a1fa-70eea72e3a7b",
                                     "savedPayload": {
                                         "position": {
                                             "x": 10799.882367304679,
@@ -1521,7 +1641,7 @@
                                     }
                                 }
                             ],
-                            "id": "b78514b9-ab50-4f0a-86d1-cf86a5ce58e7",
+                            "id": "b6541def-a900-44f1-8e93-d0f0e6dc1c2d",
                             "savedPayload": {
                                 "position": {
                                     "x": 10902.48841030238,
@@ -1558,7 +1678,7 @@
                                     "project": "Governance",
                                     "assetClasses": [],
                                     "assets": [],
-                                    "id": "47894e9c-c655-48c8-b97c-add009c60f33",
+                                    "id": "ea84795d-c9f3-4f49-a483-bbd37fd5e727",
                                     "savedPayload": {
                                         "position": {
                                             "x": 11390.767019112005,
@@ -1582,7 +1702,7 @@
                                     }
                                 }
                             ],
-                            "id": "2b6bdf83-d469-47c0-bdcf-e18a5aea3c3f",
+                            "id": "8ead53f2-43f4-45de-a685-78ecfb460438",
                             "savedPayload": {
                                 "position": {
                                     "x": 11197.930736206043,
@@ -1607,15 +1727,15 @@
                         }
                     ],
                     "assets": [],
-                    "id": "4a0c21e9-40d8-4591-a360-137d558dc2e6",
+                    "id": "a4af625b-5d83-4e56-b3d6-0923c8195c27",
                     "savedPayload": {
                         "position": {
-                            "x": 19398.192378864667,
-                            "y": 38236.75
+                            "x": 25272.107272481688,
+                            "y": 38200
                         },
                         "targetPosition": {
-                            "x": 19658,
-                            "y": 38086.75
+                            "x": 25531.91489361702,
+                            "y": 38050
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -1632,15 +1752,15 @@
                 }
             ],
             "assets": [],
-            "id": "432cb865-7a76-46bb-bb52-019d9f264d66",
+            "id": "441db681-78e0-42a4-aa64-1767fa73073f",
             "savedPayload": {
                 "position": {
-                    "x": 19658,
-                    "y": 38086.75
+                    "x": 25531.91489361702,
+                    "y": 38050
                 },
                 "targetPosition": {
-                    "x": 19658,
-                    "y": 37786.75
+                    "x": 25531.91489361702,
+                    "y": 37750
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1657,15 +1777,15 @@
         }
     ],
     "assets": [],
-    "id": "eeeed37c-a0e5-4d6c-a57f-01fdd8622f0f",
+    "id": "0a490128-61c8-49aa-96aa-769cc5513951",
     "savedPayload": {
         "position": {
-            "x": 19658,
-            "y": 37786.75
+            "x": 25531.91489361702,
+            "y": 46750
         },
         "targetPosition": {
-            "x": 19658,
-            "y": 37786.75
+            "x": 25531.91489361702,
+            "y": 46750
         },
         "floatingObject": {
             "isPinned": false,

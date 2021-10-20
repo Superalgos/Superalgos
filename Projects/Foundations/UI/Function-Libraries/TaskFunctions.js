@@ -110,10 +110,10 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         let taskLightingPath = '->Task->' +
             'Sensor Bot Instance->' +
             'API Data Fetcher Bot Instance->' +
-            'Indicator Bot Instance->Time Frames Filter->' +
+            'Indicator Bot Instance->' +
             'Trading Bot Instance->' +
             'Learning Bot Instance->' +
-            'Sensor Process Instance->API Data Fetcher Process Instance->Indicator Process Instance->Trading Process Instance->Learning Process Instance->' +
+            'Sensor Process Instance->Time Frames Filter->API Data Fetcher Process Instance->Indicator Process Instance->Trading Process Instance->Learning Process Instance->' +
             'Execution Started Event->' +
             'Key Reference->Exchange Account Key->' +
             'Task Manager->' +

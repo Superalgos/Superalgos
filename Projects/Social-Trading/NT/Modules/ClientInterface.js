@@ -6,6 +6,10 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
 
     * Send an Event that happened at the Network Client to the Network.
     * Make a Query to the Network Node for info needed at the Network Client. 
+    
+    This interface is one layer above the communication protocol interface
+    where actual messages are received through, like for instance the
+    websockets interface.
     */
     let thisObject = {
         messageReceived: messageReceived,

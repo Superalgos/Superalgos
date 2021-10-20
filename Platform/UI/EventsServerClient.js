@@ -218,11 +218,13 @@ function newEventsServerClient(lanNetworkNode) {
         try {
             let host
             let port
+            let scheme
             /* At this point the node does not have the payload property yet, that is why we have to do this manually */
             try {
                 let config = JSON.parse(lanNetworkNode.config)
                 host = config.host
                 port = config.webSocketsPort
+                scheme = config.webSocketsScheme
 
                 /* Check if we really have to stablish the connection. */
                 if (config.autoConnect === false) { return }
@@ -268,7 +270,11 @@ function newEventsServerClient(lanNetworkNode) {
                 return
             }
 
-            const WEB_SOCKETS_URL = 'ws://' + host + ':' + port + ''
+            if (scheme === undefined) {
+            	scheme = 'ws'
+	    }
+
+            const WEB_SOCKETS_URL = scheme + '://' + host + ':' + port + ''
 
             WEB_SOCKETS_CONNECTION = new WebSocket(WEB_SOCKETS_URL)
             WEB_SOCKETS_CONNECTION.onerror = error => {

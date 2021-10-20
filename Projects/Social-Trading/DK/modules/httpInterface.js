@@ -1,8 +1,7 @@
 exports.newDesktopModulesHttpInterface = function newDesktopModulesHttpInterface() {
-
     /*
     This module represent the HTTP API of the 
-    Desktop App. All HTTP request are processed
+    Desktop App Client. All HTTP request are processed
     by this module.
     */
     let thisObject = {

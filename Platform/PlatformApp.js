@@ -135,11 +135,11 @@ exports.newPlatformApp = function newPlatformApp() {
             console.log('')
             WEB_SOCKETS_INTERFACE = WEB_SOCKETS_INTERFACE.newWebSocketsInterface()
             WEB_SOCKETS_INTERFACE.initialize()
-            console.log('Web Sockets Interface ....................................... Listening at port ' + global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT)
+            console.log('Web Sockets Interface ....................................... Listening at port ' + global.env.PLATFORM_WEB_SOCKETS_INTERFACE_PORT)
 
             HTTP_INTERFACE = HTTP_INTERFACE.newHttpInterface()
             HTTP_INTERFACE.initialize(initialWorkspace)
-            console.log('Http Interface .............................................. Listening at port ' + global.env.CLIENT_HTTP_INTERFACE_PORT)
+            console.log('Http Interface .............................................. Listening at port ' + global.env.PLATFORM_HTTP_INTERFACE_PORT)
 
             console.log('')
             console.log("You are running Superalgos Beta 12")

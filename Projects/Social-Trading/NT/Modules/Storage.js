@@ -3,6 +3,15 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
     This module represents the Network Node Physical Storage.
     It is used to save the in-memory events and also to load
     them when the node is starting. 
+
+    Each node has a github repository to store its social graph. 
+    That Github repository can be used by any other node to get the history of
+    events that can build the social graph.
+    
+    Each Network Node saves locally all unsaved events, every one minute,
+    and after saving, pushes the changes to it's Github repo, which 
+    acts as a backup of itself, and also for other new nodes to bootstrap
+    their own copy of the social graph.
     */
     let thisObject = {
         initialize: initialize,

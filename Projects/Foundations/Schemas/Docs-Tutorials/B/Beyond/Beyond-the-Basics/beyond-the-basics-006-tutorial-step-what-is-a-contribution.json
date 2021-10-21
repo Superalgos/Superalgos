@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "El proyecto tendrá éxito si logra fomentar la colaboración global. ¡Damos la bienvenida a contribuciones de todo tipo para que todos puedan retribuir!",
-                "updated": 1628118496073
+                "updated": 1628118496073,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Das Projekt wird erfolgreich sein, wenn es gelingt, die globale Zusammenarbeit zu fördern. Wir freuen uns über alle Arten von Beiträgen, damit jeder etwas zurückgeben kann!",
+                "updated": 1634820280449
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": " ¡todo lo que aporta valor es bueno!",
-                    "updated": 1628118567325
+                    "updated": 1628118567325,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Kurz gesagt, alles, was einen Mehrwert bringt, ist gut!",
+                    "updated": 1634820289080
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "Corregir un error tipográfico, un enlace muerto y mejorar los documentos.",
-                    "updated": 1628118554377
+                    "updated": 1628118554377,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Behebung eines Tippfehlers, eines toten Links und Verbesserung der Docs.",
+                    "updated": 1634820303013
                 }
             ]
         },
@@ -74,7 +92,13 @@
                 {
                     "language": "ES",
                     "text": "Traducir una página a tu idioma nativo. ",
-                    "updated": 1628118674592
+                    "updated": 1628118674592,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Übersetzen Sie eine Seite in Ihre Muttersprache.",
+                    "updated": 1634820310919
                 }
             ]
         },
@@ -91,7 +115,13 @@
                 {
                     "language": "ES",
                     "text": "Diseñar iconos, trabajar para mejorar la UX / UI.",
-                    "updated": 1628118538116
+                    "updated": 1628118538116,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Entwerfen Sie Icons, arbeiten Sie an der Verbesserung der UX/UI.",
+                    "updated": 1634820320224
                 }
             ]
         },
@@ -109,7 +139,13 @@
                 {
                     "language": "ES",
                     "text": "Producir tutoriales o videos en la aplicación.",
-                    "updated": 1628119033704
+                    "updated": 1628119033704,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Inhalte als In-App-Tutorials oder Videos produzieren.",
+                    "updated": 1634820337889
                 }
             ]
         },
@@ -127,7 +163,13 @@
                 {
                     "language": "ES",
                     "text": "Bloguear sobre Superalgos y correr la voz.",
-                    "updated": 1628119048711
+                    "updated": 1628119048711,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Über Superalgos bloggen und das Wort verbreiten.",
+                    "updated": 1634820349026
                 }
             ]
         },
@@ -145,7 +187,13 @@
                 {
                     "language": "ES",
                     "text": "¡Compartiendo un Data Mine o un Trading System!",
-                    "updated": 1628119096734
+                    "updated": 1628119096734,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Data Mine oder ein Trading System teilen!",
+                    "updated": 1634820355611
                 }
             ]
         },
@@ -163,7 +211,13 @@
                 {
                     "language": "ES",
                     "text": "Probar, eliminar errores, integrar proyectos criptográficos y contribuir al código base.",
-                    "updated": 1628119117489
+                    "updated": 1628119117489,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Testen, Bugs entfernen, Krypto-Projekte integrieren und zur Codebasis beitragen.",
+                    "updated": 1634820362968
                 }
             ]
         }

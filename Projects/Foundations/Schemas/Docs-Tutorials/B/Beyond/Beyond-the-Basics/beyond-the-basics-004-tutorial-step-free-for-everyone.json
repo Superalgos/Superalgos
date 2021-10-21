@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "¡Superalgos es un proyecto comunitario! Ponemos el software a disposición de todos de forma gratuita, pero pedimos algo a cambio ... ¡Tu ayuda!",
-                "updated": 1628114247399
+                "updated": 1628114247399,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Superalgos ist ein Community-Projekt! Wir stellen die Software für jeden kostenlos zur Verfügung, aber wir bitten um eine Gegenleistung... Ihre Hilfe!",
+                "updated": 1634819982808
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "¿Cómo puede ser gratuito Superalgos? ¿Cuál es el truco? ¡Recibimos esas preguntas a menudo! ",
-                    "updated": 1628114531768
+                    "updated": 1628114531768,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie kann Superalgos kostenlos sein? Wo ist der Haken? Diese Fragen bekommen wir oft gestellt! Dies ist die kurze Geschichte...",
+                    "updated": 1634819991250
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "¡Superalgos comenzó con un grupo de amigos que unieron fuerzas para automatizar crypto trading!",
-                    "updated": 1628114508545
+                    "updated": 1628114508545,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos begann mit einer Gruppe von Freunden, die sich zusammentaten, um ihren Kryptohandel zu automatisieren!",
+                    "updated": 1634820005138
                 }
             ]
         },
@@ -74,7 +92,13 @@
                 {
                     "language": "ES",
                     "text": "Para competir con los jugadores top del mercado se necesitaba una enorme infraestructura de software. El sistema tenía que estar a la par o mejor que el software comercial y propietario disponible para las empresas. Un equipo pequeño no podría cumplir con estos requisitos, al menos no en un plazo razonable. ",
-                    "updated": 1628116653688
+                    "updated": 1628116653688,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Freunde erkannten bald, dass eine riesige Software-Infrastruktur erforderlich war, um mit den Top-Marktteilnehmern konkurrieren zu können. Das System musste gleichwertig oder besser sein als kommerzielle und proprietäre Software, die den Unternehmen zur Verfügung steht. Solche Anforderungen konnten von einem kleinen Team nicht erfüllt werden - zumindest nicht in einem vernünftigen Zeitrahmen.",
+                    "updated": 1634820012134
                 }
             ]
         }

@@ -21,6 +21,11 @@
                 "text": "¡Hay algunas cosas que debes considerar cada vez que cambies de rama! ¡Antes de cambiar de rama, haz un Backup!",
                 "updated": 1628204902504,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Es gibt ein paar Dinge, die Sie bei jedem Wechsel des Zweigs beachten sollten! Gehen wir eine kurze Liste durch, bevor Sie fortfahren!\n",
+                "updated": 1634821919162
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Puede suceder que los workspaces u otras estructuras de datos en la rama maestra no sean compatibles con las de la otra rama.",
                     "updated": 1628204467432,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es kann vorkommen, dass die Arbeitsbereiche oder andere Datenstrukturen im Master-Zweig nicht mit denen im anderen Zweig kompatibel sind.",
+                    "updated": 1634821927757
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "Si el Workspace actual es incompatible con el software de la otra rama, puede romperse al volver a cargar la aplicación. En tal caso, carga uno de los Plugin Workspaces de la nueva rama.",
                     "updated": 1628204753630,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn der aktuelle Arbeitsbereich nicht mit der Software im anderen Zweig kompatibel ist, kann der Arbeitsbereich beim erneuten Laden der Anwendung abbrechen. Laden Sie in einem solchen Fall einen der Plugin Workspaces des neuen Zweigs.",
+                    "updated": 1634821952256
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "text": "¡La estructura de los datos extraídos puede haber cambiado!",
                     "updated": 1628204506303,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Auch die Struktur der verarbeiteten Daten kann sich geändert haben!",
+                    "updated": 1634821958505
                 }
             ]
         },
@@ -98,6 +118,11 @@
                     "text": "Lee el archivo README en la rama del repositorio al que deseas acceder para comentarios sobre la compatibilidad con versiones anteriores. ",
                     "updated": 1628204891328,
                     "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Prüfen Sie immer die README-Datei in dem Zweig des Repositorys, auf das Sie zugreifen möchten, auf Kommentare zur Abwärtskompatibilität. Bevor Sie den Zweig wechseln, sichern Sie Ihre Arbeit!",
+                    "updated": 1634821965825
                 }
             ]
         }

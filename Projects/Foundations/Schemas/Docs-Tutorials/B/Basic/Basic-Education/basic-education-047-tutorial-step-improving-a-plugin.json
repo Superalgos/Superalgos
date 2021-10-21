@@ -25,7 +25,8 @@
             {
                 "language": "DE",
                 "text": "Zum zweiten Szenario: Nehmen wir an, Sie testen den EMA-Indikator, haben einen Fehler gefunden und wissen, wie man ihn beheben kann. Sie beabsichtigen, den Fehler zu beheben, damit alle davon profitieren!",
-                "updated": 1634589198766
+                "updated": 1634589198766,
+                "style": "Definition"
             }
         ]
     },
@@ -50,14 +51,22 @@
                 {
                     "language": "DE",
                     "text": "Dieser Indicator Bot ist Teil der Sparta Data Mine, die normalerweise als Plugin in einigen Plugin-Workspaces enthalten ist. Um das Plugin aus der UI Benutzeroberfläche heraus zu modifizieren und die Änderungen zu speichern, haben Sie zwei Möglichkeiten:",
-                    "updated": 1634589206307
+                    "updated": 1634589206307,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "List",
             "text": "Go to the corresponding Plugin File in the Plugins hierarchy and select Enable Saving With Workspace on the menu. Now the plugin file is updated every time you save the workspace to include the changes you may have introduced!",
-            "updated": 1629909628165
+            "updated": 1629909628165,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zu dem entsprechenden Plugin File in der Plugins-Hierarchie und wählen Sie im Menü die Option Enable Saving With Workspace. Jetzt wird die Plugin-Datei jedes Mal aktualisiert, wenn Sie den Arbeitsbereich speichern, um die von Ihnen vorgenommenen Änderungen zu berücksichtigen!",
+                    "updated": 1634819321377
+                }
+            ]
         },
         {
             "style": "List",
@@ -67,7 +76,8 @@
                 {
                     "language": "DE",
                     "text": "Oder verwenden Sie die Option \"Plugin speichern\", um die Plugin-Datei manuell zu speichern, wann immer Sie es wünschen!",
-                    "updated": 1634589217431
+                    "updated": 1634589217431,
+                    "style": "List"
                 }
             ]
         }

@@ -18,166 +18,6 @@ function newFoundationsActionSwitch() {
 
     async function executeAction(action) {
         switch (action.name) {
-            case 'Get Node On Focus': {
-                return UI.projects.foundations.functionLibraries.onFocus.getNodeThatIsOnFocus(action.node)
-            }
-
-            case 'Get Node By Shortcut Key': {
-                return UI.projects.foundations.functionLibraries.shortcutKeys.getNodeByShortcutKey(action.node, action.extraParameter)
-            }
-
-            case 'Get Node Data Structure': {
-                return UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(action.node, action.extraParameter, false, true, true, true)
-            }
-
-            case 'Create UI Object': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.createUiObjectFromNode(action.node, undefined, undefined, action.extraParameter)
-            }
-                break
-            case 'Connect Children to Reference Parents': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.tryToConnectChildrenWithReferenceParents()
-            }
-                break
-            case 'Get Node By Id': {
-                return UI.projects.foundations.functionLibraries.uiObjectsFromNodes.getNodeById(action.relatedNodeId)
-            }
-
-            case 'Syncronize Tasks': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd()
-            }
-                break
-            case 'Syncronize Trading Sessions': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd()
-            }
-                break
-            case 'Syncronize Learning Sessions': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd()
-            }
-                break
-            case 'Play Tutorials': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.playTutorials()
-            }
-                break
-            case 'Recreate Workspace': {
-                UI.projects.foundations.functionLibraries.uiObjectsFromNodes.recreateWorkspace(action.node, action.callBackFunction)
-            }
-                break
-            case 'Delete Workspace': {
-                return UI.projects.foundations.functionLibraries.nodeDeleter.deleteWorkspace(action.node, action.rootNodes, action.callBackFunction)
-            }
-                break
-            case 'Copy Node Path':
-                {
-                    let nodePath = UI.projects.foundations.functionLibraries.nodePath.getNodePath(action.node)
-
-                    UI.projects.foundations.utilities.clipboard.copyTextToClipboard(nodePath)
-
-                    UI.projects.foundations.spaces.cockpitSpace.setStatus(
-                        nodePath + ' copied to the Clipboard.'
-                        , 50, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
-                }
-                break
-            case 'Copy Node Value':
-                {
-                    let value = action.node.payload.uiObject.getValue()
-
-                    UI.projects.foundations.utilities.clipboard.copyTextToClipboard(value)
-
-                    UI.projects.foundations.spaces.cockpitSpace.setStatus(
-                        value + ' copied to the Clipboard.'
-                        , 50, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
-                }
-                break
-            case 'Copy Node Type':
-                {
-                    let value = action.node.type
-
-                    UI.projects.foundations.utilities.clipboard.copyTextToClipboard(value)
-
-                    UI.projects.foundations.spaces.cockpitSpace.setStatus(
-                        value + ' copied to the Clipboard.'
-                        , 50, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
-                }
-                break
-            case 'Add UI Object':
-                {
-                    UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(
-                        action.node,
-                        action.relatedNodeType,
-                        action.rootNodes,
-                        action.relatedNodeProject
-                    )
-                }
-                break
-            case 'Add Missing Children':
-                {
-                    UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addMissingChildren(action.node, action.rootNodes)
-                }
-                break
-            case 'Delete UI Object':
-                {
-                    UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(action.node, action.rootNodes)
-                }
-                break
-            case 'Edit Code':
-
-                break
-            case 'Share':
-                {
-                    let text = JSON.stringify(
-                        UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(action.node, true, false, true, true, true),
-                        undefined,
-                        4
-                    )
-
-                    let nodeName = action.node.name
-                    if (nodeName === undefined) {
-                        nodeName = ''
-                    } else {
-                        nodeName = '.' + nodeName
-                    }
-                    let fileName = 'Share - ' + action.node.type + ' - ' + nodeName + '.json'
-                    UI.projects.foundations.utilities.download.downloadText(fileName, text)
-                }
-
-                break
-            case 'Backup':
-                {
-                    let text = JSON.stringify(
-                        UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(action.node, false, false, true, true, true),
-                        undefined,
-                        4)
-
-                    let nodeName = action.node.name
-                    if (nodeName === undefined) {
-                        nodeName = ''
-                    } else {
-                        nodeName = ' ' + nodeName
-                    }
-                    let fileName = 'Backup - ' + action.node.type + ' - ' + nodeName + '.json'
-                    UI.projects.foundations.utilities.download.downloadText(fileName, text)
-                }
-
-                break
-            case 'Clone':
-                {
-                    let text = JSON.stringify(
-                        UI.projects.foundations.functionLibraries.nodeCloning.getNodeClone(action.node),
-                        undefined,
-                        4
-                    )
-
-                    let nodeName = action.node.name
-                    if (nodeName === undefined) {
-                        nodeName = ''
-                    } else {
-                        nodeName = ' ' + nodeName
-                    }
-                    let fileName = 'Clone - ' + action.node.type + ' - ' + nodeName + '.json'
-                    UI.projects.foundations.utilities.download.downloadText(fileName, text)
-                }
-
-                break
             case 'Debug Task':
                 {
                     UI.projects.foundations.functionLibraries.taskFunctions.runTask(action.node, true, action.callBackFunction)
@@ -538,24 +378,6 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.superScriptsFunctions.runSuperScript(action.node, action.rootNodes)
                 }
                 break
-            case 'Parent Attach': {
-                UI.projects.foundations.functionLibraries.chainAttachDetach.chainAttachNode(action.node, action.relatedNode, action.rootNodes)
-            }
-                break
-            case 'Reference Attach': {
-                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(action.node, action.relatedNode, action.rootNodes)
-            }
-                break
-            case 'Parent Detach':
-                {
-                    UI.projects.foundations.functionLibraries.chainAttachDetach.chainDetachNode(action.node, action.rootNodes)
-                }
-                break
-            case 'Reference Detach':
-                {
-                    UI.projects.foundations.functionLibraries.attachDetach.referenceDetachNode(action.node)
-                }
-                break
             case 'Push Code to Javascript Code':
                 {
                     action.node.javascriptCode.code = action.node.code
@@ -568,7 +390,7 @@ function newFoundationsActionSwitch() {
                 break
             case 'Open Documentation':
                 {
-                    let docs = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(action.node.payload, 'docs')
+                    let docs = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(action.node.payload, 'docs')
 
                     if (docs === undefined) {
                         let definition = getSchemaDocument(action.node)
@@ -624,6 +446,10 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.spaces.floatingSpace.moveFloatingObject(action.node.payload.position)
                 }
                 break
+
+            default: {
+                console.log("[WARN] Action sent to Foundations Action Switch does not belong here. Verify at the App Schema file of the node that triggered this action that the actionProject is pointing to the right project. -> Action = " + action.name + " -> Action Node Name = " + action.node.name)
+            }
         }
     }
 }

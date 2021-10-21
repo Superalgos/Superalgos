@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Los nodos que no están adjuntos a una jerarquía no se calculan. Existen en el espacio de trabajo, pero no afectan el funcionamiento del sistema en ningún nivel.",
-                "updated": 1626359178095
+                "updated": 1626359178095,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Knoten, die nicht mit einer Hierarchie verbunden sind, werden nicht berechnet. Sie sind zwar im Workspace vorhanden, haben aber keinen Einfluss auf die Funktionsweise des Systems auf irgendeiner Ebene.",
+                "updated": 1634333669893
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Esto significa que puede mantener tantas estructuras de nodos separados de las jerarquías, durante el tiempo que desee, manteniéndolos a mano para su uso posterior o por cualquier motivo.",
-                    "updated": 1626359243013
+                    "updated": 1626359243013,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das bedeutet, dass Sie beliebig viele Strukturen von Knoten losgelöst von Hierarchien aufbewahren können, um sie für eine spätere Verwendung oder aus anderen Gründen zur Verfügung zu haben.",
+                    "updated": 1634333676692
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "Un escenario común es mantener múltiples versiones de ciertas definiciones mientras se construyen estrategias, de modo que pueda probar un conjunto de reglas y cambiar a otras reglas para la próxima ejecución. ¡Incluso puede conservar varias versiones de estrategias completas!",
-                    "updated": 1626359279818
+                    "updated": 1626359279818,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein häufiges Szenario ist die Aufbewahrung mehrerer Versionen bestimmter Definitionen bei der Erstellung von Strategien, so dass Sie einen Satz von Regeln testen und beim nächsten Durchlauf zu anderen Regeln wechseln können. Sie können sogar mehrere Versionen von ganzen Strategien aufbewahren!",
+                    "updated": 1634333685177
                 }
             ]
         }

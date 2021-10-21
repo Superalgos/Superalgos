@@ -1,4 +1,4 @@
-function newFileStorage(host, port) {
+function newFileStorage(host, port, scheme='http') {
   const MODULE_NAME = 'File Storage'
   const INFO_LOG = false
   const logger = newWebDebugLog()
@@ -40,7 +40,7 @@ function newFileStorage(host, port) {
       let url
 
       if (host !== undefined && port !== undefined) {
-        url = 'http://' + host + ':' + port + '/' + folder + filePath
+        url = scheme + '://' + host + ':' + port + '/' + folder + filePath
       } else {
         url = folder + filePath
       }

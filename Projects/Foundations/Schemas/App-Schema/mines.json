@@ -5,22 +5,29 @@
             "action": "Add UI Object",
             "label": "Add Data Mine",
             "relatedUiObject": "Data Mine",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Data-Mining"
         },
         {
             "action": "Add UI Object",
             "label": "Add Trading Mine",
             "relatedUiObject": "Trading Mine",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Algorithmic-Trading"
         },
         {
             "action": "Add UI Object",
             "label": "Add Learning Mine",
             "relatedUiObject": "Learning Mine",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Machine-Learning"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",

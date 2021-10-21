@@ -21,6 +21,11 @@
                 "text": "La siguiente opción del menú controla la distancia desde el nodo hasta su padre. Al hacer clic en el botón, se recorren las opciones.",
                 "updated": 1625957415996,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die nächste Option im Menü steuert den Abstand zwischen dem Unterknoten und seinem Übergeordneten Knoten. Durch Klicken auf die Schaltfläche werden die Optionen durchlaufen.",
+                "updated": 1634332176300
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "La distancia de un nodo a su padre se establece en relación con la distancia del padre a su nodo padre. Las opciones disponibles son:",
                     "updated": 1625957455476,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Abstand eines Knotens zu seinem übergeordneten Knoten wird relativ zum Abstand des übergeordneten Knotens zu seinem übergeordneten Knoten festgelegt. Die verfügbaren Optionen sind:",
+                    "updated": 1634332213957
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "text": "Rosa: 0.25X",
                     "updated": 1619460519997,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Rosa: 0.25X",
+                    "updated": 1634332245055
                 }
             ]
         },
@@ -78,6 +93,11 @@
                     "text": "Verde: 1X",
                     "updated": 1619460537594,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Grün: 1X",
+                    "updated": 1634332224238
                 }
             ]
         },
@@ -90,6 +110,11 @@
                     "text": "Blu: 1.5X",
                     "updated": 1619460541700,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Blau: 1.5X",
+                    "updated": 1634332228958
                 }
             ]
         },
@@ -102,6 +127,11 @@
                     "text": "Rosso: 2X",
                     "updated": 1619460546342,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Rot: 2X",
+                    "updated": 1634332233805
                 }
             ]
         },
@@ -121,6 +151,11 @@
                     "text": "Digamos que eliges la opción green. ¡La distancia del nodo a su padre será la misma distancia que separa el nodo padre de su padre!",
                     "updated": 1625957497706,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen wir an, Sie wählen die grüne Option. Der Abstand des Knotens zu seinem übergeordneten Knoten ist derselbe Abstand, der den übergeordneten Knoten von seinem übergeordneten Knoten trennt!",
+                    "updated": 1634332187256
                 }
             ]
         }

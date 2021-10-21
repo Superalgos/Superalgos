@@ -4,13 +4,27 @@
     "type": "Docs Error - Intro",
     "definition": {
         "text": "After running a command, you may get different types of error messages, as decribed in this topic.",
-        "updated": 1610976310255
+        "updated": 1610976310255,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Nach dem Ausführen eines Befehls können Sie verschiedene Arten von Fehlermeldungen erhalten, die in diesem Thema beschrieben werden.",
+                "updated": 1633895551498
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The table of contents belos shows the complete list of errors you may get while running Docs commands. In fact, when an error occurs, you are redirected to the error page.",
-            "updated": 1610976413909
+            "text": "The table of contents below shows the complete list of errors you may get while running Docs commands. In fact, when an error occurs, you are redirected to the error page.",
+            "updated": 1633895609043,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das unten stehende Inhaltsverzeichnis enthält eine vollständige Liste der Fehler, die bei der Ausführung von Docs-commands (Befehlen) auftreten können. Wenn ein Fehler auftritt, werden Sie auf die Fehlerseite weitergeleitet.",
+                    "updated": 1633895701297
+                }
+            ]
         }
     ]
 }

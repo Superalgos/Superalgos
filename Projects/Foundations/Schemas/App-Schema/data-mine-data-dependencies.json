@@ -5,7 +5,9 @@
             "action": "Add UI Object",
             "label": "Add Bot Data Dependencies",
             "relatedUiObject": "Bot Data Dependencies",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add All Data Dependencies",
@@ -15,10 +17,12 @@
             "workDoneLabel": "Done",
             "relatedUiObject": "Data Dependency",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Data-Mining"
+            "actionProject": "Data-Mining",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

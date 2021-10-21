@@ -17,8 +17,8 @@ function newFileCloud () {
   let fileStorage
   return thisObject
 
-  function initialize (pBot, pHost, pPort) {
-    fileStorage = newFileStorage(pHost, pPort)
+  function initialize (pBot, pHost, pPort, scheme='http') {
+    fileStorage = newFileStorage(pHost, pPort, scheme)
   }
 
   function getFile (pMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, ptimeFrameLabel, pDatetime, pSequence, pDataRange, pTimeFrames, callBackFunction) {

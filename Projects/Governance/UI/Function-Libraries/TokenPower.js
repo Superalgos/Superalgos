@@ -287,7 +287,7 @@ function newGovernanceFunctionLibraryTokenPower() {
     }
 
     function getPercentage(node) {
-        return UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'percentage')
+        return UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'percentage')
     }
 
     function drawTokenPower(node, tokenPower, percentage) {

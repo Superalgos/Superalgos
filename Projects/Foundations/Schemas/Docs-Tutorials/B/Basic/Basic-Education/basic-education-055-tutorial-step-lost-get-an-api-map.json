@@ -15,6 +15,11 @@
                 "text": "¿Se preguntas cómo obtener datos de fuentes distintas a los intercambios en CCXT? Messari? Twitter? ¡Te tenemos cubierto!",
                 "updated": 1628032498537,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Sie fragen sich, wie Sie in CCXT Daten aus anderen Quellen als Börsen erhalten können? Messari? Twitter? Wir haben die Lösung für Sie!",
+                "updated": 1634590563604
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Superalgos le permite obtener datos de cualquier API en Internet, ¡y no necesitas programar para hacerlo! En su lugar, puedes diseñar un API Map o utilizar los que se envían con el sistema.",
                     "updated": 1628032719618,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos ermöglicht es Ihnen, Daten von jeder beliebigen API im Internet abzurufen, und Sie müssen dafür nicht programmieren! Stattdessen können Sie eine API Map entwerfen oder die mit dem System mitgelieferten verwenden!",
+                    "updated": 1634590573292
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Un API Map es un conjunto de definiciones que dictan cómo un bot puede acceder a una API en particular y cómo interpretar las respuestas del servidor.",
                     "updated": 1628032814964,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine API Map ist eine Reihe von Definitionen, die festlegen, wie ein Bot auf eine bestimmte API zugreifen kann und wie die Antworten des Servers zu interpretieren sind.",
+                    "updated": 1634590580114
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "¡Sumérgete en esta sección del Data Mining para explorar el panorama de API!",
                     "updated": 1628032872757,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Tauchen Sie in diesen Abschnitt des Data-Mining-Themas ein, wenn Sie bereit sind, die API-Landschaft zu erkunden!",
+                    "updated": 1634590587052
                 }
             ]
         }

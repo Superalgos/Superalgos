@@ -42,7 +42,13 @@
             {
                 "language": "NL",
                 "text": "Elk knooppunt heeft een menu. De knop linksonder klapt de structuur van de knooppunten onder het huidige knooppunt uit en in.",
-                "updated": 1633852831708
+                "updated": 1633852831708,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Jeder Knoten verfügt über ein Menü. Mit der Schaltfläche unten links können Sie die Struktur der Knoten unterhalb des aktuellen Knotens auf- und zuklappen.",
+                "updated": 1634160270495
             }
         ]
     },
@@ -84,7 +90,13 @@
                 {
                     "language": "NL",
                     "text": "Klik maar op de \"expand\" knop en vouw het knooppunt uit!",
-                    "updated": 1633852949878
+                    "updated": 1633852949878,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie einfach auf die Schaltfläche \"Erweitern\"!",
+                    "updated": 1634160281971
                 }
             ]
         },
@@ -125,7 +137,13 @@
                 {
                     "language": "NL",
                     "text": "Het Tutorial knooppunt heeft meerdere sub knooppunten, en deze hebben weer meerdere knooppunten. Daarom is het een hiërarchie!",
-                    "updated": 1633853126300
+                    "updated": 1633853126300,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Knoten Tutorial hat mehrere Unterknoten, und diese haben wiederum mehrere Unterknoten. Das ist der Grund, warum es eine Hierarchie ist!",
+                    "updated": 1634160340549
                 }
             ]
         },
@@ -165,8 +183,14 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Gestructureerde visuele weergave van informatie vormen de kern van hoe Superalgos de complexiteit achter flexibele en schaalbare handelingen beheert.",
-                    "updated": 1633853202849
+                    "text": "Gestructureerde visuele weergave van informatie vormt de kern van hoe Superalgos de complexiteit achter flexibele en schaalbare handelingen beheert.",
+                    "updated": 1633890454389,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Strukturierte visuelle Darstellungen von Informationen sind das Herzstück von Superalgos, um die Komplexität hinter flexiblen und skalierbaren Handelsoperationen zu verwalten.",
+                    "updated": 1634160347110
                 }
             ]
         }

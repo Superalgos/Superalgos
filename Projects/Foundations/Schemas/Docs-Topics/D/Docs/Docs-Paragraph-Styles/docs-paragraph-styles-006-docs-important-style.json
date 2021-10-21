@@ -3,20 +3,48 @@
     "pageNumber": 6,
     "type": "Docs Important Style",
     "definition": {
-        "text": "Use this style to communicate a tip or something important to the reader."
+        "text": "Use this style to communicate a tip or something important to the reader.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diesen Stil, um dem Leser einen Tipp oder etwas Wichtiges mitzuteilen.",
+                "updated": 1633953140310
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Whatever you type while editing will be rendered inside the importat box."
+            "text": "Whatever you type while editing will be rendered inside the importat box.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Alles, was Sie während der Bearbeitung eingeben, wird in das Feld \"Important\" übertragen.",
+                    "updated": 1633953168185
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Example:"
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1633953174911
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "This is an example of a paragraph in important style."
+            "text": "This is an example of a paragraph in important style.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist ein Beispiel für einen Absatz im \"important\"-Stil.",
+                    "updated": 1633953206385
+                }
+            ]
         }
     ]
 }

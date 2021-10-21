@@ -2,6 +2,12 @@ const {app, Menu, BrowserWindow} = require('electron')
 
 const path = require('path')
 const fs = require('fs')
+// To check for update on Github repo
+const {autoUpdater} = require("electron-updater")
+
+// Enable non contribution mode (test)
+process.env.SA_MODE = 'gitDisable'
+process.env.PACKAGED_PATH = app.getAppPath()
 
 const WINDOW_WIDTH = null
 const WINDOW_HEIGHT = null
@@ -13,30 +19,15 @@ var server_ready = false
 
 const port = 34248 // Default HTTP port
 
-/* To check if the folders where user data do exist. If not, create them */
-function userData() {
-  const dataStorage = path.join(process.cwd(), '/Platform/My-Data-Storage')
-  const logFiles = path.join(process.cwd(), '/Platform/My-Log-Files')
-  const workspace = path.join(process.cwd(), '/Platform/My-Workspaces')
-
-  if (!fs.existsSync(dataStorage)) {
-      fs.mkdirSync(dataStorage)
-  }
-
-  if (!fs.existsSync(logFiles)) {
-      fs.mkdirSync(logFiles)
-  }
-
-  if (!fs.existsSync(workspace)) {
-      fs.mkdirSync(workspace)
-  }
-}
 run()
 
 function run() {
-  userData()
+  if (process.env.PORTABLE_EXECUTABLE_DIR) {
+    process.env.PORTABLE_USER_DOCUMENTS = app.getPath("userData")
+  }
+
   const { fork } = require('child_process')
-  fork(path.join(__dirname, './PlatformRoot.js'), process.argv)
+  fork(path.join(__dirname, '/PlatformRoot.js'), ["noBrowser"])
 
   server_ready = true
   if (app_ready) open()
@@ -66,12 +57,17 @@ function open () {
 
 app.on('ready', function () {
   app_ready = true
+  autoUpdater.checkForUpdatesAndNotify();
   create_menus()
   if (server_ready) open()
 })
 
 app.on('window-all-closed', function () {
-  app.quit()
+  if (process.platform !== 'darwin') app.quit()
+})
+
+app.on('activate', function () {
+  if (BrowserWindow.getAllWindows().length === 0) createWindow()
 })
 
 function create_menus () {

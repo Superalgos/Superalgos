@@ -3,16 +3,37 @@
     "pageNumber": 12,
     "type": "Docs JS Code Style",
     "definition": {
-        "text": "Use this style to correctly format javascript code."
+        "text": "Use this style to correctly format javascript code.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diesen Stil, um Javascript-Code korrekt zu formatieren.",
+                "updated": 1633955167417
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "One of the main difference of this style with the previous ones is that you might have many line breaks and they wont be considered as new paragraphs, instead they will all be treated as a single block."
+            "text": "One of the main difference of this style with the previous ones is that you might have many line breaks and they wont be considered as new paragraphs, instead they will all be treated as a single block.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Einer der Hauptunterschiede dieses Stils zu den vorhergehenden ist, dass Sie viele Zeilenumbrüche haben können und diese nicht als neue Absätze betrachtet werden, sondern als einzelne Blöcke behandelt werden.",
+                    "updated": 1633955342507
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Example:"
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1633955348685
+                }
+            ]
         },
         {
             "style": "Javascript",

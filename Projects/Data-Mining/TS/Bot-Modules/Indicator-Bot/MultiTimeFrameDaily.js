@@ -513,7 +513,7 @@
             }
 
             function writeDataRanges(callBack) {
-                let outputDatasets = TS.projects.foundations.utilities.nodeFunctions.nodeBranchToArray(
+                let outputDatasets = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(
                     TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
                 let outputDatasetIndex = -1;
                 controlLoop()

@@ -20,6 +20,11 @@
                 "text": "Noticias de última hora sobre el Time Frame Scale: ¡no hay modo automático!",
                 "updated": 1624407844642,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Kurzmeldung zur Time Frame Scale: Es gibt keinen automatischen Modus!",
+                "updated": 1634217396808
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "text": "Puedes alternar entre todos los marcos de tiempo disponibles usando la rueda del mouse o las flechas hacia arriba y hacia abajo ↑ ↓ — En orden descendente: 24, 12, 8, 6, 4, 3, 2, y 1 horas, y 45, 40, 30, 20, 15, 10, 5, 4, 3, 2, y 1 minutos.",
                     "updated": 1624494748397,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können mit dem Mausrad oder den Pfeiltasten ↑ ↓ — in absteigender Reihenfolge - durch alle verfügbaren Zeitrahmen schalten: 24, 12, 8, 6, 4, 3, 2 und 1 Stunde sowie 45, 40, 30, 20, 15, 10, 5, 4, 3, 2 und 1 Minute. ",
+                    "updated": 1634217420841
                 }
             ],
             "updated": 1616505407890
@@ -58,6 +68,11 @@
                     "text": "En los tiempos más bajos dejar los marcos de tiempo demasiado rápido y sin ajustar la escala de tiempo puede hacer que se muestre demasiada información en la pantalla a la vez, lo que ralentiza tu computadora. La cantidad de información que puede manejar tu hardware depende del rendimiento de tu CPU y GPU.",
                     "updated": 1625881772119,
                     "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wichtig: Seien Sie vorsichtig, wenn Sie die Time Frame Scale auf niedrigere Zeiträume umstellen! Wenn Sie die Zeitrahmen zu schnell und ohne Anpassung der Time Scale verringern, kann dies dazu führen, dass zu viele Informationen auf einmal auf dem Bildschirm dargestellt werden, was Ihren Computer verlangsamt. Wie viel Informationsdichte Ihre Hardware verarbeiten kann, hängt von ihrer CPU- und GPU-Leistung ab.",
+                    "updated": 1634217436779
                 }
             ]
         }

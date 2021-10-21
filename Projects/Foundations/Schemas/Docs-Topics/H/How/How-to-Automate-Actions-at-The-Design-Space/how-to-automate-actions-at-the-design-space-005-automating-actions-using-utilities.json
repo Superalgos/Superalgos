@@ -24,7 +24,7 @@
         },
         {
             "style": "Javascript",
-            "text": "let allLayers = UI.projects.foundations.utilities.branches.nodeBranchToArray(botLayers, 'Layer')",
+            "text": "let allLayers = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(botLayers, 'Layer')",
             "updated": 1614930217705
         },
         {
@@ -34,7 +34,7 @@
         },
         {
             "style": "Json",
-            "text": "{\n                    \"name\": \"Branches\",\n                    \"propertyName\": \"branches\",\n                    \"functionName\": \"newFoundationsUtilitiesBranches\"\n                }",
+            "text": "{\n                    \"name\": \"Branches\",\n                    \"propertyName\": \"branches\",\n                    \"functionName\": \"newVisualScriptingUtilitiesBranches\"\n                }",
             "updated": 1614930415663
         },
         {
@@ -53,7 +53,7 @@
         },
         {
             "style": "Javascript",
-            "text": "UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload,'showPanels', true)"
+            "text": "UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload,'showPanels', true)"
         },
         {
             "style": "Text",

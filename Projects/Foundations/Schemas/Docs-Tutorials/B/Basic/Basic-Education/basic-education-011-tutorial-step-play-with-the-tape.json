@@ -21,6 +21,11 @@
                 "text": "Prueba los diferentes ajustes de distancia del nodo Lightning Strike Trading System Reference. ¡Adelante! ¡Haz clic en el botón de cinta!",
                 "updated": 1625957648227,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Probieren Sie die verschiedenen Entfernungseinstellungen des Lightning Strike Trading System Reference Knoten aus! Machen Sie weiter! Klicken Sie auf die Schaltfläche mit dem \"Maßband\"!",
+                "updated": 1634332512924
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Bastante sencillo, Ahora bien, ¿qué sucede cuando el nodo que está ajustando tiene descendencia propia?",
                     "updated": 1625957926319,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ziemlich einfach, oder? Was passiert nun, wenn der Knoten, den Sie einstellen, selbst Ableger hat?",
+                    "updated": 1634332545887
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "text": "¡Vamos a averiguar! Haz clic en el botón  Distance to Parent una vez en el nodo Trading Parameters!",
                     "updated": 1625957763076,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Finden wir es heraus! Klicken Sie einmal auf die Schaltfläche Abstand zum Übergeordneten Knoten auf den Knoten Trading Parameters !",
+                    "updated": 1634332609115
                 }
             ]
         },
@@ -78,6 +93,11 @@
                     "text": "Debido a que aumentó la distancia que separa el nodo Trading Parameters del nodo Backtesting Session, la descendencia del nodo Trading Parameters también aumentó proporcionalmente.",
                     "updated": 1625957905179,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Da Sie den Abstand zwischen dem Trading Parameters Knoten und dem Backtesting Session Knoten vergrößert haben, haben sich auch die Unterknoten des Trading Parameters Knotens proportional vergrößert!",
+                    "updated": 1634332645315
                 }
             ]
         },

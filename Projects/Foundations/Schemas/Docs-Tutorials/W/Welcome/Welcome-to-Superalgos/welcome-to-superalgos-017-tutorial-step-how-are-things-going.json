@@ -26,6 +26,17 @@
                 "text": "Acabo de arrastrarte a los confines de la operación de  Data Mining. ¡Observa el progreso de la Instancia del  Sensor Bot a tu derecha!",
                 "updated": 1618434622270,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich habe Sie soeben in die Tiefen der Data-Mining-Operation gezogen. Sehen Sie sich den Fortschritt der Sensor Bot Instance zu Ihrer Rechten an!",
+                "updated": 1634162835620,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Ik heb je net diep in de \"Data Mining\" operatie gesleept. Bekijk de voortgang van de Sensor Bot Instance aan je rechterkant!",
+                "updated": 1634456610972
             }
         ]
     },
@@ -51,6 +62,17 @@
                     "text": "El sensor bot está extrayendo datos del exchage. En cuanto complete la extracción para el rango de fechas definido, sucederá algo realmente genial... ¡automáticamente!",
                     "updated": 1618434692416,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Sensor-Bot extrahiert gerade Daten aus der Börse. Sobald er die Extraktion für den definierten Zeitraum abgeschlossen hat, wird etwas wirklich Cooles passieren... automatisch!",
+                    "updated": 1634162847422,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "De sensor bot haalt momenteel gegevens op van de exchange. Zodra ze klaar is met de extractie van de ingegeven datums, zal er iets heel cools gebeuren... automatisch!",
+                    "updated": 1634456716853
                 }
             ]
         },
@@ -75,6 +97,17 @@
                     "text": "¿Puedes imaginar que es lo que sucederá?",
                     "updated": 1624291138773,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Können Sie erraten, was das sein könnte?",
+                    "updated": 1634162853374,
+                    "style": "Callout"
+                },
+                {
+                    "language": "NL",
+                    "text": "Heb je een idee wat het zou kunnen zijn?",
+                    "updated": 1634456739799
                 }
             ]
         },
@@ -100,6 +133,17 @@
                     "text": "No debería tomar más de 3 a 5 minutos extraer los datos de Binance dependiendo de tu hardware. ¿No quieres esperar? No hay problema. Haz clic en Next para obtener una pequeña pista.",
                     "updated": 1625933743042,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es sollte nicht länger als 3 bis 5 Minuten dauern, um die Daten von Binance zu extrahieren, oder ein bisschen länger, je nach Ihrer Hardware. Sie können nicht warten? Kein Problem! Klicken Sie auf Weiter für einen kurzen Hinweis!",
+                    "updated": 1634162864177,
+                    "style": "Success"
+                },
+                {
+                    "language": "NL",
+                    "text": "Het zou niet langer dan 3 tot 5 minuten moeten duren om de gegevens van Binance op te halen, het kan langer duren, afhankelijk van je hardware. Kan je niet wachten? Prima! Klik op Volgende voor een hint!",
+                    "updated": 1634456830102
                 }
             ]
         }

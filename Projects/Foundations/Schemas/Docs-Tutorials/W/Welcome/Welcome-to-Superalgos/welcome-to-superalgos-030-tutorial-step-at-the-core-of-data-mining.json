@@ -4,7 +4,7 @@
     "type": "Tutorial Step - At the Core of Data Mining",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "task"
         },
         "text": "The core of a data mining operation are tasks running bots. One Task controls one bot, and a Task Manager may control multiple tasks.",
@@ -26,6 +26,11 @@
                 "text": "El núcleo de una operación de minería de datos son los bots ejecutando tareas. Un bot  controla una tarea y un Task Manager  puede controlar varias tareas.",
                 "updated": 1624326081038,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Das Herzstück einer Data-Mining-Operation sind Tasks, die Bots ausführen. Ein Task steuert einen Bot, und ein Task Manager kann mehrere Tasks steuern.",
+                "updated": 1634168469674
             }
         ]
     },
@@ -52,6 +57,11 @@
                     "text": "Has aprendido sobre seis dispositivos que puedes usar para controlar cada bot en su operación de minería de datos. En el nivel más alto, el Data Task controla todos los bots de minería de datos en el Network.",
                     "updated": 1624377223817,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Inzwischen haben Sie sechs verschiedene Geräte kennengelernt, die Sie zur Steuerung der einzelnen Bots in Ihrem Data Mining-Vorgang verwenden können. Auf der höchsten Ebene steuert der Knoten Data Tasks alle Data-Mining-Bots im Netzwerkknoten.",
+                    "updated": 1634168489908
                 }
             ]
         },
@@ -76,6 +86,11 @@
                     "text": "Hablaremos de los nodos del Network en un minuto...",
                     "updated": 1624326257421,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir werden in einer Minute über Netzwerkknoten sprechen...",
+                    "updated": 1634168496945
                 }
             ]
         },
@@ -99,7 +114,13 @@
                 {
                     "language": "ES",
                     "text": "En el nivel más bajo, un Task individual controla un solo bot. Los nodos intermedios son nodos organizativos que ayudan a mantener la operación en orden y permiten un control granular sobre las diferentes secciones.",
-                    "updated": 1624377345331
+                    "updated": 1624377345331,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Auf der untersten Ebene steuert ein einzelner Task einen einzelnen Bot. Die Knoten dazwischen sind Organisationsknoten, die für Ordnung sorgen und eine detaillierte Kontrolle über die verschiedenen Bereiche ermöglichen.",
+                    "updated": 1634168505425
                 }
             ]
         }

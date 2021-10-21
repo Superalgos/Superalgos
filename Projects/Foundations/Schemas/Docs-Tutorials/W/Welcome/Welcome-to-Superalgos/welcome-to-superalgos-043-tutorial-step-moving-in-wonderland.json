@@ -26,6 +26,11 @@
                 "text": "Entonces, finalmente estás dentro de un gráfico. Lo primero que querrás hacer es moverte y aprender qué pueden hacer estos gráficos por ti.",
                 "updated": 1624404419428,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Sie befinden sich also endlich in einem Diagramm. Das erste, was Sie tun möchten, ist, sich zu bewegen und zu lernen, was diese Diagramme für Sie tun können.",
+                "updated": 1634216714226
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "text": "¡Sigamos con esto! Como en el espacio de diseño, cuando estas dentro de una máquina del tiempo, se mueve usando el mouse y el teclado. Así es como:",
                     "updated": 1624404511697,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Fangen wir damit an! Wie im Designbereich - wenn Sie sich in einer Time Machine befinden - bewegen Sie sich mit Hilfe Ihrer Maus und Ihrer Tastatur. So geht's:",
+                    "updated": 1634216711619
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "text": "Con el mouse, haz clic con el botón izquierdo y arrastra. Con el teclado, use las teclas de flecha: ← → ↑ ↓",
                     "updated": 1627304690713,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit der Maus klicken Sie mit der linken Maustaste und ziehen. Mit der Tastatur benutzt du die Pfeiltasten: ← → ↑ ↓",
+                    "updated": 1634216728013
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "text": "¿Qué? ¿No funciona? ¿Estás atrapado con un gráfico congelado? ¿Como en el video sobre el siguiente paso? Sé lo que está pasando...",
                     "updated": 1627258765795,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Was? Es funktioniert nicht? Bleiben Sie mit einem eingefrorenen Diagramm hängen? Wie im Video im nächsten Schritt? Keine Sorge! Ich weiß, was hier los ist...",
+                    "updated": 1634216736257
                 }
             ]
         }

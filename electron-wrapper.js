@@ -27,10 +27,12 @@ function run() {
   }
 
   const { fork } = require('child_process')
-  fork(path.join(__dirname, '/PlatformRoot.js'), ["noBrowser"])
-
-  server_ready = true
-  if (app_ready) open()
+  const platform = fork(path.join(__dirname, '/PlatformRoot.js'), ["noBrowser"], {stdio: ['pipe', 'pipe', 'pipe', 'ipc']})
+  platform.on('message', message => {
+    if(message == "Running") {
+      open()
+    }
+  })
 }
 
 function open () {

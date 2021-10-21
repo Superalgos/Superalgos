@@ -61,6 +61,10 @@
         {
             "style": "List",
             "text": "webSocketsPort is the port used by the system to communicate over the local area network, by default set at 18041."
+        },
+        {
+            "style": "List",
+            "text": "webSocketsExternalURL is the URL used by the system to communicate over the wide area network, by default set undefined."
         }
     ]
 }

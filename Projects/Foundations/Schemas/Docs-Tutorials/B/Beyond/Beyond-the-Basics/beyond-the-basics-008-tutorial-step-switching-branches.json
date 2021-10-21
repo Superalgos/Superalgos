@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "¡Superalgos te permite cambiar de rama directamente desde la aplicación! Pero, ¿por qué querrías cambiar de rama?",
-                "updated": 1628122007840
+                "updated": 1628122007840,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Mit Superalgos können Sie direkt aus der App heraus den Zweig wechseln! Aber warum sollten Sie den Zweig (Branch) wechseln wollen?",
+                "updated": 1634821291313
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Superalgos está mejorando constantemente. En algún momento, es posible que desee probar la versión del software en la rama de desarrollo. Tal vez haya una nueva característica o una solución para un error que aún no ha llegado a la rama maestra...",
-                    "updated": 1628122074246
+                    "updated": 1628122074246,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos wird ständig weiterentwickelt. Irgendwann möchten Sie vielleicht die Softwareversion im Entwicklungszweig ausprobieren. Vielleicht gibt es eine neue Funktion oder eine Fehlerbehebung, die es noch nicht in den Master-Zweig geschafft hat...",
+                    "updated": 1634821261891
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "¡Tal vez desees enviar una contribución, como en nuestro caso ahora mismo! ¡hagámoslo!",
-                    "updated": 1628122187462
+                    "updated": 1628122187462,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Oder Sie möchten einen Beitrag einreichen, wie in unserem Fall gerade jetzt! Los geht's!",
+                    "updated": 1634821203097
                 }
             ]
         },
@@ -74,7 +92,13 @@
                 {
                     "language": "ES",
                     "text": "Desplázate hacia abajo en Docs hasta el pie de página y selecciona Plugins-Docs. ¡Es la opción del lado derecho, no del centro!",
-                    "updated": 1628122390826
+                    "updated": 1628122390826,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Scrollen Sie auf der Docs-Seite bis zur Fußzeile und wählen Sie Plugins-Docs als Ihren Beitragszweig! Es ist die Option auf der rechten Seite, nicht in der Mitte! ",
+                    "updated": 1634821230874
                 }
             ]
         }

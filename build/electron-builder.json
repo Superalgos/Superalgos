@@ -22,7 +22,11 @@
         {
           "target": "nsis",
           "arch": "x64"
-        }
+        },
+        {
+            "target": "portable",
+            "arch": "x64"
+          }
       ],
       "artifactName": "${productName}-${os}-${version}.${ext}",
       "icon": "./build/superalgos.ico"
@@ -48,5 +52,8 @@
       "category": "public.app-category.finance",
       "target": "default",
       "icon": "build/icon.icns"
+    },
+    "extraMetadata": {
+        "main": "electron-wrapper.js"
     }
 }

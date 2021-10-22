@@ -43,7 +43,7 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
             let userProfileId = userProfilePlugin.id
             let userHandle = config.signature.message
 
-            let userProfile = NT.projects.socialTrading.modules.socialGraphUserProfile.newSocialTradingModulesSocialGraphUserProfile()
+            let userProfile = SA.projects.socialTrading.modules.socialGraphUserProfile.newSocialTradingModulesSocialGraphUserProfile()
             userProfile.initialize(
                 userProfileId,
                 userHandle,

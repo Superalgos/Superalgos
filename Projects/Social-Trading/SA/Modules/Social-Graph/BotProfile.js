@@ -80,7 +80,7 @@ exports.newSocialTradingModulesSocialGraphBotProfile = function newSocialTrading
         if (thisObject.posts.get(emitterPostHash) !== undefined) {
             throw ('Post Already Exists.')
         } else {
-            let post = NT.projects.socialTrading.modules.socialGraphPost.newSocialTradingModulesSocialGraphPost()
+            let post = SA.projects.socialTrading.modules.socialGraphPost.newSocialTradingModulesSocialGraphPost()
             post.initialize(
                 emitterUserProfileId,
                 targetUserProfileId,

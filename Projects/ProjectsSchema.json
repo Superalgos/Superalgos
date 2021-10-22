@@ -1469,24 +1469,6 @@
                     "fileName": "Queries/Events.js"
                 },
                 {
-                    "name": "User Profile",
-                    "propertyName": "socialGraphUserProfile",
-                    "functionName": "newSocialTradingModulesSocialGraphUserProfile",
-                    "fileName": "Social-Graph/UserProfile.js"
-                },
-                {
-                    "name": "Bot Profile",
-                    "propertyName": "socialGraphBotProfile",
-                    "functionName": "newSocialTradingModulesSocialGraphBotProfile",
-                    "fileName": "Social-Graph/BotProfile.js"
-                },
-                {
-                    "name": "Post",
-                    "propertyName": "socialGraphPost",
-                    "functionName": "newSocialTradingModulesSocialGraphPost",
-                    "fileName": "Social-Graph/Post.js"
-                },
-                {
                     "name": "Social Graph",
                     "propertyName": "socialGraph",
                     "functionName": "newSocialTradingModulesSocialGraph",
@@ -1533,6 +1515,26 @@
             ]
         },
         "SA": {
+            "modules": [
+                {
+                    "name": "User Profile",
+                    "propertyName": "socialGraphUserProfile",
+                    "functionName": "newSocialTradingModulesSocialGraphUserProfile",
+                    "fileName": "Social-Graph/UserProfile.js"
+                },
+                {
+                    "name": "Bot Profile",
+                    "propertyName": "socialGraphBotProfile",
+                    "functionName": "newSocialTradingModulesSocialGraphBotProfile",
+                    "fileName": "Social-Graph/BotProfile.js"
+                },
+                {
+                    "name": "Post",
+                    "propertyName": "socialGraphPost",
+                    "functionName": "newSocialTradingModulesSocialGraphPost",
+                    "fileName": "Social-Graph/Post.js"
+                }
+            ],
             "globals": [
                 {
                     "name": "Query Constants",

@@ -4,7 +4,14 @@
     "type": "Governance Workspaces",
     "definition": {
         "text": "The Governance Project features multiple Project Definition Hierarchies spread across multiple Plugin Workspaces — one Workspace per Project — to facilitate the granular management of definitions by independent teams of maintainers. These are the Governance Workspaces.",
-        "updated": 1630567756861
+        "updated": 1630567756861,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Superalgos Pools es la jerarquía de nivel superior que da inicio a la definición de todo el Superalgos Project. Presenta la definición de varios nodos de Pool que describen las principales áreas de desarrollo del proyecto que la  Community ( comunidad) desea incentivar.",
+                "updated": 1634901970010
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,7 +22,14 @@
         {
             "style": "Text",
             "text": "The Token Distribution Superalgos Governance Workspace is the main workspace. Load this workspace to start your interaction with governance. This is where you would usually build and set up your User Profile.",
-            "updated": 1630568963531
+            "updated": 1630568963531,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El Token Distribution Superalgos Governance Workspace es el espacio principal. Suba este workspace para comenzar su interacción con la gobernanza. Es aquí donde normalmente va a construir y establecer su User Profile.",
+                    "updated": 1634901124546
+                }
+            ]
         },
         {
             "style": "Title",
@@ -23,7 +37,14 @@
         },
         {
             "style": "Text",
-            "text": "All Governance Workspaces follow a similar naming structure, to make them easy to spot in the Workspaces Tab:"
+            "text": "All Governance Workspaces follow a similar naming structure, to make them easy to spot in the Workspaces Tab:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Todos los Workspaces de gobernanza siguen una estructura de nomenclatura similar, para hacerlos facil de encontrar en  el Workspaces Tab:",
+                    "updated": 1634901250269
+                }
+            ]
         },
         {
             "style": "Json",
@@ -43,7 +64,14 @@
         {
             "style": "Text",
             "text": "Each of the Governance Workspaces features several Project Definition Hierarchies describing the Pools, Assets, Features, and Positions of the corresponding Project.",
-            "updated": 1630568821141
+            "updated": 1630568821141,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cada uno de los Workspaces de gobernanza cuenta con muchas Jerarquías de definición de proyecto que describen Pools, Assets ( Activos), Features ( caractéristicas) , y  Positions ( las posiciones) del proyecto correspondiente.",
+                    "updated": 1634901687531
+                }
+            ]
         },
         {
             "style": "Include",

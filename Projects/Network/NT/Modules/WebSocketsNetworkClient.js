@@ -86,7 +86,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             let message = {
                                 messageType: 'Handshake',
                                 callerRole: 'Network Node',
-                                callerProfileHandle: SA.secrets.map.get('Social Trading Desktop').githubUsername,
+                                callerProfileHandle: SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).userProfileHandle,
                                 callerTimestamp: callerTimestamp,
                                 step: 'One'
                             }
@@ -147,7 +147,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             We will check that the profile handle we sent to the Network Node, is returned at the
                             signed message, to avoid man in the middle attackts.
                             */
-                            if (signedMessage.callerProfileHandle !== SA.secrets.map.get('Social Trading Desktop').githubUsername) {
+                            if (signedMessage.callerProfileHandle !== SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).userProfileHandle) {
                                 console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node callerProfileHandle does not match my own userProfileHandle.')
                                 reject()
                                 return
@@ -177,7 +177,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             */
                             socketClient.onmessage = socketMessage => { stepTwoResponse(socketMessage) }
 
-                            let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get('Social Trading Desktop').privateKey)
+                            let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).privateKey)
 
                             let message = {
                                 messageType: 'Handshake',

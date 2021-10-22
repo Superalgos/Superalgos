@@ -252,11 +252,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     */
                     let signedMessage = {
                         callerProfileHandle: messageHeader.callerProfileHandle,
-                        calledProfileHandle: SA.secrets.map.get('P2P Network Node').githubUsername,
+                        calledProfileHandle: SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).userProfileHandle,
                         callerTimestamp: messageHeader.callerTimestamp,
                         calledTimestamp: calledTimestamp
                     }
-                    let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get('P2P Network Node').privateKey)
+                    let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).privateKey)
 
                     let response = {
                         result: 'Ok',
@@ -345,7 +345,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     We will check that the signature includes this Network Node handle, to avoid
                     man in the middle attackts.
                     */
-                    if (signedMessage.calledProfileHandle !== SA.secrets.map.get('P2P Network Node').githubUsername) {
+                    if (signedMessage.calledProfileHandle !== SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).userProfileHandle) {
                         let response = {
                             result: 'Error',
                             message: 'calledProfileHandle Does Not Match This Network Node Handle.'
@@ -415,6 +415,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
             }
 
             function removeCaller(caller) {
+                if (caller === undefined) { return }
 
                 thisObject.callersMap.delete(caller.socket.id)
 

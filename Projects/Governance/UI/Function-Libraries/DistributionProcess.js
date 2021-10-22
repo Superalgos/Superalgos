@@ -6,8 +6,8 @@ function newGovernanceFunctionLibraryDistributionProcess() {
     }
 
     const DISTRIBUTION_PROCESS_RECALCULATION_DELAY = 5000
-    let loop  
-    
+    let loop
+
     return thisObject
 
     function initialize() {
@@ -18,7 +18,7 @@ function newGovernanceFunctionLibraryDistributionProcess() {
     function finalize() {
         loop = false
     }
- 
+
     function calculate() {
 
         let pools = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Pools')
@@ -106,6 +106,13 @@ function newGovernanceFunctionLibraryDistributionProcess() {
         Run the Staking Program
         */
         UI.projects.governance.functionLibraries.stakingProgram.calculate(
+            pools,
+            userProfiles
+        )
+        /*
+        Run the Liquidity Program
+        */
+        UI.projects.governance.functionLibraries.liquidityProgram.calculate(
             pools,
             userProfiles
         )

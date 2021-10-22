@@ -1,5 +1,9 @@
 function newWebApp() {
+    /*
+    In it's current state of development, the Web App only has one module. 
 
+    Everything is being coded here until some structure emerges. 
+    */
     let thisObject = {
         initialize: initialize,
         finalize: finalize
@@ -123,7 +127,6 @@ function newWebApp() {
         function addToContentDiv(events) {
             try {
                 let contentDiv = document.getElementById('content-div')
-
                 /*
                 Delete al current content.
                 */

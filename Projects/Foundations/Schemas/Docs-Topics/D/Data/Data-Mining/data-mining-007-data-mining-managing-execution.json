@@ -4,51 +4,114 @@
     "type": "Data Mining - Managing Execution",
     "definition": {
         "text": "Bots can execute at their own pace or they can wait for other bots to finish executing before starting.",
-        "updated": 1622214711890
+        "updated": 1622214711890,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Bots können in ihrem eigenen Tempo ausgeführt werden oder sie können warten, bis andere Bots die Ausführung beendet haben, bevor sie beginnen.",
+                "updated": 1634828825458
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Bot Execution Tree",
-            "updated": 1622215214005
+            "updated": 1622215214005,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bot Execution Tree (Bot Ausführungsbaum):",
+                    "updated": 1634828847947
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "A helpful way to think about managing bot execution is to think of the image of a tree. The roots support the trunk which supports the branches. In the same way, Superalgos uses many bots to process data each relying on the output of the last to form a tree. As data is passed through the tree the raw data is processed and reprocessed to build more and more elaborate datasets.",
-            "updated": 1622215593975
+            "updated": 1622215593975,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine hilfreiche Art und Weise, über die Verwaltung der Bot-Ausführung nachzudenken, ist das Bild eines Baumes. Die Wurzeln unterstützen den Stamm, der wiederum die Äste stützt. Auf die gleiche Weise verwendet Superalgos viele Bots, um Daten zu verarbeiten, wobei sich jeder auf den Output des letzten stützt, um einen Baum zu bilden. Während die Daten den Baum durchlaufen, werden die Rohdaten verarbeitet und weiterverarbeitet, um immer durchdachtere Datensätze zu erstellen.",
+                    "updated": 1634832671242
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Types of Execution Managment"
+            "text": "Types of Execution Managment",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Arten des Execution (Ausführungs)/ Management:",
+                    "updated": 1634832926148
+                }
+            ]
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "There are two types of execution managment:"
         },
         {
             "style": "List",
             "text": "Standalone Bots: These bots are the root of the Bot Execution Tree. They don't depend on any other bot to run but use the configuration of it's Process Definition node to run on a pre-defined schedule (in most cases every one minute).",
-            "updated": 1622215038717
+            "updated": 1622215038717,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Diese Bots sind die Wurzel des Execution Tree (Bot-Ausführungsbaums). Sie sind nicht von anderen Bots abhängig, sondern verwenden die Konfiguration ihrer Process Definition node, um nach einem vordefinierten Zeitplan (in den meisten Fällen jede Minute) zu laufen.",
+                    "updated": 1634841023922
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Usually when a bot produces raw data, it operates as a standalone bot. ",
-            "updated": 1622215509477
+            "updated": 1622215509477,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn ein Bot Rohdaten produziert, arbeitet er normalerweise als eigenständiger Bot.",
+                    "updated": 1634841057033
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Execution Dependent Bots: These bots are the branches of the Bot Execution Tree. They need to wait for other Bots to finish their execution in order to start.",
-            "updated": 1622215195801
+            "updated": 1622215195801,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Execution Dependent Bots: Diese Bots sind die Zweige des Bot-Ausführungsbaums. Sie müssen warten, bis andere Bots ihre Ausführung beendet haben, um starten zu können.",
+                    "updated": 1634841171154
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Configuring a Standalone Bot",
-            "updated": 1622215700788
+            "updated": 1622215700788,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Einen eigenständigen Bot konfigurieren:",
+                    "updated": 1634841196929
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "This is an example of how to configure a bot to execute as a Standalone Bot. Within the Process Definition of a Bot, the normalWaitTime property has a non zero value, in this case 60 seconds.",
-            "updated": 1622215895631
+            "updated": 1622215895631,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hier ein Beispiel für die Konfiguration eines Bots zur Ausführung als eigenständiger Bot In der Process Definition  eines Bots hat die Eigenschaft normalWaitTime einen Wert ungleich Null, in diesem Fall 60 Sekunden.",
+                    "updated": 1634841274219
+                }
+            ]
         },
         {
             "style": "Json",
@@ -58,22 +121,50 @@
         {
             "style": "Title",
             "text": "Configuring an Execution Dependent Bot",
-            "updated": 1622215826932
+            "updated": 1622215826932,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Konfigurieren eines Execution Dependent Bot (ausführungsabhängigen Bots):",
+                    "updated": 1634841312416
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In order to configure a bot to execute as an Execution Dependent Bot two things need to be in place. ",
-            "updated": 1622216289412
+            "updated": 1622216289412,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um einen Bot so zu konfigurieren, dass er als Execution Dependent Bot (ausführungsabhängiger Bot) ausgeführt wird, müssen zwei Dinge vorhanden sein:",
+                    "updated": 1634841400498
+                }
+            ]
         },
         {
             "style": "List",
             "text": "First, the bot's definition will need to have an Execution Started Event defined. After this, the Execution Started Event will need to have a reference to the Execution Finished Event of the Bot on which it is waiting.",
-            "updated": 1622216544766
+            "updated": 1622216544766,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zunächst muss in der Definition des Bots ein Ereignis Execution Started Event definiert werden. Danach muss das Ereignis \"Execution Started Event\" einen Verweis auf das Ereignis \"Execution Finished Event\" des Bots enthalten, auf das es wartet.",
+                    "updated": 1634843860022
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Second, the Bot's Process Definition will need a zero in the normalWaitTime property. This will force the Bot to immediately run the next loop, but since there is an Execution Started Event defined, that will make it wait until the referenced Bot finishes.",
-            "updated": 1622216345546
+            "updated": 1622216345546,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zweitens benötigt die Prozessdefinition des Bots eine Null in der Eigenschaft normalWaitTime. Dadurch wird der Bot gezwungen, sofort den nächsten loop auszuführen. Da jedoch ein Ereignis  Execution Started Event  definiert ist, wird er warten, bis der referenzierte Bot fertig ist.",
+                    "updated": 1634843953677
+                }
+            ]
         },
         {
             "style": "Json",
@@ -83,7 +174,14 @@
         {
             "style": "Note",
             "text": "From a deployment point of view, the dependant bots can be physically located on the same machine, or on multiple different machines. Superalgos handles syncronization across multiples machines.",
-            "updated": 1622216626010
+            "updated": 1622216626010,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Aus Sicht der Bereitstellung können sich die abhängigen Bots physisch auf demselben Rechner oder auf mehreren verschiedenen Rechnern befinden. Superalgos kümmert sich um die Syncronisierung über mehrere Maschinen hinweg.",
+                    "updated": 1634844032286
+                }
+            ]
         }
     ]
 }

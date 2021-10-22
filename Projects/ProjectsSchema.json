@@ -1390,14 +1390,20 @@
                     "propertyName": "webSocketsAppClient",
                     "functionName": "newNetworkModulesWebSocketsAppClient",
                     "fileName": "WebSocketsAppClient.js"
+                },
+                {
+                    "name": "User Profiles",
+                    "propertyName": "userProfiles",
+                    "functionName": "newNetworkModulesUserProfiles",
+                    "fileName": "UserProfiles.js"
                 }
             ],
             "utilities": [
                 {
-                    "name": "Network Node Picker",
-                    "propertyName": "networkNodePicker",
-                    "functionName": "newNetworkNetworkNodePicker",
-                    "fileName": "NetworkNodePicker.js"
+                    "name": "App Client Network Node Picker",
+                    "propertyName": "appClientNetworkNodePicker",
+                    "functionName": "newAppClientNetworkNetworkNodePicker",
+                    "fileName": "AppClientNetworkNodePicker.js"
                 }
             ]
         }
@@ -1485,12 +1491,6 @@
                     "propertyName": "socialGraph",
                     "functionName": "newSocialTradingModulesSocialGraph",
                     "fileName": "SocialGraph.js"
-                },
-                {
-                    "name": "Bootstrap",
-                    "propertyName": "bootstrap",
-                    "functionName": "newSocialTradingModulesBootstrap",
-                    "fileName": "Bootstrap.js"
                 },
                 {
                     "name": "Query",

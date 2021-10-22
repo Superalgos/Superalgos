@@ -1,4 +1,4 @@
-exports.newNetworkNetworkNodePicker = function newNetworkNetworkNodePicker () {
+exports.newAppClientNetworkNetworkNodePicker = function newAppClientNetworkNetworkNodePicker () {
     let thisObject = {
         pickOneNetworkNode: pickOneNetworkNode
     }

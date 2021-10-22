@@ -1,15 +1,10 @@
-exports.newBootstrap = function newBootstrap() {
+exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles() {
     /*
-    This module helps the Network Node to bootstrap, by
-    loading all the services and data that needs to start
-    operating.
-
-    In particular, a network node operates with all User Profiles loaded in 
-    memory maps. These profiles become part of the system in the form of User Profiles
-    Plugins at the Governance System, when user submit them. This means
-    that all these profiles are already at the local disk of the Network Node.
-
-    From there they will be loaded into memory as part of this bootstrapping process.
+    This module is usefull for all Apps that needs to operate with all User Profiles loaded in 
+    memory maps. 
+    
+    User Profiles are plugins of the Governance System. Besides the info they carry, we also 
+    need to read the blockchain for each one in order to calculate their ranking.
     */
     let thisObject = {
         /* Framework Functions */

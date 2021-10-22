@@ -8,7 +8,7 @@
             "iconPathOff": "machine-learning-project",
             "iconProject": "Machine-Learning",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -16,7 +16,7 @@
             "relatedUiObject": "Learning Mine",
             "relatedUiObjectProject": "Machine-Learning",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -24,7 +24,7 @@
             "relatedUiObject": "Learning Engine",
             "relatedUiObjectProject": "Machine-Learning",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
@@ -32,17 +32,17 @@
             "relatedUiObject": "Learning System",
             "relatedUiObjectProject": "Machine-Learning",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",
             "label": "Delete",
             "iconPathOn": "delete-entity",
-            "iconPathOff": "delete-entity",
-            "actionProject": "Foundations"
+            "iconPathOff": "delete-entity"
         }
     ],
     "isProjectHead": true,

@@ -26,6 +26,11 @@
                 "text": "Dentro de cada mercado, la operacion es organizada por el Data Mine. Superalgos se conecta con varias minas de datos open-source. Cada una con multiples indicadores.",
                 "updated": 1624229041162,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Innerhalb jedes Marktes ist die Operation nach Data Mine organisiert. Superalgos wird mit mehreren quelloffenen Data Mines ausgeliefert, die jeweils mehrere Indikatoren enthalten.",
+                "updated": 1634168232166
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "text": "Imaginate los Data Mines como complementos que los desarrolladores crean para extender la capacidad de análisis de data del sistema. Un Indicator Bot procesa la data que otros indicadores producen, añadiendo volumen y produciendo análisis más profundos.",
                     "updated": 1624230668446,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Betrachten Sie Data Mines als Plugins, die Entwickler erstellen können, um die Datenanalysekapazität des Systems zu erweitern. Ein Indicator Bot  kann Daten verarbeiten, die von anderen Indikatoren erzeugt werden, und so einen Mehrwert und eine tiefere und reichhaltigere Analyse liefern.",
+                    "updated": 1634168218271
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "text": "¡Si tienes conocimientos básicos de Javascript puedes crear indicadores tú también! ¡Si contribuyes un Data Mine, ganaras la moneda de Superalgos (SA)!",
                     "updated": 1624231304105,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie ein Grundverständnis von JavaScript haben, können Sie auch Indikatoren erstellen! Wenn Sie eine Data Mine beitragen, verdienen Sie Superalgos SA Tokens!",
+                    "updated": 1634168241958
                 }
             ],
             "updated": 1622196189467

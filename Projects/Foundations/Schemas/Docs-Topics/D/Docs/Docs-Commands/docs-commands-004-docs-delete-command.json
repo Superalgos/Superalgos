@@ -4,7 +4,14 @@
     "type": "Docs Delete Command",
     "definition": {
         "text": "Use this command to delete a page from the Docs.",
-        "updated": 1609151920518
+        "updated": 1609151920518,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diesen Befehl, um eine Seite aus den Docs zu löschen.",
+                "updated": 1633893956478
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -20,7 +27,14 @@
         {
             "style": "Subtitle",
             "text": "Examples",
-            "updated": 1613766032848
+            "updated": 1613766032848,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele",
+                    "updated": 1633893968452
+                }
+            ]
         },
         {
             "style": "Json",
@@ -50,7 +64,14 @@
         {
             "style": "Subtitle",
             "text": "Examples",
-            "updated": 1613766391018
+            "updated": 1613766391018,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele",
+                    "updated": 1633893976480
+                }
+            ]
         },
         {
             "style": "Json",
@@ -69,22 +90,50 @@
         },
         {
             "style": "Title",
-            "text": "Parameters"
+            "text": "Parameters",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Parameter",
+                    "updated": 1633894005892
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Project: It's the project where the page is defined.",
-            "updated": 1613764968224
+            "updated": 1613764968224,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Project: Es ist das Projekt, in dem die Seite definiert ist.",
+                    "updated": 1633894025155
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Docs Page Category: One of the available categories.",
-            "updated": 1613764977861
+            "updated": 1613764977861,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Docs Page Category: Eine der verfügbaren Kategorien.",
+                    "updated": 1633894046298
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Docs Page Name: The name of the page.",
-            "updated": 1613764988027
+            "updated": 1613764988027,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Docs Page Name: Der Name der Seite.",
+                    "updated": 1633894059389
+                }
+            ]
         }
     ]
 }

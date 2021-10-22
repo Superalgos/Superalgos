@@ -110,7 +110,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->' +
             'User Defined Code->Javascript Code->'
 
-        let tradingSystem = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
+        let tradingSystem = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
         lightingPath = '' +
             'Trading Engine->' +
@@ -149,7 +149,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Index->Situation Name->Formula->Periods->' +
             'User Defined Variables->User Defined Variable->'
 
-        let tradingEngine = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
+        let tradingEngine = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
         lightingPath = '' +
             'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
@@ -159,13 +159,13 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Social Bot Command->Formula->' +
             'Exchange Account Asset->Asset->'
 
-        let session = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
+        let session = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
 
-        let defaultExchange = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.exchange.payload, 'codeName')
+        let defaultExchange = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.exchange.payload, 'codeName')
         let defaultMarket =
-            UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.market.baseAsset.payload.referenceParent.payload, 'codeName')
+            UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.market.baseAsset.payload.referenceParent.payload, 'codeName')
             + '-' + 
-            UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.market.quotedAsset.payload.referenceParent.payload, 'codeName')
+            UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.market.quotedAsset.payload.referenceParent.payload, 'codeName')
 
         let dependencyFilter = UI.projects.foundations.functionLibraries.dependenciesFilter.createDependencyFilter(
             defaultExchange,
@@ -266,7 +266,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             return
         }
 
-        result.lanNetworkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(result.taskManager, 'LAN Network Node', undefined, true, false, true, false)
+        result.lanNetworkNode = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(result.taskManager, 'LAN Network Node', undefined, true, false, true, false)
 
         if (node.tradingSystemReference === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs a child Trading System Reference.')

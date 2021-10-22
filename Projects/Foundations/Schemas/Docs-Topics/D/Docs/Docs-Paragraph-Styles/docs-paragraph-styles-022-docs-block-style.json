@@ -4,13 +4,27 @@
     "type": "Docs Block Style",
     "definition": {
         "text": "Block paragraphs defines set of paragraphs that can be inclided from other pages. When you include a block by creating a Docs Include Style paragraph, you need to reference a Block paragraph created at the page that have the set of paragraphs to be inclided. A Block contains all the paragraph after itself until the next Block or the end of the page.",
-        "updated": 1609259016289
+        "updated": 1609259016289,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Blockabsätze definieren eine Reihe von Absätzen, die von anderen Seiten aus eingefügt werden können. Wenn Sie einen Block einbinden, indem Sie einen Docs Include Style Absatz erstellen, müssen Sie auf einen Blockabsatz verweisen, der auf der Seite erstellt wurde, die die einzubindende Absatzgruppe enthält. Ein Block enthält alle Absätze nach sich selbst bis zum nächsten Block oder dem Ende der Seite.",
+                "updated": 1633958201415
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "To correctly ddefine an Block Paragraph, you need to follow the following syntax:",
-            "updated": 1609259397904
+            "text": "To correctly define an Block Paragraph, you need to follow the following syntax:",
+            "updated": 1633958247918,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um einen Blockabsatz korrekt zu definieren, müssen Sie die folgende Syntax befolgen:",
+                    "updated": 1633958297788
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -20,7 +34,14 @@
         {
             "style": "List",
             "text": "Block Name: This refers to any name that you would like to give to the newly created Block. The name must be unique within the page.",
-            "updated": 1609259387171
+            "updated": 1609259387171,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Block Name: Dies bezieht sich auf einen beliebigen Namen, den Sie dem neu erstellten Block geben möchten. Der Name muss innerhalb der Seite einzigartig sein.",
+                    "updated": 1633958323628
+                }
+            ]
         }
     ]
 }

@@ -1,7 +1,7 @@
 exports.newNetworkModulesSocialGraph = function newNetworkModulesSocialGraph() {
     /*
     This module represents the Social Graph Service that 
-    this deals with the Social Graph this node mantains. 
+    deals with the Social Graph this node mantains. 
     The Social Graph is one of the services the Network Node provides.
 
     This service is responsible for mantaining the whole Social Graph

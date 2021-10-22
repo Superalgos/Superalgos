@@ -20,6 +20,12 @@
                 "text": "Esta es la configuración de la jerarquía del Charting Space de las Time Machine hemos estado viendo en los gráficos.",
                 "updated": 1624412993386,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Dies ist der Aufbau der Charting Space Hierarchie der Time Machine, mit der wir in den Charts gespielt haben.",
+                "updated": 1634218294649,
+                "style": "Definition"
             }
         ]
     },
@@ -38,6 +44,12 @@
                     "language": "ES",
                     "text": "¡Dedica unos minutos a explorar estas definiciones! ¡Ve a los menús de los nodos!",
                     "updated": 1624412138619,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich ein paar Minuten Zeit, um diese Definitionen zu erkunden! Werfen Sie einen Blick auf die Menüs der verschiedenen Knoten!",
+                    "updated": 1634218308224,
                     "style": "Callout"
                 }
             ]
@@ -58,6 +70,11 @@
                     "text": "Espero que la estructura de los nodos sea lo suficientemente intuitiva como para comprender cuán poderoso es el concepto de Design Space. Configuras un Time Machine agregando nodos de Timeline Chart y las escalas deseadas. A continuación, configuras un Layer Manager y capas que hagan referencia a los Data Mine Products para que los datos deseados estén disponibles en un Layer Manager determinado en los gráficos. ¡Aprenderás a personalizar gráficos más adelante!",
                     "updated": 1624412890132,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich hoffe, die Struktur der Knoten ist intuitiv genug, um zu verstehen, wie leistungsfähig das Konzept des Design Space ist. Sie richten eine Time Machine ein, indem Sie  Timeline Chart Knoten und die gewünschten Skalen hinzufügen. Dann richten Sie Layer Manager und Layer ein, die auf die entsprechenden Data Mine Products verweisen, so dass die gewünschten Daten auf einem bestimmten Layer Manager in den Charts verfügbar werden. Es ist wie das Legoland® der Handelsdiagramme! Später werden Sie lernen, wie man Charts schneidet!",
+                    "updated": 1634221688170
                 }
             ]
         }

@@ -33,6 +33,10 @@ function newMachineLearningActionSwitch() {
                     UI.projects.machineLearning.functionLibraries.learningSessionFunctions.stopSession(action.node, action.callBackFunction)
                 }
                 break
+
+            default: {
+                console.log("[WARN] Action sent to Machine-Learning Action Switch does not belong here. Verify at the App Schema file of the node that triggered this action that the actionProject is pointing to the right project. -> Action = " + action.name + " -> Action Node Name = " + action.node.name)
+            }
         }
     }
 }

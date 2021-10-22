@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Accessing Remotely?",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "network-node"
         },
         "text": "If you are accessing the Client from the same machine, you may click Next and skip this step now!",
@@ -32,6 +32,17 @@
                 "text": "Si vous accédez au Client à partir de la même machine, vous pouvez cliquer sur Suivant et passer cette étape maintenant!",
                 "updated": 1623958262097,
                 "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Als je de Client benaderd vanaf hetzelfde apparaat, klik dan op Next en sla deze stap over!",
+                "updated": 1633886528639,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie von demselben Rechner aus auf den Client zugreifen, können Sie auf Weiter klicken und diesen Schritt überspringen!",
+                "updated": 1634161773115
             }
         ]
     },
@@ -63,6 +74,17 @@
                     "text": "Si vous accédez au Client à partir d'une connectio a distance, vous devez ajuster la configuration du nœud de réseau avant de poursuivre.",
                     "updated": 1623958370168,
                     "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Als je de Client benanderd vanaf een ander apparaat moet je nu de Network Node configuratie aanpassen voordat je verder gaat.",
+                    "updated": 1633886630167,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie von einem entfernten Rechner aus auf den Client zugreifen, müssen Sie die Netzwerkknoten-konfiguration anpassen, bevor Sie fortfahren.",
+                    "updated": 1634161862309
                 }
             ]
         },
@@ -98,13 +120,25 @@
                 {
                     "language": "FR",
                     "text": "Cliquez sur Configurer dans le coin supérieur droit du menu Network Node",
-                    "updated": 1623958430272
+                    "updated": 1623958430272,
+                    "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik op \"Configure\" in de rechterbovenhoek van het \"Network Node\" menu.",
+                    "updated": 1633886682371,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf Konfigurieren in der oberen rechten Ecke des Netzwerkknoten-Menüs.",
+                    "updated": 1634161879485
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Change the host parameter for the IP address of the machine running the backend.",
+            "text": "Change the host parameter for the IP address of the machine running the backend. If you use a reverse proxy you must manually add \"webSocketsExternalURL\": \"wss:\/\/mydomain.com:443\" config parameter.",
             "translations": [
                 {
                     "language": "ID",
@@ -126,14 +160,20 @@
                 },
                 {
                     "language": "FR",
-                    "text": "Changez le paramètre host pour l'adresse IP de la machine qui exécute le backend.",
+                    "text": "Changez le paramètre host pour l'adresse IP de la machine qui exécute le backend. Si vous utilisez un reverse proxy ajoutez manuellement \"webSocketsExternalURL\": \"wss:\/\/mydomain.com:443\" dans les paramètres de configuration ",
                     "updated": 1623958474738,
                     "style": "List"
                 },
                 {
-                    "language": "FR",
-                    "text": "Changez le paramètre host pour l'adresse IP de la machine qui exécute le backend.",
-                    "updated": 1623958474738
+                    "language": "NL",
+                    "text": "Verander de waarde in het \"host\" veld, in het IP adres van het apparaat waar het backend draait.",
+                    "updated": 1633887084437,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ändern Sie den Host-Parameter für die IP-Adresse des Rechners, auf dem das Backend läuft.",
+                    "updated": 1634161891685
                 }
             ]
         },
@@ -168,7 +208,19 @@
                 {
                     "language": "FR",
                     "text": "Quittez la configuration en retirant le pointeur de la bulle de configuration ! Si la configuration est correcte, le message d'erreur dans le Network Node devrait disparaître en moins d'une minute !",
-                    "updated": 1623958550219
+                    "updated": 1623958550219,
+                    "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Sluit de configuratie door de muis buiten de configuratie cirkel te bewegen! Als de configuratie correct is aangepast, zou de foutmelding in de Network Node binnen een minuut verdwijnen!",
+                    "updated": 1633887318246,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beenden Sie die Konfiguration, indem Sie den Mauszeiger aus der Konfigurationsblase bewegen! Wenn die Konfiguration korrekt ist, sollte die Fehlermeldung im Netzwerkknoten in einer Minute verschwinden!",
+                    "updated": 1634161900103
                 }
             ]
         }

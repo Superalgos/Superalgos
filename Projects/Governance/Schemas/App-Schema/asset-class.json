@@ -10,31 +10,34 @@
         },
         {
             "action": "Install Missing Assets",
-            "actionProject": "Governance", 
+            "actionProject": "Governance",
             "label": "Install Missing Assets",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
             "relatedUiObject": "Asset",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset Class",
-            "relatedUiObject": "Asset Class"
+            "relatedUiObject": "Asset Class",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset",
-            "relatedUiObject": "Asset"
+            "relatedUiObject": "Asset",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

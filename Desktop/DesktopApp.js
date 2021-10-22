@@ -8,16 +8,14 @@ exports.newDesktopApp = function newDesktopApp() {
 
     async function run() {
         /*
-        Heree we will store our running objects:
+        Here we will store our running objects:
         */
         DK.running = {}
-
         /*
-        This is the Web Sockets client that interacts with the Superalgos Network.
+        This is the Personal Social Graph for the user running this App.
         */
         DK.running.socialGraph = DK.projects.socialTrading.modules.socialGraph.newSocialTradingModulesSocialGraph()
         await DK.running.socialGraph.initialize()
-
         /*
         This is the Web Sockets client that interacts with the Superalgos Network.
         */
@@ -25,11 +23,11 @@ exports.newDesktopApp = function newDesktopApp() {
         await DK.running.webSocketsClient.initialize()
         console.log('Desktop Client Connected to Network Node via Web Sockets ................... Connected to port ' + global.env.NETWORK_WEB_SOCKETS_INTERFACE_PORT)
 
-        /* These are the Network Interfaces by which the UI interacts with the Desktop App.*/
+        /* These are the Network Interfaces by which the Web App interacts with this Desktop Client.*/
 
         DK.running.webSocketsInterface = DK.projects.socialTrading.modules.webSocketsInterface.newDesktopModulesWebSocketsInterface()
         DK.running.webSocketsInterface.initialize()
-        console.log('Desktop Client Web Sockets Interface ....................................... Listening at port ' + global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT)
+        console.log('Desktop Client Web Sockets Interface ....................................... Listening at port ' + global.env.DESKTOP_WEB_SOCKETS_INTERFACE_PORT)
 
 
         DK.running.httpInterface = DK.projects.socialTrading.modules.httpInterface.newDesktopModulesHttpInterface()

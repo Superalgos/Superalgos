@@ -11,6 +11,11 @@
                 "text": "Halaman Docs merupakan kumpulan file JSON yang tersimpan di perangkat.",
                 "updated": 1613858443492,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Eine Docs-Seite ist letztendlich eine JSON-Datei, die auf der Festplatte gespeichert ist.",
+                "updated": 1633805247812
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "text": "Docs merupakan sekumpulan halaman, dan setiap halaman tersimpan sebagai file JSON di sini:",
                     "updated": 1613858522434,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Docs sind eine Sammlung von Seiten, die jeweils als JSON-Datei unter dem folgenden Pfad gespeichert werden:",
+                    "updated": 1633805308812
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Struktur direktori sendiri mengikuti setiap folder yang ditampilkan dalam Docs Page Category:",
                     "updated": 1613858675656,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt eine Verzeichnisstruktur, wobei jeder Ordner eine Docs-Kategorie enthält:",
+                    "updated": 1633805513174
                 }
             ]
         },

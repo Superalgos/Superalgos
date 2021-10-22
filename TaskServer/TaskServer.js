@@ -48,16 +48,6 @@ exports.newTaskServer = function newTaskServer() {
                 }
             }
             else {
-                /* 
-                This process was started not by the Task Manager, but independently 
-                (most likely for debugging purposes). In this case we listen to an event 
-                with the Task Info that should be emitted at the UI, bypassing the Task Manager. 
-                But before that, we need to change the path of these env variables since the home
-                directory now is TaskServer and not its parent.
-                */
-                global.env.PATH_TO_DATA_STORAGE = '.' + global.env.PATH_TO_DATA_STORAGE
-                global.env.PATH_TO_PROJECTS = '.' + global.env.PATH_TO_PROJECTS
-                global.env.PATH_TO_LOG_FILES = '.' + global.env.PATH_TO_LOG_FILES
 
                 try {
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)
@@ -98,7 +88,7 @@ exports.newTaskServer = function newTaskServer() {
                 setupTaskHeartbeats()
 
                 function initializeProjectDefinitionNode() {
-                    TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE = TS.projects.foundations.utilities.nodeFunctions.findNodeInNodeMesh(TS.projects.foundations.globals.taskConstants.TASK_NODE, 'Project Definition')
+                    TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(TS.projects.foundations.globals.taskConstants.TASK_NODE, 'Project Definition')
                     if (TS.projects.foundations.globals.taskConstants.PROJECT_DEFINITION_NODE === undefined) {
                         console.log("[ERROR] Task Server -> Task -> bootingProcess -> Project Definition not found. ")
                         TS.projects.foundations.globals.taskVariables.FATAL_ERROR_MESSAGE = 'Project Definition not found. Fatal Error, can not continue. Fix the problem and try again.'

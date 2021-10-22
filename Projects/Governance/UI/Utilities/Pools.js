@@ -23,7 +23,7 @@ function newGovernanceUtilitiesPools() {
             if (
                 node.type === 'Pool'
             ) {
-                let codeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'codeName')
+                let codeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'codeName')
                 if (codeName === codeNameToFind) {
                     tokens = node.payload.tokens
                 }

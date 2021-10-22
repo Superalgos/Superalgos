@@ -1,0 +1,71 @@
+{
+    "type": "Announcement",
+    "editors": {
+        "config": true
+    },
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "announcementFormula",
+            "label": "Add Announcement Formula",
+            "relatedUiObject": "Announcement Formula",
+            "relatedUiObjectProject": "Social-Bots",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "announcementCondition",
+            "label": "Add Announcement Condition",
+            "relatedUiObject": "Announcement Condition",
+            "relatedUiObjectProject": "Social-Bots",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "initialValues": {
+        "config": "{ \n\"text\": \"Type the message you wish to announce when there is no formula\"\n}"
+    },
+    "addLeftIcons": true,
+    "level": 4,
+    "attachingRules": {
+        "compatibleTypes": "->Trigger On Event->Trigger Off Event->Take Position Event->Next Phase Event->Move To Phase Event->Phase->Trigger Stage->Open Stage->Manage Stage->Close Stage->Create Order Event->Cancel Order Event->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "announcementFormula",
+            "type": "node",
+            "childType": "Announcement Formula",
+            "autoAdd": true,
+            "project": "Social-Bots"
+        },
+        {
+            "name": "announcementCondition",
+            "type": "node",
+            "childType": "Announcement Condition",
+            "autoAdd": true,
+            "project": "Social-Bots"
+        }
+    ],
+    "propertyNameAtParent": "announcements"
+}

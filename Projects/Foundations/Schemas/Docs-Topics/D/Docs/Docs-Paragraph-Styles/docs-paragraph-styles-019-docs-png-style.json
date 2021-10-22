@@ -3,12 +3,26 @@
     "pageNumber": 19,
     "type": "Docs Png Style",
     "definition": {
-        "text": "It is possible to embed PNGs images into a Docs page."
+        "text": "It is possible to embed PNGs images into a Docs page.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Es ist möglich, PNG-Bilder in eine Docs-Seite einzubetten.",
+                "updated": 1633957628577
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "To embed a PNG image into a Docs page you need to follow this syntax:"
+            "text": "To embed a PNG image into a Docs page you need to follow this syntax:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um ein PNG-Bild in eine Docs-Seite einzubetten, müssen Sie diese Syntax befolgen:",
+                    "updated": 1633957649862
+                }
+            ]
         },
         {
             "style": "Json",
@@ -16,7 +30,14 @@
         },
         {
             "style": "Title",
-            "text": "Example:"
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1633957661851
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -24,7 +45,14 @@
         },
         {
             "style": "Text",
-            "text": "Looks like this:"
+            "text": "Looks like this:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies sieht wiefolgt aus:",
+                    "updated": 1633957847513
+                }
+            ]
         },
         {
             "style": "Png",

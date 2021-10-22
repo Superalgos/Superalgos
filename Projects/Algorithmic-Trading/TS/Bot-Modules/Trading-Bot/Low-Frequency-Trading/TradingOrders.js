@@ -17,7 +17,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
     let sessionParameters
 
     let exchangeAPIModuleObject = TS.projects.algorithmicTrading.botModules.exchangeAPI.newAlgorithmicTradingBotModulesExchangeAPI(processIndex)
-    let announcementsModuleObject = TS.projects.foundations.botModules.announcements.newFoundationsBotModulesAnnouncements(processIndex)
+    let announcementsModuleObject = TS.projects.socialBots.botModules.announcements.newSocialBotsBotModulesAnnouncements(processIndex)
 
     return thisObject
 
@@ -1262,7 +1262,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
                     tradingSystem.highlights.push(executionAlgorithm.id)
                     tradingSystem.highlights.push(executionNode.id)
 
-                    announcementsModuleObject.makeAnnoucements(event)
+                    announcementsModuleObject.makeAnnouncements(event)
                     return situation.name  // if the event is triggered, we return the name of the situation that passed
                 }
             }

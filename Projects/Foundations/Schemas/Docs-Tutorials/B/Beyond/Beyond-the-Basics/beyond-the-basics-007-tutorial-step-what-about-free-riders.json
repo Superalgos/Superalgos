@@ -21,6 +21,11 @@
                 "text": "¡Aprovecharse no es cool! Sabemos que una vez que comiences a contribuir, inspirarás a más personas a seguir tu ejemplo.",
                 "updated": 1628119445138,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Trittbrettfahren ist nicht cool! Wir wissen, dass Sie, sobald Sie einen Beitrag leisten, mehr Leute dazu inspirieren werden, Ihrem Beispiel zu folgen!",
+                "updated": 1634820436879
             }
         ]
     },
@@ -41,12 +46,24 @@
                     "text": "El proyecto ha implementado un poderoso esquema de incentivos para promover el comportamiento deseado y fomentar una cultura de colaboración. ¡Estamos distribuyendo el token de Superalgos (SA) exclusivamente entre los contribuyentes!",
                     "updated": 1628121558894,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Projekt hat ein starkes Anreizsystem eingeführt, um das gewünschte Verhalten zu fördern und eine Kultur der Zusammenarbeit zu unterstützen. Wir verteilen den Superalgos (SA) Token ausschließlich an Mitwirkende!",
+                    "updated": 1634820476632
                 }
             ]
         },
         {
             "style": "Link",
-            "text": "Learn more about the Superalgos SA Token!->superalgos.org/token-overview.shtml"
+            "text": "Learn more about the Superalgos SA Token!->superalgos.org/token-overview.shtml",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Erfahren Sie mehr über den Superalgos SA Token!->superalgos.org/token-overview.shtml ",
+                    "updated": 1634820515144
+                }
+            ]
         },
         {
             "style": "Success",
@@ -64,6 +81,11 @@
                     "text": "¡Combatimos el free-riding con incentivos!",
                     "updated": 1628121572845,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir bekämpfen Trittbrettfahren mit Anreizen!",
+                    "updated": 1634820484905
                 }
             ]
         },
@@ -83,6 +105,11 @@
                     "text": "¡Pongamos en marcha tu primera contribución! ¡Primero, te enseñaré cómo cambiar de rama!",
                     "updated": 1628121589878,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie uns Ihren ersten Beitrag ins Rollen bringen! Zuerst zeige ich Ihnen, wie Sie den Zweig wechseln können!",
+                    "updated": 1634820492671
                 }
             ]
         }

@@ -33,10 +33,10 @@ exports.newEnvironment = function () {
         P2P_NETWORK_NODE_SIGNING_ACCOUNT: 'P2P-Network-Node-1',
     }
 
-    if (process.env.PORTABLE_EXECUTABLE_DIR) {
-        thisObject.PATH_TO_DATA_STORAGE = path.join(process.env.PORTABLE_USER_DOCUMENTS, '/Superalgos/Platform/My-Data-Storage')
-        thisObject.PATH_TO_LOG_FILES = path.join(process.env.PORTABLE_USER_DOCUMENTS, '/Superalgos/Platform/My-Log-Files')
-        thisObject.PATH_TO_MY_WORKSPACES = path.join(process.env.PORTABLE_USER_DOCUMENTS, '/Superalgos/Platform/My-Workspaces')
+    if (process.env.DATA_PATH) {
+        thisObject.PATH_TO_DATA_STORAGE = path.join(process.env.DATA_PATH, '/Superalgos_Data/My-Data-Storage')
+        thisObject.PATH_TO_LOG_FILES = path.join(process.env.DATA_PATH, '/Superalgos_Data/My-Log-Files')
+        thisObject.PATH_TO_MY_WORKSPACES = path.join(process.env.DATA_PATH, '/Superalgos_Data/My-Workspaces')
     }
 
     return thisObject

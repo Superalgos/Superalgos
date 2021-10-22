@@ -8,6 +8,7 @@ const {autoUpdater} = require("electron-updater")
 // Enable non contribution mode (test)
 process.env.SA_MODE = 'gitDisable'
 process.env.PACKAGED_PATH = app.getAppPath()
+process.env.DATA_PATH = app.getPath('documents')
 
 const WINDOW_WIDTH = null
 const WINDOW_HEIGHT = null
@@ -22,21 +23,19 @@ const port = 34248 // Default HTTP port
 run()
 
 function run() {
-  if (process.env.PORTABLE_EXECUTABLE_DIR) {
-    process.env.PORTABLE_USER_DOCUMENTS = app.getPath("userData")
-  }
-
   const { fork } = require('child_process')
-  fork(path.join(__dirname, '/PlatformRoot.js'), ["noBrowser"])
-
-  server_ready = true
-  if (app_ready) open()
+  const platform = fork(path.join(__dirname, '/PlatformRoot.js'), ["noBrowser"], {stdio: ['pipe', 'pipe', 'pipe', 'ipc'], env: process.env})
+  platform.on('message', message => {
+    if(message == "Running") {
+      open()
+    }
+  })
 }
 
 function open () {
   let bw_options = {
     width: WINDOW_WIDTH ? WINDOW_WIDTH : 1280,
-    height: WINDOW_HEIGHT ? WINDOW_HEIGHT : 720,
+    height: WINDOW_HEIGHT ? WINDOW_HEIGHT : 768,
     resizable: true
   }
 

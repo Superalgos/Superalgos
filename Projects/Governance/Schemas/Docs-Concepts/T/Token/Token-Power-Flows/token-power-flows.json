@@ -2,7 +2,14 @@
     "type": "Token Power Flows",
     "definition": {
         "text": "Token Power flows cascading down from the User Profile node to the Token Power Switch node, to its offspring, and so on, following the structure of the hierarchy.",
-        "updated": 1630215880089
+        "updated": 1630215880089,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Token Power fluye hacia abajo desde el nodo del  User Profile al nodo Token Power Switch, a su descendencia, y así sucesivamente, siguiendo la estructura de la jerarquía.",
+                "updated": 1634910918911
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,19 +19,47 @@
         },
         {
             "style": "Text",
-            "text": "How Token Power flows depends on the following:"
+            "text": "How Token Power flows depends on the following:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Como fluye el Token Power flows depende de lo siguiente:",
+                    "updated": 1634910954443
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "By default, Token Power flows in equal proportion to each direct offspring node."
+            "text": "By default, Token Power flows in equal proportion to each direct offspring node.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Por defecto, Token Power fluye en proporciones iguales  hacia cada nodo de la descendencia.",
+                    "updated": 1634911032685
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "You may override the defaults by explicitly defining the percentage of the Token Power you wish to allocate to each offspring. If you define less than a total of 100%, then the remaining Token Power is distributed evenly across the offspring for which there is no definition."
+            "text": "You may override the defaults by explicitly defining the percentage of the Token Power you wish to allocate to each offspring. If you define less than a total of 100%, then the remaining Token Power is distributed evenly across the offspring for which there is no definition.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Puede anular los valores predeterminados definiendo explícitamente el porcentaje de Token Power que desea destinar a cada descendencia. Si define un total menor al 100%, entonces el Token Power remanente es  distribuido uniformemente a lo largo de la descendencia para la que no hay una definición.",
+                    "updated": 1634911204687
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is the format of the configuration you may use on each of the programs:"
+            "text": "This is the format of the configuration you may use on each of the programs:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": " Este es el formato de la configuración que puede usar en cada uno de los programas:",
+                    "updated": 1634911279679
+                }
+            ]
         },
         {
             "style": "Json",
@@ -34,16 +69,37 @@
         {
             "style": "Text",
             "text": "For example, let's say you have 1,000 Token Power flowing into your Token Power Switch node. Let's say you spawn the Onboarding Programs, Community Building Programs, Votes And Claims Programs, and Financial Programs nodes.",
-            "updated": 1630436060757
+            "updated": 1630436060757,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Por ejemplo, digms que tiene 1,000 Token Power fluyendo a su nodo de Token Power Switch. Digamos que engendra los nodos de Onboarding Programs ( programas de inicio), Community Building Programs (programas de edificacion de comunidad), Votes And Claims Programs,(programas de votos y declaraciones) y Financial Programs ( programas financieros).",
+                    "updated": 1634911476645
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "As soon as you deploy these four offspring of the Token Power Switch node, you will see that each of the nodes gets 25% of the Token Power by default.",
-            "updated": 1630436087763
+            "updated": 1630436087763,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Tan pronto como despliega estos cuatro vástagos del nodo Token Power Switch, verá que cada uno de los nodos obtiene 25% del Token Power por defecto.",
+                    "updated": 1634911583055
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "But you wish to limit the Token Power flowing into the Onboarding Programs to zero, as those programs do not require Token Power. To do that, you set up the following in the Onboarding Programs node configuration:"
+            "text": "But you wish to limit the Token Power flowing into the Onboarding Programs to zero, as those programs do not require Token Power. To do that, you set up the following in the Onboarding Programs node configuration:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Pero desea limitar el Token Powerque está fluyendo en los Onboarding Programs a cero, ya que estos programas no necesitan Token Power. Para hacer esto, establezca la siguiente configuración en el nodo Onboarding Programs:",
+                    "updated": 1634911723538
+                }
+            ]
         },
         {
             "style": "Json",
@@ -52,12 +108,26 @@
         },
         {
             "style": "Callout",
-            "text": "Once the configuration is in place, you will notice that the Onboarding Programs node shows 0% and 0 Token Power flowing into the node. You will also notice that the rest of the nodes are getting 33.33% of the Token Power each."
+            "text": "Once the configuration is in place, you will notice that the Onboarding Programs node shows 0% and 0 Token Power flowing into the node. You will also notice that the rest of the nodes are getting 33.33% of the Token Power each.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Una vez que la configuración este en su ugar, notará que el nodo Onboarding Programs muestra 0% y 0 Token Power fluye al nodo. Notará también que el resto de los nodos estan recibiendo cada uno el 33.33% del Token Power.",
+                    "updated": 1634911889711
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Now let's say you wish to use only 10% of your Token Power in the Community Building Programs. So you set up the following config:",
-            "updated": 1630436162265
+            "updated": 1630436162265,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Digamos ahora que sedea usar solamente un 10% de su Token Power en los Community Building Programs. Entonces realice la siguiente configuración:",
+                    "updated": 1634912005591
+                }
+            ]
         },
         {
             "style": "Json",
@@ -67,12 +137,26 @@
         {
             "style": "Callout",
             "text": "As a result, 10% of the Token Power flows into the Community Building Programs, while the remaining nodes get 45% of the Token Power each.",
-            "updated": 1630436168281
+            "updated": 1630436168281,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Como resultado, 10% del Token Power fluye a los Community Building Programs, mientras que los nodos remanentes reciben cada uno el 45% del Token Power.",
+                    "updated": 1634912094831
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "One more thing! When Token Power flows into a specific program, it turns into a specific form of power associated with the said program! For example, Token Power that flows into the Support Program turns into Support Power. In the Voting Program, it turns into Voting Power. Notice that this is just a change in the name, as all these forms of powers behave in the same manner throughout the User Profile hierarchy.",
-            "updated": 1630436471069
+            "updated": 1630436471069,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Una cosa más! Cuando el Token Power fluye a un programa específico, se transforma en una manera especifíca de poder asociado a dicho programa! Por ejemplo, Token Power que fluye al Support Program se transforma en Support Power. En el  Voting Program, se transforma en Voting Power. Note que esto es solamente un cambio de nombre, ya que todas estas formas de poder se comportan de  la misma manera a través de la jerarquía del User Profile.",
+                    "updated": 1634912461708
+                }
+            ]
         }
     ]
 }

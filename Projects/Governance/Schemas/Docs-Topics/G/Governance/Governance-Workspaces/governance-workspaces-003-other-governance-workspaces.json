@@ -4,7 +4,14 @@
     "type": "Other Governance Workspaces",
     "definition": {
         "text": "The term refers to project-specific Governance Workspaces, as opposed to the main Token Distribution Superalgos Governance Workspace. Project-specific workspaces have a similar layout, as different projects usually have the same kinds of Assets, Features, Positions, and Pools categories.",
-        "updated": 1630597429410
+        "updated": 1630597429410,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El término se refiere a proyectos específicos de los Governance Workspaces, como opuesto del Token Distribution Superalgos Governance Workspace. Workspaces de proyectos específicos tienen un diseño similar, ya que los diferentes proyectos suelen tener el mismo tipo de Assets, Features, Positions, y Pools categories.",
+                "updated": 1634918764797
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -14,7 +21,14 @@
         },
         {
             "style": "List",
-            "text": "Core Team members only, to keep the workspaces light."
+            "text": "Core Team members only, to keep the workspaces light.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Solamente los miembros del Core Team ( Equipo central), para mantener los workspaces livianos.",
+                    "updated": 1634917884618
+                }
+            ]
         },
         {
             "style": "Title",
@@ -26,17 +40,38 @@
         },
         {
             "style": "List",
-            "text": "Superalgos Pools hierarchy (present in all Governance Workspaces for usability reasons)."
+            "text": "Superalgos Pools hierarchy (present in all Governance Workspaces for usability reasons).",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Las jerarquías de Superalgos Pools  (presentes en todos losl Governance Workspaces por razones de utilidad).",
+                    "updated": 1634917960303
+                }
+            ]
         },
         {
             "style": "List",
             "text": "A project-specific Pools hierarchy (for instance, Foundation-Project or Education-Project) defining pools for the main areas of the software, including pools for assets, features, positions, bug fixes, and improvements.",
-            "updated": 1630580570265
+            "updated": 1630580570265,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Una jerarquía project-specific Pools (por ejemplo, Foundation-Project o Education-Project) definiendo pools para las áreas principales del software, incluyendo pools para activos, funciones, posiciones, correcciones de errores y mejoras.",
+                    "updated": 1634918207357
+                }
+            ]
         },
         {
             "style": "List",
             "text": "A project-specific Pools hierarchy for assets (for instance, Foundations-Project-Assets or Education-Project-Assets), providing a more granular definition of various pools for several categories of assets, such as user interface, task server, app schemas, custom code, education, multi media,, and plugins.",
-            "updated": 1630581068210
+            "updated": 1630581068210,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Una jerarquía  project-specific Pools para activos (por ejemplo, Foundations-Project-Assets or Education-Project-Assets), proporcionando una definición más granular de varios grupos para varias categorías de activos, como interfaz de usuario, servidor de tareas, esquemas de aplicaciones, código personalizado, educación, multimedia y complementos.",
+                    "updated": 1634918292664
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -44,7 +79,14 @@
         },
         {
             "style": "List",
-            "text": "A project-specific Positions hierarchy (for instance Foundation-Project or Education-Project) defining positions such as the project's lead developer or bug hunters."
+            "text": "A project-specific Positions hierarchy (for instance Foundation-Project or Education-Project) defining positions such as the project's lead developer or bug hunters.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Una jerarquía project-specific Positions (por ejemplo Foundation-Project or Education-Project) definiendo posiciones como el desarrollador principal del proyecto o los cazadores de errores.",
+                    "updated": 1634918378454
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -52,7 +94,14 @@
         },
         {
             "style": "List",
-            "text": "A project-specific Features hierarchy (for instance, Foundation-Project or Education-Project) usually defining project-specific features."
+            "text": "A project-specific Features hierarchy (for instance, Foundation-Project or Education-Project) usually defining project-specific features.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Una jerarquía  project-specific Features  (por ejemplo, Foundation-Project or Education-Project) usualmente definiendo funciones de proyectos específicos.",
+                    "updated": 1634918446738
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -60,7 +109,14 @@
         },
         {
             "style": "Text",
-            "text": "Several project-specific Assets hierarchies defining multiple catetories of assets, such as:"
+            "text": "Several project-specific Assets hierarchies defining multiple catetories of assets, such as:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Varias jerarquías de activos específicos del proyecto que definen múltiples categorías de activos, tales como:",
+                    "updated": 1634918470213
+                }
+            ]
         },
         {
             "style": "List",

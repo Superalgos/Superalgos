@@ -4,37 +4,86 @@
     "type": "Building Your Profile",
     "definition": {
         "text": "Building your User Profile involves linking your Governance Address to your identity in Github.com, using the Profile Constructor. ",
-        "updated": 1630067747645
+        "updated": 1630067747645,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Construir su User Profile implica vincular su Governance Address a su identidad en Github.com, usando el Profile Constructor.",
+                "updated": 1634913637710
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "This guide will get you up to speed in just a few minutes. This is what you’ll need (requirements):",
-            "updated": 1630066775182
+            "updated": 1630066775182,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Esta guia lo pondrá al día en solo unos minutos. Esto es lo que necesitará (requerimientos):",
+                    "updated": 1634913739114
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Up-to-date software: the latest version of the Superalgos Platform in the Develop branch.",
-            "updated": 1630067794445
+            "updated": 1630067794445,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Software actualizado: la última vesión de la Superalgos Platform en Develop branch ( rama de desarrollo).",
+                    "updated": 1634913937596
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Prior knowledge: a basic understanding of how the Superalgos Platform works. If you haven't yet, make sure you do the tutorials in the Getting Started Tutorials Plugin Workspace before diving into the Governance Project.",
-            "updated": 1630067826681
+            "updated": 1630067826681,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Conocimientos previos: un entendimiento básico de como trabaja la plataforma de Superalgos. Si no lo tiene aún, aseguréce de hacer los tutoriales en el Getting Started Tutorials Plugin Workspace ( Espacio de trabajo del complemento de tutoriales de introducción) antes de ingresar al Governance Project.",
+                    "updated": 1634914162231
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Identity: your GitHub.com username.",
-            "updated": 1630066924264
+            "updated": 1630066924264,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Identidad: su usuario en GitHub.com.",
+                    "updated": 1634914234658
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Optional: Trust Wallet, or any wallet that may import a Binance Smart Chain (BSC) private key."
+            "text": "Optional: Trust Wallet, or any wallet that may import a Binance Smart Chain (BSC) private key.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Opcional: Trust Wallet, o cualquier billetera dnde pueda importar una Binance Smart Chain (BSC) private key ( llave privada )",
+                    "updated": 1634914329193
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "The process described below is covered, step by step, in the Creating Your User Profile Tutorial. Doing the tutorial is highly recommended. If you do, then you do not need to follow the below instructions.",
-            "updated": 1630067119898
+            "updated": 1630067119898,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El proceso descripto arriba está cubierto, paso a paso, en Creating Your User Profile Tutorial ( en el tutorial de como crear su perfil de usuario) Hacer el tutorial es altamente recomendado. si lo hace, no necesita seguir las instrucciones de abajo.",
+                    "updated": 1634914553673
+                }
+            ]
         },
         {
             "style": "Title",
@@ -42,22 +91,50 @@
         },
         {
             "style": "Subtitle",
-            "text": "1. Load the Token Distribution Superalgos Plugin Workspace"
+            "text": "1. Load the Token Distribution Superalgos Plugin Workspace",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "1. Cargue el Token Distribution Superalgos Plugin Workspace",
+                    "updated": 1634914608412
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You may start with the Token Distribution Superalgos Plugin Workspace so that you may later interact with the top-level Superalgos Project definitions.",
-            "updated": 1630435453964
+            "updated": 1630435453964,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Puede comenzar con el Token Distribution Superalgos Plugin Workspace para que pueda luego interactuar con las definiciones del nivel superior del Superalgos Project.",
+                    "updated": 1634914715904
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "2. Spawn and Configure the Profile Constructor",
-            "updated": 1630079965869
+            "updated": 1630079965869,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "2. Generar y construir el perfil de constructor",
+                    "updated": 1634914771483
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The Profile Constructor is the device you will use to link your Github.com identity with the BSC address where you hold or plan to hold your Superalgos SA Tokens. We call it your Governance Address.",
-            "updated": 1630080366604
+            "updated": 1630080366604,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El Profile Constructor es el dispositivo que utilizará para enlazar su identidad Github.com con la dirección BSC donde tiene o planea tener los Superalgos SA Tokens. Nosotros la llamamos su  Governance Address ( dirección de gobernanza).",
+                    "updated": 1634914945351
+                }
+            ]
         },
         {
             "style": "Include",
@@ -65,26 +142,61 @@
         },
         {
             "style": "Important",
-            "text": "Once you are done setting up the address, you need to back up your private key in whatever way you desire, and delete the Profile Constructor so that the private key is removed from the Workspace. No worries… I’ll remind you of all this when the time comes."
+            "text": "Once you are done setting up the address, you need to back up your private key in whatever way you desire, and delete the Profile Constructor so that the private key is removed from the Workspace. No worries… I’ll remind you of all this when the time comes.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Una vez que haya terminado de configurar la dirección, necesita guardar una copia de seguridad de su llave privada en el modo que desee, y borrar el Profile Constructor para que su private key sea removida del Workspace. No  se preocupe… le recordaré todo esto cuando sea necesario.",
+                    "updated": 1634915185881
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Go to the Governance Project hierarchy and select Add Profile Constructor on the menu.",
-            "updated": 1630079909997
+            "updated": 1630079909997,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Vaya a la jerarquía Governance Project y seleccione Add Profile Constructor en el menú.",
+                    "updated": 1634915248246
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Access the configuration and enter your GitHub.com username.",
-            "updated": 1630080009714
+            "updated": 1630080009714,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Acceda a la configuración e ingrese su usuario de GitHub.com.",
+                    "updated": 1634915575976
+                }
+            ]
         },
         {
             "style": "List",
             "text": "If you already have a Superalgos SA Token address, you may enter the associated mnemonic phrase to verify the ownership of the address. If you don't have an address, leave the mnemonic property empty so that the Profile Constructor creates a new address for you.",
-            "updated": 1630080154442
+            "updated": 1630080154442,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si ya tiene una dirección de  Superalgos SA Token puede ingresar la frase mnemotécnica asociada para verificar la propiedad de la dirección. Si aún no tiene una dirección, deje la propiedad mnemotécnica vacía para que el Profile Constructor cree una dirección nueva para usted.",
+                    "updated": 1634915726270
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Go ahead and select Add Profile Constructor too."
+            "text": "Go ahead and select Add Profile Constructor too.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Continúe y seleccione también Add Profile Constructor.",
+                    "updated": 1634915766954
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -92,35 +204,84 @@
         },
         {
             "style": "Text",
-            "text": "The next step involves building the profile, but before you do so, let me explain what the process involves:"
+            "text": "The next step involves building the profile, but before you do so, let me explain what the process involves:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El paso siguiente incluye construir su perfil,pero antes de que haga eso, dejeme explicarle que incluy el proceso:",
+                    "updated": 1634915867896
+                }
+            ]
         },
         {
             "style": "List",
             "text": "If you didn't enter a mnemonic, a BSC address and the corresponding private key will be generated.",
-            "updated": 1630080750557
+            "updated": 1630080750557,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si no ingresó un mnemónico, se generará una dirección BSC y la clave privada correspondiente.",
+                    "updated": 1634915898481
+                }
+            ]
         },
         {
             "style": "List",
             "text": "A cryptographic message with your GitHub.com username will be signed with the private key corresponding to the address just generated or the mnemonic you entered. This message will be stored in your User Profile so that we may authenticate it comes from you once you submit your profile as a plugin in the Governance Project.",
-            "updated": 1630080772975
+            "updated": 1630080772975,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un mensaje criptográfico con su usuario de GitHub.comse firmará con la clave privada correspondiente a la dirección recién generada o el mnemónico que ingresó. Este mensaje se guardará en su User Profile para que podamos autenticar que proviene de usted una vez que envíe su perfil como un complemento en el Governance Project.",
+                    "updated": 1634916041632
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Ok… let’s do this!"
+            "text": "Ok… let’s do this!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Ok… hagamos esto!",
+                    "updated": 1634916062968
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Access the menu of the Profile Constructor and click the Build Profile option. Click again to confirm the operation."
+            "text": "Access the menu of the Profile Constructor and click the Build Profile option. Click again to confirm the operation.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Acceda al menú del Profile Constructor y cliquee la opción Build Profile. Cliquee de nuevo para cnfirmar la operación.",
+                    "updated": 1634916159521
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "That's it!",
-            "updated": 1630082601712
+            "updated": 1630082601712,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Eso es!",
+                    "updated": 1634916170287
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "If you already have tokens in your Governance Address, you should see the Blockchain Power coming into your User Profile. It may take a minute or so for the system to get the data from the blockchain. If you have no tokens, then you will get zero Blockchain Power.",
-            "updated": 1630082879935
+            "updated": 1630082879935,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si ya tiene tokens en su Governance Address ( dirección de gobernanza), deberíaver el Blockchain Power ingresando a su User Profile. Puede llevar un minuto para que el sistema obtenga los datos de la blockchain. Si no tiene tokens, entonces tendrá cero Blockchain Power.",
+                    "updated": 1634916325419
+                }
+            ]
         },
         {
             "style": "Png",
@@ -133,7 +294,14 @@
         },
         {
             "style": "Text",
-            "text": "Now, take a minute to check the configuration of the User Profile node. You should see a message similar to the one below:"
+            "text": "Now, take a minute to check the configuration of the User Profile node. You should see a message similar to the one below:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Ahotome un minuto para chequear la configuración del nodo del User Profile. Debería ver un mensaje similar a este de aquí debajo:",
+                    "updated": 1634916421543
+                }
+            ]
         },
         {
             "style": "Json",
@@ -143,7 +311,14 @@
         {
             "style": "Text",
             "text": "This is how the governance system will know that this User Profile belongs to the private key that signed the message, which in turn belongs to the address that will hold the tokens that confer your profile with Token Power.",
-            "updated": 1630080906578
+            "updated": 1630080906578,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Así es como el sistema de gobernanza sabrá que este User Profile pertenece a la clave privada que firmó el mensaje, que a su vez pertenece a la dirección que albergará los tokens que confieren tu perfil conToken Power.",
+                    "updated": 1634916514262
+                }
+            ]
         },
         {
             "style": "Title",
@@ -153,21 +328,49 @@
         {
             "style": "Note",
             "text": "If you used a mnemonic to authenticate an existing address, you may safely disregard what comes next.",
-            "updated": 1630083542691
+            "updated": 1630083542691,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si usó un mnemotécnico para autenticar una dirección existente, puede ignorar con seguridad lo que viene a continuación.",
+                    "updated": 1634916535298
+                }
+            ]
         },
         {
             "style": "Warning",
             "text": "This is very important! If you chose to generate a new address, you must back up your private key! Later on, you will hold Superalgos SA Tokens in this address. Before you do that, you must safely store the private key that you will use to access the address.",
-            "updated": 1630083582536
+            "updated": 1630083582536,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Esto es muy importante! Si elige generar una nueva dirección, ¡debe hacer una copia de seguridad de su clave privada! Más tarde, tendrás Superalgos SA Tokens en esta dirección. Antes de hacer esto, debe guardar en un lugar seguro  su llave privada que ulitizará para acceder a la dirección.",
+                    "updated": 1634916702851
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "At this point, Superalgos doesn’t offer a built-in solution to securely back up your private keys. All the system does at this point is create a BSC address / private key pair and deliver it in the configuration of the Profile Constructor node. It is up to you to decide how you are going to handle this sensitive information.",
-            "updated": 1630083613308
+            "updated": 1630083613308,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En estos momentos Superalgos no ofrece una solución integrada para realizar copias de seguridad de sus claves privadas de forma segura. Todo lo que hace el sistema en este punto es crear un par de dirección BSC / clave privada y entregarlo en la configuración del nodo Profile Constructor. Es su decisión como hace paramanejar esta información sensible.",
+                    "updated": 1634916838666
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Access the configuration of the Profile Constructor. You will find the address and private key in the following format, so that you may back up the information in whatever way you see fit."
+            "text": "Access the configuration of the Profile Constructor. You will find the address and private key in the following format, so that you may back up the information in whatever way you see fit.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Acceda ala cnfiguración del Profile Constructor. Encontrará la dirección y la clave privada en el siguiente formato, para que pueda hacer una copia de seguridad de la información de la forma que considere conveniente..",
+                    "updated": 1634916895584
+                }
+            ]
         },
         {
             "style": "Json",
@@ -186,7 +389,14 @@
         {
             "style": "Warning",
             "text": "Once you are satisfied with your backup of the private key, or if you used a mnemonic of an existing address, you must delete the Profile Constructor node! It is not safe to store your private key at the Workspace, as you may accidentally submit it to GitHub.com with one of your contributions. Also, remember that workspaces are saved on disk as unencrypted JSON files, with no security whatsoever.",
-            "updated": 1630083271674
+            "updated": 1630083271674,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Una vez que esté satisfecho con su copia de seguridad de la clave privada, o si utilizó un mnemónico de una dirección existente, debes borrar el nodo Profile Constructor! No es seguro almacenar su clave privada en el Workspace, ya que puede enviarlo accidentalmente a GitHub.comcon una de sus contribuciones. También, recuerde  que los workspaces se graban en el disco como archivos no encriptados JSON, sin seguridad alguna.",
+                    "updated": 1634917168364
+                }
+            ]
         },
         {
             "style": "Anchor",
@@ -200,7 +410,14 @@
         {
             "style": "Text",
             "text": "This step is not required for interacting with governance, however, we’ll cover it as you will, most likely, want to do it at some point, and it is recommended anyway, even if not strictly necessary.",
-            "updated": 1630435748864
+            "updated": 1630435748864,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Este paso no es necesario para interactuar con la gobernanza, sin embargo, lo cubriremos ya que, muy probablemente, desee hacerlo en algún momento, y se recomienda de todos modos, incluso si no es estrictamente necesario.",
+                    "updated": 1634917195488
+                }
+            ]
         },
         {
             "style": "Note",
@@ -209,15 +426,36 @@
         },
         {
             "style": "Text",
-            "text": "The idea is to import the address / private key you just created into a functional hardware or software wallet, so that you may control the tokens you will eventually send to this address."
+            "text": "The idea is to import the address / private key you just created into a functional hardware or software wallet, so that you may control the tokens you will eventually send to this address.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La idea es importar la dirección / clave privada que acaba de crear en una billetera funcional de hardware o software, para que pueda controlar los tokens que eventualmente enviará a esta dirección.",
+                    "updated": 1634917250688
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is not required to interact with governance, as all you need to do so is send Superalgos SA Tokens to the address. However, it is rather obvious that at some point you may want to move those tokens. You also want to make sure that you do indeed control the address before sending tokens there. So, let’s get on with it!"
+            "text": "This is not required to interact with governance, as all you need to do so is send Superalgos SA Tokens to the address. However, it is rather obvious that at some point you may want to move those tokens. You also want to make sure that you do indeed control the address before sending tokens there. So, let’s get on with it!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Esto no es necesario para interactuar con la gobernanza, ya que todo lo que necesita hacer es enviar tokens Superalgos SA a la dirección Sin embargo, es bastante obvio que en algún momento es posible que desee mover esos tokens. You also want to make sure that you do indeed control the address before sending tokens there. So, let’s get on with it!",
+                    "updated": 1634917325409
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "We’ll cover how to import your private key into Trust Wallet. If you’re using any other wallet, you’ll need to figure out the equivalent process."
+            "text": "We’ll cover how to import your private key into Trust Wallet. If you’re using any other wallet, you’ll need to figure out the equivalent process.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cubriremos cómo importar su clave privada a Trust Wallet. Si está utilizando cualquier otra billetera, deberá averiguar el proceso equivalente.",
+                    "updated": 1634917351339
+                }
+            ]
         },
         {
             "style": "List",
@@ -267,20 +505,48 @@
         },
         {
             "style": "List",
-            "text": "Click on the “Private Key” tab."
+            "text": "Click on the “Private Key” tab.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cliquee en el tabulador “Private Key”.",
+                    "updated": 1634917392198
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "We have no images of the previous and the next few screens as Trust Wallet won't allow capturing these pages.",
-            "updated": 1630082470933
+            "updated": 1630082470933,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "No tenemos imágenes de las pantallas anteriores y siguientes, ya que Trust Wallet no permitirá capturar estas páginas.",
+                    "updated": 1634917424627
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Copy your Private Key and click “PASTE”. I know, Trust Wallet runs on your mobile phone, so you need to figure out how to access your private key from your phone."
+            "text": "Copy your Private Key and click “PASTE”. I know, Trust Wallet runs on your mobile phone, so you need to figure out how to access your private key from your phone.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Copie su Private Key y cliquee “PASTE”. Yo se, Trust Wallet corre en su teléfono móvil, entonces neceita para averiguar cómo acceder a su private key desde su teléfono.",
+                    "updated": 1634917569060
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Enter a Name for the wallet (something along the lines of “Superalgos Profile”?) and click the “IMPORT” button."
+            "text": "Enter a Name for the wallet (something along the lines of “Superalgos Profile”?) and click the “IMPORT” button.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Ingrese un nombre para la billetera (algo parecido a “Superalgos Profile”?) y cliquee el botón de “IMPORT”.",
+                    "updated": 1634917641869
+                }
+            ]
         },
         {
             "style": "List",

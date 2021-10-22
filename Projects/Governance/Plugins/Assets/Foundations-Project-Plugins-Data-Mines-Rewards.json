@@ -1,0 +1,123 @@
+{
+    "type": "Assets",
+    "name": "Foundations-Project Plugins Data-Mines Rewards",
+    "config": "{\"codeName\":\"Foundations-Project-Plugins\"}",
+    "project": "Governance",
+    "assetClasses": [
+        {
+            "type": "Asset Class",
+            "name": "Plugins Rewards",
+            "config": "{\n    \"folderPath\": \"Foundations/Plugins\"\n}",
+            "project": "Governance",
+            "assetClasses": [
+                {
+                    "type": "Asset Class",
+                    "name": "Data-Mines",
+                    "config": "{\"codeName\":\"Data-Mines\"}",
+                    "project": "Governance",
+                    "assetClasses": [],
+                    "assets": [
+                        {
+                            "type": "Asset",
+                            "name": "Data Mines wit Indicators, Plotters and Sample Workspace with Trading-System ",
+                            "config": "{}",
+                            "project": "Governance",
+                            "assetClasses": [],
+                            "assets": [],
+                            "id": "fb57cfb4-a688-4521-8fb0-7f329484b902",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 19313.166666666668,
+                                    "y": 38525.31154239019
+                                },
+                                "targetPosition": {
+                                    "x": 19313.166666666668,
+                                    "y": 38225.31154239019
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "f60b754f-83b7-4d54-9daa-99888b805e1a",
+                    "savedPayload": {
+                        "position": {
+                            "x": 19313.166666666668,
+                            "y": 38225.31154239019
+                        },
+                        "targetPosition": {
+                            "x": 19313.166666666668,
+                            "y": 37925.31154239019
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "assets": [],
+            "id": "8742112d-7227-4678-a435-bf11956c0b54",
+            "savedPayload": {
+                "position": {
+                    "x": 19313.166666666668,
+                    "y": 37925.31154239019
+                },
+                "targetPosition": {
+                    "x": 19313.166666666668,
+                    "y": 37625.31154239019
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 2,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        }
+    ],
+    "assets": [],
+    "id": "cfc85fed-e63c-4a02-9d25-f7bacec173d4",
+    "savedPayload": {
+        "position": {
+            "x": 19313.166666666668,
+            "y": 37625.31154239019
+        },
+        "targetPosition": {
+            "x": 19313.166666666668,
+            "y": 37625.31154239019
+        },
+        "floatingObject": {
+            "isPinned": false,
+            "isFrozen": false,
+            "isCollapsed": false,
+            "angleToParent": 2,
+            "distanceToParent": 3,
+            "arrangementStyle": 0
+        },
+        "uiObject": {
+            "isRunning": false
+        }
+    }
+}

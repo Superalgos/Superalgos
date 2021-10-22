@@ -4,7 +4,14 @@
     "type": "How to Test New Exchanges",
     "definition": {
         "text": "Testing exchanges is an ongoing Community effort. If you wish to work with an exchange that is not tested, this topic covers everything you need to know to debug the Sensor Bot and find out what needs to be done to achieve the goal.",
-        "updated": 1616007833424
+        "updated": 1616007833424,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Testear exchanges es un esfuerzo constante de la Community. Si desea trabajar con un exchange que no ha sido testead este tópico cubre todo lo que necesita saber para corregir los errores del Sensor Bot y averigüe qué se debe hacer para lograr el objetivo.",
+                "updated": 1634919491343
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -54,7 +61,14 @@
         {
             "style": "Text",
             "text": "If you get to test an untested exchange, please participate in the Community Effort to Test Exchanges by documenting the results!",
-            "updated": 1616099671162
+            "updated": 1616099671162,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si puede probar un exchange no testeado, por favor participe en  el esfuerzo de la comunidad para probar los exchanges documentando los resultados!",
+                    "updated": 1634920018147
+                }
+            ]
         },
         {
             "style": "Success",
@@ -73,22 +87,50 @@
         {
             "style": "List",
             "text": "When the list was created it did not exist (you can try the Add Missing Exchanges menu item of the Crypto Exchanges node).",
-            "updated": 1616009129072
+            "updated": 1616009129072,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando se creó la lista no existíat (puedes probar el  Add Missing Exchanges elemento del menú del nodo Crypto Exchanges).",
+                    "updated": 1634920356736
+                }
+            ]
         },
         {
             "style": "List",
             "text": "It is not listed at the CCXT library included with Superalgos (an npm update would be needed at the right folder to update the library). If the exchange appears after the update, please inform the team so as to update it for all users.",
-            "updated": 1616009133874
+            "updated": 1616009133874,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "No ha sido listada  en la biblioteca CCXT ncluida con  Superalgos (se necesitaría una actualización de npm en la carpeta correcta para actualizar la biblioteca). Si el exchange aparece después de la actualización, informe al equipo para actualizarlo para todos los usuarios.",
+                    "updated": 1634920470895
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The exchange does not provide historical data in 1-minute candles (you can check the exchange API docs). Exchanges that do not support this basic feature are filtered out while running Add Missing Exchanges command.",
-            "updated": 1616009139987
+            "updated": 1616009139987,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El exchange no proporciona datos históricos en velas de 1 minuto (puede consultar los documentos de la  API del exchange). Exchangesque no admiten esta función básica se filtran mientras se ejecutan el comando Add Missing Exchanges",
+                    "updated": 1634920626879
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The exchange does not support the function to list markets (check the exchange API docs).",
-            "updated": 1616009144377
+            "updated": 1616009144377,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El exchange no admite la función para listar mercados (chequear los documentos del API del exchange).",
+                    "updated": 1634920707490
+                }
+            ]
         },
         {
             "style": "Title",
@@ -97,7 +139,14 @@
         {
             "style": "Text",
             "text": "For the rest of this guide, we will assume that you are using the Getting Started workspace that comes as a Plugin. If you are not, please load that workpace and close the Welcome tutorial.",
-            "updated": 1616009292308
+            "updated": 1616009292308,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para el resto de esta guía, asumiremos que está utilizando el workspace Getting Started  que viene como un Plugin.Si no es así, cargue ese workpace y cierre el Welcome tutorial.",
+                    "updated": 1634920805767
+                }
+            ]
         },
         {
             "style": "Text",

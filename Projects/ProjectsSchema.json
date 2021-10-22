@@ -311,7 +311,8 @@
                     "name": "Load Save Frame",
                     "propertyName": "loadSaveFrame",
                     "functionName": "newVisualScriptingUtilitiesLoadSaveFrame"
-                },                {
+                },
+                {
                     "name": "Meshes",
                     "propertyName": "meshes",
                     "functionName": "newVisualScriptingUtilitiesMeshes"
@@ -1350,7 +1351,14 @@
         "name": "Network",
         "propertyName": "network",
         "NT": {
-            "globals": [],
+            "globals": [
+                {
+                    "name": "Memory",
+                    "propertyName": "memory",
+                    "functionName": "newNetworkGlobalsMemory",
+                    "fileName": "Memory.js"
+                }
+            ],
             "modules": [
                 {
                     "name": "Web Sockets Interface",
@@ -1368,7 +1376,14 @@
             "utilities": []
         },
         "SA": {
-            "globals": [],
+            "globals": [
+                {
+                    "name": "Memory",
+                    "propertyName": "memory",
+                    "functionName": "newNetworkGlobalsMemory",
+                    "fileName": "Memory.js"
+                }
+            ],
             "modules": [
                 {
                     "name": "Web Sockets App Client",
@@ -1377,21 +1392,21 @@
                     "fileName": "WebSocketsAppClient.js"
                 }
             ],
-            "utilities": []
+            "utilities": [
+                {
+                    "name": "Network Node Picker",
+                    "propertyName": "networkNodePicker",
+                    "functionName": "newNetworkNetworkNodePicker",
+                    "fileName": "NetworkNodePicker.js"
+                }
+            ]
         }
     },
     {
         "name": "Social-Trading",
         "propertyName": "socialTrading",
         "NT": {
-            "globals": [
-                {
-                    "name": "Memory",
-                    "propertyName": "memory",
-                    "functionName": "newSocialTradingGlobalsMemory",
-                    "fileName": "Memory.js"
-                }
-            ],
+            "globals": [],
             "modules": [
                 {
                     "name": "User Profiles",

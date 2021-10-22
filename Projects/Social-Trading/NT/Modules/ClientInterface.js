@@ -120,7 +120,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         We will not accept events that have already been processed.
         */
 
-        if (NT.projects.socialTrading.globals.memory.maps.EVENTS.get(eventReceived.eventId) !== undefined) {
+        if (NT.projects.network.globals.memory.maps.EVENTS.get(eventReceived.eventId) !== undefined) {
             let response = {
                 result: 'Error',
                 message: 'Client Interface Event Already Exists.'
@@ -133,8 +133,8 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         try {
             let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
             event.initialize(eventReceived)
-            NT.projects.socialTrading.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
-            NT.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
+            NT.projects.network.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
+            NT.projects.network.globals.memory.arrays.EVENTS.push(event)
 
             let response = {
                 result: 'Ok',

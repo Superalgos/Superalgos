@@ -304,7 +304,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     /*
                     The signature gives us the blockchain account, and the account the user profile.
                     */
-                    let witnessUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_BLOCHAIN_ACCOUNT.get(caller.blockchainAccount)
+                    let witnessUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOCHAIN_ACCOUNT.get(caller.blockchainAccount)
 
                     if (witnessUserProfile === undefined) {
                         let response = {

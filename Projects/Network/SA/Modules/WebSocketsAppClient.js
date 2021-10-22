@@ -1,4 +1,4 @@
-exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSocketsClient() {
+exports.newNetworkModulesWebSocketsAppClient = function newNetworkModulesWebSocketsAppClient() {
 
     let thisObject = {
         sendMessage: sendMessage,
@@ -30,7 +30,6 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
         /*
         Here we will pick a Network Node from all users profiles available that do have a Network Node running. // TODO
         In the meantime, we will assume that we have chosen the following Network Node to connect to.
-       
         */
         web3 = new SA.nodeModules.web3()
 

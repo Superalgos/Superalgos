@@ -1365,10 +1365,10 @@
             "globals": [],
             "modules": [
                 {
-                    "name": "Web Sockets Client",
-                    "propertyName": "webSocketsClient",
-                    "functionName": "newNetworkModulesWebSocketsClient",
-                    "fileName": "WebSocketsClient.js"
+                    "name": "Web Sockets App Client",
+                    "propertyName": "webSocketsAppClient",
+                    "functionName": "newNetworkModulesWebSocketsAppClient",
+                    "fileName": "WebSocketsAppClient.js"
                 }
             ],
             "utilities": []
@@ -1567,9 +1567,9 @@
             "modules": [
                 {
                     "name": "Web Sockets Client",
-                    "propertyName": "webSocketsClient",
-                    "functionName": "newSocialTradingModulesWebSocketsClient",
-                    "fileName": "WebSocketsClient.js"
+                    "propertyName": "webSocketsWebClient",
+                    "functionName": "newSocialTradingModulesWebSocketsWebClient",
+                    "fileName": "WebSocketsWebClient.js"
                 }
             ]
         }

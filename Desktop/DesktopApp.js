@@ -19,7 +19,7 @@ exports.newDesktopApp = function newDesktopApp() {
         /*
         This is the Web Sockets client that interacts with the Superalgos Network.
         */
-        DK.running.webSocketsClient = SA.projects.network.modules.webSocketsClient.newNetworkModulesWebSocketsClient()
+        DK.running.webSocketsClient = SA.projects.network.modules.webSocketsAppClient.newNetworkModulesWebSocketsAppClient()
         await DK.running.webSocketsClient.initialize()
         console.log('Desktop Client Connected to Network Node via Web Sockets ................... Connected to port ' + global.env.NETWORK_WEB_SOCKETS_INTERFACE_PORT)
 

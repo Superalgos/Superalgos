@@ -1357,6 +1357,12 @@
                     "propertyName": "webSocketsInterface",
                     "functionName": "newNetworkModulesWebSocketsInterface",
                     "fileName": "WebSocketsInterface.js"
+                },
+                {
+                    "name": "Web Sockets Network Client",
+                    "propertyName": "webSocketsNetworkClient",
+                    "functionName": "newNetworkModulesWebSocketsNetworkClient",
+                    "fileName": "WebSocketsNetworkClient.js"
                 }
             ],
             "utilities": []

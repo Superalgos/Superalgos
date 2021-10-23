@@ -35,7 +35,7 @@
     "initialValues": {
         "config": "{\n\"asset\": \"BTCB\"\n}"    },
     "attachingRules": {
-        "compatibleTypes": "->Financial Programs->"
+        "compatibleTypes": "->Liquidity Programs->"
     },
     "addLeftIcons": true,
     "level": 1,

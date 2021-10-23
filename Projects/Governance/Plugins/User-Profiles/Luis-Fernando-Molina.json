@@ -11653,7 +11653,7 @@
         "liquidityPrograms": {
             "type": "Liquidity Programs",
             "name": "New Liquidity Programs",
-            "config": "{}",
+            "config": "{\n    \"percentage\": 0\n}",
             "project": "Governance",
             "liquidityProgram": [
                 {
@@ -11668,12 +11668,12 @@
                         "id": "5fd55dc1-69c8-473e-9d3d-b39b58818b07",
                         "savedPayload": {
                             "position": {
-                                "x": 38426.01200417474,
-                                "y": 19425.064478540568
+                                "x": 38529.55549577344,
+                                "y": 19215.099048196847
                             },
                             "targetPosition": {
-                                "x": 38188.00600208737,
-                                "y": 19242.43604983795
+                                "x": 38239.77774788672,
+                                "y": 19137.45333466609
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -11691,8 +11691,8 @@
                     "id": "a081e0a9-ee60-4a56-b5a6-aadb7bd8b052",
                     "savedPayload": {
                         "position": {
-                            "x": 38188.00600208737,
-                            "y": 19242.43604983795
+                            "x": 38239.77774788672,
+                            "y": 19137.45333466609
                         },
                         "targetPosition": {
                             "x": 37950,
@@ -11702,7 +11702,7 @@
                             "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": false,
-                            "angleToParent": 3,
+                            "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
@@ -11757,7 +11757,7 @@
                             "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": false,
-                            "angleToParent": 3,
+                            "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
@@ -11778,12 +11778,12 @@
                         "id": "b66c668c-8411-4401-8aa7-10d8b2c4c233",
                         "savedPayload": {
                             "position": {
-                                "x": 38028.315715332035,
-                                "y": 19654.674537959618
+                                "x": 37794.708572938485,
+                                "y": 19639.363116908775
                             },
                             "targetPosition": {
-                                "x": 37989.15785766602,
-                                "y": 19357.241079547475
+                                "x": 37872.35428646924,
+                                "y": 19349.585369022054
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -11801,8 +11801,8 @@
                     "id": "8c213687-2520-41ff-8b89-f5abaf6f2f2e",
                     "savedPayload": {
                         "position": {
-                            "x": 37989.15785766602,
-                            "y": 19357.241079547475
+                            "x": 37872.35428646924,
+                            "y": 19349.585369022054
                         },
                         "targetPosition": {
                             "x": 37950,
@@ -11812,7 +11812,7 @@
                             "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": false,
-                            "angleToParent": 3,
+                            "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },

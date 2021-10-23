@@ -30,7 +30,13 @@
             {
                 "language": "DE",
                 "text": "Ja! Sie können auch Ihre Tastatur benutzen! Sie werden es lieben, wenn Sie lange Strecken im Design Space zurücklegen!",
-                "updated": 1634164018809
+                "updated": 1634164018809,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Jazeker! je mag je keyboard ook gebruiken! Je gaat dit geweldig vinden voor lange reizen op de ontwerpruimte!",
+                "updated": 1634927272967
             }
         ]
     },
@@ -61,7 +67,13 @@
                 {
                     "language": "DE",
                     "text": "Sie können auch die Ctrl Taste und die Pfeil Tasten: ← → ↑ ↓ benutzen.",
-                    "updated": 1634164089249
+                    "updated": 1634164089249,
+                    "style": "Callout"
+                },
+                {
+                    "language": "NL",
+                    "text": "Gewone mensen gebruiken de Ctrl toets plus de pijltjestoetsen: ← → ↑ ↓",
+                    "updated": 1634927382600
                 }
             ]
         },
@@ -91,7 +103,13 @@
                 {
                     "language": "DE",
                     "text": "Wenn du die Tasten gedrückt hältst, fliegst du!",
-                    "updated": 1634164099969
+                    "updated": 1634164099969,
+                    "style": "Note"
+                },
+                {
+                    "language": "NL",
+                    "text": "Valt het je op dat als je de toetsen ingedrukt houdt, je pas echt gaat vliegen?",
+                    "updated": 1634927471853
                 }
             ]
         },
@@ -121,7 +139,13 @@
                 {
                     "language": "DE",
                     "text": "Mac-Fanboys und -girls müssen natürlich Ctrl durch Cmd ersetzen ",
-                    "updated": 1634164140475
+                    "updated": 1634164140475,
+                    "style": "Success"
+                },
+                {
+                    "language": "NL",
+                    "text": "Uiteraard moeten Mac fans de Ctrl toets vervangen voor Cmd",
+                    "updated": 1634927537845
                 }
             ]
         }

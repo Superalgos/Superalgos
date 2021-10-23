@@ -598,7 +598,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 function createNewDir(path) {
                                     try {
-                                        fs.mkdirSync(path)
+                                        fs.mkdirSync(path, {recursive: true})
                                     } catch (err) {
                                         if (err.message.indexOf('file already exists') < 0) {
                                             throw (err)
@@ -1805,7 +1805,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 /* Create Dir if it does not exist */
                                 if (!fs.existsSync(dir)) {
-                                    fs.mkdirSync(dir);
+                                    fs.mkdirSync(dir, {recursive: true});
                                 }
 
                                 fs.writeFile(filePath, fileContent, onFileWritten)

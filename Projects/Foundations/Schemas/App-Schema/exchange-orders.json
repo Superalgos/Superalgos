@@ -7,7 +7,9 @@
             "propertyToCheckFor": "marketBuyOrders",
             "label": "Add Market Buy Orders",
             "relatedUiObject": "Market Buy Orders",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -15,7 +17,9 @@
             "propertyToCheckFor": "marketSellOrders",
             "label": "Add Market Sell Orders",
             "relatedUiObject": "Market Sell Orders",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -23,7 +27,9 @@
             "propertyToCheckFor": "limitBuyOrders",
             "label": "Add Limit Buy Orders",
             "relatedUiObject": "Limit Buy Orders",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -31,10 +37,13 @@
             "propertyToCheckFor": "limitSellOrders",
             "label": "Add Limit Sell Orders",
             "relatedUiObject": "Limit Sell Orders",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

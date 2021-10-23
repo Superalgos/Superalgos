@@ -21,6 +21,11 @@
                 "text": "Para colocar un plugin ien un workspace ¡debe seleccionar la opción para agregar los plugins que faltan en el nodo del tipo correspondiente!",
                 "updated": 1626643106064,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Um ein Plugin in einem Workspace zu platzieren, müssen Sie die Option wählen, die fehlenden Plugins auf dem Knoten des passenden Typs hinzuzufügen!",
+                "updated": 1634588716948
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "¡Intentémoslo! ¡Selecciona Add Missing Trading Systems en el nodo Plugin Trading Systems!",
                     "updated": 1626643167865,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Probieren wir es aus! Wählen Sie Add Missing Trading Systems im Knoten Plugin Trading Systems!",
+                    "updated": 1634588730509
                 }
             ]
         },
@@ -57,9 +67,14 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Nuevos nodos Plugin File se crean para cada plugin in \\Plugins\\Trading-Systems. Puede eliminar los nodos Plugin File no necesitas y conserva los que necesites! Luego, puedes agregar y anclar el nodo Plugin File Position donde deseas colocar el plugin.",
-                    "updated": 1626643680169,
+                    "text": "Nuevos nodos Plugin File se crean para cada plugin in \\Foundations\\Plugins\\Trading-Systems. Puede eliminar los nodos Plugin File que no necesita y conservar los que necesite! Luego, puedes agregar y anclar el nodo Plugin File Position donde deseas colocar la jerarquía del plugin.  ",
+                    "updated": 1633282144023,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Für jedes Plugin in \\Foundations\\Plugins\\Trading-Systems werden neue Plugin File Knoten erstellt. Sie können die Plugin File Knoten, die Sie nicht benötigen, löschen und die gewünschten behalten! Fügen Sie nun den Knoten Plugin File Position hinzu und heften Sie ihn an die Stelle, an der Sie die Plugin Hierarchie platzieren möchten!",
+                    "updated": 1634588766367
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "text": "Plugins se agregarán la próxima vez que cargue el workspace. Si deseas probarlo, ¡actualiza!",
                     "updated": 1626643436449,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Plugins werden hinzugefügt, wenn Sie den Workspace das nächste Mal laden! Wenn Sie sie testen wollen, aktualisieren Sie!",
+                    "updated": 1634588775070
                 }
             ]
         }

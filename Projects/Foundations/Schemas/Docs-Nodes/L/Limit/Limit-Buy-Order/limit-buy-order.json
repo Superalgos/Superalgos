@@ -6,7 +6,13 @@
             {
                 "language": "ES",
                 "text": "A limit buy order es una instrucción enviada al exchange para comprar el asset base, para su ejecución a una tasa específica o mejor.",
-                "updated": 1624455774192
+                "updated": 1624455774192,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ein limit buy order ist eine an die Börse gesendete Anweisung zum Kauf des Basiswertes, die zu einem bestimmten Kurs oder besser ausgeführt werden soll.\n",
+                "updated": 1634876555681
             }
         ]
     },

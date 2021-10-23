@@ -3,20 +3,48 @@
     "pageNumber": 8,
     "type": "Docs Success Style",
     "definition": {
-        "text": "This style will render the text inside a success box."
+        "text": "This style will render the text inside a success box.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Mit diesem Stil wird der Text innerhalb einer Success Box dargestellt.",
+                "updated": 1633953686071
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Any text formatted with this style will be showed inside the success box."
+            "text": "Any text formatted with this style will be showed inside the success box.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Jeder Text, der mit diesem Stil formatiert wurde, wird in einer Success Box angezeigt.",
+                    "updated": 1633953830759
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Example:"
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1633953741067
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "This is an example of a paragraph in success style."
+            "text": "This is an example of a paragraph in success style.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist ein Beispiel für einen Absatz im Erfolgsstil.",
+                    "updated": 1633953763088
+                }
+            ]
         }
     ]
 }

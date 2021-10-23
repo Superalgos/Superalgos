@@ -15,7 +15,8 @@
             "secondaryIcon": "stop",
             "iconPathOn": "run",
             "iconPathOff": "run",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Machine-Learning"
         },
         {
             "action": "Resume Learning Session",
@@ -31,7 +32,8 @@
             "secondaryIcon": "stop",
             "iconPathOn": "resume",
             "iconPathOff": "resume",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Machine-Learning"
         },
         {
             "action": "Configure",
@@ -42,13 +44,24 @@
             "actionFunction": "uiObject.configEditor.activate"
         },
         {
+            "action": "Add UI Object",
+            "label": "Add Social Bots",
+            "relatedUiObject": "Social Bots",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Social-Bots",
+            "actionProject": "Visual-Scripting"
+        },
+        {
             "action": "Add Missing Children",
             "label": "Add Missing Children",
             "relatedUiObject": "Learning Parameters",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -94,7 +107,8 @@
         {
             "name": "socialBots",
             "type": "node",
-            "childType": "Social Bots"
+            "childType": "Social Bots",
+            "project": "Social-Bots"
         }
     ],
     "propertyNameAtParent": "session"

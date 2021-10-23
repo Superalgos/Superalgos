@@ -21,6 +21,11 @@
                 "text": "¡La comunidad también puede contribuir con Trading Systems! En este punto, solo quedan unos pocos, ¡pero esperamos que surjan más pronto!",
                 "updated": 1628032965847,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Community kann auch Trading Systeme beisteuern! Im Moment gibt es nur ein paar, aber wir hoffen, dass bald mehr dazukommen!",
+                "updated": 1634590727541
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Busca en los documentos Community Trading Systems!",
                     "updated": 1628032998404,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie in den Docs nach Trading Systemen der Community!",
+                    "updated": 1634590737156
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "Strategies contribuidas por el Community están documentados para que pueda usarlos para aprender.",
                     "updated": 1628033107293,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Strategies, die von der Community beigesteuert werden, sind vollständig dokumentiert, so dass Sie sie zum Lernen verwenden können!",
+                    "updated": 1634590749764
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "text": "Recuerda que mientras Trading Systems en Superalgos pueden ser completamente funcionales, ¡están disponibles solo con fines educativos! ¡Eres completamente responsable de cómo lo usas! ¡Trading es un negocio arriesgado!",
                     "updated": 1628033267499,
                     "style": "Warning"
+                },
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass Trading Systeme, die mit Superalgos ausgeliefert werden, zwar voll funktionsfähig sind, aber nur zu Lernzwecken zur Verfügung gestellt werden! Sie sind voll verantwortlich dafür, wie Sie sie nutzen! Handeln ist ein riskantes Geschäft!",
+                    "updated": 1634590755873
                 }
             ]
         }

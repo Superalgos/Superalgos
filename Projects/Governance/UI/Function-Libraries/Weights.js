@@ -64,7 +64,9 @@ function newGovernanceFunctionLibraryWeights() {
                     node.payload.votingProgram !== undefined &&
                     node.payload.votingProgram.votes !== undefined
                 ) {
-                    totalVotes = totalVotes + node.payload.votingProgram.votes
+                    let votes = node.payload.votingProgram.votes
+                    if (votes < 0) { votes = 0 }
+                    totalVotes = totalVotes + votes
                 }
             }
 
@@ -119,7 +121,9 @@ function newGovernanceFunctionLibraryWeights() {
             ) {
                 if (node.payload.votingProgram !== undefined) {
                     if (node.payload.votingProgram.votes !== undefined) {
-                        node.payload.weight = node.payload.votingProgram.votes / totalVotes
+                        let votes = node.payload.votingProgram.votes
+                        if (votes < 0) { votes = 0 }
+                        node.payload.weight = votes / totalVotes
                     }
                 }
             }

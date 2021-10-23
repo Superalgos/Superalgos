@@ -4,47 +4,110 @@
     "type": "Data Mining - Data Dependencies",
     "definition": {
         "text": "Indicator Bots have data dependencies. This means that they receive their input as Datasets created by other Bots.",
-        "updated": 1622216765574
+        "updated": 1622216765574,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Indicator-Bots haben Datenabhängigkeiten. Das bedeutet, dass sie ihren Input als Datasets (Datensätze) erhalten, die von anderen Bots erstellt wurden.",
+                "updated": 1634844427000
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Data Dependency Tree",
-            "updated": 1622219215680
+            "updated": 1622219215680,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Data Dependency Tree (Datenabhängigkeitsbaum):",
+                    "updated": 1634845933837
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You can think about data dependencies as a type of relationship between bots. Bots producing raw data (Sensor Bot and API Data Fetcher Bot) don't have them, since their job is to extract data from an external source. At the same time, they are also the root of the data dependancy tree of relationships. This tree is very similar to the execution tree but instead of describing how bots run, it describes how bots send and receive Data Products.",
-            "updated": 1622217397887
+            "updated": 1622217397887,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie können Datenabhängigkeiten als eine Art von Beziehung zwischen Bots betrachten. Bots, die Rohdaten produzieren (Sensor Bot und API Data Fetcher Bot), haben diese nicht, da ihre Aufgabe darin besteht, Daten aus einer externen Quelle zu extrahieren. Gleichzeitig sind sie aber auch die Wurzel des Beziehungsbaums der Datenabhängigkeit. Dieser Baum ist dem Ausführungsbaum sehr ähnlich, aber anstatt zu beschreiben, wie Bots ausgeführt werden, beschreibt er, wie Bots Datenprodukte senden und empfangen.",
+                    "updated": 1634846209261
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Defining Data Dependencies",
-            "updated": 1622217419549
+            "updated": 1622217419549,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Definieren von Data Dependencies (Datenabhängigkeiten):",
+                    "updated": 1634846239206
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The definition of data dependencias is held at the Process Definition level. Each process might have its own set of data dependencies. This means that a single bot may have many varying dependencies depending on the number of Process Definitions it contains."
+            "text": "The definition of data dependencias is held at the Process Definition level. Each process might have its own set of data dependencies. This means that a single bot may have many varying dependencies depending on the number of Process Definitions it contains.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Definition der Datenabhängigkeiten erfolgt auf der Ebene der Process Definition. Jeder Prozess kann seinen eigenen Satz von Datenabhängigkeiten (Data Dependencies) haben. Das bedeutet, dass ein einzelner Bot viele unterschiedliche Abhängigkeiten haben kann, je nach der Anzahl der Prozessdefinitionen, die er enthält.",
+                    "updated": 1634846341180
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "In addtion to this, it is possible for a single Bot's process to have more than one Data Dependency (from the same Bot or from different Bots). That is particulary useful to aggregate data from many datasets into another one. The dependent datasets could belong to Bots at the same Data Mine or at bots at other Data Mines.",
-            "updated": 1622217595798
+            "updated": 1622217595798,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Darüber hinaus ist es möglich, dass ein einzelner Bot-Prozess mehr als eine Datenabhängigkeit(Data Dependencies) hat (vom selben Bot oder von verschiedenen Bots). Das ist besonders nützlich, um Daten aus vielen Datensätzen in einem anderen zu aggregieren. Die abhängigen Datensätze können zu Bots in derselben Data Mine oder zu Bots in anderen Data Mines gehören.",
+                    "updated": 1634846512050
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The first declared dependency is called the Main Dependency and has a special meaning. It is used by the process of the Bot to iterate. What this means is that the process will loop over the Dataset of the Main Dependency to produce the output Dataset. All the other data dependencies will be used each iteration to extract additional data.",
-            "updated": 1622218002546
+            "updated": 1622218002546,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die erste deklarierte Abhängigkeit wird als Main Dependency bezeichnet und hat eine besondere Bedeutung. Sie wird vom Prozess des Bot verwendet, um zu iterieren. Das bedeutet, dass der Prozess eine Schleife über den Datensatz der Main Dependency durchläuft, um den Ausgabedatensatz zu erzeugen. Alle anderen Datenabhängigkeiten werden bei jeder Iteration verwendet, um zusätzliche Daten zu extrahieren.",
+                    "updated": 1634846641215
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "As with bot execution, the dependant datasets can be physically located on the same machine, or at multiple different machines. However, when a Bot has a Data Dependency of a dataset produced by a Bot defined at a different Data Mine, both Data Mines must be present at the Workspace where the Bot is going to be launched.",
-            "updated": 1622218098435
+            "updated": 1622218098435,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wie bei der Bot-Ausführung können sich die abhängigen Datensätze physisch auf demselben Rechner oder auf mehreren verschiedenen Rechnern befinden. Wenn ein Bot jedoch eine Datenabhängigkeit von einem Datensatz hat, der von einem Bot erzeugt wurde, der in einer anderen Data Mine definiert ist, müssen beide Data Mines in dem Arbeitsbereich vorhanden sein, in dem der Bot gestartet werden soll.",
+                    "updated": 1634846723896
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The Candles Data Mine is the most referenced Data Mine because it defines the Candles-Volumes Indicator Bot, that produces the most used information for trading systems: Candles.",
-            "updated": 1622218178970
+            "updated": 1622218178970,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Candles Data Mine ist die am häufigsten referenzierte Data Mine, da sie den Candles-Volumes Indicator Bot definiert, der die am häufigsten verwendeten Informationen für Handelssysteme liefert: Candles (Kerzen).",
+                    "updated": 1634847014711
+                }
+            ]
         }
     ]
 }

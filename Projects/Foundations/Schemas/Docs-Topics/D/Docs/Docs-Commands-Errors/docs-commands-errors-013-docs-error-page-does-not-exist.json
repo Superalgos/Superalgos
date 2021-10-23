@@ -4,7 +4,14 @@
     "type": "Docs Error - Page Does Not Exist",
     "definition": {
         "text": "The page you are trying to delete does not exist.",
-        "updated": 1609180948712
+        "updated": 1609180948712,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Seite, die Sie zu löschen versuchen, existiert nicht.",
+                "updated": 1633899478071
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,16 +22,37 @@
         {
             "style": "Error",
             "text": "Page does not exist.",
-            "updated": 1610999156598
+            "updated": 1610999156598,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Seite existiert nicht.",
+                    "updated": 1633899488761
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Check the Docs Page Name you used on the command. It seems that a page with such name does not exist.",
-            "updated": 1610999206043
+            "updated": 1610999206043,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie den Docs Page Name (Namen), den Sie für den Befehl verwendet haben. Es scheint, dass eine Seite mit diesem Namen nicht existiert.",
+                    "updated": 1633899534291
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Applies to"
+            "text": "Applies to",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gilt für",
+                    "updated": 1633899542503
+                }
+            ]
         },
         {
             "style": "List",

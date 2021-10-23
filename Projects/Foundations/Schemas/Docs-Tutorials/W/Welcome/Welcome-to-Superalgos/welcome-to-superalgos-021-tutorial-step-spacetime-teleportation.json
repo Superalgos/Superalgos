@@ -26,6 +26,17 @@
                 "text": "Vale, en realidad no te vas a teletransportar, ni vas a doblar el espacio-tiempo, ¡pero casi lo parece! Es hora de aprender a utilizar el mapa del Desing Space.",
                 "updated": 1618435736486,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Sie werden nicht wirklich teleportiert und auch nicht die Raumzeit verbiegen, aber es fühlt sich so an! Es ist an der Zeit die Design Space Map zu nutzen.",
+                "updated": 1634164436207,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Ok, je gaat niet echt teleporteren, ook geen ruimtetijd buigen, maar het voelt bijna zo! Het is tijd om te leren hoe je de ontwerpruimte kaart moet gebruiken.",
+                "updated": 1634927678819
             }
         ]
     },
@@ -51,6 +62,17 @@
                     "text": "Dije antes que el Design Space es gigantesco, ¡y lo decía en serio! Ir de una esquina a la opuesta llevaría cientos de clics y arrastres. Aunque el uso del teclado te permite desarrollar velocidades que te rompen el cuello, ¡no es tan guay como teletransportarse! Así es como funciona:",
                     "updated": 1624285718470,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich habe vorhin gesagt, dass Design Space riesig ist. Um von einer Ecke in die andere zu gelangen, braucht man Hunderte von Klicks und Ziehbewegungen. Mit den Pfeiltasten der Tastatur können Sie zwar schnell über die Map  bewegen, aber das ist nicht so cool wie Teleportieren! Und so funktioniert es:",
+                    "updated": 1634164558125,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik zei al eerder dat de Design Space enorm is, en dat meende ik! Om van de ene hoek naar de andere te gaan moet je honderden keren klikken en slepen. Hoewel je met de toetsen halsbrekende snelheden kunt bereiken, is het niet zo cool als teleporteren! Dit is hoe het werkt:",
+                    "updated": 1634928137088
                 }
             ],
             "updated": 1616414991030
@@ -77,6 +99,17 @@
                     "text": "Haz clic con el botón derecho para abrir el mapa y clic con el izquierdo en cualquier lugar para ir a ese punto específico.",
                     "updated": 1624285801118,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Rechtsklick auf eine leer Stelle im Design Space, um die Karte zu öffnen, und klicke mit der linken Maustaste auf den Ort zu dem sie möchten.",
+                    "updated": 1634164694151,
+                    "style": "Callout"
+                },
+                {
+                    "language": "NL",
+                    "text": "Rechter muisklik opent de kaart en met een linkermuisklik ga je naar die specifieke plek op de kaart!",
+                    "updated": 1634927959267
                 }
             ]
         },
@@ -101,6 +134,17 @@
                     "text": "¿Puedes verme en la esquina inferior izquierda del espacio de diseño? ¡Ahora sabes dónde encontrarme!",
                     "updated": 1624285894970,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Siehst du mich in der linken unteren Ecke des Designbereichs? Jetzt weißt du, wo du mich finden kannst!",
+                    "updated": 1634164340438,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Zie je me in de linker onderhoek van de ontwerpruimte? Nu weet je me waar je kunt vinden!",
+                    "updated": 1634928024309
                 }
             ]
         }

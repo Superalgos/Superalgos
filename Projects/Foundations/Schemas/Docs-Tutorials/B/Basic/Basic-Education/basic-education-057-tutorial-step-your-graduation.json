@@ -21,6 +21,11 @@
                 "text": "¡Felicidades! Te has graduado de tu Basic Education y estas listo para pasar a cosas más avanzadas!",
                 "updated": 1628034332132,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Herzlichen Glückwunsch! Sie haben Ihre Grundausbildung abgeschlossen und sind nun bereit für fortgeschrittenere Dinge!",
+                "updated": 1634590980526
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "En el siguiente tutorial, aprenderás cómo actualizar tu aplicación, cambiar de rama para probar la versión en la rama de desarrollo, algunos trucos sobre los Documentos y más.",
                     "updated": 1628033834427,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Im nächsten Tutorial werden Sie lernen, wie Sie Ihre Anwendung aktualisieren, den Zweig wechseln, um die Version im Entwicklungszweig zu testen, ein paar Tricks zu den Docs und vieles mehr!",
+                    "updated": 1634590987001
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "¡También podrás enviar una reseña sobre tu experiencia con Superalgos hasta este momento!",
                     "updated": 1628033856097,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie werden auch die Möglichkeit haben, einen Bericht über Ihre bisherigen Erfahrungen mit Superalgos zu verfassen!",
+                    "updated": 1634590998253
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "text": "A medida que avanzas, es posible que necesites un repaso de los temas tratados en este tutorial o en el anterior. Esa es una práctica estándar, ¡así que regresa hasta que aprenda todos los trucos!",
                     "updated": 1628033960361,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie mit Superalgos weiterkommen, brauchen Sie vielleicht eine Auffrischung der Themen, die in diesem oder dem vorherigen Tutorial behandelt wurden! Das ist eine gängige Praxis, also kommen Sie wieder, bis Sie alle Tricks gelernt haben!",
+                    "updated": 1634591004640
                 }
             ]
         }

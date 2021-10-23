@@ -38,16 +38,21 @@
             "propertyToCheckFor": "plotterPanelJavascriptCode",
             "actionFunction": "payload.executeAction",
             "label": "Add Javascript Code",
-            "relatedUiObject": "Plotter Panel Javascript Code"
+            "relatedUiObject": "Plotter Panel Javascript Code",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Panel Data",
-            "relatedUiObject": "Panel Data"
+            "relatedUiObject": "Panel Data",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",

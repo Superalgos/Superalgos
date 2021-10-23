@@ -7,7 +7,8 @@
             {
                 "language": "ES",
                 "text": "Superalgos prospera a través de contribuciones y colaboración. Diseñamos el Community Building Programs para fomentar una comunidad en la que los miembros siempre estén dispuestos a ayudar y retribuir. El nodo puede generar los nodos Referral Program, Support Program, y Mentorship Program.",
-                "updated": 1630896389287
+                "updated": 1630896389287,
+                "style": "Definition"
             }
         ]
     },
@@ -20,55 +21,132 @@
         {
             "style": "Success",
             "text": "Learn more about how Token Power Flows into these programs!",
-            "updated": 1630218909731
+            "updated": 1630218909731,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Aprenda más a cerca de como fluye el Token Power en estos programas!",
+                    "updated": 1633521539329
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Each of the Community Building Programs has an associated Rewards Pool and a Bonus Pool under the Governance Programs > Community Building Programs section of the Superalgos Pools hierarchy."
+            "text": "Each of the Community Building Programs has an associated Rewards Pool and a Bonus Pool under the Governance Programs > Community Building Programs section of the Superalgos Pools hierarchy.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cada programa del Community Building Programs tiene asociada una Rewards Pool y un Bonus Pool debajo de Governance Programs > Community Building Programs en la sección de la jerarquía de Superalgos Pools.",
+                    "updated": 1633521703488
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The incentives entailed in a Bonus Pool are explained in the Tokens Bonus node.",
-            "updated": 1630170463942
+            "updated": 1630170463942,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los incentivos implicados en una Bonus Pool están explicados en el nodo Tokens Bonus.",
+                    "updated": 1633521794403
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Let's explore how each Rewards Pool is distributed in the case of Community Building Programs. In general terms, the Referral Program, Support Program, and Mentorship Program all have the following common rules:",
-            "updated": 1630399976367
+            "updated": 1630399976367,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Exploremos como cada Rewards Pool es distribuida en el caso de los programas de la Community Building Programs. En términos generales, el Referral Program, Support Program y el Mentorship Program todos tienen las siguientes reglas comunes:",
+                    "updated": 1633522008747
+                }
+            ]
         },
         {
             "style": "List",
             "text": "When your profile is referenced by others through their User Referrer, User Supporter, or User Mentor nodes, they pass on 10% of the Referral Power, Support Power, or Mentorship Power available in the node to you. This is your Incoming Power in the corresponding program.",
-            "updated": 1630166954607
+            "updated": 1630166954607,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando su profile es referenciado por otros a través de los nodos de su User Referrer, User Supporter, or User Mentor, ellos pasan un 10% del Referral Power, Support Power, or Mentorship Power disponible en el nodo a usted. Este es su Incoming Power en el programa correspondiente.",
+                    "updated": 1633522227632
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Your Incoming Power is added to your Own Power in the corresponding program, so that you may pass on more power to other User Profiles. Like in the reverse case, when you reference other User Profiles, you pass on 10% of the power that reaches the node establishing the reference.",
-            "updated": 1630166856996
+            "updated": 1630166856996,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Su Incoming Power es agregado a su propio Own Power en el programa correspondiente, para que entonces pueda enviar más power a otros User Profiles. Como en el caso contrario,  cuando referencia a otros su User Profiles, usted pasa un 10% del power que alcanza el nodo que establece la referencia.",
+                    "updated": 1633522374508
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "This passing of 10% of the power from one user to the next has the effect of rewarding collaboration chains. ",
-            "updated": 1630683048349
+            "updated": 1630683048349,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Este pasar el 10% del power de un usuario al siguiente tiene el efecto de recompensar las cadenas de colaboración.",
+                    "updated": 1633522479558
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "For instance, Alice tells her friend Bob about Superalgos. When Bob eventually sets up his User Profile, he declares Alice as his referrer. This means that Alice gets 10% of the Referral Power that Bob drives to his User Referrer node. Then, Bob brings his friend Charly to Superalgos. Charly sets up his profile and declares Bob as his referrer. So now Bob gets 10% of the Referral Power that Charly drives to his User Referrer node. ",
-            "updated": 1630683087674
+            "updated": 1630683087674,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Por ejemplo, Alice le habla a su amigo Bob a cerca de Superalgos. Cuando Bob eventualmente programa su User Profile, declara que Alice es su referido. Esto significa que Alice obtiene un 10% del Referral Power que Bob dirige a su nodo User Referrer. Entonces, Bob trae a su amigo Charly a Superalgos. Charly configura su profile y declara a Bob como su referido. Entonces ahora Bob obtiene un 10% del Referral Power que Charly dirige a su nodo de User Referrer.",
+                    "updated": 1633522898254
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Can you see what happens with Alice's Incoming Referral Power? That's it! She gets 10% of Bob's power, which includes 10% of Charly's power and son on!",
-            "updated": 1630683111245
+            "updated": 1630683111245,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Puede ver lo que sucede con el Incoming Referral Power de  Alice? Eso es! Ella obtiene un 10% del power de Bob, que incluye un 10% del power de Charly y así sucesivamente!",
+                    "updated": 1633523067803
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Pretty much the same happens with the Support Program and the Mentorship Program."
+            "text": "Pretty much the same happens with the Support Program and the Mentorship Program.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Prácticamente lo mismo ocurre con el Support Program y el Mentorship Program.",
+                    "updated": 1633523110557
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The Incoming Power you get from other users is in a Direct Proportion to the number of tokens you get from the corresponding program Rewards Pool. The calculation is based on a Rule of Three, and the result is displayed under the Tokens Awarded node of the corresponding program.",
-            "updated": 1630682945130
+            "updated": 1630682945130,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El Incoming Power que obtiene de otros usuarios está en una Direct Proportion al número de tokens que obtiene del programa corespondiente de la Rewards Pool. El cálculo está basado en una Rule of Three, y el resutado es mostrado debajo del nodo de Tokens Awarded del programa correspondiente.",
+                    "updated": 1633523351316
+                }
+            ]
         },
         {
             "style": "Json",

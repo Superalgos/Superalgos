@@ -585,7 +585,7 @@ function newUiObject() {
             let THRESHOLD = 1.15
 
             if (ratio > THRESHOLD) {
-                UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Detach', project: 'Foundations' })
+                UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Detach', project: 'Visual-Scripting' })
             }
         }
 
@@ -692,7 +692,7 @@ function newUiObject() {
             let THRESHOLD = 1.15
 
             if (ratio > THRESHOLD) {
-                UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Detach', project: 'Foundations' })
+                UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Detach', project: 'Visual-Scripting' })
             }
         }
 
@@ -1387,14 +1387,14 @@ function newUiObject() {
 
     function onDragFinished(event) {
         if (isChainAttaching === true) {
-            UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Attach', project: 'Foundations', relatedNode: chainAttachToNode })
+            UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Attach', project: 'Visual-Scripting', relatedNode: chainAttachToNode })
             chainAttachToNode = undefined
             isChainAttaching = false
             /* We want to avoid the situation in which we are attaching a node to its parent and at the same time referencing another node. */
             isReferenceAttaching = false
         }
         if (isReferenceAttaching === true) {
-            UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Attach', project: 'Foundations', relatedNode: referenceAttachToNode })
+            UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Attach', project: 'Visual-Scripting', relatedNode: referenceAttachToNode })
             referenceAttachToNode = undefined
             isReferenceAttaching = false
         }
@@ -1433,9 +1433,6 @@ function newUiObject() {
     function drawForeground() {
         if (thisObject.isOnFocus === false) {
             drawBodyAndPicture()
-            if (isDragging === false) {
-                thisObject.menu.drawForeground()
-            }
         }
 
         if (thisObject.circularProgressBar !== undefined) {

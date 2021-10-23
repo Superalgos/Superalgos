@@ -26,6 +26,11 @@
                 "text": "En este punto, ¡probablemente esté saturando tu hipocampo! Pero no te preocupes... ¡puedes volver a cualquier paso anterior!",
                 "updated": 1627303260247,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "An dieser Stelle werde ich wahrscheinlich Ihren Hippocampus überlaufen lassen! Aber keine Sorge... Sie können zu jedem früheren Schritt zurückgehen!",
+                "updated": 1634165475316
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "text": "Si necesitas un recordatorio sobre estos temas...",
                     "updated": 1625871978228,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie jemals eine Erinnerung an eines dieser Themen brauchen...",
+                    "updated": 1634165486557
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "text": "Busca el Tutorial Topic y reprodúcelo. Puedes encontrarme en la esquina inferior izquierda del Desing Space, expandirme, navegar por la jerarquía de temas y pasos, y hacer clic en Play en cualquiera de ellos. Los temas están ordenados en el sentido de las agujas del reloj, empezando por la derecha del nodo principal de Tutorial.",
                     "updated": 1627303448829,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie ein Tutorial Topic ? Sie finden Tutorial am linken Rand des Design Space. Blättern Sie durch die Themen und Schritte und klicken Sie auf \"Abspielen\" bei einem Thema. Die Themen sind im Uhrzeigersinn angeordnet, beginnend auf der rechten Seite des Hauptknotens Tutorial.",
+                    "updated": 1634165716356
                 }
             ]
         },
@@ -100,6 +115,11 @@
                     "text": "¿Necesita un recordatorio rápido? Busca este paso en el tema \"Tutorials & Help\". A continuación, haz clic en Stop y reinicia haciendo clic en Play en dicho Paso del tutorial.",
                     "updated": 1624491749893,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "\"Need a Quick Reminder?\" Diesen Schritt finden Sie unter dem Thema \"Tutorials & Help\". Klicken Sie auf \"Stop\" und starten Sie erneut, indem Sie auf \"Play\" für den besagten Tutorial Step klicken!",
+                    "updated": 1634165797400
                 }
             ]
         }

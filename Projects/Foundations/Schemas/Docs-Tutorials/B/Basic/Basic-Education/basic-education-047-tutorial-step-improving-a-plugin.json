@@ -5,7 +5,7 @@
     "definition": {
         "text": "About the second scenario: let's say you are testing the EMA indicator, found a bug and know how to fix it. You intend to contribute the fix so that everyone benefits from it!",
         "icon": {
-            "name": "sensor-bot",
+            "name": "indicator-bot",
             "project": "Foundations"
         },
         "updated": 1629909327051,
@@ -20,6 +20,12 @@
                 "language": "ES",
                 "text": "Si eres un desarrollador y estás probando un nuevo exchange. Deseas modificar el Sensor Bot para introducir una nueva característica o parámetro.",
                 "updated": 1626710809333,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Zum zweiten Szenario: Nehmen wir an, Sie testen den EMA-Indikator, haben einen Fehler gefunden und wissen, wie man ihn beheben kann. Sie beabsichtigen, den Fehler zu beheben, damit alle davon profitieren!",
+                "updated": 1634589198766,
                 "style": "Definition"
             }
         ]
@@ -41,18 +47,39 @@
                     "text": "El Sensor Bot es parte del Candles Data Mine, que generalmente se incluye como plugin en la mayoría de los workspaces de plugins. En tal caso, debes proceder como en el caso anterior: eliminar el nodo Plugin File correspondiente a los  Candles Data Mine y restaurar el archivo de mina de datos desde la carpeta   Plugins\\Data-Mines como si fuera un backup.",
                     "updated": 1626709343670,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Indicator Bot ist Teil der Sparta Data Mine, die normalerweise als Plugin in einigen Plugin-Workspaces enthalten ist. Um das Plugin aus der UI Benutzeroberfläche heraus zu modifizieren und die Änderungen zu speichern, haben Sie zwei Möglichkeiten:",
+                    "updated": 1634589206307,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "List",
             "text": "Go to the corresponding Plugin File in the Plugins hierarchy and select Enable Saving With Workspace on the menu. Now the plugin file is updated every time you save the workspace to include the changes you may have introduced!",
-            "updated": 1629909628165
+            "updated": 1629909628165,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zu dem entsprechenden Plugin File in der Plugins-Hierarchie und wählen Sie im Menü die Option Enable Saving With Workspace. Jetzt wird die Plugin-Datei jedes Mal aktualisiert, wenn Sie den Arbeitsbereich speichern, um die von Ihnen vorgenommenen Änderungen zu berücksichtigen!",
+                    "updated": 1634819321377
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Or use the Save Plugin option to manually save the plugin file whenever you wish to!",
-            "updated": 1629909705348
+            "updated": 1629909705348,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Oder verwenden Sie die Option \"Plugin speichern\", um die Plugin-Datei manuell zu speichern, wann immer Sie es wünschen!",
+                    "updated": 1634589217431,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

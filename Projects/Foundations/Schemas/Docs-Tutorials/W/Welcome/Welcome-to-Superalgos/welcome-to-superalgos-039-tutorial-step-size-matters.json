@@ -26,6 +26,11 @@
                 "text": "¿Qué tal darle forma a la máquina del tiempo con la relación de aspecto exacta de tu pantalla?",
                 "updated": 1624383053610,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Wie wäre es, die Time Machine genau an das Seitenverhältnis Ihres Bildschirms anzupassen?",
+                "updated": 1634206350448
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "text": "¡Hacer coincidir la relación de aspecto de tus máquinas del tiempo con la relación de aspecto de su pantalla es crucial para que los gráficos se ajusten perfectamente a tu pantalla al hacer zoom!",
                     "updated": 1624494074907,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Anpassung des Seitenverhältnisses Ihrer Zeitmaschinen an das Seitenverhältnis Ihres Bildschirms ist entscheidend dafür, dass die Diagramme beim Heranzoomen genau auf Ihren Bildschirm passen!",
+                    "updated": 1634206368643
                 }
             ],
             "updated": 1622198491208
@@ -77,6 +87,11 @@
                     "text": "Dirije tu mouse a una de las máquinas del tiempo y presiona Ctrl + Shift + Key-A. ¡Haz lo mismo con la otra!",
                     "updated": 1624383472672,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Richten Sie Ihre Maus auf eine der Time Machines und drücken Sie Ctrl + Shift + Alt + Key-A. Machen Sie dasselbe mit der anderen Maschine!",
+                    "updated": 1634206401027
                 }
             ]
         },
@@ -102,6 +117,11 @@
                     "text": "¡Deja que las dos máquinas del tiempo coincidan con la relación de aspecto de tu pantalla de ahora en adelante!",
                     "updated": 1624383547817,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie die beiden Time Machines von nun an auf das Seitenverhältnis Ihres Bildschirms abgestimmt!",
+                    "updated": 1634206411265
                 }
             ]
         }

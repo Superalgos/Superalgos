@@ -20,7 +20,7 @@ function newFoundationsFunctionLibraryWorkspaceFunctions() {
             }
 
             if (alreadyExist === false) {
-                let child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, project + ' Project', rootNodes, project)
+                let child = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, project + ' Project', rootNodes, project)
                 if (child === undefined) { continue }
                 child.project = project
                 child.projectDefinition.name = project
@@ -34,7 +34,7 @@ function newFoundationsFunctionLibraryWorkspaceFunctions() {
         let nodes
         for (let i = 0; i < rootNodes.length; i++) {
             if (rootNodes[i] !== undefined) {
-                nodes = UI.projects.foundations.utilities.hierarchy.getHiriarchyMap(rootNodes[i]) 
+                nodes = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyMap(rootNodes[i]) 
                 for (let [key, value] of nodes) {
                     // Check nodes that have a saved reference parent
                     if (value.savedPayload.referenceParent !== undefined) {

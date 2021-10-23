@@ -17,6 +17,11 @@
                 "text": "docs.reindex command selesai membuat ulang Docs Search Engine Index.",
                 "updated": 1616762872651,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Der Befehl docs.reindex hat den Wiederaufbau des Docs Search Engine Index abgeschlossen.",
+                "updated": 1633902732987
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "text": "Index sudah dibuat ulang dan memiliki perubahan terbaru yang kamu buat sejak kamu membuka UI atau menjalankan docs.reindex command. Artinya konten baru sudah dibuat dan bisa dicari. Perubahan di Workspace sudah masuk ke index juga.",
                     "updated": 1616763231526,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Index wurde neu erstellt und enthält nun alle Änderungen, die Sie seit dem Öffnen der Benutzeroberfläche (UI) oder seit der letzten Ausführung des Befehls docs.reindex vorgenommen haben. Das bedeutet, dass neu erstellte Inhalte jetzt durchsuchbar sind. Änderungen im Workspace wurden ebenfalls in den Index aufgenommen.",
+                    "updated": 1633903028672
                 }
             ]
         }

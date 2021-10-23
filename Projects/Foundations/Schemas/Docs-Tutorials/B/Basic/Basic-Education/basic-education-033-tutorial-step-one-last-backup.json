@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "¡Probemos el tercer ejemplo! ¡Observa las referencias que fluyen desde los vértices del polígono hasta los puntos debajo del nodo Chart Points!",
-                "updated": 1626615204304
+                "updated": 1626615204304,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Versuchen wir es mit dem dritten Beispiel! Beachten Sie die Verweise, die von Polygonscheiteln zu Punkten unter dem Knoten Chart Points fließen!",
+                "updated": 1634586079127
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Realiza un backup del nodo Shapes y restauralo en el lateral sin borrar el original. Luego repite, pero eliminando el original antes de restaurar el backup.",
-                    "updated": 1626617114505
+                    "updated": 1626617114505,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erstellen Sie eine Sicherungskopie des Knotens Shapes und stellen Sie diese wieder her, ohne das Original zu löschen. Wiederholen Sie den Vorgang, aber löschen Sie das Original, bevor Sie die Sicherung wiederherstellen!",
+                    "updated": 1634586087146
                 }
             ]
         },
@@ -55,7 +67,13 @@
                 {
                     "language": "ES",
                     "text": "¡En el primer caso, las referencias apuntan a que los puntos originales se convierten en referencias externas! Por el contrario, en el segundo caso, ¡las referencias permanecen internas!",
-                    "updated": 1626615362499
+                    "updated": 1626615362499,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass im ersten Fall die Verweise auf die ursprünglichen Punkte zu externen Verweisen werden! Im zweiten Fall hingegen bleiben die Referenzen intern!",
+                    "updated": 1634586093378
                 }
             ]
         },
@@ -73,7 +91,13 @@
                 {
                     "language": "ES",
                     "text": "¡Las referencias permanecen internas solo cuando primero eliminas la estructura original!",
-                    "updated": 1626615411251
+                    "updated": 1626615411251,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass Referenzen nur dann intern bleiben, wenn Sie die Originalstruktur zuerst löschen!",
+                    "updated": 1634586099423
                 }
             ]
         }

@@ -4,7 +4,14 @@
     "type": "Docs Error - Changes Not Saved",
     "definition": {
         "text": "It was not possible to save your changes.",
-        "updated": 1609180131235
+        "updated": 1609180131235,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Es war nicht möglich, Ihre Änderungen zu speichern.",
+                "updated": 1633898126101
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,16 +22,37 @@
         {
             "style": "Error",
             "text": "Changes could not be saved. There was one or more problems while saving your changes.",
-            "updated": 1610999017039
+            "updated": 1610999017039,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Änderungen konnten nicht gespeichert werden. Es gab ein oder mehrere Probleme beim Speichern Ihrer Änderungen.",
+                    "updated": 1633898160319
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Please check the Client Console to see if there are logged errors. You mayalso check the Browser Console.",
-            "updated": 1610999048470
+            "text": "Please check the Client Console to see if there are logged errors. You may also check the Browser Console.",
+            "updated": 1633898221473,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bitte prüfen Sie in der Client Konsole, ob Fehler protokolliert wurden. Sie können auch die Browser-Konsole überprüfen",
+                    "updated": 1633898296285
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Applies to"
+            "text": "Applies to",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gilt für",
+                    "updated": 1633898306181
+                }
+            ]
         },
         {
             "style": "List",

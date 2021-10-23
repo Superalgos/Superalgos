@@ -41,6 +41,7 @@ function newGovernanceReportsReportsPage() {
                 'Claims',
                 'Votes',
                 'Staking',
+                'Liquidity',
                 'Delegation',
                 'Pools',
                 'Assets',
@@ -129,6 +130,12 @@ function newGovernanceReportsReportsPage() {
                     }
                     case 'Staking': {
                         let response = UI.projects.governance.spaces.reportsSpace.staking.addHTML(10, filters)
+                        HTML = HTML + response.HTML
+                        resultCounter = response.resultCounter
+                        break
+                    }
+                    case 'Liquidity': {
+                        let response = UI.projects.governance.spaces.reportsSpace.liquidity.addHTML(10, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break

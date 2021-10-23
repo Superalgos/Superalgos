@@ -5,16 +5,20 @@
             "action": "Add UI Object",
             "label": "Add Layer Polygon",
             "relatedUiObject": "Layer Polygon",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add All Layer Polygons",
             "label": "Add All Layer Polygons",
             "relatedUiObject": "Layer Polygon",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

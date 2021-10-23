@@ -15,7 +15,7 @@ function newGovernanceUserProfileSpace() {
     }
 
     let waitingForResponses = 0
-    const BSC_SCAN_RATE_LIMIT_DELAY = 12000
+    const BSC_SCAN_RATE_LIMIT_DELAY = 6000 * 4
     let reputationByAddress = new Map()
 
     return thisObject
@@ -423,11 +423,22 @@ function newGovernanceUserProfileSpace() {
                     userProfile.payload.blockchainTokens === undefined
                 ) {
                     waitingForResponses++
-                    userProfile.payload.liquidityTokens = 0 // We need to set this value here so that the next call to BSCSCAN is not done more than once.
-                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 2, userProfile, blockchainAccount)
+                    userProfile.payload.liquidityTokens = {
+                        BTCB: 0,
+                        BNB: 0,
+                        BUSD: 0
+                    }
+
+                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 4 * 1, userProfile, blockchainAccount, 'BTCB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BTCB_CONTRACT_ADDRESS)
+                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 4 * 2, userProfile, blockchainAccount, 'BNB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BNB_CONTRACT_ADDRESS)
+                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 4 * 3, userProfile, blockchainAccount, 'BUSD', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BUSD_CONTRACT_ADDRESS)
+
+                    /* 
+                    Now we get the SA Tokens Balance.
+                    */
                     waitingForResponses++
                     userProfile.payload.blockchainTokens = 0 // We need to set this value here so that the next call to BSCSCAN is not done more than once.
-                    setTimeout(getBlockchainTokens, BSC_SCAN_RATE_LIMIT_DELAY, userProfile, blockchainAccount)
+                    setTimeout(getBlockchainTokens, BSC_SCAN_RATE_LIMIT_DELAY / 4 * 4, userProfile, blockchainAccount)
                 }
             }
         }
@@ -448,7 +459,7 @@ function newGovernanceUserProfileSpace() {
                     )
                     userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000
                     userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens)
-                    console.log('Reputation of ' + userProfile.name + ' is ', userProfile.payload.reputation)
+                    console.log('[INFO] Reputation of ' + userProfile.name + ' is ', userProfile.payload.reputation)
                 }
                 waitingForResponses--
             }).catch(function (err) {
@@ -463,9 +474,9 @@ function newGovernanceUserProfileSpace() {
             });
         }
 
-        function getBPancakeTokens(userProfile, blockchainAccount) {
+        function getBPancakeTokens(userProfile, blockchainAccount, asset, marketContract) {
             console.log('[INFO] Loading Pancake Balance for User Profile: ', userProfile.name, 'blockchainAccount: ', blockchainAccount)
-            const url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=" + UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BTCB_CONTRACT_ADDRESS + "&address=" + blockchainAccount + "&tag=latest&apikey=YourApiKeyToken"
+            const url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=" + marketContract + "&address=" + blockchainAccount + "&tag=latest&apikey=YourApiKeyToken"
 
             fetch(url).then(function (response) {
                 return response.json();
@@ -477,8 +488,8 @@ function newGovernanceUserProfileSpace() {
                     userProfile.payload.uiObject.setInfoMessage('Pancake Balance Succesfully Loaded.',
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
                     )
-                    userProfile.payload.liquidityTokens = Number(data.result) / 1000000000000000000
-                    console.log('Liquidity of ' + userProfile.name + ' is ', userProfile.payload.liquidityTokens)
+                    userProfile.payload.liquidityTokens[asset] = Number(data.result) / 1000000000000000000
+                    console.log('[INFO] Liquidity of ' + userProfile.name + ' for asset ' + asset + ' is ', userProfile.payload.liquidityTokens[asset])
                 }
                 waitingForResponses--
             }).catch(function (err) {

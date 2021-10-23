@@ -23,16 +23,6 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "stakingProgram",
-            "label": "Add Liquidity Program",
-            "relatedUiObject": "Liquidity Program",
-            "relatedUiObjectProject": "Governance"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Visual-Scripting",
-            "actionFunction": "payload.executeAction",
-            "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "delegationProgram",
             "label": "Add Delegation Program",
             "relatedUiObject": "Delegation Program",
@@ -66,12 +56,6 @@
             "name": "stakingProgram",
             "type": "node",
             "childType": "Staking Program",
-            "autoAdd": false
-        },
-        {
-            "name": "liquidityProgram",
-            "type": "node",
-            "childType": "Liquidity Program",
             "autoAdd": false
         },
         {

@@ -465,7 +465,7 @@ function newGovernanceUserProfileSpace() {
 
         function getBPancakeTokens(userProfile, blockchainAccount) {
             console.log('[INFO] Loading Pancake Balance for User Profile: ', userProfile.name, 'blockchainAccount: ', blockchainAccount)
-            const url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=" + UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_CONTRACT_ADDRESS + "&address=" + blockchainAccount + "&tag=latest&apikey=YourApiKeyToken"
+            const url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=" + UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BTCB_CONTRACT_ADDRESS + "&address=" + blockchainAccount + "&tag=latest&apikey=YourApiKeyToken"
 
             fetch(url).then(function (response) {
                 return response.json();

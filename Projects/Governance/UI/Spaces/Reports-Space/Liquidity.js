@@ -22,7 +22,6 @@ function newGovernanceReportsLiquidity() {
         let table = 'Liquidity'
         let programName = 'Liquidity Program'
         let programPropertyName = 'liquidityProgram'
-        let assets = ['BTCB', 'BNB', 'BUSD']
         /*
         Setup Filters
         */
@@ -89,8 +88,8 @@ function newGovernanceReportsLiquidity() {
 
         for (let j = 0; j < userProfiles.length; j++) {
             let userProfile = userProfiles[j]
-            for (let j = 0; j < assets.length; j++) {
-                let asset = assets[j]
+            for (let j = 0; j < UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_ASSETS.length; j++) {
+                let asset = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_ASSETS[j]
                 if (userProfile.tokenPowerSwitch === undefined) { continue }
                 let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, programName, 'asset', asset)
                 if (program === undefined) { continue }

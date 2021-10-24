@@ -113,6 +113,18 @@ function newGovernanceFunctionLibraryTokenMining() {
 
             calculateProgram(userProfile, program, "airdropProgram")
         }
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+            for (let j = 0; j < UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_ASSETS.length; j++) {
+                let asset = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_ASSETS[j]
+                if (userProfile.tokenPowerSwitch === undefined) { continue }
+                let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, "Liquidity Program", 'asset', asset)
+                if (program === undefined) { continue }
+                if (program.payload === undefined) { continue }
+
+                calculateProgram(userProfile, program, "liquidityProgram")
+            }
+        }
 
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
@@ -149,7 +161,7 @@ function newGovernanceFunctionLibraryTokenMining() {
             if (userProfile.payload === undefined) { return }
             if (userProfile.tokensMined === undefined) { return }
             if (userProfile.tokensMined.payload === undefined) { return }
-            
+
             if (programNode.payload === undefined) { return }
             if (programNode.payload[programPropertyName] === undefined) { return }
 

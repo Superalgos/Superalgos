@@ -48,7 +48,6 @@ function newGovernanceReportsLiquidity() {
                     "name": "market",
                     "label": "Market",
                     "type": "string",
-                    "order": "asc",
                     "order": "ascending",
                     "textAlign": "center"
                 },

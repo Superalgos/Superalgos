@@ -1,4 +1,4 @@
-exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSocketsClient() {
+exports.newNetworkModulesWebSocketsAppClient = function newNetworkModulesWebSocketsAppClient() {
 
     let thisObject = {
         sendMessage: sendMessage,
@@ -30,7 +30,6 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
         /*
         Here we will pick a Network Node from all users profiles available that do have a Network Node running. // TODO
         In the meantime, we will assume that we have chosen the following Network Node to connect to.
-       
         */
         web3 = new SA.nodeModules.web3()
 
@@ -87,7 +86,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             let message = {
                                 messageType: 'Handshake',
                                 callerRole: 'Network Client',
-                                callerProfileHandle: SA.secrets.map.get('Social Trading Desktop').githubUsername,
+                                callerProfileHandle: SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle,
                                 callerTimestamp: callerTimestamp,
                                 step: 'One'
                             }
@@ -148,7 +147,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             We will check that the profile handle we sent to the Network Node, is returned at the
                             signed message, to avoid man in the middle attackts.
                             */
-                            if (signedMessage.callerProfileHandle !== SA.secrets.map.get('Social Trading Desktop').githubUsername) {
+                            if (signedMessage.callerProfileHandle !== SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle) {
                                 console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node callerProfileHandle does not match my own userProfileHandle.')
                                 reject()
                                 return
@@ -178,7 +177,7 @@ exports.newNetworkModulesWebSocketsClient = function newNetworkModulesWebSockets
                             */
                             socketClient.onmessage = socketMessage => { stepTwoResponse(socketMessage) }
 
-                            let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get('Social Trading Desktop').privateKey)
+                            let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle)
 
                             let message = {
                                 messageType: 'Handshake',

@@ -1,5 +1,5 @@
 {
-    "type": "Liquidity Program",
+    "type": "Liquidity Programs",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,11 +11,9 @@
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "tokensAwarded",
             "actionFunction": "payload.executeAction",
-            "label": "Add Tokens Awarded",
-            "relatedUiObject": "Tokens Awarded",
+            "label": "Add Liquidity Program",
+            "relatedUiObject": "Liquidity Program",
             "relatedUiObjectProject": "Governance"
         },
         {
@@ -33,19 +31,20 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\n\"asset\": \"BTCB\"\n}"    },
-    "attachingRules": {
-        "compatibleTypes": "->Liquidity Programs->"
+        "config": "{}"
     },
     "addLeftIcons": true,
-    "level": 1,
-    "propertyNameAtParent": "liquidityProgram",
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Token Power Switch->"
+    },
+    "propertyNameAtParent": "liquidityPrograms",
     "childrenNodesProperties": [
         {
-            "name": "tokensAwarded",
-            "type": "node",
-            "childType": "Tokens Awarded",
-            "autoAdd": true
+            "name": "liquidityProgram",
+            "type": "array",
+            "childType": "Liquidity Program",
+            "autoAdd": false
         }
     ]
 }

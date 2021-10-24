@@ -36,6 +36,8 @@ function newFoundationsFunctionLibraryProductFunctions() {
                     installInTradingMine(rootNode)
                 } else if (rootNode.type === 'LAN Network') {
                     installInNetworkNodes(rootNode)
+                } else if (rootNode.type === 'Charting Space') {
+                    installInChartingSpace(rootNode)
                 }
             }
 
@@ -218,6 +220,24 @@ function newFoundationsFunctionLibraryProductFunctions() {
                 }
             }
 
+
+        }
+
+        function installInChartingSpace(chartingSpace) {
+
+            for (let j = 0; j < chartingSpace.projectDashboards.length; j++) {
+                let projectDashboard = chartingSpace.projectDashboards[j]
+
+                for (k = 0; k < projectDashboard.dashboards.length; k++) {
+                    let dashboard = projectDashboard.dashboards[k]
+
+                    for (l = 0; l < dashboard.timeMachines.length; l++) {
+                        timeMachine = dashboard.timeMachines[l]
+
+                        
+                    }
+                }
+            }
 
         }
     }

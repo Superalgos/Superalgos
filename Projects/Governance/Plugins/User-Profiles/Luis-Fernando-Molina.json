@@ -653,23 +653,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos",
-                                                                                    "Pools"
+                                                                                    "Pools",
+                                                                                    "Governance",
+                                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                                 ],
                                                                                 [
                                                                                     "Governance Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                                 ],
                                                                                 [
                                                                                     "Community Building Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "ef1d7fc5-c776-4af7-8ae6-86a3445dca4b"
                                                                                 ],
                                                                                 [
                                                                                     "Referrals Program",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "9f94d0e0-ddf7-4e04-8a3c-9485c09e079d"
                                                                                 ],
                                                                                 [
                                                                                     "Referrals Rewards",
-                                                                                    "Pool"
+                                                                                    "Pool",
+                                                                                    "Governance",
+                                                                                    "2e9dff69-e407-4ccb-9a42-e4a476e28d7c"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -708,23 +718,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos",
-                                                                                    "Pools"
+                                                                                    "Pools",
+                                                                                    "Governance",
+                                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                                 ],
                                                                                 [
                                                                                     "Governance Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                                 ],
                                                                                 [
                                                                                     "Community Building Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "ef1d7fc5-c776-4af7-8ae6-86a3445dca4b"
                                                                                 ],
                                                                                 [
                                                                                     "Referrals Program",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "9f94d0e0-ddf7-4e04-8a3c-9485c09e079d"
                                                                                 ],
                                                                                 [
                                                                                     "Referrals Bonus",
-                                                                                    "Pool"
+                                                                                    "Pool",
+                                                                                    "Governance",
+                                                                                    "af1984a3-465b-48ed-9944-c101a8ed376c"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -762,19 +782,27 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                         ],
                                                                         [
                                                                             "Community Building Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "ef1d7fc5-c776-4af7-8ae6-86a3445dca4b"
                                                                         ],
                                                                         [
                                                                             "Referrals Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "9f94d0e0-ddf7-4e04-8a3c-9485c09e079d"
                                                                         ]
                                                                     ]
                                                                 }
@@ -820,23 +848,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos",
-                                                                                    "Pools"
+                                                                                    "Pools",
+                                                                                    "Governance",
+                                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                                 ],
                                                                                 [
                                                                                     "Governance Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                                 ],
                                                                                 [
                                                                                     "Community Building Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "ef1d7fc5-c776-4af7-8ae6-86a3445dca4b"
                                                                                 ],
                                                                                 [
                                                                                     "Support Program",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "174e7d3b-fe3c-4fb1-825c-4ea488d82171"
                                                                                 ],
                                                                                 [
                                                                                     "Support Rewards",
-                                                                                    "Pool"
+                                                                                    "Pool",
+                                                                                    "Governance",
+                                                                                    "c41497c5-7440-4ebd-aabb-fbc3d022136b"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -875,23 +913,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos",
-                                                                                    "Pools"
+                                                                                    "Pools",
+                                                                                    "Governance",
+                                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                                 ],
                                                                                 [
                                                                                     "Governance Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                                 ],
                                                                                 [
                                                                                     "Community Building Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "ef1d7fc5-c776-4af7-8ae6-86a3445dca4b"
                                                                                 ],
                                                                                 [
                                                                                     "Support Program",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "174e7d3b-fe3c-4fb1-825c-4ea488d82171"
                                                                                 ],
                                                                                 [
                                                                                     "Support Bonus",
-                                                                                    "Pool"
+                                                                                    "Pool",
+                                                                                    "Governance",
+                                                                                    "6625953a-6026-4686-9091-2796fd08b9a7"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -929,19 +977,27 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                         ],
                                                                         [
                                                                             "Community Building Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "ef1d7fc5-c776-4af7-8ae6-86a3445dca4b"
                                                                         ],
                                                                         [
                                                                             "Support Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "174e7d3b-fe3c-4fb1-825c-4ea488d82171"
                                                                         ]
                                                                     ]
                                                                 }
@@ -987,23 +1043,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos",
-                                                                                    "Pools"
+                                                                                    "Pools",
+                                                                                    "Governance",
+                                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                                 ],
                                                                                 [
                                                                                     "Governance Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                                 ],
                                                                                 [
                                                                                     "Community Building Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "ef1d7fc5-c776-4af7-8ae6-86a3445dca4b"
                                                                                 ],
                                                                                 [
                                                                                     "Mentorship Program",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "8b3714a0-3bf2-491e-8ffc-9c4286446382"
                                                                                 ],
                                                                                 [
                                                                                     "Mentorship Rewards",
-                                                                                    "Pool"
+                                                                                    "Pool",
+                                                                                    "Governance",
+                                                                                    "53ddcc36-f693-4193-8284-999a88f1c944"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -1042,23 +1108,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos",
-                                                                                    "Pools"
+                                                                                    "Pools",
+                                                                                    "Governance",
+                                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                                 ],
                                                                                 [
                                                                                     "Governance Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                                 ],
                                                                                 [
                                                                                     "Community Building Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "ef1d7fc5-c776-4af7-8ae6-86a3445dca4b"
                                                                                 ],
                                                                                 [
                                                                                     "Mentorship Program",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "8b3714a0-3bf2-491e-8ffc-9c4286446382"
                                                                                 ],
                                                                                 [
                                                                                     "Mentorship Bonus",
-                                                                                    "Pool"
+                                                                                    "Pool",
+                                                                                    "Governance",
+                                                                                    "ff1e4a84-3363-4348-ad15-31a34898fa82"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -1096,19 +1172,27 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                         ],
                                                                         [
                                                                             "Community Building Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "ef1d7fc5-c776-4af7-8ae6-86a3445dca4b"
                                                                         ],
                                                                         [
                                                                             "Mentorship Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "8b3714a0-3bf2-491e-8ffc-9c4286446382"
                                                                         ]
                                                                     ]
                                                                 }
@@ -1147,15 +1231,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Pools"
+                                                                    "Pools",
+                                                                    "Governance",
+                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                 ],
                                                                 [
                                                                     "Governance Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                 ],
                                                                 [
                                                                     "Community Building Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "ef1d7fc5-c776-4af7-8ae6-86a3445dca4b"
                                                                 ]
                                                             ]
                                                         }
@@ -1207,23 +1297,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos",
-                                                                                    "Pools"
+                                                                                    "Pools",
+                                                                                    "Governance",
+                                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                                 ],
                                                                                 [
                                                                                     "Governance Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                                 ],
                                                                                 [
                                                                                     "Onboarding Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "e6e1e943-9d14-40ea-9adf-b110a9309e3a"
                                                                                 ],
                                                                                 [
                                                                                     "Airdrop Program",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "5332a29f-2139-4dd9-aa77-f87fcbf513df"
                                                                                 ],
                                                                                 [
                                                                                     "Airdrop Rewards",
-                                                                                    "Pool"
+                                                                                    "Pool",
+                                                                                    "Governance",
+                                                                                    "0e10c82f-94b3-4f39-b673-15eaf0551df4"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -1261,19 +1361,27 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                         ],
                                                                         [
                                                                             "Onboarding Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "e6e1e943-9d14-40ea-9adf-b110a9309e3a"
                                                                         ],
                                                                         [
                                                                             "Airdrop Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "5332a29f-2139-4dd9-aa77-f87fcbf513df"
                                                                         ]
                                                                     ]
                                                                 }
@@ -1319,23 +1427,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos",
-                                                                                    "Pools"
+                                                                                    "Pools",
+                                                                                    "Governance",
+                                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                                 ],
                                                                                 [
                                                                                     "Governance Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                                 ],
                                                                                 [
                                                                                     "Onboarding Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "e6e1e943-9d14-40ea-9adf-b110a9309e3a"
                                                                                 ],
                                                                                 [
                                                                                     "Github Prgoram",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "e4daed5d-1c83-4f64-a504-3aef7d73e688"
                                                                                 ],
                                                                                 [
                                                                                     "Github Rewards",
-                                                                                    "Pool"
+                                                                                    "Pool",
+                                                                                    "Governance",
+                                                                                    "8829c80f-028b-4315-85a1-82ad502f0687"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -1373,19 +1491,27 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                         ],
                                                                         [
                                                                             "Onboarding Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "e6e1e943-9d14-40ea-9adf-b110a9309e3a"
                                                                         ],
                                                                         [
                                                                             "Github Prgoram",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "e4daed5d-1c83-4f64-a504-3aef7d73e688"
                                                                         ]
                                                                     ]
                                                                 }
@@ -1424,15 +1550,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Pools"
+                                                                    "Pools",
+                                                                    "Governance",
+                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                 ],
                                                                 [
                                                                     "Governance Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                 ],
                                                                 [
                                                                     "Onboarding Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "e6e1e943-9d14-40ea-9adf-b110a9309e3a"
                                                                 ]
                                                             ]
                                                         }
@@ -1484,23 +1616,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos",
-                                                                                    "Pools"
+                                                                                    "Pools",
+                                                                                    "Governance",
+                                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                                 ],
                                                                                 [
                                                                                     "Governance Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                                 ],
                                                                                 [
                                                                                     "Incentives for Voting",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "1f9590c2-e166-482c-8400-ba64e39f0934"
                                                                                 ],
                                                                                 [
                                                                                     "Voting Program",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "80d4f08f-bb7f-48a2-9cef-be12befcac2e"
                                                                                 ],
                                                                                 [
                                                                                     "Voting Bonus",
-                                                                                    "Pool"
+                                                                                    "Pool",
+                                                                                    "Governance",
+                                                                                    "9eb846a4-effb-4380-9487-1a82011b0488"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -1538,19 +1680,27 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                         ],
                                                                         [
                                                                             "Incentives for Voting",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "1f9590c2-e166-482c-8400-ba64e39f0934"
                                                                         ],
                                                                         [
                                                                             "Voting Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "80d4f08f-bb7f-48a2-9cef-be12befcac2e"
                                                                         ]
                                                                     ]
                                                                 }
@@ -1589,15 +1739,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Pools"
+                                                                    "Pools",
+                                                                    "Governance",
+                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                 ],
                                                                 [
                                                                     "Governance Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                 ],
                                                                 [
                                                                     "Incentives for Voting",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "1f9590c2-e166-482c-8400-ba64e39f0934"
                                                                 ]
                                                             ]
                                                         }
@@ -1649,23 +1805,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos",
-                                                                                    "Pools"
+                                                                                    "Pools",
+                                                                                    "Governance",
+                                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                                 ],
                                                                                 [
                                                                                     "Governance Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                                 ],
                                                                                 [
                                                                                     "Incentives for Providing Liquidity to SA Markets",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "00bbb418-2315-4845-aa39-8362489a360b"
                                                                                 ],
                                                                                 [
                                                                                     "Liquidity Program",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "477faa7a-da4f-4949-9439-a2475ed683de"
                                                                                 ],
                                                                                 [
                                                                                     "Liquidity Rewards BTCB",
-                                                                                    "Pool"
+                                                                                    "Pool",
+                                                                                    "Governance",
+                                                                                    "a7651e92-ab96-49fc-af9c-f936682dd7a4"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -1704,23 +1870,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos",
-                                                                                    "Pools"
+                                                                                    "Pools",
+                                                                                    "Governance",
+                                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                                 ],
                                                                                 [
                                                                                     "Governance Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                                 ],
                                                                                 [
                                                                                     "Incentives for Providing Liquidity to SA Markets",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "00bbb418-2315-4845-aa39-8362489a360b"
                                                                                 ],
                                                                                 [
                                                                                     "Liquidity Program",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "477faa7a-da4f-4949-9439-a2475ed683de"
                                                                                 ],
                                                                                 [
                                                                                     "Liquidity Rewards BNB",
-                                                                                    "Pool"
+                                                                                    "Pool",
+                                                                                    "Governance",
+                                                                                    "e7c21a28-fea6-48cc-a97c-cc43470bb2fc"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -1759,23 +1935,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos",
-                                                                                    "Pools"
+                                                                                    "Pools",
+                                                                                    "Governance",
+                                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                                 ],
                                                                                 [
                                                                                     "Governance Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                                 ],
                                                                                 [
                                                                                     "Incentives for Providing Liquidity to SA Markets",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "00bbb418-2315-4845-aa39-8362489a360b"
                                                                                 ],
                                                                                 [
                                                                                     "Liquidity Program",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "477faa7a-da4f-4949-9439-a2475ed683de"
                                                                                 ],
                                                                                 [
                                                                                     "Liquidity Rewards BUSD",
-                                                                                    "Pool"
+                                                                                    "Pool",
+                                                                                    "Governance",
+                                                                                    "962d9bc1-4e54-463c-86ae-43aec1db0f0f"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -1813,19 +1999,27 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                         ],
                                                                         [
                                                                             "Incentives for Providing Liquidity to SA Markets",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "00bbb418-2315-4845-aa39-8362489a360b"
                                                                         ],
                                                                         [
                                                                             "Liquidity Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "477faa7a-da4f-4949-9439-a2475ed683de"
                                                                         ]
                                                                     ]
                                                                 }
@@ -1864,15 +2058,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Pools"
+                                                                    "Pools",
+                                                                    "Governance",
+                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                 ],
                                                                 [
                                                                     "Governance Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                 ],
                                                                 [
                                                                     "Incentives for Providing Liquidity to SA Markets",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "00bbb418-2315-4845-aa39-8362489a360b"
                                                                 ]
                                                             ]
                                                         }
@@ -1924,23 +2124,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos",
-                                                                                    "Pools"
+                                                                                    "Pools",
+                                                                                    "Governance",
+                                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                                 ],
                                                                                 [
                                                                                     "Governance Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                                 ],
                                                                                 [
                                                                                     "Incentives for Staking & Delegating SA Tokens",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "64cda2cd-270e-4046-ac3f-5cf9188113c2"
                                                                                 ],
                                                                                 [
                                                                                     "Staking Program",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "68e3f570-4156-4be6-8881-c526a06f85d0"
                                                                                 ],
                                                                                 [
                                                                                     "Staking Rewards",
-                                                                                    "Pool"
+                                                                                    "Pool",
+                                                                                    "Governance",
+                                                                                    "d2cf4c65-b4bd-4fa8-b0da-f73a38b8419a"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -1978,19 +2188,27 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                         ],
                                                                         [
                                                                             "Incentives for Staking & Delegating SA Tokens",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "64cda2cd-270e-4046-ac3f-5cf9188113c2"
                                                                         ],
                                                                         [
                                                                             "Staking Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "68e3f570-4156-4be6-8881-c526a06f85d0"
                                                                         ]
                                                                     ]
                                                                 }
@@ -2036,23 +2254,33 @@
                                                                             "referenceParentCombinedNodePath": [
                                                                                 [
                                                                                     "Superalgos",
-                                                                                    "Pools"
+                                                                                    "Pools",
+                                                                                    "Governance",
+                                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                                 ],
                                                                                 [
                                                                                     "Governance Programs",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                                 ],
                                                                                 [
                                                                                     "Incentives for Staking & Delegating SA Tokens",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "64cda2cd-270e-4046-ac3f-5cf9188113c2"
                                                                                 ],
                                                                                 [
                                                                                     "Delegation Program",
-                                                                                    "Pool Class"
+                                                                                    "Pool Class",
+                                                                                    "Governance",
+                                                                                    "f09429a2-3f6c-4210-bb73-0c8efd254c82"
                                                                                 ],
                                                                                 [
                                                                                     "Delegation Bonus",
-                                                                                    "Pool"
+                                                                                    "Pool",
+                                                                                    "Governance",
+                                                                                    "24e62dd3-4d7b-4eba-b401-493c155d85d0"
                                                                                 ]
                                                                             ]
                                                                         }
@@ -2090,19 +2318,27 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                         ],
                                                                         [
                                                                             "Incentives for Staking & Delegating SA Tokens",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "64cda2cd-270e-4046-ac3f-5cf9188113c2"
                                                                         ],
                                                                         [
                                                                             "Delegation Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "f09429a2-3f6c-4210-bb73-0c8efd254c82"
                                                                         ]
                                                                     ]
                                                                 }
@@ -2141,15 +2377,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Pools"
+                                                                    "Pools",
+                                                                    "Governance",
+                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                 ],
                                                                 [
                                                                     "Governance Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                                 ],
                                                                 [
                                                                     "Incentives for Staking & Delegating SA Tokens",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "64cda2cd-270e-4046-ac3f-5cf9188113c2"
                                                                 ]
                                                             ]
                                                         }
@@ -2188,11 +2430,15 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Pools"
+                                                            "Pools",
+                                                            "Governance",
+                                                            "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                         ],
                                                         [
                                                             "Governance Programs",
-                                                            "Pool Class"
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                         ]
                                                     ]
                                                 }
@@ -2238,15 +2484,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Pools"
+                                                                    "Pools",
+                                                                    "Governance",
+                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                 ],
                                                                 [
                                                                     "Positions, Assets & Features",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "b27df32a-70f3-470b-b8bb-471c156b0c30"
                                                                 ],
                                                                 [
                                                                     "Positions",
-                                                                    "Pool"
+                                                                    "Pool",
+                                                                    "Governance",
+                                                                    "a289d3a4-bd49-467b-b8d9-d0ba1152a131"
                                                                 ]
                                                             ]
                                                         }
@@ -2285,15 +2537,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Pools"
+                                                                    "Pools",
+                                                                    "Governance",
+                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                 ],
                                                                 [
                                                                     "Positions, Assets & Features",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "b27df32a-70f3-470b-b8bb-471c156b0c30"
                                                                 ],
                                                                 [
                                                                     "Assets",
-                                                                    "Pool"
+                                                                    "Pool",
+                                                                    "Governance",
+                                                                    "16a7dd84-e3e8-4118-a17d-ac227e55ff92"
                                                                 ]
                                                             ]
                                                         }
@@ -2332,15 +2590,21 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Pools"
+                                                                    "Pools",
+                                                                    "Governance",
+                                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                                 ],
                                                                 [
                                                                     "Positions, Assets & Features",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "b27df32a-70f3-470b-b8bb-471c156b0c30"
                                                                 ],
                                                                 [
                                                                     "Features",
-                                                                    "Pool"
+                                                                    "Pool",
+                                                                    "Governance",
+                                                                    "4b7384bc-93ba-454f-9de8-1add9c4d84ce"
                                                                 ]
                                                             ]
                                                         }
@@ -2378,11 +2642,15 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Pools"
+                                                            "Pools",
+                                                            "Governance",
+                                                            "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                         ],
                                                         [
                                                             "Positions, Assets & Features",
-                                                            "Pool Class"
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "b27df32a-70f3-470b-b8bb-471c156b0c30"
                                                         ]
                                                     ]
                                                 }
@@ -11236,27 +11504,39 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Superalgos",
-                                            "Positions"
+                                            "Positions",
+                                            "Governance",
+                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                         ],
                                         [
                                             "Roles Played @ Beta-12",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                         ],
                                         [
                                             "Software Projects",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "864ef810-2d34-4776-946d-2f4bd68b45c5"
                                         ],
                                         [
                                             "Active Projects",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "75998134-fe6b-4dd0-9995-6beb613cd165"
                                         ],
                                         [
                                             "Governance Project",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "68dd2990-457e-48df-b752-6e1fd02081a3"
                                         ],
                                         [
                                             "Project Contributor",
-                                            "Position"
+                                            "Position",
+                                            "Governance",
+                                            "5a13709f-761a-410b-b0e9-1542e341f19e"
                                         ]
                                     ]
                                 }
@@ -11349,7 +11629,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 2,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -11432,7 +11712,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 2,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -11627,7 +11907,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 2,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

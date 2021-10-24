@@ -378,7 +378,9 @@ function newGovernanceUserProfileSpace() {
             }
 
             if (userProfile.payload.blockchainTokens === undefined) {
-                userProfile.payload.bloackchainBalancesLoading = true           
+                userProfile.payload.bloackchainBalancesLoading = true
+                UI.projects.foundations.spaces.cockpitSpace.setStatus('Loading blockchain balances for User Profile # ' + (i + 1) + ' / ' + userProfiles.length, 1500, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
+
                 getBlockchainAccount(userProfile)
                 return
             }
@@ -428,7 +430,7 @@ function newGovernanceUserProfileSpace() {
                     blockchainAccount !== "" &&
                     userProfile.payload.blockchainTokens === undefined
                 ) {
-                                                 
+
                     userProfile.payload.liquidityTokens = {
                         BTCB: 0,
                         BNB: 0,
@@ -460,7 +462,7 @@ function newGovernanceUserProfileSpace() {
             }).then(function (data) {
                 userProfile.payload.bloackchainBalancesLoading = false
                 if (data.result === "Max rate limit reached, please use API Key for higher rate limit") {
-                    userProfile.payload.blockchainTokens = undefined 
+                    userProfile.payload.blockchainTokens = undefined
                 } else {
                     userProfile.payload.uiObject.setInfoMessage('Blockchan Balance Succesfully Loaded.',
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
@@ -493,7 +495,7 @@ function newGovernanceUserProfileSpace() {
                 //console.log(data)
                 if (data.result === "Max rate limit reached, please use API Key for higher rate limit") {
                     console.log('[WARN] Rate Limit Reached fetching liquidity tokens for asset ' + asset + ' of user profile ' + userProfile.name)
-                    userProfile.payload.blockchainTokens = undefined 
+                    userProfile.payload.blockchainTokens = undefined
                 } else {
                     userProfile.payload.uiObject.setInfoMessage('Pancake Balance Succesfully Loaded for asset ' + asset,
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR

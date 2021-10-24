@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg5533"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs5537" />
+  <g
+     fill="none"
+     id="g5531"
+     transform="scale(16)">
+    <circle
+       cx="16"
+       cy="16"
+       r="16"
+       fill="#1a4199"
+       id="circle5515" />
+    <g
+       fill="#ffffff"
+       id="g5529">
+      <path
+         d="m 10.676,7.125 10.732,6.191 v 6.319 L 5,10.159 10.265,7.125 a 0.42,0.42 0 0 1 0.42,0"
+         opacity="0.7"
+         id="path5517" />
+      <path
+         opacity="0.9"
+         d="m 21.408,7 -5.467,3.16 5.467,3.156 z"
+         id="path5519" />
+      <path
+         d="m 21.408,7 5.264,3.036 a 0.42,0.42 0 0 1 0.22,0.367 v 12.389 l -5.484,-3.157 z"
+         id="path5521" />
+      <path
+         d="m 26.881,22.792 -5.264,3.033 a 0.44,0.44 0 0 1 -0.42,0 l -10.732,-6.19 v -6.328 z"
+         opacity="0.9"
+         id="path5523" />
+      <path
+         d="m 5,10.16 v 12.387 a 0.42,0.42 0 0 0 0.22,0.368 l 5.265,3.036 V 13.307 Z"
+         opacity="0.6"
+         id="path5525" />
+      <path
+         opacity="0.7"
+         d="m 10.476,25.95 5.465,-3.158 -5.465,-3.157 z"
+         id="path5527" />
+    </g>
+  </g>
+</svg>

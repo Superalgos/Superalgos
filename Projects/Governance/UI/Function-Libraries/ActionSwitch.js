@@ -38,9 +38,29 @@ function newGovernanceActionSwitch() {
                     UI.projects.governance.functionLibraries.profileConstructor.buildProfile(action.node, action.rootNodes)
                     break
                 }
-            case 'Add Signing Account':
+            case 'Add Social Trading Desktop App':
                 {
-                    UI.projects.governance.functionLibraries.profileConstructor.addSigningAccount(action.node, action.rootNodes)
+                    UI.projects.governance.functionLibraries.profileConstructor.addSigningAccount(action.node, action.rootNodes, 'Social Trading Desktop App')
+                    break
+                }
+            case 'Add Social Trading Server App':
+                {
+                    UI.projects.governance.functionLibraries.profileConstructor.addSigningAccount(action.node, action.rootNodes, 'Social Trading Server App')
+                    break
+                }
+            case 'Add Social Trading Mobile App':
+                {
+                    UI.projects.governance.functionLibraries.profileConstructor.addSigningAccount(action.node, action.rootNodes, 'Social Trading Mobile App')
+                    break
+                }
+            case 'Add Algo Traders Platform':
+                {
+                    UI.projects.governance.functionLibraries.profileConstructor.addSigningAccount(action.node, action.rootNodes, 'Algo Traders Platform')
+                    break
+                }
+            case 'Add P2P Network Node':
+                {
+                    UI.projects.governance.functionLibraries.profileConstructor.addSigningAccount(action.node, action.rootNodes, 'P2P Network Node')
                     break
                 }
             case 'Add Missing Plugin User Profiles':
@@ -68,7 +88,7 @@ function newGovernanceActionSwitch() {
                     UI.projects.governance.functionLibraries.pluginsFunctions.addMissingPluginPositions(action.node, action.rootNodes)
                 }
                 break
-                
+
             default: {
                 console.log("[WARN] Action sent to Governance Action Switch does not belong here. Verify at the App Schema file of the node that triggered this action that the actionProject is pointing to the right project. -> Action = " + action.name + " -> Action Node Name = " + action.node.name)
             }

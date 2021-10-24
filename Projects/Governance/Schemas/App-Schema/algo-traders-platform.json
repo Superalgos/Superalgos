@@ -33,5 +33,5 @@
         "compatibleTypes": "->Signing Account->"
     },
     "childrenNodesProperties": [],
-    "propertyNameAtParent": "assignedTo"
+    "propertyNameAtParent": "signingAccountChild"
 }

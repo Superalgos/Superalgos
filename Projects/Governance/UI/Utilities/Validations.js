@@ -38,11 +38,6 @@ function newGovernanceUtilitiesValidations() {
                     return program
                 }
             }
-
-            userProfile.payload.uiObject.setErrorMessage(
-                'Only one ' + programNodeType + ' is allowed. No program had a configProperty called ' + configProperetyName + ' with a value of ' + configProperetyValue,
-                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-            )
         }
     }
 }

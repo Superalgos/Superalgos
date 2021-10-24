@@ -6,6 +6,13 @@ function newFoundationsFunctionLibraryProductFunctions() {
 
     return thisObject
 
+    /**
+     * 
+     * This function will install the product into :
+     * Available Trading Mines as process dependency for the trading bot
+     * Previously installed Markets
+     */
+
     function installProduct(
         node,
         rootNodes
@@ -15,30 +22,171 @@ function newFoundationsFunctionLibraryProductFunctions() {
         let productIndicatorBot = product.payload.parentNode
         let productDataMineParent = productIndicatorBot.payload.parentNode
 
+        node.payload.uiObject.setInfoMessage('This product is being installed. This might take a couple of seconds. Please hold on while we connect all the dots for you. ')
 
+        setTimeout(startInstalling, 500)
 
-        for (let i = 0; i < rootNodes.length; i++) {
-            let rootNode = rootNodes[i]
-            if (rootNode.type === 'Trading Mine') {
-                installInTradingMine(rootNode)
+        function startInstalling() {
+
+            for (let i = 0; i < rootNodes.length; i++) {
+
+                let rootNode = rootNodes[i]
+
+                if (rootNode.type === 'Trading Mine') {
+                    installInTradingMine(rootNode)
+                } else if (rootNode.type === 'LAN Network') {
+                    installInNetworkNodes(rootNode)
+                }
             }
+
+            function installInNetworkNodes(lanNetwork) {
+
+                for (let j = 0; j < lanNetwork.lanNetworkNodes.length; j++) {
+                    let lanNetworkNode = lanNetwork.lanNetworkNodes[j]
+                    installInDataMinesData(lanNetworkNode)
+                    installInDataTasks(lanNetworkNode)
+                }
+
+
+                /**
+                 * 
+                 * We will add data mine tasks of the product only to existing Market Data Tasks
+                 * If no Market Data Tasks are available, product task will not be installed into this branch
+                 * Market Data can be installed by using Install Market Script.
+                 */
+                function installInDataTasks(lanNetworkNode) {
+                    let dataTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Tasks', product, true)
+
+                    // Install in each existing Project Data Task
+                    for (let j = 0; j < dataTasks.projectDataTasks.length; j++) {
+                        let projectDataTask = dataTasks.projectDataTasks[j]
+
+                        // Install in each existing Exchange
+                        for (let k = 0; k < projectDataTask.exchangeDataTasks.length; k++) {
+                            let exchangeDataTask = projectDataTask.exchangeDataTasks[k]
+
+                            // Install in each existing Market Data
+                            for (let l = 0; l < exchangeDataTask.marketDataTasks.length; l++) {
+                                let marketDataTask = exchangeDataTask.marketDataTasks[l]
+
+                                // If Data Mine is not installed we are going to create it, otherwise we use the existing one
+                                let dataMineDependency = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(marketDataTask, 'Data Mine Tasks', productDataMineParent)
+
+                                if (dataMineDependency.taskManagers.length > 0) {
+                                    //We will add the task and indicator bot into first task manager we find
+                                    let task = findOrCreateTask(dataMineDependency.taskManagers[0])
+                                    let indicatorBot = findOrCreateIndicatorBot(task)
+
+                                    findOrCreateIndicatorProcessInstance(indicatorBot)
+                                } else {
+                                    //Let's create a new task manager as none exists
+                                    let newTaskManager = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataMineDependency, 'Task Manager')
+                                    newTaskManager.name = productDataMineParent.name
+
+                                    let task = findOrCreateTask(newTaskManager)
+                                    let indicatorBot = findOrCreateIndicatorBot(task)
+
+                                    findOrCreateIndicatorProcessInstance(indicatorBot)
+
+                                }
+
+                            }
+                        }
+                    }
+
+
+                    function findOrCreateTask(taskManager) {
+                        let task = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(taskManager, undefined, productIndicatorBot.name, false, true, false, false)
+                        if (task === undefined) {
+                            let newTask = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(taskManager, 'Task')
+                            newTask.name = productIndicatorBot.name
+
+                            return newTask
+                        }
+                        return task;
+                    }
+
+                    function findOrCreateIndicatorBot(task) {
+                        let botInstance = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(task, 'Indicator Bot Instance', undefined, false, true, false, false)
+                        if (botInstance === undefined) {
+                            let newBotInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Indicator Bot Instance')
+                            newBotInstance.name = productIndicatorBot.name
+
+                            return newBotInstance
+                        }
+                        return botInstance
+                    }
+
+                    function findOrCreateIndicatorProcessInstance(indicatorBot) {
+                        for (m = 0; m < productIndicatorBot.processes.length; m++) {
+                            let processDefinition = productIndicatorBot.processes[m]
+                            UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(indicatorBot, 'Indicator Process Instance', processDefinition)
+                        }
+                    }
+
+
+
+                }
+
+                /**
+                 * 
+                 * We will add Data Product to Market Data Products only if there is at least one Exchange and Market installed 
+                 * We will not create the entire hierarchy for the Exchange as this is a job for Install Market script
+                 * 
+                 */
+                function installInDataMinesData(lanNetworkNode) {
+
+                    let dataMinesData = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Mines Data', product, true)
+
+
+                    for (let j = 0; j < dataMinesData.projectDataProducts.length; j++) {
+                        let projectDataProduct = dataMinesData.projectDataProducts[j]
+
+                        for (let k = 0; k < projectDataProduct.exchangeDataProducts.length; k++) {
+                            let exchangeDataProduct = projectDataProduct.exchangeDataProducts[k]
+
+                            for (let l = 0; l < exchangeDataProduct.marketDataProducts.length; l++) {
+                                let marketDataProduct = exchangeDataProduct.marketDataProducts[l]
+
+                                let dataMineDependency = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(marketDataProduct, 'Data Mine Products', productDataMineParent)
+                                let botProductDependencies = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(dataMineDependency, undefined, productIndicatorBot.name, false, true, false, false)
+
+                                /**
+                                * If Bot Product Dependency exists add Data Product
+                                * Otherwise create the Bot Product Dependency  and addData Product to newly created Bot Product Dependency
+                                */
+                                if (botProductDependencies !== undefined) {
+                                    addDataProduct(botProductDependencies)
+                                } else {
+                                    let newBotProductDependencies = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataMineDependency, 'Bot Products')
+                                    newBotProductDependencies.name = productIndicatorBot.name
+                                    addDataProduct(newBotProductDependencies)
+                                }
+
+                                function addDataProduct(botProductDependencies) {
+                                    UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(botProductDependencies, 'Data Product', product)
+                                }
+                            }
+
+                        }
+                    }
+
+
+                }
+
+            }
+
         }
+
+
 
         function installInTradingMine(tradingMine) {
 
             for (let j = 0; j < tradingMine.tradingBots.length; j++) {
                 let tradingBotNode = tradingMine.tradingBots[j]
-                installInTradingBotNode(tradingBotNode)
-            }
 
-            function installInTradingBotNode(tradingBot) {
-
-                for (let k = 0; k < tradingBot.processes.length; k++) {
-                    let process = tradingBot.processes[k]
-                    installInProcessDefinitionDependencies(process)
-                }
-
-                function installInProcessDefinitionDependencies(process) {
+                for (let k = 0; k < tradingBotNode.processes.length; k++) {
+                    let process = tradingBotNode.processes[k]
 
                     /**
                      * In case the data mine is not referenced at all, we must add it
@@ -46,7 +194,7 @@ function newFoundationsFunctionLibraryProductFunctions() {
 
                     let dataMineDependency = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(process.processDependencies, 'Data Mine Data Dependencies', productDataMineParent)
 
-                    let botDataDependencies = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(dataMineDependency, undefined, productIndicatorBot.name, true, true, false, false)
+                    let botDataDependencies = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(dataMineDependency, undefined, productIndicatorBot.name, false, true, false, false)
 
                     /**
                      * If Bot Data Dependency exists add Data Dependencies
@@ -55,11 +203,7 @@ function newFoundationsFunctionLibraryProductFunctions() {
                     if (botDataDependencies !== undefined) {
                         addAllDataDependencies(botDataDependencies)
                     } else {
-                        dataMineDependency.payload.uiObject.menu.internalClick('Add UI Object')
-                        /**
-                         * Find newly created bot data dependency and change his name to match Indicat Bot name
-                         */
-                        let newBotDataDependencies = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(dataMineDependency, undefined, 'New Bot Data Dependencies', true, true, false, false)
+                        let newBotDataDependencies = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataMineDependency, 'Bot Data Dependencies')
                         newBotDataDependencies.name = productIndicatorBot.name
                         addAllDataDependencies(newBotDataDependencies)
                     }
@@ -71,11 +215,14 @@ function newFoundationsFunctionLibraryProductFunctions() {
                             UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(botDataDependencies, 'Data Dependency', dataset)
                         }
                     }
-
                 }
             }
 
-        }
 
+        }
     }
+
 }
+
+
+

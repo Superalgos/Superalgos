@@ -44,7 +44,11 @@ exports.newHttpInterface = function newHttpInterface() {
             let endpointOrFile = requestPath[1]
 
             switch (endpointOrFile) {
-
+                case 'Environment':
+                    {
+                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.env), httpResponse)
+                    }
+                    break
                 case 'WEB3':
                     {
                         SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)

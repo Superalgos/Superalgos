@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Si has seguido mis instrucciones al pie de la letra, ¡ahora deberías estar ejecutando el software en la rama plugins-docs! ¡Increíble!",
-                "updated": 1628185547039
+                "updated": 1628185547039,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie meine Anweisungen genau befolgt haben, sollten Sie jetzt die Software im Zweig plugins-docs ausführen! Großartig!",
+                "updated": 1635148049596
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "¡El software que estás ejecutando actualmente es la versión de Superalgos que estaba en la rama plugins-docs el día que hiciste fork el proyecto! Esto se debe a que el proceso de cambio de rama descarga el software de tu rama y no del repositorio ascendente.",
-                    "updated": 1628185634260
+                    "updated": 1628185634260,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Software, die Sie gerade ausführen, ist die Version von Superalgos, die sich im plugins-docs-Zweig befand, als Sie das Projekt geforkt haben! Das liegt daran, dass der Prozess des Wechselns der Zweige die Software von Ihrem Fork herunterlädt und nicht vom Upstream-Repository.",
+                    "updated": 1635148060851
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "¡Necesitas actualizar para poder ejecutar la última versión! Esto es particularmente importante cuando tienes la intención de contribuir al proyecto. ¡Siempre debes trabajar en la última versión para que los cambios que realices incluyan los últimos cambios producidos por otros colaboradores!",
-                    "updated": 1628186597672
+                    "updated": 1628186597672,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie müssen aktualisieren, damit Sie die neueste Version verwenden! Dies ist besonders wichtig, wenn Sie beabsichtigen, zu dem Projekt beizutragen. Sie sollten immer an der neuesten Version arbeiten, damit die Änderungen, die Sie vornehmen, die neuesten Änderungen anderer Mitwirkender enthalten!",
+                    "updated": 1635148067772
                 }
             ]
         }

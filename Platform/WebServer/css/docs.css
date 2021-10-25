@@ -826,6 +826,13 @@ display: table-cell;
 width: 100%;
 }
 
+::placeholder,  /* Chrome, Firefox, Opera, Safari 10.1+ */
+:-ms-input-placeholder, /* Internet Explorer 10-11 */
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #dbdbdb;
+  opacity: 1; /* Firefox */
+}
+
 .docs-search-results-header-tabs-container {
 display: table;
 text-align: right;

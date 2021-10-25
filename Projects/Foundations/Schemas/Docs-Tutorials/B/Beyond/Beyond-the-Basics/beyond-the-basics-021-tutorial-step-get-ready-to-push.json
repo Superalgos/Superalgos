@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "¡Increíble! ¡Aprendiste a agregar una página a los Documentos, editarla y guardarla! ¡Ahora tienes que hacer que trascienda tu PC y contribuir con Superalgos!",
-                "updated": 1628191613869
+                "updated": 1628191613869,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Erstaunlich! Sie haben gelernt, eine Seite zu den Docs hinzuzufügen, sie zu bearbeiten und zu speichern! Jetzt müssen Sie sie über Ihren PC hinausbringen und sie zu Superalgos beitragen!",
+                "updated": 1635150364540
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Superalgos interactúa con Git para mantener actualizada la instalación de Superalgos y facilitar las contribuciones a los usuarios menos técnicos. El App Contribute Command ejecuta los siguientes comandos de Git en una secuencia:",
-                    "updated": 1628191732614
+                    "updated": 1628191732614,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos interagiert mit Git, um Ihre Superalgos-Installation auf dem neuesten Stand zu halten und um Beiträge für technisch weniger versierte Benutzer zu erleichtern. Der  App Contribute Command führt die folgenden Git-Befehle nacheinander aus:",
+                    "updated": 1635150376963
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "git add: agrega los cambios que has realizado en los archivos contribuyentes a una confirmación de git.",
-                    "updated": 1628191868136
+                    "updated": 1628191868136,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "git add: fügt die Änderungen, die Sie an beitragsfähigen Dateien vorgenommen haben, einem Git-Commit hinzu.",
+                    "updated": 1635150385694
                 }
             ]
         },
@@ -74,7 +92,13 @@
                 {
                     "language": "ES",
                     "text": "git commit: confirma todos los cambios.",
-                    "updated": 1628191882639
+                    "updated": 1628191882639,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "git commit: Überträgt alle Änderungen.",
+                    "updated": 1635150395840
                 }
             ]
         },
@@ -92,7 +116,13 @@
                 {
                     "language": "ES",
                     "text": "git push: empuja los cambios a tu fork.",
-                    "updated": 1628191904103
+                    "updated": 1628191904103,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "git push: Überträgt die Änderungen auf Ihren Fork.",
+                    "updated": 1635150403499
                 }
             ]
         },
@@ -110,7 +140,13 @@
                 {
                     "language": "ES",
                     "text": "github createPullRequest: crea un Pull Request en el repositorio de Superalgos, o agrega confirmaciones a unexistente Pull Request.",
-                    "updated": 1628191970494
+                    "updated": 1628191970494,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "github createPullRequest: erstellt einen Pull Request im Superalgos-Repository oder fügt Commits zu einem bestehenden Pull Request hinzu.",
+                    "updated": 1635150423168
                 }
             ]
         }

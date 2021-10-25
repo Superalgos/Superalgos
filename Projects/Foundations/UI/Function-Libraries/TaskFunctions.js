@@ -90,6 +90,12 @@ function newFoundationsFunctionLibraryTaskFunctions() {
 
     function runTask(node, isDebugging, callBackFunction) {
 
+        if (UI.environment.DEMO_MODE === true) {
+            node.payload.uiObject.setWarningMessage('Superalgos is running is DEMO MODE. This means that you can not RUN Tasks.', 5)
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+            return
+        }
+
         let lanNetworkNode = validations(node)
         if (lanNetworkNode === undefined) {
             /* This means that the validations failed. */
@@ -218,6 +224,13 @@ function newFoundationsFunctionLibraryTaskFunctions() {
     }
 
     function stopTask(node, callBackFunction) {
+
+        if (UI.environment.DEMO_MODE === true) {
+            node.payload.uiObject.setWarningMessage('Superalgos is running is DEMO MODE. This means that you can not STOP Tasks.', 5)
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+            return
+        }
+
         let lanNetworkNode = validations(node)
         if (lanNetworkNode === undefined) {
             /* This means that the validations failed. */

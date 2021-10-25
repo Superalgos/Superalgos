@@ -42,6 +42,13 @@ function newMachineLearningFunctionLibraryLearningSessionFunctions() {
     }
 
     function runSession(node, resume, callBackFunction) {
+        
+        if (UI.environment.DEMO_MODE === true) {
+            node.payload.uiObject.setWarningMessage('Superalgos is running is DEMO MODE. This means that you can not execute Sessions.', 5)
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+            return
+        }
+
         let validationsResult = validations(node)
         if (validationsResult === undefined) {
             /* If something fails at validations we just quit. */
@@ -169,6 +176,13 @@ function newMachineLearningFunctionLibraryLearningSessionFunctions() {
     }
 
     function stopSession(node, callBackFunction) {
+
+        if (UI.environment.DEMO_MODE === true) {
+            node.payload.uiObject.setWarningMessage('Superalgos is running is DEMO MODE. This means that you can not STOP Sessions.', 5)
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+            return
+        }
+
         let validationsResult = validations(node)
         if (validationsResult === undefined) {
             /* If something fails at validations we just quit. */

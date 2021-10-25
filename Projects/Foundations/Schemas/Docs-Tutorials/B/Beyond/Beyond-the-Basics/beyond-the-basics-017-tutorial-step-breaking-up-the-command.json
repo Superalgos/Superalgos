@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Antes de que empieces a escribir tu increíble reseña, déjame analizar el comando para que entiendas lo que acabas de hacer.",
-                "updated": 1628187556269
+                "updated": 1628187556269,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Bevor Sie mit dem Schreiben Ihrer tollen Rezension weitermachen, lassen Sie mich den Befehl zerlegen, damit Sie verstehen, was Sie gerade getan haben!",
+                "updated": 1635148901086
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "docs.add: sintaxis raíz del Docs Add Command.",
-                    "updated": 1628187573188
+                    "updated": 1628187573188,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "docs.add: root syntax des Docs Add Command.",
+                    "updated": 1635148919397
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "Review: El Docs Page Category de la página.",
-                    "updated": 1628187593354
+                    "updated": 1628187593354,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Review: die Docs Page Category der Seite.",
+                    "updated": 1635148950148
                 }
             ]
         },
@@ -74,7 +92,13 @@
                 {
                     "language": "ES",
                     "text": "to: Un conector coloquial para mejorar la legibilidad.",
-                    "updated": 1628187623878
+                    "updated": 1628187623878,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "to: ein umgangssprachlicher Konnektor, um die Lesbarkeit zu verbessern.",
+                    "updated": 1635148965566
                 }
             ]
         },
@@ -88,6 +112,11 @@
                     "text": "Superalgos: il progetto a cui verrà aggiunta la pagina",
                     "updated": 1619635908258,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos: das Projekt, zu dem die Seite hinzugefügt wird.",
+                    "updated": 1635148976136
                 }
             ]
         },
@@ -105,7 +134,13 @@
                 {
                     "language": "ES",
                     "text": "Superalgos Project Review: El nombre de la colección de páginas a la que pertenece la reseña.",
-                    "updated": 1628187652957
+                    "updated": 1628187652957,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos Project Review: der Name der Seitensammlung, zu der die Review gehört.",
+                    "updated": 1635148984696
                 }
             ]
         },
@@ -123,7 +158,13 @@
                 {
                     "language": "ES",
                     "text": "->: Separador utilizado en comandos que requieren dos parámetros definidos por el usuario (el nombre de la colección de páginas y el nombre de la página).",
-                    "updated": 1628188066628
+                    "updated": 1628188066628,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "->: ein Trennzeichen, das in Befehlen verwendet wird, die zwei benutzerdefinierte Parameter erfordern (in diesem Fall den Namen der Seitensammlung und den Namen der Seite).",
+                    "updated": 1635148994252
                 }
             ]
         },
@@ -141,7 +182,13 @@
                 {
                     "language": "ES",
                     "text": "Superalgos Review - Your Review Title: Es el Docs Page Name; repetimos Superalgos Review en el nombre de la página para reducir las probabilidades de nombres duplicados.",
-                    "updated": 1628188140031
+                    "updated": 1628188140031,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos Review - Your Review Title: dies ist der Docs Page Name; wir wiederholen Superalgos Review im Seitennamen, um die Wahrscheinlichkeit doppelter Namen zu verringern",
+                    "updated": 1635149022701
                 }
             ]
         }

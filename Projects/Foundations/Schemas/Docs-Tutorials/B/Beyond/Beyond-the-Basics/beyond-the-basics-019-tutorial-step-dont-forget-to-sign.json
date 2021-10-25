@@ -21,6 +21,11 @@
                 "text": "Estos comentarios sobre tus primeras impresiones en Superalgos son tu primer aporte, ¡y por eso te agradecemos!",
                 "updated": 1628190090733,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Diese Kommentare über Ihre ersten Eindrücke von Superalgos sind Ihr erster Beitrag, und dafür danken wir Ihnen!",
+                "updated": 1635149257044
             }
         ]
     },
@@ -41,25 +46,35 @@
                     "text": "Para que tu reseña se combine en el repositorio de Superalgos, debes firmarla con tu nombre de usuario de GitHub.com en el último párrafo de la página. ¡Esto es importante para que luego puedas encontrar la página usando la búsqueda! Siempre puedes volver y editarlo.",
                     "updated": 1628190305617,
                     "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Damit Ihr Beitrag in das Superalgos-Repository aufgenommen werden kann, müssen Sie ihn im letzten Absatz der Seite mit Ihrem GitHub.com-Benutzernamen signieren! Dies ist wichtig, damit Sie die Seite später über die Suche finden können! Wenn Sie mit Superalgos Fortschritte machen, können Sie jederzeit zurückkommen und die Seite bearbeiten.",
+                    "updated": 1635149266576
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "Contributions earn you <a href=\"https://superalgos.org/token-overview.shtml\" target=\"_blank\" style=\"color:blue;\">Superalgos SA Tokens</a> and are subject to the terms of the <a href=\"https://github.com/Superalgos/Superalgos/blob/master/LICENSE\" target=\"_blank\" style=\"color:blue;\">Apache Licence 2.0</a>. In short, Contributors provide an express grant of copyright/patent rights.",
-            "updated": 1610963383947,
+            "text": "Contributions earn you <a href=\\\"https://superalgos.org/token-overview.shtml\\\" target=\\\"_blank\\\" style=\\\"color:blue;\\\">Superalgos SA Tokens</a> and are subject to the terms of the <a href=\\\"https://github.com/Superalgos/Superalgos/blob/master/LICENSE\\\" target=\\\"_blank\\\" style=\\\"color:blue;\\\">Apache Licence 2.0</a>. In short, Contributors provide an express grant of copyright/patent rights.",
+            "updated": 1635149331814,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "I contributi sono soggetti ai termini della Apache Licence 2.0. In breve, chi contribuisce concede esplicitamente diritti di copyright/brevetto.",
+                    "text": "I contributi sono soggetti ai termini della <a href=\\\"https://github.com/Superalgos/Superalgos/blob/master/LICENSE\\\" target=\\\"_blank\\\" style=\\\"color:blue;\\\">Apache Licence 2.0</a>. In breve, chi contribuisce concede esplicitamente diritti di copyright/brevetto.",
                     "updated": 1619636533564,
                     "style": "Note"
                 },
                 {
                     "language": "ES",
-                    "text": "Las contribuciones te hacen ganar Superalgos SA Tokens y están sujetos a los términos de la Apache Licence 2.0. En resumen, los Colaboradores brindan una concesión expresa de derechos de autor / derechos de patente.",
+                    "text": "Las contribuciones te hacen ganar <a href=\\\"https://superalgos.org/token-overview.shtml\\\" target=\\\"_blank\\\" style=\\\"color:blue;\\\">Superalgos SA Tokens</a> y están sujetos a los términos de la <a href=\\\"https://github.com/Superalgos/Superalgos/blob/master/LICENSE\\\" target=\\\"_blank\\\" style=\\\"color:blue;\\\">Apache Licence 2.0</a>. En resumen, los Colaboradores brindan una concesión expresa de derechos de autor / derechos de patente.",
                     "updated": 1628190213182,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beiträge bringen Ihnen <a href=\\\"https://superalgos.org/token-overview.shtml\\\" target=\\\"_blank\\\" style=\\\"color:blue;\\\">Superalgos SA Tokens</a> ein und unterliegen den Bedingungen der <a href=\\\"https://github.com/Superalgos/Superalgos/blob/master/LICENSE\\\" target=\\\"_blank\\\" style=\\\"color:blue;\\\">Apache Licence 2.0</a>. Kurz gesagt, die Mitwirkenden gewähren ausdrücklich das Urheberrecht/Patentrecht.",
+                    "updated": 1635150086827
                 }
             ]
         }

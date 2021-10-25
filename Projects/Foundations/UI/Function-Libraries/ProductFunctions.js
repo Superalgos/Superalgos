@@ -7,10 +7,12 @@ function newFoundationsFunctionLibraryProductFunctions() {
     return thisObject
 
     /**
-     * 
-     * This function will install the product into :
+     *
+     * This function will install the product in :
      * Available Trading Mines as process dependency for the trading bot
      * Previously installed Markets
+     * Data Tasks for all markets
+     * Charting Space for all dashboards
      */
 
     function installProduct(
@@ -21,6 +23,8 @@ function newFoundationsFunctionLibraryProductFunctions() {
         let product = node
         let productIndicatorBot = product.payload.parentNode
         let productDataMineParent = productIndicatorBot.payload.parentNode
+        let dataMineProduct
+        let dataProduct
 
         node.payload.uiObject.setInfoMessage('This product is being installed. This might take a couple of seconds. Please hold on while we connect all the dots for you. ')
 
@@ -37,6 +41,7 @@ function newFoundationsFunctionLibraryProductFunctions() {
                 } else if (rootNode.type === 'LAN Network') {
                     installInNetworkNodes(rootNode)
                 } else if (rootNode.type === 'Charting Space') {
+                    // Installing in charting space can be done only after we make sure the Data products are installed
                     installInChartingSpace(rootNode)
                 }
             }
@@ -51,7 +56,7 @@ function newFoundationsFunctionLibraryProductFunctions() {
 
 
                 /**
-                 * 
+                 *
                  * We will add data mine tasks of the product only to existing Market Data Tasks
                  * If no Market Data Tasks are available, product task will not be installed into this branch
                  * Market Data can be installed by using Install Market Script.
@@ -126,15 +131,13 @@ function newFoundationsFunctionLibraryProductFunctions() {
                         }
                     }
 
-
-
                 }
 
                 /**
-                 * 
-                 * We will add Data Product to Market Data Products only if there is at least one Exchange and Market installed 
+                 *
+                 * We will add Data Product to Market Data Products only if there is at least one Exchange and Market installed
                  * We will not create the entire hierarchy for the Exchange as this is a job for Install Market script
-                 * 
+                 *
                  */
                 function installInDataMinesData(lanNetworkNode) {
 
@@ -150,36 +153,34 @@ function newFoundationsFunctionLibraryProductFunctions() {
                             for (let l = 0; l < exchangeDataProduct.marketDataProducts.length; l++) {
                                 let marketDataProduct = exchangeDataProduct.marketDataProducts[l]
 
-                                let dataMineDependency = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(marketDataProduct, 'Data Mine Products', productDataMineParent)
-                                let botProductDependencies = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(dataMineDependency, undefined, productIndicatorBot.name, false, true, false, false)
+                                dataMineProduct = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(marketDataProduct, 'Data Mine Products', productDataMineParent)
+                                let botProductDependencies = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(dataMineProduct, undefined, productIndicatorBot.name, false, true, false, false)
 
                                 /**
-                                * If Bot Product Dependency exists add Data Product
-                                * Otherwise create the Bot Product Dependency  and addData Product to newly created Bot Product Dependency
-                                */
+                                 * If Bot Product Dependency exists add Data Product
+                                 * Otherwise create the Bot Product Dependency  and addData Product to newly created Bot Product Dependency
+                                 */
                                 if (botProductDependencies !== undefined) {
                                     addDataProduct(botProductDependencies)
                                 } else {
-                                    let newBotProductDependencies = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataMineDependency, 'Bot Products')
+                                    let newBotProductDependencies = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataMineProduct, 'Bot Products')
                                     newBotProductDependencies.name = productIndicatorBot.name
                                     addDataProduct(newBotProductDependencies)
                                 }
 
                                 function addDataProduct(botProductDependencies) {
-                                    UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(botProductDependencies, 'Data Product', product)
+                                    dataProduct = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(botProductDependencies, 'Data Product', product)
                                 }
                             }
 
                         }
                     }
 
-
                 }
 
             }
 
         }
-
 
 
         function installInTradingMine(tradingMine) {
@@ -228,13 +229,64 @@ function newFoundationsFunctionLibraryProductFunctions() {
             for (let j = 0; j < chartingSpace.projectDashboards.length; j++) {
                 let projectDashboard = chartingSpace.projectDashboards[j]
 
-                for (k = 0; k < projectDashboard.dashboards.length; k++) {
+                for (let k = 0; k < projectDashboard.dashboards.length; k++) {
                     let dashboard = projectDashboard.dashboards[k]
 
-                    for (l = 0; l < dashboard.timeMachines.length; l++) {
-                        timeMachine = dashboard.timeMachines[l]
+                    for (let l = 0; l < dashboard.timeMachines.length; l++) {
+                        let timeMachine = dashboard.timeMachines[l]
 
-                        
+                        if (timeMachine.timelineCharts.length > 0) {
+                            let existingTimelineChartUpdated = false
+                            /**
+                             * We first search the existing timeline charts for a Layer Manager children that references our product data mine parent, to reuse it
+                             * If none found we will create a new timeline chart with all branches
+                             */
+                            for (let m = 0; m < timeMachine.timelineCharts.length; m++) {
+                                let currentTimelineChart = timeMachine.timelineCharts[m]
+
+                                let referencedLayerManager = UI.projects.visualScripting.utilities.nodeChildren.findChildReferencingThisNode(currentTimelineChart, dataMineProduct)
+                                console.log(referencedLayerManager)
+                                if (referencedLayerManager !== undefined) {
+                                    // We have found a timeline chart that references our product data mine, let's check if our product is installed, otherwise we install it
+
+                                    let botLayer = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(referencedLayerManager, undefined, productIndicatorBot.name, false, true, false, false)
+
+                                    if (botLayer === undefined) {
+                                        let newBotLayer = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(referencedLayerManager, 'Bot Layers')
+                                        newBotLayer.name = productIndicatorBot.name
+                                        botLayer = newBotLayer
+                                    }
+
+                                    UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(botLayer, 'Layer', dataProduct)
+                                    existingTimelineChartUpdated = true
+                                }
+
+                            }
+                            // None of the existing timeline charts are referencing our data mine, so let's create it
+                            if (existingTimelineChartUpdated === false) {
+                                createTimelineChartWithAllBranches(timeMachine)
+                            }
+                        } else {
+                            //No timeline chart exists at all, so let's create one for our data mine
+                            createTimelineChartWithAllBranches(timeMachine)
+                        }
+
+                        function createTimelineChartWithAllBranches(timeMachine) {
+                            let newTimelineChart = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
+                            newTimelineChart.name = productDataMineParent.name
+
+                            console.log(dataMineProduct)
+                            let layerManager = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(newTimelineChart, 'Layer Manager')
+                            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(layerManager, dataMineProduct)
+
+
+                            let botLayer = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(layerManager, 'Bot Layers')
+                            botLayer.name = productIndicatorBot.name
+
+                            let layer = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(botLayer, 'Layer')
+                            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(layer, dataProduct)
+
+                        }
                     }
                 }
             }

@@ -21,6 +21,11 @@
                 "text": "¡La mayoría de los archivos dentro de la carpeta Superalgos están sujetos a ser modificados y contribuidos al proyecto! Eso incluye código, imágenes, documentación, etc.",
                 "updated": 1628192328992,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die meisten Dateien im Superalgos-Ordner können geändert und zum Projekt beigetragen werden! Das schließt Code, Bilder, Dokumentation usw. ein.",
+                "updated": 1635150547303
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Estas carpetas están exentas de ser aportadas: My-Workspaces, Data-Storage y Log-Files.",
                     "updated": 1628192469502,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Ordner sind von der Mitwirkung ausgenommen: My-Workspaces, Data-Storage, und Log-Files.",
+                    "updated": 1635150581717
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "¡No use la carpeta de Superalgos para almacenar cosas personales o archivos que no deben ser parte del software de Superalgos! Lo que incluyas en la carpeta de Superalgos (excepto las carpetas exentas indicadas) está sujeto a enviarse a tu fork en GitHub.com e incluirse en una solicitud de extracción, ¡ambos de acceso público!",
                     "updated": 1628194028189,
                     "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wichtig! Verwenden Sie den Superalgos-Ordner nicht, um persönliche Dinge oder Dateien zu speichern, die nicht Teil der Superalgos-Software sein sollen! Alles, was Sie in den Superalgos-Ordner einfügen (mit Ausnahme der erwähnten, ausgenommenen Ordner), wird als Änderung übertragen, an Ihren Fork auf GitHub.com gesendet und in einen Pull Request aufgenommen, beides öffentlich zugänglich!",
+                    "updated": 1635150572557
                 }
             ]
         }

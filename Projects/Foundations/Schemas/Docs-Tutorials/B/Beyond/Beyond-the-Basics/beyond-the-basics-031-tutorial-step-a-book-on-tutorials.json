@@ -21,6 +21,11 @@
                 "text": "¡Felicidades! ¡Has llegado al final de otro tutorial! ¡Espero que sienta que está empezando a comprender cómo funciona Superalgos!",
                 "updated": 1628200006294,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Herzlichen Glückwunsch! Du hast das Ende eines weiteren Tutorials erreicht! Ich hoffe, du hast das Gefühl, dass du langsam verstehst, wie Superalgos funktioniert!",
+                "updated": 1635151990380
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "¡Hablemos de lo que viene después! La página que acabo de abrir es First Steps Tutorials book. ¡A partir de ahora, puede elegir qué tutoriales deseas hacer!",
                     "updated": 1628200392617,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie uns darüber reden, was als nächstes kommt! Die Seite, die ich gerade aufgeschlagen habe, ist das Buch First Steps Tutorials. Von nun an kannst du frei wählen, welche Tutorials du als nächstes machen willst!",
+                    "updated": 1635151996002
                 }
             ]
         },
@@ -53,13 +63,18 @@
                     "language": "IT",
                     "text": "TDai un'occhiata alla lista di tutorial disponibile su ogni pagina dei Plugin Workspaces e scegli quale fare! Credo che l'ordine in cui sono elencati sia quello più appropriato, ma dipende anche dai tuoi interessi quindi la scelta è tua!",
                     "updated": 1619638304612,
-                    "style": "Callout"
+                    "style": "Success"
                 },
                 {
                     "language": "ES",
                     "text": "Echa un vistazo a la lista de tutoriales disponibles en los Plugin Worspaces ¡y elige cuál hacer a continuación! Creo que el orden en la lista puede ser apropiado, pero probablemente dependa de tus intereses, ¡así que lo dejaré en tus manos!",
                     "updated": 1628200313162,
-                    "style": "Callout"
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Schauen Sie sich die Liste der Tutorials an, die auf den einzelnen Plugin Workspaces verfügbar sind, und wählen Sie aus, welches Sie als nächstes machen wollen!",
+                    "updated": 1635152004196
                 }
             ]
         },
@@ -71,13 +86,18 @@
                     "language": "IT",
                     "text": "Ci vediamo al prossimo tutorial!",
                     "updated": 1619638313318,
-                    "style": "Success"
+                    "style": "Callout"
                 },
                 {
                     "language": "ES",
                     "text": "¡Nos vemos en el próximo tutorial!",
                     "updated": 1628200369762,
-                    "style": "Success"
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um am nächsten Airdrop und an der Governance im Allgemeinen teilzunehmen, laden Sie einfach die folgenden Dateien:",
+                    "updated": 1635152010580
                 }
             ],
             "updated": 1630945286991

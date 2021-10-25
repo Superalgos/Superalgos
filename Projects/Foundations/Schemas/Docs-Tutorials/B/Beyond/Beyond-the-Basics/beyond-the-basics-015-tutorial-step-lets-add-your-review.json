@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "En este paso, ejecutarás tu primer comando para crear una página de revisión. ¡Esta página será tuya para editarla en el futuro!",
-                "updated": 1628186991397
+                "updated": 1628186991397,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Schritt führen Sie Ihren ersten Befehl aus, um eine Rezensionsseite zu erstellen! Diese Seite wird in Zukunft von Ihnen bearbeitet werden können!",
+                "updated": 1635148536985
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "¡La sintaxis para escribir comandos es bastante coloquial! ¡Te encantará! ¡Compruébalo y sigue las instrucciones a continuación!",
-                    "updated": 1628187026752
+                    "updated": 1628187026752,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Syntax zum Schreiben von Befehlen ist recht umgangssprachlich! Sie werden sie lieben! Probieren Sie es aus und folgen Sie den Anweisungen unten!",
+                    "updated": 1635148546406
                 }
             ]
         },
@@ -61,7 +73,13 @@
                 {
                     "language": "ES",
                     "text": "FIRST: Copia el comando anterior.",
-                    "updated": 1628187044978
+                    "updated": 1628187044978,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "ERSTENS: Kopieren Sie den obigen Befehl.",
+                    "updated": 1635148562686
                 }
             ]
         },
@@ -79,7 +97,13 @@
                 {
                     "language": "ES",
                     "text": "SECOND: Pégalo en un editor de texto.",
-                    "updated": 1628187089099
+                    "updated": 1628187089099,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "ZWEITENS: Fügen Sie ihn in einen Texteditor ein.",
+                    "updated": 1635148570052
                 }
             ]
         },
@@ -97,7 +121,13 @@
                 {
                     "language": "ES",
                     "text": "THIRD: Reemplaza \"Your Review Title\" por un título significativo. ¡Los títulos deben ser únicos!",
-                    "updated": 1628187188266
+                    "updated": 1628187188266,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "DRITTENS: Ersetzen Sie \"Your Review Title\" durch einen aussagekräftigen Titel. Die Titel der Rezensionen müssen einzigartig sein!",
+                    "updated": 1635148579016
                 }
             ]
         },
@@ -115,7 +145,13 @@
                 {
                     "language": "ES",
                     "text": "FOURTH: Pega el comando actualizado en el cuadro de búsqueda / comando y presiona Enter.",
-                    "updated": 1628187252151
+                    "updated": 1628187252151,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "VIERTENS: Fügen Sie den aktualisierten Befehl in das Such-/Befehlsfeld ein und drücken Sie die Eingabetaste.",
+                    "updated": 1635148586304
                 }
             ]
         }

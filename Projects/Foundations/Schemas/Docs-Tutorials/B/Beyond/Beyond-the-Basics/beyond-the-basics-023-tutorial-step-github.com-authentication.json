@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Para el app.contribute comando para que funcione, debe autenticarse en dos niveles diferentes. ¡Primero trataremos con GiHub.com!",
-                "updated": 1628194149826
+                "updated": 1628194149826,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Damit der Befehl app.contribute funktioniert, müssen Sie sich auf zwei verschiedenen Ebenen authentifizieren. Wir befassen uns zuerst mit GiHub.com!",
+                "updated": 1635150651730
             }
         ]
     },
@@ -38,14 +44,27 @@
                 {
                     "language": "ES",
                     "text": "Necesitas autenticarte en GitHub.com para el Client para crear el Pull Request en tu nombre. Para hacer eso, crearás un Personal Access Token en GitHub.com:",
-                    "updated": 1628194254004
+                    "updated": 1628194254004,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie müssen sich bei GitHub.com registrieren und authentifizieren, damit der Client den Pull Request in Ihrem Namen erstellen kann. Dazu erstellen Sie ein persönliches Zugriffstoken auf GitHub.com:",
+                    "updated": 1635150710714
                 }
             ]
         },
         {
             "style": "Link",
             "text": "Create a GitHub.com Personal Access Token->github.com/settings/tokens/new",
-            "updated": 1610959147665
+            "updated": 1610959147665,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Persönlichen GitHub.com-Zugangs-Token erstellen->github.com/settings/tokens/new",
+                    "updated": 1635150765768
+                }
+            ]
         },
         {
             "style": "Callout",
@@ -61,7 +80,13 @@
                 {
                     "language": "ES",
                     "text": "Haz clic en el enlace y sigue las instrucciones. Asegúrate de darle al token el repositorio y los alcances del flujo de trabajo. Mira el clip en el siguiente paso para mayor claridad…",
-                    "updated": 1628194375782
+                    "updated": 1628194375782,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf den Link und folgen Sie den Anweisungen! Vergewissern Sie sich, dass Sie dem Token die Bereiche Repo und Workflow zuweisen. Schauen Sie sich den Clip im nächsten Schritt an, um Klarheit zu schaffen...",
+                    "updated": 1635150718901
                 }
             ]
         },
@@ -79,7 +104,13 @@
                 {
                     "language": "ES",
                     "text": "Sugiero que lo nombres  \"Superalgos\" para referencia futura, asegúrate de marcar la casilla de verificación del repositorio para definir el alcance del token.",
-                    "updated": 1628195225900
+                    "updated": 1628195225900,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich schlage vor, dass Sie das Token nach Superalgos benennen, damit Sie es später wiedererkennen können, und stellen Sie sicher, dass Sie die Repo-Checkbox aktivieren, um den Geltungsbereich des Tokens zu definieren.",
+                    "updated": 1635150726375
                 }
             ]
         }

@@ -333,6 +333,18 @@ journalctl -u superalgos -f
 
 See the [Docker Readme for more information](Docker/README.md).
 
+### Workspace Refactoring for beta 13
+Beta 13 carries with it a reorganization of the codebase where several projects where extracted from Foundations : Data-Mining, Algorithmic Trading, Machine Learning and Community Plugins.
+
+This means that these projects can now have a project leader and a team working on them.
+
+In order to get your custom workspace upgraded to be compatible with beta 13 you will need to make a few changes:
+
+Project nodes need to be present at the workspace for things to work. The presence of the node of a project, somehow, enables that projects features at a workspace. Go to the workspace node and click add missing projects.
+
+At the Plugins hierarchy, new guys appear, each one with their own type of plugins. Meaning that every workspace needs to be manually fixed, because currently all plugins are loaded from Foundations node there. The fix is easy though, it takes 2 - 3 min to delete the child nodes from the foundation node, and add the same plugins from the project they actually belong now.
+
+
 ## Welcome Tutorial
 
 Once the app finishes loading, an interactive tutorial takes you by the hand and walks you all around the system while you learn the basic skills required to use the interface, mine data, backtest strategies, and even run a live trading session. It is highly recommended you follow the tutorial until the end, as it is carefully crafted to make your onboarding as easy as possible. Tutorials are the absolute best way to tackle the learning curve. You should do all tutorials before you start exploring other avenues on your own.

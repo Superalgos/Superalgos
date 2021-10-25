@@ -4,13 +4,27 @@
     "type": "Data Mining - Products",
     "definition": {
         "text": "All Datasets of any type created by bots within the Superalgos system are considered data products of the Bot that produced them. Why products? Because users will be able to sell these datasets in the form of subscriptions once the Superalgos Network is implemented.",
-        "updated": 1622226983424
+        "updated": 1622226983424,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Alle Datasets jeglicher Art, die von Bots innerhalb des Superalgos-Systems erstellt werden, gelten als Datenprodukte des Bots, der sie erstellt hat. Warum Produkte? Weil die Nutzer diese Datensätze in Form von Abonnements verkaufen können, sobald das Superalgos Netzwerk implementiert ist.",
+                "updated": 1635104802339
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "In the future, users will be able to offer products to the rest of the users within the Superalgos Network / Superalgos Marketplace. A single bot might produce as many products as the bot designer wishes. Each product might contain one or more datasets.",
-            "updated": 1622227043268
+            "updated": 1622227043268,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In Zukunft werden die Nutzer in der Lage sein, den anderen Nutzern des Superalgos Network / Superalgos Marketplace Produkte anzubieten. Ein einzelner Bot kann so viele Produkte herstellen, wie der Bot-Designer wünscht. Jedes Produkt kann einen oder mehrere Datasets enthalten.",
+                    "updated": 1635105592983
+                }
+            ]
         }
     ]
 }

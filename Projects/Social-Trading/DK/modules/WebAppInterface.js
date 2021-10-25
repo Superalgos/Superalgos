@@ -47,7 +47,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     }
                     return JSON.stringify(response)
                 }
-                queryMessage.emitterUserProfileId = SA.secrets.map.get('Social Trading Desktop').userProfileId
+                queryMessage.emitterUserProfileId = SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId
                 messageHeader.queryMessage = JSON.stringify(queryMessage)
 
                 let response
@@ -126,7 +126,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     eventMessage.postText = undefined
                 }
 
-                eventMessage.emitterUserProfileId = SA.secrets.map.get('Social Trading Desktop').userProfileId
+                eventMessage.emitterUserProfileId = SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId
                 messageHeader.eventMessage = JSON.stringify(eventMessage)
 
                 let response = {

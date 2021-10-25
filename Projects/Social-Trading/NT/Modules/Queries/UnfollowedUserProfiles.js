@@ -24,13 +24,13 @@ exports.newSocialTradingModulesQueriesUnfollowedUserProfiles = function newSocia
 
     function initialize(queryReceived) {
 
-        thisObject.emitterUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.emitterUserProfileId)
+        thisObject.emitterUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.emitterUserProfileId)
         if (thisObject.emitterUserProfile === undefined) {
             throw ('Emitter User Profile Not Found.')
         }
 
         thisObject.profiles = Array.from(
-            NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID,
+            SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID,
             x => x[1]
         )
         thisObject.profiles.sort((a, b) => (a["ranking"] > b["ranking"]) ? 1 : -1)

@@ -30,7 +30,13 @@
             {
                 "language": "DE",
                 "text": "Ich möchte Ihnen etwas zeigen, während die Data-Mining-Operation fortschreitet. Ich bringe Ihnen bei, wie man läuft... in zwei Sekunden!",
-                "updated": 1634163512229
+                "updated": 1634163512229,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Ik wil je iets laten zien terwijl de datamining operatie bezig is. Ik zal je leren hoe je moet lopen... in twee seconden!",
+                "updated": 1634926689787
             }
         ]
     },
@@ -60,7 +66,13 @@
                 {
                     "language": "DE",
                     "text": "Klicken und ziehen Sie einfach mit Ihrer Maus!",
-                    "updated": 1634163520213
+                    "updated": 1634163520213,
+                    "style": "Callout"
+                },
+                {
+                    "language": "NL",
+                    "text": "Gewoon klikken en slepen met je muis!",
+                    "updated": 1634926782434
                 }
             ]
         },
@@ -90,7 +102,13 @@
                 {
                     "language": "DE",
                     "text": "Leicht, nicht wahr? Großartig! Der Entwurfsbereich ist jedoch riesig, und ich möchte nicht, dass Sie sich eine Sehnenscheidenentzündung zuziehen, wenn Sie sich auf diese Weise bewegen.",
-                    "updated": 1634163528834
+                    "updated": 1634163528834,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Gemakkelijk toch? Echter de ontwerpruimte is enorm en ik zou niet willen dat je muisarm krijgt als je zo rondsleept.",
+                    "updated": 1634927028615
                 }
             ]
         },
@@ -119,7 +137,13 @@
                 {
                     "language": "DE",
                     "text": "Ich werde Ihnen in den nächsten Schritten noch ein paar weitere Tricks beibringen.",
-                    "updated": 1634163537155
+                    "updated": 1634163537155,
+                    "style": "Success"
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik zal je nog een paar trucjes leren in de volgende stappen.",
+                    "updated": 1634927063636
                 }
             ]
         }

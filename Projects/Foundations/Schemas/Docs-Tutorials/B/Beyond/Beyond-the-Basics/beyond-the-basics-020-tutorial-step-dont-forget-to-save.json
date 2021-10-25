@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Antes de escribir un artículo de tamaño novedoso, ¡asegúrate de guardar la página de vez en cuando! ¡No hay necesidad de arriesgar tu prosa!",
-                "updated": 1628190493254
+                "updated": 1628190493254,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Bevor Sie einen romanartigen Text verfassen, sollten Sie die Seite ab und zu speichern! Kein Grund, Ihre Prosa zu riskieren!",
+                "updated": 1635150216506
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Cada párrafo que escribes se almacena en el nivel de la sesión del navegador tan pronto como sale del modo de edición. Sin embargo, para guardar la página en el disco y evitar perder el trabajo en un eventual bloqueo del navegador, ejecute este comando:",
-                    "updated": 1628190531998
+                    "updated": 1628190531998,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jeder Absatz, den Sie schreiben, wird auf der Ebene der Browser-Sitzung gespeichert, sobald Sie den Bearbeitungsmodus verlassen. Um die Seite jedoch auf der Festplatte zu speichern und zu vermeiden, dass die Arbeit bei einem eventuellen Browserabsturz verloren geht, führen Sie diesen Befehl im Such- und Befehlsfeld oben in den Docs aus:",
+                    "updated": 1635150273083
                 }
             ]
         },
@@ -60,7 +72,13 @@
                 {
                     "language": "ES",
                     "text": "Si por alguna razón pierdes de vista la página, ejecuta el comando docs.reindex y busca el título que le diste al agregarlo. ¡También puedes usar el botón BACK en el pie de página!",
-                    "updated": 1628191460990
+                    "updated": 1628191460990,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sollten Sie die Seite aus irgendeinem Grund aus den Augen verlieren, führen Sie den Befehl docs.reindex aus und suchen Sie nach dem Titel, den Sie ihr beim Hinzufügen gegeben haben! Sie können auch die Schaltfläche BACK in der Fußzeile der Seite verwenden!",
+                    "updated": 1635150232008
                 }
             ]
         }

@@ -521,7 +521,7 @@
                 {
                     "language": "DE",
                     "text": "Schritt #19: At this Dataset Type Converter Indicator Bot, defined the Record Property nodes based on the information you would lile to convert from Raw Data. Add a begin and end Record Property even if it does not exist at the Raw Data.",
-                    "updated": 1635186476150
+                    "updated": 1635189922085
                 }
             ],
             "updated": 1635189527449
@@ -533,8 +533,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schritt #20: Configure the aggregationMethod property for each Record Property. Check the docs of that node for details.",
-                    "updated": 1635186479315
+                    "text": "Schritt #20: Konfigurieren Sie die Eigenschaft aggregationMethod für jede Record Property. Prüfen Sie die docs dieser node für Details.",
+                    "updated": 1635190124011
                 }
             ]
         },
@@ -545,8 +545,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schritt #21: If you wish, you can create multiple Indicator Bots to cut the dataset in different groups of Record Properties.",
-                    "updated": 1635186484276
+                    "text": "Schritt #21: Wenn Sie möchten, können Sie mehrere Indicator Bot`s erstellen, um den Datensatz in verschiedene Gruppen von Record Property aufzuteilen.",
+                    "updated": 1635190629588
                 }
             ]
         },
@@ -556,8 +556,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schritt #22: Setup a Plotter at your new Data Mine, and reference it from the Product Definition of the latest Indicator Bot created.",
-                    "updated": 1635186490706
+                    "text": "Schritt #22: Richten Sie einen Plotter in Ihrer neuen Data Mine ein, und referenzieren Sie ihn in der Product Definition des zuletzt erstellten Indicator Bot.",
+                    "updated": 1635190802408
                 }
             ]
         },
@@ -567,8 +567,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schritt #23: Now you are ready to run the Task where the Data Fetcher Bot Process Instance is defined.",
-                    "updated": 1635186495151
+                    "text": "Schritt #23: Jetzt können Sie die Task ausführen, in dem die Data Fetcher Bot Process Instance definiert ist.",
+                    "updated": 1635190919943
                 }
             ]
         },
@@ -578,8 +578,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schritt #24: If something did not work, check the workspace map to see if there is a node with an error. Locate the node, click on the error and see the error's page at the doc. Try to understand what is wrong, fix it and try again.",
-                    "updated": 1635186498848
+                    "text": "Schritt #24: Wenn etwas nicht funktioniert hat, überprüfen Sie die Workspace Map, um zu sehen, ob es eine node mit einem error/Fehler gibt. Suchen Sie die node, klicken Sie auf den Fehler und sehen Sie die Fehlerseite in der Documentation. Versuchen Sie zu verstehen, was falsch ist, beheben Sie den Fehler und versuchen Sie es erneut.",
+                    "updated": 1635191377038
                 }
             ]
         },
@@ -590,8 +590,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schritt #25: Iterate through step #24 until everything is working. Re read node's documentation until you get the details of what it explains there. Reread this guide or this whole Topic from the start, until the concepts explained sinks in.",
-                    "updated": 1635186503541
+                    "text": "Schritt #25: Iterieren Sie durch den Schritt #24, bis alles funktioniert. Lesen Sie die docs von Node erneut, bis Sie die Details der dortigen Erklärungen verstanden haben. Lesen Sie diesen Leitfaden oder das ganze Thema noch einmal von Anfang an, bis Sie die erklärten Konzepte verstanden haben.",
+                    "updated": 1635191475882
                 }
             ]
         },
@@ -602,8 +602,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schritt #26: If after digesting the docs, and following all this advice you still cannot get it to work, go to the Telegram Support group and ask for help.",
-                    "updated": 1635186507759
+                    "text": "Schritt #26: Wenn Sie nach dem durchforsten der docs und der Befolgung all dieser Ratschläge immer noch nicht in der Lage sind, das Programm zum Laufen zu bringen, gehen Sie zur Telegram Support group und bitten Sie um Hilfe.",
+                    "updated": 1635191614474
                 }
             ]
         },
@@ -614,8 +614,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schritt #27: Once all is running well, set up your Trading Strategy in a way that allows you to test if you have access to the processed data (the one provided by the latest Indicator Bots created).",
-                    "updated": 1635186510638
+                    "text": "Schritt #27: Wenn alles gut läuft, richten Sie Ihre Trading Strategy so ein, dass Sie testen können, ob Sie Zugang zu den verarbeiteten Daten haben (die von de, zuletzt erstellten Indicator Bots bereitgestellt werden).",
+                    "updated": 1635191934607
                 }
             ]
         },
@@ -626,8 +626,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schritt #29: Once the data is correctly consumed by your Trading Strategy, iterate through this guide by adding another API Endpoint to the API Map. You will need to add an addtional API Fetcher Bot.",
-                    "updated": 1635186513284
+                    "text": "Schritt #29: Sobald die Daten korrekt von Ihrer Trading Strategy genutzt werden, führen Sie diese Anleitung immerweider durch, indem Sie einen weiteren API Endpoint zur API Map hinzufügen. Sie müssen einen zusätzlichen API Fetcher Bot hinzufügen.",
+                    "updated": 1635192207098
                 }
             ]
         },
@@ -638,8 +638,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schritt #30: Once you have successfully mapped the whole API and you have all the needed API Data Fetchers, Indicator Bots and Plotters tested, you are ready to share your API Map and Data Mine with the community as a plugin, and receive SA Tokens in exchange for your contribution.",
-                    "updated": 1635186517117
+                    "text": "Schritt #30: Sobald Sie die gesamte API erfolgreich gemappt haben und alle benötigten API Data Fetchers, Indicator Bots und Plotter getestet haben, können Sie Ihre API Map und Data Mine als Plugin mit der Community teilen und SA Tokens im Austausch für Ihren Beitrag/contribution erhalten.",
+                    "updated": 1635192382540
                 }
             ]
         },

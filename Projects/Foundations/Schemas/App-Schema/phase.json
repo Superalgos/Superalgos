@@ -26,7 +26,7 @@
             "label": "Add Move To Phase Event",
             "relatedUiObject": "Move To Phase Event",
             "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Social-Bots",
+            "relatedUiObjectProject": "Foundations",
             "actionProject": "Visual-Scripting"
         },
         {

@@ -193,14 +193,16 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         }
     }
 
-    function enableSavingWithWorkspace(node, rootNodes) {
+    function enableSavingWithWorkspace(node, rootNodes, callBackFunction) {
         UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'saveWithWorkspace', true)
         node.payload.uiObject.setInfoMessage('Saving with Workspace Enabled')
+        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
     }
 
-    function disableSavingWithWorkspace(node, rootNodes) {
+    function disableSavingWithWorkspace(node, rootNodes, callBackFunction) {
         UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'saveWithWorkspace', false)
         node.payload.uiObject.setInfoMessage('Saving with Workspace Disabled')
+        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
     }
 
     function savePlugin(node, rootNodes) {

@@ -171,19 +171,7 @@ function newGovernanceReportsCommmandInterface() {
             let url = 'GOV' // We will access the default Client GOV endpoint.
 
             httpRequest(JSON.stringify(params), url, onResponse)
-/*
-            httpRequest(
-                undefined,
-                'App/contributeUserProfile/' +
-                message + '/' +
-                config.username + '/' +
-                config.token + '/' +
-                UI.projects.education.spaces.docsSpace.currentBranch + '/' +
-                UI.projects.education.spaces.docsSpace.contributionsBranch
-                , onResponse)
 
-            UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'App Message - Contribute User Profile Request')
-*/
             function onResponse(err, data) {
                 /* Lets check the result of the call through the http interface */
                 data = JSON.parse(data)

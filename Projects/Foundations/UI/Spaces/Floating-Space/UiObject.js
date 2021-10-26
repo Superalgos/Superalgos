@@ -21,6 +21,7 @@ function newUiObject() {
         uiObjectTitle: undefined,
         uiObjectMessage: undefined,
         circularProgressBar: undefined,
+        isLoading: undefined,
         isRunning: undefined,
         isPlaying: undefined,
         shortcutKey: undefined,
@@ -2421,10 +2422,13 @@ function newUiObject() {
         if (icon !== undefined) {
             if (icon.canDrawIcon === true) {
 
-                // If this is a User Profile and blockchainTokens is still being loaded then display at half opacity
-                if(thisObject.payload.node.type === "User Profile" && thisObject.payload.blockchainTokens === undefined) {
+                // If this UiObject is being loaded then display at half opacity
+                if(thisObject.payload.isLoading === true) {
                     browserCanvasContext.globalAlpha = 0.5
+                } else {
+                    browserCanvasContext.globalAlpha = 1
                 }
+
                 let additionalImageSize = 0
                 if (isRunningAtBackend === true || isReadyToReferenceAttach === true || isReadyToChainAttach === true) { additionalImageSize = 20 }
                 let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
@@ -2459,7 +2463,6 @@ function newUiObject() {
                     totalImageSize,
                     totalImageSize)
             }
-            browserCanvasContext.globalAlpha = 1
         }
 
         if (executingIcon !== undefined) {

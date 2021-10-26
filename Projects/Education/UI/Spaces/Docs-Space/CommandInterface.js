@@ -26,6 +26,7 @@ function newFoundationsDocsCommmandInterface() {
 
     function detectAppCommands() {
         if (checkContributeCommand() === undefined) { return true }
+        if (checkUserUpdateCommand() === undefined) { return true }
         if (checkUpdateCommand() === undefined) { return true }
         if (fixAppSchema() === undefined) { return true }
 
@@ -85,6 +86,75 @@ function newFoundationsDocsCommmandInterface() {
                 data = JSON.parse(data)
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                     UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Message - Contribution Done')
+                } else {
+                    UI.projects.education.spaces.docsSpace.navigateTo(
+                        data.docs.project,
+                        data.docs.category,
+                        data.docs.type,
+                        data.docs.anchor,
+                        undefined,
+                        data.docs.placeholder
+                    )
+                }
+            }
+        }
+
+        function checkUserUpdateCommand() {
+            if (UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase() === 'app.help app.userupdate') {
+                UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Userupdate Command')
+                return
+            }
+            if (UI.projects.education.spaces.docsSpace.commandInterface.command.indexOf('App.UserUpdate') !== 0 && UI.projects.education.spaces.docsSpace.commandInterface.command.indexOf('app.userupdate') !== 0) { return 'Not Contribute Commands' }
+
+            /* Set up the commit message */
+            let message = UI.projects.education.spaces.docsSpace.commandInterface.command.trim().substring(UI.projects.education.spaces.docsSpace.commandInterface.command.indexOf(' ') + 1, UI.projects.education.spaces.docsSpace.commandInterface.command.length)
+            if (message.toLowerCase() === 'app.userupdate') {
+                message = 'This is my UserUpdate to Superalgos'
+            }
+
+            /* Find the Username and Password */
+            let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
+            if (apisNode === undefined) {
+                UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return
+            }
+            if (apisNode.githubAPI === undefined) {
+                UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return
+            }
+
+            let config = JSON.parse(apisNode.githubAPI.config)
+            if (config.username === undefined || config.username === "") {
+                UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return
+            }
+            if (config.token === undefined || config.token === "") {
+                UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return
+            }
+
+            message = message.replaceAll('#', '_HASHTAG_')
+            message = message.replaceAll('/', '_SLASH_')
+
+            httpRequest(
+                undefined,
+                'App/UserUpdate/' +
+                message + '/' +
+                config.username + '/' +
+                config.token + '/' +
+                UI.projects.education.spaces.docsSpace.currentBranch + '/' +
+                UI.projects.education.spaces.docsSpace.contributionsBranch
+                , onResponse)
+
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Message - UserUpdate Request')
+
+            return
+
+            function onResponse(err, data) {
+                /* Lets check the result of the call through the http interface */
+                data = JSON.parse(data)
+                if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Message - UserUpdate Done')
                 } else {
                     UI.projects.education.spaces.docsSpace.navigateTo(
                         data.docs.project,

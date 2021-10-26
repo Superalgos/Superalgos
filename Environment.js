@@ -8,6 +8,7 @@ if (process.env.PACKAGED_PATH) {
 exports.newEnvironment = function () {
 
     let thisObject = {
+        DEMO_MODE: false,
         BASE_PATH: basePath,
         WEB_SERVER_URL: 'localhost',
         PLATFORM_WEB_SOCKETS_INTERFACE_PORT: 18041,
@@ -25,7 +26,12 @@ exports.newEnvironment = function () {
         PATH_TO_DESKTOP: './Desktop',
         PATH_TO_DEFAULT_WORKSPACE: path.join(basePath, './Projects/Foundations/Plugins/Workspaces'),
         PATH_TO_MY_WORKSPACES: path.join(basePath, './Platform/My-Workspaces'),
-        PATH_TO_FONTS: path.join(basePath, './Platform/WebServer/Fonts')
+        PATH_TO_FONTS: path.join(basePath, './Platform/WebServer/Fonts'),
+        DESKTOP_APP_SIGNING_ACCOUNT: 'Social-Trading-Desktop-App-1',
+        MOBILE_APP_SIGNING_ACCOUNT: 'Social-Trading-Mobile-App-1',
+        SERVER_APP_SIGNING_ACCOUNT: 'Social-Trading-Server-App-1',
+        PLATFORM_APP_SIGNING_ACCOUNT: 'Algo-Traders-Platform-1',
+        P2P_NETWORK_NODE_SIGNING_ACCOUNT: 'P2P-Network-Node-1',
     }
 
     if (process.env.DATA_PATH) {

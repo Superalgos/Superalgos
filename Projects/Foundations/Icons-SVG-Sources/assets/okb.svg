@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Layer_1"
+   data-name="Layer 1"
+   viewBox="0 0 512 512"
+   version="1.1"
+   width="512"
+   height="512"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs160" />
+  <title
+     id="title146">okb-okb-logo</title>
+  <g
+     id="Path-raw"
+     transform="scale(2.4150943)">
+    <circle
+       id="Oval"
+       cx="106"
+       cy="48"
+       r="48"
+       style="fill:#88bdf3" />
+    <circle
+       id="Oval-Copy"
+       cx="106"
+       cy="164"
+       r="48"
+       style="fill:#3075ee" />
+    <circle
+       id="Oval-Copy-2"
+       cx="164"
+       cy="106"
+       r="48"
+       style="fill:#5795f1" />
+    <circle
+       id="Oval-Copy-3"
+       cx="48"
+       cy="106"
+       r="48"
+       style="fill:#205fec" />
+    <path
+       id="Combined-Shape"
+       d="M 94.7,94.7 A 48,48 0 0 1 59.4,59.4 48.31,48.31 0 0 1 94.7,94.7 Z"
+       style="fill:#134bef" />
+    <path
+       id="Combined-Shape-2"
+       data-name="Combined-Shape"
+       d="M 59.3,152.7 A 48,48 0 0 1 94.6,117.4 48.31,48.31 0 0 1 59.3,152.7 Z"
+       style="fill:#0932e8" />
+    <path
+       id="Combined-Shape-3"
+       data-name="Combined-Shape"
+       d="m 117.3,117.3 a 48,48 0 0 1 35.3,35.3 48.31,48.31 0 0 1 -35.3,-35.3 z"
+       style="fill:#164bea" />
+    <path
+       id="Combined-Shape-4"
+       data-name="Combined-Shape"
+       d="M 152.7,59.3 A 48,48 0 0 1 117.4,94.6 48.31,48.31 0 0 1 152.7,59.3 Z"
+       style="fill:#3170f1" />
+  </g>
+  <metadata
+     id="metadata242">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>okb-okb-logo</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

@@ -14,6 +14,7 @@ exports.newSocialTradingModulesSocialGraph = function newSocialTradingModulesSoc
     no need to ask it to a network node.
     */
     let thisObject = {
+        userProfiles: undefined,
         initialize: initialize,
         finalize: finalize
     }
@@ -24,7 +25,8 @@ exports.newSocialTradingModulesSocialGraph = function newSocialTradingModulesSoc
 
     }
 
-    function initialize() {
-
+    async function initialize() {
+        thisObject.userProfiles = SA.projects.network.modules.userProfiles.newNetworkModulesUserProfiles()
+        await thisObject.userProfiles.initialize()
     }
 }

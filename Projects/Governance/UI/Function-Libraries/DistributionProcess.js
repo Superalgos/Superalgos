@@ -110,11 +110,22 @@ function newGovernanceFunctionLibraryDistributionProcess() {
             userProfiles
         )
         /*
-        Run the Liquidity Program
+        Run the Liquidity Program: One per SA Token Market
         */
         UI.projects.governance.functionLibraries.liquidityProgram.calculate(
             pools,
-            userProfiles
+            userProfiles,
+            'BTCB'
+        )
+        UI.projects.governance.functionLibraries.liquidityProgram.calculate(
+            pools,
+            userProfiles,
+            'BNB'
+        )
+        UI.projects.governance.functionLibraries.liquidityProgram.calculate(
+            pools,
+            userProfiles,
+            'BUSD'
         )
         /*
         Run the Claims Program

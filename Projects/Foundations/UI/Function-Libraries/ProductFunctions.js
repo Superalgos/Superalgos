@@ -33,18 +33,27 @@ function newFoundationsFunctionLibraryProductFunctions() {
         function startInstalling() {
 
             for (let i = 0; i < rootNodes.length; i++) {
-
                 let rootNode = rootNodes[i]
-
                 if (rootNode.type === 'Trading Mine') {
                     installInTradingMine(rootNode)
-                } else if (rootNode.type === 'LAN Network') {
+                }
+            }
+
+            for (let i = 0; i < rootNodes.length; i++) {
+                let rootNode = rootNodes[i]
+                if (rootNode.type === 'LAN Network') {
                     installInNetworkNodes(rootNode)
-                } else if (rootNode.type === 'Charting Space') {
-                    // Installing in charting space can be done only after we make sure the Data products are installed
+                }
+            }
+
+            for (let i = 0; i < rootNodes.length; i++) {
+                let rootNode = rootNodes[i]
+                if (rootNode.type === 'Charting Space') {
                     installInChartingSpace(rootNode)
                 }
             }
+
+            node.payload.uiObject.setInfoMessage('Product installation is complete.')
 
             function installInNetworkNodes(lanNetwork) {
 
@@ -59,7 +68,7 @@ function newFoundationsFunctionLibraryProductFunctions() {
                  *
                  * We will add data mine tasks of the product only to existing Market Data Tasks
                  * If no Market Data Tasks are available, product task will not be installed into this branch
-                 * Market Data can be installed by using Install Market Script.
+                 * Market Data can be installed by using Install Market script.
                  */
                 function installInDataTasks(lanNetworkNode) {
                     let dataTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Tasks', product, true)
@@ -81,19 +90,19 @@ function newFoundationsFunctionLibraryProductFunctions() {
 
                                 if (dataMineDependency.taskManagers.length > 0) {
                                     //We will add the task and indicator bot into first task manager we find
-                                    let task = findOrCreateTask(dataMineDependency.taskManagers[0])
-                                    let indicatorBot = findOrCreateIndicatorBot(task)
+                                    let task = ceateTaskIfNotPresent(dataMineDependency.taskManagers[0])
+                                    let indicatorBot = createIndicatorBotIfNotPresent(task)
 
-                                    findOrCreateIndicatorProcessInstance(indicatorBot)
+                                    createIndicatorProcessInstanceIfNotPresent(indicatorBot)
                                 } else {
                                     //Let's create a new task manager as none exists
                                     let newTaskManager = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataMineDependency, 'Task Manager')
                                     newTaskManager.name = productDataMineParent.name
 
-                                    let task = findOrCreateTask(newTaskManager)
-                                    let indicatorBot = findOrCreateIndicatorBot(task)
+                                    let task = ceateTaskIfNotPresent(newTaskManager)
+                                    let indicatorBot = createIndicatorBotIfNotPresent(task)
 
-                                    findOrCreateIndicatorProcessInstance(indicatorBot)
+                                    createIndicatorProcessInstanceIfNotPresent(indicatorBot)
 
                                 }
 
@@ -102,7 +111,7 @@ function newFoundationsFunctionLibraryProductFunctions() {
                     }
 
 
-                    function findOrCreateTask(taskManager) {
+                    function ceateTaskIfNotPresent(taskManager) {
                         let task = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(taskManager, undefined, productIndicatorBot.name, false, true, false, false)
                         if (task === undefined) {
                             let newTask = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(taskManager, 'Task')
@@ -113,7 +122,7 @@ function newFoundationsFunctionLibraryProductFunctions() {
                         return task;
                     }
 
-                    function findOrCreateIndicatorBot(task) {
+                    function createIndicatorBotIfNotPresent(task) {
                         let botInstance = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(task, 'Indicator Bot Instance', undefined, false, true, false, false)
                         if (botInstance === undefined) {
                             let newBotInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Indicator Bot Instance')
@@ -124,8 +133,8 @@ function newFoundationsFunctionLibraryProductFunctions() {
                         return botInstance
                     }
 
-                    function findOrCreateIndicatorProcessInstance(indicatorBot) {
-                        for (m = 0; m < productIndicatorBot.processes.length; m++) {
+                    function createIndicatorProcessInstanceIfNotPresent(indicatorBot) {
+                        for (let m = 0; m < productIndicatorBot.processes.length; m++) {
                             let processDefinition = productIndicatorBot.processes[m]
                             UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(indicatorBot, 'Indicator Process Instance', processDefinition)
                         }
@@ -161,14 +170,14 @@ function newFoundationsFunctionLibraryProductFunctions() {
                                  * Otherwise create the Bot Product Dependency  and addData Product to newly created Bot Product Dependency
                                  */
                                 if (botProductDependencies !== undefined) {
-                                    addDataProduct(botProductDependencies)
+                                    createDataProductIfNotPresent(botProductDependencies)
                                 } else {
                                     let newBotProductDependencies = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataMineProduct, 'Bot Products')
                                     newBotProductDependencies.name = productIndicatorBot.name
-                                    addDataProduct(newBotProductDependencies)
+                                    createDataProductIfNotPresent(newBotProductDependencies)
                                 }
 
-                                function addDataProduct(botProductDependencies) {
+                                function createDataProductIfNotPresent(botProductDependencies) {
                                     dataProduct = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(botProductDependencies, 'Data Product', product)
                                 }
                             }
@@ -180,118 +189,150 @@ function newFoundationsFunctionLibraryProductFunctions() {
 
             }
 
-        }
+            function installInTradingMine(tradingMine) {
+                let savePlugin = false
+                for (let j = 0; j < tradingMine.tradingBots.length; j++) {
+                    let tradingBotNode = tradingMine.tradingBots[j]
+
+                    for (let k = 0; k < tradingBotNode.processes.length; k++) {
+                        let process = tradingBotNode.processes[k]
+
+                        /**
+                         * In case the data mine is not referenced at all, we must add it
+                         */
+
+                        let dataMineDependency = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(process.processDependencies, 'Data Mine Data Dependencies', productDataMineParent)
+
+                        let botDataDependencies = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(dataMineDependency, undefined, productIndicatorBot.name, false, true, false, false)
+
+                        /**
+                         * If Bot Data Dependency exists add Data Dependencies
+                         * Otherwise create the Bot Data Dependency and add Data Dependencies to newly created Bot Data
+                         */
+                        if (botDataDependencies !== undefined) {
+                            addAllDataDependenciesIfNotExists(botDataDependencies)
+                        } else {
+                            let newBotDataDependencies = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataMineDependency, 'Bot Data Dependencies')
+                            newBotDataDependencies.name = productIndicatorBot.name
+                            addAllDataDependenciesIfNotExists(newBotDataDependencies)
+                        }
 
 
-        function installInTradingMine(tradingMine) {
+                        function addAllDataDependenciesIfNotExists(botDataDependencies) {
+                            for (let l = 0; l < product.datasets.length; l++) {
+                                let dataset = product.datasets[l]
 
-            for (let j = 0; j < tradingMine.tradingBots.length; j++) {
-                let tradingBotNode = tradingMine.tradingBots[j]
-
-                for (let k = 0; k < tradingBotNode.processes.length; k++) {
-                    let process = tradingBotNode.processes[k]
-
-                    /**
-                     * In case the data mine is not referenced at all, we must add it
-                     */
-
-                    let dataMineDependency = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(process.processDependencies, 'Data Mine Data Dependencies', productDataMineParent)
-
-                    let botDataDependencies = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(dataMineDependency, undefined, productIndicatorBot.name, false, true, false, false)
-
-                    /**
-                     * If Bot Data Dependency exists add Data Dependencies
-                     * Otherwise create the Bot Data Dependency and add Data Dependencies to newly created Bot Data Dependency
-                     */
-                    if (botDataDependencies !== undefined) {
-                        addAllDataDependencies(botDataDependencies)
-                    } else {
-                        let newBotDataDependencies = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataMineDependency, 'Bot Data Dependencies')
-                        newBotDataDependencies.name = productIndicatorBot.name
-                        addAllDataDependencies(newBotDataDependencies)
-                    }
-
-
-                    function addAllDataDependencies(botDataDependencies) {
-                        for (let l = 0; l < product.datasets.length; l++) {
-                            let dataset = product.datasets[l]
-                            UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(botDataDependencies, 'Data Dependency', dataset)
+                                // Explicit check is needed so we know if we have to save the plugin or not
+                                if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(botDataDependencies, dataset, true) === true) {
+                                    savePlugin = true
+                                    let dataDependency = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(botDataDependencies, 'Data Dependency')
+                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(dataDependency, dataset)
+                                }
+                            }
                         }
                     }
                 }
+                /**
+                 * There is no reason to save the plugin if no modifications have been made to the hierarchy
+                 * We will save the plugin only if we get to the point were we have to add the data dependencies
+                 *
+                 */
+                if (savePlugin) {
+                    for (let i = 0; i < rootNodes.length; i++) {
+                        let rootNode = rootNodes[i]
+                        if (rootNode.type === 'Plugins') {
+                            let tradingMinePlugin = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(rootNode, 'Plugin Trading Mines', undefined, false, true, false, false)
+
+                            for (let j = 0; j < tradingMinePlugin.pluginFiles.length; j++) {
+                                pluginFile = tradingMinePlugin.pluginFiles[j]
+
+                                UI.projects.communityPlugins.functionLibraries.pluginsFunctions.savePlugin(pluginFile)
+                            }
+                        }
+                    }
+
+                }
+
             }
 
+            /**
+             * This function will install the product into existing Charting Space
+             * It is mandatory to have at least a dashboard which contains at least one time machine
+             *
+             */
+            function installInChartingSpace(chartingSpace) {
 
-        }
+                for (let j = 0; j < chartingSpace.projectDashboards.length; j++) {
+                    let projectDashboard = chartingSpace.projectDashboards[j]
 
-        function installInChartingSpace(chartingSpace) {
+                    for (let k = 0; k < projectDashboard.dashboards.length; k++) {
+                        let dashboard = projectDashboard.dashboards[k]
 
-            for (let j = 0; j < chartingSpace.projectDashboards.length; j++) {
-                let projectDashboard = chartingSpace.projectDashboards[j]
+                        for (let l = 0; l < dashboard.timeMachines.length; l++) {
+                            let timeMachine = dashboard.timeMachines[l]
 
-                for (let k = 0; k < projectDashboard.dashboards.length; k++) {
-                    let dashboard = projectDashboard.dashboards[k]
+                            if (timeMachine.timelineCharts.length > 0) {
+                                let existingTimelineChartUpdated = false
+                                /**
+                                 * We first search the existing timeline charts for a Layer Manager children that references our product data mine parent, to reuse it
+                                 * If none found we will create a new timeline chart with all branches
+                                 */
+                                for (let m = 0; m < timeMachine.timelineCharts.length; m++) {
+                                    let currentTimelineChart = timeMachine.timelineCharts[m]
 
-                    for (let l = 0; l < dashboard.timeMachines.length; l++) {
-                        let timeMachine = dashboard.timeMachines[l]
-
-                        if (timeMachine.timelineCharts.length > 0) {
-                            let existingTimelineChartUpdated = false
-                            /**
-                             * We first search the existing timeline charts for a Layer Manager children that references our product data mine parent, to reuse it
-                             * If none found we will create a new timeline chart with all branches
-                             */
-                            for (let m = 0; m < timeMachine.timelineCharts.length; m++) {
-                                let currentTimelineChart = timeMachine.timelineCharts[m]
-
-                                let referencedLayerManager = UI.projects.visualScripting.utilities.nodeChildren.findChildReferencingThisNode(currentTimelineChart, dataMineProduct)
-                                console.log(referencedLayerManager)
-                                if (referencedLayerManager !== undefined) {
-                                    // We have found a timeline chart that references our product data mine, let's check if our product is installed, otherwise we install it
-
-                                    let botLayer = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(referencedLayerManager, undefined, productIndicatorBot.name, false, true, false, false)
-
-                                    if (botLayer === undefined) {
-                                        let newBotLayer = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(referencedLayerManager, 'Bot Layers')
-                                        newBotLayer.name = productIndicatorBot.name
-                                        botLayer = newBotLayer
+                                    let referencedLayerManager = UI.projects.visualScripting.utilities.nodeChildren.findChildReferencingThisNode(currentTimelineChart, dataMineProduct)
+                                    if (referencedLayerManager !== undefined) {
+                                        // We have found a timeline chart that references our product data mine, let's check if our product is installed, otherwise we install it
+                                        let botLayer = createBotLayerIfNotPresent(referencedLayerManager)
+                                        createLayerIfNotPresent(botLayer)
+                                        existingTimelineChartUpdated = true
                                     }
 
-                                    UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(botLayer, 'Layer', dataProduct)
-                                    existingTimelineChartUpdated = true
                                 }
-
-                            }
-                            // None of the existing timeline charts are referencing our data mine, so let's create it
-                            if (existingTimelineChartUpdated === false) {
+                                // None of the existing timeline charts are referencing our data mine, so let's create it
+                                if (existingTimelineChartUpdated === false) {
+                                    createTimelineChartWithAllBranches(timeMachine)
+                                }
+                            } else {
+                                //No timeline chart exists at all, so let's create one for our data mine
                                 createTimelineChartWithAllBranches(timeMachine)
                             }
-                        } else {
-                            //No timeline chart exists at all, so let's create one for our data mine
-                            createTimelineChartWithAllBranches(timeMachine)
-                        }
 
-                        function createTimelineChartWithAllBranches(timeMachine) {
-                            let newTimelineChart = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
-                            newTimelineChart.name = productDataMineParent.name
+                            function createTimelineChartWithAllBranches(timeMachine) {
+                                let newTimelineChart = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
+                                newTimelineChart.name = productDataMineParent.name
 
-                            console.log(dataMineProduct)
-                            let layerManager = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(newTimelineChart, 'Layer Manager')
-                            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(layerManager, dataMineProduct)
+                                let layerManager = newTimelineChart.layerManager
+                                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(layerManager, dataMineProduct)
 
+                                let botLayer = createBotLayerIfNotPresent(layerManager)
+                                createLayerIfNotPresent(botLayer)
 
-                            let botLayer = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(layerManager, 'Bot Layers')
-                            botLayer.name = productIndicatorBot.name
+                            }
 
-                            let layer = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(botLayer, 'Layer')
-                            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(layer, dataProduct)
+                            function createBotLayerIfNotPresent(layerManager) {
+                                let botLayer = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(layerManager, undefined, productIndicatorBot.name, false, true, false, false)
 
+                                if (botLayer === undefined) {
+                                    let newBotLayer = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(layerManager, 'Bot Layers')
+                                    newBotLayer.name = productIndicatorBot.name
+                                    return newBotLayer
+                                }
+                                return botLayer
+                            }
+
+                            function createLayerIfNotPresent(botLayer) {
+                                UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(botLayer, 'Layer', dataProduct)
+                            }
                         }
                     }
                 }
+
             }
 
         }
+
+
     }
 
 }

@@ -21,6 +21,11 @@
                 "text": "Ahora que todo está claro, ¡hagamos el cambio y prepárete para lo que viene a continuación!",
                 "updated": 1628127987969,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Jetzt, wo alles klar ist, können wir den Wechsel vornehmen und uns auf das vorbereiten, was als nächstes kommt!",
+                "updated": 1635147821432
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Esto es lo que necesitas hacer:",
                     "updated": 1628128191379,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das müssen Sie tun:",
+                    "updated": 1635147831988
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "Regresa al pie de página y selecciona Plugins-Docs como tu Current Branch.",
                     "updated": 1628128266760,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Scrollen Sie in den Docs runter bis zur Fußzeile und wählen Sie Plugins-Docs als Ihren aktuellen Zweig.",
+                    "updated": 1635147867466
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "text": "Obtendrás una página que explica lo que se está haciendo. Luego, aparecerá otra página que te informará del resultado y te explicará que debes reiniciar la aplicación.",
                     "updated": 1628128508302,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie erhalten eine Seite, auf der erklärt wird, was gemacht wird. Dann erhalten Sie eine weitere Seite, die Sie über das Ergebnis informiert und Ihnen erklärt, dass Sie die Anwendung neu starten müssen.",
+                    "updated": 1635147885655
                 }
             ]
         },
@@ -98,6 +118,11 @@
                     "text": "Cierra la aplicación y reiníciela (navegador y consola).",
                     "updated": 1628128700479,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Schließen Sie die Anwendung und starten Sie sie neu (Browser und Konsole).",
+                    "updated": 1635147913233
                 }
             ]
         },
@@ -117,6 +142,11 @@
                     "text": "Encuentra el Beyond the Basics Tutorial en la esquina inferior derecha del Workspace y selecciona \"Resume\" en el menú. Si \"Resume\" No funciona, encuentra el \"Welcome Back!\" bajo el Branches Topic y haz clic en \"Play\" en el menú.",
                     "updated": 1628128938546,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie das Beyond the Basics Tutorial in der unteren rechten Ecke des Arbeitsbereichs und wählen Sie \"Resume\" im Menü! Wenn \"Fortsetzen\" nicht funktioniert, suchen Sie den Schritt \"Welcome Back!\" unter dem Thema Zweige und klicken Sie im Menü auf \"Abspielen\"!",
+                    "updated": 1635147950486
                 }
             ]
         }

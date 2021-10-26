@@ -92,28 +92,80 @@
             "iconName": "binanceus"
         },
         {
+            "codeName": "binanceusdm",
+            "iconName": "binance"
+        },
+        {
+            "codeName": "binancecoinm",
+            "iconName": "binance"
+        },
+        {
             "codeName": "bitfinex",
             "iconName": "bitfinex"
         },
         {
-            "codeName": "bitmex",
-            "iconName": "bitmex"
+            "codeName": "bitflyer",
+            "iconName": "bitflyer"
+        },
+        {
+            "codeName": "bithumb",
+            "iconName": "bithumb"
+        },
+        {
+            "codeName": "bitmart",
+            "iconName": "bitmart"
         },
         {
             "codeName": "bittrex",
             "iconName": "bittrex"
         },
         {
+            "codeName": "bitstamp",
+            "iconName": "bitstamp"
+        },
+        {
+            "codeName": "bybit",
+            "iconName": "bybit"
+        },
+        {
             "codeName": "coinbasepro",
             "iconName": "coinbasepro"
+        },
+        {
+            "codeName": "coinbaseprime",
+            "iconName": "coinbaseprime"
+        },
+        {
+            "codeName": "coinone",
+            "iconName": "coinone"
         },
         {
             "codeName": "ftx",
             "iconName": "ftx"
         },
         {
+            "codeName": "gateio",
+            "iconName": "gateio"
+        },
+        {
             "codeName": "hitbtc",
             "iconName": "hitbtc"
+        },
+        {
+            "codeName": "huobi",
+            "iconName": "huobi"
+        },
+        {
+            "codeName": "huobijp",
+            "iconName": "huobi"
+        },
+        {
+            "codeName": "huobipro",
+            "iconName": "huobi"
+        },
+        {
+            "codeName": "idex",
+            "iconName": "idex"
         },
         {
             "codeName": "kraken",
@@ -150,6 +202,10 @@
         {
             "codeName": "upbit",
             "iconName": "upbit"
+        },
+        {
+            "codeName": "zp",
+            "iconName": "zp"
         }
     ]
 }

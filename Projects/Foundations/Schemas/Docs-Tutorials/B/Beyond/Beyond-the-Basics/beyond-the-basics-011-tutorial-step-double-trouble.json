@@ -21,6 +21,11 @@
                 "text": "¡Muchos usuarios optan por ejecutar las dos ramas desde carpetas independientes! ¡Esta parece una solución sensata para los contribuyentes activos!",
                 "updated": 1628129062291,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Viele Benutzer entscheiden sich dafür, die beiden Zweige in getrennten Ordnern laufen zu lassen! Dies scheint eine vernünftige Lösung für aktive Mitwirkende zu sein!",
+                "updated": 1635147698376
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Puedes tener dos clones de tu fork que se ejecutan desde carpetas separadas, cada una en diferentes ramas.",
                     "updated": 1628129113706,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können zwei Klone Ihres Forks aus verschiedenen Verzeichnissen laufen lassen, jeder auf einem anderen Zweig.",
+                    "updated": 1635147704965
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "Dos instancias que se ejecutan en carpetas distintas son independientes. Ejecutan distintos espacios de trabajo y generan datos únicos.",
                     "updated": 1628185249129,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Zwei Instanzen von Superalgos, die in verschiedenen Verzeichnissen laufen, sind völlig unabhängig. Sie führen unterschiedliche Workspaces aus und geben eindeutige Daten aus.",
+                    "updated": 1635147722794
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "text": "¡Esta configuración te permite ejecutar la versión estable para tus tareas de producción y la versión en otra rama para contribuir y probar nuevas funciones! No puedes ejecutar dos versiones al mismo tiempo a menos que cambies los puertos.",
                     "updated": 1628185065000,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein solches Setup erlaubt es Ihnen, die stabile Version für Ihre Produktionsaufgaben zu verwenden und die Version in einem anderen Zweig, um neue Funktionen zu testen! Aber Sie können nicht zwei Versionen gleichzeitig laufen lassen, es sei denn, Sie ändern die Ports! Wir werden jetzt nicht darauf eingehen!",
+                    "updated": 1635147735085
                 }
             ]
         }

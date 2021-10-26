@@ -1,8 +1,5 @@
 ﻿exports.newEventServer = function newEventServer() {
 
-    const MODULE = "Events Server"
-    const LOG_INFO = false
-
     let thisObject = {
         initialize: initialize,
         finalize: finalize,

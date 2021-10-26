@@ -21,6 +21,11 @@
                 "text": "¡Esto es asombroso! ¡Ya estás ayudando al proyecto! ¡Estamos agradecidos por tu primera contribución y esperamos que haya más por venir!",
                 "updated": 1628198352736,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Das ist großartig! Du hilfst dem Projekt bereits! Wir sind dankbar für Ihren ersten Beitrag und hoffen, dass noch weitere folgen werden!",
+                "updated": 1635151669411
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Si todo salió bien con tu autenticación, deberías ver el App Message - Contribution Done!",
                     "updated": 1628198389832,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn alles mit Ihrer Authentifizierung gut gelaufen ist, sollten Sie die Seite App Message - Contribution Done sehen!",
+                    "updated": 1635151689672
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "Los encargados del proyecto revisarán tu Pull Request y actuar en consecuencia. Si es posible fusionarlo sin conflictos, ¡debería estar disponible pronto! ¡Atento a las notificaciones de GitHub.com!",
                     "updated": 1628198467452,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Projektbetreuer werden Ihren Pull Request überprüfen und entsprechend handeln. Wenn es möglich ist, ihn ohne Konflikte zusammenzuführen, sollte er bald live gehen! Behalten Sie die Benachrichtigungen von GitHub.com im Auge!",
+                    "updated": 1635151697994
                 }
             ]
         },
@@ -73,6 +88,11 @@
                     "text": "Si algo salió mal con el Git Authentication, Sigue las instrucciones de la página de error para solucionar el problema o pide ayuda en el Develop Group.",
                     "updated": 1628198531991,
                     "style": "Warning"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn etwas mit der Git-Authentifizierung schief gelaufen ist, folgen Sie bitte den Anweisungen auf der Fehlerseite, um das Problem zu beheben, oder bitten Sie in der Develop Group um Hilfe.",
+                    "updated": 1635151705982
                 }
             ]
         }

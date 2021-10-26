@@ -505,12 +505,26 @@
         {
             "style": "List",
             "text": "Step #18: At your Data Mine, set up an Indicator Bot and configure its Process Definition nodes to the framework that will convert from One-Min-Daily to Multi-Time-Frame-Daily and Multi-Period-Market types of Datasets. See how it was done at the UI #1.",
-            "updated": 1635193955563
+            "updated": 1635193955563,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Step #18: Richten Sie in Ihrer Data Mine einen Indicator Bot ein und konfigurieren Sie seine Process Definition nodes für das Framework, das Datensätze von One-Min-Daily in Multi-Time-Frame-Daily und Multi-Period-Market konvertiert. Sehen Sie sich an, wie das in der UI #1 gemacht wurde.",
+                    "updated": 1635244805304
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #19: Within the Indicator Bot you just added, define the Record Property nodes based on the information you would like to convert from Raw Data. Make sure you add a begin and end Record Property even if it does not exist at the Raw Data in order for the indicator bot to run correctly.",
-            "updated": 1635194170557
+            "updated": 1635194170557,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Step #19: Definieren Sie in dem soeben hinzugefügten Indicator Bot die nodes der Record Property auf der Grundlage der Informationen, die Sie aus Raw Data konvertieren möchten. Vergewissern Sie sich, dass Sie eine Anfangs- und eine Ende-Record Property (Datensatzeigenschaft) hinzufügen, auch wenn diese in den Rohdaten nicht vorhanden sind, damit der Indikator-Bot korrekt ausgeführt werden kann.",
+                    "updated": 1635245425484
+                }
+            ]
         },
         {
             "style": "List",

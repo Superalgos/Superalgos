@@ -315,7 +315,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                                 ]
                             ]
                         }
@@ -1059,61 +1061,6 @@
             "name": "New Financial Programs",
             "config": "{}",
             "project": "Governance",
-            "liquidityProgram": {
-                "type": "Liquidity Program",
-                "name": "New Liquidity Program",
-                "config": "{}",
-                "project": "Governance",
-                "tokensAwarded": {
-                    "type": "Tokens Awarded",
-                    "name": "New Tokens Awarded",
-                    "project": "Governance",
-                    "id": "bf4385e4-36b4-46b9-980f-40040b9bbd5c",
-                    "savedPayload": {
-                        "position": {
-                            "x": 5371.842302750968,
-                            "y": 34264.82039324994
-                        },
-                        "targetPosition": {
-                            "x": 5107.338939219355,
-                            "y": 33900.76274578121
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": false,
-                            "angleToParent": 2,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                "id": "304d9993-0a02-4532-a8ce-6a1a0d13f571",
-                "savedPayload": {
-                    "position": {
-                        "x": 5107.338939219355,
-                        "y": 33900.76274578121
-                    },
-                    "targetPosition": {
-                        "x": 4842.835575687742,
-                        "y": 33536.70509831249
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    }
-                }
-            },
             "id": "d120d972-5bec-4e8a-9811-3a51b8bd70b4",
             "savedPayload": {
                 "position": {
@@ -1190,17 +1137,17 @@
     "id": "7af21baa-ebc0-436f-94a7-a1746209418e",
     "savedPayload": {
         "position": {
-            "x": 4687.5,
-            "y": 33200
+            "x": 9230.76923076923,
+            "y": 28400
         },
         "targetPosition": {
-            "x": 4687.5,
-            "y": 33200
+            "x": 9230.76923076923,
+            "y": 28400
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

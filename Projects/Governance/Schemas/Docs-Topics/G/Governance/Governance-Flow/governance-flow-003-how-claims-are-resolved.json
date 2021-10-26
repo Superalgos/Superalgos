@@ -4,7 +4,14 @@
     "type": "How Claims are Resolved",
     "definition": {
         "text": "These three concepts, Claim Power, Claim Votes, and Token Rewards are intimately related and make up the logic of the token distribution among Contributors.",
-        "updated": 1630518244395
+        "updated": 1630518244395,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Estos tres conceptos, Claim Power, Claim Votes, y Token Rewards están intimamente relacionados y componen la lógica de la distribución de tokens entre los Contribuyentes.",
+                "updated": 1635269696891
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -19,41 +26,104 @@
         {
             "style": "Text",
             "text": "You control the flow of your Claim Power so that the appropriate value reaches the node with which you wish to present a claim. That is, you present claims for a specific number of tokens, determined by the Claim Power that reaches the corresponding claim node.",
-            "updated": 1630518610936
+            "updated": 1630518610936,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Usted controla el flujo de su Claim Power para que el valor adecuado alcance el nodo con el que desea presentar una solicitud. Esto es, presenta solicitudes por un número específico de tokens, determinado por el Claim Power que llega al nodo correspondiente de solicitudes.",
+                    "updated": 1635269946702
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You already know that the Token Rewards in a definition node — a Position, Feature, or Asset node — determines how many tokens are available to incentivize the production and/or maintenance of the concept represented by the node.",
-            "updated": 1630518717152
+            "updated": 1630518717152,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Sabe de antemano que el Token Rewards en un nodo de definición — una Position, Feature, o Asset node — determina cuantos tokens están disponibles para incentivar la producción y/o el mantenimiento del concepto representado por el nodo.",
+                    "updated": 1635270231081
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "When you place a claim on a definition node, you are declaring that you wish the Community to reward you with the number of tokens in your claim (Claim Power) for the work done on the concept embodied by the corresponding definition node."
+            "text": "When you place a claim on a definition node, you are declaring that you wish the Community to reward you with the number of tokens in your claim (Claim Power) for the work done on the concept embodied by the corresponding definition node.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando presenta una solicitud en un nodo de definición, está declarando que desea que la comunidad  le recompence con un número  tokens en su solicitud (Claim Power) por el trabajo realizado sobre el concepto incorporado por el correspondiente nodo de definición.",
+                    "updated": 1635270398299
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Many different scenarios may arise up to this point. "
+            "text": "Many different scenarios may arise up to this point. ",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Pueden surgir muchos escenarios diferentes hasta este punto.",
+                    "updated": 1635270419748
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example:"
+            "text": "For example:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Por ejemplo:",
+                    "updated": 1635270436992
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Your claim may have Claim Power equal, smaller, or greater than the Token Rewards available in the node.",
-            "updated": 1630518355289
+            "updated": 1630518355289,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Su solicitud puede tener igual Claim Power, menor, o mayor que los Token Rewards disponibles en el nodo.",
+                    "updated": 1635270502780
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Your claim may be the only claim in the node, or there may be other claims too."
+            "text": "Your claim may be the only claim in the node, or there may be other claims too.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Su reclamo puede ser el único reclamo en el nodo, o puede haber otros reclamos también.",
+                    "updated": 1635270524586
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The total Claim Power in all existing claims may be equal, smaller, or greater than the Token Rewards available in the node."
+            "text": "The total Claim Power in all existing claims may be equal, smaller, or greater than the Token Rewards available in the node.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El total de Claim Power ien todas las solicitudes existentes puede ser igual, menor o mayor que elToken Rewards disponible para el nodo.",
+                    "updated": 1635270614156
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "And that is not all! On top of the above scenarios, we need to account for Claim Votes!"
+            "text": "And that is not all! On top of the above scenarios, we need to account for Claim Votes!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Y eso no es todo! Por encima de  estos escenarios, necesitamos pedir Claim Votes!",
+                    "updated": 1635270690932
+                }
+            ]
         },
         {
             "style": "Title",
@@ -67,17 +137,38 @@
         {
             "style": "Text",
             "text": "The flow of Claim Support Power into Claim Votes follows the same principles as the rest of the power flows in the Voting Program. This means that Claim Votes have a specific Claim Support Power, pretty much like claims have a specific Claim Power.",
-            "updated": 1630518813163
+            "updated": 1630518813163,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El flujo del Claim Support Power en Claim Votes sigue los mismos principiosque el resto de poder que fluye en el Voting Program. Esto significa que los Claim Votes tienen un Claim Support Power específico, al igual que las solicitudes tienes un Claim Power específico.",
+                    "updated": 1635270926025
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "In other words, when you vote on someone’s claim, you don’t necessarily vote for the entirety of the claim. Your vote carries a specific Claim Support Power that may be equal, lesser, or greater than the Claim Power in the claim!",
-            "updated": 1630518516835
+            "updated": 1630518516835,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En otras palabras, cuando vota la solicitud de alguien, no está votando necesariamente por la solicitud completa. Su voto lleva un Claim Support Power específico que puede ser igual, menor o mayor que el Claim Poweren la solicitud!",
+                    "updated": 1635271099450
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In addition, more Contributors may vote for the same claim!",
-            "updated": 1630518549067
+            "updated": 1630518549067,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Además, más contribuyentes pueden votar la misma solicitud!",
+                    "updated": 1635271146364
+                }
+            ]
         },
         {
             "style": "Title",
@@ -85,31 +176,73 @@
         },
         {
             "style": "Text",
-            "text": "As you can see, the variables and possible scenarios are many. Let’s lay out the general rules that guide the calculation of what Token Rewards go to what claims."
+            "text": "As you can see, the variables and possible scenarios are many. Let’s lay out the general rules that guide the calculation of what Token Rewards go to what claims.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Como puede ver, las variables y los posibles escenarios son muchos. Establezcamos las reglas generales que guían el cálculo de que Token Rewards van hacia que solicitudes.",
+                    "updated": 1635271260009
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The Token Rewards available in a node determines the maximum number of tokens that may be distributed through that node. In no case shall the system distribute more tokens than what the Token Rewards value indicates. In other words, the Community decides what is the maximum number of tokens to be distributed through any given node with their Weight Votes."
+            "text": "The Token Rewards available in a node determines the maximum number of tokens that may be distributed through that node. In no case shall the system distribute more tokens than what the Token Rewards value indicates. In other words, the Community decides what is the maximum number of tokens to be distributed through any given node with their Weight Votes.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Las Token Rewards disponible en un nodo determina el número máximo de tokens que se pueden distribuir a través de ese nodo. En ningún caso el sistema distribuirá más tokens del valor que los Token Rewards indican. En otras palabras, la comunidad decide cual es el número máximo de tokens para ser distribuídos a través de cualquier nodo con Weight Votes.",
+                    "updated": 1635271527251
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The maximum Token Rewards allocated to a claim is determined by the Token Rewards available in the node, the Claim Power associated with the claim, or the sum of the Claim Support Power of all Claim Votes associated with the claim, whichever is smaller.",
-            "updated": 1630518958930
+            "updated": 1630518958930,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El máximo Token Rewards asignado a una solicitud está determinado por el Token Rewards disponible en el nodo, el Claim Power asociado con la solicitud, o la suma del Claim Support Power de todos los Claim Votes asociados con la solicitud, el que sea menor.",
+                    "updated": 1635271727817
+                }
+            ]
         },
         {
             "style": "List",
             "text": "When the sum of Claim Support Power of all Claim Votes associated with a claim is lesser than the Claim Power of the claim, the claim is not paid in full. The Token Rewards is capped by the total Claim Support Power of all Claim Votes. In other words, claims are paid up to the amount the Community decides with their Claim Votes.",
-            "updated": 1630519002556
+            "updated": 1630519002556,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando la suma del Claim Support Power de todos los Claim Votes asociados a una solicitud es menos que el Claim Power de la solicitud, la solicitud no será pagada en forma completa. El Token Rewards está limitado por el total Claim Support Powede todas las Claim Votes. En otras palabras, las solicitudes son pagadas hasta el monto en que la comunidad decide con sus Claim Votes.",
+                    "updated": 1635271958188
+                }
+            ]
         },
         {
             "style": "List",
             "text": "When Token Rewards are enough to pay all claims, then each claim is paid in full, as expected. In more precise, albeit complex terms, when Token Rewards are greater than the sum of Claim Support Power for any given number of claims, or the sum of Claim Power for any given number of claims, whichever is lesser, each claim gets the Token Rewards equal to its Claim Power or equal to the Claim Support Power of associated Claim Votes, whichever is lesser.",
-            "updated": 1630519057866
+            "updated": 1630519057866,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando los Token Rewards son suficientes para pagar todas las solicitudes, desde luego cada solicitud se paga en su totalidad, como se esperaba. En términos más precisos, aunque complejos, cuando los Token Rewards son mayores que la suma del Claim Support Powerpor cualquier número de solicitudes, o la suma del Claim Power para cualquier número dado de solicitudes, que sea menor, cada reclamo obtiene el Token Rewards igual a su Claim Power o igual al Claim Support Power asociado a sus Claim Votes, el que sea menor.",
+                    "updated": 1635272299081
+                }
+            ]
         },
         {
             "style": "List",
             "text": "When Token Rewards are NOT enough to pay all claims, an adjustment must be made to pay a fair proportion to each claim, without exceeding the Token Rewards available. In such a case, each claim is reduced in proportion to the amount in which claims exceed the Token Rewards. For example, if the sum of all claims exceeds the Token Rewards by 10%, then each claim is reduced by 10%.",
-            "updated": 1630519090138
+            "updated": 1630519090138,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando los Token Rewards NO son suficientes para pagar todas las solicitudes, se debe hacer un ajuste para pagar una proporción justa por cada reclamo, sin exceder el Token Rewards disponible. En ese caso, cada solicitud se reduce en proporción a la cantidad en que las solicitudes que exceden el Token Rewards.Por ejemplo, si la suma de las solicitudes excede el Token Rewards por el 10%, entonces cada solicitud será reducida en un 10%.",
+                    "updated": 1635272622723
+                }
+            ]
         }
     ]
 }

@@ -244,7 +244,7 @@ function newFoundationsFunctionLibraryProductFunctions() {
                             let tradingMinePlugin = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(rootNode, 'Plugin Trading Mines', undefined, false, true, false, false)
 
                             for (let j = 0; j < tradingMinePlugin.pluginFiles.length; j++) {
-                                pluginFile = tradingMinePlugin.pluginFiles[j]
+                                let pluginFile = tradingMinePlugin.pluginFiles[j]
 
                                 UI.projects.communityPlugins.functionLibraries.pluginsFunctions.savePlugin(pluginFile)
                             }

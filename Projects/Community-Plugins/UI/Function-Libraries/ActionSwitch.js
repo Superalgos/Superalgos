@@ -80,12 +80,12 @@ function newCommunityPluginsActionSwitch() {
                 break
             case 'Enable Saving With Workspace':
                 {
-                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.enableSavingWithWorkspace(action.node, action.rootNodes)
+                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.enableSavingWithWorkspace(action.node, action.rootNodes, action.callBackFunction)
                 }
                 break
             case 'Disable Saving With Workspace':
                 {
-                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.disableSavingWithWorkspace(action.node, action.rootNodes)
+                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.disableSavingWithWorkspace(action.node, action.rootNodes, action.callBackFunction)
                 }
                 break
             case 'Save Plugin':

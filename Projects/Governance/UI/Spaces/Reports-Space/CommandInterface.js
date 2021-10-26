@@ -24,6 +24,7 @@ function newGovernanceReportsCommmandInterface() {
 
     function detectGovCommands() {
         if (checkPRsCommand() === undefined) { return true }
+        if (checkUserUpdateCommand() === undefined) { return true }
         if (checkPayCommand() === undefined) { return true }
 
         function checkPRsCommand() {
@@ -113,6 +114,77 @@ function newGovernanceReportsCommmandInterface() {
                         response.docs.anchor,
                         undefined,
                         response.docs.placeholder
+                    )
+                }
+            }
+        }
+
+        function checkUserUpdateCommand() {
+            if (UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase() === 'gov.help gov.contributeUserProfile') {
+                UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Contribute User Profile Command')
+                return
+            }
+            if (UI.projects.education.spaces.docsSpace.commandInterface.command.indexOf('gov.contributeUserProfile') !== 0 && UI.projects.education.spaces.docsSpace.commandInterface.command.indexOf('gov.contributeuserprofile') !== 0) { return 'Not Contribute Commands' }
+
+            /* Set up the commit message */
+            let message = UI.projects.education.spaces.docsSpace.commandInterface.command.trim().substring(UI.projects.education.spaces.docsSpace.commandInterface.command.indexOf(' ') + 1, UI.projects.education.spaces.docsSpace.commandInterface.command.length)
+            if (message.toLowerCase() === 'gov.contributeuserprofile') {
+                message = 'This is my Contribute User Profile to Superalgos'
+            }
+
+            UI.projects.governance.spaces.reportsSpace.sidePanelTab.close()
+            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+
+            /* Find the Username and Password */
+            let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
+            if (apisNode === undefined) {
+                UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return
+            }
+            if (apisNode.githubAPI === undefined) {
+                UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return
+            }
+
+            let config = JSON.parse(apisNode.githubAPI.config)
+            if (config.username === undefined || config.username === "") {
+                UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return
+            }
+            if (config.token === undefined || config.token === "") {
+                UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return
+            }
+
+            message = message.replaceAll('#', '_HASHTAG_')
+            message = message.replaceAll('/', '_SLASH_')
+
+            let params = {
+                method: 'contributeUserProfile',
+                commitMessage: message,
+                username: config.username,
+                token: config.token,
+                currentBranch: UI.projects.education.spaces.docsSpace.currentBranch,
+                contributionsBranch: UI.projects.education.spaces.docsSpace.contributionsBranch
+            }
+
+            let url = 'GOV' // We will access the default Client GOV endpoint.
+
+            httpRequest(JSON.stringify(params), url, onResponse)
+
+            function onResponse(err, data) {
+                /* Lets check the result of the call through the http interface */
+                data = JSON.parse(data)
+                if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Message - Contribute User Profile Done')
+                } else {
+                    UI.projects.education.spaces.docsSpace.navigateTo(
+                        data.docs.project,
+                        data.docs.category,
+                        data.docs.type,
+                        data.docs.anchor,
+                        undefined,
+                        data.docs.placeholder
                     )
                 }
             }

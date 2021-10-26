@@ -979,7 +979,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
 
                                     async function getSHA(path, octokit) {
-
+                                        let sha = ''
                                         try{
                                             const result = await octokit.repos.getContent({
                                                 owner: username,
@@ -987,13 +987,12 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 path,
                                                 ref: currentBranch
                                             });
-                                            const sha = result?.data?.sha
+                                            sha = result?.data?.sha
                                             return sha
 
                                         } catch (err) {
-                                            if (err.message = 'Not Found') {
+                                            if (err.message === 'Not Found') {
                                                 console.log("[User Not Found] -> Creating new user")
-                                                const sha = ''
                                                 return sha
                                             } else {
                                                 console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
@@ -1004,7 +1003,6 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
                                                 console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
                                                 console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
-                                                const sha = ''
                                                 return sha
                                             }
                                         }

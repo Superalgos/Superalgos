@@ -108,7 +108,7 @@ function newFoundationsDocsCommmandInterface() {
 
             /* Set up the commit message */
             let message = UI.projects.education.spaces.docsSpace.commandInterface.command.trim().substring(UI.projects.education.spaces.docsSpace.commandInterface.command.indexOf(' ') + 1, UI.projects.education.spaces.docsSpace.commandInterface.command.length)
-            if (message.toLowerCase() === 'app.UserUpdate') {
+            if (message.toLowerCase() === 'app.userupdate') {
                 message = 'This is my UserUpdate to Superalgos'
             }
 

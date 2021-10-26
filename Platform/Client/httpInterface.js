@@ -987,7 +987,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 path,
                                                 ref: currentBranch
                                             });
-                                            sha = result?.data?.sha
+                                            sha = result.data.sha
                                             return sha
 
                                         } catch (err) {

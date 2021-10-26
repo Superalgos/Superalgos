@@ -4,59 +4,144 @@
     "type": "Data Mining - Status Dependencies",
     "definition": {
         "text": "Status Dependencies are another type of relationship between Bots. Sometimes bots don't depend on the Datasets produced by other bots, but they depend directly on the status of other bots.",
-        "updated": 1622219077845
+        "updated": 1622219077845,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Statusabhängigkeiten sind eine weitere Art der Beziehung zwischen Bots. Manchmal sind Bots nicht von den von anderen Bots erzeugten Datensätzen abhängig, sondern direkt vom Status anderer Bots.",
+                "updated": 1634848429664
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Status Dependency Tree",
-            "updated": 1622219244127
+            "updated": 1622219244127,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Status Dependency Tree (Status-Abhängigkeitsbaum):",
+                    "updated": 1634848589978
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Status dependencies operate using the same idea of a tree as execution and data dependencies. Any Bot can have from zero to many status dependencies. For each Status Dependency, the Bot's process at runtime will load the Status Report file of the dependent Bot and will extract from there the information it needs.",
-            "updated": 1622222998840
+            "updated": 1622222998840,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Statusabhängigkeiten funktionieren nach der gleichen Idee eines Baums wie Ausführungs- und Datenabhängigkeiten. Jeder Bot kann zwischen null und vielen Statusabhängigkeiten-(dependencies) haben. Für jede Status Dependency lädt der Prozess des Bots zur Laufzeit die Status Report Datei des abhängigen Bots und extrahiert daraus die Informationen, die er benötigt.",
+                    "updated": 1634848766593
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Bots that produce Raw Data usually do not depend on any other Bot's status and are usually the root of a status dependency tree. "
+            "text": "Bots that produce Raw Data usually do not depend on any other Bot's status and are usually the root of a status dependency tree. ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bots, die Rohdaten (Raw Data) produzieren, hängen in der Regel nicht vom Status eines anderen Bots ab und sind normalerweise die Wurzel eines Statusabhängigkeitsbaums.",
+                    "updated": 1634848799068
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A good way to undestand why Status Dependencies are needed is with an example:"
+            "text": "A good way to undestand why Status Dependencies are needed is with an example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Anhand eines Beispiels lässt sich gut nachvollziehen, warum Statusabhängigkeiten erforderlich sind:",
+                    "updated": 1634848845441
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The Indicator Bot Bollinger-Bands depends on Candles-Volumes Dataset in order to calculate the Bollinger Bands, but it depend's on Exchange Raw Data Sensor Bot in order to know where the market begins, which is the date of the first piece of data. That information is part of the Status information that Exchange Raw Data Sensor Bot keeps at it's Status Report.",
-            "updated": 1622223640276
+            "updated": 1622223640276,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Indikator-Bot Bollinger-Bänder hängt vom Candles-Volumes-Datensatz ab, um die Bollinger-Bänder zu berechnen. Aber er hängt auch vom Exchange Raw Data Sensor Bot ab, um zu wissen, wo der Markt beginnt, nämlich mit dem Datum der ersten Daten. Diese Information ist Teil der Statusinformationen, die der Exchange Raw Data Sensor Bot in seinem Statusbericht speichert.",
+                    "updated": 1634848951838
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Classification by Utility",
-            "updated": 1621718216510
+            "updated": 1621718216510,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Classification by Utility (Klassifizierung nach \"Nutzen\"):",
+                    "updated": 1634849057981
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "A Status Dependency can be classified by it's utility. This makes it easier for processes to handle them in code. There are currently three different utilities:",
-            "updated": 1622223177318
+            "updated": 1622223177318,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine Status Dependency kann nach ihrem Nutzen klassifiziert werden. Das macht es für Prozesse einfacher, sie im Code zu behandeln. Derzeit gibt es drei verschiedene Hilfsprogramme(utilities):",
+                    "updated": 1634849116125
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Self Reference: this is used to load a bot's Status Report to extract data from it or modify it.",
-            "updated": 1622223714025
+            "updated": 1622223714025,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Self Reference: wird verwendet, um den Statusbericht eines Bots zu laden, um Daten daraus zu extrahieren oder ihn zu ändern.",
+                    "updated": 1634849138412
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Market Starting Point: this means that the referenced Status Report is to be used to extract the information of where the market begins.",
-            "updated": 1622223349370
+            "updated": 1622223349370,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Market Starting Point: Dies bedeutet, dass der referenzierte Status Report verwendet werden soll, um die Information zu extrahieren, wo der Markt beginnt.",
+                    "updated": 1634849231211
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Market Ending Point: this means that the referenced Status Report is to be used to extract the information of where the market ends, meaning which date the market ends."
+            "text": "Market Ending Point: this means that the referenced Status Report is to be used to extract the information of where the market ends, meaning which date the market ends.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Market Ending Point: Das bedeutet, dass der referenzierte Status Report dazu verwendet werden soll, die Information zu extrahieren, wo der Markt endet, das heißt an welchem Datum der Markt endet.",
+                    "updated": 1634849541450
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "A Bot's process is not allowed to update the Status Report belonging to other Bots."
+            "text": "A Bot's process is not allowed to update the Status Report belonging to other Bots!",
+            "updated": 1634849600795,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Prozess eines Bots darf den Statusbericht (Status Report) eines anderen Bots nicht aktualisieren!",
+                    "updated": 1634849635487
+                }
+            ]
         },
         {
             "style": "Text",

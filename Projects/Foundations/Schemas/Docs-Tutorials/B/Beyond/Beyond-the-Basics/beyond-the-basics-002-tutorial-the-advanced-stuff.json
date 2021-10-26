@@ -21,6 +21,11 @@
                 "text": "¡Todavía estás aquí, ahora con los dos primeros tutoriales en tu haber! ¡Ya eres familia! Bienvenido a la Community!",
                 "updated": 1628112222837,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Du bist immer noch da, jetzt mit den ersten beiden Tutorials unter deinem Gürtel! Du gehörst schon zur Familie! Willkommen in der Community!",
+                "updated": 1634819545877
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "En este tutorial, aprenderás a mantener tu sistema actualizado, utilizar la línea de comandos incorporada, cambiar de rama y algunos trucos más que le facilitarán la vida.",
                     "updated": 1628112392254,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "In diesem Tutorial lernst du, dein System auf dem neuesten Stand zu halten, die eingebaute Kommandozeile zu benutzen, Zweige zu wechseln und ein paar weitere Tricks, die dir das Leben leichter machen werden!",
+                    "updated": 1634819554314
                 }
             ]
         },
@@ -60,13 +70,25 @@
                     "text": "¡Las habilidades que aprenderás también te permitirán comenzar a contribuir al proyecto! Recuerda, este es un proyecto comunitario ... ¡Se espera que todos retribuyamos y ayudemos a mejorar el software!",
                     "updated": 1628112441113,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Fähigkeiten, die Sie erlernen werden, werden es Ihnen auch ermöglichen, einen Beitrag zum Projekt zu leisten! Denken Sie daran, dass dies ein Community-Projekt ist... Es wird von uns allen erwartet, dass wir etwas zurückgeben und helfen, die Software zu verbessern!",
+                    "updated": 1634819569822
                 }
             ]
         },
         {
             "style": "Link",
             "text": "By the way, contributing to the project earns you Superalgos (SA) tokens! Click to learn more!->superalgos.org/token-overview.shtml",
-            "updated": 1617035100951
+            "updated": 1617035100951,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Übrigens, wenn Du zum Projekt beiträgst, erhältst Du Superalgos (SA) Token! Klicke, um mehr zu erfahren!->superalgos.org/token-overview.shtml",
+                    "updated": 1634819622423
+                }
+            ]
         }
     ]
 }

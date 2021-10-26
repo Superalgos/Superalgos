@@ -21,6 +21,11 @@
                 "text": "Hablemos de mi amigo, el cuadro de búsqueda en Documentos. Tiene una doble vida: busca, ¡pero también manda!",
                 "updated": 1628112617535,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Reden wir über meine Freundin, das Suchfeld in den Docs. Sie führt ein Doppelleben: Sie sucht, aber sie befiehlt auch!",
+                "updated": 1634819878309
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "El cuadro de búsqueda también es interfaz de línea de comandos! La lista de comandos tiene que ver con:",
                     "updated": 1628113873377,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich meine, das Suchfeld ist auch eine Befehlszeilenschnittstelle! Die aktuelle Liste der Befehle hat zu tun mit:",
+                    "updated": 1634819893918
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "Producir y editar los documentos.",
                     "updated": 1628113477717,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erstellen und Bearbeiten der Docs.",
+                    "updated": 1634819900164
                 }
             ]
         },
@@ -72,6 +87,11 @@
                     "text": "Obteniendo actualizaciones.",
                     "updated": 1628113492383,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Aktualisierungen erhalten.",
+                    "updated": 1634819905627
                 }
             ]
         },
@@ -91,6 +111,11 @@
                     "text": "Contribuir con trabajo al proyecto.",
                     "updated": 1628113514180,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Arbeiten zum Projekt beitragen.",
+                    "updated": 1634819911378
                 }
             ]
         },
@@ -110,6 +135,11 @@
                     "text": "¡Trabajemos en un ejemplo práctico! ¡Te enseñaré cómo editar los documentos y cómo contribuir con un par de comandos!",
                     "updated": 1628113897204,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie uns an einem praktischen Beispiel arbeiten, das diese beiden Punkte beinhaltet! Ich zeige Ihnen, wie Sie die Dokumente bearbeiten und wie Sie mit einigen Befehlen zum Projekt beitragen können!",
+                    "updated": 1634819926122
                 }
             ]
         },
@@ -129,6 +159,11 @@
                     "text": "Prepararé los siguientes pasos con una pequeña historia ... ¡Espero que les guste la idea!",
                     "updated": 1628113581278,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich werde die nächsten Schritte mit einer kleinen Geschichte einleiten... Ich hoffe, die Idee gefällt Ihnen!",
+                    "updated": 1634819933239
                 }
             ]
         }

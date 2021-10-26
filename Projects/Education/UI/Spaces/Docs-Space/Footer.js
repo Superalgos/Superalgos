@@ -207,7 +207,7 @@ function newFoundationsDocsFooter() {
         HTML = HTML + '<div class="docs-footer-row">'
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>Join the Conversation</h4>'
-        HTML = HTML + '<p>We have a new <a href="https://discord.gg/CGeKC6WQQb" target="_blank">Discord Server</a> with multiple channels, or you may join the original individual Telegram groups listed to the right.</p>'
+        HTML = HTML + '<p>We have a new <a href="https://discord.gg/CGeKC6WQQb" target="_blank">Discord Server</a> with multiple channels and a new <a href="https://forum.superalgos.org/" target="_blank">Community Forum</a> or you may join the original individual Telegram groups listed to the right.</p>'
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'

@@ -127,12 +127,12 @@
             "id": "1697b890-3593-4b00-ac86-0a775e5cfac3",
             "savedPayload": {
                 "position": {
-                    "x": 23027.272727272724,
-                    "y": 17800
+                    "x": 19049,
+                    "y": 23152
                 },
                 "targetPosition": {
-                    "x": 23027.272727272724,
-                    "y": 18250
+                    "x": 19049,
+                    "y": 23602
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -166,19 +166,19 @@
                         "id": "6b593f5b-f64e-4533-aaa2-0a7c716a6d34",
                         "savedPayload": {
                             "position": {
-                                "x": 36972.02068748976,
-                                "y": 20937.67918057093
+                                "x": 19693.97453979725,
+                                "y": 23023.954636364866
                             },
                             "targetPosition": {
-                                "x": 37272.73538940334,
-                                "y": 21090.900974233027
+                                "x": 19763.503363531614,
+                                "y": 23237.942352531274
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
                                 "isCollapsed": false,
-                                "angleToParent": 1,
-                                "distanceToParent": 4,
+                                "angleToParent": 2,
+                                "distanceToParent": 2,
                                 "arrangementStyle": 0
                             },
                             "uiObject": {
@@ -187,14 +187,14 @@
                             "referenceParent": {
                                 "type": "User Profile",
                                 "name": "Julian-Molina",
-                                "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11"
+                                "id": "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
                                     "User Profile",
                                     "Governance",
-                                    "1fd95e41-4b22-48d5-be3a-904c37afcb11"
+                                    "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                                 ]
                             ]
                         }
@@ -207,19 +207,19 @@
                         "id": "74c721df-2850-4638-a730-4ffdb1a182a5",
                         "savedPayload": {
                             "position": {
-                                "x": 37325.53202135441,
-                                "y": 20757.55615928217
+                                "x": 19833.032187265977,
+                                "y": 23023.954636364866
                             },
                             "targetPosition": {
-                                "x": 37272.73538940334,
-                                "y": 21090.900974233027
+                                "x": 19763.503363531614,
+                                "y": 23237.942352531274
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
                                 "isCollapsed": false,
-                                "angleToParent": 1,
-                                "distanceToParent": 4,
+                                "angleToParent": 2,
+                                "distanceToParent": 2,
                                 "arrangementStyle": 0
                             },
                             "uiObject": {
@@ -248,19 +248,19 @@
                     "id": "4d3915dd-5288-43b6-a392-a9e2f2d34272",
                     "savedPayload": {
                         "position": {
-                            "x": 37606.0802043542,
-                            "y": 21038.10434228195
+                            "x": 19945.532187265977,
+                            "y": 23105.690670765467
                         },
                         "targetPosition": {
-                            "x": 37272.73538940334,
-                            "y": 21090.900974233027
+                            "x": 19763.503363531614,
+                            "y": 23237.942352531274
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": false,
-                            "angleToParent": 1,
-                            "distanceToParent": 4,
+                            "angleToParent": 2,
+                            "distanceToParent": 2,
                             "arrangementStyle": 0
                         },
                         "uiObject": {
@@ -275,19 +275,19 @@
                     "id": "8f69d76c-7b97-49c5-a51d-ea44984c1322",
                     "savedPayload": {
                         "position": {
-                            "x": 37425.95718306543,
-                            "y": 21391.6156761466
+                            "x": 19988.503363531614,
+                            "y": 23237.942352531274
                         },
                         "targetPosition": {
-                            "x": 37272.73538940334,
-                            "y": 21090.900974233027
+                            "x": 19763.503363531614,
+                            "y": 23237.942352531274
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": false,
-                            "angleToParent": 1,
-                            "distanceToParent": 4,
+                            "angleToParent": 2,
+                            "distanceToParent": 2,
                             "arrangementStyle": 0
                         },
                         "uiObject": {
@@ -298,19 +298,19 @@
                 "id": "46ebdbd3-5071-4d2a-a774-13351310b603",
                 "savedPayload": {
                     "position": {
-                        "x": 37272.73538940334,
-                        "y": 21090.900974233027
+                        "x": 19763.503363531614,
+                        "y": 23237.942352531274
                     },
                     "targetPosition": {
-                        "x": 37113.63636363636,
-                        "y": 21250
+                        "x": 19499,
+                        "y": 23602
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
                         "isCollapsed": false,
                         "angleToParent": 2,
-                        "distanceToParent": 2,
+                        "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
                     "uiObject": {
@@ -332,19 +332,19 @@
                         "id": "357b8fb3-c569-4af7-a6d4-a5c25558e4c1",
                         "savedPayload": {
                             "position": {
-                                "x": 37169.88636363636,
-                                "y": 20957.716426222752
+                                "x": 19973.755562766815,
+                                "y": 23242.859142366167
                             },
                             "targetPosition": {
-                                "x": 37338.63636363636,
-                                "y": 21250
+                                "x": 19926.97543233282,
+                                "y": 23462.942352531274
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
                                 "isCollapsed": false,
-                                "angleToParent": 1,
-                                "distanceToParent": 4,
+                                "angleToParent": 2,
+                                "distanceToParent": 2,
                                 "arrangementStyle": 0
                             },
                             "uiObject": {
@@ -353,14 +353,14 @@
                             "referenceParent": {
                                 "type": "User Profile",
                                 "name": "Julian-Molina",
-                                "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11"
+                                "id": "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
                                     "User Profile",
                                     "Governance",
-                                    "1fd95e41-4b22-48d5-be3a-904c37afcb11"
+                                    "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                                 ]
                             ]
                         }
@@ -373,19 +373,19 @@
                         "id": "9aa36513-9784-4702-b631-e725507b6f3f",
                         "savedPayload": {
                             "position": {
-                                "x": 37507.38636363636,
-                                "y": 20957.716426222752
+                                "x": 20077.529818763564,
+                                "y": 23295.73476679886
                             },
                             "targetPosition": {
-                                "x": 37338.63636363636,
-                                "y": 21250
+                                "x": 19926.97543233282,
+                                "y": 23462.942352531274
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
                                 "isCollapsed": false,
-                                "angleToParent": 1,
-                                "distanceToParent": 4,
+                                "angleToParent": 2,
+                                "distanceToParent": 2,
                                 "arrangementStyle": 0
                             },
                             "uiObject": {
@@ -414,19 +414,19 @@
                         "id": "4380f2d8-d4cc-4e52-a312-497799104d00",
                         "savedPayload": {
                             "position": {
-                                "x": 37676.13636363636,
-                                "y": 21250
+                                "x": 20140.963148499228,
+                                "y": 23393.41352879691
                             },
                             "targetPosition": {
-                                "x": 37338.63636363636,
-                                "y": 21250
+                                "x": 19926.97543233282,
+                                "y": 23462.942352531274
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
                                 "isCollapsed": false,
-                                "angleToParent": 1,
-                                "distanceToParent": 4,
+                                "angleToParent": 2,
+                                "distanceToParent": 2,
                                 "arrangementStyle": 0
                             },
                             "uiObject": {
@@ -455,19 +455,19 @@
                     "id": "bfe182d5-092b-47de-a0b5-401d0a026430",
                     "savedPayload": {
                         "position": {
-                            "x": 37507.38636363636,
-                            "y": 21542.283573777248
+                            "x": 20147.058642497926,
+                            "y": 23509.72248296527
                         },
                         "targetPosition": {
-                            "x": 37338.63636363636,
-                            "y": 21250
+                            "x": 19926.97543233282,
+                            "y": 23462.942352531274
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": false,
-                            "angleToParent": 1,
-                            "distanceToParent": 4,
+                            "angleToParent": 2,
+                            "distanceToParent": 2,
                             "arrangementStyle": 0
                         },
                         "uiObject": {
@@ -482,19 +482,19 @@
                     "id": "c8125ef7-4f6c-470c-8602-b80c45aea163",
                     "savedPayload": {
                         "position": {
-                            "x": 37169.88636363636,
-                            "y": 21542.283573777248
+                            "x": 20094.183018065232,
+                            "y": 23613.496738962018
                         },
                         "targetPosition": {
-                            "x": 37338.63636363636,
-                            "y": 21250
+                            "x": 19926.97543233282,
+                            "y": 23462.942352531274
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": false,
-                            "angleToParent": 1,
-                            "distanceToParent": 4,
+                            "angleToParent": 2,
+                            "distanceToParent": 2,
                             "arrangementStyle": 0
                         },
                         "uiObject": {
@@ -505,19 +505,19 @@
                 "id": "2116011e-e04b-4d33-980e-7f10a9dfd563",
                 "savedPayload": {
                     "position": {
-                        "x": 37338.63636363636,
-                        "y": 21250
+                        "x": 19926.97543233282,
+                        "y": 23462.942352531274
                     },
                     "targetPosition": {
-                        "x": 37113.63636363636,
-                        "y": 21250
+                        "x": 19499,
+                        "y": 23602
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
                         "isCollapsed": false,
                         "angleToParent": 2,
-                        "distanceToParent": 2,
+                        "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
                     "uiObject": {
@@ -539,18 +539,18 @@
                         "id": "83c675d9-697d-4ea1-9972-7d985e25779d",
                         "savedPayload": {
                             "position": {
-                                "x": 37338.63636363636,
-                                "y": 21700
+                                "x": 20151.281832422774,
+                                "y": 23723.40435092996
                             },
                             "targetPosition": {
-                                "x": 37113.63636363636,
-                                "y": 21700
+                                "x": 19926.97543233282,
+                                "y": 23741.057647468726
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
                                 "isCollapsed": false,
-                                "angleToParent": 1,
+                                "angleToParent": 3,
                                 "distanceToParent": 2,
                                 "arrangementStyle": 0
                             },
@@ -580,18 +580,18 @@
                     "id": "8aabd2d3-95b2-4fc5-8706-1a685a8f1b26",
                     "savedPayload": {
                         "position": {
-                            "x": 37113.63636363636,
-                            "y": 21925
+                            "x": 20140.963148499228,
+                            "y": 23810.58647120309
                         },
                         "targetPosition": {
-                            "x": 37113.63636363636,
-                            "y": 21700
+                            "x": 19926.97543233282,
+                            "y": 23741.057647468726
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": false,
-                            "angleToParent": 1,
+                            "angleToParent": 2,
                             "distanceToParent": 2,
                             "arrangementStyle": 0
                         },
@@ -607,18 +607,18 @@
                     "id": "fec5e5e9-a040-44e2-92d3-15056c2897b6",
                     "savedPayload": {
                         "position": {
-                            "x": 36888.63636363636,
-                            "y": 21700
+                            "x": 20098.066774592826,
+                            "y": 23887.183458343017
                         },
                         "targetPosition": {
-                            "x": 37113.63636363636,
-                            "y": 21700
+                            "x": 19926.97543233282,
+                            "y": 23741.057647468726
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": false,
-                            "angleToParent": 1,
+                            "angleToParent": 3,
                             "distanceToParent": 2,
                             "arrangementStyle": 0
                         },
@@ -630,18 +630,101 @@
                 "id": "a965b75d-76b0-4602-b683-1fa3e53b6634",
                 "savedPayload": {
                     "position": {
-                        "x": 37113.63636363636,
-                        "y": 21700
+                        "x": 19926.97543233282,
+                        "y": 23741.057647468726
                     },
                     "targetPosition": {
-                        "x": 37113.63636363636,
-                        "y": 21250
+                        "x": 19499,
+                        "y": 23602
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
                         "isCollapsed": false,
-                        "angleToParent": 1,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "influencerProgram": {
+                "type": "Influencer Program",
+                "name": "New Influencer Program",
+                "config": "{}",
+                "project": "Governance",
+                "userInfluencers": [],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "e06228a6-4ac9-4b60-9acf-ba0b3c417e61",
+                    "savedPayload": {
+                        "position": {
+                            "x": 20174.598819470786,
+                            "y": 24149.089136852836
+                        },
+                        "targetPosition": {
+                            "x": 19763.503363531614,
+                            "y": 23966.057647468726
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "tokensBonus": {
+                    "type": "Tokens Bonus",
+                    "name": "New Tokens Bonus",
+                    "project": "Governance",
+                    "id": "20211708-3985-4051-b229-757059e0f664",
+                    "savedPayload": {
+                        "position": {
+                            "x": 19810.541172002057,
+                            "y": 24413.59250038445
+                        },
+                        "targetPosition": {
+                            "x": 19763.503363531614,
+                            "y": 23966.057647468726
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "d1d64293-8540-4725-a370-7c04ced26120",
+                "savedPayload": {
+                    "position": {
+                        "x": 19763.503363531614,
+                        "y": 23966.057647468726
+                    },
+                    "targetPosition": {
+                        "x": 19499,
+                        "y": 23602
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
@@ -653,18 +736,18 @@
             "id": "d81c6c7d-a042-47cc-b951-45c5cd2ecc1a",
             "savedPayload": {
                 "position": {
-                    "x": 23477.272727272724,
-                    "y": 18250
+                    "x": 19499,
+                    "y": 23602
                 },
                 "targetPosition": {
-                    "x": 23027.272727272724,
-                    "y": 18250
+                    "x": 19049,
+                    "y": 23602
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
-                    "angleToParent": 2,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
                     "distanceToParent": 4,
                     "arrangementStyle": 0
                 },
@@ -695,25 +778,25 @@
                         "positionContributionClaims": [
                             {
                                 "type": "Position Contribution Claim",
-                                "name": "Moderator Community Management",
+                                "name": "Team Leader PiyanthaK piyanthak Workspaces Team",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "1ac4c257-0ff4-4076-bc1b-0a46cfb86342",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 24319.569720505046,
-                                        "y": 18945.67564660617
+                                        "x": 19386.5,
+                                        "y": 24471.8557158515
                                     },
                                     "targetPosition": {
-                                        "x": 23830.569770946204,
-                                        "y": 18814.64850502302
+                                        "x": 19161.5,
+                                        "y": 24471.8557158515
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
                                         "isCollapsed": false,
                                         "angleToParent": 2,
-                                        "distanceToParent": 4,
+                                        "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
                                     "uiObject": {
@@ -721,33 +804,317 @@
                                     },
                                     "referenceParent": {
                                         "type": "Position",
-                                        "name": "Moderator",
-                                        "id": "6e141ab6-cc79-44b6-a58a-60b6480f706e"
+                                        "name": "Team Leader PiyanthaK piyanthak",
+                                        "id": "94de54da-01db-41a6-a3ab-e7498407790a"
                                     },
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Superalgos",
                                             "Positions",
                                             "Governance",
-                                            "50c68665-5da2-48a8-b229-7a1563ae82d2"
+                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                         ],
                                         [
-                                            "Rewarded Positions",
+                                            "Roles Played @ Beta-12",
                                             "Position Class",
                                             "Governance",
                                             "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                         ],
                                         [
-                                            "Community Management",
+                                            "Education Teams",
                                             "Position Class",
                                             "Governance",
-                                            "35b790f0-c567-498c-83fd-ac0aacd8720b"
+                                            "2fad4da0-ad26-4ce4-a779-5571aa7d6340"
                                         ],
                                         [
-                                            "Moderator",
+                                            "Workspaces Team",
+                                            "Position Class",
+                                            "Governance",
+                                            "99c0b7a7-db57-4491-8559-d6d493183534"
+                                        ],
+                                        [
+                                            "Team Leader PiyanthaK piyanthak",
                                             "Position",
                                             "Governance",
-                                            "6e141ab6-cc79-44b6-a58a-60b6480f706e"
+                                            "94de54da-01db-41a6-a3ab-e7498407790a"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Team Member Exchange Relationships Team",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "73709060-77aa-4aed-b75a-df5a73d711b9",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 19356.3557158515,
+                                        "y": 24584.3557158515
+                                    },
+                                    "targetPosition": {
+                                        "x": 19161.5,
+                                        "y": 24471.8557158515
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Team Member",
+                                        "id": "952609db-1f04-45fb-9acd-948a6fa52d20"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions",
+                                            "Governance",
+                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class",
+                                            "Governance",
+                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                        ],
+                                        [
+                                            "Marketing Teams",
+                                            "Position Class",
+                                            "Governance",
+                                            "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
+                                        ],
+                                        [
+                                            "Exchange Relationships Team",
+                                            "Position Class",
+                                            "Governance",
+                                            "17c9d4f0-82da-4304-b1e8-b075048ce79c"
+                                        ],
+                                        [
+                                            "Team Member",
+                                            "Position",
+                                            "Governance",
+                                            "952609db-1f04-45fb-9acd-948a6fa52d20"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Team Member Telegram Team",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "87b0b40b-9414-4485-845c-ac717e0e5272",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 19274,
+                                        "y": 24666.711431703
+                                    },
+                                    "targetPosition": {
+                                        "x": 19161.5,
+                                        "y": 24471.8557158515
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Team Member",
+                                        "id": "f6494f82-4e9a-4962-a111-f75763f66bff"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions",
+                                            "Governance",
+                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class",
+                                            "Governance",
+                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                        ],
+                                        [
+                                            "Other Teams",
+                                            "Position Class",
+                                            "Governance",
+                                            "eab89bf2-76b7-4d03-ada9-9a5eb5f3cfb4"
+                                        ],
+                                        [
+                                            "Chat Platforms Teams",
+                                            "Position Class",
+                                            "Governance",
+                                            "15850aa9-709f-413e-b0e7-0d843c4d17dd"
+                                        ],
+                                        [
+                                            "Telegram Team",
+                                            "Position Class",
+                                            "Governance",
+                                            "d845296c-a4c9-43a1-9fcd-f63678d09649"
+                                        ],
+                                        [
+                                            "Team Member",
+                                            "Position",
+                                            "Governance",
+                                            "f6494f82-4e9a-4962-a111-f75763f66bff"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Team Member Discord Team",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "dd143c7f-ca24-43b4-adfd-031c1ffb583a",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 19161.5,
+                                        "y": 24696.8557158515
+                                    },
+                                    "targetPosition": {
+                                        "x": 19161.5,
+                                        "y": 24471.8557158515
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Team Member",
+                                        "id": "90877e7d-cce4-475b-864b-9ec29fd6c5e3"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions",
+                                            "Governance",
+                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class",
+                                            "Governance",
+                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                        ],
+                                        [
+                                            "Other Teams",
+                                            "Position Class",
+                                            "Governance",
+                                            "eab89bf2-76b7-4d03-ada9-9a5eb5f3cfb4"
+                                        ],
+                                        [
+                                            "Chat Platforms Teams",
+                                            "Position Class",
+                                            "Governance",
+                                            "15850aa9-709f-413e-b0e7-0d843c4d17dd"
+                                        ],
+                                        [
+                                            "Discord Team",
+                                            "Position Class",
+                                            "Governance",
+                                            "edf5afb0-79ff-4a19-98af-8001f118b735"
+                                        ],
+                                        [
+                                            "Team Member",
+                                            "Position",
+                                            "Governance",
+                                            "90877e7d-cce4-475b-864b-9ec29fd6c5e3"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Team Member Icons Team",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "64f57786-f9c6-419a-ae0a-f91ded3e74dc",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 19049,
+                                        "y": 24666.711431703
+                                    },
+                                    "targetPosition": {
+                                        "x": 19161.5,
+                                        "y": 24471.8557158515
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Team Member",
+                                        "id": "ae537189-a6ff-470a-9f15-2425160f4d47"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions",
+                                            "Governance",
+                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class",
+                                            "Governance",
+                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                        ],
+                                        [
+                                            "Other Teams",
+                                            "Position Class",
+                                            "Governance",
+                                            "eab89bf2-76b7-4d03-ada9-9a5eb5f3cfb4"
+                                        ],
+                                        [
+                                            "User Experience Teams",
+                                            "Position Class",
+                                            "Governance",
+                                            "0f802b4f-ecdc-48f0-9229-a47bd1c11a65"
+                                        ],
+                                        [
+                                            "Icons Team",
+                                            "Position Class",
+                                            "Governance",
+                                            "845ddcca-fadb-4a8e-9f2a-03cb9cbfb99a"
+                                        ],
+                                        [
+                                            "Team Member",
+                                            "Position",
+                                            "Governance",
+                                            "ae537189-a6ff-470a-9f15-2425160f4d47"
                                         ]
                                     ]
                                 }
@@ -756,19 +1123,19 @@
                         "id": "4e0c4cd4-dc98-4913-a8dc-72cbae46776a",
                         "savedPayload": {
                             "position": {
-                                "x": 23830.569770946204,
-                                "y": 18814.64850502302
+                                "x": 19161.5,
+                                "y": 24471.8557158515
                             },
                             "targetPosition": {
-                                "x": 23504.569804573643,
-                                "y": 18727.29707730092
+                                "x": 19049,
+                                "y": 24277
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
                                 "isCollapsed": false,
                                 "angleToParent": 2,
-                                "distanceToParent": 4,
+                                "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
                             "uiObject": {
@@ -784,19 +1151,19 @@
                     "id": "879ef024-7f98-48a2-abd1-05ada3de517a",
                     "savedPayload": {
                         "position": {
-                            "x": 23591.921232295743,
-                            "y": 19053.29704367348
+                            "x": 18992.75,
+                            "y": 24374.427857925748
                         },
                         "targetPosition": {
-                            "x": 23504.569804573643,
-                            "y": 18727.29707730092
+                            "x": 19049,
+                            "y": 24277
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": false,
                             "angleToParent": 2,
-                            "distanceToParent": 4,
+                            "distanceToParent": 2,
                             "arrangementStyle": 0
                         },
                         "uiObject": {
@@ -807,12 +1174,12 @@
                 "id": "d5b96ff4-c6ec-4139-8cc1-259d0940196b",
                 "savedPayload": {
                     "position": {
-                        "x": 23504.569804573643,
-                        "y": 18727.29707730092
+                        "x": 19049,
+                        "y": 24277
                     },
                     "targetPosition": {
-                        "x": 23345.47077880667,
-                        "y": 18568.198051533946
+                        "x": 19049,
+                        "y": 24052
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -830,18 +1197,18 @@
             "id": "bc73fcad-a3b2-4094-931e-c8f3d608a99c",
             "savedPayload": {
                 "position": {
-                    "x": 23345.47077880667,
-                    "y": 18568.198051533946
+                    "x": 19049,
+                    "y": 24052
                 },
                 "targetPosition": {
-                    "x": 23027.272727272724,
-                    "y": 18250
+                    "x": 19049,
+                    "y": 23602
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
                     "isCollapsed": false,
-                    "angleToParent": 2,
+                    "angleToParent": 1,
                     "distanceToParent": 4,
                     "arrangementStyle": 0
                 },
@@ -853,12 +1220,12 @@
         "id": "91519c6e-8c07-488c-98dd-255890a00d6e",
         "savedPayload": {
             "position": {
-                "x": 23027.272727272724,
-                "y": 18250
+                "x": 19049,
+                "y": 23602
             },
             "targetPosition": {
-                "x": 22727.272727272724,
-                "y": 18250
+                "x": 18749,
+                "y": 23602
             },
             "floatingObject": {
                 "isPinned": false,
@@ -880,12 +1247,12 @@
         "id": "774ad037-353d-49e2-ba63-6dff7d55decc",
         "savedPayload": {
             "position": {
-                "x": 22427.272727272724,
-                "y": 18250
+                "x": 18449,
+                "y": 23602
             },
             "targetPosition": {
-                "x": 22727.272727272724,
-                "y": 18250
+                "x": 18749,
+                "y": 23602
             },
             "floatingObject": {
                 "isPinned": false,
@@ -903,18 +1270,18 @@
     "id": "b1ce221b-2752-4419-ae53-8410e8a93798",
     "savedPayload": {
         "position": {
-            "x": 22727.272727272724,
-            "y": 18250
+            "x": 18749,
+            "y": 23602
         },
         "targetPosition": {
-            "x": 22727.272727272724,
-            "y": 18250
+            "x": 18749,
+            "y": 23602
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
             "isCollapsed": false,
-            "angleToParent": 2,
+            "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0
         },

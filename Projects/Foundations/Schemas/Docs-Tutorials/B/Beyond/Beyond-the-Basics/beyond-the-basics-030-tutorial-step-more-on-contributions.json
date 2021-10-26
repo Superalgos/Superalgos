@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "¡No puedo enfatizar lo suficiente lo importante que es para el proyecto que los usuarios contribuyan con lo que construyan con Superalgos!",
-                "updated": 1628198584455
+                "updated": 1628198584455,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich kann gar nicht genug betonen, wie wichtig es für das Projekt ist, dass die Benutzer alles, was sie mit Superalgos bauen, beitragen!",
+                "updated": 1635151772826
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Si decides involucrarte con el proyecto y el Community, puedes participar en el esfuerzo colectivo para mejorar Superalgos. Pero incluso si no está interesado en el trabajo en equipo, seguirá desarrollando sus habilidades, se convertirá en un usuario avanzado y creará muchas cosas que pueden ser útiles para las personas que vienen después de ti.",
-                    "updated": 1628198688305
+                    "updated": 1628198688305,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie sich entscheiden, sich in das Projekt und die Community einzubringen, können Sie an den kollektiven Bemühungen teilnehmen, Superalgos besser zu machen. Aber auch wenn Sie nicht an Teamarbeit interessiert sind, werden Sie Ihre Fähigkeiten weiterentwickeln, ein Power-User werden und viele Dinge bauen, die für die Menschen nach Ihnen von Nutzen sein können!",
+                    "updated": 1635151779014
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "How to Contribute to Superalgoses cubre la logística sobre cómo contribuir trading systems, data mines, iconos, documentación, traducciones, etc. Recuerda: ¡todas las contribuciones son incentivadas con tokens de Superalgos!",
-                    "updated": 1628198795991
+                    "updated": 1628198795991,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": " How to Contribute to Superalgos ist das Thema, das sich mit der Logistik von Handelssystemen, Data Mines, Icons, Dokumentation, Übersetzungen und so weiter beschäftigt. Denken Sie daran: alle Beiträge werden mit Superalgos-Token belohnt!",
+                    "updated": 1635151785633
                 }
             ]
         }

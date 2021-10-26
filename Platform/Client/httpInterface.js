@@ -1274,36 +1274,22 @@ exports.newHttpInterface = function newHttpInterface() {
                                         return
                                     }
 
-                                    case 'contributeUserProfile': {
+                                    case 'UserProfile': {
                                         try {
 
-                                            let commitMessage = params.message
-                                            const username = params.username
-                                            const token =  params.token
-                                            const currentBranch = params.currentBranch
-                                            const contributionsBranch = params.contributionsBranch
-
-                                            /*
-                                            let commitMessage = unescape(requestPath[3])
-                                            const username = unescape(requestPath[4])
-                                            const token = unescape(requestPath[5])
-                                            const currentBranch = unescape(requestPath[6])
-                                            const contributionsBranch = unescape(requestPath[7])
-                                            */
+                                            let mess = unescape(params.commitMessage)
+                                            const username =  unescape(params.username)
+                                            const token =   unescape(params.token)
+                                            const currentBranch =  unescape(params.currentBranch)
+                                            const contributionsBranch =  unescape(params.contributionsBranch)
 
                                             let error
-
-                                            /* Unsaving # */
-                                            for (let i = 0; i < 10; i++) {
-                                                commitMessage = commitMessage.replace('_SLASH_', '/')
-                                                commitMessage = commitMessage.replace('_HASHTAG_', '#')
-                                            }
 
                                             await updateUser()
 
                                             async function updateUser() {
 
-                                                await doGithub()
+                                                await doGithubUser()
                                                 if (error !== undefined) {
 
                                                     let docs = {
@@ -1322,7 +1308,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                             }
 
-                                            async function doGithub() {
+                                            async function doGithubUser() {
 
                                                 const { Octokit } = SA.nodeModules.octokit
 
@@ -1335,7 +1321,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 const owner = 'Superalgos'
                                                 const head = username + ':' + contributionsBranch
                                                 const base = currentBranch
-                                                const title = 'Contribution: ' + commitMessage
+                                                const title = 'Contribution: ' + mess
                                                 const path = 'Projects/Governance/Plugins/User-Profiles/' + username + '.json' ;
 
                                                 const sha = await getSHA(path, octokit);
@@ -1362,14 +1348,14 @@ exports.newHttpInterface = function newHttpInterface() {
                                                     if (err.stack.indexOf('Error User Commit') >= 0) {
                                                         return
                                                     } else {
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
                                                         error = err
                                                     }
                                                 }
@@ -1386,14 +1372,14 @@ exports.newHttpInterface = function newHttpInterface() {
                                                     if (err.stack.indexOf('A pull request already exists') >= 0) {
                                                         return
                                                     } else {
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
                                                         error = err
                                                     }
 
@@ -1417,28 +1403,28 @@ exports.newHttpInterface = function newHttpInterface() {
                                                         console.log("[User Not Found] -> Creating new user")
                                                         return sha
                                                     } else {
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
-                                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
                                                         return sha
                                                     }
                                                 }
                                             }
 
                                         } catch (err) {
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> Method call produced an error.')
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> err.stack = ' + err.stack)
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> commitMessage = ' + commitMessage)
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> username = ' + username)
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> token starts with = ' + token.substring(0, 10) + '...')
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> currentBranch = ' + currentBranch)
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> contributionsBranch = ' + contributionsBranch)
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> Method call produced an error.')
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> err.stack = ' + err.stack)
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> commitMessage = ' + mess)
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> username = ' + username)
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> token starts with = ' + token.substring(0, 10) + '...')
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> currentBranch = ' + currentBranch)
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> contributionsBranch = ' + contributionsBranch)
 
                                             let error = {
                                                 result: 'Fail Because',

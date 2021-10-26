@@ -120,16 +120,19 @@ function newGovernanceReportsCommmandInterface() {
         }
 
         function checkUserUpdateCommand() {
-            if (UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase() === 'gov.help gov.contributeUserProfile') {
+
+            let command = UI.projects.governance.spaces.reportsSpace.commandInterface.command.toLowerCase()
+
+            if (command === 'gov.help gov.userprofile') {
                 UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Contribute User Profile Command')
                 return
             }
-            if (UI.projects.education.spaces.docsSpace.commandInterface.command.indexOf('gov.contributeUserProfile') !== 0 && UI.projects.education.spaces.docsSpace.commandInterface.command.indexOf('gov.contributeuserprofile') !== 0) { return 'Not Contribute Commands' }
+            if (command.indexOf('gov.userprofile') !== 0 ) { return 'Not User Contribute Commands' }
 
             /* Set up the commit message */
-            let message = UI.projects.education.spaces.docsSpace.commandInterface.command.trim().substring(UI.projects.education.spaces.docsSpace.commandInterface.command.indexOf(' ') + 1, UI.projects.education.spaces.docsSpace.commandInterface.command.length)
-            if (message.toLowerCase() === 'gov.contributeuserprofile') {
-                message = 'This is my Contribute User Profile to Superalgos'
+            let message = command.trim().substring(command.indexOf(' ') + 1, command.length)
+            if (message.toLowerCase() === 'gov.userprofile') {
+                message = 'Automated Userprofile contribute process.'
             }
 
             UI.projects.governance.spaces.reportsSpace.sidePanelTab.close()
@@ -160,7 +163,7 @@ function newGovernanceReportsCommmandInterface() {
             message = message.replaceAll('/', '_SLASH_')
 
             let params = {
-                method: 'contributeUserProfile',
+                method: 'UserProfile',
                 commitMessage: message,
                 username: config.username,
                 token: config.token,

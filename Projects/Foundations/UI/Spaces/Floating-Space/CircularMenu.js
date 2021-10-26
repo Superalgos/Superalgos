@@ -70,6 +70,7 @@ function newCircularMenu() {
             menuItem.secondaryWorkDoneLabel = menuItemInitialValue.secondaryWorkDoneLabel
             menuItem.secondaryWorkFailedLabel = menuItemInitialValue.secondaryWorkFailedLabel
             menuItem.secondaryIcon = menuItemInitialValue.secondaryIcon
+            menuItem.booleanProperty = menuItemInitialValue.booleanProperty
             menuItem.visible = menuItemInitialValue.visible
             menuItem.iconPathOn = menuItemInitialValue.iconPathOn
             menuItem.iconPathOff = menuItemInitialValue.iconPathOff

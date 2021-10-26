@@ -1089,7 +1089,13 @@
                     "functionName": "newEducationGlobalsDocs"
                 }
             ],
-            "functionLibraries": [],
+            "functionLibraries": [
+                {
+                    "name": "Docs Statistics Functions",
+                    "propertyName": "docsStatisticsFunctions",
+                    "functionName": "newEducationFunctionLibraryDocsStats"
+                }
+            ],
             "utilities": [
                 {
                     "name": "Languages",

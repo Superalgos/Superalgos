@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "El App Update Command obtiene la última versión del software del repositorio upstream en el Current Branch!",
-                "updated": 1628186697267
+                "updated": 1628186697267,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Der App Update Command holt die neueste Version der Software aus dem Upstream Repository im aktuellen Zweig!",
+                "updated": 1635148204351
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "¡Eso significa que puede usar este comando en cualquiera de las ramas! Eso es todo:",
-                    "updated": 1628186724646
+                    "updated": 1628186724646,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das bedeutet, dass Sie diesen Befehl in jedem der Zweige verwenden können! Das ist es:",
+                    "updated": 1635148211414
                 }
             ]
         },
@@ -48,7 +60,7 @@
         },
         {
             "style": "Callout",
-            "text": "Copy and run the command!",
+            "text": "Copy and run the command in the search/command box at the far top of the Docs.",
             "translations": [
                 {
                     "language": "IT",
@@ -59,9 +71,16 @@
                 {
                     "language": "ES",
                     "text": "¡Copia y ejecuta el comando!",
-                    "updated": 1628186919347
+                    "updated": 1628186919347,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Kopieren Sie den Befehl und führen Sie ihn aus indem sie Ihn in den Docs ganz oben im Such- und Befehlsfeld eingeben. ",
+                    "updated": 1635148726927
                 }
-            ]
+            ],
+            "updated": 1635148665427
         },
         {
             "style": "Success",
@@ -77,7 +96,13 @@
                 {
                     "language": "ES",
                     "text": "Una vez que se realiza la actualización, deberás cerrar la aplicación nuevamente, reiniciarla, buscar el tutorial y hacer clic en Resume, ¡como hiciste antes!",
-                    "updated": 1628186790847
+                    "updated": 1628186790847,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald die Aktualisierung abgeschlossen ist, müssen Sie die App wieder schließen, neu starten, das Tutorial finden und auf Fortsetzen klicken, genau wie Sie es zuvor getan haben!",
+                    "updated": 1635148282859
                 }
             ]
         }

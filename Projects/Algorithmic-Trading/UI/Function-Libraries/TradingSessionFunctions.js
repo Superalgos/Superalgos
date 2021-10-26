@@ -42,6 +42,15 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
     }
 
     function runSession(node, resume, callBackFunction) {
+
+        if (UI.environment.DEMO_MODE === true) {
+            if (window.location.hostname !== 'localhost') {
+                node.payload.uiObject.setWarningMessage('Superalgos is running is DEMO MODE. This means that you can not RUN Sessions.', 5)
+                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                return
+            }
+        }
+
         let validationsResult = validations(node)
         if (validationsResult === undefined) {
             /* If something fails at validations we just quit. */
@@ -164,7 +173,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
         let defaultExchange = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.exchange.payload, 'codeName')
         let defaultMarket =
             UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.market.baseAsset.payload.referenceParent.payload, 'codeName')
-            + '-' + 
+            + '-' +
             UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.market.quotedAsset.payload.referenceParent.payload, 'codeName')
 
         let dependencyFilter = UI.projects.foundations.functionLibraries.dependenciesFilter.createDependencyFilter(
@@ -195,6 +204,15 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
     }
 
     function stopSession(node, callBackFunction) {
+
+        if (UI.environment.DEMO_MODE === true) {
+            if (window.location.hostname !== 'localhost') {
+                node.payload.uiObject.setWarningMessage('Superalgos is running is DEMO MODE. This means that you can not STOP Sessions.', 5)
+                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                return
+            }
+        }
+
         let validationsResult = validations(node)
         if (validationsResult === undefined) {
             /* If something fails at validations we just quit. */

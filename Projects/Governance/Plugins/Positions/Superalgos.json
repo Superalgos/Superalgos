@@ -2209,7 +2209,7 @@
                                 },
                                 {
                                     "type": "Position",
-                                    "name": "3 Team Members : EvaMaria70 gitforkgit e-Nut",
+                                    "name": "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart",
                                     "config": "{}",
                                     "project": "Governance",
                                     "positions": [],
@@ -2367,7 +2367,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 1,
                             "distanceToParent": 3,
                             "arrangementStyle": 0

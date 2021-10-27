@@ -2462,6 +2462,8 @@ function newUiObject() {
                     position.y - totalImageSize / 2,
                     totalImageSize,
                     totalImageSize)
+
+                browserCanvasContext.globalAlpha = 1
             }
         }
 

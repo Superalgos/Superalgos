@@ -55,6 +55,13 @@ function newGovernanceUserProfileSpace() {
             }
         }
         let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+
+        // Initialise the isLoading parameter for each User Profile
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+
+            userProfile.payload.isLoading = true
+        }
         /*
         let pools = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Pools')
         let assets = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Assets')
@@ -374,11 +381,13 @@ function newGovernanceUserProfileSpace() {
             if (userProfile.payload === undefined) { continue }
 
             if (userProfile.payload.bloackchainBalancesLoading === true) {
+                userProfile.payload.isLoading = true
                 return
             }
 
             if (userProfile.payload.blockchainTokens === undefined) {
                 userProfile.payload.bloackchainBalancesLoading = true
+                userProfile.payload.isLoading = true
                 UI.projects.foundations.spaces.cockpitSpace.setStatus('Loading blockchain balances for User Profile # ' + (i + 1) + ' / ' + userProfiles.length, 1500, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
 
                 getBlockchainAccount(userProfile)
@@ -461,6 +470,7 @@ function newGovernanceUserProfileSpace() {
                 return response.json();
             }).then(function (data) {
                 userProfile.payload.bloackchainBalancesLoading = false
+                userProfile.payload.isLoading = false
                 if (data.result === "Max rate limit reached, please use API Key for higher rate limit") {
                     userProfile.payload.blockchainTokens = undefined
                 } else {

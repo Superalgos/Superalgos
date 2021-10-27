@@ -5,7 +5,7 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
     let thisObject = {
         taskParameters: undefined,
         format: undefined,
-        twitterclient: undefined,
+        twitterClient: undefined,
         sendMessage: sendMessage,
         initialize: initialize,
         finalize: finalize
@@ -16,6 +16,7 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
     function initialize(config) {
         /* Twitter Bot Initialization */
         var Twitter = SA.nodeModules.twitter
+        console.log(Twitter)
 
         let consumer_key = config.consumer_key
         let consumer_secret = config.consumer_secret
@@ -35,20 +36,30 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
             access_token_secret = process.env.TWITTER_ACCESS_TOKEN_SECRET
         }
         
-        var twitterclient = new Twitter({
+        if (!consumer_key) {
+            logError("consumer_key must be set")
+        }
+        if (!consumer_secret) {
+            logError("consumer_secret must be set")
+        }
+        if (!access_token_key) {
+            logError("access_token_key must be set")
+        }
+        if (!access_token_secret) {
+            logError("access_token_secret must be set")
+        }
+        var twitterClient = new Twitter({
             consumer_key: consumer_key,
             consumer_secret: consumer_secret,
             access_token_key: access_token_key,
             access_token_secret: access_token_secret
         });
-        thisObject.twitterclient = twitterclient
+        thisObject.twitterClient = twitterClient
 
         try {
             thisObject.taskParameters = {
                 exchange: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name,
-                market: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
-                    '/' +
-                    TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+                market: `${TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName}/${TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName}`
             }
             if (config.format === undefined) {
                 thisObject.format = "%{MESSAGE}"
@@ -58,20 +69,21 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
         } catch (err) {
             logError("initialize -> err = " + err.stack);
         }
-
     }
 
     function finalize() {}
 
     function sendMessage(message) {
+        console.log("sendMessage")
         try {
-            message = formatMessage(message)
-            message = JSON.stringify({status: message})
+            message = {status: formatMessage(message)}
         } catch (err) {
             logError("announce -> Twitter JSON message error -> err = " + err)
         }
+        console.log(thisObject.twitterClient)
 
-        thisObject.twitterclient.post('statuses/update', message,  function(error, tweet, response) {
+        thisObject.twitterClient.post('statuses/update', message, function(error, tweet, response) {
+            console.log(error)
             if(error) throw error;
             console.log(tweet);  // Tweet body.
             console.log(response);  // Raw response object.

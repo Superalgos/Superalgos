@@ -1,7 +1,7 @@
 exports.newNetworkModulesSocialGraph = function newNetworkModulesSocialGraph() {
     /*
     This module represents the Social Graph Service that 
-    this deals with the Social Graph this node mantains. 
+    deals with the Social Graph this node mantains. 
     The Social Graph is one of the services the Network Node provides.
 
     This service is responsible for mantaining the whole Social Graph
@@ -9,9 +9,10 @@ exports.newNetworkModulesSocialGraph = function newNetworkModulesSocialGraph() {
     their posts.
     */
     let thisObject = {
+        userProfiles: undefined,
         /* Framework Functions */
         initialize: initialize,
-        finalize: finalize
+        finalize: finalize        
     }
 
     return thisObject
@@ -21,7 +22,7 @@ exports.newNetworkModulesSocialGraph = function newNetworkModulesSocialGraph() {
     }
 
     async function initialize() {
-        let bootstrapProcess = NT.projects.socialTrading.modules.bootstrap.newBootstrap()
-        await bootstrapProcess.initialize()
+        thisObject.userProfiles = SA.projects.network.modules.userProfiles.newNetworkModulesUserProfiles()
+        await thisObject.userProfiles.initialize()
     }
 }

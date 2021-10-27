@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Clones difieren de las copias de seguridad en que la función está diseñada para replicar estructuras de datos para que las copias se parezcan al original.",
-                "updated": 1626617648374
+                "updated": 1626617648374,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Clones unterscheiden sich von Backups insofern, als dass die Funktion darauf ausgelegt ist, Datenstrukturen zu replizieren, so dass die Kopien dem Original ähneln.",
+                "updated": 1634586258905
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "¡Lee esta página con atención!",
-                    "updated": 1626617702879
+                    "updated": 1626617702879,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Lesen Sie diese Seite aufmerksam!",
+                    "updated": 1634586264863
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "En resumen:",
-                    "updated": 1626617716280
+                    "updated": 1626617716280,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Zusammengefasst:",
+                    "updated": 1634586271229
                 }
             ]
         },
@@ -74,7 +92,13 @@
                 {
                     "language": "ES",
                     "text": "Clones se comportan de la misma manera tanto si el original está presente en el momento de la restauración como si no.",
-                    "updated": 1626617738901
+                    "updated": 1626617738901,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Clones verhalten sich gleich, ob das Original bei der Wiederherstellung vorhanden ist oder nicht.",
+                    "updated": 1634586276607
                 }
             ]
         },
@@ -91,7 +115,13 @@
                 {
                     "language": "ES",
                     "text": "Las referencias entrantes siempre se descartan.",
-                    "updated": 1626617756338
+                    "updated": 1626617756338,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingehende Referenzen werden immer verworfen.",
+                    "updated": 1634586293349
                 }
             ]
         },
@@ -109,7 +139,13 @@
                 {
                     "language": "ES",
                     "text": "Siéntate libre de tomarte el tiempo para probar las característica de los Clones por tu cuenta! ¡Pasaremos a otros temas sin más preámbulos!",
-                    "updated": 1626617964519
+                    "updated": 1626617964519,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich die Zeit, die Funktion Clones selbst zu testen! Wir gehen ohne weiteres zu anderen Themen über!",
+                    "updated": 1634586287700
                 }
             ]
         }

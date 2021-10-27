@@ -5,7 +5,8 @@ let PROJECTS_SCHEMA
 let SCHEMAS_BY_PROJECT = new Map()
 /* New Root object*/
 let UI = {
-    projects: {}
+    projects: {},
+    environment: {}
 }
 
 /* User Interface Colors */

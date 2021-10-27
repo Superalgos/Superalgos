@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 511.99999 511.99999"
+   version="1.1"
+   id="svg11329"
+   width="512"
+   height="512"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs11315">
+    <style
+       id="style11313">.cls-1{fill:#02a6c2;}.cls-2{fill:#5fcade;}.cls-3{fill:#abebf4;}</style>
+  </defs>
+  <title
+     id="title11317">ftx--logo</title>
+  <g
+     id="Layer_2"
+     data-name="Layer 2"
+     transform="scale(0.25599616,0.29437632)">
+    <g
+       id="Layer_1-2"
+       data-name="Layer 1">
+      <path
+         class="cls-1"
+         d="m 565.41,0.11 q 717.21,-0.22 1434.51,0 0.22,231.83 0,463.58 -717.23,0.22 -1434.51,0 -0.23,-231.83 0,-463.58 z"
+         id="path11319" />
+      <path
+         class="cls-2"
+         d="m 0.6,638.1 q 231.39,-1.2 462.86,0 1.2,231.39 0,462.86 Q 232,1102.15 0.6,1101 -0.6,869.57 0.6,638.1 Z"
+         id="path11321" />
+      <path
+         class="cls-2"
+         d="m 565.77,638.1 q 517.67,-1.1 1035.27,0 1.1,231.39 0,462.86 -517.66,1.08 -1035.27,0 -1.08,-231.4 0,-462.86 z"
+         id="path11323" />
+      <path
+         class="cls-3"
+         d="m 566.2,1276.23 q 231,-2.51 461.92,0 2.4,230.85 0.07,461.92 -231,2.28 -461.91,-0.08 -2.4,-230.83 -0.08,-461.84 z"
+         id="path11325" />
+    </g>
+  </g>
+  <metadata
+     id="metadata11413">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>ftx--logo</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

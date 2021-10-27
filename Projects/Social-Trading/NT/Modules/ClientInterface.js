@@ -6,6 +6,10 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
 
     * Send an Event that happened at the Network Client to the Network.
     * Make a Query to the Network Node for info needed at the Network Client. 
+    
+    This interface is one layer above the communication protocol interface
+    where actual messages are received through, like for instance the
+    websockets interface.
     */
     let thisObject = {
         messageReceived: messageReceived,
@@ -119,7 +123,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         We will not accept events that have already been processed.
         */
 
-        if (NT.projects.socialTrading.globals.memory.maps.EVENTS.get(eventReceived.eventId) !== undefined) {
+        if (NT.projects.network.globals.memory.maps.EVENTS.get(eventReceived.eventId) !== undefined) {
             let response = {
                 result: 'Error',
                 message: 'Client Interface Event Already Exists.'
@@ -132,8 +136,8 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         try {
             let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
             event.initialize(eventReceived)
-            NT.projects.socialTrading.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
-            NT.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
+            NT.projects.network.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
+            NT.projects.network.globals.memory.arrays.EVENTS.push(event)
 
             let response = {
                 result: 'Ok',

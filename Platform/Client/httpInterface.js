@@ -24,7 +24,7 @@ exports.newHttpInterface = function newHttpInterface() {
         /*
         We will create an HTTP Server and leave it running forever.
         */
-        SA.nodeModules.http.createServer(onHttpRequest).listen(global.env.CLIENT_HTTP_INTERFACE_PORT)
+        SA.nodeModules.http.createServer(onHttpRequest).listen(global.env.PLATFORM_HTTP_INTERFACE_PORT)
         /* Starting the browser now is optional */
         if (process.argv.includes("noBrowser")) {
             //Running Client only with no UI.
@@ -33,7 +33,7 @@ exports.newHttpInterface = function newHttpInterface() {
             if (initialWorkspace.name !== undefined) {
                 queryString = '/?initialWorkspaceName=' + initialWorkspace.name + '&initialWorkspaceProject=' + initialWorkspace.project + '&initialWorkspaceType=' + initialWorkspace.type
             }
-            SA.nodeModules.open('http://localhost:' + global.env.CLIENT_HTTP_INTERFACE_PORT + queryString)
+            SA.nodeModules.open('http://localhost:' + global.env.PLATFORM_HTTP_INTERFACE_PORT + queryString)
         }
     }
 
@@ -44,7 +44,11 @@ exports.newHttpInterface = function newHttpInterface() {
             let endpointOrFile = requestPath[1]
 
             switch (endpointOrFile) {
-
+                case 'Environment':
+                    {
+                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.env), httpResponse)
+                    }
+                    break
                 case 'WEB3':
                     {
                         SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
@@ -598,7 +602,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 function createNewDir(path) {
                                     try {
-                                        fs.mkdirSync(path)
+                                        fs.mkdirSync(path, {recursive: true})
                                     } catch (err) {
                                         if (err.message.indexOf('file already exists') < 0) {
                                             throw (err)
@@ -1269,6 +1273,169 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                         return
                                     }
+
+                                    case 'UserProfile': {
+                                        try {
+
+                                            let mess = unescape(params.commitMessage)
+                                            const username =  unescape(params.username)
+                                            const token =   unescape(params.token)
+                                            const currentBranch =  unescape(params.currentBranch)
+                                            const contributionsBranch =  unescape(params.contributionsBranch)
+
+                                            let error
+
+                                            await updateUser()
+
+                                            async function updateUser() {
+
+                                                await doGithubUser()
+                                                if (error !== undefined) {
+
+                                                    let docs = {
+                                                        project: 'Governance',
+                                                        category: 'Topic',
+                                                        type: 'Gov Error - Contribution Not Sent',
+                                                        anchor: undefined,
+                                                        placeholder: {}
+                                                    }
+                                                    console.log('respond with docs ')
+
+                                                    respondWithDocsObject(docs, error)
+                                                    return
+                                                }
+                                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+
+                                            }
+
+                                            async function doGithubUser() {
+
+                                                const { Octokit } = SA.nodeModules.octokit
+
+                                                const octokit = new Octokit({
+                                                    auth: token,
+                                                    userAgent: 'Superalgos Beta 12'
+                                                })
+
+                                                const repo = 'Superalgos'
+                                                const owner = 'Superalgos'
+                                                const head = username + ':' + contributionsBranch
+                                                const base = currentBranch
+                                                const title = 'Contribution: ' + mess
+                                                const path = 'Projects/Governance/Plugins/User-Profiles/' + username + '.json' ;
+
+                                                const sha = await getSHA(path, octokit);
+                                                let file = await SA.projects.communityPlugins.utilities.plugins.getPluginFileContent(
+                                                    'Governance',
+                                                    'User-Profiles',
+                                                    username  + '.json'
+                                                )
+
+                                                let buff = new Buffer.from(file, 'utf-8');
+                                                let encodedFile = buff.toString('base64');
+
+                                                try {
+                                                    await octokit.repos.createOrUpdateFileContents({
+                                                        owner: username,
+                                                        repo: "Superalgos",
+                                                        path,
+                                                        message: title,
+                                                        content: encodedFile,
+                                                        sha,
+                                                        branch: base
+                                                    });
+                                                } catch (err) {
+                                                    if (err.stack.indexOf('Error User Commit') >= 0) {
+                                                        return
+                                                    } else {
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                                        error = err
+                                                    }
+                                                }
+
+                                                try {
+                                                    await octokit.pulls.create({
+                                                        owner,
+                                                        repo,
+                                                        title,
+                                                        head,
+                                                        base,
+                                                    });
+                                                } catch (err) {
+                                                    if (err.stack.indexOf('A pull request already exists') >= 0) {
+                                                        return
+                                                    } else {
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                                        error = err
+                                                    }
+
+                                                }
+                                            }
+
+                                            async function getSHA(path, octokit) {
+                                                let sha = ''
+                                                try{
+                                                    const result = await octokit.repos.getContent({
+                                                        owner: username,
+                                                        repo: "Superalgos",
+                                                        path,
+                                                        ref: currentBranch
+                                                    });
+                                                    sha = result.data.sha
+                                                    return sha
+
+                                                } catch (err) {
+                                                    if (err.message === 'Not Found') {
+                                                        console.log("[User Not Found] -> Creating new user")
+                                                        return sha
+                                                    } else {
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                                        return sha
+                                                    }
+                                                }
+                                            }
+
+                                        } catch (err) {
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> Method call produced an error.')
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> err.stack = ' + err.stack)
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> commitMessage = ' + mess)
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> username = ' + username)
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> token starts with = ' + token.substring(0, 10) + '...')
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> currentBranch = ' + currentBranch)
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> contributionsBranch = ' + contributionsBranch)
+
+                                            let error = {
+                                                result: 'Fail Because',
+                                                message: err.message,
+                                                stack: err.stack
+                                            }
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                                        }
+                                        break
+                                    }
+
                                     case 'payContributors': {
                                         console.log('----------------------------------------------------------------------------------------------')
                                         console.log('DISTRIBUTION PROCESS STARTED')
@@ -1311,17 +1478,17 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'LegacyPlotter.js':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/WebServer/LegacyPlotter.js', httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/WebServer/LegacyPlotter.js', httpResponse)
                     }
                     break
                 case 'PlotterPanel.js':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/WebServer/PlotterPanel.js', httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/WebServer/PlotterPanel.js', httpResponse)
                     }
                     break
                 case 'Images': // This means the Images folder.
                     {
-                        let path = global.env.PATH_TO_CLIENT + '/WebServer/Images/' + requestPath[2]
+                        let path = global.env.PATH_TO_PLATFORM + '/WebServer/Images/' + requestPath[2]
 
                         if (requestPath[3] !== undefined) {
                             path = path + '/' + requestPath[3]
@@ -1403,12 +1570,12 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'WebServer': // This means the WebServer folder.
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/WebServer/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/WebServer/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'externalScripts': // This means the WebServer folder.
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/WebServer/externalScripts/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/WebServer/externalScripts/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Plotters': // This means the plotter folder, not to be confused with the Plotters script!
@@ -1423,12 +1590,12 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'ChartLayers':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/UI/' + endpointOrFile + '/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/UI/' + endpointOrFile + '/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Files':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/UI/Data-Files/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/UI/Data-Files/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Fonts':
@@ -1805,7 +1972,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 /* Create Dir if it does not exist */
                                 if (!fs.existsSync(dir)) {
-                                    fs.mkdirSync(dir);
+                                    fs.mkdirSync(dir, {recursive: true});
                                 }
 
                                 fs.writeFile(filePath, fileContent, onFileWritten)
@@ -1943,7 +2110,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 default:
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithWebFile(httpResponse, endpointOrFile, global.env.PATH_TO_CLIENT)
+                        SA.projects.foundations.utilities.httpResponses.respondWithWebFile(httpResponse, endpointOrFile, global.env.PATH_TO_PLATFORM)
                     }
             }
         } catch (err) {

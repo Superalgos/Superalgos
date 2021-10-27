@@ -40,7 +40,7 @@ exports.newSocialTradingModulesQueriesUserProfiles = function newSocialTradingMo
         NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
 =======
         thisObject.profiles = Array.from(
-            NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID, 
+            SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID, 
             x => x[1]
             )
         thisObject.profiles.sort((a, b) => (a["ranking"] > b["ranking"]) ? 1 : -1)

@@ -22,7 +22,7 @@ exports.newDesktopRoot = function newDesktopRoot() {
         */
         global.SA = {}
         /* Load Environment Variables */
-        let ENVIRONMENT = require('./EnvironmentForDebug.js');
+        let ENVIRONMENT = require('./Environment.js');
         let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
         global.env = ENVIRONMENT_MODULE
         /*
@@ -51,17 +51,16 @@ exports.newDesktopRoot = function newDesktopRoot() {
             simpleGit: require('simple-git'),
             nodeFetch: require('node-fetch')
         }
-
         /*
         Setting up Secrets.
         */
         SA.secrets = {
-            array: require('./My-Secrets/Secrets.json'),
+            array: require('./My-Secrets/Secrets.json').secrets,
             map: new Map()
         }
         for (let i = 0; i < SA.secrets.array.length; i++) {
             let secret = SA.secrets.array[i]
-            SA.secrets.map.set (secret.codeName, secret)
+            SA.secrets.map.set (secret.signingAccountChildCodeName, secret)
         }
 
         run()

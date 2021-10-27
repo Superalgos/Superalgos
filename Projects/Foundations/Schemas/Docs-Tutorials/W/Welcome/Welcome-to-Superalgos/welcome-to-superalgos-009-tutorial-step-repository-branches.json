@@ -25,7 +25,13 @@
             {
                 "language": "ES",
                 "text": "El repositorio de Superalgos presenta tres ramas principales: master, develop, y el que estamos buscando, plugins-docs.",
-                "updated": 1628121680964
+                "updated": 1628121680964,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Das Superalgos-Repository hat drei Hauptzweige: master, develop und den, nach dem wir suchen, plugins-docs.",
+                "updated": 1634821013096
             }
         ]
     },
@@ -50,7 +56,13 @@
                 {
                     "language": "ES",
                     "text": "Puede que haya más, ¡pero estos son los principales!",
-                    "updated": 1628121700843
+                    "updated": 1628121700843,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt vielleicht noch mehr, aber das sind die wichtigsten!",
+                    "updated": 1634821022072
                 }
             ]
         },
@@ -73,7 +85,13 @@
                 {
                     "language": "ES",
                     "text": "Master Branch: Es la versión estable del software. ¡Nunca envíes contribuciones a esta rama!",
-                    "updated": 1628121827428
+                    "updated": 1628121827428,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Master Branch: Enthält die stabile Version der Software. Reichen Sie niemals Beiträge für diesen Zweig ein!",
+                    "updated": 1634821032083
                 }
             ]
         },
@@ -97,7 +115,13 @@
                 {
                     "language": "ES",
                     "text": "Develop Branch: Presenta la versión actualmente en desarrollo. Envía contribuciones de código que afecten al código base.",
-                    "updated": 1628121811043
+                    "updated": 1628121811043,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Develop Branch: Enthält die Version, die sich derzeit in der Entwicklung befindet. Reichen Sie Beiträge ein, die die Codebasis betreffen.",
+                    "updated": 1634821041566
                 }
             ]
         },
@@ -120,7 +144,13 @@
                 {
                     "language": "ES",
                     "text": "Plugins-Docs Branch: Es la versión en la rama maestra más los últimos cambios en los Documentos y Complementos. Envía contribuciones de traducciones, mejoras en los docs, tutoriales y plugins, como minas de datos, Trading Systems, etc.",
-                    "updated": 1628121938452
+                    "updated": 1628121938452,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Plugins-Docs Branch: Enthält die Version im Master-Zweig plus die letzten Änderungen in den Docs und Plugins. Reichen Sie Beiträge zu Übersetzungen, Verbesserungen in den Docs, Tutorials und Plugins wie Data Mines, Trading Systems usw. ein!",
+                    "updated": 1634821050724
                 }
             ]
         }

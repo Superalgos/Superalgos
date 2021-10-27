@@ -28,6 +28,7 @@ function newCircularMenuItem() {
         secondaryWorkDoneLabel: undefined,
         secondaryWorkFailedLabel: undefined,
         secondaryIcon: undefined,
+        booleanProperty: undefined,
         nextAction: undefined,
         visible: false,
         iconPathOn: undefined,
@@ -121,7 +122,18 @@ function newCircularMenuItem() {
 
         containerPhysics()
 
-        thisObject.nextAction = thisObject.action
+        if(thisObject.booleanProperty !== undefined) {
+            let config = JSON.parse(thisObject.payload.node.config)
+
+            if (config[thisObject.booleanProperty] === true) {
+                thisObject.nextAction = thisObject.secondaryAction
+                setStatus(thisObject.secondaryLabel, defaultBackgroudColor, undefined, STATUS_PRIMARY_WORK_DONE)
+            } else {
+                thisObject.nextAction = thisObject.action
+            }
+        } else {
+            thisObject.nextAction = thisObject.action
+        }
     }
 
     function getContainer(point) {
@@ -265,8 +277,13 @@ function newCircularMenuItem() {
                 temporaryStatus === STATUS_SECONDARY_WORK_FAILED
             ) && thisObject.secondaryAction !== undefined
         ) {
-            thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
-            thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
+            if(thisObject.iconProject !== undefined) {
+                thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.secondaryIcon)
+                thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.secondaryIcon)
+            } else {
+                thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
+                thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
+            }
         } else {
 
             /*

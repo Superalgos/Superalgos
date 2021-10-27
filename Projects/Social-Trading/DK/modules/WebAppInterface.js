@@ -1,8 +1,11 @@
 exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModulesWebAppInterface() {
     /*
     This module handles the incomming messages from the Web App.
-    At it's current iteration, it will jusr forward those messages
+    At it's current version, it will jusr forward those messages
     to the Network Node it is connected to.
+
+    Later, it will try to use the personal social graph as a cache,
+    so as to minimize the requests to Network Nodes.
     */
     let thisObject = {
         messageReceived: messageReceived,
@@ -44,7 +47,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     }
                     return JSON.stringify(response)
                 }
-                queryMessage.emitterUserProfileId = SA.secrets.map.get('Social Trading Desktop').userProfileId
+                queryMessage.emitterUserProfileId = SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId
                 messageHeader.queryMessage = JSON.stringify(queryMessage)
 
                 let response
@@ -123,7 +126,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     eventMessage.postText = undefined
                 }
 
-                eventMessage.emitterUserProfileId = SA.secrets.map.get('Social Trading Desktop').userProfileId
+                eventMessage.emitterUserProfileId = SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId
                 messageHeader.eventMessage = JSON.stringify(eventMessage)
 
                 let response = {
@@ -144,6 +147,14 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
     }
 
     async function savePostAtStorage(postText, commitMessage, timestamp) {
+        /*
+        Each user, has a git repository that acts as his publicly accesible
+        storage for posts.
+
+        They way we store post there is first saving the data at the local disk
+        which has a clone of the remote git repository, and once done, we push
+        the changes to the public git repo.
+        */
         const { createHash } = await import('crypto')
         const hash = createHash('sha256')
         let post = {
@@ -174,6 +185,12 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
     }
 
     async function getPostText(userProfileHandle, postHash, timestamp) {
+        /*
+        When the Web App makes a query that includes Post text as responses,
+        we need to fetch the text from the public git repositories, since
+        the Network Nodes do not store that info themselves, they just
+        store the structure of the social graph.
+        */
         let promise = new Promise((resolve, reject) => {
 
             const fileName = postHash + ".json"

@@ -4,7 +4,14 @@
     "type": "How Claims are Resolved",
     "definition": {
         "text": "These three concepts, Claim Power, Claim Votes, and Token Rewards are intimately related and make up the logic of the token distribution among Contributors.",
-        "updated": 1630518244395
+        "updated": 1630518244395,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Estos tres conceptos, Claim Power, Claim Votes, and Token Rewards estan intimamente relacionados and make up the logic of the token distribution among Contributors.",
+                "updated": 1635364295002
+            }
+        ]
     },
     "paragraphs": [
         {

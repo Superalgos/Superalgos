@@ -4,7 +4,14 @@
     "type": "Data Mining - Indicator Bots - Product Definition",
     "definition": {
         "text": "The product definition is the compilation of configurations, references, and JavaScript code that make up the data product.",
-        "updated": 1611425764441
+        "updated": 1611425764441,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Produktdefinition ist die Zusammenstellung von Konfigurationen, Referenzen und JavaScript-Code, aus denen das Datenprodukt besteht.",
+                "updated": 1635275735541
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -98,7 +105,14 @@
         {
             "style": "Title",
             "text": "Calculations Procedure",
-            "updated": 1611426226554
+            "updated": 1611426226554,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Calculations Prozedur:",
+                    "updated": 1635276008201
+                }
+            ]
         },
         {
             "style": "Include",

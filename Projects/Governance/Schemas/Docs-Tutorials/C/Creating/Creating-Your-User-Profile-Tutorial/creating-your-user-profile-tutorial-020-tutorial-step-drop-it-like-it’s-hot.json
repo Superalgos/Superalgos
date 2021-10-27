@@ -1,0 +1,30 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 20,
+    "type": "Tutorial Step - Drop it like it’s Hot",
+    "definition": {
+        "text": "Taking part in governance is a valuable contribution! As such the Airdrop Program rewards you with tokens on every release!",
+        "updated": 1630606894763,
+        "icon": {
+            "name": "Programs\\airdrop-program",
+            "project": "Governance"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We are not a fan of mindless airdrops. However, since you took the time to learn Superalgos and create your User Profile, you deserve a reward!",
+            "updated": 1630606981664
+        },
+        {
+            "style": "Callout",
+            "text": "On the Onboarding Programs node click <i>Add Airdrop Program</i>.",
+            "updated": 1630607006405
+        },
+        {
+            "style": "Success",
+            "text": "Just by deploying the program, you are all set to get up to 1,000 SA Tokens at the next Distribution Event and on every other future release provided that you submit your User Profile!",
+            "updated": 1630659363719
+        }
+    ]
+}

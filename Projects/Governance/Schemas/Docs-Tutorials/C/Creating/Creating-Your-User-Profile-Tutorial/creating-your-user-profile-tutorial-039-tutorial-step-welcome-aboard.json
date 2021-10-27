@@ -1,0 +1,30 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 39,
+    "type": "Tutorial Step - Welcome aboard!",
+    "definition": {
+        "text": "You did it! You are now officially taking part in the governance of Superalgos! So, what's next?",
+        "updated": 1630751721473,
+        "icon": {
+            "name": "Announcement\\announcement",
+            "project": "Foundations"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If you generated a new Governance Address using the Profile Constructor, you may want to connect it to a software wallet so that you have control of your tokens.",
+            "updated": 1630751845529
+        },
+        {
+            "style": "Callout",
+            "text": "See the \"Import Private Key in a Wallet\" section of this Docs page on the right. It explains how to do that using Trust Wallet. Check it out!",
+            "updated": 1630756159921
+        },
+        {
+            "style": "Note",
+            "text": "Feel free to use any other wallet that supports BEP20 tokens in the Binance Smart Chain.",
+            "updated": 1630752335924
+        }
+    ]
+}

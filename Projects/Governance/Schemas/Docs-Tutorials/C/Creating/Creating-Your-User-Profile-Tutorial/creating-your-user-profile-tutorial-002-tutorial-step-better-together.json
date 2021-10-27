@@ -4,6 +4,13 @@
     "type": "Tutorial Step - Better Together",
     "definition": {
         "text": "This is the Governance Project! Today I will help you create a User Profile and join the first few Governance Programs!",
+<<<<<<< HEAD
+        "updated": 1630604953792,
+        "icon": {
+            "name": "governance",
+            "project": "Governance"
+        }
+=======
         "updated": 1630870465142,
         "icon": {
             "name": "governance",
@@ -17,10 +24,20 @@
                 "style": "Definition"
             }
         ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
     },
     "paragraphs": [
         {
             "style": "Note",
+<<<<<<< HEAD
+            "text": "But before you start, you should know that you may only submit your profile to the Develop branch, so it's time to switch!",
+            "updated": 1630605011924
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the footer and switch both the Contributions Branch and the Current Branch to Develop. Then close and restart the app after the switch! <br/><br/>Once you're back, run the app.update command to get up to date with Develop, restart, and only then may you proceed with this tutorial!",
+            "updated": 1630605450785
+=======
             "text": "\"But before you start, you should know that you may only submit your profile to the Develop branch, so it's time to switch!",
             "updated": 1630870593062,
             "translations": [
@@ -44,6 +61,7 @@
                     "style": "Callout"
                 }
             ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         },
         {
             "style": "Text",

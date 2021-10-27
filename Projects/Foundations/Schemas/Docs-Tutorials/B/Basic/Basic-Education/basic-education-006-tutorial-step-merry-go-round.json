@@ -32,8 +32,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "When you click on the Angle to Parent node button, you cycle among five different settings: 360, 180, 90, and 45 degrees, plus the option to dissable the rotational symmetry.",
-            "updated": 1615459469714,
+            "text": "When you click on the Angle to Parent node button, you cycle among five different settings: 360, 180, 90, and 45 degrees, plus the option to disable the rotational symmetry.",
+            "updated": 1630919600256,
             "translations": [
                 {
                     "language": "IT",

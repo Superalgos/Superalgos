@@ -1,0 +1,30 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 35,
+    "type": "Tutorial Step - Save It Once More!",
+    "definition": {
+        "text": "We're done! This is as far as we'll go before submitting your profile. Now let's make sure you save it before we proceed.",
+        "updated": 1630754177369,
+        "icon": {
+            "name": "backup-entity",
+            "project": "Foundations"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Hit Ctrl + Shift + Alt + Key-S to save your User Profile one last time!",
+            "updated": 1630754322739
+        },
+        {
+            "style": "Success",
+            "text": "No harm in checking the file saved correctly, right? A file with your Github username and .json extension should exist in the below path!",
+            "updated": 1630754759392
+        },
+        {
+            "style": "Json",
+            "text": "/Projects/Governance/Plugins/User-Profiles",
+            "updated": 1630754402770
+        }
+    ]
+}

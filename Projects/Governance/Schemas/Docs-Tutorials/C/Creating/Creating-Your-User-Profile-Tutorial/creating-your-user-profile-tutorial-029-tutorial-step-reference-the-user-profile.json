@@ -1,0 +1,30 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 29,
+    "type": "Tutorial Step - Reference the User Profile",
+    "definition": {
+        "text": "Now that you have the target User Profile on the workspace, all that is left is to establish the reference from your User Referrer node to the User Profile.",
+        "icon": {
+            "name": "delink-node",
+            "project": "Foundations"
+        },
+        "updated": 1630679894593
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Just in case you're not proficient with references, here's a quick reminder of how references work!",
+            "updated": 1630680014393
+        },
+        {
+            "style": "Note",
+            "text": "By the way, if you feel like you have more than one referrer, feel free to add User Referrer nodes and set up the references with their profiles!",
+            "updated": 1630680189459
+        },
+        {
+            "style": "Success",
+            "text": "Once you're done declaring your referrers, keep going with the tutorial!",
+            "updated": 1630680219618
+        }
+    ]
+}

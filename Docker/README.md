@@ -111,9 +111,9 @@ docker run \
   --user $(id -u):$(id -g) \
   -p 18041:18041 \
   -p 34248:34248 \
-  -v $(pwd)/Data-Storage:/app/Data-Storage \
-  -v $(pwd)/Log-Files:/app/Log-Files \
-  -v $(pwd)/My-Workspaces:/app/My-Workspaces \
+  -v $(pwd)/Data-Storage:/app/Platform/Data-Storage \
+  -v $(pwd)/Log-Files:/app/Platform/Log-Files \
+  -v $(pwd)/My-Workspaces:/app/Platform/My-Workspaces \
   ghcr.io/superalgos/superalgos:latest
 ```
 
@@ -135,9 +135,9 @@ docker run \
   --user $(id -u):$(id -g) \
   -p 18041:18041 \
   -p 34248:34248 \
-  -v $(pwd)/Data-Storage:/app/Data-Storage \
-  -v $(pwd)/Log-Files:/app/Log-Files \
-  -v $(pwd)/My-Workspaces:/app/My-Workspaces \
+  -v $(pwd)/Data-Storage:/app/Platform/Data-Storage \
+  -v $(pwd)/Log-Files:/app/Platform/Log-Files \
+  -v $(pwd)/My-Workspaces:/app/Platform/My-Workspaces \
   ghcr.io/superalgos/superalgos:latest
 ```
 
@@ -169,9 +169,9 @@ services:
       - '34248:34248'
       - '18041:18041'
     volumes:
-      - ./Data-Storage:/app/Data-Storage
-      - ./Log-Files:/app/Log-Files
-      - ./My-Workspaces:/app/My-Workspaces
+      - ./Data-Storage:/app/Platform/Data-Storage
+      - ./Log-Files:/app/Platform/Log-Files
+      - ./My-Workspaces:/app/Platform/My-Workspaces
     restart: on-failure
 ```
 

@@ -373,6 +373,11 @@
                     "functionName": "newFoundationsFunctionLibraryCryptoEcosystemFunctions"
                 },
                 {
+                    "name": "Product Functions",
+                    "propertyName": "productFunctions",
+                    "functionName": "newFoundationsFunctionLibraryProductFunctions"
+                },
+                {
                     "name": "Data Storage Functions",
                     "propertyName": "dataStorageFunctions",
                     "functionName": "newFoundationsFunctionLibraryDataStorageFunctions"

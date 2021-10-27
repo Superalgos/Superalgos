@@ -18,7 +18,7 @@
             "iconPathOn": "test-entity",
             "iconPathOff": "test-entity",
             "actionFunction": "payload.executeAction",
-            "actionProject": "SocialBots"
+            "actionProject": "Social-Bots"
         },
         {
             "action": "Delete UI Object",

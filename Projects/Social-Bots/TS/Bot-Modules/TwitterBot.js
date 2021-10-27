@@ -16,7 +16,6 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
     function initialize(config) {
         /* Twitter Bot Initialization */
         var Twitter = SA.nodeModules.twitter
-        console.log(Twitter)
 
         let consumer_key = config.consumer_key
         let consumer_secret = config.consumer_secret
@@ -74,7 +73,6 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
     function finalize() {}
 
     function sendMessage(message) {
-        console.log("sendMessage")
         try {
             message = {status: formatMessage(message)}
         } catch (err) {
@@ -82,11 +80,11 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
         }
         console.log(thisObject.twitterClient)
 
-        thisObject.twitterClient.post('statuses/update', message, function(error, tweet, response) {
-            console.log(error)
-            if(error) throw error;
-            console.log(tweet);  // Tweet body.
-            console.log(response);  // Raw response object.
+        thisObject.twitterClient.post('statuses/update', message, function(error) {
+            if(error) {
+                logError(error)
+                throw error
+            }
         });
         
     }

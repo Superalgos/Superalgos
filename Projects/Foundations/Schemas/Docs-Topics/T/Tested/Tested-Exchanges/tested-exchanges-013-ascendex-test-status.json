@@ -1,0 +1,42 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 13,
+    "type": "Ascendex Test Status",
+    "definition": {
+        "text": "Passed fetch OHLCV's and backtesting strategies. Live trading not yet verified",
+        "updated": 1635326268497
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1635325634577
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified."
+        },
+        {
+            "style": "List",
+            "text": "Market History: Tested from 2020-01-01"
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability [**]: Unknown. The ability to run strategies in live-trading mode has not been verified."
+        },
+        {
+            "style": "List",
+            "text": "Comments: Raw Data mining it's slow due to API restriction",
+            "updated": 1635326121982
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n     \"codeName\": \"ascendex\",\n     \"rateLimit\": 500,\n    \"sandBox\": \"false\"\n   }",
+            "updated": 1635326082925
+        }
+    ]
+}

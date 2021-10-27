@@ -4,7 +4,14 @@
     "type": "Data Mining - Indicator Bots - Process Definition",
     "definition": {
         "text": "The process definition is the compilation of configurations, dependencies, and references that make up a process.",
-        "updated": 1611410324543
+        "updated": 1611410324543,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die process definition ist die Zusammenstellung von Konfigurationen, Abhängigkeiten und Referenzen, die einen Prozess ausmachen.",
+                "updated": 1635249685989
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -103,7 +110,14 @@
         {
             "style": "Subtitle",
             "text": "Status Dependency",
-            "updated": 1611409068335
+            "updated": 1611409068335,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Status Abhängigkeit:",
+                    "updated": 1635250380628
+                }
+            ]
         },
         {
             "style": "Include",
@@ -148,7 +162,14 @@
         {
             "style": "Subtitle",
             "text": "Bot Data Dependencies",
-            "updated": 1611409418545
+            "updated": 1611409418545,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bot-Daten-Abhängigkeiten",
+                    "updated": 1635250399600
+                }
+            ]
         },
         {
             "style": "Include",
@@ -163,7 +184,14 @@
         {
             "style": "Subtitle",
             "text": "Data Dependency Folder",
-            "updated": 1611409491551
+            "updated": 1611409491551,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Daten Abhängigkeits (Dependency) Folder",
+                    "updated": 1635250428583
+                }
+            ]
         },
         {
             "style": "Include",
@@ -178,7 +206,14 @@
         {
             "style": "Title",
             "text": "Status Report",
-            "updated": 1611409535037
+            "updated": 1611409535037,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Statusbericht",
+                    "updated": 1635250449950
+                }
+            ]
         },
         {
             "style": "Title",

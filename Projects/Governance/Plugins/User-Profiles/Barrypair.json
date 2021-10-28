@@ -72,7 +72,7 @@
             "githubProgram": {
                 "type": "Github Program",
                 "name": "New Github Program",
-                "config": "{\n    \"username\": \"Barrypair\",\n    \"token\": \"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\"\n}",
+                "config": "{\n    \"username\": \"Barrypair\",\n    \"token\": \"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\"\n}",
                 "project": "Governance",
                 "tokensAwarded": {
                     "type": "Tokens Awarded",

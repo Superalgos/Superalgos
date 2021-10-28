@@ -1381,7 +1381,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -4380,73 +4380,14 @@
                         "positionContributionClaims": [
                             {
                                 "type": "Position Contribution Claim",
-                                "name": "Team Member Telegram Team",
-                                "config": "{}",
-                                "project": "Governance",
-                                "id": "c5da27f7-9aa9-47c5-b9ce-59e393a9cf8d",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 19491.625802953517,
-                                        "y": 38409.80762113533
-                                    },
-                                    "targetPosition": {
-                                        "x": 19191.625802953517,
-                                        "y": 38409.80762113533
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Position",
-                                        "name": "Team Member",
-                                        "id": "f6494f82-4e9a-4962-a111-f75763f66bff"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Superalgos",
-                                            "Positions"
-                                        ],
-                                        [
-                                            "Roles Played @ Beta-12",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "Other Teams",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "Chat Platforms Teams",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "Telegram Team",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "Team Member",
-                                            "Position"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "Position Contribution Claim",
-                                "name": "Team Member Discord Team",
+                                "name": "1 Project Contributor Alexandru Data Mining Project",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "025deae3-c8a3-4c1f-93a7-0b12a0b5c867",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 19341.625802953517,
-                                        "y": 38669.615242270665
+                                        "x": 19451.43342408885,
+                                        "y": 38559.80762113533
                                     },
                                     "targetPosition": {
                                         "x": 19191.625802953517,
@@ -4465,8 +4406,8 @@
                                     },
                                     "referenceParent": {
                                         "type": "Position",
-                                        "name": "Team Member",
-                                        "id": "90877e7d-cce4-475b-864b-9ec29fd6c5e3"
+                                        "name": "1 Project Contributor Alexandru",
+                                        "id": "96ef6745-3340-4f59-a174-41deedf4f074"
                                     },
                                     "referenceParentCombinedNodePath": [
                                         [
@@ -4478,19 +4419,19 @@
                                             "Position Class"
                                         ],
                                         [
-                                            "Other Teams",
+                                            "Software Projects",
                                             "Position Class"
                                         ],
                                         [
-                                            "Chat Platforms Teams",
+                                            "Active Projects",
                                             "Position Class"
                                         ],
                                         [
-                                            "Discord Team",
+                                            "Data Mining Project",
                                             "Position Class"
                                         ],
                                         [
-                                            "Team Member",
+                                            "1 Project Contributor Alexandru",
                                             "Position"
                                         ]
                                     ]

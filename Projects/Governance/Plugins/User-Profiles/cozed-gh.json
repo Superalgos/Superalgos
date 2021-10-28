@@ -1381,7 +1381,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -4527,7 +4527,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 1,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -4563,7 +4563,7 @@
         "financialPrograms": {
             "type": "Financial Programs",
             "name": "New Financial Programs",
-            "config": "{\n    \"percentage\": 0\n}",
+            "config": "{\n    \"percentage\": 10\n}",
             "project": "Governance",
             "stakingProgram": {
                 "type": "Staking Program",
@@ -4577,12 +4577,12 @@
                     "id": "f56378ac-0fdc-4c96-8225-71d07d6b73da",
                     "savedPayload": {
                         "position": {
-                            "x": 33130.18477332102,
-                            "y": 19344.705515328827
+                            "x": 19151.43342408885,
+                            "y": 38559.80762113533
                         },
                         "targetPosition": {
-                            "x": 33067.811266075696,
-                            "y": 19051.261235108686
+                            "x": 18891.625802953517,
+                            "y": 38409.80762113533
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -4600,12 +4600,12 @@
                 "id": "de714bd5-148f-41db-8ba7-6b69eb271d7a",
                 "savedPayload": {
                     "position": {
-                        "x": 33067.811266075696,
-                        "y": 19051.261235108686
+                        "x": 18891.625802953517,
+                        "y": 38409.80762113533
                     },
                     "targetPosition": {
-                        "x": 33005.43775883037,
-                        "y": 18757.816954888545
+                        "x": 18631.818181818184,
+                        "y": 38259.80762113533
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -4623,7 +4623,7 @@
             "delegationProgram": {
                 "type": "Delegation Program",
                 "name": "New Delegation Program",
-                "config": "{\n    \"percentage\": 50\n}",
+                "config": "{\n    \"percentage\": 0\n}",
                 "project": "Governance",
                 "delegatePowerSwitch": [
                     {
@@ -4641,12 +4641,12 @@
                                 "id": "867204bc-6e33-4cd4-86ce-1ffa08f26bf6",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 32907.2413256778,
-                                        "y": 19545.444697236486
+                                        "x": 19151.43342408885,
+                                        "y": 38859.80762113533
                                     },
                                     "targetPosition": {
-                                        "x": 32844.867818432474,
-                                        "y": 19252.000417016345
+                                        "x": 18891.625802953517,
+                                        "y": 38709.80762113533
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -4676,12 +4676,12 @@
                         "id": "f866bd3e-520d-4399-9949-52927848af78",
                         "savedPayload": {
                             "position": {
-                                "x": 32844.867818432474,
-                                "y": 19252.000417016345
+                                "x": 18891.625802953517,
+                                "y": 38709.80762113533
                             },
                             "targetPosition": {
-                                "x": 32782.49431118715,
-                                "y": 18958.556136796204
+                                "x": 18631.818181818184,
+                                "y": 38559.80762113533
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -4704,12 +4704,12 @@
                     "id": "04eba2ad-9420-4db8-a60d-b82ac4974c4f",
                     "savedPayload": {
                         "position": {
-                            "x": 32497.177356298598,
-                            "y": 18865.85103848372
+                            "x": 18372.01056068285,
+                            "y": 38709.80762113533
                         },
                         "targetPosition": {
-                            "x": 32782.49431118715,
-                            "y": 18958.556136796204
+                            "x": 18631.818181818184,
+                            "y": 38559.80762113533
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -4727,12 +4727,12 @@
                 "id": "dd623cf2-614a-4864-aa51-c4f0f0d02060",
                 "savedPayload": {
                     "position": {
-                        "x": 32782.49431118715,
-                        "y": 18958.556136796204
+                        "x": 18631.818181818184,
+                        "y": 38559.80762113533
                     },
                     "targetPosition": {
-                        "x": 33005.43775883037,
-                        "y": 18757.816954888545
+                        "x": 18631.818181818184,
+                        "y": 38259.80762113533
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -4760,7 +4760,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

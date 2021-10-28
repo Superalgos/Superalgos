@@ -1433,7 +1433,7 @@
                             {
                                 "type": "Weight Votes Switch",
                                 "name": "Superalgos",
-                                "config": "{\n    \"percentage\": 75\n}",
+                                "config": "{\n\n}",
                                 "project": "Governance",
                                 "weightVotesSwitch": [
                                     {
@@ -1591,8 +1591,8 @@
                                         "id": "f5665ad7-2acc-47d5-947d-323aa119bf9c",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 35360.24638863071,
-                                                "y": 32652.405750652073
+                                                "x": 35386.43839362869,
+                                                "y": 32699.38077514842
                                             },
                                             "targetPosition": {
                                                 "x": 35634.31002592349,
@@ -1629,7 +1629,7 @@
                                     {
                                         "type": "Weight Votes Switch",
                                         "name": "Governance Programs",
-                                        "config": "{}",
+                                        "config": "{\n    \"percentage\": 35\n}",
                                         "project": "Governance",
                                         "weightVotesSwitch": [
                                             {
@@ -2147,12 +2147,12 @@
                                                 "id": "2e88f645-f4f8-4e31-aac6-50f5f80a17f2",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 35140.12656379569,
-                                                        "y": 32690.954698127225
+                                                        "x": 35228.05847074604,
+                                                        "y": 32854.35956217545
                                                     },
                                                     "targetPosition": {
-                                                        "x": 35340.86574570335,
-                                                        "y": 32468.011250484007
+                                                        "x": 35337.66077805596,
+                                                        "y": 32575.097437582186
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2424,12 +2424,12 @@
                                                 "id": "f2fac8e4-4966-411c-a8b3-88806b90772c",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 35055.5487908148,
-                                                        "y": 32560.71634879649
+                                                        "x": 35103.111333315544,
+                                                        "y": 32762.144378139805
                                                     },
                                                     "targetPosition": {
-                                                        "x": 35340.86574570335,
-                                                        "y": 32468.011250484007
+                                                        "x": 35337.66077805596,
+                                                        "y": 32575.097437582186
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2589,12 +2589,12 @@
                                                 "id": "562f40d5-c0e9-4a94-8f2d-7b5e0d111819",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 35047.4214654832,
-                                                        "y": 32405.63774323868
+                                                        "x": 35041.01153018842,
+                                                        "y": 32619.810117435038
                                                     },
                                                     "targetPosition": {
-                                                        "x": 35340.86574570335,
-                                                        "y": 32468.011250484007
+                                                        "x": 35337.66077805596,
+                                                        "y": 32575.097437582186
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2864,12 +2864,12 @@
                                                 "id": "de7f6604-f33d-4fef-b682-82fcf1afc239",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 35117.922298060126,
-                                                        "y": 32267.27206857635
+                                                        "x": 35058.3986534627,
+                                                        "y": 32465.49513027227
                                                     },
                                                     "targetPosition": {
-                                                        "x": 35340.86574570335,
-                                                        "y": 32468.011250484007
+                                                        "x": 35337.66077805596,
+                                                        "y": 32575.097437582186
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2924,12 +2924,12 @@
                                                                 "id": "f08a8490-b568-4151-9ce8-40e42f023449",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 34802.27375210442,
-                                                                        "y": 31781.215931780145
+                                                                        "x": 34592.089588311814,
+                                                                        "y": 32121.343378221944
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 35025.21719974764,
-                                                                        "y": 31981.955113687804
+                                                                        "x": 34871.351712905074,
+                                                                        "y": 32230.94568553186
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -2978,12 +2978,12 @@
                                                         "id": "6a0482b8-07e9-4380-aa2d-fb6981fdf6a4",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 35025.21719974764,
-                                                                "y": 31981.955113687804
+                                                                "x": 34871.351712905074,
+                                                                "y": 32230.94568553186
                                                             },
                                                             "targetPosition": {
-                                                                "x": 35248.16064739086,
-                                                                "y": 32182.694295595462
+                                                                "x": 35150.613837498335,
+                                                                "y": 32340.547992841777
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -3036,12 +3036,12 @@
                                                                 "id": "6879f992-0e86-4cb7-b71a-e8855be286d6",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 35372.907661881516,
-                                                                        "y": 31595.80573515518
+                                                                        "x": 35061.188477792624,
+                                                                        "y": 31747.2494971067
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 35310.53415463619,
-                                                                        "y": 31889.25001537532
+                                                                        "x": 35105.90115764548,
+                                                                        "y": 32043.898744974238
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -3090,12 +3090,12 @@
                                                         "id": "a55a420c-d03c-4246-bd56-2b83803cc08c",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 35310.53415463619,
-                                                                "y": 31889.25001537532
+                                                                "x": 35105.90115764548,
+                                                                "y": 32043.898744974238
                                                             },
                                                             "targetPosition": {
-                                                                "x": 35248.16064739086,
-                                                                "y": 32182.694295595462
+                                                                "x": 35150.613837498335,
+                                                                "y": 32340.547992841777
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -3141,12 +3141,12 @@
                                                 "id": "ad0441ec-0e4c-4cf4-8d31-3fdbf88aee4d",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 35248.16064739086,
-                                                        "y": 32182.694295595462
+                                                        "x": 35150.613837498335,
+                                                        "y": 32340.547992841777
                                                     },
                                                     "targetPosition": {
-                                                        "x": 35340.86574570335,
-                                                        "y": 32468.011250484007
+                                                        "x": 35337.66077805596,
+                                                        "y": 32575.097437582186
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -3188,8 +3188,8 @@
                                         "id": "40db16b2-4aab-48ad-a2de-b3b030e1250c",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 35340.86574570335,
-                                                "y": 32468.011250484007
+                                                "x": 35337.66077805596,
+                                                "y": 32575.097437582186
                                             },
                                             "targetPosition": {
                                                 "x": 35634.31002592349,
@@ -3222,6 +3222,192 @@
                                                 ]
                                             ]
                                         }
+                                    },
+                                    {
+                                        "type": "Weight Votes Switch",
+                                        "name": "Superalgos Features",
+                                        "config": "{\n    \"percentage\": 2.5\n}",
+                                        "project": "Governance",
+                                        "weightVotesSwitch": [
+                                            {
+                                                "type": "Weight Votes Switch",
+                                                "name": "Beta-12-New-Features by Casual Contributors",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "weightVotesSwitch": [],
+                                                "poolWeightVotes": [],
+                                                "assetWeightVotes": [],
+                                                "featureWeightVotes": [],
+                                                "positionWeightVotes": [],
+                                                "id": "a81fc9c4-c67d-4668-9dbc-92d4fe0ab6dc",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 35060.96634245181,
+                                                        "y": 32353.53165308279
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 35347.63818418765,
+                                                        "y": 32441.958205406063
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Feature Class",
+                                                        "name": "Beta-12-New-Features by Casual Contributors",
+                                                        "id": "791d4a3d-f4a5-495a-9d9b-be157c24c14a"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Features"
+                                                        ],
+                                                        [
+                                                            "Beta-12-New-Features by Casual Contributors",
+                                                            "Feature Class"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "poolWeightVotes": [],
+                                        "assetWeightVotes": [],
+                                        "featureWeightVotes": [],
+                                        "positionWeightVotes": [],
+                                        "id": "8282c07b-0502-4511-967d-e2faf46c15fa",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 35347.63818418765,
+                                                "y": 32441.958205406063
+                                            },
+                                            "targetPosition": {
+                                                "x": 35634.31002592349,
+                                                "y": 32530.384757729335
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": true,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Features",
+                                                "name": "Superalgos",
+                                                "id": "7c27de79-0ac7-4d48-81f0-5d7b6a4d93c6"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Features"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Weight Votes Switch",
+                                        "name": "Superalgos Assets",
+                                        "config": "{\n    \"percentage\": 2.5\n}",
+                                        "project": "Governance",
+                                        "weightVotesSwitch": [
+                                            {
+                                                "type": "Weight Votes Switch",
+                                                "name": "Beta-12-New-Assets by Casual Contributors",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "weightVotesSwitch": [],
+                                                "poolWeightVotes": [],
+                                                "assetWeightVotes": [],
+                                                "featureWeightVotes": [],
+                                                "positionWeightVotes": [],
+                                                "id": "7ea4ac77-75b2-4912-8780-9181090578d8",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 35194.47890282559,
+                                                        "y": 32122.281115066784
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 35414.39446437454,
+                                                        "y": 32326.33293639806
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Asset Class",
+                                                        "name": "Beta-12-New-Assets by Casual Contributors",
+                                                        "id": "2b4ec759-9ac7-40c5-b1dc-36bb11dbf5ee"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Assets"
+                                                        ],
+                                                        [
+                                                            "Beta-12-New-Assets by Casual Contributors",
+                                                            "Asset Class"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "poolWeightVotes": [],
+                                        "assetWeightVotes": [],
+                                        "featureWeightVotes": [],
+                                        "positionWeightVotes": [],
+                                        "id": "ca627ce3-d4c6-43f8-b158-1a7df8e22af9",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 35414.39446437454,
+                                                "y": 32326.33293639806
+                                            },
+                                            "targetPosition": {
+                                                "x": 35634.31002592349,
+                                                "y": 32530.384757729335
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": true,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Assets",
+                                                "name": "Superalgos",
+                                                "id": "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Assets"
+                                                ]
+                                            ]
+                                        }
                                     }
                                 ],
                                 "poolWeightVotes": [],
@@ -3236,8 +3422,8 @@
                                         "id": "9b2f2659-4141-4adb-9e0a-4465c2b3a937",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 35433.570844015834,
-                                                "y": 32307.441310086117
+                                                "x": 35524.70771861357,
+                                                "y": 32251.122633136074
                                             },
                                             "targetPosition": {
                                                 "x": 35634.31002592349,
@@ -3283,8 +3469,8 @@
                                         "id": "05bd8892-1fb5-44a1-8ab6-d31d0c38f2ad",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 35602.951486943195,
-                                                "y": 32232.028189118853
+                                                "x": 35656.72905399942,
+                                                "y": 32231.22361857498
                                             },
                                             "targetPosition": {
                                                 "x": 35634.31002592349,
@@ -3372,7 +3558,7 @@
                             {
                                 "type": "User Profile Votes Switch",
                                 "name": "New User Profile Votes Switch",
-                                "config": "{\n    \"percentage\": 25\n}",
+                                "config": "{\n    \"percentage\": 30\n}",
                                 "project": "Governance",
                                 "userProfileVotesSwitch": [],
                                 "userProfileVote": [
@@ -4162,7 +4348,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 1,
                         "distanceToParent": 3,
                         "arrangementStyle": 0

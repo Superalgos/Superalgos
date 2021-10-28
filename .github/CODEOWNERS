@@ -3,7 +3,7 @@
 # These owners will be the default owners for everything in
 # the repo. Unless a later match takes precedence, these will be requested for
 # review when someone opens a pull request.
-*       @Superalgos/core-devs
+*       @Superalgos/foundations-project
 
 # Project Teams
 /Projects/Algorithmic-Trading   @Superalgos/algorithmic-trading-project

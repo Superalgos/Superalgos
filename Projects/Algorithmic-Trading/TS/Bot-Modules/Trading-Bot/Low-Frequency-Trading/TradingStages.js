@@ -1142,12 +1142,12 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
         if (stage.status.value === 'Open') {
             openStage(stage)
             checkUserDefinedCode(stageName, 'Open')
-            checkAnnounce(stageName, 'Open')
+            checkAnnounce(stageName, stage.status.value)
         }
         if (stage.status.value === 'Closed') {
             checkUserDefinedCode(stageName, 'Closed')
-            checkAnnounce(stageName, 'Closed')
             closeStage(stage, stageName)
+            checkAnnounce(stageName, stage.status.value)
         }
 
         /*

@@ -122,7 +122,7 @@ function newCircularMenuItem() {
 
         containerPhysics()
 
-        if(thisObject.booleanProperty !== undefined) {
+        if (thisObject.booleanProperty !== undefined) {
             let config = JSON.parse(thisObject.payload.node.config)
 
             if (config[thisObject.booleanProperty] === true) {
@@ -277,7 +277,7 @@ function newCircularMenuItem() {
                 temporaryStatus === STATUS_SECONDARY_WORK_FAILED
             ) && thisObject.secondaryAction !== undefined
         ) {
-            if(thisObject.iconProject !== undefined) {
+            if (thisObject.iconProject !== undefined) {
                 thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.secondaryIcon)
                 thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.secondaryIcon)
             } else {
@@ -352,6 +352,7 @@ function newCircularMenuItem() {
     }
 
     function internalClick() {
+        if (thisObject.payload === undefined) { return }
         if (thisObject.shorcutNumber !== undefined) {
             let label = thisObject.payload.node.name + ' ' + labelToPrint
             UI.projects.foundations.spaces.cockpitSpace.setStatus(label, 4, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
@@ -399,7 +400,7 @@ function newCircularMenuItem() {
                 let relatedNodeProject = thisObject.actionProject
                 if (thisObject.relatedUiObjectProject !== undefined) {
                     relatedNodeProject = thisObject.relatedUiObjectProject
-                } 
+                }
 
                 thisObject.actionFunction(
                     {

@@ -28,7 +28,7 @@
         },
         {
             "style": "List",
-            "text": "codeName is the name of the dataset as used within the code. 'Single-File'is a special value. Use it for datasets that do not depend on Time Frames and that have a timestamp Record Property instead of the regular Begin and End. When this type of datasets are a dependency of Market or Daily datasets, they need the codeName'Single-File'in order to be found on disk.",
+            "text": "codeName is the name of the dataset as used within the code. 'Single-File' is a special value. Use it for datasets that do not depend on Time Frames and that have a timestamp Record Property instead of the regular Begin and End. When this type of datasets are a dependency of Market or Daily datasets, they need the codeName 'Single-File' in order to be found on disk.",
             "updated": 1621100190528
         },
         {

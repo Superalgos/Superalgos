@@ -3,7 +3,7 @@
     "pageNumber": "3",
     "type": "Value Not A Number",
     "definition": {
-        "text": "At runtime some nodes might aquire a value, and when it is expected that the value is a number, this type of error will pop up. To avoid this to happen Make sure that at nodes that should have only numeric values, that they don't get by any means a non numeric one.",
+        "text": "At runtime some nodes might acquire a value, and when it is expected that the value is a number, this type of error will pop up. To avoid this to happen Make sure that at nodes that should have only numeric values, that they don't get by any means a non numeric one.",
         "updated": 1611652261727
     },
     "paragraphs": [

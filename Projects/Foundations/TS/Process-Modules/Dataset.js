@@ -1,6 +1,6 @@
 exports.newFoundationsProcessModulesDataset = function (processIndex) {
     /*
-    This module represents a Dataset at a certain localtion on the 
+    This module represents a Dataset at a certain location on the 
     network, and it is able to load a file from that dataset or 
     write one into it.
     */
@@ -38,7 +38,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
             }
 
             if (thisObject.node.config.codeName === undefined) {
-                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Dataset witn no codeName defined -> Product Dataset = " + JSON.stringify(thisObject.node));
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Dataset with no codeName defined -> Product Dataset = " + JSON.stringify(thisObject.node));
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
@@ -50,7 +50,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
             }
 
             if (thisObject.node.parentNode.config.codeName === undefined) {
-                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Product Definition witn no codeName defined -> Product Definition = " + JSON.stringify(thisObject.node.parentNode));
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Product Definition with no codeName defined -> Product Definition = " + JSON.stringify(thisObject.node.parentNode));
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
@@ -62,7 +62,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
             }
 
             if (thisObject.node.parentNode.parentNode.config.codeName === undefined) {
-                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Bot witn no codeName defined. Bot = " + JSON.stringify(thisObject.node.parentNode.parentNode));
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Bot with no codeName defined. Bot = " + JSON.stringify(thisObject.node.parentNode.parentNode));
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
@@ -74,7 +74,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
             }
 
             if (thisObject.node.parentNode.parentNode.parentNode.config.codeName === undefined) {
-                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Data Mine witn no codeName defined. Data Mine = " + JSON.stringify(thisObject.node.parentNode.parentNode.parentNode));
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Data Mine with no codeName defined. Data Mine = " + JSON.stringify(thisObject.node.parentNode.parentNode.parentNode));
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
@@ -228,7 +228,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
             if (startingNode.id === productDefinition.id) {
                 /*
                 We reached the point that we found a path to the Product Definition. 
-                Now we know that the last netwrokNode is the node that has the correct
+                Now we know that the last network Node is the node that has the correct
                 path.
                 */
                 found = true
@@ -237,8 +237,8 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
 
             if (startingNode.type === 'LAN Network Node') {
                 /*
-                We will store the Network Node here so that if we find the rignt path
-                we can know from which Netwrok Node it going through.
+                We will store the Network Node here so that if we find the right path
+                we can know from which Network Node it going through.
                 */
                 lanNetworkNode = startingNode
             }

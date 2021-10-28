@@ -38,7 +38,7 @@
 
     /* these are module specific variables: */
 
-    let candles = [];                   // Here we keep the candles to be ploted every time the Draw() function is called by the AAWebPlatform.
+    let candles = [];                   // Here we keep the candles to be plotted every time the Draw() function is called by the AAWebPlatform.
 
     let onMouseOverEventSuscriptionId
     let zoomChangedEventSubscriptionId
@@ -55,7 +55,7 @@
     function finalize() {
         try {
 
-            /* Stop listening to the necesary events. */
+            /* Stop listening to the necessary events. */
             thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
             UI.projects.foundations.spaces.chartingSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
             UI.projects.foundations.spaces.chartingSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
@@ -64,7 +64,7 @@
             marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId);
             dailyFiles.eventHandler.stopListening(dailyFilesUpdatedEventSubscriptionId);
 
-            /* Destroyd References */
+            /* Destroyed References */
 
             marketFiles = undefined;
             dailyFiles = undefined;
@@ -108,7 +108,7 @@
             marketFile = marketFiles.getFile(pTimeFrame);
             fileCursor = dailyFiles.getFileCursor(pTimeFrame);
 
-            /* Listen to the necesary events. */
+            /* Listen to the necessary events. */
 
             zoomChangedEventSubscriptionId = UI.projects.foundations.spaces.chartingSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
             offsetChangedEventSubscriptionId = UI.projects.foundations.spaces.chartingSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
@@ -376,7 +376,7 @@
                 currentDate = new Date(currentDate.valueOf() + ONE_DAY_IN_MILISECONDS);
             }
 
-            /* Lests check if all the visible screen is going to be covered by candles. */
+            /* Lets check if all the visible screen is going to be covered by candles. */
 
             let lowerEnd = leftDate.valueOf();
             let upperEnd = rightDate.valueOf();
@@ -719,7 +719,7 @@
 
                 }
 
-                /* Draw mouse candel and Raise Event. */
+                /* Draw mouse candle and Raise Event. */
                 if (mouseCandle) {
 
                     /* highlight the current candle */
@@ -735,7 +735,7 @@
 
                     browserCanvasContext.closePath();
 
-                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current candle accroding to time
+                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current candle according to time
 
                     browserCanvasContext.fill();
 

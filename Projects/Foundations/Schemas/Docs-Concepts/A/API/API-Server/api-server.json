@@ -1,7 +1,7 @@
 {
     "type": "API Server",
     "definition": {
-        "text": "It is a server (usually running at the Internet) that provides programatic access to it;s resources. This enables algorithms to access those resources. When those resources are data, then it allow anyone to fetch that data by executing predefined queries to the API Server.",
+        "text": "It is a server (usually running at the Internet) that provides programmatic access to it;s resources. This enables algorithms to access those resources. When those resources are data, then it allow anyone to fetch that data by executing predefined queries to the API Server.",
         "updated": 1621955731261
     },
     "paragraphs": [

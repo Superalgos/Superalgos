@@ -127,12 +127,12 @@
             "id": "dc45d781-6992-475f-bbc0-d0ca2bf0a0ef",
             "savedPayload": {
                 "position": {
-                    "x": 18331.818181818184,
-                    "y": 37740.19237886467
+                    "x": 36513.63636363636,
+                    "y": 23340.192378864667
                 },
                 "targetPosition": {
-                    "x": 18481.818181818184,
-                    "y": 38000
+                    "x": 36663.63636363636,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -150,7 +150,7 @@
         "communityBuildingPrograms": {
             "type": "Community Building Programs",
             "name": "New Community Building Programs",
-            "config": "{\n    \"percentage\": 33.33\n}",
+            "config": "{\n    \"percentage\": 60\n}",
             "project": "Governance",
             "referralProgram": {
                 "type": "Referral Program",
@@ -192,7 +192,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                                 ]
                             ]
                         }
@@ -272,7 +274,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                                 ]
                             ]
                         }
@@ -335,12 +339,12 @@
                 "id": "9ac0dc02-95ec-4ee3-adc8-98db7d04ff64",
                 "savedPayload": {
                     "position": {
-                        "x": 18554.172468287426,
-                        "y": 37450.414630977946
+                        "x": 36735.9906501056,
+                        "y": 23050.414630977946
                     },
                     "targetPosition": {
-                        "x": 18631.818181818184,
-                        "y": 37740.19237886467
+                        "x": 36813.63636363636,
+                        "y": 23340.192378864667
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -436,7 +440,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Raplh2502",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "b56b7314-47ee-4634-987e-9bf20051133a"
                                 ]
                             ]
                         }
@@ -598,7 +604,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                                 ]
                             ]
                         }
@@ -924,7 +932,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "end-debug",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "2ba902c6-59f4-40f4-91f5-44d12f807061"
                                 ]
                             ]
                         }
@@ -963,7 +973,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "teehanming",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "f002a0b0-9cad-496b-a5a3-f642ee06dd2b"
                                 ]
                             ]
                         }
@@ -1002,7 +1014,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "prepheadrus",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "501b09ca-778e-479b-98ff-7d2e6e8f2bb8"
                                 ]
                             ]
                         }
@@ -1041,7 +1055,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "alexandrustefan",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "4c987083-b506-4f26-9821-e678dd3880d1"
                                 ]
                             ]
                         }
@@ -1104,12 +1120,12 @@
                 "id": "eb3a2ba7-f805-43a4-9a4a-68490eef6491",
                 "savedPayload": {
                     "position": {
-                        "x": 18856.818181818184,
-                        "y": 37350.48094716167
+                        "x": 37038.63636363636,
+                        "y": 22950.480947161668
                     },
                     "targetPosition": {
-                        "x": 18631.818181818184,
-                        "y": 37740.19237886467
+                        "x": 36813.63636363636,
+                        "y": 23340.192378864667
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -1205,7 +1221,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                                 ]
                             ]
                         }
@@ -1285,7 +1303,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Raplh2502",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "b56b7314-47ee-4634-987e-9bf20051133a"
                                 ]
                             ]
                         }
@@ -1348,12 +1368,12 @@
                 "id": "1d8d4be0-3423-4a75-bc8a-55074c912ebf",
                 "savedPayload": {
                     "position": {
-                        "x": 18921.595929704905,
-                        "y": 37662.54666533391
+                        "x": 37103.41411152308,
+                        "y": 23262.54666533391
                     },
                     "targetPosition": {
-                        "x": 18631.818181818184,
-                        "y": 37740.19237886467
+                        "x": 36813.63636363636,
+                        "y": 23340.192378864667
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -1371,12 +1391,12 @@
             "id": "c3433f14-39f6-4d70-91cb-cbb9d1812d60",
             "savedPayload": {
                 "position": {
-                    "x": 18631.818181818184,
-                    "y": 37740.19237886467
+                    "x": 36813.63636363636,
+                    "y": 23340.192378864667
                 },
                 "targetPosition": {
-                    "x": 18481.818181818184,
-                    "y": 38000
+                    "x": 36663.63636363636,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1399,7 +1419,7 @@
             "votingProgram": {
                 "type": "Voting Program",
                 "name": "New Voting Program",
-                "config": "{\n    \"percentage\": 40\n}",
+                "config": "{\n    \"percentage\": 75\n}",
                 "project": "Governance",
                 "votesSwitch": [
                     {
@@ -3613,7 +3633,9 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Raplh2502",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "b56b7314-47ee-4634-987e-9bf20051133a"
                                                 ]
                                             ]
                                         }
@@ -3734,7 +3756,9 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Julian-Molina",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                                                 ]
                                             ]
                                         }
@@ -4142,7 +4166,9 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "prepheadrus",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "501b09ca-778e-479b-98ff-7d2e6e8f2bb8"
                                                 ]
                                             ]
                                         }
@@ -4181,7 +4207,9 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "teehanming",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "f002a0b0-9cad-496b-a5a3-f642ee06dd2b"
                                                 ]
                                             ]
                                         }
@@ -4220,7 +4248,9 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "alexandrustefan",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "4c987083-b506-4f26-9821-e678dd3880d1"
                                                 ]
                                             ]
                                         }
@@ -4259,7 +4289,9 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "end-debug",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "2ba902c6-59f4-40f4-91f5-44d12f807061"
                                                 ]
                                             ]
                                         }
@@ -4343,12 +4375,12 @@
                 "id": "fc0dcb52-8801-4724-94d1-755d8133059c",
                 "savedPayload": {
                     "position": {
-                        "x": 18931.818181818184,
-                        "y": 37740.19237886467
+                        "x": 37113.63636363636,
+                        "y": 23340.192378864667
                     },
                     "targetPosition": {
-                        "x": 18781.818181818184,
-                        "y": 38000
+                        "x": 36963.63636363636,
+                        "y": 23600
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -4412,27 +4444,39 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Superalgos",
-                                            "Positions"
+                                            "Positions",
+                                            "Governance",
+                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                         ],
                                         [
                                             "Roles Played @ Beta-12",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                         ],
                                         [
                                             "Software Projects",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "864ef810-2d34-4776-946d-2f4bd68b45c5"
                                         ],
                                         [
                                             "Active Projects",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "75998134-fe6b-4dd0-9995-6beb613cd165"
                                         ],
                                         [
                                             "Data Mining Project",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "96e5c443-f932-47e4-9e5d-48e986dcc637"
                                         ],
                                         [
                                             "1 Project Contributor Alexandru",
-                                            "Position"
+                                            "Position",
+                                            "Governance",
+                                            "96ef6745-3340-4f59-a174-41deedf4f074"
                                         ]
                                     ]
                                 }
@@ -4517,12 +4561,12 @@
                 "id": "f1bb5d1d-5d33-46d3-a223-c8103a4b2bb6",
                 "savedPayload": {
                     "position": {
-                        "x": 18931.818181818184,
-                        "y": 38259.80762113533
+                        "x": 37113.63636363636,
+                        "y": 23859.807621135333
                     },
                     "targetPosition": {
-                        "x": 18781.818181818184,
-                        "y": 38000
+                        "x": 36963.63636363636,
+                        "y": 23600
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -4540,12 +4584,12 @@
             "id": "638049d6-5c82-47ce-8837-7c6f8e461cff",
             "savedPayload": {
                 "position": {
-                    "x": 18781.818181818184,
-                    "y": 38000
+                    "x": 36963.63636363636,
+                    "y": 23600
                 },
                 "targetPosition": {
-                    "x": 18481.818181818184,
-                    "y": 38000
+                    "x": 36663.63636363636,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -4563,7 +4607,7 @@
         "financialPrograms": {
             "type": "Financial Programs",
             "name": "New Financial Programs",
-            "config": "{\n    \"percentage\": 10\n}",
+            "config": "{\n    \"percentage\": 0\n}",
             "project": "Governance",
             "stakingProgram": {
                 "type": "Staking Program",
@@ -4577,12 +4621,12 @@
                     "id": "f56378ac-0fdc-4c96-8225-71d07d6b73da",
                     "savedPayload": {
                         "position": {
-                            "x": 19151.43342408885,
-                            "y": 38559.80762113533
+                            "x": 37333.251605907026,
+                            "y": 24159.807621135333
                         },
                         "targetPosition": {
-                            "x": 18891.625802953517,
-                            "y": 38409.80762113533
+                            "x": 37073.44398477169,
+                            "y": 24009.807621135333
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -4600,12 +4644,12 @@
                 "id": "de714bd5-148f-41db-8ba7-6b69eb271d7a",
                 "savedPayload": {
                     "position": {
-                        "x": 18891.625802953517,
-                        "y": 38409.80762113533
+                        "x": 37073.44398477169,
+                        "y": 24009.807621135333
                     },
                     "targetPosition": {
-                        "x": 18631.818181818184,
-                        "y": 38259.80762113533
+                        "x": 36813.63636363636,
+                        "y": 23859.807621135333
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -4641,12 +4685,12 @@
                                 "id": "867204bc-6e33-4cd4-86ce-1ffa08f26bf6",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 19151.43342408885,
-                                        "y": 38859.80762113533
+                                        "x": 37333.251605907026,
+                                        "y": 24459.807621135333
                                     },
                                     "targetPosition": {
-                                        "x": 18891.625802953517,
-                                        "y": 38709.80762113533
+                                        "x": 37073.44398477169,
+                                        "y": 24309.807621135333
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -4667,7 +4711,9 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Raplh2502",
-                                            "User Profile"
+                                            "User Profile",
+                                            "Governance",
+                                            "b56b7314-47ee-4634-987e-9bf20051133a"
                                         ]
                                     ]
                                 }
@@ -4676,12 +4722,12 @@
                         "id": "f866bd3e-520d-4399-9949-52927848af78",
                         "savedPayload": {
                             "position": {
-                                "x": 18891.625802953517,
-                                "y": 38709.80762113533
+                                "x": 37073.44398477169,
+                                "y": 24309.807621135333
                             },
                             "targetPosition": {
-                                "x": 18631.818181818184,
-                                "y": 38559.80762113533
+                                "x": 36813.63636363636,
+                                "y": 24159.807621135333
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -4704,12 +4750,12 @@
                     "id": "04eba2ad-9420-4db8-a60d-b82ac4974c4f",
                     "savedPayload": {
                         "position": {
-                            "x": 18372.01056068285,
-                            "y": 38709.80762113533
+                            "x": 36553.82874250103,
+                            "y": 24309.807621135333
                         },
                         "targetPosition": {
-                            "x": 18631.818181818184,
-                            "y": 38559.80762113533
+                            "x": 36813.63636363636,
+                            "y": 24159.807621135333
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -4727,12 +4773,12 @@
                 "id": "dd623cf2-614a-4864-aa51-c4f0f0d02060",
                 "savedPayload": {
                     "position": {
-                        "x": 18631.818181818184,
-                        "y": 38559.80762113533
+                        "x": 36813.63636363636,
+                        "y": 24159.807621135333
                     },
                     "targetPosition": {
-                        "x": 18631.818181818184,
-                        "y": 38259.80762113533
+                        "x": 36813.63636363636,
+                        "y": 23859.807621135333
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -4750,12 +4796,12 @@
             "id": "d4dd12d6-2a06-413f-bc29-b7423c447c49",
             "savedPayload": {
                 "position": {
-                    "x": 18631.818181818184,
-                    "y": 38259.80762113533
+                    "x": 36813.63636363636,
+                    "y": 23859.807621135333
                 },
                 "targetPosition": {
-                    "x": 18481.818181818184,
-                    "y": 38000
+                    "x": 36663.63636363636,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -4788,12 +4834,12 @@
                         "id": "30d44397-d18c-46d3-82bb-67ac9c01d130",
                         "savedPayload": {
                             "position": {
-                                "x": 18031.818181818184,
-                                "y": 38779.422863406
+                                "x": 36213.63636363636,
+                                "y": 24379.422863406
                             },
                             "targetPosition": {
-                                "x": 18181.818181818184,
-                                "y": 38519.615242270665
+                                "x": 36363.63636363636,
+                                "y": 24119.615242270665
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -4811,12 +4857,12 @@
                     "id": "5661b47c-cc8f-4fe5-b59f-ade04c4071cc",
                     "savedPayload": {
                         "position": {
-                            "x": 18181.818181818184,
-                            "y": 38519.615242270665
+                            "x": 36363.63636363636,
+                            "y": 24119.615242270665
                         },
                         "targetPosition": {
-                            "x": 18331.818181818184,
-                            "y": 38259.80762113533
+                            "x": 36513.63636363636,
+                            "y": 23859.807621135333
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -4835,12 +4881,12 @@
             "id": "997a2e31-201e-4083-aecd-8ad450bbefaa",
             "savedPayload": {
                 "position": {
-                    "x": 18331.818181818184,
-                    "y": 38259.80762113533
+                    "x": 36513.63636363636,
+                    "y": 23859.807621135333
                 },
                 "targetPosition": {
-                    "x": 18481.818181818184,
-                    "y": 38000
+                    "x": 36663.63636363636,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -4858,12 +4904,12 @@
         "id": "e0ed557e-bd72-458f-9f88-f7a8aeb20905",
         "savedPayload": {
             "position": {
-                "x": 18481.818181818184,
-                "y": 38000
+                "x": 36663.63636363636,
+                "y": 23600
             },
             "targetPosition": {
-                "x": 18181.818181818184,
-                "y": 38000
+                "x": 36363.63636363636,
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -4885,12 +4931,12 @@
         "id": "d772e222-3b30-461e-9434-87fc28fb9c29",
         "savedPayload": {
             "position": {
-                "x": 17881.818181818184,
-                "y": 38000
+                "x": 36063.63636363636,
+                "y": 23600
             },
             "targetPosition": {
-                "x": 18181.818181818184,
-                "y": 38000
+                "x": 36363.63636363636,
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -4908,12 +4954,12 @@
     "id": "07f0b13a-a50f-4488-8a2c-a3f8f08e889d",
     "savedPayload": {
         "position": {
-            "x": 18181.818181818184,
-            "y": 38000
+            "x": 36363.63636363636,
+            "y": 23600
         },
         "targetPosition": {
-            "x": 18181.818181818184,
-            "y": 38000
+            "x": 36363.63636363636,
+            "y": 23600
         },
         "floatingObject": {
             "isPinned": false,

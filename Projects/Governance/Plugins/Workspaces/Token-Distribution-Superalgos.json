@@ -665,11 +665,11 @@
                                 "name": "9808us",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"9808us\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "9d935ce5-d264-4dd2-ac35-c368a551ed74",
+                                "id": "8da7f456-d91d-40bc-98af-6edbc8d76ffe",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35243.88121547695,
-                                        "y": 6328.826783693241
+                                        "x": 35243.40831592499,
+                                        "y": 6329.008771190351
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -693,11 +693,11 @@
                                 "name": "a-r-1",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"a-r-1\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "be6395c5-e3b2-45c2-b190-b0af4dfddc03",
+                                "id": "84c6c295-e4f6-4f82-af26-5a52a18a3ecc",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35229.56631542737,
-                                        "y": 6333.936807742214
+                                        "x": 35228.60302937389,
+                                        "y": 6334.2515981297365
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -721,11 +721,11 @@
                                 "name": "alexandrustefan",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"alexandrustefan\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "87ff884f-98b6-47bd-8202-9599035d8b2f",
+                                "id": "011dd5cf-6906-4c15-9be2-ba2335845dc6",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35215.01096997853,
-                                        "y": 6338.315235322444
+                                        "x": 35213.54364459216,
+                                        "y": 6338.71239112791
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -749,11 +749,11 @@
                                 "name": "alexbacanu",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"alexbacanu\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "65d63ad0-843c-4f04-a340-8c33a13f3142",
+                                "id": "d2d200f9-ec0c-4162-bc5d-110316c57465",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35200.25254249343,
-                                        "y": 6341.9508270731285
+                                        "x": 35198.27143830673,
+                                        "y": 6342.378923461332
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -777,11 +777,11 @@
                                 "name": "AzraelMilosz",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"AzraelMilosz\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "05d3f546-f4f5-4f3e-9b8b-a9b2aeb631d8",
+                                "id": "2ebdb5e9-4a32-4597-82b9-e81f08b5ffe4",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35185.32891764377,
-                                        "y": 6344.834250482386
+                                        "x": 35182.82827057347,
+                                        "y": 6345.241145419732
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -805,11 +805,11 @@
                                 "name": "Barrypair",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"Barrypair\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "067cbf67-1800-4712-93ea-dd1d24f67708",
+                                "id": "5ed2200c-5cc6-4e18-80fe-a35847027dfe",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35170.2784041605,
-                                        "y": 6346.958103843678
+                                        "x": 35167.2564700417,
+                                        "y": 6347.291211851672
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -833,11 +833,11 @@
                                 "name": "Basalt09",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"Basalt09\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "2cd7ef84-c129-4d61-a23a-9775bd3c9ec3",
+                                "id": "3f92cf57-14dd-4446-9789-8c9f2e4cba88",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35155.139636495864,
-                                        "y": 6348.316935255887
+                                        "x": 35151.598717934285,
+                                        "y": 6348.523503667562
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -861,11 +861,11 @@
                                 "name": "bayaderos",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"bayaderos\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "03ef1fea-f275-4dfb-945d-f74b4073cb8f",
+                                "id": "4c740938-14a6-4027-97cf-01aabe12cfaa",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35139.95147564935,
-                                        "y": 6348.907256618268
+                                        "x": 35135.8979310614,
+                                        "y": 6348.93464324119
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -889,11 +889,11 @@
                                 "name": "BillyYan13",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"BillyYan13\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "6e2056ca-afcf-48fc-ad48-fec6d380eb20",
+                                "id": "2b0dd756-0a17-4905-a2f5-62d3b757bcca",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35124.75290941201,
-                                        "y": 6348.727552584348
+                                        "x": 35120.19714418852,
+                                        "y": 6348.523503667562
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -917,11 +917,11 @@
                                 "name": "Bitstudiocoin",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"Bitstudiocoin\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "2c2bebc3-20ef-4bd8-a5e7-cc4f5614cac0",
+                                "id": "126461b1-c492-43d1-a386-ae7ab759cae8",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35109.58295228541,
-                                        "y": 6347.778284451806
+                                        "x": 35104.539392081104,
+                                        "y": 6347.291211851672
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -945,11 +945,11 @@
                                 "name": "brombispi",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"brombispi\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "1c3615e4-a5dd-4a0e-ba66-1ff368e533b3",
+                                "id": "936d9cf8-11ea-4d01-89ef-6652686b25cd",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35094.480545331906,
-                                        "y": 6346.061888978323
+                                        "x": 35088.967591549335,
+                                        "y": 6345.241145419732
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -973,11 +973,11 @@
                                 "name": "buck2825",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"buck2825\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "6ac6ceb7-f2e8-4d13-ab74-ad21dc804df4",
+                                "id": "049b817c-4268-46ce-906e-2ef020d60e93",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35079.48445621356,
-                                        "y": 6343.582772126463
+                                        "x": 35073.524423816074,
+                                        "y": 6342.378923461332
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1001,11 +1001,11 @@
                                 "name": "buddies2705",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"buddies2705\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "74c18d8b-0015-4cde-862e-8d63a5ba0be7",
+                                "id": "3b158afc-1f55-4897-9e7d-5ac4d49f2d22",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35064.633179676064,
-                                        "y": 6340.34729775363
+                                        "x": 35058.252217530644,
+                                        "y": 6338.71239112791
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1029,11 +1029,11 @@
                                 "name": "bybader",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"bybader\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "97976226-8804-4e8c-b9e5-300a7c46fd53",
+                                "id": "6644aacb-814c-4eb9-bcd5-3f7db477156d",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35049.96483873329,
-                                        "y": 6336.363771276134
+                                        "x": 35043.192832748915,
+                                        "y": 6334.2515981297365
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1057,11 +1057,11 @@
                                 "name": "Charlie67j",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"Charlie67j\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "e2479068-e31c-41db-8a4e-393fafbf5b68",
+                                "id": "d569e812-c1c4-4350-a62f-a03e04e9d7d6",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35035.51708680605,
-                                        "y": 6331.642418349312
+                                        "x": 35028.38754619781,
+                                        "y": 6329.008771190351
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1085,11 +1085,11 @@
                                 "name": "cozed-gh",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"cozed-gh\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "8a9b3b23-0618-4a3b-896f-d443ebf48d20",
+                                "id": "cb327f9c-eef6-4a9c-aeac-f44701316fb3",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35021.32701106635,
-                                        "y": 6326.195358618411
+                                        "x": 35013.87693813866,
+                                        "y": 6322.9982805339705
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1113,11 +1113,11 @@
                                 "name": "Dummy",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"Dummy\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "1d6eab56-296c-4f9f-a307-0782ce75ad20",
+                                "id": "945cacf7-ac9d-4907-bf4a-85d245916621",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35007.43103723509,
-                                        "y": 6320.0365746076395
+                                        "x": 34999.70078113954,
+                                        "y": 6316.236600497701
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1141,11 +1141,11 @@
                                 "name": "e-Nut",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"e-Nut\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "6da5ce69-eba6-4fd4-8118-692a1546e03b",
+                                "id": "d0617f14-ad2b-4247-b59c-8e69f03e3101",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34993.864836077795,
-                                        "y": 6313.181875827224
+                                        "x": 34985.8979310614,
+                                        "y": 6308.742264376522
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1169,11 +1169,11 @@
                                 "name": "elipwns",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"elipwns\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "df91efb8-44e7-482c-9dc1-d02679dedda2",
+                                "id": "33362557-acb0-44b3-8293-19cb28e07669",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34980.66323183826,
-                                        "y": 6305.648858190621
+                                        "x": 34972.50622055689,
+                                        "y": 6300.535813624818
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1197,11 +1197,11 @@
                                 "name": "end-debug",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"end-debug\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "fd518c10-f727-4fa7-bf24-9344f4f2c65f",
+                                "id": "078d3b65-7cce-4efe-94b8-608ed37ae0ba",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34967.86011284525,
-                                        "y": 6297.456858846064
+                                        "x": 34959.56235537366,
+                                        "y": 6291.639741553675
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1225,11 +1225,11 @@
                                 "name": "EvaMaria70",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"EvaMaria70\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "d27f2f64-2e90-4f58-b6c9-3b5f97b7915a",
+                                "id": "225c6bcf-cbd6-49d1-bf9d-85d6fd79ca11",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34955.48834452158,
-                                        "y": 6288.626906538383
+                                        "x": 34947.10181374645,
+                                        "y": 6282.078431678282
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1253,11 +1253,11 @@
                                 "name": "Ferrox85",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"Ferrox85\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "54ded0be-64f1-4498-856a-703d12787be4",
+                                "id": "ceb3715e-ba52-4179-a46c-6a0bf79a72fe",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34943.5796850191,
-                                        "y": 6279.181667628509
+                                        "x": 34935.15874915374,
+                                        "y": 6271.878090884408
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1281,11 +1281,11 @@
                                 "name": "gitforkgit",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"gitforkgit\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "0192315a-4dc5-47f2-ba01-f2751bafe7d7",
+                                "id": "f6336ca7-4ce5-4f45-98c3-b2e59787199d",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34932.16470369597,
-                                        "y": 6269.14538790926
+                                        "x": 34923.76589670544,
+                                        "y": 6261.066677597155
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1309,11 +1309,11 @@
                                 "name": "gustavohcorradi",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"gustavohcorradi\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "4f452b56-2ed1-465f-a8e4-f5b359cdbf24",
+                                "id": "45a17f9f-8472-4659-9b8c-f992be29f6ba",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34921.27270264552,
-                                        "y": 6258.543830366734
+                                        "x": 34912.95448341818,
+                                        "y": 6249.673825148848
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1337,11 +1337,11 @@
                                 "name": "gustavojuri",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"gustavojuri\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "f615e2cc-7fc6-4eca-a585-b2a1fbbfa5b8",
+                                "id": "9fb57011-3f8e-45d3-95dc-34432bc3279e",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34910.93164147824,
-                                        "y": 6247.404209047094
+                                        "x": 34902.75414262431,
+                                        "y": 6237.730760556142
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1365,11 +1365,11 @@
                                 "name": "H-Rashdan",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"H-Rashdan\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "e254ea3b-b006-479e-8a0a-a72d0c86f281",
+                                "id": "81bf7954-027d-4c02-9c2e-b244c487a363",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34901.16806554982,
-                                        "y": 6235.755119198501
+                                        "x": 34893.192832748915,
+                                        "y": 6225.270218928932
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1393,11 +1393,11 @@
                                 "name": "harrellbm",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"harrellbm\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "e5094442-fdd2-43e8-a30e-ee9a09c93c4c",
+                                "id": "44a94c66-a8a7-41cd-a920-88ac76fc65f9",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34892.007037819654,
-                                        "y": 6223.626463867525
+                                        "x": 34884.296760677775,
+                                        "y": 6212.326353745699
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1421,11 +1421,11 @@
                                 "name": "hellarnasstrom",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"hellarnasstrom\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "d6b52115-d572-47ec-b5f9-8827341af165",
+                                "id": "4f650a33-ab3c-44e2-aae0-d2639f5f3e3f",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34883.47207451453,
-                                        "y": 6211.04937713845
+                                        "x": 34876.09030992607,
+                                        "y": 6198.93464324119
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1449,11 +1449,11 @@
                                 "name": "itzr",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"itzr\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "0b9bef68-68f4-43f3-9461-77718d0d9a31",
+                                "id": "b3b4ea3a-3c82-4dd0-8a34-3dee19ab965f",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34875.585084762846,
-                                        "y": 6198.056144212527
+                                        "x": 34868.59597380489,
+                                        "y": 6185.131793163055
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1477,35 +1477,7 @@
                                 "name": "jance1499",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"jance1499\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "9ed0b78c-391f-467c-a0a1-96677cd2177e",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 34868.36631435417,
-                                        "y": 6184.680118532327
-                                    },
-                                    "targetPosition": {
-                                        "x": 35135.8979310614,
-                                        "y": 6048.93464324119
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Plugin File",
-                                "name": "Jefferson111",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Jefferson111\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
-                                "project": "Community-Plugins",
-                                "id": "e685a630-c55d-42c2-b5c3-41c068858659",
+                                "id": "b1549cd4-16a4-4f31-8054-9757fbe83a5c",
                                 "savedPayload": {
                                     "position": {
                                         "x": 34861.83429376862,
@@ -1530,14 +1502,42 @@
                             },
                             {
                                 "type": "Plugin File",
+                                "name": "Jefferson111",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Jefferson111\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "project": "Community-Plugins",
+                                "id": "b7ddba7d-8dc2-4330-92b6-a9ebd4569f96",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34855.82380311224,
+                                        "y": 6156.44502810478
+                                    },
+                                    "targetPosition": {
+                                        "x": 35135.8979310614,
+                                        "y": 6048.93464324119
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
                                 "name": "Julian-Molina",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"Julian-Molina\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "a07c26f3-4954-48a1-8f79-4ba70fc758c2",
+                                "id": "1d66486f-6392-416a-965d-dbe59ceead43",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34856.00579060935,
-                                        "y": 6156.917927656739
+                                        "x": 34850.58097617285,
+                                        "y": 6141.639741553675
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1561,11 +1561,11 @@
                                 "name": "Lantschirky",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"Lantschirky\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "6330a1c7-8788-4d42-a909-c84b4aac5199",
+                                "id": "85c7b7b0-9f14-4e37-9850-7105b0f5bc85",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34850.895766560374,
-                                        "y": 6142.6030276071615
+                                        "x": 34846.12018317468,
+                                        "y": 6126.580356771947
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1589,11 +1589,11 @@
                                 "name": "LucOnGit",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"LucOnGit\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "a43a30ca-033d-46a7-baa0-33351c549b8a",
+                                "id": "1bb6e468-87e7-4372-9e6e-3e7b03de8956",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34846.51733898015,
-                                        "y": 6128.047682158317
+                                        "x": 34842.45365084126,
+                                        "y": 6111.308150486518
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1617,11 +1617,11 @@
                                 "name": "Luis-Fernando-Molina",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"Luis-Fernando-Molina\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "e1f187cf-07c0-413f-aac6-0310b3d73c98",
+                                "id": "7f114a31-f462-462d-a653-a50065ab9266",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34842.88174722946,
-                                        "y": 6113.289254673221
+                                        "x": 34839.59142888286,
+                                        "y": 6095.86498275326
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1645,11 +1645,11 @@
                                 "name": "mantlik",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"mantlik\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "9bf66168-f5d4-47d2-9371-32cf043b0bf3",
+                                "id": "7907c9e0-8676-4ee8-b00a-6d39d5820c36",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34839.998323820204,
-                                        "y": 6098.365629823559
+                                        "x": 34837.54136245092,
+                                        "y": 6080.293182221487
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1673,11 +1673,11 @@
                                 "name": "MarinitaMarina",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"MarinitaMarina\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "60c36b2a-0455-4dba-b8b9-cffa3087610a",
+                                "id": "39fa61e3-6f8f-4977-8635-f910a6285386",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34837.87447045891,
-                                        "y": 6083.315116340285
+                                        "x": 34836.30907063503,
+                                        "y": 6064.635430114074
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1701,11 +1701,11 @@
                                 "name": "NAmorim",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"NAmorim\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "49c62c3a-db50-4697-8065-541327563ff4",
+                                "id": "d605531c-f46a-4a55-908e-89e7c02b43e7",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34836.5156390467,
-                                        "y": 6068.176348675654
+                                        "x": 34835.8979310614,
+                                        "y": 6048.93464324119
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1729,11 +1729,11 @@
                                 "name": "narkxx",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"narkxx\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "6b3b9f83-751a-49af-8dfe-6ead1fd53951",
+                                "id": "2d5e788d-29b0-44f3-82c7-a4c871e42ff0",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34835.92531768433,
-                                        "y": 6052.988187829138
+                                        "x": 34836.30907063503,
+                                        "y": 6033.233856368307
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1757,11 +1757,11 @@
                                 "name": "OliverTurtle",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"OliverTurtle\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "b90d13b9-c0b3-4898-9e41-50f0194c56be",
+                                "id": "0108cc46-75f9-4f46-80c8-ddf48502fd6f",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34836.10502171824,
-                                        "y": 6037.789621591803
+                                        "x": 34837.54136245092,
+                                        "y": 6017.576104260895
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1785,11 +1785,11 @@
                                 "name": "patrickhaemmerle",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"patrickhaemmerle\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "e8507349-a956-4014-9910-588faa48375d",
+                                "id": "0464100c-5223-49fa-9948-e00f28dc29da",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34837.054289850785,
-                                        "y": 6022.619664465197
+                                        "x": 34839.59142888286,
+                                        "y": 6002.004303729121
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1813,11 +1813,11 @@
                                 "name": "piyanthak",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"piyanthak\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "457758d9-aa22-4adf-b6f5-f773cda89587",
+                                "id": "084c58d8-3d41-4e21-ad29-3d280048be49",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34838.77068532427,
-                                        "y": 6007.517257511698
+                                        "x": 34842.45365084126,
+                                        "y": 5986.561135995862
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1841,11 +1841,11 @@
                                 "name": "PLuv",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"PLuv\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "cf1d297e-7370-4aa0-a41f-cd4f54a11f24",
+                                "id": "89d2c435-6321-4d06-8d99-67cf41010997",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34841.24980217613,
-                                        "y": 5992.521168393354
+                                        "x": 34846.12018317468,
+                                        "y": 5971.288929710434
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1869,11 +1869,11 @@
                                 "name": "prepheadrus",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"prepheadrus\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "2b74400d-6d1d-4f01-9b2d-13cb6749c608",
+                                "id": "ae4ad5b8-1de6-4aa3-ab30-7867a8696c05",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34844.48527654896,
-                                        "y": 5977.669891855856
+                                        "x": 34850.58097617285,
+                                        "y": 5956.229544928706
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1897,11 +1897,11 @@
                                 "name": "primoz990",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"primoz990\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "a1d44b52-dfbe-49a4-89d9-efbd04b58d6e",
+                                "id": "f5de68fd-d729-41a6-a6e2-35e56d4ae908",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34848.46880302646,
-                                        "y": 5963.001550913078
+                                        "x": 34855.82380311224,
+                                        "y": 5941.4242583776
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1925,11 +1925,11 @@
                                 "name": "quantum8",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"quantum8\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "c68e34ba-a2c5-4ecb-8a12-2c4dd7366f68",
+                                "id": "c2884c05-54f2-4c46-8241-0bc11a4a3968",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34853.19015595328,
-                                        "y": 5948.553798985845
+                                        "x": 34861.83429376862,
+                                        "y": 5926.91365031845
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1953,11 +1953,11 @@
                                 "name": "Raplh2502",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"Raplh2502\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "c0d9095c-c2ee-49c0-b995-7a328ed1c5aa",
+                                "id": "03a1be0c-a668-42f0-8478-5b53418a459e",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34858.63721568418,
-                                        "y": 5934.3637232461415
+                                        "x": 34868.59597380489,
+                                        "y": 5912.737493319326
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -1981,11 +1981,11 @@
                                 "name": "romeox7",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"romeox7\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "a980ffad-fd84-4972-963b-565017c821f8",
+                                "id": "e19a8a61-74c7-4dba-8de7-feabbc47d111",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34864.79599969495,
-                                        "y": 5920.467749414878
+                                        "x": 34876.09030992607,
+                                        "y": 5898.93464324119
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -2009,11 +2009,11 @@
                                 "name": "rominastabile",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"rominastabile\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "6b2f38bd-be1d-4121-b853-41f574efe9ac",
+                                "id": "a1a37fb3-355c-4423-b829-467783617325",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34871.650698475365,
-                                        "y": 5906.901548257581
+                                        "x": 34884.296760677775,
+                                        "y": 5885.542932736682
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -2037,11 +2037,11 @@
                                 "name": "Smidy13",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"Smidy13\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "10c22d3b-cc6c-4e2e-8620-19d569bed96f",
+                                "id": "b3959b56-4ae8-40f7-b521-6a907173acaf",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34879.18371611197,
-                                        "y": 5893.699944018053
+                                        "x": 34893.192832748915,
+                                        "y": 5872.599067553449
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -2065,11 +2065,11 @@
                                 "name": "SSChana",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"SSChana\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "7387215a-22aa-465e-b707-fa694101eac7",
+                                "id": "97a30822-856b-440f-9271-02a1b89ede7b",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34887.375715456525,
-                                        "y": 5880.896825025039
+                                        "x": 34902.75414262431,
+                                        "y": 5860.138525926239
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -2093,11 +2093,11 @@
                                 "name": "ssplatt",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"ssplatt\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "848ce3e5-04cd-416b-98a0-dd4ef0605aa3",
+                                "id": "d4c3d4c6-9499-454e-8298-4448ae169d74",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34896.20566776421,
-                                        "y": 5868.525056701368
+                                        "x": 34912.95448341818,
+                                        "y": 5848.195461333533
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -2121,11 +2121,11 @@
                                 "name": "superharoun",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"superharoun\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "905dc488-e5fc-4ee1-85a5-4b75f258450b",
+                                "id": "fd42697e-4b1f-49d0-b5d6-326de7eb4a74",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34905.650906674084,
-                                        "y": 5856.6163971988935
+                                        "x": 34923.76589670544,
+                                        "y": 5836.802608885226
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -2149,11 +2149,11 @@
                                 "name": "Tashkuk",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"Tashkuk\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "2f7f9315-977d-423c-8e8f-95e8ac9f35e3",
+                                "id": "ec8ab386-a16f-414b-ac29-c2ea5b69dee4",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34915.687186393334,
-                                        "y": 5845.201415875759
+                                        "x": 34935.15874915374,
+                                        "y": 5825.991195597972
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -2177,11 +2177,11 @@
                                 "name": "teehanming",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"teehanming\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "c3138189-5a5e-49da-9cc2-e183ec98bf97",
+                                "id": "006493a0-cd5d-46b8-8510-55a00434c12e",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34926.28874393586,
-                                        "y": 5834.309414825309
+                                        "x": 34947.10181374645,
+                                        "y": 5815.7908548041
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -2205,67 +2205,11 @@
                                 "name": "Tentacule23",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"Tentacule23\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "bc7bb930-af22-4ac8-86fb-f06ecc44a515",
+                                "id": "75ca78e7-e053-462b-a01f-6a62f258c60b",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34937.428365255495,
-                                        "y": 5823.968353658026
-                                    },
-                                    "targetPosition": {
-                                        "x": 35135.8979310614,
-                                        "y": 6048.93464324119
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Plugin File",
-                                "name": "Test-Network-Client-Profile",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Test-Network-Client-Profile\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
-                                "project": "Community-Plugins",
-                                "id": "ddb6e414-ed0d-4b5e-97bf-880290382eef",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 34949.07745510409,
-                                        "y": 5814.204777729611
-                                    },
-                                    "targetPosition": {
-                                        "x": 35135.8979310614,
-                                        "y": 6048.93464324119
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Plugin File",
-                                "name": "Test-Network-Node-Profile",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Test-Network-Node-Profile\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
-                                "project": "Community-Plugins",
-                                "id": "4a0c9bc1-9c77-4231-8d90-6f2a40bb8e61",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 34961.206110435065,
-                                        "y": 5805.043749999445
+                                        "x": 34959.56235537366,
+                                        "y": 5806.229544928706
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -2289,11 +2233,11 @@
                                 "name": "thaissmolina75",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"thaissmolina75\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "b81e8238-3373-44ad-8171-abaf05d4f3c8",
+                                "id": "f84f766b-6258-454a-885e-b8cbcec62912",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34973.78319716414,
-                                        "y": 5796.508786694321
+                                        "x": 34972.50622055689,
+                                        "y": 5797.333472857563
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -2317,11 +2261,11 @@
                                 "name": "tikry2021",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"tikry2021\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "8e638911-1a8b-4e98-924e-33c4b1e489c3",
+                                "id": "b0024dbc-6e04-46df-83cf-b9bd13ea5fd0",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 34986.77643009007,
-                                        "y": 5788.621796942634
+                                        "x": 34985.8979310614,
+                                        "y": 5789.1270221058585
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -2345,11 +2289,11 @@
                                 "name": "zpriv2021",
                                 "config": "{\"project\":\"Governance\",\"fileName\":\"zpriv2021\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
                                 "project": "Community-Plugins",
-                                "id": "be2c4766-6289-461e-b09c-f92a68591122",
+                                "id": "63d775d7-8abe-42c3-901e-acd805451017",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35000.152455770265,
-                                        "y": 5781.403026533962
+                                        "x": 34999.70078113954,
+                                        "y": 5781.63268598468
                                     },
                                     "targetPosition": {
                                         "x": 35135.8979310614,
@@ -2369,7 +2313,7 @@
                                 }
                             }
                         ],
-                        "id": "f742f21b-4b77-4547-829d-8c845e12a872",
+                        "id": "64e9f828-b908-4bbb-9435-e65839c4a011",
                         "savedPayload": {
                             "position": {
                                 "x": 35135.8979310614,
@@ -2708,11 +2652,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 19698.416666666668,
-                        "y": 5288.050051599587
+                        "y": 6098.050051599587
                     },
                     "targetPosition": {
                         "x": 19398.416666666668,
-                        "y": 5288.050051599587
+                        "y": 6098.050051599587
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -2730,17 +2674,17 @@
             "docsSpaceSettings": {
                 "type": "Docs Space Settings",
                 "name": "New Docs Space Settings",
-                "config": "{\n    \"indexContent\": false\n}",
+                "config": "{\n    \"indexContent\": true\n}",
                 "project": "Education",
                 "id": "e0243a0a-2f1b-451b-adb4-3016cb33f48d",
                 "savedPayload": {
                     "position": {
                         "x": 19098.416666666668,
-                        "y": 5288.050051599587
+                        "y": 6098.050051599587
                     },
                     "targetPosition": {
                         "x": 19398.416666666668,
-                        "y": 5288.050051599587
+                        "y": 6098.050051599587
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -2785,7 +2729,7 @@
             "githubAPI": {
                 "type": "Github API",
                 "name": "New Github API",
-                "config": "{\n    \"username\": \"\",\n    \"token\": \"\"\n}",
+                "config": "{\n    \"username\": \"Luis-Fernando-Molina\",\n    \"token\": \"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\"\n}",
                 "project": "Foundations",
                 "id": "ca62704e-f59c-491a-bfe0-896f26dc65bb",
                 "savedPayload": {
@@ -2851,7 +2795,7 @@
                 "floatingObject": {
                     "isPinned": true,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

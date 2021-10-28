@@ -322,7 +322,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                     node.payload.uiObject.percentageAngleOffset = 180
                     node.payload.uiObject.percentageAtAngle = true
 
-                    node.payload.uiObject.setPercentage(percentage,
+                    node.payload.uiObject.setPercentage(percentage.toFixed(2),
                         UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
                         )
 

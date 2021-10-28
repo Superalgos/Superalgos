@@ -44,6 +44,11 @@
                 "text": "Ich bin ein interaktives Tutorial, das erste einer Reihe, die Ihnen den Einstieg erleichtern und Ihnen alle Grundlagen vermitteln soll!",
                 "updated": 1634070025309,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Ben interaktif bir öğreticiyim, işe başlamanızı kolaylaştırmak ve size tüm temel bilgileri öğretmek için tasarlanmış bir serinin ilk öğreticisiyim!",
+                "updated": 1635429773668
             }
         ],
         "updated": 1633159917192
@@ -88,6 +93,11 @@
                     "text": "Ich werde Ihnen die Werkzeuge zeigen, mit denen Sie sich bequem zurechtfinden, und Ihnen helfen, all die coolen Dinge zu entdecken, die Superalgos für Sie tun kann.",
                     "updated": 1634159537847,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Size öğreteceğim rahatça hareket etmenize yardımcı olacak araçları göstereceğim ve Superalgos'un sizin için yapabileceği tüm harika şeyleri keşfetmenize yardımcı olacağım.",
+                    "updated": 1635429946974
                 }
             ],
             "updated": 1633159949363
@@ -131,6 +141,11 @@
                     "text": "Tutorials sind der beste Start in Superalgos!  Keine andere Ressource wird Sie schneller einarbeiten. Sie sollten alle Tutorials durcharbeiten, bevor Sie versuchen, Ihre eigenen Ideen zu implementieren!",
                     "updated": 1634159523866,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiler, Superalgos'un asıl alıştırma aracıdır! Superalgos ile başka bir şekilde başlamak bir hatadır, çünkü başka hiçbir kaynak sizi daha hızlı hızlandıramaz. Kendi fikirlerinizi uygulamaya çalışmadan önce tüm dersleri yapmalısınız!",
+                    "updated": 1635430285087
                 }
             ],
             "updated": 1633159975051

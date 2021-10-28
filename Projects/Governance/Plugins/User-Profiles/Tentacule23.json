@@ -565,17 +565,317 @@
                         "config": "{}",
                         "project": "Governance",
                         "votesSwitch": [],
-                        "claimVotesSwitch": [
+                        "claimVotesSwitch": [],
+                        "weightVotesSwitch": [
                             {
-                                "type": "Claim Votes Switch",
-                                "name": "New Claim Votes Switch",
+                                "type": "Weight Votes Switch",
+                                "name": "Governance Project",
                                 "config": "{}",
                                 "project": "Governance",
-                                "claimVotesSwitch": [],
-                                "positionClaimVotes": [],
-                                "assetClaimVotes": [],
-                                "featureClaimVotes": [],
-                                "id": "008b3b69-cc01-4e09-9122-ec885a882d76",
+                                "weightVotesSwitch": [],
+                                "poolWeightVotes": [],
+                                "assetWeightVotes": [],
+                                "featureWeightVotes": [],
+                                "positionWeightVotes": [
+                                    {
+                                        "type": "Position Weight Vote",
+                                        "name": "Governance Project Project Creator Luis-Fernando-Molina",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "a90e32de-3cb6-4fa0-9400-e8120506039f",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 24392.72914622106,
+                                                "y": 42230.96647472827
+                                            },
+                                            "targetPosition": {
+                                                "x": 24597.024871103855,
+                                                "y": 42631.91941061304
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position",
+                                                "name": "Project Creator Luis-Fernando-Molina",
+                                                "id": "b555c1fb-e0d3-445f-b46d-9428818b5fe5"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Software Projects",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Active Projects",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Governance Project",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Project Creator Luis-Fernando-Molina",
+                                                    "Position"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Weight Vote",
+                                        "name": "Governance Project Project Contributor Smidy13 Tentacule23",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "c2f4b7f6-31f4-4322-bc86-894795f7da63",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 24842.112436860618,
+                                                "y": 42254.5176550376
+                                            },
+                                            "targetPosition": {
+                                                "x": 24597.024871103855,
+                                                "y": 42631.91941061304
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position",
+                                                "name": "Project Contributor Smidy13 Tentacule23",
+                                                "id": "5a13709f-761a-410b-b0e9-1542e341f19e"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Software Projects",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Active Projects",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Governance Project",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Project Contributor Smidy13 Tentacule23",
+                                                    "Position"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "id": "31d58dc1-0acd-4683-823f-1961ace21df4",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 24597.024871103855,
+                                        "y": 42631.91941061304
+                                    },
+                                    "targetPosition": {
+                                        "x": 24573.47369079453,
+                                        "y": 43081.30270125259
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position Class",
+                                        "name": "Governance Project",
+                                        "id": "68dd2990-457e-48df-b752-6e1fd02081a3"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Software Projects",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Active Projects",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Governance Project",
+                                            "Position Class"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Weight Votes Switch",
+                                "name": "Visual Scripting Project",
+                                "config": "{}",
+                                "project": "Governance",
+                                "weightVotesSwitch": [],
+                                "poolWeightVotes": [],
+                                "assetWeightVotes": [],
+                                "featureWeightVotes": [],
+                                "positionWeightVotes": [
+                                    {
+                                        "type": "Position Weight Vote",
+                                        "name": "Visual Scripting Project Project Creator Luis-Fernando-Molina",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "7a4f217d-be5c-4eb1-9ae3-d4ed00fb4a13",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 25046.946509728084,
+                                                "y": 42352.21849605829
+                                            },
+                                            "targetPosition": {
+                                                "x": 24907.88886225936,
+                                                "y": 42780.193928391105
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position",
+                                                "name": "Project Creator Luis-Fernando-Molina",
+                                                "id": "f1a2b5fb-fbe6-4c59-9778-568d3acb4abe"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Software Projects",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Active Projects",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Visual Scripting Project",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Project Creator Luis-Fernando-Molina",
+                                                    "Position"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Weight Vote",
+                                        "name": "Visual Scripting Project 1 Project Contributor Tentacle23",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "5d72e9b0-6c64-45f0-aef3-2a72183d4187",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 25348.055282589572,
+                                                "y": 42686.633667523114
+                                            },
+                                            "targetPosition": {
+                                                "x": 24907.88886225936,
+                                                "y": 42780.193928391105
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position",
+                                                "name": "1 Project Contributor Tentacle23",
+                                                "id": "e897f662-4c6c-43df-b42b-f350e6f2d8a5"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Software Projects",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Active Projects",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Visual Scripting Project",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "1 Project Contributor Tentacle23",
+                                                    "Position"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "id": "61af0a63-beca-4b33-a62b-53b4f0642a9d",
                                 "savedPayload": {
                                     "position": {
                                         "x": 24907.88886225936,
@@ -595,11 +895,275 @@
                                     },
                                     "uiObject": {
                                         "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position Class",
+                                        "name": "Visual Scripting Project",
+                                        "id": "0a5a7864-efff-4715-a435-f4bf35d1517e"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Software Projects",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Active Projects",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Visual Scripting Project",
+                                            "Position Class"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Weight Votes Switch",
+                                "name": "Education Project",
+                                "config": "{}",
+                                "project": "Governance",
+                                "weightVotesSwitch": [],
+                                "poolWeightVotes": [],
+                                "assetWeightVotes": [],
+                                "featureWeightVotes": [],
+                                "positionWeightVotes": [
+                                    {
+                                        "type": "Position Weight Vote",
+                                        "name": "Education Project Project Creator Luis-Fernando-Molina",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "4af2d1b5-edf9-4534-9d74-23fad351947e",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 25357.272152898917,
+                                                "y": 42803.74510870043
+                                            },
+                                            "targetPosition": {
+                                                "x": 25022.856981434088,
+                                                "y": 43104.85388156192
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position",
+                                                "name": "Project Creator Luis-Fernando-Molina",
+                                                "id": "03d477da-ec71-471f-a330-696aa188b31f"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Software Projects",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Active Projects",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Education Project",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Project Creator Luis-Fernando-Molina",
+                                                    "Position"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Weight Vote",
+                                        "name": "Education Project Project Leader Harrell harrellbm",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "e80bc3d5-3991-4133-9050-2bbfd2664ece",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 25472.240272073646,
+                                                "y": 43128.40506187124
+                                            },
+                                            "targetPosition": {
+                                                "x": 25022.856981434088,
+                                                "y": 43104.85388156192
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position",
+                                                "name": "Project Leader Harrell harrellbm",
+                                                "id": "5e9d7e8f-895b-4e9e-b8a5-c6571b8e2932"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Software Projects",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Active Projects",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Education Project",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Project Leader Harrell harrellbm",
+                                                    "Position"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Weight Vote",
+                                        "name": "Education Project Team Member",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "92fb5460-faf3-48b6-807e-632c0c36d7ab",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 25323.965754295576,
+                                                "y": 43439.26905302674
+                                            },
+                                            "targetPosition": {
+                                                "x": 25022.856981434088,
+                                                "y": 43104.85388156192
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position",
+                                                "name": "Team Member",
+                                                "id": "70d8cddf-50a6-4ce0-b9ff-d27dcf12be4e"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Software Projects",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Active Projects",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Education Project",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Team Member",
+                                                    "Position"
+                                                ]
+                                            ]
+                                        }
                                     }
+                                ],
+                                "id": "eae7858b-35f2-405f-a252-5422ebc9d3bd",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 25022.856981434088,
+                                        "y": 43104.85388156192
+                                    },
+                                    "targetPosition": {
+                                        "x": 24573.47369079453,
+                                        "y": 43081.30270125259
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position Class",
+                                        "name": "Education Project",
+                                        "id": "21bdec2e-d471-4b64-a3e0-6e2b31c5adcc"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Software Projects",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Active Projects",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Education Project",
+                                            "Position Class"
+                                        ]
+                                    ]
                                 }
                             }
                         ],
-                        "weightVotesSwitch": [],
                         "userProfileVotesSwitch": [],
                         "id": "fb7f7b7e-a2fb-421f-8158-faa5006f4636",
                         "savedPayload": {

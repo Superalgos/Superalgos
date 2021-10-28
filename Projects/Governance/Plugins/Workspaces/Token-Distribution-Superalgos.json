@@ -1615,7 +1615,7 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Luis-Fernando-Molina",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Luis-Fernando-Molina\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":false}",
+                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Luis-Fernando-Molina\",\n    \"folderName\": \"User-Profiles\",\n    \"nodeType\": \"User Profile\",\n    \"saveWithWorkspace\": false\n}",
                                 "project": "Community-Plugins",
                                 "id": "7f114a31-f462-462d-a653-a50065ab9266",
                                 "savedPayload": {
@@ -2326,7 +2326,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": true,
+                                "isCollapsed": false,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -2729,7 +2729,7 @@
             "githubAPI": {
                 "type": "Github API",
                 "name": "New Github API",
-                "config": "{\n    \"username\": \"Luis-Fernando-Molina\",\n    \"token\": \"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\"\n}",
+                "config": "{\n    \"username\": \"\",\n    \"token\": \"\"\n}",
                 "project": "Foundations",
                 "id": "ca62704e-f59c-491a-bfe0-896f26dc65bb",
                 "savedPayload": {
@@ -2795,7 +2795,7 @@
                 "floatingObject": {
                     "isPinned": true,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

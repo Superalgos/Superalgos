@@ -314,12 +314,12 @@
                                             "id": "85b2746d-f1e6-4ddd-909c-5719ba7e15f3",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 21585.69509568475,
-                                                    "y": 44110.58057080155
+                                                    "x": 22310.426292108616,
+                                                    "y": 44456.9336263956
                                                 },
                                                 "targetPosition": {
-                                                    "x": 21670.899699095928,
-                                                    "y": 44398.226491262
+                                                    "x": 22127.797863406,
+                                                    "y": 44694.93962848297
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -344,12 +344,12 @@
                                             "id": "2bc02096-7ec1-425c-92d7-35f7b7791c99",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 21702.258238076225,
-                                                    "y": 44099.86992265152
+                                                    "x": 22387.60548454133,
+                                                    "y": 44544.93962848297
                                                 },
                                                 "targetPosition": {
-                                                    "x": 21670.899699095928,
-                                                    "y": 44398.226491262
+                                                    "x": 22127.797863406,
+                                                    "y": 44694.93962848297
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -366,7 +366,7 @@
                                         },
                                         {
                                             "type": "Position",
-                                            "name": "1 Project Contributor Alexandru",
+                                            "name": "2 Project Contributors Alexandru cozed-gh(Carl)",
                                             "config": "{}",
                                             "project": "Governance",
                                             "positions": [],
@@ -374,12 +374,12 @@
                                             "id": "96ef6745-3340-4f59-a174-41deedf4f074",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 21814.047327173812,
-                                                    "y": 44134.58135746341
+                                                    "x": 22425.23132181814,
+                                                    "y": 44655.78177081695
                                                 },
                                                 "targetPosition": {
-                                                    "x": 21670.899699095928,
-                                                    "y": 44398.226491262
+                                                    "x": 22127.797863406,
+                                                    "y": 44694.93962848297
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -790,7 +790,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": false,
+                            "isCollapsed": true,
                             "angleToParent": 1,
                             "distanceToParent": 3,
                             "arrangementStyle": 0

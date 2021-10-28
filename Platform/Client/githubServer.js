@@ -775,6 +775,7 @@ exports.newGithubServer = function newGithubServer() {
                     }
 
                 } catch (err) {
+                    if (err === undefined) { return }
                     console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> err.stack = ' + err.stack)
                 }
             }

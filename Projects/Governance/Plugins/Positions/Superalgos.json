@@ -41,12 +41,12 @@
                                             "id": "b555c1fb-e0d3-445f-b46d-9428818b5fe5",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 21084.18505019774,
-                                                    "y": 44483.40182263783
+                                                    "x": 21714.027354895126,
+                                                    "y": 44270.342310317435
                                                 },
                                                 "targetPosition": {
-                                                    "x": 21375.89602631704,
-                                                    "y": 44553.435431794605
+                                                    "x": 21828.83238460465,
+                                                    "y": 44547.506170070825
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -63,7 +63,7 @@
                                         },
                                         {
                                             "type": "Position",
-                                            "name": "Project Contributor Smidy13",
+                                            "name": "Project Contributor Smidy13 Tentacule23",
                                             "config": "{}",
                                             "project": "Governance",
                                             "positions": [],
@@ -71,12 +71,12 @@
                                             "id": "5a13709f-761a-410b-b0e9-1542e341f19e",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 21158.283715013356,
-                                                    "y": 44346.92905908648
+                                                    "x": 21867.990242270665,
+                                                    "y": 44250.07271165868
                                                 },
                                                 "targetPosition": {
-                                                    "x": 21375.89602631704,
-                                                    "y": 44553.435431794605
+                                                    "x": 21828.83238460465,
+                                                    "y": 44547.506170070825
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -132,12 +132,12 @@
                                             "id": "03d477da-ec71-471f-a330-696aa188b31f",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 21187.09990900209,
-                                                    "y": 44320.291643357516
+                                                    "x": 21906.47809813541,
+                                                    "y": 44257.728422184104
                                                 },
                                                 "targetPosition": {
-                                                    "x": 21450.745042800678,
-                                                    "y": 44463.439271435396
+                                                    "x": 21945.635955801423,
+                                                    "y": 44555.16188059625
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -162,12 +162,12 @@
                                             "id": "5e9d7e8f-895b-4e9e-b8a5-c6571b8e2932",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 21261.948925485725,
-                                                    "y": 44230.29548299831
+                                                    "x": 22023.28166933218,
+                                                    "y": 44265.38413270953
                                                 },
                                                 "targetPosition": {
-                                                    "x": 21450.745042800678,
-                                                    "y": 44463.439271435396
+                                                    "x": 21945.635955801423,
+                                                    "y": 44555.16188059625
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -184,7 +184,7 @@
                                         },
                                         {
                                             "type": "Position",
-                                            "name": "1 Team Member Tentacle23",
+                                            "name": "Team Member",
                                             "config": "{}",
                                             "project": "Governance",
                                             "positions": [],
@@ -192,12 +192,12 @@
                                             "id": "70d8cddf-50a6-4ce0-b9ff-d27dcf12be4e",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 21365.5404393895,
-                                                    "y": 44175.79335097494
+                                                    "x": 22128.26438450404,
+                                                    "y": 44317.15587850888
                                                 },
                                                 "targetPosition": {
-                                                    "x": 21450.745042800678,
-                                                    "y": 44463.439271435396
+                                                    "x": 21945.635955801423,
+                                                    "y": 44555.16188059625
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -766,7 +766,7 @@
                                 "floatingObject": {
                                     "isPinned": false,
                                     "isFrozen": false,
-                                    "isCollapsed": true,
+                                    "isCollapsed": false,
                                     "angleToParent": 2,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
@@ -790,7 +790,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 1,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -2367,7 +2367,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 1,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -3673,7 +3673,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": false,
+                            "isCollapsed": true,
                             "angleToParent": 1,
                             "distanceToParent": 3,
                             "arrangementStyle": 0

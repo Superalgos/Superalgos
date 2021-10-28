@@ -181,6 +181,7 @@ function newGovernanceReportsCommmandInterface() {
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                     UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Message - Contribute User Profile Done')
                 } else {
+                    if (data.docs === undefined) {return}
                     UI.projects.education.spaces.docsSpace.navigateTo(
                         data.docs.project,
                         data.docs.category,

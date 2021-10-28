@@ -19,6 +19,7 @@ function newUiObject() {
         conditionEditor: undefined,
         formulaEditor: undefined,
         uiObjectTitle: undefined,
+        icon: undefined,
         uiObjectMessage: undefined,
         circularProgressBar: undefined,
         isLoading: undefined,
@@ -271,6 +272,10 @@ function newUiObject() {
         /* Load UI Object Image */
 
         iconPhysics()
+
+        if (thisObject.icon === undefined) {
+            console.log('[ERROR] uiObject -> initialize -> err = Icon not found, Project: "' + thisObject.payload.node.project + '", Type: "' + thisObject.payload.node.type + '"')
+        }
 
         selfFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
         selfNotFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
@@ -1318,6 +1323,7 @@ function newUiObject() {
             }
         }
 
+        thisObject.icon = icon
         executingIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', 'bitcoin')
     }
 

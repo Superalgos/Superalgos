@@ -1165,12 +1165,12 @@
                                             "id": "e8eedc0b-4bae-4dc8-ba0c-40032ffcb335",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 22199.117516856226,
-                                                    "y": 45197.89764263749
+                                                    "x": 22230.545738044108,
+                                                    "y": 45286.648201421456
                                                 },
                                                 "targetPosition": {
-                                                    "x": 21925.053879563446,
-                                                    "y": 45319.91863556023
+                                                    "x": 21940.767990157387,
+                                                    "y": 45364.29391495221
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -1190,8 +1190,8 @@
                                     "id": "be501c00-014a-431f-920e-ec3cd2398e90",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 21925.053879563446,
-                                            "y": 45319.91863556023
+                                            "x": 21940.767990157387,
+                                            "y": 45364.29391495221
                                         },
                                         "targetPosition": {
                                             "x": 21650.990242270665,
@@ -1226,12 +1226,12 @@
                                             "id": "7a2f9c42-6eb2-40f2-a540-563ffeb2f30f",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 22244.023382917178,
-                                                    "y": 45488.612348855415
+                                                    "x": 22200.57561129272,
+                                                    "y": 45669.58534201373
                                                 },
                                                 "targetPosition": {
-                                                    "x": 21944.434522490807,
-                                                    "y": 45504.3131357283
+                                                    "x": 21910.797863406,
+                                                    "y": 45591.93962848297
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -1256,12 +1256,12 @@
                                             "id": "ff6c7dfa-caca-4a7c-9f98-6560e124b082",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 22211.736479747316,
-                                                    "y": 45640.51028565016
+                                                    "x": 22122.929897761962,
+                                                    "y": 45804.071662838935
                                                 },
                                                 "targetPosition": {
-                                                    "x": 21944.434522490807,
-                                                    "y": 45504.3131357283
+                                                    "x": 21910.797863406,
+                                                    "y": 45591.93962848297
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -1281,8 +1281,8 @@
                                     "id": "20b27683-75ab-40d8-a5d8-12f6dc41cf6c",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 21944.434522490807,
-                                            "y": 45504.3131357283
+                                            "x": 21910.797863406,
+                                            "y": 45591.93962848297
                                         },
                                         "targetPosition": {
                                             "x": 21650.990242270665,
@@ -1317,12 +1317,12 @@
                                             "id": "390c3a42-ccf1-4085-92fd-50d6aba1cd71",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 22122.50500948328,
-                                                    "y": 45794.03640516868
+                                                    "x": 21911.26438450404,
+                                                    "y": 45969.72337845706
                                                 },
                                                 "targetPosition": {
-                                                    "x": 21851.729424178324,
-                                                    "y": 45664.88307612619
+                                                    "x": 21728.635955801423,
+                                                    "y": 45731.71737636969
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -1347,12 +1347,12 @@
                                             "id": "dba40c20-334a-4feb-aed4-cb9cfeba9412",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 22052.468606085982,
-                                                    "y": 45887.826523769414
+                                                    "x": 21806.28166933218,
+                                                    "y": 46021.49512425641
                                                 },
                                                 "targetPosition": {
-                                                    "x": 21851.729424178324,
-                                                    "y": 45664.88307612619
+                                                    "x": 21728.635955801423,
+                                                    "y": 45731.71737636969
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -1377,12 +1377,12 @@
                                             "id": "bf66de3e-a8bf-4c20-bb12-c0a64dfb7df5",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 21951.871481948456,
-                                                    "y": 45947.67552345384
+                                                    "x": 21689.47809813541,
+                                                    "y": 46029.15083478184
                                                 },
                                                 "targetPosition": {
-                                                    "x": 21851.729424178324,
-                                                    "y": 45664.88307612619
+                                                    "x": 21728.635955801423,
+                                                    "y": 45731.71737636969
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -1402,129 +1402,8 @@
                                     "id": "50541550-ad5d-479e-b7fd-dfcd11a60d23",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 21851.729424178324,
-                                            "y": 45664.88307612619
-                                        },
-                                        "targetPosition": {
-                                            "x": 21650.990242270665,
-                                            "y": 45441.93962848297
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position Class",
-                                    "name": "Thomas Data Science on Superalgos Team",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Creator Thomas Raplh2502",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "f8e11b4d-6f30-419c-9ef6-9c65cd8130f2",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 21825.496409328847,
-                                                    "y": 46003.94133089205
-                                                },
-                                                "targetPosition": {
-                                                    "x": 21682.348781250963,
-                                                    "y": 45740.296197093456
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Leader",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "76dde4ad-f653-46af-ad85-3f5bc365c291",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 21713.70732023126,
-                                                    "y": 46038.65276570394
-                                                },
-                                                "targetPosition": {
-                                                    "x": 21682.348781250963,
-                                                    "y": 45740.296197093456
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Member",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "ab9693cc-ae4a-4073-a9c3-abd74d787a28",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 21597.144177839786,
-                                                    "y": 46027.94211755391
-                                                },
-                                                "targetPosition": {
-                                                    "x": 21682.348781250963,
-                                                    "y": 45740.296197093456
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "f10705c4-500e-43a0-9ad2-52697859e878",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 21682.348781250963,
-                                            "y": 45740.296197093456
+                                            "x": 21728.635955801423,
+                                            "y": 45731.71737636969
                                         },
                                         "targetPosition": {
                                             "x": 21650.990242270665,

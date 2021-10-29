@@ -316,7 +316,7 @@ exports.newGithubServer = function newGithubServer() {
                                     owner: owner,
                                     repo: repo,
                                     issue_number: pullRequest.number,
-                                    body: 'This Pull Request was automatically merged by the Superalgos Governance System because it was detected that the Github User " ' + githubUsername + '" who submitted it, modified its own User Profile Plugin File and nothning else but that file. All validations were successfull.'
+                                    body: 'This Pull Request was automatically merged by the Superalgos Governance System because it was detected that the Github User " ' + githubUsername + '" who submitted it, modified its own User Profile Plugin File and nothing else but that file. All validations were successful.'
                                 });
                             }
 

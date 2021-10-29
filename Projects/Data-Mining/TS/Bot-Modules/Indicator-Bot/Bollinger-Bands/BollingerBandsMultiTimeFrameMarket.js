@@ -42,7 +42,7 @@
                     function timeframesLoop() {
                         try {
                             /*
-                            We will iterate through all posible time frames.
+                            We will iterate through all possible time frames.
                             */
                             n = 0   // loop Variable representing each possible period as defined at the Time Frame Array.
                             loopBody()
@@ -177,7 +177,7 @@
                                                         let numberOfPreviousPeriods;
                                                         let currentPosition = pBArray.length;
 
-                                                        if (currentPosition < numberOfPeriodsPB) { // Avoinding to get into negative array indexes
+                                                        if (currentPosition < numberOfPeriodsPB) { // Avoiding to get into negative array indexes
                                                             numberOfPreviousPeriods = currentPosition;
                                                         } else {
                                                             numberOfPreviousPeriods = numberOfPeriodsPB;

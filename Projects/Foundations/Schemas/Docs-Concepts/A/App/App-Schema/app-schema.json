@@ -7,7 +7,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The App Schema file is an array of objects, each objec defines a certain node type.",
+            "text": "The App Schema file is an array of objects, each object defines a certain node type.",
             "updated": 1614785082978
         },
         {
@@ -43,7 +43,7 @@
         },
         {
             "style": "Text",
-            "text": "It is an integer from 0 to 5, representing the importance of this type of node. 0 is the most important. The more important the node type, the bigger is rendered at the Design Space. The difference between level is barely noticable.",
+            "text": "It is an integer from 0 to 5, representing the importance of this type of node. 0 is the most important. The more important the node type, the bigger is rendered at the Design Space. The difference between level is barely noticeable.",
             "updated": 1614785595122
         },
         {
@@ -94,7 +94,7 @@
         },
         {
             "style": "List",
-            "text": "autoAdd: optional, menas if one instance of this children will be automatically created when this Node type is created."
+            "text": "autoAdd: optional, means if one instance of this children will be automatically created when this Node type is created."
         },
         {
             "style": "Text",
@@ -115,7 +115,7 @@
         },
         {
             "style": "Text",
-            "text": "This property defines to which nodes the current one being defined can attach to, considering those nodes as possible parents. The values are expresed in a string with a list of Node Types like in the following example:"
+            "text": "This property defines to which nodes the current one being defined can attach to, considering those nodes as possible parents. The values are expressed in a string with a list of Node Types like in the following example:"
         },
         {
             "style": "Json",
@@ -133,7 +133,7 @@
         },
         {
             "style": "Text",
-            "text": "This property defines to which nodes the current one being defined can reference to, considering those nodes as possible reference parents. The values are expresed in a string with a list of Node Types like in the following example:",
+            "text": "This property defines to which nodes the current one being defined can reference to, considering those nodes as possible reference parents. The values are expressed in a string with a list of Node Types like in the following example:",
             "updated": 1614786699311
         },
         {
@@ -161,7 +161,7 @@
         },
         {
             "style": "Text",
-            "text": "Although you are free to add any menu item you like, there are a few that have already become standarized. These standard Menu Items are also placed at a certain position within the menu for consistency.",
+            "text": "Although you are free to add any menu item you like, there are a few that have already become standardized. These standard Menu Items are also placed at a certain position within the menu for consistency.",
             "updated": 1614787035329
         },
         {

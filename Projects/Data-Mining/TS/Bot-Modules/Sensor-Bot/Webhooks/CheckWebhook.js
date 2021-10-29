@@ -45,7 +45,7 @@ exports.newDataMiningBotModulesCheckWebhook = function (processIndex) {
 
                     if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                            "[ERROR] start -> getContextVariables -> Can not continue because dependency Status Report is corrupt. ");
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
@@ -111,7 +111,7 @@ exports.newDataMiningBotModulesCheckWebhook = function (processIndex) {
                             let messages = Buffer.concat(chunks).toString('utf8')
 
                             if (fileContent !== undefined) {
-                                // we are going to append the curernt messages to the existing file.
+                                // we are going to append the current messages to the existing file.
                                 let fileContentArray = JSON.parse(fileContent)
                                 let messagesArray = JSON.parse(messages)
 

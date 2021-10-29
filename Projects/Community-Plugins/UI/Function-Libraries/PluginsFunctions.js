@@ -132,7 +132,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         }
     }
 
-    function addMissingPluginTradingSystems(node, rootNodes) {
+    function addMissingPluginPortfolioSystems(node, rootNodes) {
         let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -148,7 +148,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         }
     }
 
-    function addMissingPluginTradingEngines(node, rootNodes) {
+    function addMissingPluginPortfolioEngines(node, rootNodes) {
         let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {

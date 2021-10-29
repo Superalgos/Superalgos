@@ -15,7 +15,12 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
         addMissingProjectDataProducts: addMissingProjectDataProducts,
         addMissingProjectTradingProducts: addMissingProjectTradingProducts,
         addMissingProjectLearningProducts: addMissingProjectLearningProducts,
-        createSessionReference: createSessionReference
+        createSessionReference: createSessionReference,
+        addAllPortfolioMineProducts: addAllPortfolioMineProducts,
+        addMissingPortfolioSessionReferences: addMissingPortfolioSessionReferences,
+        addMissingMarketPortfolioProducts: addMissingMarketPortfolioProducts,
+        addMissingExchangePortfolioProducts: addMissingExchangePortfolioProducts,
+        addMissingProjectPortfolioProducts: addMissingProjectPortfolioProducts,
     }
 
     return thisObject
@@ -45,6 +50,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
         scanBotArray(mine.apiDataFetcherBots)
         scanBotArray(mine.indicatorBots)
         scanBotArray(mine.tradingBots)
+        scanBotArray(mine.portfolioBots)
         scanBotArray(mine.learningBots)
 
         function scanBotArray(botArray) {
@@ -92,6 +98,17 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
         }
     }
 
+    function addAllPortfolioMineProducts(node, rootNodes) {
+        for (let i = 0; i < rootNodes.length; i++) {
+            let rootNode = rootNodes[i]
+
+            if (rootNode.type === 'Portfolio Mine') {
+                let portfolioMineProducts = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Portfolio Mine Products')
+                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(portfolioMineProducts, rootNode)
+            }
+        }
+    }
+
     function addAllLearningMineProducts(node, rootNodes) {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
@@ -125,6 +142,27 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
                 if (node.payload.referenceParent.id !== marketTradingTasks.payload.referenceParent.id) { continue }
                 if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, session, true) === true) {
                     createSessionReference(node, session, 'Trading Session Reference')
+                }
+            }
+        }
+    }
+
+    function addMissingPortfolioSessionReferences(node, rootNodes) {
+        let lanNetworkNode = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(node, 'LAN Network Node', undefined, true, false, true, false)
+        if (lanNetworkNode === undefined) { return }
+
+        let livePortfolioSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Live Portfolio Session')
+
+        addMissingSession(livePortfolioSessionsArray)
+
+        function addMissingSession(sessionsArray) {
+            for (let i = 0; i < sessionsArray.length; i++) {
+                let session = sessionsArray[i]
+                /* We will filter out all the sessions that does not belong to the market we are in */
+                let marketPortfolioTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Portfolio Tasks', undefined, true, false, true, false)
+                if (node.payload.referenceParent.id !== marketPortfolioTasks.payload.referenceParent.id) { continue }
+                if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, session, true) === true) {
+                    createSessionReference(node, session, 'Portfolio Session Reference')
                 }
             }
         }
@@ -166,6 +204,10 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
         addMissingMarketProducts(node, rootNodes, 'Market Trading Products')
     }
 
+    function addMissingMarketPortfolioProducts(node, rootNodes) {
+        addMissingMarketProducts(node, rootNodes, 'Market Portfolio Products')
+    }
+
     function addMissingMarketLearningProducts(node, rootNodes) {
         addMissingMarketProducts(node, rootNodes, 'Market Learning Products')
     }
@@ -190,6 +232,10 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
 
     function addMissingExchangeTradingProducts(node, rootNodes) {
         addMissingExchange(node, rootNodes, 'Exchange Trading Products')
+    }
+
+    function addMissingExchangePortfolioProducts(node, rootNodes) {
+        addMissingExchange(node, rootNodes, 'Exchange Portfolio Products')
     }
 
     function addMissingExchangeLearningProducts(node, rootNodes) {
@@ -222,6 +268,10 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
 
     function addMissingProjectTradingProducts(node, rootNodes) {
         addMissingProject(node, rootNodes, 'Project Trading Products')
+    }
+
+    function addMissingProjectPortfolioProducts(node, rootNodes) {
+        addMissingProject(node, rootNodes, 'Project Portfolio Products')
     }
 
     function addMissingProjectLearningProducts(node, rootNodes) {

@@ -6,6 +6,9 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         addMissingPluginTradingMines: addMissingPluginTradingMines,
         addMissingPluginTradingSystems: addMissingPluginTradingSystems,
         addMissingPluginTradingEngines: addMissingPluginTradingEngines,
+        addMissingPluginPortfolioMines: addMissingPluginPortfolioMines,
+        addMissingPluginPortfolioSystems: addMissingPluginPortfolioSystems,
+        addMissingPluginPortfolioEngines: addMissingPluginPortfolioEngines,
         addMissingPluginLearningMines: addMissingPluginLearningMines,
         addMissingPluginLearningSystems: addMissingPluginLearningSystems,
         addMissingPluginLearningEngines: addMissingPluginLearningEngines,
@@ -110,6 +113,54 @@ function newPluginsFunctionLibraryPluginsFunctions() {
 
         function onNamesArrived(fileNames) {
             UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Trading-Engines', 'Trading Engine', 'Algorithmic-Trading')
+        }
+    }
+
+    function addMissingPluginPortfolioMines(node, rootNodes) {
+        let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
+        if (projectName === "" || projectName === undefined) {
+            if (node.payload.parentNode !== undefined) {
+                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                return
+            }
+        }
+
+        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Portfolio-Mines', onNamesArrived)
+
+        function onNamesArrived(fileNames) {
+            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Portfolio-Mines', 'Portfolio Mine', 'Portfolio-Management')
+        }
+    }
+
+    function addMissingPluginTradingSystems(node, rootNodes) {
+        let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
+        if (projectName === "" || projectName === undefined) {
+            if (node.payload.parentNode !== undefined) {
+                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                return
+            }
+        }
+
+        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Portfolio-Systems', onNamesArrived)
+
+        function onNamesArrived(fileNames) {
+            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Portfolio-Systems', 'Portfolio System', 'Portfolio-Management')
+        }
+    }
+
+    function addMissingPluginTradingEngines(node, rootNodes) {
+        let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
+        if (projectName === "" || projectName === undefined) {
+            if (node.payload.parentNode !== undefined) {
+                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                return
+            }
+        }
+
+        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Portfolio-Engines', onNamesArrived)
+
+        function onNamesArrived(fileNames) {
+            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Portfolio-Engines', 'Portfolio Engine', 'Portfolio-Management')
         }
     }
 

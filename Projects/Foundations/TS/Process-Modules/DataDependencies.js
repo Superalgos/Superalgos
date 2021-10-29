@@ -48,7 +48,7 @@
             /* Basic Valdidations */
             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies !== undefined) {
                 /* 
-                First we will get all the data dependencies of the bot, as defined at the Trading Mine.
+                First we will get all the data dependencies of the bot, as defined at the Trading|Portfolio Mine.
                 */
                 thisObject.curatedDependencyNodeArray = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
                 if (thisObject.curatedDependencyNodeArray.length === 0) {
@@ -59,7 +59,7 @@
                 /* 
                 We will filter out declared dependencies that are not present in the workspace.
                 This will allow the user to have less Data Mines loaded at the workspace
-                that the ones that a Trading Mine depends on.
+                that the ones that a Trading|Portfolio Mine depends on.
                 */
                 thisObject.curatedDependencyNodeArray = TS.projects.visualScripting.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(thisObject.curatedDependencyNodeArray)
 
@@ -127,7 +127,7 @@
             let alreadyCalledBack = false
 
             /* 
-            The current curatedDependencyNodeArray that we have includes all the dependencies daclared in the Data Mine | Trading Mine | Learning Mine
+            The current curatedDependencyNodeArray that we have includes all the dependencies daclared in the Data Mine | Trading Mine | Portfolio Mine | Learning Mine
             process dependencies, minus the ones without reference parent, meaning that references Data Mines that are
             not present at the workspace. From all the remaining dependencies there will be others that we need to 
             filter out, and they are the ones which the user does not have a data product anywhere on the network where

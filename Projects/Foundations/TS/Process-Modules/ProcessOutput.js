@@ -15,7 +15,7 @@
 
     function raiseEvents(lastFile, timeFrames, callBackFunction) {
         try {
-            /* We will reaise the events for the datasets impacted by the process that just finished. */
+            /* We will raise the events for the datasets impacted by the process that just finished. */
 
             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput !== undefined) {
                 let outputDatasets = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
@@ -26,6 +26,9 @@
                     let botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Indicator Bot')
                     if (botNode === undefined) { 
                         botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Trading Bot')
+                    }
+                    if (botNode === undefined) {
+                        botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Portfolio Bot')
                     }
                     if (botNode === undefined) { 
                         botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Sensor Bot')
@@ -63,7 +66,7 @@
                                         return
                                     }
                                 } else {
-                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine or Trading Mine. Bot = " + JSON.stringify(botNode));
+                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine, Trading Mine or Portfolio Mine. Bot = " + JSON.stringify(botNode));
                                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                     return
                                 }
@@ -121,6 +124,9 @@
                 if (botNode === undefined) { 
                     botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Trading Bot')
                 }
+                if (botNode === undefined) {
+                    botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Portfolio Bot')
+                }
                 if (botNode === undefined) { 
                     botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Sensor Bot')
                 }
@@ -153,7 +159,7 @@
                                     throw (TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                 }
                             } else {
-                                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine | Trading Mine | Learning Mine. Bot = " + JSON.stringify(botNode));
+                                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine | Trading Mine | Portfolio Mine | Learning Mine. Bot = " + JSON.stringify(botNode));
                                 throw (TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                             }
                         } else {

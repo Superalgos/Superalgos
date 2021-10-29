@@ -3,7 +3,7 @@
     "pageNumber": "5",
     "type": "Gov Message - Not All Payments Were Sent",
     "definition": {
-        "text": "The update pay run but no all the payments were sent. You need to check the process output to fix it and proably run it again.",
+        "text": "The update pay run but no all the payments were sent. You need to check the process output to fix it and probably run it again.",
         "updated": 1615458687718,
         "translations": [
         ]

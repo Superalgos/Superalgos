@@ -122,7 +122,7 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
             if (programNode === undefined || programNode.payload === undefined) { return }
             /*
             Here we will convert Liquidity Tokens into Liquidity Power. 
-            As per system rules Liquidity Powar = userProfile.payload.liquidityTokens
+            As per system rules Liquidity Power = userProfile.payload.liquidityTokens
             */
             let programPower = userProfile.payload.liquidityTokens[asset]
             programNode.payload.liquidityProgram.ownPower = programPower

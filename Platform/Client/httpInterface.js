@@ -1,3 +1,4 @@
+const {graphql} = require("@octokit/graphql");
 exports.newHttpInterface = function newHttpInterface() {
 
     /*
@@ -1324,7 +1325,13 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 const title = 'Contribution: ' + mess
                                                 const path = 'Projects/Governance/Plugins/User-Profiles/' + username + '.json' ;
 
-                                                const sha = await getSHA(path, octokit);
+                                                const sha = await getSHA(path);
+
+                                                if (sha === undefined){
+                                                    console.log('***** Abort GOV.USERPROFILE *****')
+                                                    return
+                                                }
+
                                                 let file = await SA.projects.communityPlugins.utilities.plugins.getPluginFileContent(
                                                     'Governance',
                                                     'User-Profiles',
@@ -1384,35 +1391,60 @@ exports.newHttpInterface = function newHttpInterface() {
                                                     }
 
                                                 }
+
+
                                             }
 
-                                            async function getSHA(path, octokit) {
+                                            async function getSHA(path) {
                                                 let sha = ''
+                                                const { graphql } = SA.nodeModules.graphql
+
                                                 try{
-                                                    const result = await octokit.repos.getContent({
-                                                        owner: username,
-                                                        repo: "Superalgos",
-                                                        path,
-                                                        ref: currentBranch
-                                                    });
-                                                    sha = result.data.sha
+
+                                                    const { repository } = await graphql(
+                                                      '{  ' +
+                                                        '  repository(name: "SuperAlgos", owner: "' + username + '") {' +
+                                                        '    object(expression: "develop:' + path +'") {' +
+                                                        '      ... on Blob {' +
+                                                        '        oid' +
+                                                        '      }' +
+                                                        '    }' +
+                                                        '    name' +
+                                                        '  }' +
+                                                        '}',
+                                                            {
+                                                                headers: {
+                                                                    authorization: 'token ' + token
+                                                                },
+                                                            }
+                                                        )
+
+                                                    if (repository.name === undefined){
+                                                        console.log('***** Token permission needed : User:READ *****')
+                                                        sha = undefined
+                                                        error = '***** Token permission needed : User:READ *****'
+                                                        return sha
+                                                    }
+
+                                                    if(repository.object === null ){
+                                                        console.log("[User Not Found] -> Creating new user")
+                                                        return sha
+                                                    }
+                                                    sha = repository.object.oid
                                                     return sha
 
                                                 } catch (err) {
-                                                    if (err.message === 'Not Found') {
-                                                        console.log("[User Not Found] -> Creating new user")
-                                                        return sha
-                                                    } else {
-                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
-                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
-                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
-                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
-                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
-                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
-                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
-                                                        return sha
-                                                    }
+
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                                    return sha
+
                                                 }
                                             }
 

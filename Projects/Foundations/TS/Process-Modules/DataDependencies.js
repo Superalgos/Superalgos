@@ -1,19 +1,19 @@
 ﻿exports.newFoundationsProcessModulesDataDependencies = function (processIndex) {
     /*
-    This module mantains a curated array of Data Dependency nodes, 
+    This module maintains a curated array of Data Dependency nodes,
     which is not exactly the ones listed at the Process Dependencies,
-    but a smaller subset based on the circunstances found at the user's
+    but a smaller subset based on the circumstances found at the user's
     workspace. For example:
     
     1. Dependencies without a Reference Parent are filtered out.
     2. Dependencies which don't have a Data Set are filtered out. 
 
-    It also mantains an array of Data Set Modules, which are the
+    It also maintains an array of Data Set Modules, which are the
     one's that ultimately know how to load a file based on the 
     network configuration found at the workspace at the moment this
     Task was launched.
 
-    Finally it mantains a Filter map, that allows the users of this module
+    Finally it maintains a Filter map, that allows the users of this module
     to filter out data dependencies based on the code written by users
     at the Javascript Code and Formula nodes.
     */
@@ -45,7 +45,7 @@
 
     function initialize(callBackFunction) {
         try {
-            /* Basic Valdidations */
+            /* Basic Validations */
             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies !== undefined) {
                 /* 
                 First we will get all the data dependencies of the bot, as defined at the Trading Mine.
@@ -127,12 +127,12 @@
             let alreadyCalledBack = false
 
             /* 
-            The current curatedDependencyNodeArray that we have includes all the dependencies daclared in the Data Mine | Trading Mine | Learning Mine
+            The current curatedDependencyNodeArray that we have includes all the dependencies declared in the Data Mine | Trading Mine | Learning Mine
             process dependencies, minus the ones without reference parent, meaning that references Data Mines that are
             not present at the workspace. From all the remaining dependencies there will be others that we need to 
             filter out, and they are the ones which the user does not have a data product anywhere on the network where
             this task is running, that is storing the data associated to this dependency. The way we use to filter this
-            out is by analizyng the response of the initialization call to the DataSet module. If it did not fail but
+            out is by analyzing the response of the initialization call to the DataSet module. If it did not fail but
             it was not initialized, then we will assume this happened because the data could not be located and we will
             assume the user did this on purpose and we will filter out this dependency by not putting it on this new array.
             */
@@ -181,7 +181,7 @@
 
                     if (receivedDependencyFilters !== undefined) {
                         /*
-                        If we received a Dependency Filter from the UI, we will make these excta checks
+                        If we received a Dependency Filter from the UI, we will make these exact checks
                         before instantiating a Data Set Module.
                         */
                         if (dataDependency.referenceParent === undefined) {

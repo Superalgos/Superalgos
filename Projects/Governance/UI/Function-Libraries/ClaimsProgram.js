@@ -275,9 +275,9 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                 ) {
                     /*
                     We will use the concept of Vote Reward Claims Ratio for the situation in which the 
-                    total votes in claims exeeds the amount of votes of the reward. When this happens 
-                    the Votes Rewards Claims Ratio will be used to redude the amount of tokens awarded 
-                    proportionally to how much was exeeded.
+                    total votes in claims exceeds the amount of votes of the reward. When this happens
+                    the Votes Rewards Claims Ratio will be used to reduce the amount of tokens awarded
+                    proportionally to how much was exceeded.
                     */
                     let votesRatio = node.payload.referenceParent.payload.votingProgram.votes / node.payload.referenceParent.payload.claimsProgram.votes
                     if (votesRatio > 1) { votesRatio = 1 }

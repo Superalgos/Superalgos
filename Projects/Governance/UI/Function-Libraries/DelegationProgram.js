@@ -144,7 +144,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                 }
                 /*
                 If there is a reference parent defined, this means that the delegate power is 
-                transfered to it and not distributed among children.
+                transferred to it and not distributed among children.
                 */
                 if (
                     node.payload.referenceParent !== undefined &&

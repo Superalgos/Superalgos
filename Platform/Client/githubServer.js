@@ -378,7 +378,7 @@ exports.newGithubServer = function newGithubServer() {
                                 fileName = splittedFileName[0]
                                 githubUsername = pullRequest.user.login
 
-                                if (githubUsername !== fileName) {
+                                if (githubUsername.toLowerCase() !== fileName.toLowerCase()) {
                                     console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the File Name. -> Github Username = ' + githubUsername + '-> fileName = ' + fileName)
 
                                     await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)

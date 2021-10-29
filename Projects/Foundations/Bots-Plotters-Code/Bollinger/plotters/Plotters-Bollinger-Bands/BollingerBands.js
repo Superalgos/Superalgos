@@ -48,7 +48,7 @@
 
     /* these are module specific variables: */
 
-    let bands = [];                   // Here we keep the bands to be ploted every time the Draw() function is called by the AAWebPlatform.
+    let bands = [];                   // Here we keep the bands to be plotted every time the Draw() function is called by the AAWebPlatform.
 
     let onMouseOverEventSuscriptionId
     let zoomChangedEventSubscriptionId
@@ -65,7 +65,7 @@
     function finalize() {
         try {
 
-            /* Stop listening to the necesary events. */
+            /* Stop listening to the necessary events. */
             thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
             UI.projects.foundations.spaces.chartingSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
             UI.projects.foundations.spaces.chartingSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
@@ -74,7 +74,7 @@
             marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId);
             dailyFiles.eventHandler.stopListening(dailyFilesUpdatedEventSubscriptionId);
 
-            /* Destroyd References */
+            /* Destroyed References */
 
             marketFiles = undefined;
             dailyFiles = undefined;
@@ -119,7 +119,7 @@
             marketFile = marketFiles.getFile(pTimeFrame);
             fileCursor = dailyFiles.getFileCursor(pTimeFrame);
 
-            /* Listen to the necesary events. */
+            /* Listen to the necessary events. */
 
             zoomChangedEventSubscriptionId = UI.projects.foundations.spaces.chartingSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
             offsetChangedEventSubscriptionId = UI.projects.foundations.spaces.chartingSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
@@ -385,7 +385,7 @@
                 currentDate = new Date(currentDate.valueOf() + ONE_DAY_IN_MILISECONDS);
             }
 
-            /* Lests check if all the visible screen is going to be covered by bands. */
+            /* Lets check if all the visible screen is going to be covered by bands. */
 
             let lowerEnd = leftDate.valueOf();
             let upperEnd = rightDate.valueOf();
@@ -587,7 +587,7 @@
 
                     if (userPositionDate >= band.begin && userPositionDate <= band.end) {
                         /* highlight the current band */
-                        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.05)'; // Current band accroding to time
+                        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.05)'; // Current band according to time
                     }
 
                     if (
@@ -603,7 +603,7 @@
 
 
 
-                    /* Next we are drawing the outter bands lines */
+                    /* Next we are drawing the outer bands lines */
 
                     browserCanvasContext.beginPath();
 
@@ -620,7 +620,7 @@
 
                         /* highlight the current band */
 
-                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current band accroding to time
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current band according to time
 
                         let currentBand = {
                             bodyWidth: bandPoint3.x - bandPoint2.x,
@@ -658,7 +658,7 @@
 
                     if (userPositionDate >= band.begin && userPositionDate <= band.end) {
                         /* highlight the current band */
-                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current band accroding to time
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current band according to time
                     }
 
                     browserCanvasContext.lineWidth = 0.2;

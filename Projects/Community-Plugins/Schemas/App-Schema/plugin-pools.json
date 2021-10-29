@@ -1,13 +1,13 @@
 {
-    "type": "Plugin Positions",
+    "type": "Plugin Pools",
     "menuItems": [
         {
-            "action": "Add Missing Plugin Positions",
-            "label": "Add Missing Positions",
+            "action": "Add Missing Plugin Pools",
+            "label": "Add Missing Pools",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
-            "relatedUiObject": "Positions",
+            "relatedUiObject": "Pools",
             "actionFunction": "payload.executeAction",
             "actionProject": "Governance",
             "relatedUiObjectProject": "Governance"
@@ -25,7 +25,8 @@
     ],
     "addLeftIcons": true,
     "level": 1,
-    "propertyNameAtParent": "pluginPositions",
+    "propertyNameAtParent": "pluginPools",
+    "alternativeIcons": "Use Reference Parent Parent",
     "attachingRules": {
         "compatibleTypes": "->Plugin Project->"
     },

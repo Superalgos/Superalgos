@@ -1,7 +1,7 @@
 {
     "type": "API Response Schema",
     "definition": {
-        "text": "This node represents the map for the API response. APIs send ther data using a JSON object. The children of this node will map this JSON object so that the API Fetcher Bot knows how to extract the data you want.",
+        "text": "This node represents the map for the API response. APIs send their data using a JSON object. The children of this node will map this JSON object so that the API Fetcher Bot knows how to extract the data you want.",
         "updated": 1622863829380
     },
     "paragraphs": [
@@ -50,7 +50,7 @@
         },
         {
             "style": "Text",
-            "text": "In many cases it will be necessary to make several queries to the API Server in order to fetch all the data (think of pagination). Each page of data arrives at a certain location within the reponse data structure. That location is what we considered the Data Root.",
+            "text": "In many cases it will be necessary to make several queries to the API Server in order to fetch all the data (think of pagination). Each page of data arrives at a certain location within the response data structure. That location is what we considered the Data Root.",
             "updated": 1622864086051
         },
         {

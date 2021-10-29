@@ -107,7 +107,7 @@ function newGovernanceFunctionLibraryAirdropProgram() {
             ) {
                 node.payload.airdropProgram.isActive = false
                 userProfile.payload.uiObject.setErrorMessage(
-                    "Waiting for blockchain balance. It takes 1 minute to load the balance of each profile, bacause you are using a free API provided by BSC Scan.",
+                    "Waiting for blockchain balance. It takes 1 minute to load the balance of each profile, because you are using a free API provided by BSC Scan.",
                     UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
                     )
                 return
@@ -136,7 +136,7 @@ function newGovernanceFunctionLibraryAirdropProgram() {
             if (programNode === undefined || programNode.payload === undefined) { return }
             /*
             Here we will convert Token Power into Airdrop Power. 
-            As per system rules Airdrop Powar = 1000 SA Tokens.
+            As per system rules Airdrop Power = 1000 SA Tokens.
             */
             let programPower = 1000
             programNode.payload.airdropProgram.ownPower = programPower

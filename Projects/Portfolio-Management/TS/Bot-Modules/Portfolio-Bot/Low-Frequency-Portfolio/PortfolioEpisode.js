@@ -82,7 +82,7 @@ exports.newPortfolioManagementBotModulesPortfolioEpisode = function (processInde
     }
 
     function resetEpisode() {
-        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(portfolioEngine.portfolioCurrent.learningEpisode)
+        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_ENGINE_MODULE_OBJECT.initializeNode(portfolioEngine.portfolioCurrent.learningEpisode)
     }
 
     function updateEnds() {

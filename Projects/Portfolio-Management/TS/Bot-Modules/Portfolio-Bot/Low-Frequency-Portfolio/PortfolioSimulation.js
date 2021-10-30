@@ -47,7 +47,7 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
             let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
             let candles = chart[propertyName].candles
 
-            if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
+            if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_PROCESSING_DAILY_FILES) {
                 /*
                 We need to purge from the candles array all the candles from the previous day 
                 that comes when processing daily files.
@@ -132,7 +132,7 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                     '[INFO] runSimulation -> loop -> Candle End @ ' + (new Date(candle.end)).toUTCString())
 
-                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCandle(candle) // We move the current candle we are standing at, to the portfolio engine data structure to make it available to anyone, including conditions and formulas.
+                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_ENGINE_MODULE_OBJECT.setCurrentCandle(candle) // We move the current candle we are standing at, to the portfolio engine data structure to make it available to anyone, including conditions and formulas.
 
                 /* We emit a heart beat so that the UI can now where we are at the overal process.*/
                 heartBeat()
@@ -162,7 +162,7 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
                 */
                 portfolioSystemModuleObject.mantain()
                 portfolioEpisodeModuleObject.mantain()
-                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.mantain()
+                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_ENGINE_MODULE_OBJECT.mantain()
 
                 /* 
                 Run the first cycle of the Portfolio System. In this first cycle we
@@ -171,7 +171,7 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
                 orders can not be created, since otherwise the could be cancelled at
                 the second cycle without spending real time at the order book.
                 */
-                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCycle('First')
+                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_ENGINE_MODULE_OBJECT.setCurrentCycle('First')
                 await runCycle()
 
                 /* 
@@ -195,7 +195,7 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
                 without the need to wait until the next candle. Orders can not be cancelled
                 during the second cycle.
                 */
-                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCycle('Second')
+                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_ENGINE_MODULE_OBJECT.setCurrentCycle('Second')
                 await runCycle()
 
                 checkIfWeNeedToStopAfterBothCycles()
@@ -209,7 +209,7 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
                     /* Reset Data Structures */
                     portfolioSystemModuleObject.reset()
                     portfolioEpisodeModuleObject.reset()
-                    TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.reset()
+                    TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_ENGINE_MODULE_OBJECT.reset()
 
                     let infoMessage = 'Processing candle # ' + portfolioEngine.portfolioCurrent.portfolioEpisode.candle.index.value + ' @ the ' + portfolioEngine.portfolioCurrent.portfolioEpisode.cycle.value + ' cycle.'
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -376,7 +376,7 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
                     dataDependencies = TS.projects.visualScripting.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(dataDependencies)
 
                     /* Finding the Current Element on Daily Files */
-                    if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
+                    if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_PROCESSING_DAILY_FILES) {
                         for (let j = 0; j < TS.projects.foundations.globals.timeFrames.dailyTimeFramesArray().length; j++) {
                             let mapKey = TS.projects.foundations.globals.timeFrames.dailyTimeFramesArray()[j][1]
                             let propertyName = 'at' + mapKey.replace('-', '')
@@ -495,7 +495,7 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
                     */
                     let candlesPerDay = SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
                     if (
-                        TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES &&
+                        TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_PROCESSING_DAILY_FILES &&
                         portfolioEngine.portfolioCurrent.portfolioEpisode.candle.index.value + 1 + 1 === candlesPerDay
                     ) {
                         /*

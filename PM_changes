@@ -46,15 +46,51 @@ Projects/Foundations/UI/Function-Libraries/
 	ActionSwitch.js:
 		cp case statements run-all, stop-all, add-missing, references, products, etc.
 		Line 506 && 512 may not need to have been cloned but I did for now - regarding live and paper trading.
+	
 
 Skipping:
-	Projects/Foundations/UI/Function-Libraries/ChartingSpaceFunctions.js
+	Projects/Foundatoins/UI/Function-Libraries/ChartingSpaceFunctions.js
 	Projects/Foundations/UI/Function-Libraries/CryptoEcosystemFunctions.js
 
 Projects/Foundations/UI/Function-Libraries/
 	DataStorageFunctions.js:
 		Many things cloned.  But on line 156 only did 'addMissingSession(livePortfolioSessionArray) not back|forward|paper
+	TaskFunctions.js:
+		run/stop | addMissing - Portfolio Tasks. Project|Exchange|Market|Mine
+		Line 148 - Only cloned 'Live Portfolio Session->'
+		Line 198 - Only cloned 'Production Portfolio Tasks->'
 
 Skipping:
-	Projects/Foundations/UI/Function-Libraries - Appears 'tradingSystem' var here is just a parameter so no need change.
+	Projects/Foundations/UI/Function-Libraries/DependenciesFilter.js:
+		Appears 'tradingSystem' var here is just a parameter so no need change.
+
+Projects/Foundations/UI/Spaces/
+	/Charting-Space/PlottersManager.js:
+	/Plotting/RecordValues.js:
+	/Design-Space/Workspace.js:
+	/Floating-Space/FloatingSpace.js:
+	/Panel-Space/Layer.js: Line 173 Only 'Live Portfolio Session'
+
+Projects/Visual-Scripting/UI/Function-Libraries/
+	ActionsSwitch.js:  *** NOTE: Not sure how to handle line 14 at the current moment. ***
+
+Skipping:
+	Projects/Foundations/UI/Spaces/Floating-Space/ConditionEditor.js
+
+Skipping:
+	Projects/Governance/UI/Function-Libraries/ActionSwitch.js:
+	Projects/Machine-Learning/TS/Bot-Modules/Learning-Bot/LearningSession.js:
+	Projects/Machine-Learning/TS/Bot-Modules/Learning-Bot/Low-Frequency-Learning/LearningOutput.js:
+	Projects/Machine-Learning/*
+	Projects/Network/*
+	node_modules, */My-Workspaces, */My-Log-Files, *.json, .gitignore, desktop.js, Environment.js, README.md, run.js, setup.js, Tested-Exchanges, CODEOWNERS, DesktopApp.js, WebApp.js, Projects/Social-Bots/*, Projects/Social-Trading/*, Projects/Governance/*
+	
+
+
+----- Changes made inside Portfolio-Management (Clone of Algorithmic-Trading) -----
+References to trading changed to portfolio regardless of capitalization:
+	   Examples:
+		find ./ -type f -exec sed -i 's/trading/portfolio/g' {} \;
+		find ./ -type f -exec sed -i 's/Trading/Portfolio/g' {} \;
+		find ./ -type f -exec sed -i 's/TRADING/PORTFOLIO/g' {} \;
 

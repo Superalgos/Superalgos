@@ -50,6 +50,19 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         addMissingMarketLearningTasks: addMissingMarketLearningTasks,
         addMissingLearningMineTasks: addMissingLearningMineTasks,
 
+        runAllProjectPortfolioTasks: runAllProjectPortfolioTasks,
+        stopAllProjectPortfolioTasks: stopAllProjectPortfolioTasks,
+        runAllExchangePortfolioTasks: runAllExchangePortfolioTasks,
+        stopAllExchangePortfolioTasks: stopAllExchangePortfolioTasks,
+        runAllMarketPortfolioTasks: runAllMarketPortfolioTasks,
+        stopAllMarketPortfolioTasks: stopAllMarketPortfolioTasks,
+        runAllPortfolioMineTasks: runAllPortfolioMineTasks,
+        stopAllPortfolioMineTasks: stopAllPortfolioMineTasks,
+        addMissingProjectPortfolioTasks: addMissingProjectPortfolioTasks,
+        addMissingExchangePortfolioTasks: addMissingExchangePortfolioTasks,
+        addMissingMarketPortfolioTasks: addMissingMarketPortfolioTasks,
+        addMissingPortfolioMineTasks: addMissingPortfolioMineTasks,
+
         addAllTasks: addAllTasks
     }
 
@@ -64,7 +77,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
 
         let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
-        /* First we setup everything so as to listen to the response from the Task Manger */
+        /* First we setup everything so as to listen to the response from the Task Manager */
         let eventSubscriptionIdOnStatus
         let key = 'Task Client - ' + node.id
         eventsServerClient.listenToEvent(key, 'Task Status', undefined, node.id, onResponse, onStatus)
@@ -120,18 +133,19 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             'API Data Fetcher Bot Instance->' +
             'Indicator Bot Instance->' +
             'Trading Bot Instance->' +
+            'Portfolio Bot Instance->' +
             'Learning Bot Instance->' +
-            'Sensor Process Instance->Time Frames Filter->API Data Fetcher Process Instance->Indicator Process Instance->Trading Process Instance->Learning Process Instance->' +
+            'Sensor Process Instance->Time Frames Filter->API Data Fetcher Process Instance->Indicator Process Instance->Trading Process Instance->Portfolio Process Instance->Learning Process Instance->' +
             'Execution Started Event->' +
             'Key Reference->Exchange Account Key->' +
             'Task Manager->' +
-            'Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->' +
-            'Market Data Tasks->Market Trading Tasks->Market Learning Tasks->' +
-            'Exchange Data Tasks->Exchange Trading Tasks->Exchange Learning Tasks->' +
+            'Data Mine Tasks->Trading Mine Tasks->Portfolio Mine Tasks->Learning Mine Tasks->' +
+            'Market Data Tasks->Market Trading Tasks->Market Portfolio Tasks->Market Learning Tasks->' +
+            'Exchange Data Tasks->Exchange Trading Tasks->Exchange Portfolio Tasks->Exchange Learning Tasks->' +
             'Market->Exchange Markets->Crypto Exchange->' +
             'Market Base Asset->Market Quoted Asset->Asset->' +
-            'Project Data Tasks->Project Trading Tasks->Project Learning Tasks->Project Definition->' +
-            'Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->' +
+            'Project Data Tasks->Project Trading Tasks->Project Portfolio Tasks->Project Learning Tasks->Project Definition->' +
+            'Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->Live Portfolio Session->' +
             'Back Learning Session->Live Learning Session->' +
             'Process Definition->' +
             'Process Output->' +
@@ -160,9 +174,10 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             'API Data Fetcher Bot->' +
             'Indicator Bot->' +
             'Trading Bot->' +
+            'Portfolio Bot->' +
             'Learning Bot->' +
             'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
-            'Data Mine->Trading Mine->Learning Mine->' +
+            'Data Mine->Trading Mine->Portfolio Mine->Learning Mine->' +
             'API Map Reference->' +
             'API Map->API Version->API Endpoint->API Query Parameters->API Query Parameter->API Path Parameters->API Path Parameter->API Query Responses->API Query Response->API Response Schema->' +
             'API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->'
@@ -171,24 +186,24 @@ function newFoundationsFunctionLibraryTaskFunctions() {
 
         let networkLightingPath = '->LAN Network->LAN Network Node->' +
             'Data Storage->' +
-            'Data Mines Data->Trading Mines Data->Learning Mines Data->' +
-            'Project Data Products->Project Trading Products->Project Learning Products->' +
-            'Exchange Data Products->Exchange Trading Products->Exchange Learning Products->' +
-            'Market Data Products->Market Trading Products->Market Learning Products->' +
+            'Data Mines Data->Trading Mines Data->Portfolio Mines Data->Learning Mines Data->' +
+            'Project Data Products->Project Trading Products->Project Portfolio Products->Project Learning Products->' +
+            'Exchange Data Products->Exchange Trading Products->Exchange Portfolio Products->Exchange Learning Products->' +
+            'Market Data Products->Market Trading Products->Market Portfolio Products->Market Learning Products->' +
             'Market->Market Base Asset->Market Quoted Asset->Asset->' +
             'Exchange Markets->Crypto Exchange->' +
             'Data Mine Products->Bot Products->' +
             'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
             'Data Product->Product Definition->' +
-            'Data Tasks->Learning Tasks->Testing Trading Tasks->Production Trading Tasks->' +
-            'Project Data Tasks->Project Trading Tasks->Project Learning Tasks->' +
-            'Exchange Data Tasks->Exchange Trading Tasks->Exchange Learning Tasks->Crypto Exchange->' +
-            'Market Data Tasks->Market Trading Tasks->Market Learning Tasks->Market->' +
-            'Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->' +
+            'Data Tasks->Learning Tasks->Testing Trading Tasks->Production Trading Tasks->Production Portfolio Tasks->' +
+            'Project Data Tasks->Project Trading Tasks->Project Portfolio Tasks->Project Learning Tasks->' +
+            'Exchange Data Tasks->Exchange Trading Tasks->Exchange Portfolio Tasks->Exchange Learning Tasks->Crypto Exchange->' +
+            'Market Data Tasks->Market Trading Tasks->Market Portfolio Tasks->Market Learning Tasks->Market->' +
+            'Data Mine Tasks->Trading Mine Tasks->Portfolio Mine Tasks->Learning Mine Tasks->' +
             'Task Manager->Task->' +
-            'Indicator Bot Instance->Sensor Bot Instance->API Data Fetcher Bot Instance->Trading Bot Instance->Learning Bot Instance->' +
-            'Indicator Process Instance->Sensor Process Instance->API Data Fetcher Process Instance->Trading Process Instance->Learning Process Instance->' +
-            'Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->Back Learning Session->Live Learning Session->' +
+            'Indicator Bot Instance->Sensor Bot Instance->API Data Fetcher Bot Instance->Trading Bot Instance->Portfolio Bot Instance->Learning Bot Instance->' +
+            'Indicator Process Instance->Sensor Process Instance->API Data Fetcher Process Instance->Trading Process Instance->Portfolio Process Instance->Learning Process Instance->' +
+            'Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->Live Portfolio Session->Back Learning Session->Live Learning Session->' +
             'API Map Reference->' +
             'Market->' +
             'Process Definition->'
@@ -296,7 +311,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         }
 
         if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
-            node.payload.uiObject.setErrorMessage('Task needs to be inside a Data Tasks, Learning Tasks, Testing or Production Trading Tasks node.')
+            node.payload.uiObject.setErrorMessage('Task needs to be inside a Data Tasks, Learning Tasks, Portfolio Tasks, Testing or Production Trading Tasks node.')
             return
         }
 
@@ -403,6 +418,26 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         }
     }
 
+    function runAllProjectPortfolioTasks(parent) {
+        for (let i = 0; i < parent.projectPortfolioTasks.length; i++) {
+            let node = parent.projectPortfolioTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Run All Exchange Portfolio Tasks')
+            menu.internalClick('Run All Exchange Portfolio Tasks')
+        }
+    }
+
+    function stopAllProjectPortfolioTasks(parent) {
+        for (let i = 0; i < parent.projectPortfolioTasks.length; i++) {
+            let node = parent.projectPortfolioTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Stop All Exchange Portfolio Tasks')
+            menu.internalClick('Stop All Exchange Portfolio Tasks')
+        }
+    }
+
     function runAllProjectLearningTasks(parent) {
         for (let i = 0; i < parent.projectLearningTasks.length; i++) {
             let node = parent.projectLearningTasks[i]
@@ -463,6 +498,26 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         }
     }
 
+    function runAllExchangePortfolioTasks(parent) {
+        for (let i = 0; i < parent.exchangePortfolioTasks.length; i++) {
+            let node = parent.exchangePortfolioTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Run All Market Portfolio Tasks')
+            menu.internalClick('Run All Market Portfolio Tasks')
+        }
+    }
+
+    function stopAllExchangePortfolioTasks(parent) {
+        for (let i = 0; i < parent.exchangePortfolioTasks.length; i++) {
+            let node = parent.exchangePortfolioTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Stop All Market Portfolio Tasks')
+            menu.internalClick('Stop All Market Portfolio Tasks')
+        }
+    }
+
     function runAllExchangeLearningTasks(parent) {
         for (let i = 0; i < parent.exchangeLearningTasks.length; i++) {
             let node = parent.exchangeLearningTasks[i]
@@ -513,6 +568,16 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         }
     }
 
+    function runAllMarketPortfolioTasks(parent) {
+        for (let i = 0; i < parent.marketPortfolioTasks.length; i++) {
+            let node = parent.marketPortfolioTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Run All Portfolio Mine Tasks')
+            menu.internalClick('Run All Portfolio Mine Tasks')
+        }
+    }
+
     function runAllMarketLearningTasks(parent) {
         for (let i = 0; i < parent.marketLearningTasks.length; i++) {
             let node = parent.marketLearningTasks[i]
@@ -530,6 +595,16 @@ function newFoundationsFunctionLibraryTaskFunctions() {
 
             menu.internalClick('Stop All Trading Mine Tasks')
             menu.internalClick('Stop All Trading Mine Tasks')
+        }
+    }
+
+    function stopAllMarketPortfolioTasks(parent) {
+        for (let i = 0; i < parent.marketPortfolioTasks.length; i++) {
+            let node = parent.marketPortfolioTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Stop All Portfolio Mine Tasks')
+            menu.internalClick('Stop All Portfolio Mine Tasks')
         }
     }
 
@@ -573,6 +648,16 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         }
     }
 
+    function runAllPortfolioMineTasks(parent) {
+        for (let i = 0; i < parent.portfolioMineTasks.length; i++) {
+            let node = parent.portfolioMineTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Run All Task Managers')
+            menu.internalClick('Run All Task Managers')
+        }
+    }
+
     function runAllLearningMineTasks(parent) {
         for (let i = 0; i < parent.learningMineTasks.length; i++) {
             let node = parent.learningMineTasks[i]
@@ -586,6 +671,16 @@ function newFoundationsFunctionLibraryTaskFunctions() {
     function stopAllTradingMineTasks(parent) {
         for (let i = 0; i < parent.tradingMineTasks.length; i++) {
             let node = parent.tradingMineTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Stop All Task Managers')
+            menu.internalClick('Stop All Task Managers')
+        }
+    }
+
+    function stopAllPortfolioMineTasks(parent) {
+        for (let i = 0; i < parent.portfolioMineTasks.length; i++) {
+            let node = parent.portfolioMineTasks[i]
             let menu = node.payload.uiObject.menu
 
             menu.internalClick('Stop All Task Managers')
@@ -609,6 +704,10 @@ function newFoundationsFunctionLibraryTaskFunctions() {
 
     function addMissingProjectTradingTasks(node, rootNodes) {
         addMissingProjectTasks(node, rootNodes, 'Project Trading Tasks', 'Trading Tasks')
+    }
+
+    function addMissingProjectPortfolioTasks(node, rootNodes) {
+        addMissingProjectTasks(node, rootNodes, 'Project Portfolio Tasks', 'Portfolio Tasks')
     }
 
     function addMissingProjectLearningTasks(node, rootNodes) {
@@ -647,6 +746,10 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         addMissingExchangeTasks(node, rootNodes, 'Exchange Trading Tasks')
     }
 
+    function addMissingExchangePortfolioTasks(node, rootNodes) {
+        addMissingExchangeTasks(node, rootNodes, 'Exchange Portfolio Tasks')
+    }
+
     function addMissingExchangeLearningTasks(node, rootNodes) {
         addMissingExchangeTasks(node, rootNodes, 'Exchange Learning Tasks')
     }
@@ -678,6 +781,10 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         addMissingMarketTasks(node, 'Market Trading Tasks')
     }
 
+    function addMissingMarketPortfolioTasks(node) {
+        addMissingMarketTasks(node, 'Market Portfolio Tasks')
+    }
+
     function addMissingMarketLearningTasks(node) {
         addMissingMarketTasks(node, 'Market Learning Tasks')
     }
@@ -705,6 +812,10 @@ function newFoundationsFunctionLibraryTaskFunctions() {
 
     function addMissingTradingMineTasks(node, rootNodes) {
         addMissingMineTasks(node, rootNodes, 'Trading Mine', 'Trading Mine Tasks')
+    }
+
+    function addMissingPortfolioMineTasks(node, rootNodes) {
+        addMissingMineTasks(node, rootNodes, 'Portfolio Mine', 'Portfolio Mine Tasks')
     }
 
     function addMissingLearningMineTasks(node, rootNodes) {
@@ -746,6 +857,10 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                 addTradingTasks()
                 break
             }
+            case 'Portfolio Mine Tasks': {
+                addPortfolioTasks()
+                break
+            }
         }
 
         function addDataTasks() {
@@ -770,6 +885,15 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             }
         }
 
+        function addPortfolioTasks() {
+            for (let i = 0; i < rootNodes.length; i++) {
+                let rootNode = rootNodes[i]
+                if (rootNode.type === 'Portfolio System') {
+                    addTasks(rootNode)
+                }
+            }
+        }
+
         function addTasks(systemNode) {
             let mine = node.payload.referenceParent
 
@@ -777,6 +901,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             addTasksForBotArray(mine.apiDataFetcherBots)
             addTasksForBotArray(mine.indicatorBots)
             addTasksForBotArray(mine.tradingBots)
+            addTasksForBotArray(mine.portfolioBots)
             addTasksForBotArray(mine.learningBots)
 
             function addTasksForBotArray(botsArray) {
@@ -818,6 +943,15 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                             let task = addTask(taskManager)
 
                             botInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Trading Bot Instance')
+                            botInstance.name = bot.name
+
+                            addProcessInstance(task, bot, botInstance)
+                            break
+                        }
+                        case 'Portfolio Bot': {
+                            let task = addTask(taskManager)
+
+                            botInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Portfolio Bot Instance')
                             botInstance.name = bot.name
 
                             addProcessInstance(task, bot, botInstance)
@@ -933,6 +1067,49 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                                 let tradingEngine = rootNode
                                                 UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(session.tradingEngineReference, tradingEngine)
                                                 UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(session.tradingSystemReference, systemNode)
+                                            }
+                                        }
+                                    }
+                                }
+                                case 'Portfolio Bot': {
+                                    processInstance = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Portfolio Process Instance')
+                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(processInstance, process)
+
+                                    if (node.payload.parentNode === undefined) { return }
+                                    if (node.payload.parentNode.payload === undefined) { return }
+                                    if (node.payload.parentNode.payload.parentNode === undefined) { return }
+                                    if (node.payload.parentNode.payload.parentNode.payload === undefined) { return }
+                                    if (node.payload.parentNode.payload.parentNode.payload.parentNode === undefined) { return }
+                                    if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) { return }
+
+                                    let environment = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+                                    let session
+
+                                    switch (environment.type) {
+                                        case 'Testing Portfolio Tasks': {
+                                            addSession('Backtesting Session')
+                                            break
+                                        }
+                                        case 'Production Portfolio Tasks': {
+                                            addSession('Live Portfolio Session')
+                                            break
+                                        }
+                                    }
+                                    break
+
+                                    function addSession(sessionType) {
+                                        session = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(processInstance, sessionType)
+                                        session.name = task.name
+                                        let config = JSON.parse(session.config)
+                                        config.folderName = session.name.split(" ").join("-")
+                                        session.config = JSON.stringify(config)
+
+                                        for (let m = 0; m < rootNodes.length; m++) {
+                                            let rootNode = rootNodes[m]
+                                            if (rootNode.type === 'Portfolio Engine' && rootNode.isPlugin === true) {
+                                                let portfolioEngine = rootNode
+                                                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(session.portfolioEngineReference, portfolioEngine)
+                                                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(session.portfolioSystemReference, systemNode)
                                             }
                                         }
                                     }

@@ -90,7 +90,7 @@ exports.newPortfolioManagementBotModulesPortfolioOrders = function (processIndex
                     if (portfolioSystemOrder.referenceParent === undefined) {
                         badDefinitionUnhandledException(undefined, 'Order Reference Missing', portfolioSystemOrder)
                     }
-                    let portfolioEngineOrder = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.getNodeById(portfolioSystemOrder.referenceParent.id)
+                    let portfolioEngineOrder = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_ENGINE_MODULE_OBJECT.getNodeById(portfolioSystemOrder.referenceParent.id)
 
                     if (portfolioEngineOrder.status === undefined) {
                         badDefinitionUnhandledException(undefined, 'Status Node Missing', portfolioEngineOrder)
@@ -114,7 +114,7 @@ exports.newPortfolioManagementBotModulesPortfolioOrders = function (processIndex
 
             let portfolioSystemOrder = orders[i]
             portfolioSystemValidations(portfolioSystemOrder)
-            let portfolioEngineOrder = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.getNodeById(portfolioSystemOrder.referenceParent.id)
+            let portfolioEngineOrder = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_ENGINE_MODULE_OBJECT.getNodeById(portfolioSystemOrder.referenceParent.id)
             portfolioEngineValidations(portfolioEngineOrder)
 
             switch (portfolioEngineOrder.status.value) {
@@ -199,11 +199,11 @@ exports.newPortfolioManagementBotModulesPortfolioOrders = function (processIndex
                     if (portfolioEngineOrder.status.value === 'Closed') {
                         switch (portfolioEngineOrder.type) {
                             case 'Market Order': {
-                                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(portfolioEngineOrder, portfolioEngine.portfolioLast.marketOrders)
+                                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_ENGINE_MODULE_OBJECT.cloneValues(portfolioEngineOrder, portfolioEngine.portfolioLast.marketOrders)
                                 break
                             }
                             case 'Limit Order': {
-                                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(portfolioEngineOrder, portfolioEngine.portfolioLast.limitOrders)
+                                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_ENGINE_MODULE_OBJECT.cloneValues(portfolioEngineOrder, portfolioEngine.portfolioLast.limitOrders)
                                 break
                             }
                         }
@@ -1293,7 +1293,7 @@ exports.newPortfolioManagementBotModulesPortfolioOrders = function (processIndex
     function resetPortfolioEngineDataStructure(portfolioEngineOrder, portfolioSystemOrder, stageStatus) {
         if (portfolioEngineOrder.status.value === 'Closed') {
             /* We reset the order data structure inside the Portfolio Engine to its initial value */
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(portfolioEngineOrder)
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_ENGINE_MODULE_OBJECT.initializeNode(portfolioEngineOrder)
             if (portfolioSystemOrder.config.spawnMultipleOrders !== true) {
                 /* 
                 We close the lock so as to prevent this data structure to be used again during this same stage execution.

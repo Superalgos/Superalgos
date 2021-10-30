@@ -127,12 +127,12 @@
             "id": "69b4f8d0-c9bb-4716-84fa-4fa392fe0ef1",
             "savedPayload": {
                 "position": {
-                    "x": 4861.764705882353,
-                    "y": 37550
+                    "x": 18097.058823529413,
+                    "y": 23150
                 },
                 "targetPosition": {
-                    "x": 4861.764705882353,
-                    "y": 38000
+                    "x": 18097.058823529413,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -790,12 +790,12 @@
                 "id": "b573ee60-8430-41a2-a952-6deac320aee1",
                 "savedPayload": {
                     "position": {
-                        "x": 18866.586739780658,
-                        "y": 26169.999999999993
+                        "x": 18547.058823529413,
+                        "y": 23150
                     },
                     "targetPosition": {
-                        "x": 18866.586739780658,
-                        "y": 26619.999999999993
+                        "x": 18547.058823529413,
+                        "y": 23600
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -1370,7 +1370,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Raplh2502",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "321f170c-2486-4cdd-9bad-923708d555b6"
                                 ]
                             ]
                         }
@@ -1515,15 +1517,15 @@
                 "id": "73623eba-8a71-4876-8b17-c71b19f2f47a",
                 "savedPayload": {
                     "position": {
-                        "x": 19693.644387249384,
-                        "y": 26438.496636468382
+                        "x": 18997.058823529413,
+                        "y": 23600
                     },
                     "targetPosition": {
-                        "x": 18866.586739780658,
-                        "y": 26619.999999999993
+                        "x": 18547.058823529413,
+                        "y": 23600
                     },
                     "floatingObject": {
-                        "isPinned": true,
+                        "isPinned": false,
                         "isFrozen": false,
                         "isCollapsed": true,
                         "angleToParent": 1,
@@ -1985,7 +1987,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Raplh2502",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "321f170c-2486-4cdd-9bad-923708d555b6"
                                 ]
                             ]
                         }
@@ -2335,15 +2339,15 @@
                 "id": "a56be34b-0153-4136-81f4-765bfff595dd",
                 "savedPayload": {
                     "position": {
-                        "x": 19328.586739780658,
-                        "y": 27238.999999999993
+                        "x": 18547.058823529413,
+                        "y": 24050
                     },
                     "targetPosition": {
-                        "x": 18866.586739780658,
-                        "y": 26619.999999999993
+                        "x": 18547.058823529413,
+                        "y": 23600
                     },
                     "floatingObject": {
-                        "isPinned": true,
+                        "isPinned": false,
                         "isFrozen": false,
                         "isCollapsed": true,
                         "angleToParent": 1,
@@ -2358,17 +2362,17 @@
             "id": "fd803f47-976b-4c5f-a1d2-e9c54b96d2d2",
             "savedPayload": {
                 "position": {
-                    "x": 5311.764705882353,
-                    "y": 38000
+                    "x": 18547.058823529413,
+                    "y": 23600
                 },
                 "targetPosition": {
-                    "x": 4861.764705882353,
-                    "y": 38000
+                    "x": 18097.058823529413,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 3,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -2399,207 +2403,443 @@
                         "weightVotesSwitch": [
                             {
                                 "type": "Weight Votes Switch",
-                                "name": "New Weight Votes Switch",
+                                "name": "Superalgos",
                                 "config": "{}",
                                 "project": "Governance",
-                                "weightVotesSwitch": [],
-                                "poolWeightVotes": [],
+                                "weightVotesSwitch": [
+                                    {
+                                        "type": "Weight Votes Switch",
+                                        "name": "Positions, Assets & Features",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "weightVotesSwitch": [],
+                                        "poolWeightVotes": [
+                                            {
+                                                "type": "Pool Weight Vote",
+                                                "name": "Positions Pool",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "a1928f31-662a-46e7-ab93-19769bcb7e4c",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 17707.34739182642,
+                                                        "y": 24725
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 18486.770255232415,
+                                                        "y": 24275
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 3,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 4
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Pool",
+                                                        "name": "Positions",
+                                                        "id": "a289d3a4-bd49-467b-b8d9-d0ba1152a131"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Pools",
+                                                            "Governance",
+                                                            "6f0aed87-db13-4818-bfe6-68abc463ebec"
+                                                        ],
+                                                        [
+                                                            "Positions, Assets & Features",
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "b27df32a-70f3-470b-b8bb-471c156b0c30"
+                                                        ],
+                                                        [
+                                                            "Positions",
+                                                            "Pool",
+                                                            "Governance",
+                                                            "a289d3a4-bd49-467b-b8d9-d0ba1152a131"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "assetWeightVotes": [],
+                                        "featureWeightVotes": [],
+                                        "positionWeightVotes": [],
+                                        "id": "a7da252e-ea26-435b-8d48-85cfc0208b9b",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 18486.770255232415,
+                                                "y": 24275
+                                            },
+                                            "targetPosition": {
+                                                "x": 19266.19311863841,
+                                                "y": 23825
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 4
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Pool Class",
+                                                "name": "Positions, Assets & Features",
+                                                "id": "b27df32a-70f3-470b-b8bb-471c156b0c30"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Pools",
+                                                    "Governance",
+                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
+                                                ],
+                                                [
+                                                    "Positions, Assets & Features",
+                                                    "Pool Class",
+                                                    "Governance",
+                                                    "b27df32a-70f3-470b-b8bb-471c156b0c30"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Weight Votes Switch",
+                                        "name": "New Weight Votes Switch",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "weightVotesSwitch": [
+                                            {
+                                                "type": "Weight Votes Switch",
+                                                "name": "New Weight Votes Switch",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "weightVotesSwitch": [],
+                                                "poolWeightVotes": [],
+                                                "assetWeightVotes": [],
+                                                "featureWeightVotes": [],
+                                                "positionWeightVotes": [],
+                                                "id": "301848c5-0b41-45e7-94d0-2aba15d5225f",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 18036.770255232415,
+                                                        "y": 24725
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 18816.19311863841,
+                                                        "y": 24275
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 3,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 4
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Pool Class",
+                                                        "name": "Community Building Programs",
+                                                        "id": "ef1d7fc5-c776-4af7-8ae6-86a3445dca4b"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Pools",
+                                                            "Governance",
+                                                            "6f0aed87-db13-4818-bfe6-68abc463ebec"
+                                                        ],
+                                                        [
+                                                            "Governance Programs",
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
+                                                        ],
+                                                        [
+                                                            "Community Building Programs",
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "ef1d7fc5-c776-4af7-8ae6-86a3445dca4b"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Weight Votes Switch",
+                                                "name": "New Weight Votes Switch",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "weightVotesSwitch": [],
+                                                "poolWeightVotes": [],
+                                                "assetWeightVotes": [],
+                                                "featureWeightVotes": [],
+                                                "positionWeightVotes": [],
+                                                "id": "11c42dc0-f204-4677-a985-5c9953c1c816",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 18556.385497503077,
+                                                        "y": 24725
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 18816.19311863841,
+                                                        "y": 24275
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 3,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 4
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Pool Class",
+                                                        "name": "Onboarding Programs",
+                                                        "id": "e6e1e943-9d14-40ea-9adf-b110a9309e3a"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Pools",
+                                                            "Governance",
+                                                            "6f0aed87-db13-4818-bfe6-68abc463ebec"
+                                                        ],
+                                                        [
+                                                            "Governance Programs",
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
+                                                        ],
+                                                        [
+                                                            "Onboarding Programs",
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "e6e1e943-9d14-40ea-9adf-b110a9309e3a"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "poolWeightVotes": [],
+                                        "assetWeightVotes": [],
+                                        "featureWeightVotes": [],
+                                        "positionWeightVotes": [],
+                                        "id": "21b97cc8-bc3f-45b1-b8af-343520580e2e",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 18816.19311863841,
+                                                "y": 24275
+                                            },
+                                            "targetPosition": {
+                                                "x": 19266.19311863841,
+                                                "y": 23825
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 4
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Pool Class",
+                                                "name": "Governance Programs",
+                                                "id": "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Pools",
+                                                    "Governance",
+                                                    "6f0aed87-db13-4818-bfe6-68abc463ebec"
+                                                ],
+                                                [
+                                                    "Governance Programs",
+                                                    "Pool Class",
+                                                    "Governance",
+                                                    "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "poolWeightVotes": [
+                                    {
+                                        "type": "Pool Weight Vote",
+                                        "name": "Positions, Assets & Features Pool Class",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "69138fef-c6b9-4b53-8955-b7ff57dcbd6f",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 19006.385497503077,
+                                                "y": 24275
+                                            },
+                                            "targetPosition": {
+                                                "x": 19266.19311863841,
+                                                "y": 23825
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 4
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Pool Class",
+                                                "name": "Positions, Assets & Features",
+                                                "id": "b27df32a-70f3-470b-b8bb-471c156b0c30"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Pools"
+                                                ],
+                                                [
+                                                    "Positions, Assets & Features",
+                                                    "Pool Class"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Pool Weight Vote",
+                                        "name": "Community Building Programs Pool Class",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "33700aa2-94a7-4f63-ae1a-b1a871a8434d",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 19145.615982044405,
+                                                "y": 24275
+                                            },
+                                            "targetPosition": {
+                                                "x": 19266.19311863841,
+                                                "y": 23825
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 4
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Pool Class",
+                                                "name": "Community Building Programs",
+                                                "id": "ef1d7fc5-c776-4af7-8ae6-86a3445dca4b"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Pools"
+                                                ],
+                                                [
+                                                    "Governance Programs",
+                                                    "Pool Class"
+                                                ],
+                                                [
+                                                    "Community Building Programs",
+                                                    "Pool Class"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Pool Weight Vote",
+                                        "name": "Onboarding Programs Pool Class",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "2afaf157-aa41-48cb-885d-7fb25b922ebc",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 19266.19311863841,
+                                                "y": 24275
+                                            },
+                                            "targetPosition": {
+                                                "x": 19266.19311863841,
+                                                "y": 23825
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 4
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Pool Class",
+                                                "name": "Onboarding Programs",
+                                                "id": "e6e1e943-9d14-40ea-9adf-b110a9309e3a"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Pools"
+                                                ],
+                                                [
+                                                    "Governance Programs",
+                                                    "Pool Class"
+                                                ],
+                                                [
+                                                    "Onboarding Programs",
+                                                    "Pool Class"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
                                 "assetWeightVotes": [],
                                 "featureWeightVotes": [],
                                 "positionWeightVotes": [],
-                                "id": "14e9baab-ed22-49a1-82c8-6db7396c5ead",
+                                "id": "28b7ac31-31b3-4710-8ca6-b2f15c525c27",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 18779.572142907404,
-                                        "y": 27143.429160024934
+                                        "x": 19266.19311863841,
+                                        "y": 23825
                                     },
                                     "targetPosition": {
-                                        "x": 19001.153887335153,
-                                        "y": 27182.499999999993
+                                        "x": 18876.48168693541,
+                                        "y": 24050
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
                                         "isCollapsed": false,
-                                        "angleToParent": 1,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Assets",
-                                        "name": "Superalgos-Marketing",
-                                        "id": "0a490128-61c8-49aa-96aa-769cc5513951"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Superalgos-Marketing",
-                                            "Assets"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "Weight Votes Switch",
-                                "name": "New Weight Votes Switch",
-                                "config": "{}",
-                                "project": "Governance",
-                                "weightVotesSwitch": [],
-                                "poolWeightVotes": [],
-                                "assetWeightVotes": [],
-                                "featureWeightVotes": [],
-                                "positionWeightVotes": [],
-                                "id": "80742283-b1fb-4566-90c3-c4365f9c23b4",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 18856.52667515568,
-                                        "y": 27010.140000298226
-                                    },
-                                    "targetPosition": {
-                                        "x": 19001.153887335153,
-                                        "y": 27182.499999999993
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 1,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Assets",
-                                        "name": "Superalgos-Root",
-                                        "id": "b5e57605-639d-467b-85ab-c1540d744b33"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Superalgos-Root",
-                                            "Assets"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "Weight Votes Switch",
-                                "name": "New Weight Votes Switch",
-                                "config": "{}",
-                                "project": "Governance",
-                                "weightVotesSwitch": [],
-                                "poolWeightVotes": [],
-                                "assetWeightVotes": [],
-                                "featureWeightVotes": [],
-                                "positionWeightVotes": [],
-                                "id": "246c8600-a0df-4f28-b7b7-104fdf9f0c76",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 19001.153887335153,
-                                        "y": 26957.499999999993
-                                    },
-                                    "targetPosition": {
-                                        "x": 19001.153887335153,
-                                        "y": 27182.499999999993
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 1,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Assets",
-                                        "name": "Superalgos-Exchanges",
-                                        "id": "2cefeb95-9fde-418b-a35b-6178a97cac9d"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Superalgos-Exchanges",
-                                            "Assets"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "Weight Votes Switch",
-                                "name": "New Weight Votes Switch",
-                                "config": "{}",
-                                "project": "Governance",
-                                "weightVotesSwitch": [],
-                                "poolWeightVotes": [],
-                                "assetWeightVotes": [],
-                                "featureWeightVotes": [],
-                                "positionWeightVotes": [],
-                                "id": "906192e8-d61f-4bf1-9758-464b4baa10b7",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 19145.781099514625,
-                                        "y": 27010.140000298226
-                                    },
-                                    "targetPosition": {
-                                        "x": 19001.153887335153,
-                                        "y": 27182.499999999993
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 1,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Assets",
-                                        "name": "Superalgos",
-                                        "id": "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Superalgos",
-                                            "Assets",
-                                            "Governance",
-                                            "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "Weight Votes Switch",
-                                "name": "New Weight Votes Switch",
-                                "config": "{}",
-                                "project": "Governance",
-                                "weightVotesSwitch": [],
-                                "poolWeightVotes": [],
-                                "assetWeightVotes": [],
-                                "featureWeightVotes": [],
-                                "positionWeightVotes": [],
-                                "id": "c7bb32f8-2988-4806-92c4-5568392c05ef",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 19222.735631762902,
-                                        "y": 27143.429160024934
-                                    },
-                                    "targetPosition": {
-                                        "x": 19001.153887335153,
-                                        "y": 27182.499999999993
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 1,
+                                        "angleToParent": 3,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
@@ -2620,163 +2860,25 @@
                                         ]
                                     ]
                                 }
-                            },
-                            {
-                                "type": "Weight Votes Switch",
-                                "name": "New Weight Votes Switch",
-                                "config": "{}",
-                                "project": "Governance",
-                                "weightVotesSwitch": [],
-                                "poolWeightVotes": [],
-                                "assetWeightVotes": [],
-                                "featureWeightVotes": [],
-                                "positionWeightVotes": [],
-                                "id": "dd937dd0-353d-494d-9881-f12c8b011ae3",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 19196.009603186652,
-                                        "y": 27294.999999999993
-                                    },
-                                    "targetPosition": {
-                                        "x": 19001.153887335153,
-                                        "y": 27182.499999999993
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 1,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Features",
-                                        "name": "Superalgos",
-                                        "id": "7c27de79-0ac7-4d48-81f0-5d7b6a4d93c6"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Superalgos",
-                                            "Features",
-                                            "Governance",
-                                            "7c27de79-0ac7-4d48-81f0-5d7b6a4d93c6"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "Weight Votes Switch",
-                                "name": "New Weight Votes Switch",
-                                "config": "{}",
-                                "project": "Governance",
-                                "weightVotesSwitch": [],
-                                "poolWeightVotes": [],
-                                "assetWeightVotes": [],
-                                "featureWeightVotes": [],
-                                "positionWeightVotes": [],
-                                "id": "341f4c15-8b92-40e3-81f0-629152cc3d37",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 19078.108419583426,
-                                        "y": 27393.930839676825
-                                    },
-                                    "targetPosition": {
-                                        "x": 19001.153887335153,
-                                        "y": 27182.499999999993
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 1,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Features",
-                                        "name": "Superalgos",
-                                        "id": "7c27de79-0ac7-4d48-81f0-5d7b6a4d93c6"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Superalgos",
-                                            "Features",
-                                            "Governance",
-                                            "7c27de79-0ac7-4d48-81f0-5d7b6a4d93c6"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "Weight Votes Switch",
-                                "name": "New Weight Votes Switch",
-                                "config": "{}",
-                                "project": "Governance",
-                                "weightVotesSwitch": [],
-                                "poolWeightVotes": [],
-                                "assetWeightVotes": [],
-                                "featureWeightVotes": [],
-                                "positionWeightVotes": [],
-                                "id": "c13c3fb5-8dd6-4747-aebd-a3b9b983a2e3",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 18924.19935508688,
-                                        "y": 27393.930839676825
-                                    },
-                                    "targetPosition": {
-                                        "x": 19001.153887335153,
-                                        "y": 27182.499999999993
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 1,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Positions",
-                                        "name": "Superalgos",
-                                        "id": "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Superalgos",
-                                            "Positions",
-                                            "Governance",
-                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                        ]
-                                    ]
-                                }
                             }
                         ],
                         "userProfileVotesSwitch": [],
-                        "id": "7547a0a2-7d39-42de-ad34-654607699a08",
+                        "id": "96eec446-8d93-45b8-8899-34f17a57ff7c",
                         "savedPayload": {
                             "position": {
-                                "x": 19001.153887335153,
-                                "y": 27182.499999999993
+                                "x": 18876.48168693541,
+                                "y": 24050
                             },
                             "targetPosition": {
-                                "x": 18806.298171483657,
-                                "y": 27294.999999999993
+                                "x": 18486.77025523241,
+                                "y": 24275
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": true,
+                                "isCollapsed": false,
                                 "angleToParent": 1,
-                                "distanceToParent": 2,
+                                "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
                             "uiObject": {
@@ -2792,12 +2894,12 @@
                     "id": "a3638201-6e21-4597-b32b-a383e56b2061",
                     "savedPayload": {
                         "position": {
-                            "x": 18806.298171483657,
-                            "y": 27744.999999999993
+                            "x": 18486.77025523241,
+                            "y": 24725
                         },
                         "targetPosition": {
-                            "x": 18806.298171483657,
-                            "y": 27294.999999999993
+                            "x": 18486.77025523241,
+                            "y": 24275
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -2815,17 +2917,17 @@
                 "id": "e1c97e30-7fca-46e3-bc12-f88bf6bdade2",
                 "savedPayload": {
                     "position": {
-                        "x": 5251.47613758535,
-                        "y": 38675
+                        "x": 18486.77025523241,
+                        "y": 24275
                     },
                     "targetPosition": {
-                        "x": 4861.764705882353,
-                        "y": 38450
+                        "x": 18097.058823529413,
+                        "y": 24050
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 1,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -2851,12 +2953,12 @@
                         "id": "44fa0f13-708b-4822-b4e6-2784cde4bb07",
                         "savedPayload": {
                             "position": {
-                                "x": 4806.468445644184,
-                                "y": 38976.10877286149
+                                "x": 18041.762563291242,
+                                "y": 24576.108772861488
                             },
                             "targetPosition": {
-                                "x": 4472.053274179356,
-                                "y": 38675
+                                "x": 17707.347391826414,
+                                "y": 24275
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -2883,12 +2985,12 @@
                         "id": "b2d05aa7-cbea-4e07-8a56-77aaf761b3eb",
                         "savedPayload": {
                             "position": {
-                                "x": 4289.021784795245,
-                                "y": 39086.09545593917
+                                "x": 17524.315902442304,
+                                "y": 24686.095455939172
                             },
                             "targetPosition": {
-                                "x": 4472.053274179356,
-                                "y": 38675
+                                "x": 17707.347391826414,
+                                "y": 24275
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -2932,12 +3034,12 @@
                                                 "id": "bc293646-b308-4489-b41b-5dd1412b45fe",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 3018.244784065249,
-                                                        "y": 40766.82791766933
+                                                        "x": 16253.538901712307,
+                                                        "y": 26366.827917669347
                                                     },
                                                     "targetPosition": {
-                                                        "x": 3292.7920181414142,
-                                                        "y": 40150.18473376058
+                                                        "x": 16528.08613578847,
+                                                        "y": 25750.18473376059
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2999,12 +3101,12 @@
                                         "id": "5389d30e-1aaf-417e-b5f9-ae71dc3c0576",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 3292.7920181414142,
-                                                "y": 40150.18473376058
+                                                "x": 16528.08613578847,
+                                                "y": 25750.18473376059
                                             },
                                             "targetPosition": {
-                                                "x": 3567.3392522175795,
-                                                "y": 39533.54154985183
+                                                "x": 16802.633369864638,
+                                                "y": 25133.541549851834
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -3061,12 +3163,12 @@
                                 "id": "03bccd84-207c-4b41-9feb-aa3f20816df6",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 3567.3392522175795,
-                                        "y": 39533.54154985183
+                                        "x": 16802.633369864638,
+                                        "y": 25133.541549851834
                                     },
                                     "targetPosition": {
-                                        "x": 3841.886486293745,
-                                        "y": 38916.898365943074
+                                        "x": 17077.180603940804,
+                                        "y": 24516.898365943078
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -3230,27 +3332,39 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Positions"
+                                                            "Positions",
+                                                            "Governance",
+                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                         ],
                                                         [
                                                             "Roles Played @ Beta-12",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                         ],
                                                         [
                                                             "Marketing Teams",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
                                                         ],
                                                         [
                                                             "Social Network Teams",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "6235a447-4974-4e79-aa5e-b98115c560d7"
                                                         ],
                                                         [
                                                             "Twitter Team",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "151e981a-7a2f-465b-8ff3-851ee06d447c"
                                                         ],
                                                         [
                                                             "Team Member",
-                                                            "Position"
+                                                            "Position",
+                                                            "Governance",
+                                                            "bff24898-e892-4096-bec1-623995cca9aa"
                                                         ]
                                                     ]
                                                 }
@@ -3289,27 +3403,39 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Positions"
+                                                            "Positions",
+                                                            "Governance",
+                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                         ],
                                                         [
                                                             "Roles Played @ Beta-12",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                         ],
                                                         [
                                                             "Marketing Teams",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
                                                         ],
                                                         [
                                                             "Social Network Teams",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "6235a447-4974-4e79-aa5e-b98115c560d7"
                                                         ],
                                                         [
                                                             "Twitter Team",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "151e981a-7a2f-465b-8ff3-851ee06d447c"
                                                         ],
                                                         [
                                                             "Team Member",
-                                                            "Position"
+                                                            "Position",
+                                                            "Governance",
+                                                            "bff24898-e892-4096-bec1-623995cca9aa"
                                                         ]
                                                     ]
                                                 }
@@ -3380,12 +3506,12 @@
                                 "id": "e09cdb75-b1c7-4e51-b2a3-6ff0949e66ba",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 3211.719698408134,
-                                        "y": 39158.79673188615
+                                        "x": 16447.013816055194,
+                                        "y": 24758.796731886156
                                     },
                                     "targetPosition": {
-                                        "x": 3841.886486293745,
-                                        "y": 38916.898365943074
+                                        "x": 17077.180603940804,
+                                        "y": 24516.898365943078
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -3511,7 +3637,7 @@
                                             },
                                             {
                                                 "type": "Position Contribution Claim",
-                                                "name": "1 Team Member Tentacle23 Docs Teams",
+                                                "name": "2 Team Member Tentacle23 quantum8 Docs Teams",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "29ecf297-25c9-426a-a504-8cd3e477ef8e",
@@ -3537,7 +3663,7 @@
                                                     },
                                                     "referenceParent": {
                                                         "type": "Position",
-                                                        "name": "1 Team Member Tentacle23",
+                                                        "name": "2 Team Member Tentacle23 quantum8",
                                                         "id": "3275a849-7491-4f2b-92a7-85d8e6ff87a2"
                                                     },
                                                     "referenceParentCombinedNodePath": [
@@ -3566,7 +3692,7 @@
                                                             "edc33bd7-55db-4e8e-82df-81c976c83088"
                                                         ],
                                                         [
-                                                            "1 Team Member Tentacle23",
+                                                            "2 Team Member Tentacle23 quantum8",
                                                             "Position",
                                                             "Governance",
                                                             "3275a849-7491-4f2b-92a7-85d8e6ff87a2"
@@ -3578,15 +3704,15 @@
                                         "id": "ac2c57bf-25d5-46c5-8a6b-302ca955af5f",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 2963.0765144993784,
-                                                "y": 38792.249497809986
+                                                "x": 15830.370632146436,
+                                                "y": 24484.24949780999
                                             },
                                             "targetPosition": {
-                                                "x": 3225.2433023849894,
-                                                "y": 38642.35113186691
+                                                "x": 16460.537420032048,
+                                                "y": 24242.35113186691
                                             },
                                             "floatingObject": {
-                                                "isPinned": true,
+                                                "isPinned": false,
                                                 "isFrozen": false,
                                                 "isCollapsed": true,
                                                 "angleToParent": 2,
@@ -3705,12 +3831,12 @@
                                         "id": "aa492878-084a-4dc7-a697-8ecf229825f2",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 2608.600118476234,
-                                                "y": 38367.80389779075
+                                                "x": 15843.894236123291,
+                                                "y": 23967.803897790745
                                             },
                                             "targetPosition": {
-                                                "x": 3225.2433023849894,
-                                                "y": 38642.35113186691
+                                                "x": 16460.537420032048,
+                                                "y": 24242.35113186691
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -3797,23 +3923,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Positions"
+                                                            "Positions",
+                                                            "Governance",
+                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                         ],
                                                         [
                                                             "Roles Played @ Beta-12",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                         ],
                                                         [
                                                             "Education Teams",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "2fad4da0-ad26-4ce4-a779-5571aa7d6340"
                                                         ],
                                                         [
                                                             "Translations Team",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "0cd21223-d49a-45b1-af83-ec2a31f8caaf"
                                                         ],
                                                         [
                                                             "Team Creator Harrell harrellbm",
-                                                            "Position"
+                                                            "Position",
+                                                            "Governance",
+                                                            "fcf22cc9-ab82-4cf4-9f9d-b64f331df7c9"
                                                         ]
                                                     ]
                                                 }
@@ -3852,23 +3988,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Positions"
+                                                            "Positions",
+                                                            "Governance",
+                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                         ],
                                                         [
                                                             "Roles Played @ Beta-12",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                         ],
                                                         [
                                                             "Education Teams",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "2fad4da0-ad26-4ce4-a779-5571aa7d6340"
                                                         ],
                                                         [
                                                             "Translations Team",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "0cd21223-d49a-45b1-af83-ec2a31f8caaf"
                                                         ],
                                                         [
                                                             "Team Leader mARTin1978",
-                                                            "Position"
+                                                            "Position",
+                                                            "Governance",
+                                                            "6ed15f3b-1d23-44c3-8e33-25983b433280"
                                                         ]
                                                     ]
                                                 }
@@ -3907,23 +4053,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Positions"
+                                                            "Positions",
+                                                            "Governance",
+                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                         ],
                                                         [
                                                             "Roles Played @ Beta-12",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                         ],
                                                         [
                                                             "Education Teams",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "2fad4da0-ad26-4ce4-a779-5571aa7d6340"
                                                         ],
                                                         [
                                                             "Translations Team",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "0cd21223-d49a-45b1-af83-ec2a31f8caaf"
                                                         ],
                                                         [
                                                             "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart",
-                                                            "Position"
+                                                            "Position",
+                                                            "Governance",
+                                                            "6ed65be6-de6f-49a1-9c04-d2114e8763a1"
                                                         ]
                                                     ]
                                                 }
@@ -3932,12 +4088,12 @@
                                         "id": "76278056-b7a7-439b-b5ec-955872cd7b0e",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 2983.3449364419116,
-                                                "y": 38012.1843439813
+                                                "x": 16218.63905408897,
+                                                "y": 23612.184343981302
                                             },
                                             "targetPosition": {
-                                                "x": 3225.2433023849894,
-                                                "y": 38642.35113186691
+                                                "x": 16460.537420032048,
+                                                "y": 24242.35113186691
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -3988,12 +4144,12 @@
                                 "id": "d686a7ea-1959-486c-a6f1-da07ff0f7bfe",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 3225.2433023849894,
-                                        "y": 38642.35113186691
+                                        "x": 16460.537420032048,
+                                        "y": 24242.35113186691
                                     },
                                     "targetPosition": {
-                                        "x": 3841.886486293745,
-                                        "y": 38916.898365943074
+                                        "x": 17077.180603940804,
+                                        "y": 24516.898365943078
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -4038,12 +4194,12 @@
                         "id": "a481a830-dfa5-443e-9f76-124cabdc1e45",
                         "savedPayload": {
                             "position": {
-                                "x": 3841.886486293745,
-                                "y": 38916.898365943074
+                                "x": 17077.180603940804,
+                                "y": 24516.898365943078
                             },
                             "targetPosition": {
-                                "x": 4472.053274179356,
-                                "y": 38675
+                                "x": 17707.347391826414,
+                                "y": 24275
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -4085,12 +4241,12 @@
                     "id": "78429ced-c906-4a40-9c84-f3021d1e9d7a",
                     "savedPayload": {
                         "position": {
-                            "x": 4378.493013311364,
-                            "y": 38234.83357966979
+                            "x": 17613.787130958422,
+                            "y": 23834.833579669787
                         },
                         "targetPosition": {
-                            "x": 4472.053274179356,
-                            "y": 38675
+                            "x": 17707.347391826414,
+                            "y": 24275
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -4108,12 +4264,12 @@
                 "id": "c4a134bd-cb94-4104-b48d-fd7f5601eb37",
                 "savedPayload": {
                     "position": {
-                        "x": 4472.053274179356,
-                        "y": 38675
+                        "x": 17707.347391826414,
+                        "y": 24275
                     },
                     "targetPosition": {
-                        "x": 4861.764705882353,
-                        "y": 38450
+                        "x": 18097.058823529413,
+                        "y": 24050
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -4131,12 +4287,12 @@
             "id": "697a49ca-c2ee-4e1b-a6f9-5ff740c7ba33",
             "savedPayload": {
                 "position": {
-                    "x": 4861.764705882353,
-                    "y": 38450
+                    "x": 18097.058823529413,
+                    "y": 24050
                 },
                 "targetPosition": {
-                    "x": 4861.764705882353,
-                    "y": 38000
+                    "x": 18097.058823529413,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -4154,12 +4310,12 @@
         "id": "5daefc7c-340a-4a60-8c5d-884d2e262729",
         "savedPayload": {
             "position": {
-                "x": 4861.764705882353,
-                "y": 38000
+                "x": 18097.058823529413,
+                "y": 23600
             },
             "targetPosition": {
-                "x": 4411.764705882353,
-                "y": 38000
+                "x": 17647.058823529413,
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -4181,12 +4337,12 @@
         "id": "057b6d0e-2ae5-4c54-99f2-b6d262bde1b5",
         "savedPayload": {
             "position": {
-                "x": 4111.764705882353,
-                "y": 38000
+                "x": 17347.058823529413,
+                "y": 23600
             },
             "targetPosition": {
-                "x": 4411.764705882353,
-                "y": 38000
+                "x": 17647.058823529413,
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -4204,12 +4360,12 @@
     "id": "501b09ca-778e-479b-98ff-7d2e6e8f2bb8",
     "savedPayload": {
         "position": {
-            "x": 4411.764705882353,
-            "y": 38000
+            "x": 17647.058823529413,
+            "y": 23600
         },
         "targetPosition": {
-            "x": 4411.764705882353,
-            "y": 38000
+            "x": 17647.058823529413,
+            "y": 23600
         },
         "floatingObject": {
             "isPinned": true,
